@@ -1,0 +1,11 @@
+# Forever Party Rentals — robots.txt
+# Reference: https://developers.google.com/search/docs/crawling-indexing/robots/intro
+
+User-agent: *
+Allow: /
+
+# Admin / build artifacts — not for crawling
+Disallow: /_build/
+
+# Sitemap
+Sitemap: https://foreverpartyrentals.com/sitemap.xml
