@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Forever Party Rentals — Homepage Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="design-canvas.jsx"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { overflow: hidden; background: #f0eee9; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+
+// ─── SHARED DATA ───────────────────────────────────────────────────────────
+const LOGO = "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/993255ee-d7bd-41ba-a9dc-659d794941af/Forever+Party+Rentals+Logo.png?format=1500w";
+const PHONE = "778-990-7983";
+const EMAIL = "welcome@foreverpartyrentals.com";
+
+const NAV_LINKS = ["Tent Rentals", "Chair Rentals", "Table Rentals", "Dance Floor", "Corporate & Charity", "Contact"];
+
+const SERVICES = [
+  { title: "Marquee Tent Rentals", desc: "Premium weather-proof marquee tents for weddings, corporate events & celebrations of all sizes.", img: "🏕️", tag: "Most Popular" },
+  { title: "Chair Rentals", desc: "Chiavari, Fanback & Resin Garden chairs — pristine and comfortable for any occasion.", img: "🪑", tag: null },
+  { title: "Table Rentals", desc: "Banquet, round, rectangular & cocktail tables to fit your venue and guest count.", img: "🍽️", tag: null },
+  { title: "Dance Floor Rental", desc: "Elegant dance floors that transform any space into the perfect venue for celebration.", img: "💃", tag: null },
+];
+
+const TESTIMONIALS = [
+  { name: "Chelsea Thompson", event: "Wedding", text: "Devon was so easy to coordinate with. Very professional, friendly and reliable. His tent set up team was amazing too! Would definitely recommend." },
+  { name: "Industry Professional", event: "Corporate Event", text: "I've worked in the event industry for over a decade for various brands — this is by far the best rental company I have ever worked with. Devon provides excellent communication and extras free of charge." },
+  { name: "Rutendo Chitungo", event: "Private Event", text: "Rented the white Chiavari chairs — the most comfortable chairs. Cushions were very soft and well maintained. Highly recommend 100%." },
+  { name: "Amber Schmidt", event: "Celebration", text: "Forever Party Rentals was amazing. Incredibly accommodating, the tables were brand new in the plastic, and they made drop off super flexible." },
+];
+
+const CLIENTS = [
+  { name: "lululemon", src: "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/d4c3d016-f57c-4ac8-8a90-b908afd0d5ef/Lululemon_Athletica_logo.png" },
+  { name: "CIBC Run for the Cure", src: "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/83297d69-9e73-4f11-9935-d1b3025a47bd/RFTC-logo-H_EN_black.png" },
+  { name: "Softball BC", src: "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/26753f19-0f8a-4b23-8106-22400f24f2e6/unnamed.jpg" },
+  { name: "Vancouver Auto Show", src: "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/d416c3dd-4529-4401-9cc6-4e7416bc1fc2/Elevate-Vancouver-Auto-Show-2024.png" },
+];
+
+const STARS = () => (
+  <span style={{color:'#C9A44A', letterSpacing: 1}}>★★★★★</span>
+);
+
+// Striped image placeholder
+const ImgPlaceholder = ({w, h, label, bg='#e8e4dc'}) => (
+  <div style={{
+    width: w, height: h, background: bg,
+    backgroundImage: `repeating-linear-gradient(45deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 1px, transparent 1px, transparent 12px)`,
+    display:'flex', alignItems:'center', justifyContent:'center', flexShrink:0,
+    fontSize: 11, color:'rgba(0,0,0,0.35)', fontFamily:'monospace', textAlign:'center', padding:8
+  }}>{label}</div>
+);
+
+// ═══════════════════════════════════════════════════════════════════════════
+// DIRECTION 1 — GARDEN ELEGANCE
+// Cream background, forest green nav, Cormorant Garamond headings, gold CTA
+// ═══════════════════════════════════════════════════════════════════════════
+function Dir1() {
+  const G = '#2C4A1E';  // forest green
+  const GOLD = '#B8962E';
+  const CREAM = '#FAF7F0';
+  const TXT = '#2A2118';
+  const serif = "'Cormorant Garamond', Georgia, serif";
+  const sans = "'DM Sans', sans-serif";
+
+  return (
+    <div style={{width:1440, background:CREAM, color:TXT, fontFamily:sans}}>
+
+      {/* NAV */}
+      <nav style={{background:G, display:'flex', alignItems:'center', padding:'0 60px', height:72, gap:40}}>
+        <img src={LOGO} alt="Forever Party Rentals" style={{height:44, filter:'brightness(0) invert(1)', objectFit:'contain'}}/>
+        <div style={{flex:1}}/>
+        {NAV_LINKS.map(l => (
+          <span key={l} style={{color:'rgba(255,255,255,0.82)', fontSize:13, fontWeight:400, letterSpacing:0.5, cursor:'pointer', fontFamily:sans}}>{l}</span>
+        ))}
+        <div style={{background:GOLD, color:'#fff', padding:'9px 22px', borderRadius:2, fontSize:13, fontWeight:600, letterSpacing:0.5, cursor:'pointer', marginLeft:8}}>
+          Book Now
+        </div>
+      </nav>
+
+      {/* HERO */}
+      <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', minHeight:580}}>
+        <div style={{padding:'80px 60px 80px', display:'flex', flexDirection:'column', justifyContent:'center'}}>
+          <div style={{fontSize:12, letterSpacing:3, color:GOLD, fontWeight:600, marginBottom:20, textTransform:'uppercase'}}>Lower Mainland's Premier Rental Company</div>
+          <h1 style={{fontFamily:serif, fontSize:72, lineHeight:1.05, fontWeight:500, color:G, marginBottom:24}}>
+            The Party<br/><em>Everyone<br/>Remembers</em>
+          </h1>
+          <p style={{fontSize:16, lineHeight:1.7, color:'#5a4e42', maxWidth:420, marginBottom:36}}>
+            Premium tent, chair & table rentals across Surrey, Langley & the Lower Mainland. We handle the logistics so you can enjoy the moment.
+          </p>
+          <div style={{display:'flex', gap:16, alignItems:'center'}}>
+            <div style={{background:G, color:'#fff', padding:'14px 32px', fontSize:15, fontWeight:600, letterSpacing:0.5, cursor:'pointer', borderRadius:2}}>
+              Book Online — 24/7
+            </div>
+            <div style={{color:G, fontSize:14, fontWeight:500, cursor:'pointer', textDecoration:'underline', textUnderlineOffset:3}}>
+              View All Rentals
+            </div>
+          </div>
+          <div style={{marginTop:48, display:'flex', gap:40}}>
+            {[['500+','Events Served'],['7','Days a Week'],['10+','Years Experience']].map(([n,l]) => (
+              <div key={l}>
+                <div style={{fontFamily:serif, fontSize:36, color:G, fontWeight:600}}>{n}</div>
+                <div style={{fontSize:12, color:'#8a7d6e', letterSpacing:0.5}}>{l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{position:'relative', overflow:'hidden'}}>
+          <ImgPlaceholder w="100%" h={580} label="hero event photo\n(marquee tent at golden hour)" bg="#d8d0c4"/>
+          <div style={{position:'absolute', bottom:32, right:32, background:'rgba(250,247,240,0.95)', padding:'16px 24px', borderRadius:2, boxShadow:'0 4px 24px rgba(0,0,0,0.12)'}}>
+            <STARS/>
+            <div style={{fontSize:13, fontWeight:600, color:TXT, marginTop:4}}>5.0 · 200+ Google Reviews</div>
+            <div style={{fontSize:12, color:'#8a7d6e', marginTop:2}}>Open 7 days · 9:30AM – 6PM</div>
+          </div>
+        </div>
+      </div>
+
+      {/* TRUST BAR */}
+      <div style={{background:G, padding:'22px 80px', display:'flex', gap:60, justifyContent:'center'}}>
+        {[['📅','Book Instantly Online'],['🚚','Delivery & Pickup'],['✅','25% Deposit to Secure'],['🛡️','125% Cancellation Guarantee']].map(([icon,txt]) => (
+          <div key={txt} style={{display:'flex', alignItems:'center', gap:10, color:'rgba(255,255,255,0.88)', fontSize:13, fontWeight:400}}>
+            <span style={{fontSize:16}}>{icon}</span> {txt}
+          </div>
+        ))}
+      </div>
+
+      {/* CLIENT LOGOS */}
+      <div style={{padding:'48px 80px', borderBottom:`1px solid rgba(0,0,0,0.06)`, display:'flex', alignItems:'center', gap:16}}>
+        <div style={{fontSize:11, letterSpacing:2, color:'#9a8e82', textTransform:'uppercase', whiteSpace:'nowrap', marginRight:16}}>Trusted By</div>
+        <div style={{display:'flex', gap:48, alignItems:'center', flex:1}}>
+          {CLIENTS.map(c => (
+            <img key={c.name} src={c.src} alt={c.name} style={{height:32, objectFit:'contain', opacity:0.55, filter:'grayscale(1)'}}/>
+          ))}
+        </div>
+      </div>
+
+      {/* SERVICES */}
+      <div style={{padding:'80px 80px 80px'}}>
+        <div style={{textAlign:'center', marginBottom:56}}>
+          <div style={{fontSize:11, letterSpacing:3, color:GOLD, textTransform:'uppercase', marginBottom:12}}>What We Offer</div>
+          <h2 style={{fontFamily:serif, fontSize:52, color:G, fontWeight:500}}>Everything For Your Event</h2>
+        </div>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:24}}>
+          {SERVICES.map(s => (
+            <div key={s.title} style={{background:'#fff', borderRadius:2, overflow:'hidden', boxShadow:'0 2px 16px rgba(0,0,0,0.06)'}}>
+              <ImgPlaceholder w="100%" h={180} label={s.title} bg="#e4ddd4"/>
+              <div style={{padding:'20px 22px 24px'}}>
+                {s.tag && <div style={{fontSize:10, letterSpacing:2, color:GOLD, textTransform:'uppercase', marginBottom:8, fontWeight:600}}>{s.tag}</div>}
+                <div style={{fontFamily:serif, fontSize:22, color:G, fontWeight:500, marginBottom:8}}>{s.title}</div>
+                <div style={{fontSize:13, color:'#6a5f54', lineHeight:1.6}}>{s.desc}</div>
+                <div style={{marginTop:16, color:G, fontSize:13, fontWeight:600, cursor:'pointer'}}>Learn More →</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* HOW TO BOOK */}
+      <div style={{background:G, padding:'80px 80px'}}>
+        <div style={{textAlign:'center', marginBottom:56}}>
+          <div style={{fontSize:11, letterSpacing:3, color:GOLD, textTransform:'uppercase', marginBottom:12}}>Simple Process</div>
+          <h2 style={{fontFamily:serif, fontSize:52, color:'#FAF7F0', fontWeight:500}}>How To Book</h2>
+        </div>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:40}}>
+          {[
+            {n:'01', title:'Choose Your Dates', desc:'Select your rental period, browse our inventory and pick exactly what you need.'},
+            {n:'02', title:'Secure With 25% Deposit', desc:'Complete your booking online anytime — 24/7. Confirmation email sent immediately.'},
+            {n:'03', title:'We Handle the Rest', desc:'We deliver, set up, and pick up. You just show up and enjoy your event.'},
+          ].map(s => (
+            <div key={s.n} style={{borderTop:`1px solid rgba(255,255,255,0.2)`, paddingTop:32}}>
+              <div style={{fontFamily:serif, fontSize:56, color:GOLD, fontWeight:600, opacity:0.7, lineHeight:1, marginBottom:20}}>{s.n}</div>
+              <div style={{fontFamily:serif, fontSize:26, color:'#FAF7F0', fontWeight:500, marginBottom:12}}>{s.title}</div>
+              <div style={{fontSize:14, color:'rgba(255,255,255,0.65)', lineHeight:1.7}}>{s.desc}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{textAlign:'center', marginTop:56}}>
+          <div style={{display:'inline-block', background:GOLD, color:'#fff', padding:'16px 48px', fontSize:15, fontWeight:600, letterSpacing:0.5, cursor:'pointer', borderRadius:2}}>
+            Book Online — 24/7
+          </div>
+        </div>
+      </div>
+
+      {/* TESTIMONIALS */}
+      <div style={{padding:'80px 80px'}}>
+        <div style={{textAlign:'center', marginBottom:56}}>
+          <div style={{fontSize:11, letterSpacing:3, color:GOLD, textTransform:'uppercase', marginBottom:12}}>Kind Words</div>
+          <h2 style={{fontFamily:serif, fontSize:52, color:G, fontWeight:500}}>What Clients Say</h2>
+        </div>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(2,1fr)', gap:24}}>
+          {TESTIMONIALS.map(t => (
+            <div key={t.name} style={{background:'#fff', padding:'32px 36px', borderRadius:2, boxShadow:'0 2px 12px rgba(0,0,0,0.05)'}}>
+              <STARS/>
+              <p style={{fontFamily:serif, fontSize:18, lineHeight:1.6, color:TXT, margin:'16px 0 20px', fontStyle:'italic'}}>"{t.text}"</p>
+              <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+                <div>
+                  <div style={{fontWeight:600, fontSize:14, color:TXT}}>{t.name}</div>
+                  <div style={{fontSize:12, color:'#9a8e82', marginTop:2}}>{t.event}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* GUARANTEES */}
+      <div style={{background:'#F2EEE4', padding:'72px 80px'}}>
+        <div style={{textAlign:'center', marginBottom:48}}>
+          <h2 style={{fontFamily:serif, fontSize:48, color:G, fontWeight:500}}>Our Guarantees To You</h2>
+        </div>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:32}}>
+          {[
+            {icon:'💰', title:'10% Off', desc:'Pay in full within 24 hours of inquiry and receive 10% off your entire order.'},
+            {icon:'🛡️', title:'125% Money Back', desc:'If we ever cancel your booking, we return 125% of every dollar you paid.'},
+            {icon:'⏱️', title:'On-Time Promise', desc:'If we fail to begin setup on time, you receive 25% of your order back.'},
+          ].map(g => (
+            <div key={g.title} style={{background:'#fff', padding:'36px 32px', borderRadius:2, textAlign:'center', boxShadow:'0 2px 12px rgba(0,0,0,0.05)'}}>
+              <div style={{fontSize:32, marginBottom:16}}>{g.icon}</div>
+              <div style={{fontFamily:serif, fontSize:24, color:G, fontWeight:600, marginBottom:10}}>{g.title}</div>
+              <div style={{fontSize:14, color:'#6a5f54', lineHeight:1.7}}>{g.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* FOOTER */}
+      <footer style={{background:G, padding:'48px 80px 32px', color:'rgba(255,255,255,0.75)'}}>
+        <div style={{display:'grid', gridTemplateColumns:'1fr 1fr 1fr 1fr', gap:40, marginBottom:40}}>
+          <div>
+            <img src={LOGO} alt="Forever Party Rentals" style={{height:40, filter:'brightness(0) invert(1)', objectFit:'contain', marginBottom:16}}/>
+            <p style={{fontSize:13, lineHeight:1.7, maxWidth:220}}>Surrey's highest quality event rental company — open 7 days a week.</p>
+          </div>
+          {[
+            {h:'Rentals', links:['Marquee Tents','Chair Rentals','Table Rentals','Dance Floor']},
+            {h:'Company', links:['About Us','Testimonials','Service Areas','FAQ']},
+            {h:'Contact', links:[PHONE, EMAIL, 'Open Mon–Sun 9:30AM–6PM','9317 188 St, Surrey BC']},
+          ].map(col => (
+            <div key={col.h}>
+              <div style={{fontSize:11, letterSpacing:2, color:GOLD, textTransform:'uppercase', marginBottom:16, fontWeight:600}}>{col.h}</div>
+              {col.links.map(l => <div key={l} style={{fontSize:13, marginBottom:8, cursor:'pointer'}}>{l}</div>)}
+            </div>
+          ))}
+        </div>
+        <div style={{borderTop:'1px solid rgba(255,255,255,0.12)', paddingTop:24, fontSize:12, color:'rgba(255,255,255,0.45)', textAlign:'center'}}>
+          © 2026 Forever Party Rentals · Serving Surrey, Langley, Abbotsford, White Rock, Delta & the Lower Mainland
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// DIRECTION 2 — MODERN PREMIUM
+// White background, dark green structure, editorial grid, clean & corporate
+// ═══════════════════════════════════════════════════════════════════════════
+function Dir2() {
+  const G = '#1E3A2F';
+  const GOLD = '#C9A44A';
+  const BG = '#FFFFFF';
+  const TXT = '#1A1A1A';
+  const LIGHT = '#F5F8F6';
+  const serif = "'Playfair Display', Georgia, serif";
+  const sans = "'Jost', sans-serif";
+
+  return (
+    <div style={{width:1440, background:BG, color:TXT, fontFamily:sans}}>
+
+      {/* TOP BAR */}
+      <div style={{background:G, padding:'8px 60px', display:'flex', justifyContent:'flex-end', gap:24}}>
+        <span style={{color:'rgba(255,255,255,0.7)', fontSize:12}}>📞 {PHONE}</span>
+        <span style={{color:'rgba(255,255,255,0.7)', fontSize:12}}>✉ {EMAIL}</span>
+        <span style={{color:'rgba(255,255,255,0.7)', fontSize:12}}>Open 7 Days · 9:30AM–6PM</span>
+      </div>
+
+      {/* NAV */}
+      <nav style={{display:'flex', alignItems:'center', padding:'0 60px', height:80, borderBottom:'1px solid #eee', gap:40}}>
+        <img src={LOGO} alt="Forever Party Rentals" style={{height:48, objectFit:'contain'}}/>
+        <div style={{flex:1}}/>
+        {NAV_LINKS.map(l => (
+          <span key={l} style={{color:'#444', fontSize:13, fontWeight:500, letterSpacing:0.3, cursor:'pointer', fontFamily:sans}}>{l}</span>
+        ))}
+        <div style={{background:G, color:'#fff', padding:'10px 24px', borderRadius:1, fontSize:13, fontWeight:600, cursor:'pointer', marginLeft:8}}>
+          Book Now
+        </div>
+      </nav>
+
+      {/* HERO — editorial split */}
+      <div style={{display:'grid', gridTemplateColumns:'55% 45%', minHeight:600, background:BG}}>
+        <div style={{padding:'80px 60px 80px 60px', display:'flex', flexDirection:'column', justifyContent:'center', background:G}}>
+          <div style={{fontSize:11, letterSpacing:4, color:GOLD, fontWeight:600, marginBottom:20, textTransform:'uppercase'}}>Surrey · Langley · Lower Mainland</div>
+          <h1 style={{fontFamily:serif, fontSize:68, lineHeight:1.08, fontWeight:700, color:'#fff', marginBottom:24}}>
+            Throw the<br/>Party They'll<br/><em style={{color:GOLD}}>Never Forget.</em>
+          </h1>
+          <p style={{fontSize:15, lineHeight:1.75, color:'rgba(255,255,255,0.7)', maxWidth:420, marginBottom:40}}>
+            Premium tents, tables, chairs & dance floors. Delivered, set up, and picked up — so you can focus on what matters.
+          </p>
+          <div style={{display:'flex', gap:16}}>
+            <div style={{background:GOLD, color:'#fff', padding:'14px 36px', fontSize:14, fontWeight:600, cursor:'pointer', borderRadius:1}}>
+              Book Online
+            </div>
+            <div style={{border:'1px solid rgba(255,255,255,0.3)', color:'#fff', padding:'14px 28px', fontSize:14, fontWeight:500, cursor:'pointer', borderRadius:1}}>
+              View Rentals
+            </div>
+          </div>
+          <div style={{marginTop:56, display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24, borderTop:'1px solid rgba(255,255,255,0.15)', paddingTop:40}}>
+            {[['500+','Events'],['5★','Rating'],['7 Days','Week']].map(([n,l]) => (
+              <div key={l}>
+                <div style={{fontFamily:serif, fontSize:32, color:GOLD, fontWeight:700}}>{n}</div>
+                <div style={{fontSize:11, color:'rgba(255,255,255,0.55)', letterSpacing:1, textTransform:'uppercase', marginTop:4}}>{l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{display:'grid', gridTemplateRows:'1fr 1fr', gap:0}}>
+          <ImgPlaceholder w="100%" h={300} label="marquee tent\nsetup at event" bg="#c8d4cc"/>
+          <div style={{display:'grid', gridTemplateColumns:'1fr 1fr'}}>
+            <ImgPlaceholder w="100%" h={300} label="Chiavari\nchairs" bg="#d4cec8"/>
+            <ImgPlaceholder w="100%" h={300} label="round\ntables set" bg="#c0ccc5"/>
+          </div>
+        </div>
+      </div>
+
+      {/* LOGOS */}
+      <div style={{padding:'36px 80px', borderBottom:'1px solid #eee', display:'flex', alignItems:'center', gap:60}}>
+        <div style={{fontSize:11, letterSpacing:2, color:'#bbb', textTransform:'uppercase', whiteSpace:'nowrap'}}>As Seen At</div>
+        {CLIENTS.map(c => (
+          <img key={c.name} src={c.src} alt={c.name} style={{height:28, objectFit:'contain', opacity:0.4, filter:'grayscale(1)'}}/>
+        ))}
+      </div>
+
+      {/* SERVICES — clean card grid */}
+      <div style={{padding:'80px 80px', background:LIGHT}}>
+        <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', marginBottom:48}}>
+          <div>
+            <div style={{fontSize:11, letterSpacing:3, color:GOLD, textTransform:'uppercase', marginBottom:10, fontWeight:600}}>Our Rentals</div>
+            <h2 style={{fontFamily:serif, fontSize:48, color:G, fontWeight:700}}>Everything You Need,<br/>All In One Place</h2>
+          </div>
+          <div style={{color:G, fontSize:13, fontWeight:600, cursor:'pointer', textDecoration:'underline', textUnderlineOffset:4}}>Browse All Rentals →</div>
+        </div>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:16}}>
+          {SERVICES.map((s, i) => (
+            <div key={s.title} style={{background:'#fff', overflow:'hidden', boxShadow:'0 1px 4px rgba(0,0,0,0.06)'}}>
+              <ImgPlaceholder w="100%" h={160} label={s.title} bg={['#c8d4cc','#d8d2c4','#c4d0ce','#d0cac0'][i]}/>
+              <div style={{padding:'20px 22px 24px'}}>
+                {s.tag && <div style={{display:'inline-block', background:GOLD, color:'#fff', fontSize:9, letterSpacing:1.5, padding:'3px 8px', marginBottom:10, fontWeight:700, textTransform:'uppercase'}}>{s.tag}</div>}
+                <div style={{fontFamily:serif, fontSize:20, color:G, fontWeight:700, marginBottom:8}}>{s.title}</div>
+                <div style={{fontSize:13, color:'#666', lineHeight:1.6}}>{s.desc}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* HOW TO BOOK — horizontal steps */}
+      <div style={{padding:'80px 80px'}}>
+        <div style={{display:'grid', gridTemplateColumns:'1fr 2fr', gap:80, alignItems:'start'}}>
+          <div>
+            <div style={{fontSize:11, letterSpacing:3, color:GOLD, textTransform:'uppercase', marginBottom:12, fontWeight:600}}>Easy Process</div>
+            <h2 style={{fontFamily:serif, fontSize:48, color:G, fontWeight:700, lineHeight:1.1, marginBottom:20}}>Booking Is Simple</h2>
+            <p style={{fontSize:14, color:'#666', lineHeight:1.7, marginBottom:32}}>We've made it easy to book online 24/7. Have a complex event? Call or email us — we're here to help.</p>
+            <div style={{background:G, color:'#fff', padding:'12px 28px', display:'inline-block', fontSize:13, fontWeight:600, cursor:'pointer', borderRadius:1}}>Book Online Now</div>
+          </div>
+          <div style={{display:'flex', flexDirection:'column', gap:0}}>
+            {[
+              {n:'1', title:'Choose Your Rental Period', desc:'Pick your event date and return time. The calendar shows live availability.'},
+              {n:'2', title:'Select Your Items', desc:'Browse tents, chairs, tables and dance floors. Add what you need to your cart.'},
+              {n:'3', title:'Pay 25% Deposit', desc:'A non-refundable deposit secures your booking. Full confirmation sent immediately.'},
+              {n:'4', title:'We Deliver & Set Up', desc:'Our team arrives on schedule, sets everything up, and returns for pickup.'},
+            ].map((s, i) => (
+              <div key={s.n} style={{display:'flex', gap:24, padding:'24px 0', borderBottom: i < 3 ? '1px solid #eee' : 'none'}}>
+                <div style={{width:40, height:40, borderRadius:'50%', background:G, color:'#fff', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:serif, fontSize:16, fontWeight:700, flexShrink:0}}>{s.n}</div>
+                <div>
+                  <div style={{fontFamily:serif, fontSize:20, color:G, fontWeight:700, marginBottom:6}}>{s.title}</div>
+                  <div style={{fontSize:14, color:'#666', lineHeight:1.6}}>{s.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* TESTIMONIALS */}
+      <div style={{background:G, padding:'80px 80px'}}>
+        <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', marginBottom:48}}>
+          <div>
+            <div style={{fontSize:11, letterSpacing:3, color:GOLD, textTransform:'uppercase', marginBottom:12}}>Reviews</div>
+            <h2 style={{fontFamily:serif, fontSize:48, color:'#fff', fontWeight:700}}>Trusted By Hundreds</h2>
+          </div>
+          <div style={{color:'rgba(255,255,255,0.6)', fontSize:13}}>200+ ★★★★★ Google Reviews</div>
+        </div>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:16}}>
+          {TESTIMONIALS.map(t => (
+            <div key={t.name} style={{background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.1)', padding:'28px 24px', borderRadius:1}}>
+              <STARS/>
+              <p style={{fontSize:13, lineHeight:1.7, color:'rgba(255,255,255,0.8)', margin:'14px 0 16px', fontStyle:'italic'}}>"{t.text}"</p>
+              <div style={{fontWeight:600, fontSize:13, color:'#fff'}}>{t.name}</div>
+              <div style={{fontSize:11, color:GOLD, marginTop:4, letterSpacing:0.5}}>{t.event}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* GUARANTEES */}
+      <div style={{padding:'72px 80px', display:'grid', gridTemplateColumns:'1fr 2fr', gap:80, alignItems:'center'}}>
+        <div>
+          <div style={{fontSize:11, letterSpacing:3, color:GOLD, textTransform:'uppercase', marginBottom:12, fontWeight:600}}>Peace of Mind</div>
+          <h2 style={{fontFamily:serif, fontSize:48, color:G, fontWeight:700, lineHeight:1.1}}>Our Guarantees to You</h2>
+        </div>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24}}>
+          {[
+            {title:'10% Early-Pay Discount', desc:'Pay in full within 24 hrs of inquiry and save 10% on your entire order.'},
+            {title:'125% Cancellation Protection', desc:'If we cancel on you, we return 125% of everything you paid. No questions.'},
+            {title:'On-Time Setup Promise', desc:'We fail to start on time? You get 25% of your money back, automatically.'},
+          ].map(g => (
+            <div key={g.title} style={{borderLeft:`3px solid ${GOLD}`, paddingLeft:20}}>
+              <div style={{fontFamily:serif, fontSize:18, color:G, fontWeight:700, marginBottom:8}}>{g.title}</div>
+              <div style={{fontSize:13, color:'#666', lineHeight:1.6}}>{g.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* FOOTER */}
+      <footer style={{background:'#111', padding:'48px 80px 28px', color:'rgba(255,255,255,0.6)'}}>
+        <div style={{display:'grid', gridTemplateColumns:'2fr 1fr 1fr 1fr', gap:40, marginBottom:40}}>
+          <div>
+            <img src={LOGO} alt="Forever Party Rentals" style={{height:40, filter:'brightness(0) invert(1)', objectFit:'contain', marginBottom:16}}/>
+            <p style={{fontSize:13, lineHeight:1.7, maxWidth:260}}>The Lower Mainland's premier party rental company. Open 7 days a week to serve you.</p>
+            <div style={{marginTop:16, display:'flex', gap:12}}>
+              <div style={{background:GOLD, color:'#fff', padding:'8px 20px', fontSize:12, fontWeight:600, cursor:'pointer'}}>Book Now</div>
+              <div style={{border:'1px solid rgba(255,255,255,0.2)', color:'#fff', padding:'8px 20px', fontSize:12, cursor:'pointer'}}>{PHONE}</div>
+            </div>
+          </div>
+          {[
+            {h:'Rentals', links:['Marquee Tents','Chair Rentals','Table Rentals','Dance Floor']},
+            {h:'Company', links:['About Us','Testimonials','Service Areas','FAQ']},
+            {h:'Hours & Location', links:['Mon–Sun 9:30AM–6PM','9317 188 St','Surrey, BC V4N 3V1', EMAIL]},
+          ].map(col => (
+            <div key={col.h}>
+              <div style={{fontSize:11, letterSpacing:2, color:GOLD, textTransform:'uppercase', marginBottom:16, fontWeight:600}}>{col.h}</div>
+              {col.links.map(l => <div key={l} style={{fontSize:13, marginBottom:8, cursor:'pointer'}}>{l}</div>)}
+            </div>
+          ))}
+        </div>
+        <div style={{borderTop:'1px solid rgba(255,255,255,0.08)', paddingTop:20, fontSize:11, textAlign:'center'}}>
+          © 2026 Forever Party Rentals · Surrey · Langley · Abbotsford · White Rock · Delta · Lower Mainland
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// DIRECTION 3 — GRAND & BOLD
+// Dark forest green bg, cream & gold, dramatic editorial typography
+// ═══════════════════════════════════════════════════════════════════════════
+function Dir3() {
+  const BG = '#182A18';
+  const BG2 = '#1F351F';
+  const GOLD = '#C9A84C';
+  const CREAM = '#F5F0E8';
+  const MUTED = 'rgba(245,240,232,0.55)';
+  const serif = "'Cormorant Garamond', Georgia, serif";
+  const sans = "'DM Sans', sans-serif";
+
+  return (
+    <div style={{width:1440, background:BG, color:CREAM, fontFamily:sans}}>
+
+      {/* NAV */}
+      <nav style={{display:'flex', alignItems:'center', padding:'0 60px', height:76, borderBottom:'1px solid rgba(255,255,255,0.08)'}}>
+        <img src={LOGO} alt="Forever Party Rentals" style={{height:44, filter:'brightness(0) invert(1)', objectFit:'contain'}}/>
+        <div style={{flex:1}}/>
+        {NAV_LINKS.map(l => (
+          <span key={l} style={{color:MUTED, fontSize:12, letterSpacing:0.8, cursor:'pointer', marginLeft:32, fontWeight:400}}>{l}</span>
+        ))}
+        <div style={{border:`1px solid ${GOLD}`, color:GOLD, padding:'9px 24px', fontSize:12, fontWeight:600, letterSpacing:1, cursor:'pointer', marginLeft:32, textTransform:'uppercase'}}>
+          Book Now
+        </div>
+      </nav>
+
+      {/* HERO — full bleed with overlay type */}
+      <div style={{position:'relative', minHeight:640, display:'flex', alignItems:'center'}}>
+        <div style={{position:'absolute', inset:0}}>
+          <ImgPlaceholder w="100%" h="100%" label="full-bleed hero\nmarquee tent event photo" bg="#243824"/>
+          <div style={{position:'absolute', inset:0, background:'linear-gradient(to right, rgba(24,42,24,0.92) 50%, rgba(24,42,24,0.4))'}}/>
+        </div>
+        <div style={{position:'relative', padding:'100px 80px', maxWidth:720}}>
+          <div style={{fontSize:11, letterSpacing:4, color:GOLD, textTransform:'uppercase', marginBottom:24, fontWeight:500}}>Surrey · Langley · Lower Mainland</div>
+          <h1 style={{fontFamily:serif, fontSize:88, lineHeight:0.95, fontWeight:400, color:CREAM, marginBottom:32}}>
+            Make It<br/><em style={{color:GOLD}}>Unforgettable.</em>
+          </h1>
+          <p style={{fontSize:16, lineHeight:1.8, color:'rgba(245,240,232,0.72)', maxWidth:480, marginBottom:44}}>
+            Premium event rentals — marquee tents, tables, chairs & dance floors — delivered and set up anywhere in the Lower Mainland.
+          </p>
+          <div style={{display:'flex', gap:16, alignItems:'center'}}>
+            <div style={{background:GOLD, color:'#182A18', padding:'16px 40px', fontSize:14, fontWeight:700, letterSpacing:0.5, cursor:'pointer'}}>
+              Book Online — 24/7
+            </div>
+            <div style={{color:CREAM, fontSize:14, cursor:'pointer', opacity:0.7}}>
+              📞 {PHONE}
+            </div>
+          </div>
+        </div>
+        {/* floating review badge */}
+        <div style={{position:'absolute', bottom:40, right:80, border:`1px solid rgba(201,168,76,0.4)`, padding:'20px 28px', background:'rgba(24,42,24,0.9)', backdropFilter:'blur(8px)'}}>
+          <STARS/>
+          <div style={{fontSize:14, fontWeight:600, color:CREAM, marginTop:6}}>200+ Five-Star Reviews</div>
+          <div style={{fontSize:12, color:MUTED, marginTop:3}}>Google Reviews · Lower Mainland</div>
+        </div>
+      </div>
+
+      {/* STAT BAR */}
+      <div style={{borderTop:'1px solid rgba(255,255,255,0.08)', borderBottom:'1px solid rgba(255,255,255,0.08)', padding:'36px 80px', display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:40}}>
+        {[['500+','Events Served'],['10+','Years in Business'],['7','Days a Week'],['100%','Delivery Guarantee']].map(([n,l]) => (
+          <div key={l} style={{textAlign:'center'}}>
+            <div style={{fontFamily:serif, fontSize:48, color:GOLD, fontWeight:500, lineHeight:1}}>{n}</div>
+            <div style={{fontSize:12, color:MUTED, letterSpacing:1, textTransform:'uppercase', marginTop:8}}>{l}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* TRUSTED BY */}
+      <div style={{padding:'40px 80px', borderBottom:'1px solid rgba(255,255,255,0.06)', display:'flex', alignItems:'center', gap:60}}>
+        <div style={{fontSize:10, letterSpacing:3, color:MUTED, textTransform:'uppercase', whiteSpace:'nowrap'}}>Trusted By</div>
+        {CLIENTS.map(c => (
+          <img key={c.name} src={c.src} alt={c.name} style={{height:28, objectFit:'contain', opacity:0.35, filter:'brightness(10)'}}/>
+        ))}
+      </div>
+
+      {/* SERVICES — dramatic full-width feature layout */}
+      <div style={{padding:'80px 80px'}}>
+        <div style={{marginBottom:60}}>
+          <div style={{fontSize:11, letterSpacing:3, color:GOLD, textTransform:'uppercase', marginBottom:16}}>What We Offer</div>
+          <h2 style={{fontFamily:serif, fontSize:64, fontWeight:400, color:CREAM, lineHeight:1}}>Everything For<br/>Your Event</h2>
+        </div>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(2,1fr)', gap:2}}>
+          {SERVICES.map((s, i) => (
+            <div key={s.title} style={{position:'relative', overflow:'hidden', cursor:'pointer'}}>
+              <ImgPlaceholder w="100%" h={240} label={s.title} bg={['#263826','#2a3028','#263330','#2e2e26'][i]}/>
+              <div style={{position:'absolute', inset:0, background:'linear-gradient(to top, rgba(24,42,24,0.95) 0%, rgba(24,42,24,0.2) 60%)', padding:'28px 32px', display:'flex', flexDirection:'column', justifyContent:'flex-end'}}>
+                {s.tag && <div style={{fontSize:10, letterSpacing:2, color:GOLD, textTransform:'uppercase', marginBottom:8}}>{s.tag}</div>}
+                <div style={{fontFamily:serif, fontSize:28, color:CREAM, fontWeight:400, marginBottom:6}}>{s.title}</div>
+                <div style={{fontSize:12, color:MUTED, lineHeight:1.6}}>{s.desc}</div>
+                <div style={{marginTop:12, color:GOLD, fontSize:12, letterSpacing:1}}>EXPLORE →</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* HOW TO BOOK */}
+      <div style={{background:BG2, padding:'80px 80px'}}>
+        <div style={{display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'center'}}>
+          <div>
+            <div style={{fontSize:11, letterSpacing:3, color:GOLD, textTransform:'uppercase', marginBottom:16}}>The Process</div>
+            <h2 style={{fontFamily:serif, fontSize:56, fontWeight:400, color:CREAM, lineHeight:1.05, marginBottom:24}}>
+              Booking Made<br/><em>Effortless</em>
+            </h2>
+            <p style={{fontSize:15, color:MUTED, lineHeight:1.8, marginBottom:40}}>
+              Book online 24/7, email us for complex events, or simply give us a call. A 25% deposit secures your date.
+            </p>
+            <div style={{background:GOLD, color:BG, padding:'14px 36px', display:'inline-block', fontSize:13, fontWeight:700, letterSpacing:1, cursor:'pointer', textTransform:'uppercase'}}>
+              Start Your Booking
+            </div>
+          </div>
+          <div>
+            {[
+              {n:'01', title:'Choose Your Dates & Items', desc:'Browse our live inventory and select what you need.'},
+              {n:'02', title:'Secure With 25% Deposit', desc:'Complete your booking online — confirmation arrives instantly.'},
+              {n:'03', title:'We Deliver & Set Up', desc:'On-time, every time — or you get 25% back.'},
+              {n:'04', title:'Enjoy Your Event', desc:"We handle everything, including pickup when it\u2019s over."},
+            ].map((s, i) => (
+              <div key={s.n} style={{display:'flex', gap:24, padding:'24px 0', borderBottom: i < 3 ? '1px solid rgba(255,255,255,0.07)' : 'none'}}>
+                <div style={{fontFamily:serif, fontSize:20, color:GOLD, fontWeight:400, width:32, flexShrink:0, opacity:0.8}}>{s.n}</div>
+                <div>
+                  <div style={{fontSize:16, color:CREAM, fontWeight:600, marginBottom:4}}>{s.title}</div>
+                  <div style={{fontSize:13, color:MUTED, lineHeight:1.6}}>{s.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* TESTIMONIALS */}
+      <div style={{padding:'80px 80px'}}>
+        <div style={{display:'flex', justifyContent:'space-between', alignItems:'flex-end', marginBottom:48}}>
+          <h2 style={{fontFamily:serif, fontSize:56, fontWeight:400, color:CREAM}}>What They Said</h2>
+          <div style={{color:MUTED, fontSize:13}}>200+ Five-Star Reviews on Google</div>
+        </div>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:1, background:'rgba(255,255,255,0.06)'}}>
+          {TESTIMONIALS.map(t => (
+            <div key={t.name} style={{background:BG, padding:'36px 28px'}}>
+              <div style={{fontFamily:serif, fontSize:28, color:GOLD, lineHeight:1, marginBottom:16}}>"</div>
+              <p style={{fontFamily:serif, fontSize:16, lineHeight:1.65, color:CREAM, marginBottom:20, fontStyle:'italic'}}>{t.text}</p>
+              <div style={{fontSize:12, color:GOLD, letterSpacing:1, textTransform:'uppercase', marginBottom:4}}>{t.name}</div>
+              <div style={{fontSize:11, color:MUTED}}>{t.event}</div>
+              <div style={{marginTop:12}}><STARS/></div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* GUARANTEES */}
+      <div style={{background:GOLD, padding:'72px 80px'}}>
+        <div style={{textAlign:'center', marginBottom:48}}>
+          <h2 style={{fontFamily:serif, fontSize:52, color:BG, fontWeight:500}}>Our Guarantees To You</h2>
+        </div>
+        <div style={{display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:32}}>
+          {[
+            {title:'10% Early Pay Discount', desc:'Pay in full within 24 hours and save 10% on your entire order.'},
+            {title:'125% Cancellation Protection', desc:'We cancel? You get 125% of every dollar back — no questions asked.'},
+            {title:'On-Time Setup Promise', desc:"Late setup means 25% back in your pocket. That\u2019s how confident we are."},
+          ].map(g => (
+            <div key={g.title} style={{textAlign:'center', padding:'0 20px'}}>
+              <div style={{fontFamily:serif, fontSize:24, color:BG, fontWeight:600, marginBottom:12}}>{g.title}</div>
+              <div style={{fontSize:14, color:'rgba(24,42,24,0.75)', lineHeight:1.7}}>{g.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* FOOTER */}
+      <footer style={{background:'#0F1E0F', padding:'56px 80px 32px', color:MUTED}}>
+        <div style={{display:'grid', gridTemplateColumns:'2fr 1fr 1fr 1fr', gap:40, marginBottom:48}}>
+          <div>
+            <img src={LOGO} alt="Forever Party Rentals" style={{height:44, filter:'brightness(0) invert(1)', objectFit:'contain', marginBottom:20}}/>
+            <p style={{fontSize:14, lineHeight:1.8, maxWidth:260}}>Surrey's highest quality event rental company. Open 7 days a week.</p>
+            <div style={{marginTop:24, display:'flex', gap:12}}>
+              <div style={{background:GOLD, color:BG, padding:'10px 24px', fontSize:12, fontWeight:700, cursor:'pointer', letterSpacing:0.5}}>Book Now</div>
+            </div>
+          </div>
+          {[
+            {h:'Rentals', links:['Marquee Tents','Chair Rentals','Table Rentals','Dance Floor']},
+            {h:'Company', links:['About Us','Testimonials','Service Areas','FAQ']},
+            {h:'Contact', links:[PHONE, EMAIL, 'Mon–Sun 9:30AM–6PM', 'Surrey, BC']},
+          ].map(col => (
+            <div key={col.h}>
+              <div style={{fontSize:10, letterSpacing:2.5, color:GOLD, textTransform:'uppercase', marginBottom:20, fontWeight:600}}>{col.h}</div>
+              {col.links.map(l => <div key={l} style={{fontSize:13, marginBottom:10, cursor:'pointer'}}>{l}</div>)}
+            </div>
+          ))}
+        </div>
+        <div style={{borderTop:'1px solid rgba(255,255,255,0.06)', paddingTop:24, fontSize:11, color:'rgba(245,240,232,0.3)', textAlign:'center'}}>
+          © 2026 Forever Party Rentals · Serving Surrey, Langley, Abbotsford, White Rock, Delta & the Lower Mainland
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+// ─── MAIN APP ───────────────────────────────────────────────────────────────
+function App() {
+  return (
+    <DesignCanvas>
+      <DCSection id="homepage" title="Forever Party Rentals — Homepage Directions" subtitle="3 visual directions to compare">
+        <DCArtboard id="dir1" label="01 · Garden Elegance" width={1440} height={3060}>
+          <Dir1/>
+        </DCArtboard>
+        <DCArtboard id="dir2" label="02 · Modern Premium" width={1440} height={3140}>
+          <Dir2/>
+        </DCArtboard>
+        <DCArtboard id="dir3" label="03 · Grand & Bold" width={1440} height={3120}>
+          <Dir3/>
+        </DCArtboard>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
