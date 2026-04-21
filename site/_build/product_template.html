@@ -56,7 +56,7 @@
   "@id": {{ (site_url ~ "/#localbusiness") | tojson }},
   "name": "Forever Party Rentals",
   "image": {{ product.heroImage | tojson }},
-  "logo": {{ (site_url ~ "/logo.png") | tojson }},
+  "logo": {{ logo_url | tojson }},
   "url": {{ canonical_url | tojson }},
   "telephone": "+1-778-990-7983",
   "priceRange": "$$",
@@ -262,6 +262,29 @@
         </ul>
         <p style="font-size:13px;color:var(--muted);margin-top:16px">Need a {{ city.name }} venue quote that also covers tables, chairs, or a dance floor? <a href="{{ city_page }}" style="color:var(--gold);font-weight:600">See our full {{ city.name }} party rentals page</a>.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+{# ---- Sibling products in the same city (geo-silo cross-links) ---- #}
+<section class="section section--light">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">Also for {{ city.name }}</span>
+      <h2>Bundle with Your {{ city.name }} {{ product.productName }}</h2>
+      <p>Most {{ city.name }} events combine our {{ product.productName | lower }} with one or more of the categories below — all delivered on the same truck, same quote.</p>
+    </div>
+    <div class="grid-3">
+      {% for s in siblings %}
+      <div class="card">
+        <img class="card-img" src="{{ s.image }}" alt="{{ s.name }} in {{ city.name }}" width="600" height="400" loading="lazy"/>
+        <div class="card-body">
+          <h3>{{ s.name }} in {{ city.name }}</h3>
+          <p>{{ s.serviceType }} for {{ city.name }} events — delivered and set up by our crew.</p>
+          <a href="{{ s.url }}" class="card-link">See {{ city.name }} {{ s.name }} →</a>
+        </div>
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>

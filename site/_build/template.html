@@ -56,7 +56,7 @@
   "@id": {{ (site_url ~ "/#localbusiness") | tojson }},
   "name": "Forever Party Rentals",
   "image": {{ city.heroImage | tojson }},
-  "logo": {{ (site_url ~ "/logo.png") | tojson }},
+  "logo": {{ logo_url | tojson }},
   "url": {{ canonical_url | tojson }},
   "telephone": "+1-778-990-7983",
   "priceRange": "$$",
@@ -231,19 +231,19 @@
     <div class="grid-4">
       <div class="card">
         <img class="card-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg" alt="Tent rentals in {{ city.name }}" width="600" height="400" loading="lazy"/>
-        <div class="card-body"><h3>Tent Rentals</h3><p>Marquee &amp; popup tents for any event, any weather.</p><a href="tents.html" class="card-link">View Tents →</a></div>
+        <div class="card-body"><h3>Tent Rentals in {{ city.name }}</h3><p>Marquee &amp; popup tents for any event, any weather.</p><a href="{{ product_links.tent }}" class="card-link">View {{ city.name }} Tent Rentals →</a></div>
       </div>
       <div class="card">
         <img class="card-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/50e58759-c6e7-49e1-a736-547ff66283b8/white-chiavari-chair-rentals-surrey-langley-abbotsford.jpg" alt="Chair rentals in {{ city.name }}" width="600" height="400" loading="lazy"/>
-        <div class="card-body"><h3>Chair Rentals</h3><p>Chiavari, Fanback &amp; Resin Garden chairs.</p><a href="chairs.html" class="card-link">View Chairs →</a></div>
+        <div class="card-body"><h3>Chair Rentals in {{ city.name }}</h3><p>Chiavari, Fanback &amp; Resin Garden chairs.</p><a href="{{ product_links.chair }}" class="card-link">View {{ city.name }} Chair Rentals →</a></div>
       </div>
       <div class="card">
         <img class="card-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/7019daee-1743-44b3-afd8-fb5fd311925d/5ft+round+tables.jpg" alt="Table rentals in {{ city.name }}" width="600" height="400" loading="lazy"/>
-        <div class="card-body"><h3>Table Rentals</h3><p>Banquet, round, rectangular &amp; cocktail tables.</p><a href="tables.html" class="card-link">View Tables →</a></div>
+        <div class="card-body"><h3>Table Rentals in {{ city.name }}</h3><p>Banquet, round, rectangular &amp; cocktail tables.</p><a href="{{ product_links.table }}" class="card-link">View {{ city.name }} Table Rentals →</a></div>
       </div>
       <div class="card">
         <img class="card-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/4ea40662-954d-44de-98db-a524d3b842e4/BLACK-AND-WHITE-DANCE-FLOOR-JERRY-HAYES.webp" alt="Dance floor rentals in {{ city.name }}" width="600" height="400" loading="lazy"/>
-        <div class="card-body"><h3>Dance Floor</h3><p>Elegant black &amp; white dance floors for any occasion.</p><a href="dance-floor.html" class="card-link">View Dance Floors →</a></div>
+        <div class="card-body"><h3>Dance Floor in {{ city.name }}</h3><p>Elegant black &amp; white dance floors for any occasion.</p><a href="{{ product_links['dance-floor'] }}" class="card-link">View {{ city.name }} Dance Floors →</a></div>
       </div>
     </div>
   </div>
@@ -306,6 +306,34 @@
         <div class="faq-a">{{ f.a }}</div>
       </div>
       {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ---- NAP block: surfaces address + phone + hours that are otherwise only in JSON-LD.
+   Matches exactly the values in the LocalBusiness schema above for consistency. ---- #}
+<section class="section section--light" aria-labelledby="nap-heading-{{ city.slug | default(city.name | lower) }}">
+  <div class="container">
+    <div class="nap-block" style="background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px 32px;max-width:980px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;text-align:center">
+      <div>
+        <div id="nap-heading-{{ city.slug | default(city.name | lower) }}" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Forever Party Rentals</div>
+        <div style="font-size:14px;color:var(--dark);font-weight:600;line-height:1.5">
+          <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="streetAddress">9317 188 St</span><br/>
+            <span itemprop="addressLocality">Surrey</span>, <span itemprop="addressRegion">BC</span> <span itemprop="postalCode">V4N 3V1</span>
+          </span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Call or Text</div>
+        <a href="tel:778-990-7983" style="font-size:16px;color:var(--green);font-weight:700;text-decoration:none">778-990-7983</a>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px"><a href="mailto:welcome@foreverpartyrentals.com" style="color:var(--muted)">welcome@foreverpartyrentals.com</a></div>
+      </div>
+      <div>
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Hours — {{ city.name }} Deliveries</div>
+        <div style="font-size:14px;color:var(--dark);font-weight:600">Open 7 Days · 9:30 AM – 6:00 PM</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">Delivering to {{ city.name }} and surrounding neighborhoods.</div>
+      </div>
     </div>
   </div>
 </section>

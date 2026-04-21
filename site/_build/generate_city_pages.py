@@ -25,15 +25,35 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 HERE = Path(__file__).resolve().parent
 SITE_DIR = HERE.parent            # .../project/site
 DATA_FILE = HERE / "city_data.json"
+PRODUCT_DATA_FILE = HERE / "products.json"
 TEMPLATE_FILE = "template.html"
 
 # --- Configurable site constants -------------------------------------------
 SITE_URL = "https://foreverpartyrentals.com"
+# Hosted brand logo (same URL shared.js uses for on-page nav/footer logos).
+# Kept here so JSON-LD `logo`/`image` fields reference a real, loadable image —
+# Google discards schema with broken image references.
+LOGO_URL = (
+    "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/"
+    "993255ee-d7bd-41ba-a9dc-659d794941af/Forever+Party+Rentals+Logo.png?format=1500w"
+)
 
 
 def load_data():
     with open(DATA_FILE, encoding="utf-8") as f:
         return json.load(f)
+
+
+def load_products():
+    with open(PRODUCT_DATA_FILE, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def product_city_url(product: dict, city_slug: str) -> str:
+    """URL (filename) of the product-per-city page for this product + city."""
+    overrides = product.get("urlPrefixOverrides", {}) or {}
+    prefix = overrides.get(city_slug, product["urlPrefix"])
+    return f"{prefix}-{city_slug}.html"
 
 
 def neighborhood_list_short(neighborhoods, limit=4):
@@ -46,7 +66,7 @@ def neighborhood_list_short(neighborhoods, limit=4):
     return ", ".join(trimmed[:-1]) + ", " + trimmed[-1]
 
 
-def build_context(slug, city, data):
+def build_context(slug, city, data, products):
     """Assemble the Jinja2 render context for one city."""
     canonical = f"{SITE_URL}/{slug}-party-rentals.html"
 
@@ -62,6 +82,14 @@ def build_context(slug, city, data):
         f"delivered and set up. Serving {nhb_short}. Book online 24/7."
     )
 
+    # Link each product card directly to its product-per-city page so PageRank
+    # flows from the city page into the deeper geo-silo (instead of to the
+    # generic /tents.html catalog page).
+    product_links = {
+        key: product_city_url(product, slug)
+        for key, product in products.items()
+    }
+
     return {
         "city": city,
         "testimonials": testimonials,
@@ -70,6 +98,8 @@ def build_context(slug, city, data):
         "page_description": description,
         "canonical_url": canonical,
         "site_url": SITE_URL,
+        "logo_url": LOGO_URL,
+        "product_links": product_links,
         "lastmod": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
     }
 
@@ -105,6 +135,8 @@ def main():
     args = ap.parse_args()
 
     data = load_data()
+    product_data = load_products()
+    products = product_data["products"]
 
     slugs = select_slugs(
         data,
@@ -131,7 +163,7 @@ def main():
     written = []
     for slug in slugs:
         city = data["cities"][slug]
-        ctx = build_context(slug, city, data)
+        ctx = build_context(slug, city, data, products)
         html = template.render(**ctx)
         path = out_dir / f"{slug}-party-rentals.html"
         path.write_text(html, encoding="utf-8")

@@ -28,6 +28,11 @@ PRODUCT_DATA_FILE = HERE / "products.json"
 TEMPLATE_FILE = "product_template.html"
 
 SITE_URL = "https://foreverpartyrentals.com"
+# Hosted brand logo — see generate_city_pages.py for rationale.
+LOGO_URL = (
+    "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/"
+    "993255ee-d7bd-41ba-a9dc-659d794941af/Forever+Party+Rentals+Logo.png?format=1500w"
+)
 
 
 def load_data():
@@ -69,7 +74,24 @@ def build_faqs(product: dict, city: dict) -> list[dict]:
     return blended
 
 
-def build_context(city_slug: str, city: dict, product: dict, data: dict) -> dict:
+def build_siblings(city_slug: str, current_key: str, products: dict) -> list[dict]:
+    """List the *other* product-per-city pages for this city, for cross-linking.
+    Each entry exposes enough fields for the sibling-cards UI in the template."""
+    out = []
+    for key, p in products.items():
+        if key == current_key:
+            continue
+        out.append({
+            "key": key,
+            "name": p["productName"],
+            "url": f"{page_slug(p, city_slug)}.html",
+            "image": p["heroImage"],
+            "serviceType": p.get("serviceType", p["productName"]),
+        })
+    return out
+
+
+def build_context(city_slug: str, city: dict, product: dict, data: dict, all_products: dict) -> dict:
     slug = page_slug(product, city_slug)
     canonical = f"{SITE_URL}/{slug}.html"
     city_page = f"{city_slug}-party-rentals.html"
@@ -96,10 +118,12 @@ def build_context(city_slug: str, city: dict, product: dict, data: dict) -> dict
     hero_alt = sub(product["heroAlt"], city["name"])
 
     faqs = build_faqs(product, city)
+    siblings = build_siblings(city_slug, product["key"], all_products)
 
     return {
         "city": city,
         "product": product,
+        "siblings": siblings,
         "testimonials": testimonials,
         "tagline": tagline,
         "intro_summary": intro_summary,
@@ -112,6 +136,7 @@ def build_context(city_slug: str, city: dict, product: dict, data: dict) -> dict
         "canonical_url": canonical,
         "city_page": city_page,
         "site_url": SITE_URL,
+        "logo_url": LOGO_URL,
         "lastmod": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
     }
 
@@ -176,7 +201,7 @@ def main():
         city = city_data["cities"][city_slug]
         for product_key in products:
             product = product_data["products"][product_key]
-            ctx = build_context(city_slug, city, product, city_data)
+            ctx = build_context(city_slug, city, product, city_data, product_data["products"])
             html = template.render(**ctx)
             slug = page_slug(product, city_slug)
             path = out_dir / f"{slug}.html"
