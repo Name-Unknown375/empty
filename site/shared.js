@@ -63,6 +63,10 @@ function buildNav() {
       <span style="color:rgba(255,255,255,.5);font-size:12px">${FPR.hours}</span>
     </div>`;
 
+  const tentCityLinks = CITIES.map(c => `<a href="tent-rental-${c.slug}.html">${c.city}</a>`).join('');
+  const chairCityLinks = CITIES.map(c => `<a href="chair-rentals-${c.slug}.html">${c.city}</a>`).join('');
+  const tableCityLinks = CITIES.map(c => `<a href="table-rentals-${c.slug}.html">${c.city}</a>`).join('');
+  const danceCityLinks = CITIES.map(c => `<a href="dance-floor-rental-${c.slug}.html">${c.city}</a>`).join('');
   const partyCityLinks = CITIES.map(c => `<a href="${c.slug}-party-rentals.html">${c.city}</a>`).join('');
 
   const nav = document.createElement('nav');
@@ -268,6 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buildFooter();
   initFAQ();
   initContactForm();
+  // Render dynamic content if containers exist
   renderTestimonials('testimonialCards');
   renderLogos('clientLogos');
 });
