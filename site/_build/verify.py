@@ -1,20 +1,24 @@
 #!/usr/bin/env python3
 """
-Forever Party Rentals — verify generated city pages.
+Forever Party Rentals — verify generated pages.
 
-Plan file: /root/.claude/plans/we-continuous-run-into-precious-garden.md
+Covers both Phase 2 (party-rentals city pages) and Phase 3 (product-per-city
+pages: tent / chair / table / dance-floor).
 
-Checks every `project/site/<slug>-party-rentals.html` file for:
+Checks every target HTML file for:
   1. Zero unfilled Jinja2 `{{ }}` tokens
   2. All four JSON-LD blocks parse as valid JSON
   3. Canonical, Open Graph, and Twitter tags are present
-  4. Minimum structural markers (H1, FAQ items, testimonials, section count)
+  4. Minimum structural markers (H1, FAQ items, testimonials)
 
 Exits 0 on all green, 1 on any failure. Output is human-readable.
 
 Usage:
-    python3 verify.py                # check all cities in city_data.json
-    python3 verify.py --slugs a,b    # spot-check only a and b
+    python3 verify.py                           # all city pages (party-rentals)
+    python3 verify.py --all                     # Phase 2 + Phase 3 (all pages)
+    python3 verify.py --products                # Phase 3 product pages only
+    python3 verify.py --products tent,chair     # restricted product subset
+    python3 verify.py --slugs surrey,langley    # spot-check cities
 """
 from __future__ import annotations
 
@@ -26,7 +30,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 SITE_DIR = HERE.parent
-DATA_FILE = HERE / "city_data.json"
+CITY_DATA_FILE = HERE / "city_data.json"
+PRODUCT_DATA_FILE = HERE / "products.json"
 
 LD_JSON_RE = re.compile(
     r'<script\s+type="application/ld\+json"\s*>\s*(.*?)\s*</script>',
@@ -93,43 +98,113 @@ def check_page(path: Path) -> list[str]:
     return problems
 
 
+def product_filename(product: dict, city_slug: str) -> str:
+    overrides = product.get("urlPrefixOverrides", {}) or {}
+    prefix = overrides.get(city_slug, product["urlPrefix"])
+    return f"{prefix}-{city_slug}.html"
+
+
+def build_targets(
+    city_slugs: list[str],
+    product_keys: list[str],
+    city_data: dict,
+    product_data: dict,
+    include_party: bool,
+) -> list[tuple[str, Path]]:
+    """Return [(label, path), ...] tuples in a stable order."""
+    targets: list[tuple[str, Path]] = []
+
+    if include_party:
+        for slug in city_slugs:
+            label = f"{slug}-party-rentals"
+            targets.append((label, SITE_DIR / f"{slug}-party-rentals.html"))
+
+    for product_key in product_keys:
+        product = product_data["products"][product_key]
+        for slug in city_slugs:
+            fn = product_filename(product, slug)
+            label = fn[:-5]  # strip .html
+            targets.append((label, SITE_DIR / fn))
+
+    return targets
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--slugs", type=str, help="comma-separated slugs to check")
+    ap.add_argument("--slugs", type=str, help="comma-separated city slugs to check")
+    ap.add_argument(
+        "--products",
+        nargs="?",
+        const="__all__",
+        default=None,
+        help="verify product pages (optional comma-separated product keys)",
+    )
+    ap.add_argument(
+        "--all",
+        action="store_true",
+        help="verify both Phase 2 party-rentals pages AND all Phase 3 product pages",
+    )
     args = ap.parse_args()
 
-    with open(DATA_FILE, encoding="utf-8") as f:
-        data = json.load(f)
+    with open(CITY_DATA_FILE, encoding="utf-8") as f:
+        city_data = json.load(f)
+    with open(PRODUCT_DATA_FILE, encoding="utf-8") as f:
+        product_data = json.load(f)
 
-    all_slugs = list(data["cities"].keys())
+    all_city_slugs = list(city_data["cities"].keys())
+    all_product_keys = list(product_data["products"].keys())
+
+    # Cities
     if args.slugs:
         slugs = [s.strip() for s in args.slugs.split(",")]
-        bad = [s for s in slugs if s not in all_slugs]
+        bad = [s for s in slugs if s not in all_city_slugs]
         if bad:
-            sys.exit(f"Unknown slug(s): {bad}")
+            sys.exit(f"Unknown city slug(s): {bad}")
     else:
-        slugs = all_slugs
+        slugs = all_city_slugs
+
+    # Products
+    if args.products == "__all__":
+        product_keys = all_product_keys
+    elif args.products:
+        product_keys = [p.strip() for p in args.products.split(",")]
+        bad = [p for p in product_keys if p not in all_product_keys]
+        if bad:
+            sys.exit(f"Unknown product key(s): {bad}")
+    else:
+        product_keys = []
+
+    # What to include
+    if args.all:
+        include_party = True
+        product_keys = all_product_keys
+    elif args.products is not None:
+        # --products given → verify products only (party-rentals skipped)
+        include_party = False
+    else:
+        include_party = True
+
+    targets = build_targets(slugs, product_keys, city_data, product_data, include_party)
 
     total_problems = 0
-    print(f"Verifying {len(slugs)} page(s)...\n")
-    for slug in slugs:
-        path = SITE_DIR / f"{slug}-party-rentals.html"
+    print(f"Verifying {len(targets)} page(s)...\n")
+    for label, path in targets:
         if not path.exists():
-            print(f"  [MISSING] {path}")
+            print(f"  [MISSING] {path.name}")
             total_problems += 1
             continue
         problems = check_page(path)
         if problems:
             total_problems += len(problems)
-            print(f"  [FAIL] {slug}")
+            print(f"  [FAIL] {label}")
             for p in problems:
                 print(f"         - {p}")
         else:
-            print(f"  [OK]   {slug}")
+            print(f"  [OK]   {label}")
 
     print()
     if total_problems == 0:
-        print(f"SUCCESS — {len(slugs)}/{len(slugs)} pages valid.")
+        print(f"SUCCESS — {len(targets)}/{len(targets)} pages valid.")
         return 0
     print(f"FAILED — {total_problems} issue(s) across pages.")
     return 1
