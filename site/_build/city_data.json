@@ -1,0 +1,1233 @@
+{
+  "_comment": "Forever Party Rentals \u2014 city data source of truth. Plan: /root/.claude/plans/we-continuous-run-into-precious-garden.md. Populated incrementally across Phase 2 steps (2.1 \u2192 2.5).",
+  "_schema": {
+    "slug": "URL slug (matches filename prefix)",
+    "name": "Display name",
+    "tier": "1 = flagship city, 4 = small neighborhood",
+    "coords": "{lat, lng} \u2014 approximate city center, used for LocalBusiness schema geo",
+    "heroImage": "Squarespace CDN URL of the hero image (preserved from current page)",
+    "neighborhoods": "3-5 named neighborhoods per city \u2014 used in hyper-local content blocks",
+    "landmarks": "2-3 venues/parks/landmarks per city \u2014 used for 'we've served events at\u2026' mentions",
+    "driveTimeFromSurrey": "Human-readable drive-time string from Forever HQ (9317 188 St, Surrey)",
+    "intro": "(Step 2.3/2.4) unique ~150-word intro paragraph",
+    "faqs": "(Step 2.5) array of {q, a} pairs per city",
+    "testimonialIndices": "(Step 2.5) indices into the top-level testimonialPool (4 per city)"
+  },
+  "hqAddress": "9317 188 St, Surrey BC V4N 3V1",
+  "testimonialPool": [
+    {
+      "quote": "Devon was so easy to coordinate with. Very professional, friendly and reliable. His tent set up team was amazing too! Would definitely recommend.",
+      "name": "Chelsea Thompson",
+      "event": "Wedding"
+    },
+    {
+      "quote": "I've worked in the event industry for over a decade \u2014 this is by far the best rental company I have ever worked with. Excellent communication and extras free of charge.",
+      "name": "Marissa K.",
+      "event": "Corporate Event"
+    },
+    {
+      "quote": "Booked a 20x40 tent for our backyard wedding. Setup was flawless, the crew showed up early, and the tent held up through a surprise downpour. Worth every dollar.",
+      "name": "Jenna & Michael",
+      "event": "Backyard Wedding"
+    },
+    {
+      "quote": "We rented chiavari chairs and round tables for our 50-person anniversary dinner. The chairs looked brand new and the team was in and out in under an hour. Incredibly easy.",
+      "name": "Raymond D.",
+      "event": "Anniversary Party"
+    },
+    {
+      "quote": "Ordered online on a Sunday night and had a crew at our venue Tuesday morning. The online booking made it so simple \u2014 I didn't have to chase anyone for a quote.",
+      "name": "Priya S.",
+      "event": "Birthday Party"
+    },
+    {
+      "quote": "We've used Forever for three corporate events now. On-time every time, professional crew, and the inventory is always spotless. Our go-to rental partner.",
+      "name": "Daniel L.",
+      "event": "Corporate Event"
+    },
+    {
+      "quote": "The dance floor was the highlight of our reception \u2014 perfectly level, looked gorgeous, and they installed it around our existing setup without any issues.",
+      "name": "Alexandra M.",
+      "event": "Wedding Reception"
+    },
+    {
+      "quote": "Tent, tables, chairs, dance floor, and heaters for 120 guests. The 25% deposit model made it easy to budget, and the early-pay discount saved us real money.",
+      "name": "Omar H.",
+      "event": "Wedding"
+    },
+    {
+      "quote": "I had to reschedule twice because of weather. Devon was completely understanding both times and rolled the deposit forward without any hassle. Phenomenal customer service.",
+      "name": "Kelsey V.",
+      "event": "Outdoor Party"
+    },
+    {
+      "quote": "From the first phone call to the final pickup, every interaction was friendly and professional. This team actually cares about your event. Five stars isn't enough.",
+      "name": "Graham R.",
+      "event": "Fundraiser Gala"
+    }
+  ],
+  "cities": {
+    "surrey": {
+      "slug": "surrey",
+      "name": "Surrey",
+      "tier": 1,
+      "coords": {
+        "lat": 49.1913,
+        "lng": -122.849
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/34f0e226-f4c6-4217-87f4-2a609d75d801/home-tents-3.jpg",
+      "neighborhoods": [
+        "Cloverdale",
+        "Fleetwood",
+        "Newton",
+        "South Surrey",
+        "Guildford",
+        "Whalley"
+      ],
+      "landmarks": [
+        "Bear Creek Park",
+        "Cloverdale Rodeo Grounds",
+        "Surrey Arts Centre",
+        "Hazelmere Golf & Tennis Club"
+      ],
+      "driveTimeFromSurrey": "Our warehouse is in Surrey \u2014 10-25 minutes to most neighborhoods",
+      "intro": "Forever Party Rentals is based right here in Surrey, and there's nothing we enjoy more than setting up events in our own backyard. From backyard birthday parties in Cloverdale to corporate luncheons in Guildford, summer weddings in South Surrey, and school celebrations in Fleetwood, we've served hundreds of Surrey events and know every neighbourhood by name. Our warehouse is 10 to 25 minutes from wherever you're hosting \u2014 shorter delivery windows, fewer surprises, and more flexibility if your setup plans change last minute. Whether you're renting a 20x40 marquee tent for a wedding at Hazelmere, Chiavari chairs for a reception near the Surrey Arts Centre, or round tables and a dance floor for a family party in Newton, we deliver, hand-set, and return for pickup \u2014 always on time. Book online 24/7 or call us any day of the week; someone friendly always picks up.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Surrey?",
+          "a": "Yes \u2014 we're based right here in Surrey, with our warehouse at 9317 188 St. We deliver and set up throughout the city, including Cloverdale, Fleetwood, and Newton. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Surrey?",
+          "a": "For peak season (May through September) in Surrey, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Surrey like Bear Creek Park?",
+          "a": "Yes \u2014 we regularly deliver rentals to Bear Creek Park, Cloverdale Rodeo Grounds, and Surrey Arts Centre and dozens of private residences across Surrey. We know the setback rules for most public parks in Surrey and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        },
+        {
+          "q": "What happens if the weather is bad or I need to cancel?",
+          "a": "Our 125% Cancellation Protection means if we ever cancel your booking, you receive 125% of your deposit back. If you need to reschedule because of weather, we'll roll your deposit forward to a new date at no charge \u2014 as long as we're notified before crew dispatch. Cancellations initiated by the customer are subject to our standard deposit terms."
+        }
+      ],
+      "testimonialIndices": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "langley": {
+      "slug": "langley",
+      "name": "Langley",
+      "tier": 1,
+      "coords": {
+        "lat": 49.1044,
+        "lng": -122.6591
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+      "neighborhoods": [
+        "Brookswood",
+        "Murrayville",
+        "Willowbrook",
+        "Downtown Langley",
+        "Douglas"
+      ],
+      "landmarks": [
+        "Langley Events Centre",
+        "Campbell Valley Regional Park",
+        "Krause Berry Farms",
+        "Township 7 Vineyards"
+      ],
+      "driveTimeFromSurrey": "About 15-20 minutes from our Surrey warehouse via Fraser Highway",
+      "intro": "Langley is one of our busiest markets \u2014 just a 15-20 minute drive from our Surrey warehouse via the Fraser Highway \u2014 and we love it for the same reason our clients do: it's where the Fraser Valley starts to feel rural, with wineries, berry farms, and heritage properties that host some of the most beautiful weddings and corporate retreats in the Lower Mainland. We've rolled marquee tents across lawns at Krause Berry Farms, delivered Chiavari chairs to private estates in Brookswood and Murrayville, and set up dance floors for tournaments at the Langley Events Centre. Whether your event is downtown, in Willowbrook, or out in Campbell Valley near Township 7 Vineyards, we'll arrive on time, hand-set each piece, and return for pickup without interrupting your day. Book online 24/7 and we'll confirm your Langley date in minutes \u2014 a 25% deposit secures it.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Langley?",
+          "a": "Yes \u2014 we deliver and set up throughout Langley, including Brookswood, Murrayville, and Willowbrook. From our Surrey warehouse, it's about 15-20 minutes via Fraser Highway. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Langley?",
+          "a": "For peak season (May through September) in Langley, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Langley like Langley Events Centre?",
+          "a": "Yes \u2014 we regularly deliver rentals to Langley Events Centre, Campbell Valley Regional Park, and Krause Berry Farms and dozens of private residences across Langley. We know the setback rules for most public parks in Langley and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        },
+        {
+          "q": "What happens if the weather is bad or I need to cancel?",
+          "a": "Our 125% Cancellation Protection means if we ever cancel your booking, you receive 125% of your deposit back. If you need to reschedule because of weather, we'll roll your deposit forward to a new date at no charge \u2014 as long as we're notified before crew dispatch. Cancellations initiated by the customer are subject to our standard deposit terms."
+        }
+      ],
+      "testimonialIndices": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "vancouver": {
+      "slug": "vancouver",
+      "name": "Vancouver",
+      "tier": 1,
+      "coords": {
+        "lat": 49.2827,
+        "lng": -123.1207
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1701317440327-VPSE8RJQCEX2LIWD8M2L/SwanesetWeddings-home-venue.jpg",
+      "neighborhoods": [
+        "Kitsilano",
+        "East Vancouver",
+        "Yaletown",
+        "Mount Pleasant",
+        "West End",
+        "Dunbar"
+      ],
+      "landmarks": [
+        "Stanley Park",
+        "Queen Elizabeth Park",
+        "VanDusen Botanical Garden",
+        "Vancouver Convention Centre",
+        "Brockton Pavilion"
+      ],
+      "driveTimeFromSurrey": "Roughly 40-55 minutes from Surrey via Highway 1 and the Port Mann Bridge",
+      "intro": "Serving Vancouver from our Surrey warehouse means crossing the Port Mann Bridge, but that hasn't stopped us from becoming one of the city's most-booked tent and chair rental companies \u2014 with over 200 five-star Google reviews to show for it. We've lit up rooftop patios in Yaletown, tucked Chiavari chair setups into Kitsilano beachfront gardens, installed marquee tents at weddings overlooking Queen Elizabeth Park, and delivered round tables for reunions in Dunbar and the West End. Vancouver's parks and heritage venues, from Stanley Park to the VanDusen Botanical Garden, each have their own access quirks \u2014 we've worked with them all, and we know which loading zones open when. Typical drive time from our warehouse is 40-55 minutes, so we build realistic windows into every quote. Book online 24/7, any day of the week \u2014 live availability, instant confirmation.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Vancouver?",
+          "a": "Yes \u2014 we deliver and set up throughout Vancouver, including Kitsilano, East Vancouver, and Yaletown. From our Surrey warehouse, it's roughly 40-55 minutes via Highway 1 and the Port Mann Bridge. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Vancouver?",
+          "a": "For peak season (May through September) in Vancouver, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Vancouver like Stanley Park?",
+          "a": "Yes \u2014 we regularly deliver rentals to Stanley Park, Queen Elizabeth Park, and VanDusen Botanical Garden and dozens of private residences across Vancouver. We know the setback rules for most public parks in Vancouver and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        },
+        {
+          "q": "What happens if the weather is bad or I need to cancel?",
+          "a": "Our 125% Cancellation Protection means if we ever cancel your booking, you receive 125% of your deposit back. If you need to reschedule because of weather, we'll roll your deposit forward to a new date at no charge \u2014 as long as we're notified before crew dispatch. Cancellations initiated by the customer are subject to our standard deposit terms."
+        }
+      ],
+      "testimonialIndices": [
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "burnaby": {
+      "slug": "burnaby",
+      "name": "Burnaby",
+      "tier": 1,
+      "coords": {
+        "lat": 49.2488,
+        "lng": -122.9805
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+      "neighborhoods": [
+        "Metrotown",
+        "Brentwood",
+        "Deer Lake",
+        "Lougheed",
+        "Edmonds",
+        "North Burnaby"
+      ],
+      "landmarks": [
+        "Deer Lake Park",
+        "Central Park",
+        "Burnaby Village Museum",
+        "Shadbolt Centre for the Arts",
+        "Hart House Restaurant"
+      ],
+      "driveTimeFromSurrey": "About 35-45 minutes from our Surrey warehouse via Highway 1",
+      "intro": "Forever Party Rentals delivers marquee tents, Chiavari chairs, banquet and round tables, and polished dance floors across every corner of Burnaby \u2014 from Metrotown condos hosting rooftop birthdays, to backyard weddings in Deer Lake, corporate summits in Brentwood office plazas, and grad parties in Edmonds and North Burnaby. Deer Lake Park, Central Park, and the Shadbolt Centre for the Arts are local venues we return to year after year. Our Surrey warehouse is a straightforward 35-45 minute drive via Highway 1, which lets us offer flexible same-week setup windows when planning gets compressed. Delivery, setup, and pickup are bundled into every quote \u2014 no surprise fees when we arrive. If you want to browse live inventory, pick your date, and lock in a Burnaby booking right now, you can do it in under five minutes online, 24 hours a day.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Burnaby?",
+          "a": "Yes \u2014 we deliver and set up throughout Burnaby, including Metrotown, Brentwood, and Deer Lake. From our Surrey warehouse, it's about 35-45 minutes via Highway 1. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Burnaby?",
+          "a": "For peak season (May through September) in Burnaby, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Burnaby like Deer Lake Park?",
+          "a": "Yes \u2014 we regularly deliver rentals to Deer Lake Park, Central Park, and Burnaby Village Museum and dozens of private residences across Burnaby. We know the setback rules for most public parks in Burnaby and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        },
+        {
+          "q": "What happens if the weather is bad or I need to cancel?",
+          "a": "Our 125% Cancellation Protection means if we ever cancel your booking, you receive 125% of your deposit back. If you need to reschedule because of weather, we'll roll your deposit forward to a new date at no charge \u2014 as long as we're notified before crew dispatch. Cancellations initiated by the customer are subject to our standard deposit terms."
+        }
+      ],
+      "testimonialIndices": [
+        9,
+        0,
+        1,
+        2
+      ]
+    },
+    "abbotsford": {
+      "slug": "abbotsford",
+      "name": "Abbotsford",
+      "tier": 2,
+      "coords": {
+        "lat": 49.0504,
+        "lng": -122.3045
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1701317440327-VPSE8RJQCEX2LIWD8M2L/SwanesetWeddings-home-venue.jpg",
+      "neighborhoods": [
+        "Clearbrook",
+        "Matsqui",
+        "Sumas Mountain",
+        "McKee",
+        "Sandy Hill",
+        "Aldergrove border"
+      ],
+      "landmarks": [
+        "Mill Lake Park",
+        "Tradex Exhibition Centre",
+        "Swaneset Bay Resort",
+        "Clayburn Village",
+        "Abbotsford Airport"
+      ],
+      "driveTimeFromSurrey": "About 35-45 minutes from Surrey via Highway 1",
+      "intro": "Abbotsford is roughly 35-45 minutes from our Surrey warehouse via Highway 1, and it's one of the most rewarding cities we serve \u2014 Fraser Valley weddings have a specific setting that demands equipment that can stand up to wind, grass, long afternoons, and golden-hour photos. We've installed marquee tents for ceremonies at Swaneset Bay Resort, set up Chiavari chairs and banquet tables at private properties on Sumas Mountain, and delivered round tables and linens for corporate events at the Tradex Exhibition Centre. Whether your event is in Clearbrook, Matsqui, Sandy Hill, or just across the Aldergrove border, our Abbotsford party rentals arrive on time, hand-set, and ready to photograph. Book online 24/7, pick your delivery window, and we'll confirm within minutes \u2014 or call any day of the week if your event has extras we should scope.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Abbotsford?",
+          "a": "Yes \u2014 we deliver and set up throughout Abbotsford, including Clearbrook, Matsqui, and Sumas Mountain. From our Surrey warehouse, it's about 35-45 minutes via Highway 1. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Abbotsford?",
+          "a": "For peak season (May through September) in Abbotsford, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Abbotsford like Mill Lake Park?",
+          "a": "Yes \u2014 we regularly deliver rentals to Mill Lake Park, Tradex Exhibition Centre, and Swaneset Bay Resort and dozens of private residences across Abbotsford. We know the setback rules for most public parks in Abbotsford and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        }
+      ],
+      "testimonialIndices": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "coquitlam": {
+      "slug": "coquitlam",
+      "name": "Coquitlam",
+      "tier": 2,
+      "coords": {
+        "lat": 49.2838,
+        "lng": -122.7932
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+      "neighborhoods": [
+        "Town Centre",
+        "Westwood Plateau",
+        "Burke Mountain",
+        "Maillardville",
+        "Eagle Ridge"
+      ],
+      "landmarks": [
+        "Lafarge Lake",
+        "Town Centre Park",
+        "Mundy Park",
+        "Minnekhada Regional Park",
+        "Blue Mountain Park"
+      ],
+      "driveTimeFromSurrey": "About 35-45 minutes from our Surrey warehouse",
+      "intro": "Coquitlam is one of our favourite cities to serve \u2014 a 35-45 minute trip from our Surrey warehouse that lands us at Lafarge Lake, Town Centre Park, Mundy Park, or any of the family backyards across Town Centre, Westwood Plateau, Burke Mountain, Maillardville, and Eagle Ridge. We've set up marquee tents for backyard receptions in Westwood, Chiavari chair ceremonies at Minnekhada Regional Park, and banquet tables for corporate events at Blue Mountain Park. Coquitlam's parks require particular attention to access permits and turf protection, and our team handles all of that quietly \u2014 you'll never notice the logistics because we've already sorted them. Delivery, professional setup, and end-of-event pickup are bundled into every quote, so no surprise charges when we roll up. Book online 24/7, browse live inventory with dates, and secure your Coquitlam booking with a 25% deposit.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Coquitlam?",
+          "a": "Yes \u2014 we deliver and set up throughout Coquitlam, including Town Centre, Westwood Plateau, and Burke Mountain. From our Surrey warehouse, it's about 35-45 minutes. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Coquitlam?",
+          "a": "For peak season (May through September) in Coquitlam, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Coquitlam like Lafarge Lake?",
+          "a": "Yes \u2014 we regularly deliver rentals to Lafarge Lake, Town Centre Park, and Mundy Park and dozens of private residences across Coquitlam. We know the setback rules for most public parks in Coquitlam and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        }
+      ],
+      "testimonialIndices": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "richmond": {
+      "slug": "richmond",
+      "name": "Richmond",
+      "tier": 2,
+      "coords": {
+        "lat": 49.1666,
+        "lng": -123.1336
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/34f0e226-f4c6-4217-87f4-2a609d75d801/home-tents-3.jpg",
+      "neighborhoods": [
+        "Steveston",
+        "Terra Nova",
+        "Brighouse",
+        "Hamilton",
+        "Thompson",
+        "Seafair"
+      ],
+      "landmarks": [
+        "Richmond Olympic Oval",
+        "Minoru Park",
+        "Garry Point Park",
+        "Steveston Heritage Fishing Village",
+        "River Rock Show Theatre"
+      ],
+      "driveTimeFromSurrey": "About 40-50 minutes from Surrey via the Alex Fraser Bridge",
+      "intro": "Richmond runs on precision \u2014 event start times at the River Rock Show Theatre, weather considerations along Garry Point Park in Steveston, and the pace of international-style weddings that have made the Richmond Olympic Oval a destination venue. Forever Party Rentals has worked Richmond events from backyard birthdays in Seafair to formal receptions in Terra Nova, cocktail gatherings in Brighouse, and cultural celebrations in Hamilton and Thompson. We're roughly 40-50 minutes from your event via the Alex Fraser Bridge, which we factor into every delivery window so you're never waiting past your setup time. Our inventory of marquee tents, Chiavari chairs, banquet and round tables, and elegant dance floors arrives pressure-washed, hand-inspected, and ready to photograph. Book your Richmond party rentals online 24/7 with live date availability, or call any day of the week for a custom consultation.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Richmond?",
+          "a": "Yes \u2014 we deliver and set up throughout Richmond, including Steveston, Terra Nova, and Brighouse. From our Surrey warehouse, it's about 40-50 minutes via the Alex Fraser Bridge. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Richmond?",
+          "a": "For peak season (May through September) in Richmond, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Richmond like Richmond Olympic Oval?",
+          "a": "Yes \u2014 we regularly deliver rentals to Richmond Olympic Oval, Minoru Park, and Garry Point Park and dozens of private residences across Richmond. We know the setback rules for most public parks in Richmond and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        }
+      ],
+      "testimonialIndices": [
+        8,
+        9,
+        0,
+        1
+      ]
+    },
+    "maple-ridge": {
+      "slug": "maple-ridge",
+      "name": "Maple Ridge",
+      "tier": 2,
+      "coords": {
+        "lat": 49.2193,
+        "lng": -122.5984
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/880e481b-a9aa-4b40-84b5-7e8891ae5334/Maple+Ridge+Party+Rentals.png",
+      "neighborhoods": [
+        "Hammond",
+        "Silver Valley",
+        "Albion",
+        "Port Haney",
+        "Whonnock"
+      ],
+      "landmarks": [
+        "Golden Ears Provincial Park",
+        "Alouette Lake",
+        "Kanaka Creek Regional Park",
+        "Maple Ridge Park",
+        "Haney Wharf"
+      ],
+      "driveTimeFromSurrey": "Just 30-40 minutes from Surrey via the Golden Ears Bridge",
+      "intro": "Maple Ridge sits just over the Golden Ears Bridge \u2014 30-40 minutes from our Surrey warehouse \u2014 which makes it a quick, reliable delivery route for us and a beautiful backdrop for your event. We've installed marquee tents for weddings along the Alouette Lake shoreline, set up Chiavari chairs at private celebrations near Kanaka Creek Regional Park, and delivered round tables and dance floors to backyards in Hammond, Silver Valley, Albion, Port Haney, and Whonnock. Golden Ears Provincial Park is one of the most photogenic ceremony sites in British Columbia, and we've done enough events there to know exactly how the wind behaves by mid-afternoon. Delivery, setup, and pickup are bundled into every quote \u2014 you focus on the guests and the ceremony, we handle the infrastructure. Book your Maple Ridge rentals online 24/7, with a 25% deposit securing your date.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Maple Ridge?",
+          "a": "Yes \u2014 we deliver and set up throughout Maple Ridge, including Hammond, Silver Valley, and Albion. From our Surrey warehouse, it's just 30-40 minutes via the Golden Ears Bridge. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Maple Ridge?",
+          "a": "For peak season (May through September) in Maple Ridge, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Maple Ridge like Golden Ears Provincial Park?",
+          "a": "Yes \u2014 we regularly deliver rentals to Golden Ears Provincial Park, Alouette Lake, and Kanaka Creek Regional Park and dozens of private residences across Maple Ridge. We know the setback rules for most public parks in Maple Ridge and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        }
+      ],
+      "testimonialIndices": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "north-vancouver": {
+      "slug": "north-vancouver",
+      "name": "North Vancouver",
+      "tier": 2,
+      "coords": {
+        "lat": 49.32,
+        "lng": -123.0724
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+      "neighborhoods": [
+        "Lonsdale",
+        "Deep Cove",
+        "Edgemont",
+        "Lynn Valley",
+        "Capilano"
+      ],
+      "landmarks": [
+        "Grouse Mountain",
+        "Capilano Suspension Bridge",
+        "Lynn Canyon Park",
+        "Lonsdale Quay",
+        "Mount Seymour"
+      ],
+      "driveTimeFromSurrey": "About 55-70 minutes from Surrey via the Ironworkers Memorial Bridge",
+      "intro": "North Vancouver is one of the most scenic \u2014 and most logistically demanding \u2014 cities we serve. The trip from our Surrey warehouse runs 55-70 minutes via the Ironworkers Memorial Bridge, and North Van's neighbourhoods each have their own access quirks: steep Lonsdale driveways, the hairpin roads out to Deep Cove, and tight venue lanes around Capilano and Lynn Valley. We've handled it all \u2014 marquee tents for mountainside weddings near Grouse Mountain, Chiavari chairs for ceremonies at Capilano Suspension Bridge Park, round tables for family reunions in Edgemont, and banquet tables for corporate events along Lonsdale Quay. Our team arrives with realistic windows built around traffic across the bridge, so you're never waiting. Book your North Vancouver party rentals online 24/7 with live availability, or call us any day of the week \u2014 200+ five-star Google reviews speak to how well we handle this city.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to North Vancouver?",
+          "a": "Yes \u2014 we deliver and set up throughout North Vancouver, including Lonsdale, Deep Cove, and Edgemont. From our Surrey warehouse, it's about 55-70 minutes via the Ironworkers Memorial Bridge. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in North Vancouver?",
+          "a": "For peak season (May through September) in North Vancouver, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in North Vancouver like Grouse Mountain?",
+          "a": "Yes \u2014 we regularly deliver rentals to Grouse Mountain, Capilano Suspension Bridge, and Lynn Canyon Park and dozens of private residences across North Vancouver. We know the setback rules for most public parks in North Vancouver and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        }
+      ],
+      "testimonialIndices": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "delta": {
+      "slug": "delta",
+      "name": "Delta",
+      "tier": 3,
+      "coords": {
+        "lat": 49.0845,
+        "lng": -123.0586
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/34f0e226-f4c6-4217-87f4-2a609d75d801/home-tents-3.jpg",
+      "neighborhoods": [
+        "Ladner",
+        "Tsawwassen",
+        "North Delta",
+        "Sunshine Hills",
+        "Tilbury"
+      ],
+      "landmarks": [
+        "Boundary Bay Regional Park",
+        "Ladner Village",
+        "Reifel Migratory Bird Sanctuary",
+        "Tsawwassen Ferry Terminal"
+      ],
+      "driveTimeFromSurrey": "About 25-35 minutes from Surrey via Highway 17 / 91",
+      "intro": "Delta is one of our fastest delivery runs \u2014 25-35 minutes from our Surrey warehouse via Highway 17 or 91 \u2014 which gives you more flexibility on setup windows and earlier-morning installs than most competitors can offer. We've set up marquee tents for weddings along Boundary Bay Regional Park, delivered Chiavari chairs to historic homes in Ladner Village, and installed banquet tables for corporate events near the Tsawwassen Ferry Terminal. Whether your party is in Ladner, Tsawwassen, North Delta, Sunshine Hills, or the Tilbury industrial area, we arrive hand-set, photograph-ready, and bundled with delivery and pickup in your quote \u2014 no surprise fees. Our Delta clients often ask if we can do late-afternoon weekday deliveries; the answer is yes, because our trucks aren't stuck in Metro Vancouver traffic. Book online 24/7 \u2014 our live booking system shows real-time availability for your dates.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Delta?",
+          "a": "Yes \u2014 we deliver and set up throughout Delta, including Ladner, Tsawwassen, and North Delta. From our Surrey warehouse, it's about 25-35 minutes via Highway 17 / 91. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Delta?",
+          "a": "For peak season (May through September) in Delta, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Delta like Boundary Bay Regional Park?",
+          "a": "Yes \u2014 we regularly deliver rentals to Boundary Bay Regional Park, Ladner Village, and Reifel Migratory Bird Sanctuary and dozens of private residences across Delta. We know the setback rules for most public parks in Delta and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        }
+      ],
+      "testimonialIndices": [
+        7,
+        8,
+        9,
+        0
+      ]
+    },
+    "white-rock": {
+      "slug": "white-rock",
+      "name": "White Rock",
+      "tier": 3,
+      "coords": {
+        "lat": 49.0251,
+        "lng": -122.8026
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+      "neighborhoods": [
+        "West Beach",
+        "East Beach",
+        "Centennial Park area",
+        "Uptown",
+        "Hillside"
+      ],
+      "landmarks": [
+        "White Rock Pier",
+        "Marine Drive Promenade",
+        "Semiahmoo Park",
+        "Peace Arch Park",
+        "White Rock Museum & Archives"
+      ],
+      "driveTimeFromSurrey": "About 20-30 minutes from our Surrey warehouse",
+      "intro": "White Rock has the kind of light that makes beach weddings look effortless \u2014 and Forever Party Rentals is the local team making sure the setup is as polished as the photos. About 20-30 minutes from our Surrey warehouse, we've handled tent installations along Marine Drive, Chiavari chair ceremonies at Semiahmoo Park, and banquet tables for milestone birthdays and anniversaries in Centennial Park, the Uptown core, and Hillside. White Rock Pier and the Promenade have strict access rules; we know them, we've worked with them, and we plan our delivery windows around tide and city-access schedules. Peace Arch Park ceremonies get the same treatment. Delivery, professional setup, and pickup are bundled \u2014 no hidden fees, no surprises. Book your White Rock party rentals online 24/7 or call any day of the week if your event has quirks to scope.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to White Rock?",
+          "a": "Yes \u2014 we deliver and set up throughout White Rock, including West Beach, East Beach, and Centennial Park area. From our Surrey warehouse, it's about 20-30 minutes. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in White Rock?",
+          "a": "For peak season (May through September) in White Rock, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in White Rock like White Rock Pier?",
+          "a": "Yes \u2014 we regularly deliver rentals to White Rock Pier, Marine Drive Promenade, and Semiahmoo Park and dozens of private residences across White Rock. We know the setback rules for most public parks in White Rock and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        }
+      ],
+      "testimonialIndices": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "port-moody": {
+      "slug": "port-moody",
+      "name": "Port Moody",
+      "tier": 3,
+      "coords": {
+        "lat": 49.2849,
+        "lng": -122.849
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+      "neighborhoods": [
+        "Moody Centre",
+        "Inlet Centre",
+        "Heritage Woods",
+        "Ioco",
+        "Anmore border"
+      ],
+      "landmarks": [
+        "Rocky Point Park",
+        "Shoreline Trail",
+        "Buntzen Lake",
+        "Bert Flinn Park",
+        "Port Moody Arts Centre"
+      ],
+      "driveTimeFromSurrey": "About 40-50 minutes from Surrey via Highway 1",
+      "intro": "Port Moody's waterfront parks and Inlet-facing venues host some of the most striking events in the Tri-Cities. Rocky Point Park, the Shoreline Trail, Bert Flinn Park, and the Port Moody Arts Centre are all familiar territory for us \u2014 about 40-50 minutes from our Surrey warehouse via Highway 1. We've installed marquee tents for waterfront weddings in Moody Centre, set up Chiavari chairs for private ceremonies in Heritage Woods, and delivered round tables for corporate events near the Inlet Centre. If your venue is up toward the Anmore border or out by Buntzen Lake and Ioco, we've been there too. Delivery, setup, and pickup are bundled into every quote, and our 24/7 online booking means you can secure a Port Moody date without waiting for business hours. Let us handle the logistics; you focus on the guests.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Port Moody?",
+          "a": "Yes \u2014 we deliver and set up throughout Port Moody, including Moody Centre, Inlet Centre, and Heritage Woods. From our Surrey warehouse, it's about 40-50 minutes via Highway 1. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Port Moody?",
+          "a": "For peak season (May through September) in Port Moody, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Port Moody like Rocky Point Park?",
+          "a": "Yes \u2014 we regularly deliver rentals to Rocky Point Park, Shoreline Trail, and Buntzen Lake and dozens of private residences across Port Moody. We know the setback rules for most public parks in Port Moody and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        }
+      ],
+      "testimonialIndices": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    "new-westminster": {
+      "slug": "new-westminster",
+      "name": "New Westminster",
+      "tier": 3,
+      "coords": {
+        "lat": 49.2057,
+        "lng": -122.911
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1701317440327-VPSE8RJQCEX2LIWD8M2L/SwanesetWeddings-home-venue.jpg",
+      "neighborhoods": [
+        "Queensborough",
+        "Uptown",
+        "Downtown",
+        "Sapperton",
+        "Queen's Park",
+        "West End"
+      ],
+      "landmarks": [
+        "Queen's Park",
+        "Westminster Pier Park",
+        "New Westminster Quay",
+        "Anvil Centre",
+        "Irving House"
+      ],
+      "driveTimeFromSurrey": "About 20-30 minutes from Surrey via the Pattullo Bridge",
+      "intro": "New Westminster packs a lot of event territory into a compact city, and Forever Party Rentals serves every pocket of it \u2014 Queensborough across the Fraser, the Uptown and Downtown cores along Columbia Street, Sapperton, Queen's Park, and the West End. We're about 20-30 minutes from our Surrey warehouse via the Pattullo Bridge, so same-week setup windows are genuinely flexible. Queen's Park is one of the most photogenic ceremony sites in the Lower Mainland, and we've installed marquee tents there along with Chiavari chair arrangements and banquet tables that hold up through full-day events. Westminster Pier Park and the New Westminster Quay offer dramatic riverfront backdrops; we know which access points work for each. Delivery, professional setup, and end-of-event pickup are bundled into every quote. Book your New West rentals online 24/7 \u2014 live availability, instant confirmation.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to New Westminster?",
+          "a": "Yes \u2014 we deliver and set up throughout New Westminster, including Queensborough, Uptown, and Downtown. From our Surrey warehouse, it's about 20-30 minutes via the Pattullo Bridge. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in New Westminster?",
+          "a": "For peak season (May through September) in New Westminster, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in New Westminster like Queen's Park?",
+          "a": "Yes \u2014 we regularly deliver rentals to Queen's Park, Westminster Pier Park, and New Westminster Quay and dozens of private residences across New Westminster. We know the setback rules for most public parks in New Westminster and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        }
+      ],
+      "testimonialIndices": [
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "pitt-meadows": {
+      "slug": "pitt-meadows",
+      "name": "Pitt Meadows",
+      "tier": 3,
+      "coords": {
+        "lat": 49.2333,
+        "lng": -122.6897
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+      "neighborhoods": [
+        "Central Meadows",
+        "South Bonson",
+        "North Pitt Meadows",
+        "Osprey Village"
+      ],
+      "landmarks": [
+        "Swaneset Bay Resort & Country Club",
+        "Pitt-Addington Marsh",
+        "Pitt Lake",
+        "Osprey Village",
+        "Pitt Meadows Regional Airport"
+      ],
+      "driveTimeFromSurrey": "About 30-40 minutes from Surrey via the Golden Ears Bridge",
+      "intro": "Pitt Meadows is a 30-40 minute drive from our Surrey warehouse via the Golden Ears Bridge, and it has become one of our favourite delivery runs \u2014 the open skies, the farmland setbacks, and the Pitt Lake shoreline create some of the most memorable wedding backdrops in the Fraser Valley. Swaneset Bay Resort & Country Club is a venue we return to several times each season; we've also set up marquee tents, Chiavari chairs, and banquet tables for private events across Central Meadows, South Bonson, North Pitt Meadows, and Osprey Village. Even the Pitt-Addington Marsh and Pitt Meadows Regional Airport have hosted events with our equipment. Delivery, setup, and pickup are included in every Pitt Meadows quote \u2014 no surprise fees. Book online 24/7 with live availability, or call us any day of the week for complex setups.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Pitt Meadows?",
+          "a": "Yes \u2014 we deliver and set up throughout Pitt Meadows, including Central Meadows, South Bonson, and North Pitt Meadows. From our Surrey warehouse, it's about 30-40 minutes via the Golden Ears Bridge. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Pitt Meadows?",
+          "a": "For peak season (May through September) in Pitt Meadows, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Pitt Meadows like Swaneset Bay Resort & Country Club?",
+          "a": "Yes \u2014 we regularly deliver rentals to Swaneset Bay Resort & Country Club, Pitt-Addington Marsh, and Pitt Lake and dozens of private residences across Pitt Meadows. We know the setback rules for most public parks in Pitt Meadows and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        }
+      ],
+      "testimonialIndices": [
+        9,
+        0,
+        1,
+        2
+      ]
+    },
+    "langley-township": {
+      "slug": "langley-township",
+      "name": "Langley Township",
+      "tier": 3,
+      "coords": {
+        "lat": 49.1333,
+        "lng": -122.5719
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+      "neighborhoods": [
+        "Willoughby",
+        "Walnut Grove",
+        "Brookswood",
+        "Murrayville",
+        "Aldergrove",
+        "Campbell Valley"
+      ],
+      "landmarks": [
+        "Krause Berry Farms",
+        "Campbell Valley Regional Park",
+        "Township 7 Vineyards",
+        "Langley Events Centre",
+        "Domaine de Chaberton Estate Winery"
+      ],
+      "driveTimeFromSurrey": "About 15-25 minutes from our Surrey warehouse",
+      "intro": "Langley Township covers a lot of ground \u2014 Willoughby, Walnut Grove, Brookswood, Murrayville, Aldergrove, and Campbell Valley \u2014 and each area hosts a different kind of event, from vineyard weddings at Township 7 or Domaine de Chaberton to Saturday-afternoon birthdays on a three-acre rural property. Forever Party Rentals is 15-25 minutes from every corner of the Township via our Surrey warehouse. We've set up marquee tents at Krause Berry Farms, Chiavari chairs at private estates in Brookswood, and round tables for tournaments at the Langley Events Centre in Willoughby. Campbell Valley Regional Park gets particular attention from our crew because the setup windows are tight. Delivery, professional setup, and pickup are bundled into every quote. Book your Langley Township rentals online 24/7 with live availability \u2014 a 25% deposit locks in your date.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Langley Township?",
+          "a": "Yes \u2014 we deliver and set up throughout Langley Township, including Willoughby, Walnut Grove, and Brookswood. From our Surrey warehouse, it's about 15-25 minutes. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Langley Township?",
+          "a": "For peak season (May through September) in Langley Township, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Langley Township like Krause Berry Farms?",
+          "a": "Yes \u2014 we regularly deliver rentals to Krause Berry Farms, Campbell Valley Regional Park, and Township 7 Vineyards and dozens of private residences across Langley Township. We know the setback rules for most public parks in Langley Township and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        }
+      ],
+      "testimonialIndices": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "fort-langley": {
+      "slug": "fort-langley",
+      "name": "Fort Langley",
+      "tier": 3,
+      "coords": {
+        "lat": 49.1678,
+        "lng": -122.5719
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/34f0e226-f4c6-4217-87f4-2a609d75d801/home-tents-3.jpg",
+      "neighborhoods": [
+        "Historic Fort Langley Village",
+        "Bedford Landing",
+        "Glover Road corridor"
+      ],
+      "landmarks": [
+        "Fort Langley National Historic Site",
+        "Fort to Fort Trail",
+        "Derby Reach Regional Park",
+        "Jacob Haldi Bridge",
+        "Fort Wine Co"
+      ],
+      "driveTimeFromSurrey": "About 20-25 minutes from Surrey via 200 Street",
+      "intro": "Fort Langley might be small in footprint, but it hosts some of the most photographed weddings and celebrations in British Columbia \u2014 heritage charm on every block, a walkable village centre, and direct waterfront access via the Fort to Fort Trail and the Jacob Haldi Bridge. Forever Party Rentals is about 20-25 minutes from the historic village via 200 Street, and we've installed marquee tents at private estates along Bedford Landing, set up Chiavari chairs for ceremonies near the Fort Langley National Historic Site, and delivered round tables for celebrations close to Derby Reach Regional Park and Fort Wine Co. Our crew respects the heritage character of the district \u2014 no rumbling loading-dock theatrics. Delivery, setup, and pickup are bundled into every quote, and you can book online 24/7 with live availability for the Fort Langley date you want.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Fort Langley?",
+          "a": "Yes \u2014 we deliver and set up throughout Fort Langley, including Historic Fort Langley Village, Bedford Landing, and Glover Road corridor. From our Surrey warehouse, it's about 20-25 minutes via 200 Street. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Fort Langley?",
+          "a": "For peak season (May through September) in Fort Langley, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Fort Langley like Fort Langley National Historic Site?",
+          "a": "Yes \u2014 we regularly deliver rentals to Fort Langley National Historic Site, Fort to Fort Trail, and Derby Reach Regional Park and dozens of private residences across Fort Langley. We know the setback rules for most public parks in Fort Langley and can advise on what permits (if any) your venue requires for tents."
+        },
+        {
+          "q": "Can you set up a tent on grass, gravel, or a paved driveway?",
+          "a": "Yes to all three. Our marquee tents use stake-down installation on grass and ballasted (weighted) installation on pavement, gravel, and stamped concrete. Tell us the surface when you book and we'll send the right hardware. We do not tent on artificial turf."
+        }
+      ],
+      "testimonialIndices": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "willoughby": {
+      "slug": "willoughby",
+      "name": "Willoughby",
+      "tier": 4,
+      "coords": {
+        "lat": 49.1344,
+        "lng": -122.6469
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+      "neighborhoods": [
+        "Yorkson",
+        "Willoughby Heights",
+        "Routley"
+      ],
+      "landmarks": [
+        "Langley Events Centre",
+        "Willoughby Community Park",
+        "Jacob Hoogendoorn Park",
+        "Sendall Gardens"
+      ],
+      "driveTimeFromSurrey": "About 15-20 minutes from our Surrey warehouse",
+      "intro": "Willoughby is one of the fastest-growing neighbourhoods in the Township of Langley, and it's only 15-20 minutes from our Surrey warehouse. We serve Yorkson, the core of Willoughby Heights, and the Routley area with the full Forever Party Rentals inventory: marquee tents, Chiavari chairs, banquet and round tables, and polished dance floors. The Langley Events Centre is a frequent delivery destination for tournaments, galas, and conferences, and Willoughby Community Park, Jacob Hoogendoorn Park, and Sendall Gardens are go-to ceremony sites for smaller weddings. Delivery, hand-setup, and end-of-event pickup are included in every Willoughby quote \u2014 no surprise fees when we arrive. Book online 24/7 to check live availability, or call us any day of the week if your event has extras to scope.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Willoughby?",
+          "a": "Yes \u2014 we deliver and set up throughout Willoughby, including Yorkson, Willoughby Heights, and Routley. From our Surrey warehouse, it's about 15-20 minutes. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Willoughby?",
+          "a": "For peak season (May through September) in Willoughby, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Willoughby like Langley Events Centre?",
+          "a": "Yes \u2014 we regularly deliver rentals to Langley Events Centre, Willoughby Community Park, and Jacob Hoogendoorn Park and dozens of private residences across Willoughby. We know the setback rules for most public parks in Willoughby and can advise on what permits (if any) your venue requires for tents."
+        }
+      ],
+      "testimonialIndices": [
+        8,
+        9,
+        0,
+        1
+      ]
+    },
+    "carvolth": {
+      "slug": "carvolth",
+      "name": "Carvolth",
+      "tier": 4,
+      "coords": {
+        "lat": 49.1483,
+        "lng": -122.6839
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+      "neighborhoods": [
+        "Carvolth Exchange area",
+        "Northwest Willoughby Heights",
+        "200 Street business park"
+      ],
+      "landmarks": [
+        "Carvolth Park & Ride",
+        "Langley Events Centre",
+        "Meridian Farm Market",
+        "Willoughby Community Park"
+      ],
+      "driveTimeFromSurrey": "Just 10-15 minutes from our Surrey warehouse",
+      "intro": "Carvolth is essentially the neighbourhood next door for us \u2014 just 10-15 minutes from our Surrey warehouse. Home to the Carvolth Park & Ride, a growing 200 Street business park, the Meridian Farm Market, and the northwest edge of Willoughby Heights, it's become one of our quickest and most reliable delivery runs. Forever Party Rentals has installed marquee tents, Chiavari chairs, banquet and round tables, and dance floors for weddings, milestone birthdays, and corporate events across the area. The Langley Events Centre is a short hop away when your event ties into a tournament or gala. Delivery, professional setup, and pickup are bundled into every Carvolth quote \u2014 no hidden fees, no surprise charges. Book online 24/7 with live availability, or call us any day of the week.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Carvolth?",
+          "a": "Yes \u2014 we deliver and set up throughout Carvolth, including Carvolth Exchange area, Northwest Willoughby Heights, and 200 Street business park. From our Surrey warehouse, it's just 10-15 minutes. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Carvolth?",
+          "a": "For peak season (May through September) in Carvolth, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Carvolth like Carvolth Park & Ride?",
+          "a": "Yes \u2014 we regularly deliver rentals to Carvolth Park & Ride, Langley Events Centre, and Meridian Farm Market and dozens of private residences across Carvolth. We know the setback rules for most public parks in Carvolth and can advise on what permits (if any) your venue requires for tents."
+        }
+      ],
+      "testimonialIndices": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "port-kells": {
+      "slug": "port-kells",
+      "name": "Port Kells",
+      "tier": 4,
+      "coords": {
+        "lat": 49.1678,
+        "lng": -122.6869
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/34f0e226-f4c6-4217-87f4-2a609d75d801/home-tents-3.jpg",
+      "neighborhoods": [
+        "Port Kells proper",
+        "Cloverdale border",
+        "192 Street corridor"
+      ],
+      "landmarks": [
+        "Tynehead Regional Park",
+        "Port Kells Park",
+        "Serpentine River"
+      ],
+      "driveTimeFromSurrey": "Only 5-10 minutes from our Surrey warehouse \u2014 we're basically in the neighborhood",
+      "intro": "Port Kells is the neighbourhood we drive through on the way to everything else \u2014 our Surrey warehouse is just 5 to 10 minutes away, making this the fastest delivery run Forever Party Rentals does. We've installed marquee tents, delivered Chiavari chairs, and set up banquet and round tables for backyard weddings, corporate events, and family gatherings across Port Kells proper, along the Cloverdale border, and throughout the 192 Street corridor. Tynehead Regional Park and the Serpentine River are popular ceremony sites, and Port Kells Park hosts everything from birthday parties to community events. If your event needs last-minute adjustments, a quick extra delivery, or anything the day-of, we're basically right there. Delivery, setup, and pickup are included in every quote \u2014 book your Port Kells rentals online 24/7 with live availability.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Port Kells?",
+          "a": "Yes \u2014 we deliver and set up throughout Port Kells, including Port Kells proper, Cloverdale border, and 192 Street corridor. From our Surrey warehouse, it's only 5-10 minutes \u2014 we're basically in the neighborhood. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Port Kells?",
+          "a": "For peak season (May through September) in Port Kells, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Port Kells like Tynehead Regional Park?",
+          "a": "Yes \u2014 we regularly deliver rentals to Tynehead Regional Park, Port Kells Park, and Serpentine River and dozens of private residences across Port Kells. We know the setback rules for most public parks in Port Kells and can advise on what permits (if any) your venue requires for tents."
+        }
+      ],
+      "testimonialIndices": [
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "east-newton-north": {
+      "slug": "east-newton-north",
+      "name": "East Newton North",
+      "tier": 4,
+      "coords": {
+        "lat": 49.135,
+        "lng": -122.8339
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+      "neighborhoods": [
+        "East Newton",
+        "Newton Town Centre",
+        "King George Boulevard corridor"
+      ],
+      "landmarks": [
+        "Newton Athletic Park",
+        "Bear Creek Park",
+        "Unwin Park",
+        "Strawberry Hill Plaza"
+      ],
+      "driveTimeFromSurrey": "10-15 minutes from our Surrey warehouse",
+      "intro": "East Newton North is part of our home base \u2014 only 10-15 minutes from our Surrey warehouse \u2014 and we've delivered party rentals to hundreds of events across East Newton, Newton Town Centre, and the King George Boulevard corridor. Marquee tents for backyard weddings, Chiavari chairs for community celebrations, banquet and round tables for cultural events, and dance floors for birthdays have all rolled out of our trucks into Newton neighbourhoods. Newton Athletic Park, Bear Creek Park, Unwin Park, and Strawberry Hill Plaza are regular destinations. Because we're so close, we can offer flexible same-week setup windows and quick last-minute equipment swaps if your guest count changes. Delivery, hand-setup, and pickup are bundled into every East Newton North quote \u2014 no hidden fees. Book online 24/7 or call any day of the week.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to East Newton North?",
+          "a": "Yes \u2014 we deliver and set up throughout East Newton North, including East Newton, Newton Town Centre, and King George Boulevard corridor. From our Surrey warehouse, it's 10-15 minutes. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in East Newton North?",
+          "a": "For peak season (May through September) in East Newton North, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in East Newton North like Newton Athletic Park?",
+          "a": "Yes \u2014 we regularly deliver rentals to Newton Athletic Park, Bear Creek Park, and Unwin Park and dozens of private residences across East Newton North. We know the setback rules for most public parks in East Newton North and can advise on what permits (if any) your venue requires for tents."
+        }
+      ],
+      "testimonialIndices": [
+        7,
+        8,
+        9,
+        0
+      ]
+    },
+    "east-clayton": {
+      "slug": "east-clayton",
+      "name": "East Clayton",
+      "tier": 4,
+      "coords": {
+        "lat": 49.1478,
+        "lng": -122.7425
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1701317440327-VPSE8RJQCEX2LIWD8M2L/SwanesetWeddings-home-venue.jpg",
+      "neighborhoods": [
+        "Clayton Heights",
+        "Willowbrook border",
+        "Cloverdale border"
+      ],
+      "landmarks": [
+        "Clayton Heights Park",
+        "Clayton Community Centre",
+        "Katzie Slough",
+        "Cloverdale Rodeo Grounds"
+      ],
+      "driveTimeFromSurrey": "Roughly 10-15 minutes from our Surrey warehouse",
+      "intro": "East Clayton sits between Cloverdale and Willowbrook in one of the most event-dense corners of Surrey, and Forever Party Rentals is 10-15 minutes away from every block of it. Clayton Heights residents book us regularly for backyard weddings, milestone birthdays, and summer family gatherings \u2014 marquee tents, Chiavari chairs, banquet and round tables, and polished dance floors. We've delivered to events at Clayton Community Centre, ceremonies near Clayton Heights Park, and celebrations spilling into the Cloverdale Rodeo Grounds area. The Katzie Slough's wetland corridor is a surprisingly good photo backdrop when paired with a white marquee. Because we're so close, we keep flexible same-week windows open and handle last-minute equipment swaps without fuss. Delivery, setup, and pickup are bundled into every East Clayton quote \u2014 book online 24/7 with live availability.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to East Clayton?",
+          "a": "Yes \u2014 we deliver and set up throughout East Clayton, including Clayton Heights, Willowbrook border, and Cloverdale border. From our Surrey warehouse, it's roughly 10-15 minutes. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in East Clayton?",
+          "a": "For peak season (May through September) in East Clayton, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in East Clayton like Clayton Heights Park?",
+          "a": "Yes \u2014 we regularly deliver rentals to Clayton Heights Park, Clayton Community Centre, and Katzie Slough and dozens of private residences across East Clayton. We know the setback rules for most public parks in East Clayton and can advise on what permits (if any) your venue requires for tents."
+        }
+      ],
+      "testimonialIndices": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "walnut-grove": {
+      "slug": "walnut-grove",
+      "name": "Walnut Grove",
+      "tier": 4,
+      "coords": {
+        "lat": 49.1683,
+        "lng": -122.6264
+      },
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+      "neighborhoods": [
+        "Walnut Grove",
+        "Yorkson border",
+        "Gloucester"
+      ],
+      "landmarks": [
+        "Walnut Grove Community Park",
+        "Derby Reach Regional Park",
+        "Bedford Landing",
+        "Walnut Grove Secondary"
+      ],
+      "driveTimeFromSurrey": "About 15-20 minutes from our Surrey warehouse",
+      "intro": "Walnut Grove is about 15-20 minutes from our Surrey warehouse, and it's one of the Township of Langley neighbourhoods we know best. The area stretches from the Yorkson border into Gloucester, with Walnut Grove Community Park and Walnut Grove Secondary anchoring the community's event calendar. Forever Party Rentals has installed marquee tents for weddings at private Walnut Grove estates, delivered Chiavari chairs for ceremonies along the edge of Derby Reach Regional Park, and set up banquet and round tables for milestones near Bedford Landing. Because we're close, our setup windows stay flexible and our delivery crews can make last-minute adjustments without adding fees. Delivery, professional setup, and pickup are bundled into every Walnut Grove quote. Book online 24/7 with live availability, or call us any day of the week.",
+      "faqs": [
+        {
+          "q": "Do you deliver party rentals to Walnut Grove?",
+          "a": "Yes \u2014 we deliver and set up throughout Walnut Grove, including Walnut Grove, Yorkson border, and Gloucester. From our Surrey warehouse, it's about 15-20 minutes. Delivery and setup are included in every quote, with no surprise fees at the venue."
+        },
+        {
+          "q": "What's included in the delivery and setup fee?",
+          "a": "Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges \u2014 the price you see at checkout is the price you pay."
+        },
+        {
+          "q": "How far in advance should I book for an event in Walnut Grove?",
+          "a": "For peak season (May through September) in Walnut Grove, we recommend booking 6\u20138 weeks out \u2014 especially for weekend weddings. Off-season and weekday events can often be booked 1\u20132 weeks out. You can check live availability and reserve with a 25% deposit on our online booking page 24/7."
+        },
+        {
+          "q": "Have you worked at venues in Walnut Grove like Walnut Grove Community Park?",
+          "a": "Yes \u2014 we regularly deliver rentals to Walnut Grove Community Park, Derby Reach Regional Park, and Bedford Landing and dozens of private residences across Walnut Grove. We know the setback rules for most public parks in Walnut Grove and can advise on what permits (if any) your venue requires for tents."
+        }
+      ],
+      "testimonialIndices": [
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  }
+}
