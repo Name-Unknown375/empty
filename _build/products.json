@@ -1,0 +1,250 @@
+{
+  "_comment": "Forever Party Rentals — product data for city × product page generation. Phase 3 of the SEO expansion (product-per-city pages). Paired with city_data.json. Used by generate_product_pages.py + product_template.html.",
+  "_schema": {
+    "key": "Internal key (tent, chair, table, dance-floor)",
+    "productName": "Human-readable plural product name (e.g. 'Tent Rentals')",
+    "productNameSingular": "Singular form for schema/service names (e.g. 'Tent Rental')",
+    "urlPrefix": "Filename prefix — page URL is {urlPrefix}-{slug}.html",
+    "urlPrefixOverrides": "{slug: override_prefix} — preserves existing URLs that don't match the default prefix",
+    "categoryPage": "Top-level category page (linked from breadcrumb)",
+    "breadcrumbLabel": "Label for the breadcrumb + BreadcrumbList schema item",
+    "serviceType": "schema.org Service.serviceType value",
+    "heroImage": "Primary hero image shown in the split section",
+    "heroAlt": "Alt text stem (city name appended by template)",
+    "tagline": "Short hero subheading. Template substitutes {city}.",
+    "introSummary": "1-paragraph product pitch shown above the bullet list. Template substitutes {city}.",
+    "bullets": "5 product-specific value props. Template substitutes {city}.",
+    "subcategoryCards": "Subcategory cards shown in the grid (name, image, description, tag)",
+    "productFaqs": "3 product-specific FAQs. Template substitutes {city}."
+  },
+  "products": {
+    "tent": {
+      "key": "tent",
+      "productName": "Tent Rentals",
+      "productNameSingular": "Tent Rental",
+      "fromPriceCAD": 120,
+      "fromPriceLabel": "From $120 / day (10×10 popup) — marquee tents from $400/event",
+      "urlPrefix": "tent-rental",
+      "urlPrefixOverrides": { "surrey": "tent-rentals" },
+      "categoryPage": "tents.html",
+      "breadcrumbLabel": "Tent Rentals",
+      "serviceType": "Tent & Marquee Rental",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+      "heroAlt": "Marquee tent rental setup in {city}, BC",
+      "tagline": "Premium marquee tent rentals delivered and set up in {city}, BC. Built for weddings, corporate events, and community celebrations — rain or shine.",
+      "introSummary": "Our marquee tents are engineered for Lower Mainland weather — high-peak aluminium frames, solid sidewalls, and tie-down hardware rated for wind and sudden rain. For {city} events, our crew delivers, professionally stakes or ballasts the tent based on your surface, adds lighting or heater accessories if you need them, and returns for clean takedown. Tent sizing is flexible: we rent from 10×10 intimate canopies to 40-foot-plus marquees that seat hundreds.",
+      "bullets": [
+        "Marquee tents from 10×10 up to 40×80 — seats 20 to 300+ guests",
+        "Delivered & professionally set up in {city} by our own crew",
+        "Engineered frames + sidewalls for rain, wind, and sun",
+        "Add tables, chairs, heaters, lighting & dance floor in one quote",
+        "125% cancellation protection + on-time setup promise"
+      ],
+      "subcategoryCards": [
+        {
+          "name": "Marquee Frame Tents",
+          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+          "description": "Premium free-span frame tents with solid sidewalls. Perfect for weddings and large corporate events — delivered and installed by our crew.",
+          "tag": "Most Popular"
+        },
+        {
+          "name": "Popup Tents",
+          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/94b9727a-0953-4858-b5ac-f836975ed4b6/Tent+Rentals+Langley.png",
+          "description": "Easy-set popup tents for smaller {city} gatherings, market stalls, and short-notice needs. Available for delivery or pickup.",
+          "tag": ""
+        },
+        {
+          "name": "Accessories & Add-Ons",
+          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+          "description": "Tent lighting, propane heaters, sidewall upgrades, flooring, and weighted-ballast kits for pavement installs — added to any {city} booking.",
+          "tag": ""
+        }
+      ],
+      "productFaqs": [
+        {
+          "q": "What tent sizes do you rent in {city}?",
+          "a": "We stock marquee frame tents from 10×10 up to 40×80 — that's anywhere from an intimate 20-guest gathering to a 300+ seat reception. For {city} events, our team will help you size the tent based on your guest count, seating style, and whether you're adding a dance floor or head table. Ask for our sizing guide when you book."
+        },
+        {
+          "q": "Can you install a tent on grass, pavement, or a gravel driveway in {city}?",
+          "a": "Yes to all three surfaces. For grass in {city}, we stake the tent down using engineered anchors. For pavement, stamped concrete, or driveways, we use ballasted weights (typically water barrels or concrete blocks) rated for the tent size and local wind conditions. Tell us the surface when you book and we'll dispatch the right hardware."
+        },
+        {
+          "q": "Do you deliver tent heaters and lighting to {city}?",
+          "a": "Yes — propane tent heaters (safe for enclosed marquees), bistro string lights, and chandelier-style lighting can be added to any {city} tent booking. Add them in the online cart or mention them when you call. Our crew installs everything during the same delivery window."
+        }
+      ]
+    },
+    "chair": {
+      "key": "chair",
+      "productName": "Chair Rentals",
+      "productNameSingular": "Chair Rental",
+      "fromPriceCAD": 3,
+      "fromPriceLabel": "From $3 / day (Resin Garden) — Chiavari from $4/day",
+      "urlPrefix": "chair-rentals",
+      "urlPrefixOverrides": {},
+      "categoryPage": "chairs.html",
+      "breadcrumbLabel": "Chair Rentals",
+      "serviceType": "Event Chair Rental",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/50e58759-c6e7-49e1-a736-547ff66283b8/white-chiavari-chair-rentals-surrey-langley-abbotsford.jpg",
+      "heroAlt": "Chiavari and folding chair rentals in {city}, BC",
+      "tagline": "Pristine Chiavari, Fanback folding, and Resin Garden chairs delivered and stacked at your {city} venue. Book online 24/7.",
+      "introSummary": "Every chair in our {city} inventory is individually inspected, wiped down, and stacked before it leaves the warehouse — no scuffed rental chairs, no wobbly legs. Our crew delivers, places, and collects based on your floor plan. Chiavari chairs are our most-booked style for weddings; Fanback folding and Resin Garden chairs are the go-to choices for outdoor ceremonies and corporate events where durability matters.",
+      "bullets": [
+        "White Chiavari, Fanback folding & Resin Garden chairs",
+        "Individually cleaned and inspected before every event",
+        "Delivered, stacked, and placed to your {city} floor plan",
+        "Bundled discount when you add tables, tents, or dance floor",
+        "Book online 24/7 with live inventory checks"
+      ],
+      "subcategoryCards": [
+        {
+          "name": "Chiavari Chairs",
+          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/50e58759-c6e7-49e1-a736-547ff66283b8/white-chiavari-chair-rentals-surrey-langley-abbotsford.jpg",
+          "description": "Classic white Chiavari chairs with soft ivory cushions — the wedding-reception standard for {city} receptions and formal events.",
+          "tag": "Wedding Favourite"
+        },
+        {
+          "name": "Fanback Folding Chairs",
+          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/157b8701-f36b-4250-9dc2-62b67e3c19f4/white-fanback-folding-chairs.jpg",
+          "description": "Elegant white folding chairs for outdoor ceremonies, community events, and casual celebrations across {city}.",
+          "tag": ""
+        },
+        {
+          "name": "Resin Garden Chairs",
+          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/4ea13d04-bce7-4e68-9718-e38795773fbf/Garden+Chair+Rentals.jpg",
+          "description": "Durable, weather-resistant white garden chairs — ideal for {city} outdoor events of any size, including poolside and beachfront.",
+          "tag": ""
+        }
+      ],
+      "productFaqs": [
+        {
+          "q": "How many chairs can you deliver to a single event in {city}?",
+          "a": "We regularly deliver 300+ chairs to a single {city} event and can stage larger orders by phone. For peak-season weekend dates in May through September, we recommend booking chair quantities 4–6 weeks in advance to guarantee availability in your preferred style."
+        },
+        {
+          "q": "Do you place the chairs in rows, or just drop them off?",
+          "a": "Both options are available. For {city} weddings and ceremonies, our crew lays chairs out to your floor plan — row-by-row, circle, or custom — at no extra charge. For pickup or budget deliveries, we'll stack-drop on site and collect the same way. Tell us which you want when you book."
+        },
+        {
+          "q": "Can I mix chair styles — Chiavari inside, Garden chairs outside?",
+          "a": "Absolutely. Mixed setups are common for {city} weddings where the ceremony is outdoors and the reception is under a tent. Add the quantities of each style to your online cart and our crew will stage them at delivery. There's no mixing surcharge."
+        }
+      ]
+    },
+    "table": {
+      "key": "table",
+      "productName": "Table Rentals",
+      "productNameSingular": "Table Rental",
+      "fromPriceCAD": 10,
+      "fromPriceLabel": "From $10 / day (6ft banquet, 5ft round) — cocktail highboys from $15/day",
+      "urlPrefix": "table-rentals",
+      "urlPrefixOverrides": {},
+      "categoryPage": "tables.html",
+      "breadcrumbLabel": "Table Rentals",
+      "serviceType": "Event Table Rental",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/7019daee-1743-44b3-afd8-fb5fd311925d/5ft+round+tables.jpg",
+      "heroAlt": "Banquet and round table rentals in {city}, BC",
+      "tagline": "Banquet, round, rectangular, and cocktail tables delivered and set up at your {city} venue. Pair with Chiavari chairs and marquee tents in one quote.",
+      "introSummary": "Forever Party Rentals stocks the full event-table lineup at our Surrey warehouse — 6-foot and 8-foot rectangular banquet tables, 5-foot and 6-foot rounds, and highboy cocktail tables for receptions and stand-up networking events. Every table is wiped and inspected before loading. For {city} events, we deliver, unfold, and position to your floor plan; no extra charge for setup when you book delivery.",
+      "bullets": [
+        "Banquet, round, rectangular & cocktail tables — all sizes",
+        "Delivered, placed & collected in {city} by our crew",
+        "Cleaned and inspected before every rental",
+        "Bundle with chairs, tents & linens for a single-source quote",
+        "Open 7 days a week with live online availability"
+      ],
+      "subcategoryCards": [
+        {
+          "name": "Banquet Tables",
+          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/2250304b-d667-430b-b756-cc7a0c5ae5b4/6ftrectangulartables.jpg",
+          "description": "6-foot and 8-foot rectangular banquet tables — the workhorse of any {city} wedding, gala, or corporate dinner.",
+          "tag": "Most Popular"
+        },
+        {
+          "name": "Round Tables",
+          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/7019daee-1743-44b3-afd8-fb5fd311925d/5ft+round+tables.jpg",
+          "description": "5-foot and 6-foot round tables for seated dinners — the classic configuration for {city} wedding receptions.",
+          "tag": ""
+        },
+        {
+          "name": "Cocktail & Highboy Tables",
+          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+          "description": "Standing-height cocktail tables for {city} networking events, wedding receptions, and pre-dinner mingling.",
+          "tag": ""
+        }
+      ],
+      "productFaqs": [
+        {
+          "q": "How many guests do your banquet and round tables seat in {city}?",
+          "a": "Our 6-foot rectangular banquet tables seat 6–8 guests; 8-foot tables seat 8–10. Our 5-foot rounds seat 8; 6-foot rounds seat 10. For {city} weddings and events, we'll help you pick the right mix based on your guest count and floor plan when you book."
+        },
+        {
+          "q": "Do you deliver linens or chairs with the tables?",
+          "a": "We don't stock linens in-house, but our team maintains preferred partners in the {city} area who can coordinate linens, napkins, and runners to match your order. Chairs, dance floors, and tents can all be added to the same delivery in your online cart."
+        },
+        {
+          "q": "Can you deliver tables the day before the event in {city}?",
+          "a": "Yes — we offer early-bird delivery in {city} for an additional fee, typically a day before your event. This is especially popular for morning ceremonies and early Saturday setups. Request early delivery in the booking notes or mention it on the phone."
+        }
+      ]
+    },
+    "dance-floor": {
+      "key": "dance-floor",
+      "productName": "Dance Floor Rentals",
+      "productNameSingular": "Dance Floor Rental",
+      "fromPriceCAD": 800,
+      "fromPriceLabel": "From $800 / event (12×12) — up to $1,600 for a 20×20 installation",
+      "urlPrefix": "dance-floor-rental",
+      "urlPrefixOverrides": {},
+      "categoryPage": "dance-floor.html",
+      "breadcrumbLabel": "Dance Floor Rentals",
+      "serviceType": "Event Dance Floor Rental",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/4ea40662-954d-44de-98db-a524d3b842e4/BLACK-AND-WHITE-DANCE-FLOOR-JERRY-HAYES.webp",
+      "heroAlt": "Black and white checkered dance floor rental in {city}, BC",
+      "tagline": "Elegant black-and-white checkered dance floors delivered, levelled, and installed at your {city} reception. Perfect for weddings, galas, and milestone celebrations.",
+      "introSummary": "Our signature dance floor is a classic black-and-white checkered surface, engineered from interlocking panels with a subfloor that levels across grass, carpet, or uneven venue floors. For {city} weddings and galas, our crew arrives ahead of guest service, levels the panels to your tent or room, trims around head tables and staging, and returns for takedown at end-of-night. Typical sizes run 12×12 up to 20×20, scaled to guest count.",
+      "bullets": [
+        "Classic black-and-white checkered panel system",
+        "Professional levelling over grass, carpet, or tent flooring",
+        "Sizes from 12×12 (50 guests) up to 20×20 (200+ guests)",
+        "Installed in {city} by our crew — no DIY assembly",
+        "Bundle with tent, tables & chairs for a complete {city} package"
+      ],
+      "subcategoryCards": [
+        {
+          "name": "Black & White Dance Floor",
+          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/4ea40662-954d-44de-98db-a524d3b842e4/BLACK-AND-WHITE-DANCE-FLOOR-JERRY-HAYES.webp",
+          "description": "Our signature checkered floor — the classic choice for {city} weddings and reception centrepieces.",
+          "tag": "Signature Rental"
+        },
+        {
+          "name": "Complete Reception Package",
+          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+          "description": "Bundle the dance floor with a marquee tent, round tables, Chiavari chairs, and bistro lighting for a one-quote {city} reception.",
+          "tag": ""
+        },
+        {
+          "name": "Delivery, Install & Takedown",
+          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+          "description": "Every {city} dance floor rental includes professional levelling, installation, and post-event takedown. No assembly on your end.",
+          "tag": ""
+        }
+      ],
+      "productFaqs": [
+        {
+          "q": "What size dance floor do I need for my {city} event?",
+          "a": "A general rule of thumb: ~4.5 square feet per dancer, assuming half your guests are dancing at once. A 12×12 floor works for about 50 guests; 15×15 for 100; 18×18 for 150; and 20×20 for 200+. For {city} weddings, we'll help you right-size during booking."
+        },
+        {
+          "q": "Can you install the dance floor on grass or under a tent in {city}?",
+          "a": "Yes — our dance floor includes a subfloor system that levels over grass, carpet, uneven pavement, or existing venue floors. For {city} outdoor weddings under a marquee tent, we stage the dance floor first, then install the tent around it."
+        },
+        {
+          "q": "How long does it take to install the dance floor?",
+          "a": "For a standard 15×15 or 18×18 floor in {city}, our crew needs roughly 60–90 minutes of clear floor time to install and level. We coordinate the delivery window with your venue so the floor is in place before florals, staging, and head table dressing."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "$schema": "./posts.schema.json",
+  "meta": {
+    "version": 1,
+    "lastUpdated": "2026-04-22",
+    "totalPosts": 30,
+    "topics": {
+      "sizing": {
+        "label": "Tent Sizing & Planning",
+        "cover": "cov-green",
+        "order": 1
+      },
+      "venues": {
+        "label": "Hyperlocal Venues",
+        "cover": "cov-gold",
+        "order": 2
+      },
+      "compare": {
+        "label": "Comparisons",
+        "cover": "cov-ink",
+        "order": 3
+      },
+      "weather": {
+        "label": "Weather & Logistics",
+        "cover": "cov-slate",
+        "order": 4
+      },
+      "wedding": {
+        "label": "Wedding Guides",
+        "cover": "cov-clay",
+        "order": 5
+      }
+    },
+    "authors": {
+      "devon": {
+        "name": "Devon",
+        "role": "Owner, Forever Party Rentals"
+      },
+      "team": {
+        "name": "Forever Party Rentals Team",
+        "role": "Editorial"
+      }
+    }
+  },
+  "posts": [
+    {
+      "slug": "tent-size-guide-lower-mainland-wedding",
+      "topic": "sizing",
+      "title": "How Many Guests Fit <em>Under a 20×40 Tent?</em>",
+      "h4": "Tent Size Chart for Lower Mainland Weddings",
+      "excerpt": "Ceremony, seated dinner, dinner-plus-dance: the same 800 sq ft fits wildly different guest counts. The math, the photos, and the questions to ask your venue.",
+      "author": "devon",
+      "date": "2026-04-08",
+      "read": 14,
+      "status": "live"
+    },
+    {
+      "slug": "tent-size-chart-20x20-20x40-20x60-40x80",
+      "topic": "sizing",
+      "title": "A <em>Visual Size Chart</em> for Every Marquee We Own",
+      "h4": "20×20, 20×40, 20×60 & 40×80 Side-by-Side",
+      "excerpt": "Every tent in our fleet drawn to scale with seating diagrams for 40, 80, 120, and 200 guests. Print-friendly PDFs at the bottom.",
+      "author": "devon",
+      "date": "2026-02-18",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "party-rental-checklist-50-100-150-200-guests",
+      "topic": "sizing",
+      "title": "The Rental Checklist For <em>50, 100, 150 & 200 Guests</em>",
+      "h4": "Party Rental Checklists by Headcount",
+      "excerpt": "Exactly what to rent — and what to skip — at four common guest counts. Chair, table, tent, dance floor, heater, and sidewall math in one place.",
+      "author": "team",
+      "date": "2025-11-14",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "how-much-space-per-guest-wedding-tent",
+      "topic": "sizing",
+      "title": "How Much <em>Square Footage Per Guest?</em>",
+      "h4": "Square Footage Per Guest: The Real Numbers",
+      "excerpt": "10 sq ft for cocktails, 12 for theatre, 15 for seated dinner, 20 with a dance floor. Why the \"rule of thumb\" is wrong for most BC weddings.",
+      "author": "devon",
+      "date": "2025-07-22",
+      "read": 9,
+      "status": "live"
+    },
+    {
+      "slug": "tent-layout-ceremony-to-reception-flip",
+      "topic": "sizing",
+      "title": "The <em>Ceremony-to-Reception Flip</em>",
+      "h4": "One Tent, Two Setups: The Flip Logistics",
+      "excerpt": "Save 40% on rentals by running the ceremony and reception under the same tent. How our crew flips a 20×40 in 45 minutes — without moving Auntie Carol.",
+      "author": "devon",
+      "date": "2025-04-02",
+      "read": 10,
+      "status": "live"
+    },
+    {
+      "slug": "backyard-wedding-tent-sizing-bc",
+      "topic": "sizing",
+      "title": "The <em>Backyard Wedding</em> Tent Playbook",
+      "h4": "Backyard Wedding Tent Sizing for BC Homes",
+      "excerpt": "Property line setbacks, slope tolerance, sprinkler head clearance, and the five measurements to send your rental company before you book.",
+      "author": "team",
+      "date": "2024-12-10",
+      "read": 13,
+      "status": "live"
+    },
+    {
+      "slug": "stanley-park-wedding-rentals-guide",
+      "topic": "venues",
+      "title": "Renting For a Wedding at <em>Stanley Park</em>",
+      "h4": "The Stanley Park Wedding Rental Guide",
+      "excerpt": "Park Board permits, Ceperley Meadow vs. Third Beach, delivery windows, and the two tent footprints that fit inside the approved ceremony zones.",
+      "author": "devon",
+      "date": "2026-03-15",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "whytecliff-park-event-rental-guide",
+      "topic": "venues",
+      "title": "Events at <em>Whytecliff Park</em>",
+      "h4": "Whytecliff Park Ceremony Rental Guide",
+      "excerpt": "West Vancouver's most dramatic ocean backdrop — and its most particular permit desk. Tidal timing, cart access, and a sample rental order.",
+      "author": "team",
+      "date": "2025-12-28",
+      "read": 9,
+      "status": "live"
+    },
+    {
+      "slug": "queen-elizabeth-park-weddings-rentals",
+      "topic": "venues",
+      "title": "<em>Queen Elizabeth Park</em> Weddings",
+      "h4": "Queen E Park Ceremony & Reception Rentals",
+      "excerpt": "Quarry Gardens, Seasons in the Park patio, and the Bloedel lawn. What each site allows, what it forbids, and how to combine them with a nearby tent venue.",
+      "author": "team",
+      "date": "2025-09-10",
+      "read": 10,
+      "status": "live"
+    },
+    {
+      "slug": "fort-langley-wedding-venues-rental-guide",
+      "topic": "venues",
+      "title": "The <em>Fort Langley</em> Wedding Guide",
+      "h4": "Fort Langley Wedding Venues + Rental Planning",
+      "excerpt": "The Bedford Channel, Fort-to-Fort Trail, Wendel's, and three barns we deliver to every summer. Drive times, setup windows, and rental minimums.",
+      "author": "devon",
+      "date": "2025-06-14",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "surrey-parks-event-rental-guide",
+      "topic": "venues",
+      "title": "Surrey's <em>Best Event Parks</em>",
+      "h4": "Surrey Park Event Rental Guide",
+      "excerpt": "Bear Creek, Redwood, Tynehead, and Crescent. Which ones allow amplified music, which require PLI certificates, and which have trucks-only lanes.",
+      "author": "team",
+      "date": "2025-03-06",
+      "read": 10,
+      "status": "live"
+    },
+    {
+      "slug": "harrison-hot-springs-destination-wedding",
+      "topic": "venues",
+      "title": "<em>Harrison Hot Springs</em> Destination Weddings",
+      "h4": "Rentals & Logistics for Harrison Weddings",
+      "excerpt": "Delivery surcharges, overnight gear storage, and the lakefront sites that require wind-rated tents. Our Harrison playbook after 40+ weekends on-site.",
+      "author": "devon",
+      "date": "2024-11-02",
+      "read": 12,
+      "status": "live"
+    }
+  ]
+}

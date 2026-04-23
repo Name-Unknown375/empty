@@ -1,0 +1,10 @@
+# Forever Party Rentals — robots.txt
+# https://foreverpartyrentals.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Transactional page — no SEO value, excluded to save crawl budget.
+Disallow: /checkout.html
+
+Sitemap: https://foreverpartyrentals.com/sitemap.xml

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Forever Party Rentals | Tent, Chair & Table Rentals — Lower Mainland BC</title>
+<meta name="description" content="Premium tent, chair & table rentals across the Lower Mainland. Book online 24/7. Delivery & setup included."/>
+<link rel="canonical" href="https://foreverpartyrentals.com/"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<link rel="alternate" hreflang="en-CA" href="https://foreverpartyrentals.com/"/>
+<link rel="alternate" hreflang="x-default" href="https://foreverpartyrentals.com/"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en_CA"/>
+<meta property="og:site_name" content="Forever Party Rentals"/>
+<meta property="og:title" content="Forever Party Rentals | Tent, Chair & Table Rentals — Lower Mainland BC"/>
+<meta property="og:description" content="Premium tent, chair & table rentals across the Lower Mainland. Book online 24/7. Delivery & setup included."/>
+<meta property="og:url" content="https://foreverpartyrentals.com/"/>
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/993255ee-d7bd-41ba-a9dc-659d794941af/Forever+Party+Rentals+Logo.png?format=1500w"/>
+<meta property="og:image:alt" content="Forever Party Rentals — tent, chair and table rentals across the Lower Mainland"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Forever Party Rentals | Tent, Chair & Table Rentals — Lower Mainland BC"/>
+<meta name="twitter:description" content="Premium tent, chair & table rentals across the Lower Mainland. Book online 24/7. Delivery & setup included."/>
+<meta name="twitter:image" content="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/993255ee-d7bd-41ba-a9dc-659d794941af/Forever+Party+Rentals+Logo.png?format=1500w"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css?v=5"/>
+
+<!-- Adelie Booking Scripts -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/css/datepicker-bs5.min.css" media="print" onload="this.media='all'"/>
+<link rel="preload" as="script" href="https://embed-scripts-production.web.app/adelie-skeleton.js"/>
+<link rel="preload" as="script" href="https://embed-scripts-production.web.app/adelie-cart.js"/>
+<script src="https://embed-scripts-production.web.app/adelie-skeleton.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/js/datepicker-full.min.js" defer></script>
+<script src="https://embed-scripts-production.web.app/adelie-cart.js" defer></script>
+<script>window.orgId = "LvrymFxex6oslWCxcrEg";</script>
+
+<style>
+/* ── HERO ── */
+.hero { display: grid; grid-template-columns: 55% 45%; min-height: 600px; }
+.hero-left { background: var(--green); color: #fff; padding: 80px 60px 80px 40px; display: flex; flex-direction: column; justify-content: center; }
+.hero-left .eyebrow { color: var(--gold); }
+.hero-left h1 { color: #fff; margin: 12px 0 24px; }
+.hero-left p { color: rgba(255,255,255,.72); max-width: 440px; margin-bottom: 36px; font-size: 15px; }
+.hero-left .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,.15); }
+.hero-stat-num { font-family: var(--serif); font-size: 32px; color: var(--gold); font-weight: 700; }
+.hero-stat-label { font-size: 11px; color: rgba(255,255,255,.65); text-transform: uppercase; letter-spacing: .5px; margin-top: 2px; }
+.hero-btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-right { display: grid; grid-template-rows: 1fr 1fr; }
+.hero-right-bottom { display: grid; grid-template-columns: 1fr 1fr; }
+.hero-img { width: 100%; height: 100%; object-fit: cover; }
+.review-badge { position: absolute; bottom: 28px; right: 28px; background: rgba(255,255,255,.95); padding: 14px 20px; border-radius: 2px; box-shadow: 0 4px 24px rgba(0,0,0,.12); backdrop-filter: blur(4px); }
+.review-badge .stars { color: var(--gold); font-size: 13px; }
+.review-badge .rb-text { font-size: 13px; font-weight: 600; color: var(--dark); margin-top: 4px; }
+.review-badge .rb-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 60px 20px; }
+  .hero-right { min-height: 320px; grid-template-rows: 1fr; }
+  .hero-right-bottom { display: none; }
+}
+
+/* ── SERVICES SECTION ── */
+.services-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+@media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 540px) { .services-grid { grid-template-columns: 1fr; } }
+.services-grid { align-items: stretch; }
+.service-card { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: #fff; transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; }
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(0,0,0,.1); }
+.service-card img { width: 100%; height: 180px; object-fit: cover; }
+.service-card-body { padding: 20px 22px 24px; display: flex; flex-direction: column; flex: 1; position: relative; }
+.service-card-body .card-tag { position: absolute; top: -14px; left: 22px; }
+.service-card-body h3 { font-size: 19px; margin-bottom: 8px; }
+.service-card-body p { font-size: 13px; margin-bottom: 14px; flex: 1; }
+.service-card-body a { font-size: 13px; color: var(--green); font-weight: 600; margin-top: auto; }
+
+/* ── HOW TO BOOK SPLIT ── */
+.book-left { padding-right: 20px; }
+
+/* ── GUARANTEES ── */
+.guarantees-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; }
+@media (max-width: 768px) { .guarantees-grid { grid-template-columns: 1fr; } }
+</style>
+
+<!-- JSON-LD: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://foreverpartyrentals.com/#organization",
+  "name": "Forever Party Rentals",
+  "url": "https://foreverpartyrentals.com/",
+  "logo": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/993255ee-d7bd-41ba-a9dc-659d794941af/Forever+Party+Rentals+Logo.png?format=1500w",
+  "email": "welcome@foreverpartyrentals.com",
+  "telephone": "+1-778-990-7983",
+  "sameAs": [
+    "https://www.google.com/search?q=Forever+Party+Rentals&kgmid=/g/11tnwsrdpc",
+    "https://www.instagram.com/foreverpartyrentals"
+  ]
+}
+</script>
+
+<!-- JSON-LD: LocalBusiness (sitewide, keyed to root domain) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://foreverpartyrentals.com/#localbusiness",
+  "name": "Forever Party Rentals",
+  "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/993255ee-d7bd-41ba-a9dc-659d794941af/Forever+Party+Rentals+Logo.png?format=1500w",
+  "logo": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/993255ee-d7bd-41ba-a9dc-659d794941af/Forever+Party+Rentals+Logo.png?format=1500w",
+  "url": "https://foreverpartyrentals.com/",
+  "telephone": "+1-778-990-7983",
+  "email": "welcome@foreverpartyrentals.com",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "9317 188 St",
+    "addressLocality": "Surrey",
+    "addressRegion": "BC",
+    "postalCode": "V4N 3V1",
+    "addressCountry": "CA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 49.1648,
+    "longitude": -122.7066
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "09:30",
+    "closes": "18:00"
+  }],
+  "areaServed": [
+    { "@type": "City", "name": "Surrey" },
+    { "@type": "City", "name": "Langley" },
+    { "@type": "City", "name": "Vancouver" },
+    { "@type": "City", "name": "Burnaby" },
+    { "@type": "City", "name": "Richmond" },
+    { "@type": "City", "name": "Abbotsford" },
+    { "@type": "City", "name": "Coquitlam" },
+    { "@type": "City", "name": "Maple Ridge" },
+    { "@type": "City", "name": "North Vancouver" },
+    { "@type": "City", "name": "Delta" },
+    { "@type": "City", "name": "White Rock" },
+    { "@type": "City", "name": "Port Moody" },
+    { "@type": "City", "name": "New Westminster" },
+    { "@type": "City", "name": "Pitt Meadows" },
+    { "@type": "City", "name": "Mission" },
+    { "@type": "City", "name": "Chilliwack" },
+    { "@type": "City", "name": "Harrison Hot Springs" }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "200",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "sameAs": [
+    "https://www.google.com/maps/place/Forever+Party+Rentals",
+    "https://www.instagram.com/foreverpartyrentals"
+  ]
+}
+</script>
+
+<!-- JSON-LD: WebSite (sitelinks searchbox candidate) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://foreverpartyrentals.com/#website",
+  "url": "https://foreverpartyrentals.com/",
+  "name": "Forever Party Rentals",
+  "publisher": { "@id": "https://foreverpartyrentals.com/#organization" },
+  "inLanguage": "en-CA"
+}
+</script>
+
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" style="position:relative">
+  <div class="hero-left" style="max-width:none; padding-left: max(40px, calc((100vw - 1280px)/2 + 40px))">
+    <span class="eyebrow">Lower Mainland's Premier Rental Company</span>
+    <h1>Throw the Party<br/><em style="color:var(--gold)">They'll Never Forget.</em></h1>
+    <p>Premium marquee tents, chairs, tables & dance floors — delivered and set up across Surrey, Langley & the Lower Mainland. We handle logistics so you enjoy the moment.</p>
+    <div class="hero-btn-row">
+      <a href="rentals.html" class="btn btn-gold btn-lg">Book Online — 24/7</a>
+      <a href="tents.html" class="btn btn-outline-white btn-lg">View Rentals</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">500+</div><div class="hero-stat-label">Events Served</div></div>
+      <div><div class="hero-stat-num">5 Star</div><div class="hero-stat-label">Google Rating</div></div>
+      <div><div class="hero-stat-num">7 Days</div><div class="hero-stat-label">a Week</div></div>
+    </div>
+  </div>
+  <div class="hero-right" style="position:relative">
+    <img class="hero-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg" alt="Marquee Tent Rental"/ fetchpriority="high" decoding="async" loading="eager">
+    <div class="hero-right-bottom">
+      <img class="hero-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/50e58759-c6e7-49e1-a736-547ff66283b8/white-chiavari-chair-rentals-surrey-langley-abbotsford.jpg" alt="Chiavari Chairs"/ loading="lazy" decoding="async">
+      <img class="hero-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/7019daee-1743-44b3-afd8-fb5fd311925d/5ft+round+tables.jpg" alt="Round Tables"/ loading="lazy" decoding="async">
+    </div>
+    <div class="review-badge">
+      <div class="stars">★★★★★</div>
+      <div class="rb-text">5.0 · 200+ Google Reviews</div>
+      <div class="rb-sub">Open 7 days · 9:30AM – 6PM</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-item">📅 Book Instantly Online</div>
+    <div class="trust-item">🚚 Delivery &amp; Pickup Included</div>
+    <div class="trust-item">✅ 25% Deposit to Secure</div>
+    <div class="trust-item">🛡️ 125% Cancellation Guarantee</div>
+  </div>
+</div>
+
+<!-- CLIENT LOGOS -->
+<div class="logos-bar">
+  <div class="container">
+    <div class="logos-bar-inner">
+      <span class="logos-label">Trusted By</span>
+      <div class="logo-marquee">
+        <div id="clientLogos" class="logo-track"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section section--light">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Everything For Your Event</h2>
+      <p>From intimate backyard gatherings to large corporate events — we have the equipment to make it happen.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg" alt="Marquee Tent Rentals"/ loading="lazy" decoding="async">
+        <div class="service-card-body">
+          <div class="card-tag">Most Popular</div>
+          <h3>Tent Rentals</h3>
+          <p>Premium marquee tents and popup tents for any outdoor event, any weather.</p>
+          <a href="tents.html">View Tents →</a>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/50e58759-c6e7-49e1-a736-547ff66283b8/white-chiavari-chair-rentals-surrey-langley-abbotsford.jpg" alt="Chair Rentals"/ loading="lazy" decoding="async">
+        <div class="service-card-body">
+          <h3>Chair Rentals</h3>
+          <p>Chiavari, Fanback & Resin Garden chairs — pristine, comfortable, and elegant.</p>
+          <a href="chairs.html">View Chairs →</a>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/7019daee-1743-44b3-afd8-fb5fd311925d/5ft+round+tables.jpg" alt="Table Rentals"/ loading="lazy" decoding="async">
+        <div class="service-card-body">
+          <h3>Table Rentals</h3>
+          <p>Banquet, round, rectangular & cocktail tables — pressure-washed and ready.</p>
+          <a href="tables.html">View Tables →</a>
+        </div>
+      </div>
+      <div class="service-card">
+        <img src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/4ea40662-954d-44de-98db-a524d3b842e4/BLACK-AND-WHITE-DANCE-FLOOR-JERRY-HAYES.webp" alt="Dance Floor Rental"/ loading="lazy" decoding="async">
+        <div class="service-card-body">
+          <h3>Dance Floor Rental</h3>
+          <p>Elegant black &amp; white dance floors that transform any space into a celebration.</p>
+          <a href="dance-floor.html">View Dance Floors →</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a href="rentals.html" class="btn btn-primary btn-lg">Browse All Rentals &amp; Book Online</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO BOOK -->
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div class="book-left">
+        <span class="eyebrow">Simple Process</span>
+        <h2>Booking Is Simple</h2>
+        <p style="margin:16px 0 32px">Book online 24/7, email us for complex events, or give us a call. A 25% deposit secures your date — we handle everything else.</p>
+        <a href="rentals.html" class="btn btn-primary btn-lg">Book Online Now</a>
+        <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px">
+          <a href="tel:778-990-7983" style="font-size:14px;color:var(--green);font-weight:500">📞 Call or Text: 778-990-7983</a>
+          <a href="mailto:welcome@foreverpartyrentals.com" style="font-size:14px;color:var(--green);font-weight:500">✉ welcome@foreverpartyrentals.com</a>
+        </div>
+      </div>
+      <div>
+        <div class="step">
+          <div class="step-num">1</div>
+          <div><h3>Choose Your Dates &amp; Items</h3><p>Select your event date and browse our live inventory — tents, chairs, tables, dance floors.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div><h3>Secure With 25% Deposit</h3><p>Pay a small deposit online to lock in your booking. Confirmation email arrives immediately.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div><h3>We Deliver &amp; Set Up</h3><p>Our team arrives on schedule, sets everything up perfectly, and returns for pickup.</p></div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div><h3>Enjoy Your Event</h3><p>Focus on your guests. We handle all the logistics before and after.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-header center" style="margin-bottom:48px">
+      <span class="eyebrow">Reviews</span>
+      <h2 style="color:#fff">Trusted By Hundreds</h2>
+      <p>200+ five-star Google reviews from families, corporates & charities across the Lower Mainland.</p>
+    </div>
+    <div class="grid-4" id="testimonialCards"></div>
+  </div>
+</section>
+
+<!-- GUARANTEES -->
+<section class="section section--light">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">Peace of Mind</span>
+      <h2>Our Guarantees To You</h2>
+    </div>
+    <div class="guarantees-grid">
+      <div class="guarantee-item">
+        <h3>10% Early-Pay Discount</h3>
+        <p>Pay your order in full within 24 hours of inquiry and save 10% on the entire order — automatically applied.</p>
+      </div>
+      <div class="guarantee-item">
+        <h3>125% Cancellation Protection</h3>
+        <p>If we ever cancel your booking, we return 125% of every dollar you paid. Zero risk on your end.</p>
+      </div>
+      <div class="guarantee-item">
+        <h3>On-Time Setup Promise</h3>
+        <p>If we fail to start your setup within the agreed time frame, you receive 25% of your order back automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">Where We Serve</span>
+      <h2>Party &amp; Event Rentals Across the Lower Mainland</h2>
+      <p>From Surrey to Harrison Hot Springs — we deliver tents, chairs, tables and dance floors to 28 communities across Metro Vancouver and the Fraser Valley.</p>
+    </div>
+    <div class="areas-grid" style="max-width:960px;margin:0 auto 32px">
+      <a class="area-pill" href="surrey-party-rentals.html">Surrey</a>
+      <a class="area-pill" href="langley-party-rentals.html">Langley</a>
+      <a class="area-pill" href="abbotsford-party-rentals.html">Abbotsford</a>
+      <a class="area-pill" href="white-rock-party-rentals.html">White Rock</a>
+      <a class="area-pill" href="delta-party-rentals.html">Delta</a>
+      <a class="area-pill" href="burnaby-party-rentals.html">Burnaby</a>
+      <a class="area-pill" href="coquitlam-party-rentals.html">Coquitlam</a>
+      <a class="area-pill" href="maple-ridge-party-rentals.html">Maple Ridge</a>
+      <a class="area-pill" href="vancouver-party-rentals.html">Vancouver</a>
+      <a class="area-pill" href="north-vancouver-party-rentals.html">North Vancouver</a>
+      <a class="area-pill" href="richmond-party-rentals.html">Richmond</a>
+      <a class="area-pill" href="pitt-meadows-party-rentals.html">Pitt Meadows</a>
+      <a class="area-pill" href="port-moody-party-rentals.html">Port Moody</a>
+      <a class="area-pill" href="new-westminster-party-rentals.html">New Westminster</a>
+      <a class="area-pill" href="langley-township-party-rentals.html">Langley Township</a>
+      <a class="area-pill" href="fort-langley-party-rentals.html">Fort Langley</a>
+      <a class="area-pill" href="willoughby-party-rentals.html">Willoughby</a>
+      <a class="area-pill" href="aldergrove-party-rentals.html">Aldergrove</a>
+      <a class="area-pill" href="carvolth-party-rentals.html">Carvolth</a>
+      <a class="area-pill" href="chilliwack-party-rentals.html">Chilliwack</a>
+      <a class="area-pill" href="east-clayton-party-rentals.html">East Clayton</a>
+      <a class="area-pill" href="harrison-hot-springs-party-rentals.html">Harrison Hot Springs</a>
+      <a class="area-pill" href="ladner-party-rentals.html">Ladner</a>
+      <a class="area-pill" href="mission-party-rentals.html">Mission</a>
+      <a class="area-pill" href="port-kells-party-rentals.html">Port Kells</a>
+      <a class="area-pill" href="tsawwassen-party-rentals.html">Tsawwassen</a>
+      <a class="area-pill" href="walnut-grove-party-rentals.html">Walnut Grove</a>
+      <a class="area-pill" href="east-newton-north-party-rentals.html">East Newton North</a>
+    </div>
+    <div style="text-align:center">
+      <a href="service-areas.html" class="btn btn-primary">View All Service Areas</a>
+    </div>
+  </div>
+</section>
+
+<!-- FROM THE BLOG -->
+<section class="section section--light">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow">Planning Resources</span>
+      <h2>From the Blog</h2>
+      <p>Expert guides to help you plan the perfect outdoor event in the Lower Mainland.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card" style="padding:0">
+        <div class="card-body" style="padding:28px 24px">
+          <span class="eyebrow" style="color:var(--green)">Tent Sizing &amp; Planning</span>
+          <h3 style="font-size:18px;margin:10px 0 12px;font-family:var(--serif)">How Many Guests Fit Under a 20×40 Tent?</h3>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:20px">Ceremony, seated dinner, dinner-plus-dance: the same 800 sq ft fits wildly different guest counts. The math, photos, and questions to ask your venue.</p>
+          <a href="blog/tent-size-guide-lower-mainland-wedding.html" class="card-link" style="font-size:13px">Read the Guide →</a>
+        </div>
+      </div>
+      <div class="card" style="padding:0">
+        <div class="card-body" style="padding:28px 24px">
+          <span class="eyebrow" style="color:var(--green)">Planning Checklists</span>
+          <h3 style="font-size:18px;margin:10px 0 12px;font-family:var(--serif)">The Rental Checklist for 50, 100, 150 &amp; 200 Guests</h3>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:20px">Exactly what to rent — and what to skip — at four common guest counts. Chair, table, tent, dance floor, and heater math in one place.</p>
+          <a href="blog/party-rental-checklist-50-100-150-200-guests.html" class="card-link" style="font-size:13px">Read the Guide →</a>
+        </div>
+      </div>
+      <div class="card" style="padding:0">
+        <div class="card-body" style="padding:28px 24px">
+          <span class="eyebrow" style="color:var(--gold)">Venue Guides</span>
+          <h3 style="font-size:18px;margin:10px 0 12px;font-family:var(--serif)">Renting for a Wedding at Stanley Park</h3>
+          <p style="font-size:13px;color:var(--muted);margin-bottom:20px">Park Board permits, Ceperley Meadow vs. Third Beach, delivery windows, and the tent footprints that fit inside approved ceremony zones.</p>
+          <a href="blog/stanley-park-wedding-rentals-guide.html" class="card-link" style="font-size:13px">Read the Guide →</a>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="blog/index.html" class="btn btn-primary">Read All Planning Guides</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="container">
+    <h2>Ready to Plan Your Event?</h2>
+    <p>Book instantly online, or call us — we're available 7 days a week.</p>
+    <div class="btn-row">
+      <a href="rentals.html" class="btn btn-gold btn-lg">Book Online — 24/7</a>
+      <a href="contact.html" class="btn btn-outline-white btn-lg">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<script src="shared.js?v=5"></script>
+</body>
+</html>

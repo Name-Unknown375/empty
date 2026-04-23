@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 generate_city_pages.py --all)",
+      "Bash(python3 generate_product_pages.py --all)",
+      "Read(//home/devon/Downloads/**)",
+      "Bash(python3)",
+      "WebFetch(domain:www.foreverpartyrentals.com)"
+    ]
+  }
+}

@@ -1,0 +1,446 @@
+{
+  "_comment": "Forever Party Rentals — SKU-level product catalog for /product-<slug>.html pages. Sprint 3.10 of the competitor-gap plan. Pairs with sku_template.html + generate_sku_pages.py. Each SKU ALSO links to top-9 product-per-city pages to flow PageRank into the geo-silo we already built.",
+  "_schema": {
+    "key": "URL slug (becomes product-<key>.html)",
+    "name": "Human-readable product name (H1 + <title>)",
+    "category": "One of: tent, chair, table, dance-floor — must match a key in products.json so we can render breadcrumbs + sibling cards + category links consistently",
+    "heroImage": "Squarespace CDN URL — reuse paths already catalogued in products.json; don't fabricate",
+    "heroAlt": "Accessible alt text",
+    "metaDescription": "<= 155 chars — used for <meta description> + OG + Twitter",
+    "shortDescription": "One-sentence pitch under the H1 in the hero",
+    "longDescription": "1-2 paragraph product story shown in the intro section. Plain text (no HTML).",
+    "specs": "[{label, value}] rows rendered in the spec sheet",
+    "startingPriceCAD": "Numeric anchor in CAD — used for 'Starting at $X' + Offer.price schema",
+    "priceUnit": "day | event — controls the /day vs /event suffix",
+    "priceRange": "Formatted string for LocalBusiness.priceRange — keep tight to this SKU's actual band",
+    "bullets": "5 selling bullets shown on-page",
+    "topCityLinks": "9 city slugs to link into (tier-1 first). Renderer looks up the correct product-per-city URL via category + city slug"
+  },
+  "_priceNote": "Prices are conservative public anchors derived from the competitor-research document at site/_build/competitor_research.md (Rowe 10×10 popups $105-155; Rowe marquee baseline $275-450; Pedersen bundled chair ~$15.90 from SERPs; Celebration delivery $70 Coquitlam). Forever retail-to-public pricing may differ — confirm with operator before launch. Single source of truth; update here and regenerate.",
+  "topCityLinksDefault": [
+    "surrey", "vancouver", "langley", "burnaby",
+    "richmond", "abbotsford", "coquitlam", "north-vancouver", "maple-ridge"
+  ],
+  "products": {
+    "white-chiavari-chair": {
+      "key": "white-chiavari-chair",
+      "name": "White Chiavari Chair Rental",
+      "category": "chair",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/50e58759-c6e7-49e1-a736-547ff66283b8/white-chiavari-chair-rentals-surrey-langley-abbotsford.jpg",
+      "heroAlt": "White Chiavari chair rentals for weddings — Forever Party Rentals",
+      "metaDescription": "White Chiavari chair rentals across Metro Vancouver. From $4/day, delivered & stacked. Individually cleaned, wedding-reception ready. Book online 24/7.",
+      "shortDescription": "The reception-standard white Chiavari chair with soft ivory cushion — delivered, stacked, and placed to your floor plan.",
+      "longDescription": "Forever Party Rentals stocks a full inventory of White Chiavari chairs — the wedding-reception standard across the Lower Mainland. Every chair is individually wiped, inspected, and stacked before it leaves our Surrey warehouse; no scuffed legs, no cracked spindles, no torn cushions. Our crew delivers, places them to your floor plan (ceremony rows, round-table seating, or mixed configurations), and collects at end of event — no setup surcharge when bundled with delivery. Mix with Fanback folding or Resin Garden chairs in the same order for outdoor-ceremony / indoor-reception setups; no mixing fee.",
+      "specs": [
+        {"label": "Colour", "value": "White with ivory cushion"},
+        {"label": "Material", "value": "Resin frame, fabric cushion"},
+        {"label": "Weight capacity", "value": "Up to 500 lb"},
+        {"label": "Stackable", "value": "Yes, 10 high"},
+        {"label": "Dimensions", "value": "16\" W × 16\" D × 36\" H (17\" seat height)"},
+        {"label": "Minimum order", "value": "None — we stage 6 or 600"}
+      ],
+      "startingPriceCAD": 4.00,
+      "priceUnit": "day",
+      "priceRange": "$3–$4",
+      "bullets": [
+        "Classic white Chiavari — the wedding-reception standard",
+        "Individually cleaned and inspected before every event",
+        "Delivered, stacked, and placed to your floor plan",
+        "Pair with round or banquet tables in one quote",
+        "No mixing surcharge with Fanback or Garden chairs"
+      ]
+    },
+    "fanback-garden-chair": {
+      "key": "fanback-garden-chair",
+      "name": "Fanback Folding Chair Rental",
+      "category": "chair",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/157b8701-f36b-4250-9dc2-62b67e3c19f4/white-fanback-folding-chairs.jpg",
+      "heroAlt": "White Fanback folding chair rentals — Forever Party Rentals",
+      "metaDescription": "White Fanback folding chair rentals from $3.50/day. Durable, weather-ready, perfect for outdoor ceremonies and community events. Delivered across Metro Vancouver.",
+      "shortDescription": "Elegant white Fanback folding chairs — durable, weather-resistant, and perfect for outdoor ceremonies.",
+      "longDescription": "Our White Fanback folding chair is the workhorse choice for outdoor weddings, community events, graduations, and anywhere you need a beautiful chair that can handle Lower Mainland weather. The fan-pattern back is lightweight but rigid, stacks 10 high, and wipes clean between events. We deliver them flat-packed and our crew unfolds and stages to your ceremony layout, then collects at end of event. Popular pairing: Fanback outside for the ceremony, Chiavari inside for the reception — both styles on one delivery.",
+      "specs": [
+        {"label": "Colour", "value": "White"},
+        {"label": "Material", "value": "Molded resin, aluminium hinge"},
+        {"label": "Weight capacity", "value": "Up to 500 lb"},
+        {"label": "Foldable", "value": "Yes — flat-pack delivery"},
+        {"label": "Dimensions", "value": "18\" W × 22\" D × 34\" H (17.5\" seat height)"},
+        {"label": "Use case", "value": "Outdoor ceremonies, community events, graduations"}
+      ],
+      "startingPriceCAD": 3.50,
+      "priceUnit": "day",
+      "priceRange": "$3–$4",
+      "bullets": [
+        "Elegant fan-pattern back — reads formal outdoors",
+        "Weather-resistant molded resin frame",
+        "Flat-pack delivery — crew unfolds and stages on-site",
+        "Pairs cleanly with Chiavari for indoor/outdoor events",
+        "Stack-drop available for pickup orders"
+      ]
+    },
+    "resin-garden-chair": {
+      "key": "resin-garden-chair",
+      "name": "Resin Garden Chair Rental",
+      "category": "chair",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/4ea13d04-bce7-4e68-9718-e38795773fbf/Garden+Chair+Rentals.jpg",
+      "heroAlt": "White resin garden chair rentals for outdoor events — Forever Party Rentals",
+      "metaDescription": "Resin garden chair rentals from $3/day across Metro Vancouver. Weather-resistant, stackable, ideal for outdoor weddings and backyard events. Book online 24/7.",
+      "shortDescription": "Durable, weather-resistant white garden chairs — our most affordable outdoor seating option.",
+      "longDescription": "The Resin Garden chair is our budget-forward outdoor seating option. Injection-moulded from UV-resistant white resin, it stands up to sun, rain, grass stakes, and rough handling — ideal for backyard weddings, poolside celebrations, beach ceremonies, and any large-volume outdoor event where Chiavari or Fanback pricing doesn't pencil. Stacks 15 high for efficient delivery; our crew lays them out to your floor plan or stack-drops on site for pickup orders. Cleaned and inspected before every rental.",
+      "specs": [
+        {"label": "Colour", "value": "White"},
+        {"label": "Material", "value": "UV-resistant moulded resin"},
+        {"label": "Weight capacity", "value": "Up to 300 lb"},
+        {"label": "Stackable", "value": "Yes, 15 high"},
+        {"label": "Dimensions", "value": "20\" W × 22\" D × 33\" H (18\" seat height)"},
+        {"label": "Use case", "value": "Backyard, poolside, beach, high-volume outdoor"}
+      ],
+      "startingPriceCAD": 3.00,
+      "priceUnit": "day",
+      "priceRange": "$3–$4",
+      "bullets": [
+        "Most affordable outdoor chair in our lineup",
+        "UV-resistant — handles sun and rain alike",
+        "Stacks 15 high — efficient for large orders",
+        "Delivered, placed, and collected by our crew",
+        "Cleaned and inspected before every event"
+      ]
+    },
+    "round-table-5ft": {
+      "key": "round-table-5ft",
+      "name": "5ft Round Table Rental",
+      "category": "table",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/7019daee-1743-44b3-afd8-fb5fd311925d/5ft+round+tables.jpg",
+      "heroAlt": "5ft round table rentals for wedding receptions — Forever Party Rentals",
+      "metaDescription": "5ft round table rentals from $10/day. Seats 8 comfortably. The classic wedding-reception configuration — delivered and set up across Metro Vancouver.",
+      "shortDescription": "The classic 5-foot round — seats 8 comfortably and the most-booked reception table in our inventory.",
+      "longDescription": "Our 5-foot round table is the most-requested reception configuration across Lower Mainland weddings. Seats 8 guests comfortably (10 at a squeeze) and gives centerpieces enough real estate to breathe. Plywood top with folding steel legs — lightweight enough to restage quickly, rigid enough to handle a full place setting and floral arrangement. Every table is wiped and inspected before loading; our crew unfolds and positions each one to your floor plan at no extra charge. Pair with Chiavari chairs and a 20×40 marquee tent for a complete 100-guest reception.",
+      "specs": [
+        {"label": "Diameter", "value": "60\" (5 ft)"},
+        {"label": "Height", "value": "30\" (seated)"},
+        {"label": "Seats", "value": "8 comfortably · 10 tight"},
+        {"label": "Material", "value": "Plywood top, steel folding legs"},
+        {"label": "Folds", "value": "Yes — compact for transport"},
+        {"label": "Use case", "value": "Wedding receptions, corporate dinners, galas"}
+      ],
+      "startingPriceCAD": 10.00,
+      "priceUnit": "day",
+      "priceRange": "$10–$15",
+      "bullets": [
+        "Seats 8 comfortably — the wedding-reception workhorse",
+        "Wiped and inspected before every event",
+        "Crew unfolds and positions to your floor plan",
+        "Bundle with Chiavari chairs + marquee tent for one quote",
+        "Classic 30\" seated height — fits any linen"
+      ]
+    },
+    "banquet-table-6ft": {
+      "key": "banquet-table-6ft",
+      "name": "6ft Banquet Table Rental",
+      "category": "table",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/2250304b-d667-430b-b756-cc7a0c5ae5b4/6ftrectangulartables.jpg",
+      "heroAlt": "6ft rectangular banquet table rentals — Forever Party Rentals",
+      "metaDescription": "6ft rectangular banquet table rentals from $10/day. Seats 6-8, the most versatile event table. Delivered, set up, and collected across Metro Vancouver.",
+      "shortDescription": "The most versatile table in our inventory — 6ft banquet, seats 6-8, works for anything.",
+      "longDescription": "If you can only rent one type of table, rent this one. The 6-foot rectangular banquet table is the single most versatile SKU in event rentals — family-style dining rows, buffet stations, gift tables, DJ booths, bar setups, registration desks, head tables. Seats 6-8 guests depending on end-seating. Plywood top, folding steel legs, weighs under 75 lb so our crew can restage quickly. Wiped and inspected before every rental; linens available through our preferred partners if you need them coordinated.",
+      "specs": [
+        {"label": "Dimensions", "value": "72\" L × 30\" W × 30\" H"},
+        {"label": "Seats", "value": "6 no end seats · 8 with end seats"},
+        {"label": "Weight", "value": "Under 75 lb — easy to restage"},
+        {"label": "Material", "value": "Plywood top, steel folding legs"},
+        {"label": "Folds", "value": "Yes — compact for transport"},
+        {"label": "Use case", "value": "Dining rows, buffet, head table, bar, DJ, registration"}
+      ],
+      "startingPriceCAD": 10.00,
+      "priceUnit": "day",
+      "priceRange": "$10–$15",
+      "bullets": [
+        "Most versatile event table — 6-8 guests",
+        "Family-style, buffet, bar, DJ, head table — all covered",
+        "Under 75 lb — easy to restage mid-event",
+        "Wiped and inspected before every rental",
+        "Linen coordination through our partners"
+      ]
+    },
+    "cocktail-table": {
+      "key": "cocktail-table",
+      "name": "Cocktail Highboy Table Rental",
+      "category": "table",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+      "heroAlt": "Cocktail highboy table rentals for networking events — Forever Party Rentals",
+      "metaDescription": "Cocktail highboy table rentals from $15/day. Standing-height tables for networking, pre-dinner mingling, and wedding receptions. Delivered across Metro Vancouver.",
+      "shortDescription": "Standing-height highboys for networking, pre-dinner mingling, and reception bars.",
+      "longDescription": "Highboy cocktail tables are the quiet superstar of any corporate or wedding reception — they create natural mingling spots, break up a room's sightlines, and give guests somewhere to park a drink without committing to a chair. We stock 42\"-tall round highboys with folding legs for quick staging. Pair them with bistro lighting for an instant pre-dinner zone; most customers rent 1 highboy per 10-12 standing guests. Spandex covers available through our linen partners.",
+      "specs": [
+        {"label": "Height", "value": "42\" (standing)"},
+        {"label": "Diameter", "value": "30\" round top"},
+        {"label": "Material", "value": "Plywood top, steel folding legs"},
+        {"label": "Ratio", "value": "~1 highboy per 10-12 standing guests"},
+        {"label": "Covers", "value": "Spandex covers via partner"},
+        {"label": "Use case", "value": "Cocktail hour, networking, pre-dinner, bar stations"}
+      ],
+      "startingPriceCAD": 15.00,
+      "priceUnit": "day",
+      "priceRange": "$10–$15",
+      "bullets": [
+        "Standing-height — perfect for mingling + networking",
+        "1 highboy per 10-12 guests is the rule of thumb",
+        "Pairs beautifully with bistro string lighting",
+        "Folds for compact transport",
+        "Spandex covers available on request"
+      ]
+    },
+    "popup-tent-10x10": {
+      "key": "popup-tent-10x10",
+      "name": "10x10 Popup Tent Rental",
+      "category": "tent",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/94b9727a-0953-4858-b5ac-f836975ed4b6/Tent+Rentals+Langley.png",
+      "heroAlt": "10x10 popup tent rental for small events — Forever Party Rentals",
+      "metaDescription": "10x10 popup tent rentals from $120/day. Quick-set canopies for intimate gatherings, markets, and short-notice needs. Delivery or pickup across Metro Vancouver.",
+      "shortDescription": "Easy-set 10×10 canopy — the right call for small gatherings, market stalls, and short-notice needs.",
+      "longDescription": "Not every event needs a 40-foot marquee. The 10×10 popup tent is our quick-set canopy — ideal for small backyard gatherings (covers ~20 standing or 1 six-foot table), market stalls, vendor booths at community events, and any situation where you need shelter up in under 30 minutes. Rent it with delivery-and-setup or pick it up from our Surrey warehouse if you'd rather stage it yourself. Available with optional sidewalls and weighted-ballast kits for pavement installs.",
+      "specs": [
+        {"label": "Footprint", "value": "10 ft × 10 ft (100 sq ft)"},
+        {"label": "Peak height", "value": "~9 ft"},
+        {"label": "Capacity", "value": "~20 standing · 1 six-foot table seated"},
+        {"label": "Frame", "value": "Collapsible aluminium scissor-frame"},
+        {"label": "Setup time", "value": "Under 30 min"},
+        {"label": "Options", "value": "Sidewalls, ballast weights, string lighting"}
+      ],
+      "startingPriceCAD": 120.00,
+      "priceUnit": "day",
+      "priceRange": "$120–$2400",
+      "bullets": [
+        "Quick-set — under 30 minutes from arrival to up",
+        "Covers 20 standing guests or one 6ft banquet table",
+        "Pickup or full delivery-and-setup both available",
+        "Sidewalls + weight kits for pavement installs",
+        "Popular for markets, vendor booths, small backyards"
+      ]
+    },
+    "marquee-tent-20x20": {
+      "key": "marquee-tent-20x20",
+      "name": "20x20 Marquee Tent Rental",
+      "category": "tent",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+      "heroAlt": "20x20 marquee tent rental — Forever Party Rentals",
+      "metaDescription": "20x20 marquee tent rentals from $400/event. Seats up to 40 guests, free-span aluminium frame, engineered for Lower Mainland weather. Delivered and set up by our crew.",
+      "shortDescription": "Intimate 20×20 marquee — seats up to 40 guests under an engineered free-span frame.",
+      "longDescription": "The 20×20 marquee is our smallest 'real' event tent — a high-peak aluminium free-span frame with solid sidewalls, proper tie-downs, and no centre pole. Seats 40 guests at round tables or 48 at banquet rows, with room for a head table and a small dance floor. Our crew delivers, anchors (stakes or ballast based on surface), installs sidewalls, and returns for end-of-event takedown. This is the tent for intimate backyard weddings, small corporate lunches, and milestone celebrations that don't need a cathedral.",
+      "specs": [
+        {"label": "Footprint", "value": "20 ft × 20 ft (400 sq ft)"},
+        {"label": "Peak height", "value": "~14 ft"},
+        {"label": "Seated capacity", "value": "40 round-table · 48 banquet"},
+        {"label": "Frame", "value": "Free-span aluminium — no centre pole"},
+        {"label": "Sidewalls", "value": "Included"},
+        {"label": "Anchoring", "value": "Stakes (grass) or ballast (pavement)"}
+      ],
+      "startingPriceCAD": 400.00,
+      "priceUnit": "event",
+      "priceRange": "$120–$2400",
+      "bullets": [
+        "Free-span aluminium frame — no centre pole",
+        "Seats 40 round-table, 48 banquet",
+        "Sidewalls + tie-downs included",
+        "Anchors to grass, pavement, or mixed surfaces",
+        "Crew installs and collects — no DIY"
+      ]
+    },
+    "marquee-tent-20x40": {
+      "key": "marquee-tent-20x40",
+      "name": "20x40 Marquee Tent Rental",
+      "category": "tent",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+      "heroAlt": "20x40 marquee tent rental for weddings — Forever Party Rentals",
+      "metaDescription": "20x40 marquee tent rentals from $700/event. Seats 80 round-table or 100 banquet — the most-booked wedding tent in our inventory. Delivered and set up.",
+      "shortDescription": "The most-booked wedding tent in our inventory — seats 80 round-table or 100 banquet.",
+      "longDescription": "If you're planning a wedding for 80-100 guests, the 20×40 is almost certainly the tent. Free-span frame (no centre pole to design around), solid sidewalls, and enough floor for a head table + round tables + a 12×12 dance floor without feeling cramped. We've staked this tent at wineries, staged it on golf-course greens, and ballasted it on stamped concrete patios across the Lower Mainland. Delivery, anchoring, sidewall install, and takedown are all included — you don't touch anything.",
+      "specs": [
+        {"label": "Footprint", "value": "20 ft × 40 ft (800 sq ft)"},
+        {"label": "Peak height", "value": "~15 ft"},
+        {"label": "Seated capacity", "value": "80 round · 100 banquet · 100+ with dance floor"},
+        {"label": "Frame", "value": "Free-span aluminium"},
+        {"label": "Sidewalls", "value": "Solid panel — included"},
+        {"label": "Bundled floor", "value": "Fits 12×12 dance floor + head table"}
+      ],
+      "startingPriceCAD": 700.00,
+      "priceUnit": "event",
+      "priceRange": "$120–$2400",
+      "bullets": [
+        "Seats 80 round-table, 100 banquet",
+        "Fits a 12×12 dance floor without cramping",
+        "Free-span frame — design without a centre pole",
+        "Most-booked tent in our inventory",
+        "Delivery, setup, sidewalls, takedown all included"
+      ]
+    },
+    "marquee-tent-20x60": {
+      "key": "marquee-tent-20x60",
+      "name": "20x60 Marquee Tent Rental",
+      "category": "tent",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+      "heroAlt": "20x60 marquee tent rental for large weddings — Forever Party Rentals",
+      "metaDescription": "20x60 marquee tent rentals from $1050/event. Seats 120 round-table or 150 banquet with room for dance floor + head table. Delivered and set up by our crew.",
+      "shortDescription": "The 120-150 guest workhorse — seats a large wedding with room for dance floor, head table, and catering.",
+      "longDescription": "When your guest list creeps past 100 and the 20×40 starts feeling cramped, the 20×60 is the natural step up. Same free-span aluminium frame, same solid sidewalls, same install flow — just 50% more floor. Plenty of room for 120 seated at rounds with a dance floor, or 150 at banquet rows, or a traditional ceremony-then-reception flip. Heaters and bistro lighting bolt in cleanly. Delivery, anchoring, sidewall install, and takedown all included.",
+      "specs": [
+        {"label": "Footprint", "value": "20 ft × 60 ft (1200 sq ft)"},
+        {"label": "Peak height", "value": "~15 ft"},
+        {"label": "Seated capacity", "value": "120 round · 150 banquet"},
+        {"label": "Frame", "value": "Free-span aluminium"},
+        {"label": "Sidewalls", "value": "Solid panel — included"},
+        {"label": "Add-ons", "value": "Heaters, bistro lights, dance floor bundle"}
+      ],
+      "startingPriceCAD": 1050.00,
+      "priceUnit": "event",
+      "priceRange": "$120–$2400",
+      "bullets": [
+        "120 round-table or 150 banquet — the large-wedding workhorse",
+        "Room for dance floor + head table + catering prep",
+        "Heaters and bistro lighting bolt straight in",
+        "Free-span aluminium — no centre pole",
+        "Full install + takedown included"
+      ]
+    },
+    "marquee-tent-40x80": {
+      "key": "marquee-tent-40x80",
+      "name": "40x80 Marquee Tent Rental",
+      "category": "tent",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+      "heroAlt": "40x80 marquee tent rental for large events and galas — Forever Party Rentals",
+      "metaDescription": "40x80 marquee tent rentals from $2400/event. Seats 250+ with full dance floor and head table — our largest frame tent. Delivered and set up.",
+      "shortDescription": "Our largest frame tent — 300+ guests with full dance floor and staging.",
+      "longDescription": "The 40×80 is our largest standard frame tent — 3200 square feet of clearspan, 18-foot peaks, and enough room for 300+ seated guests plus a large dance floor, staging, and a full catering line. We stage this one for large galas, multi-day festivals, and weddings where the guest list is north of 250. Crew install takes most of a day; plan backwards from your event start time. Pair with heaters and bistro lights for a fully dressed space, or leave it clean for custom draping and uplighting.",
+      "specs": [
+        {"label": "Footprint", "value": "40 ft × 80 ft (3200 sq ft)"},
+        {"label": "Peak height", "value": "~18 ft"},
+        {"label": "Seated capacity", "value": "300+ with dance floor and staging"},
+        {"label": "Frame", "value": "Free-span aluminium — clearspan"},
+        {"label": "Install", "value": "Plan a full crew-day ahead of event"},
+        {"label": "Best for", "value": "Galas, festivals, 250+ weddings, multi-day events"}
+      ],
+      "startingPriceCAD": 2400.00,
+      "priceUnit": "event",
+      "priceRange": "$120–$2400",
+      "bullets": [
+        "Our largest frame tent — 300+ seated",
+        "Room for dance floor, staging, and full catering",
+        "Clearspan 3200 sq ft — no interior poles",
+        "Ideal for galas, festivals, large weddings",
+        "Crew takes most of a day to install — plan ahead"
+      ]
+    },
+    "black-white-dance-floor": {
+      "key": "black-white-dance-floor",
+      "name": "Black & White Checkered Dance Floor Rental",
+      "category": "dance-floor",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/4ea40662-954d-44de-98db-a524d3b842e4/BLACK-AND-WHITE-DANCE-FLOOR-JERRY-HAYES.webp",
+      "heroAlt": "Black and white checkered dance floor rental — Forever Party Rentals",
+      "metaDescription": "Black & white checkered dance floor rentals from $800/event. Professional subfloor levels over grass, carpet, or tent flooring. Sizes 12x12 to 20x20.",
+      "shortDescription": "Our signature checkered floor — professionally levelled, installed, and collected.",
+      "longDescription": "The black-and-white checkered dance floor is our signature rental — an interlocking panel system on an engineered subfloor that levels cleanly across grass, carpet, or any uneven surface. Sizes scale from 12×12 (50 guests) up to 20×20 (200+ dancers). Our crew stages the floor first — before florals, staging, or head tables build around it — and levels every panel before the first guest arrives. End-of-night takedown is included. Pair with a 20×40 marquee and you have a full reception package in one delivery.",
+      "specs": [
+        {"label": "Size options", "value": "12×12 · 15×15 · 18×18 · 20×20"},
+        {"label": "Capacity rule", "value": "~4.5 sq ft per active dancer"},
+        {"label": "Surface", "value": "Interlocking black-and-white panels"},
+        {"label": "Subfloor", "value": "Included — levels over grass, carpet, pavement"},
+        {"label": "Install time", "value": "60-90 min for standard 15×15"},
+        {"label": "Takedown", "value": "Included — post-event"}
+      ],
+      "startingPriceCAD": 800.00,
+      "priceUnit": "event",
+      "priceRange": "$800–$1600",
+      "bullets": [
+        "Classic checkered finish — photographs beautifully",
+        "Engineered subfloor levels over any surface",
+        "Scales from 50-guest intimate to 200+ gala",
+        "Crew installs before room dressing begins",
+        "End-of-night takedown included"
+      ]
+    },
+    "tent-heater": {
+      "key": "tent-heater",
+      "name": "Tent Heater Rental",
+      "category": "tent",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+      "heroAlt": "Propane tent heater rental for cold-weather events — Forever Party Rentals",
+      "metaDescription": "Propane tent heater rentals from $65/day. Safe for enclosed marquees, rated for Lower Mainland spring/fall evenings. Delivered with every tent booking.",
+      "shortDescription": "Safe propane tent heaters — rated for enclosed marquees through fall and spring evenings.",
+      "longDescription": "A marquee tent without heat is a spring problem waiting to happen. Our propane tent heaters are rated for enclosed sidewalled marquees and deliver steady heat across a 20×40 without hot-spotting. Each heater ships with tank, regulator, and safe placement instructions; our crew positions and fires it during tent install. Rule of thumb: one heater per 20×20 of covered space, two for a 20×40, three for a 20×60. Add them to any tent booking — we load them on the same truck.",
+      "specs": [
+        {"label": "Fuel", "value": "Propane — tank + regulator included"},
+        {"label": "Coverage", "value": "~400 sq ft per heater (spring/fall)"},
+        {"label": "Rating", "value": "Safe for enclosed sidewalled marquees"},
+        {"label": "Output", "value": "Steady heat, no hot spots"},
+        {"label": "Install", "value": "Positioned and fired during tent setup"},
+        {"label": "Rule of thumb", "value": "1 per 20×20 · 2 per 20×40 · 3 per 20×60"}
+      ],
+      "startingPriceCAD": 65.00,
+      "priceUnit": "day",
+      "priceRange": "$35–$65",
+      "bullets": [
+        "Propane — tank and regulator included",
+        "Rated for enclosed marquee tents",
+        "One heater covers ~400 sq ft in spring/fall",
+        "Positioned and fired by our crew",
+        "Add to any tent booking — same delivery"
+      ]
+    },
+    "bistro-string-lights": {
+      "key": "bistro-string-lights",
+      "name": "Bistro String Light Rental",
+      "category": "tent",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+      "heroAlt": "Bistro string light rental for tents and outdoor events — Forever Party Rentals",
+      "metaDescription": "Bistro string light rentals from $55/day. Warm cafe-style globe bulbs on heavy-gauge strand — installed inside tents or over patios. Delivered across Metro Vancouver.",
+      "shortDescription": "Warm cafe-style globe lights on heavy-gauge strand — the single best upgrade to any tent.",
+      "longDescription": "If you're renting a tent, rent bistro lights with it. A string of warm globe bulbs overhead is the single highest-impact visual upgrade we sell, and it's not close. We stock heavy-gauge commercial strand with warm-white globe bulbs, pre-sized for 20×40 and 20×60 marquees. Our crew runs the strand during tent install — tied off to the frame, clipped to sidewalls if needed, ready when guest service begins. Also available for pergolas, patios, and backyard events without a tent.",
+      "specs": [
+        {"label": "Bulb", "value": "Warm-white globe — cafe/bistro style"},
+        {"label": "Strand", "value": "Heavy-gauge commercial-rated"},
+        {"label": "Pre-sized", "value": "20×40 and 20×60 layouts in stock"},
+        {"label": "Non-tent use", "value": "Pergolas, patios, backyards"},
+        {"label": "Install", "value": "Run during tent setup by our crew"},
+        {"label": "Spares", "value": "Replacement bulbs included in every kit"}
+      ],
+      "startingPriceCAD": 55.00,
+      "priceUnit": "day",
+      "priceRange": "$35–$65",
+      "bullets": [
+        "Highest-impact visual upgrade to any tent",
+        "Warm-white globe bulbs — warm cafe feel",
+        "Heavy-gauge commercial-rated strand",
+        "Pre-sized for 20×40 and 20×60 marquees",
+        "Installed by our crew during tent setup"
+      ]
+    },
+    "tent-sidewall": {
+      "key": "tent-sidewall",
+      "name": "Tent Sidewall Rental",
+      "category": "tent",
+      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/94b9727a-0953-4858-b5ac-f836975ed4b6/Tent+Rentals+Langley.png",
+      "heroAlt": "Tent sidewall rental — solid and windowed panels for marquees",
+      "metaDescription": "Tent sidewall rentals from $35/day. Solid and cathedral-window panels for marquee tents — add weather protection to any booking. Installed by our crew.",
+      "shortDescription": "Solid and cathedral-window sidewalls — installed as an add-on to any marquee tent.",
+      "longDescription": "Every marquee we rent includes solid sidewalls as standard, but sidewalls can also be rented separately — for popup tents, for weather-swap panels, or for cathedral-window upgrades where you want natural light without exposing the space to wind. Panels clip cleanly to the frame; swap-in during install or mid-event if the weather changes. Available in solid white or cathedral-window style.",
+      "specs": [
+        {"label": "Styles", "value": "Solid white · Cathedral-window"},
+        {"label": "Fits", "value": "Our 10×10 popups + 20-series and 40-series marquees"},
+        {"label": "Install", "value": "Clip-on — swap in under 5 minutes"},
+        {"label": "Weather use", "value": "Rain, wind, cold — swap mid-event OK"},
+        {"label": "Included", "value": "Standard with 20×20+ marquees"},
+        {"label": "Add-on", "value": "Available for 10×10 popups + upgrades"}
+      ],
+      "startingPriceCAD": 35.00,
+      "priceUnit": "day",
+      "priceRange": "$35–$65",
+      "bullets": [
+        "Solid and cathedral-window options",
+        "Clip-on — mid-event swap is fine",
+        "Standard on 20-series+ marquees",
+        "Add to 10×10 popups for weather protection",
+        "Installed and swapped by our crew"
+      ]
+    }
+  }
+}
