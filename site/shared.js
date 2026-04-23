@@ -100,7 +100,19 @@ function buildNav() {
           <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents">Tent Rentals <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tents" role="menu" aria-label="Tent Rentals">
             <a role="menuitem" href="tents.html">All Tent Rentals</a>
-            <a role="menuitem" href="tents.html#popup">Tents For Pickup</a>
+            <div class="dropdown-sub">
+              <a role="menuitem" href="marquee-tent-rental-lowermainland-surrey-langley-vancouver.html" aria-haspopup="true">Marquee Tent Rental Lower Mainland <span class="dropdown-sub-caret" aria-hidden="true">▸</span></a>
+              <div class="subdropdown" role="menu" aria-label="Marquee Tent Sizes">
+                <a role="menuitem" href="product-marquee-tent-20x20.html">20×20 Marquee Tent</a>
+                <a role="menuitem" href="product-marquee-tent-20x30.html">20×30 Marquee Tent</a>
+                <a role="menuitem" href="product-marquee-tent-20x40.html">20×40 Marquee Tent</a>
+                <a role="menuitem" href="product-marquee-tent-20x60.html">20×60 Marquee Tent</a>
+                <a role="menuitem" href="product-marquee-tent-40x80.html">40×80 Marquee Tent</a>
+              </div>
+            </div>
+            <a role="menuitem" href="product-popup-tent-10x10.html">10×10 Popup Tent</a>
+            <a role="menuitem" href="product-tent-sidewall.html">Tent Sidewalls</a>
+            <a role="menuitem" href="product-tent-heater.html">Tent Heaters</a>
           </div>
         </div>
 
@@ -108,9 +120,9 @@ function buildNav() {
           <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs">Chair Rentals <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-chairs" role="menu" aria-label="Chair Rentals">
             <a role="menuitem" href="chairs.html">All Chair Rentals</a>
-            <a role="menuitem" href="chairs.html#chiavari">Chiavari Chairs</a>
-            <a role="menuitem" href="chairs.html#fanback">Fanback Chairs</a>
-            <a role="menuitem" href="chairs.html#garden">Resin Garden Chairs</a>
+            <a role="menuitem" href="product-white-chiavari-chair.html">Chiavari Chairs</a>
+            <a role="menuitem" href="product-fanback-garden-chair.html">Fanback Chairs</a>
+            <a role="menuitem" href="product-resin-garden-chair.html">Resin Garden Chairs</a>
           </div>
         </div>
 
@@ -118,9 +130,10 @@ function buildNav() {
           <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables">Table Rentals <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tables" role="menu" aria-label="Table Rentals">
             <a role="menuitem" href="tables.html">All Table Rentals</a>
-            <a role="menuitem" href="tables.html#banquet">8ft Banquet Tables</a>
-            <a role="menuitem" href="tables.html#round">Round Tables</a>
-            <a role="menuitem" href="tables.html#cocktail">Cocktail Tables</a>
+            <a role="menuitem" href="product-banquet-table-8ft.html">8ft Banquet Tables</a>
+            <a role="menuitem" href="product-banquet-table-6ft.html">6ft Banquet Tables</a>
+            <a role="menuitem" href="product-round-table-5ft.html">5ft Round Tables</a>
+            <a role="menuitem" href="product-cocktail-table.html">Cocktail Tables</a>
           </div>
         </div>
 
@@ -154,6 +167,7 @@ function buildNav() {
     <div class="nav-mobile" id="navMobile" role="menu" aria-label="Mobile navigation" hidden>
       <a role="menuitem" href="index.html">Home</a>
       <a role="menuitem" href="tents.html">Tent Rentals</a>
+      <a role="menuitem" href="marquee-tent-rental-lowermainland-surrey-langley-vancouver.html">Marquee Tent Rental Lower Mainland</a>
       <a role="menuitem" href="chairs.html">Chair Rentals</a>
       <a role="menuitem" href="tables.html">Table Rentals</a>
       <a role="menuitem" href="dance-floor.html">Dance Floor</a>
