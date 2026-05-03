@@ -8,6 +8,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KC35GGRQ');</script>
+<!-- End Google Tag Manager -->
+
 <meta charset="UTF-8"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -38,67 +46,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=5"/>
+<link rel="stylesheet" href="shared.css?v=16"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" media="print" onload="this.media='all'"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/css/datepicker-bs5.min.css" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/css/datepicker-bs5.min.css" integrity="sha384-4hMAtu0bBhcc6iK/j0zlvZY5p8yowLa3HbUIMx2eV8PHd13aDj3r0RK6+/HKaZT6" crossorigin="anonymous" media="print" onload="this.media='all'"/>
 <link rel="preload" as="script" href="https://embed-scripts-production.web.app/adelie-skeleton.js"/>
 <link rel="preload" as="script" href="https://embed-scripts-production.web.app/adelie-cart.js"/>
 <script src="https://embed-scripts-production.web.app/adelie-skeleton.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/js/datepicker-full.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/js/datepicker-full.min.js" integrity="sha384-Vn0xiUc12vxlhJvgdGKbK8mGesCKN5jyO+2jqsBW7B+VBOpI+mBb9psuN4eQ1qAT" crossorigin="anonymous" defer></script>
 <script src="https://embed-scripts-production.web.app/adelie-cart.js" defer></script>
-<script>window.orgId = "LvrymFxex6oslWCxcrEg";</script>
+<script>window.orgId = "{{ fpr.adelieOrgId }}";</script>
 
-{# ---- JSON-LD: LocalBusiness (NAP + geo + hours + rating + areaServed) ---- #}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": {{ (site_url ~ "/#localbusiness") | tojson }},
-  "name": "Forever Party Rentals",
-  "image": {{ product.heroImage | tojson }},
-  "logo": {{ logo_url | tojson }},
-  "url": {{ canonical_url | tojson }},
-  "telephone": "+1-778-990-7983",
-  "priceRange": "$3–$3600",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "9317 188 St",
-    "addressLocality": "Surrey",
-    "addressRegion": "BC",
-    "postalCode": "V4N 3V1",
-    "addressCountry": "CA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": {{ city.coords.lat }},
-    "longitude": {{ city.coords.lng }}
-  },
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "09:30",
-    "closes": "18:00"
-  }],
-  "areaServed": [
-    { "@type": "City", "name": {{ city.name | tojson }} }{% for n in city.neighborhoods %},
-    { "@type": "Place", "name": {{ (n ~ ", " ~ city.name ~ ", BC") | tojson }} }{% endfor %}
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "200",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "sameAs": [
-    "https://www.google.com/maps/place/Forever+Party+Rentals",
-    "https://www.instagram.com/foreverpartyrentals"
-  ]
-}
-</script>
-
-{# ---- JSON-LD: Service (product-specific, areaServed = city) ---- #}
+{# ---- JSON-LD: Service (product-specific, areaServed = city).
+   The canonical LocalBusiness entity is declared once on the homepage
+   (@id = "/#localbusiness"); every reference below resolves to it. ---- #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -165,7 +126,7 @@
       "@type": "ListItem",
       "position": 2,
       "name": {{ product.breadcrumbLabel | tojson }},
-      "item": {{ (site_url ~ "/" ~ product.categoryPage) | tojson }}
+      "item": {{ (site_url ~ "/" ~ (product.categoryPage | replace('.html', ''))) | tojson }}
     },
     {
       "@type": "ListItem",
@@ -179,9 +140,15 @@
 
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KC35GGRQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+{{ nav_html | safe }}
 <div class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="{{ product.categoryPage }}">{{ product.breadcrumbLabel }}</a><span>/</span>{{ city.name }}</div>
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/{{ product.categoryPage }}">{{ product.breadcrumbLabel }}</a><span>/</span>{{ city.name }}</div>
     <span class="eyebrow">{{ product.productName }} in {{ city.name }}</span>
     <h1>{{ city.name }} {{ product.productName }}</h1>
     <p>{{ tagline }}</p>
@@ -191,7 +158,7 @@
 <div class="trust-bar">
   <div class="container">
     <div class="trust-item">📅 Book Instantly Online</div>
-    <div class="trust-item">🚚 Delivery &amp; Setup Included</div>
+    <div class="trust-item">🚚 Delivery &amp; Setup Available</div>
     <div class="trust-item">✅ 25% Deposit to Secure</div>
     <div class="trust-item">🛡️ 125% Cancellation Guarantee</div>
   </div>
@@ -209,8 +176,8 @@
         {% if product.fromPriceCAD is defined %}
         <div style="display:inline-flex;align-items:baseline;gap:10px;margin:14px 0 4px;padding:10px 16px;background:var(--light);border-left:3px solid var(--gold);border-radius:2px">
           <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)">Starting from</span>
-          <span style="font-family:var(--serif);font-size:26px;font-weight:700;color:var(--green)">${{ '{:g}'.format(product.fromPriceCAD) }}</span>
-          <span style="font-size:12px;color:var(--muted)">{% if product.key == 'dance-floor' or product.key == 'tent' %}/ event{% else %}/ day{% endif %} · delivered &amp; set up</span>
+          <span style="font-family:var(--serif);font-size:26px;font-weight:700;color:var(--green)">${{ '%.2f' % product.fromPriceCAD }}</span>
+          <span style="font-size:12px;color:var(--muted)">{% if product.key == 'dance-floor' or product.key == 'tent' %}/ event{% else %}/ day{% endif %} · delivery &amp; setup available</span>
         </div>
         <p style="margin:6px 0 16px 0;font-size:13px;color:var(--muted)">{{ product.fromPriceLabel }}</p>
         {% endif %}
@@ -221,7 +188,7 @@
           <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> {{ b }}</li>
           {% endfor %}
         </ul>
-        <a href="rentals.html" class="btn btn-primary btn-lg">Check {{ city.name }} Availability</a>
+        <a href="/rentals.html" class="btn btn-primary btn-lg">Check {{ city.name }} Availability</a>
         <div style="margin-top:16px;font-size:13px;color:var(--muted)">Or call us: <a href="tel:778-990-7983" style="color:var(--green);font-weight:600">778-990-7983</a></div>
       </div>
     </div>
@@ -243,7 +210,7 @@
           {% if sc.tag %}<div class="card-tag">{{ sc.tag }}</div>{% endif %}
           <h3>{{ sc.name }}</h3>
           <p>{{ sc.description }}</p>
-          <a href="rentals.html" class="btn btn-primary" style="margin-top:12px">Book Now</a>
+          <a href="/rentals.html" class="btn btn-primary" style="margin-top:12px">Book Now</a>
         </div>
       </div>
       {% endfor %}
@@ -256,7 +223,7 @@
     <div class="section-header center">
       <span class="eyebrow">Service Area</span>
       <h2>Delivering {{ product.productName }} Across {{ city.name }}</h2>
-      <p>{{ city.driveTimeFromSurrey }}. Delivery and professional setup are included in every quote.</p>
+      <p>{{ city.driveTimeFromSurrey }}. Delivery and professional setup are available as add-on services — we'll quote them up front.</p>
     </div>
     <div class="split">
       <div>
@@ -287,30 +254,57 @@
     </div>
     <div class="grid-3">
       <div class="card">
-        <img class="card-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg" alt="Tent heater rental in {{ city.name }}" width="600" height="400" loading="lazy"/>
+        <img class="card-img" src="/images/hero/marquee-tents.webp" alt="Tent heater rental in {{ city.name }}" width="600" height="400" loading="lazy"/>
         <div class="card-body">
           <h3>Tent Heaters</h3>
           <p>Propane-fed forced-air heaters keep {{ city.name }} shoulder-season tents at banquet temperature, even through a coastal drizzle.</p>
           <p style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px">From $65 / event</p>
-          <a href="product-tent-heater.html" class="card-link">See Tent Heater Rentals →</a>
+          <a href="/product-tent-heater.html" class="card-link">See Tent Heater Rentals →</a>
         </div>
       </div>
       <div class="card">
-        <img class="card-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg" alt="Bistro string lights rental in {{ city.name }}" width="600" height="400" loading="lazy"/>
+        <img class="card-img" src="/images/hero/marquee-tents.webp" alt="Bistro string lights rental in {{ city.name }}" width="600" height="400" loading="lazy"/>
         <div class="card-body">
           <h3>Bistro String Lights</h3>
           <p>Warm-white overhead bistro lights turn any {{ city.name }} marquee into a wedding-magazine centerpiece once the sun drops.</p>
           <p style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px">From $55 / event</p>
-          <a href="product-bistro-string-lights.html" class="card-link">See Bistro Light Rentals →</a>
+          <a href="/product-bistro-string-lights.html" class="card-link">See Bistro Light Rentals →</a>
         </div>
       </div>
       <div class="card">
-        <img class="card-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg" alt="Tent sidewall rental in {{ city.name }}" width="600" height="400" loading="lazy"/>
+        <img class="card-img" src="/images/hero/marquee-tents.webp" alt="Tent sidewall rental in {{ city.name }}" width="600" height="400" loading="lazy"/>
         <div class="card-body">
           <h3>Tent Sidewalls</h3>
           <p>Solid or cathedral-window sidewalls close off the tent against wind and rain — a must for {{ city.name }} evening events.</p>
           <p style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px">From $35 / panel</p>
-          <a href="product-tent-sidewall.html" class="card-link">See Sidewall Rentals →</a>
+          <a href="/product-tent-sidewall.html" class="card-link">See Sidewall Rentals →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{# ---- Starlink upsell (battery & power station per-city pages only) ---- #}
+{% if product.key == 'battery-power-station' %}
+<section class="section">
+  <div class="container">
+    <div style="background:var(--green);color:#fff;border-radius:var(--radius);padding:48px 40px">
+      <div class="split" style="gap:40px;align-items:center">
+        <div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Starlink_dish_01.webp" alt="Starlink Standard Actuated dish rental in {{ city.name }}" style="width:100%;max-width:360px;height:auto;border-radius:var(--radius);background:#fff;padding:24px;margin:0 auto;display:block" loading="lazy" decoding="async" width="800" height="800"/>
+        </div>
+        <div>
+          <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600">Off-Grid Combo for {{ city.name }}</span>
+          <h2 style="color:#fff;margin:8px 0 12px 0">Need internet too? Pair with Starlink.</h2>
+          <p style="color:rgba(255,255,255,.85);margin:0 0 16px 0;font-size:15px;line-height:1.6">EcoFlow handles the silent power; Starlink covers the connectivity. A Standard Actuated kit pulls 50–75 W — your power station carries it all evening with capacity to spare. Plug-and-play satellite internet for {{ city.name }} off-grid weddings, festivals, and venues without fibre. <strong>Self-aligning dish · Roam (Canada + USA) · 100–200 Mbps · 25–50 ms latency.</strong></p>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;margin:0 0 24px 0;font-size:14px;color:rgba(255,255,255,.85)">
+            <li><span style="color:var(--gold);font-weight:700;margin-right:8px">✓</span>Zoom-grade internet at any {{ city.name }} venue with a clear view of the sky</li>
+            <li><span style="color:var(--gold);font-weight:700;margin-right:8px">✓</span>Same 2-day weekend / weekly rate structure — book together in one {{ city.name }} quote</li>
+            <li><span style="color:var(--gold);font-weight:700;margin-right:8px">✓</span>~5 minute setup — dish self-aligns, router broadcasts WiFi instantly</li>
+          </ul>
+          <a href="{{ starlink_city_url }}" class="btn btn-gold btn-lg">Add Starlink to Your {{ city.name }} Booking →</a>
+          <div style="margin-top:14px;font-size:13px;color:rgba(255,255,255,.7)">From <strong style="color:#fff">$145 / 2-day weekend</strong> · <a href="/product-starlink-standard-actuated.html" style="color:var(--gold);font-weight:600">View kit details →</a></div>
         </div>
       </div>
     </div>
@@ -346,7 +340,7 @@
     <div class="section-header center">
       <span class="eyebrow">Reviews</span>
       <h2 style="color:#fff">What Our {{ city.name }} Clients Say</h2>
-      <p>Part of 200+ five-star Google reviews from across the Lower Mainland.</p>
+      <p>Part of 150+ five-star Google reviews from across the Lower Mainland.</p>
     </div>
     <div class="grid-2" style="gap:20px">
       {% for t in testimonials %}
@@ -405,12 +399,13 @@
     <h2>Ready to Book {{ product.productName }} in {{ city.name }}?</h2>
     <p>Check live availability and book online 24/7 — or call us any day of the week.</p>
     <div class="btn-row">
-      <a href="rentals.html" class="btn btn-gold btn-lg">Book Online — 24/7</a>
-      <a href="contact.html" class="btn btn-outline-white btn-lg">Contact Us</a>
+      <a href="/rentals.html" class="btn btn-gold btn-lg">Book Online — 24/7</a>
+      <a href="/contact.html" class="btn btn-outline-white btn-lg">Contact Us</a>
     </div>
   </div>
 </div>
-<script src="shared.js"></script>
+{{ footer_html | safe }}
+<script src="shared.js?v=13"></script>
 <!-- lastmod: {{ lastmod }} -->
 </body>
 </html>

@@ -1,0 +1,19 @@
+# Forever Party Rentals — Netlify deployment config
+#
+# pretty_urls is DISABLED. Canonical URL form is *.html (matches sitemap.xml,
+# canonical tags, and 98% of internal links). With pretty_urls disabled,
+# Netlify will 301-redirect /foo → /foo.html (consolidating signals to
+# the canonical), instead of serving both forms with 200 (duplicate content).
+#
+# The 200! rewrites at the top of site/_redirects keep /rentals and
+# /checkout addressable without .html (they're aliases to the canonical
+# .html paths) — those are evaluated before Netlify's HTML processing.
+
+[build]
+  publish = "site"
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = false
