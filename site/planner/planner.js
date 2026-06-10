@@ -190,6 +190,10 @@
   let clipboard = [];
   // Right-click context menu state.
   let contextMenuEl = null;
+  // Set by the touch long-press path: clicks landing within this window
+  // are the "ghost click" the browser fires after pointerup — swallow them
+  // so the menu item under the finger isn't activated by accident.
+  let contextMenuTouchGuardUntil = 0;
 
   // ── DOM refs (filled in init) ─────────────────────────────────────────
   let dom = {};
@@ -240,8 +244,11 @@
   function restoreSnapshot(s) {
     applyState(JSON.parse(s));
   }
-  function commit() {
-    history.push(snapshot());
+  // `snap` lets gesture code capture the snapshot at pointerdown but only
+  // push it onto the undo stack once the gesture actually changes state —
+  // a plain click-to-select shouldn't burn an undo step.
+  function commit(snap) {
+    history.push(snap || snapshot());
     if (history.length > HISTORY_MAX) history.shift();
     future.length = 0;
     scheduleAutoSave();
@@ -2810,7 +2817,7 @@
       `<option value="${t.key}"${t.key === item.key ? ' selected' : ''}>${t.label}</option>`
     ).join('');
     const chairOptHtml = chairOptions.map(c =>
-      `<option value="${c.key}"${c.key === currentChairKey ? ' selected' : ''}>${c.label} ($${c.priceCAD.toFixed(2)})</option>`
+      `<option value="${c.key}"${c.key === currentChairKey ? ' selected' : ''}>${c.label}${isExternalEmbed ? '' : ` ($${c.priceCAD.toFixed(2)})`}</option>`
     ).join('');
 
     host.hidden = false;
@@ -2953,8 +2960,9 @@
       longPressTimer = null;
       longPressStart = null;
     };
-    // Abandon any in-flight drag (restoring item positions — commit()
-    // already ran on pointerdown, so history stays consistent).
+    // Abandon any in-flight drag, restoring item positions. If the drag
+    // had already moved (commit ran on first movement) the restore leaves
+    // one no-op undo entry — harmless. Pre-movement cancels leave no trace.
     const cancelGestures = () => {
       if (moving) {
         for (const it of state.items) {
@@ -2976,6 +2984,12 @@
       if (e.button !== 0 && e.button !== 1) return;
 
       activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (e.pointerType === 'touch') {
+        // Capture on the SVG itself (never re-rendered away) so
+        // pointerup/pointercancel always reach our listeners — otherwise a
+        // finger lifted outside leaves pinch/long-press state stuck.
+        try { dom.svg.setPointerCapture(e.pointerId); } catch (err) { /* already captured */ }
+      }
       if (e.pointerType === 'touch' && activePointers.size === 2) {
         // Second finger lands: abandon the one-finger gesture, start pinch.
         clearLongPress();
@@ -2999,15 +3013,27 @@
           const at = longPressStart;
           clearLongPress();
           cancelGestures();
+          contextMenuTouchGuardUntil = performance.now() + 400;
           openContextMenuAt(at.x, at.y, at.target);
         }, 500);
       }
 
-      // Read-only mode: only allow pan (Space+drag, middle, Alt+drag);
-      // suppress all editing pointerdown paths.
+      // Read-only mode: only allow pan — Space+drag, middle, Alt+drag,
+      // and ANY touch drag (a phone viewer has no modifier keys, so touch
+      // IS the pan gesture); suppress all editing pointerdown paths.
       if (isReadonly) {
-        const wantsPan = e.button === 1 || spaceDown || e.altKey;
+        const wantsPan = e.button === 1 || spaceDown || e.altKey || e.pointerType === 'touch';
         if (!wantsPan) return;
+        if (e.pointerType === 'touch') {
+          e.preventDefault();
+          panning = {
+            startX: e.clientX, startY: e.clientY,
+            panStartX: state.view.panX, panStartY: state.view.panY,
+          };
+          dom.canvas.classList.add('pl-panning');
+          dom.svg.setPointerCapture(e.pointerId);
+          return;
+        }
       }
 
       // Polygon-draw mode: every left-click adds a vertex (or closes if
@@ -3122,8 +3148,9 @@
         for (const it of state.items) {
           if (idsToMove.has(it.id)) starts.set(it.id, { x: it.x, y: it.y });
         }
-        moving = { ids: idsToMove, startWX: w.x, startWY: w.y, starts, didDrag: false };
-        commit();
+        // Snapshot now, commit lazily on first real movement — plain
+        // click-to-select must not burn an undo step.
+        moving = { ids: idsToMove, startWX: w.x, startWY: w.y, starts, didDrag: false, pendingSnap: snapshot() };
         dom.svg.setPointerCapture(e.pointerId);
         // Bring touched items to top of z-order so they paint above peers
         // during the drag (purely cosmetic — render order is shape-grouped).
@@ -3248,7 +3275,10 @@
           dx = Math.round(dx * 4) / 4;
           dy = Math.round(dy * 4) / 4;
         }
-        if (Math.abs(dx) + Math.abs(dy) > 0) moving.didDrag = true;
+        if (!moving.didDrag && Math.abs(dx) + Math.abs(dy) > 0) {
+          moving.didDrag = true;
+          commit(moving.pendingSnap); // first real movement — now it's undoable
+        }
         for (const it of state.items) {
           const start = moving.starts.get(it.id);
           if (!start) continue;
@@ -3348,6 +3378,7 @@
     // Polygon-finish: native dblclick fires after the second pointerdown,
     // so the second click is already added as a vertex; drop it first.
     dom.svg.addEventListener('dblclick', e => {
+      if (isReadonly) return;
       if (drawingPolygon) {
         e.preventDefault();
         if (drawingPolygon.vertices.length >= 4) {
@@ -3613,6 +3644,7 @@
     if (r.bottom > window.innerHeight) el.style.top  = (window.innerHeight - r.height - 8) + 'px';
     // One-shot click handler.
     el.onclick = (e) => {
+      if (performance.now() < contextMenuTouchGuardUntil) return; // long-press ghost click
       const btn = e.target.closest('.pl-context-item');
       if (!btn) return;
       const idx = parseInt(btn.dataset.idx, 10);
@@ -3682,6 +3714,7 @@
   // Edit an existing label's text. Recomputes the per-instance bbox so
   // selection halos / drag math stay accurate.
   function editLabel(id) {
+    if (isReadonly) return;
     const item = state.items.find(it => it.id === id);
     if (!item || item.key !== 'text-label') return;
     plPrompt('Edit label:', item.text || '', { okLabel: 'Save' }).then(next => {
@@ -5036,6 +5069,7 @@
     if (wizardEl) { wizardEl.remove(); wizardEl = null; }
   }
   function openWizard(source) {
+    if (isReadonly) return;
     if (!window.FPRLayoutGen) {
       showToast('Auto-planner unavailable right now — try a template instead.', 3000);
       return;
@@ -5108,7 +5142,7 @@
               <div class="pl-wizard-chair-row">
                 <label for="plWizChair">Chairs</label>
                 <select id="plWizChair" class="pl-inspector-select">
-                  ${chairOptions.map(c => `<option value="${c.key}"${c.key === opts.chairKey ? ' selected' : ''}>${c.label} ($${c.priceCAD.toFixed(2)})</option>`).join('')}
+                  ${chairOptions.map(c => `<option value="${c.key}"${c.key === opts.chairKey ? ' selected' : ''}>${c.label}${isExternalEmbed ? '' : ` ($${c.priceCAD.toFixed(2)})`}</option>`).join('')}
                 </select>
               </div>
             </div>
@@ -5131,7 +5165,7 @@
             <div class="pl-modal pl-wizard-modal" role="dialog" aria-modal="true">
               <div class="pl-modal-body">
                 <div class="pl-wizard-title">That's a big event!</div>
-                <p class="pl-wizard-summary">${(rec.notes && rec.notes[0]) || "We couldn't auto-fit that combination."} Call us at 778-990-7983 and we'll plan it with you.</p>
+                <p class="pl-wizard-summary">${(rec.notes && rec.notes[0]) || "We couldn't auto-fit that combination."} ${isExternalEmbed ? 'Try fewer guests or a different style.' : "Call us at 778-990-7983 and we'll plan it with you."}</p>
               </div>
               <div class="pl-modal-footer">
                 <button type="button" class="pl-btn" data-act="back">Back</button>
@@ -5388,6 +5422,15 @@
       menu.style.top  = (r.bottom + 4) + 'px';
       menu.style.left = r.left + 'px';
       menu.hidden = false;
+      // Clamp inside the viewport (small screens: the toolbar scrolls
+      // horizontally, so the button can sit near either edge).
+      const mr = menu.getBoundingClientRect();
+      if (mr.right > window.innerWidth) {
+        menu.style.left = Math.max(8, window.innerWidth - mr.width - 8) + 'px';
+      }
+      if (mr.bottom > window.innerHeight) {
+        menu.style.top = Math.max(8, window.innerHeight - mr.height - 8) + 'px';
+      }
     };
 
     btn.addEventListener('click', e => {
@@ -5726,6 +5769,11 @@
     // own quote forms. The "Powered by" backlink stays — that's the deal.
     if (isExternalEmbed) {
       document.body.classList.add('pl-lite');
+      // The ceremony modal's chair <option> labels carry FPR prices in the
+      // static HTML — CSS can't redact option text, so strip them here.
+      document.querySelectorAll('#plCerChair option').forEach(o => {
+        o.textContent = o.textContent.replace(/\s*\(\$[^)]*\)/, '');
+      });
     }
 
     // Embed-mode chrome: render the powered-by badge. Allowlisted partners
@@ -5859,7 +5907,10 @@
     // Live availability date picker (own-site mode; lite-mode CSS hides it)
     const eventDateInput = document.getElementById('plEventDate');
     if (eventDateInput) {
-      eventDateInput.min = new Date().toISOString().slice(0, 10);
+      // Local date, not toISOString (UTC) — after ~4pm Pacific the UTC
+      // date is tomorrow and "today" would be unselectable.
+      const now = new Date();
+      eventDateInput.min = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
       eventDateInput.addEventListener('change', checkAvailability);
     }
 
