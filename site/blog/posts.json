@@ -2,8 +2,8 @@
   "$schema": "./posts.schema.json",
   "meta": {
     "version": 1,
-    "lastUpdated": "2026-05-04",
-    "totalPosts": 23,
+    "lastUpdated": "2026-06-10",
+    "totalPosts": 24,
     "topics": {
       "sizing": {
         "label": "Tent Sizing & Planning",
@@ -309,6 +309,17 @@
       "author": "devon",
       "date": "2024-11-02",
       "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "best-free-event-layout-planners",
+      "topic": "compare",
+      "title": "The Best <em>Free</em> Event Layout Planners (2026)",
+      "h4": "7 Free Floor Plan Tools, Honestly Compared",
+      "excerpt": "Zola, WeddingWire, Canva, eventfloorplanner.com, TopTablePlanner, Centric Events, and ours — which free layout tools are actually free, actually to-scale, and honest about what happens after you draw.",
+      "author": "devon",
+      "date": "2026-06-10",
+      "read": 10,
       "status": "live"
     }
   ]

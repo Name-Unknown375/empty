@@ -200,6 +200,7 @@ else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
             <a role="menuitem" href="/product-popup-tent-10x10">10×10 Popup Tent</a>
             <a role="menuitem" href="/product-tent-sidewall">Tent Sidewalls</a>
             <a role="menuitem" href="/product-tent-heater">Tent Heaters</a>
+            <a role="menuitem" href="/tent-size-calculator">What Size Tent? — Calculator</a>
           </div>
         </div>
 
@@ -358,7 +359,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     (function () {
       var frame = document.querySelector('.planner-iframe-wrap iframe[data-src]');
       if (!frame) return;
-      var go = function () { frame.src = frame.getAttribute('data-src'); };
+      // Forward the hub query string into the embed: ?template=<id> and
+      // ?gen=<opts> deep links (calculator + landing pages) are read by
+      // planner.js from the iframe's OWN location.search. data-src never
+      // carries a query, so simple concatenation is safe.
+      var go = function () { frame.src = frame.getAttribute('data-src') + location.search; };
       var p = location.pathname.match(/^\/p\/(.*)$/);
       if (!p) { go(); return; }
       var fail = function () {

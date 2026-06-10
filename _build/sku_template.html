@@ -284,6 +284,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 {% endif %}
 
+{# ---- Tent size calculator callout (tent SKUs only) ---- #}
+{% if sku.category == 'tent' %}
+<section class="section section--light">
+  <div class="container" style="max-width:860px;text-align:center">
+    <span class="eyebrow">Not sure this is the right size?</span>
+    <h2>Get a Size Recommendation in 10 Seconds</h2>
+    <p style="max-width:560px;margin:0 auto 20px">Tell our free calculator your guest count and seating style — it recommends the tent, shows the layout to scale, and opens it in the planner so you can fine-tune.</p>
+    <a href="/tent-size-calculator" class="btn btn-primary btn-lg">Tent Size Calculator →</a>
+    <a href="/event-layout-planner" class="btn btn-outline btn-lg" style="margin-left:8px">Open the Layout Planner</a>
+  </div>
+</section>
+{% endif %}
+
 {# ---- City link grid — flows PageRank into the product×city geo-silo ---- #}
 <section class="section">
   <div class="container">

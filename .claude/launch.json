@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "fpr-site",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["_build/serve_local.py", "8765"],
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["_build/serve_local.mjs", "8765"],
       "port": 8765
     }
   ]

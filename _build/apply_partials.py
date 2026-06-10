@@ -76,6 +76,14 @@ HAND_AUTHORED = [
     # surface (event-layout-planner-embed.html) is intentionally NOT listed
     # here — it has no nav/footer by design.
     "event-layout-planner.html",
+    # Planner ecosystem pages (Phase 3): calculator, spacing reference,
+    # partner-embed pitch, and the three use-case landing pages.
+    "tent-size-calculator.html",
+    "event-spacing-guide.html",
+    "embed-the-planner.html",
+    "wedding-tent-layout-planner.html",
+    "backyard-party-layout-planner.html",
+    "corporate-event-layout-planner.html",
     # Capacity-guide landing pages — restored from 301s back to standalone
     # informational pages. Historical URLs that pulled position 5–6 on
     # high-volume informational queries; now serve a direct Q&A answer with
