@@ -1,10 +1,10 @@
 {
-  "_comment": "Forever Party Rentals \u2014 Event Layout Planner starter templates. Premium spacing standard: ~4 ft chair-pull-out / walk aisle between chair backs. Default chair is resin garden (1.67\u00d71.83 ft); banquet tables 6ft are vertical (rotation:90) with chairCount:6 (no end chairs) so head/foot joint overlap doesn't occur. Multi-tent layouts (100+ guests) use two or three smaller marquees adjacent \u2014 matches real-world event setups since the largest single catalog tent is 30\u00d760. Coordinates cx/cy are item centers in feet. Tables marked withChairs:true get auto-chair placement applied at load time via planner.js placeChairsAround(). chairCount on a table overrides the catalog default (used to limit chairs to long-sides-only for end-to-end runs or vertical stacking).",
+  "_comment": "Forever Party Rentals — Event Layout Planner starter templates. Premium spacing standard: ~4 ft chair-pull-out / walk aisle between chair backs. Default chair is resin garden (1.67×1.83 ft); banquet tables 6ft are vertical (rotation:90) with chairCount:6 (no end chairs) so head/foot joint overlap doesn't occur. Multi-tent layouts (100+ guests) use two or three smaller marquees adjacent — matches real-world event setups since the largest single catalog tent is 30×60. Coordinates cx/cy are item centers in feet. Tables marked withChairs:true get auto-chair placement applied at load time via planner.js placeChairsAround(). chairCount on a table overrides the catalog default (used to limit chairs to long-sides-only for end-to-end runs or vertical stacking).",
   "templates": [
     {
       "id": "intimate-wedding-20",
-      "label": "20-Guest Intimate Wedding \u00b7 head table",
-      "summary": "20\u00d720 marquee \u00b7 3 banquet tables end-to-end as one 18 ft head table (18 seats + standing toasts)",
+      "label": "20-Guest Intimate Wedding · head table",
+      "summary": "20×20 marquee · 3 banquet tables end-to-end as one 18 ft head table (18 seats + standing toasts)",
       "venue": {
         "widthFt": 24,
         "depthFt": 28
@@ -40,8 +40,8 @@
     },
     {
       "id": "wedding-50",
-      "label": "50-Guest Wedding \u00b7 long tables \u00b7 with dance floor",
-      "summary": "20\u00d740 marquee \u00b7 2 head-table pairs (48 seats) \u00b7 8\u00d78 dance floor",
+      "label": "50-Guest Wedding · long tables · with dance floor",
+      "summary": "20×40 marquee · 2 head-table pairs (48 seats) · 8×8 dance floor",
       "venue": {
         "widthFt": 28,
         "depthFt": 48
@@ -125,8 +125,8 @@
     },
     {
       "id": "wedding-50-no-dance",
-      "label": "50-Guest Wedding \u00b7 long tables \u00b7 no dance floor",
-      "summary": "20\u00d730 marquee \u00b7 2 head-table pairs (48 seats) \u00b7 cozy dinner layout",
+      "label": "50-Guest Wedding · long tables · no dance floor",
+      "summary": "20×30 marquee · 2 head-table pairs (48 seats) · cozy dinner layout",
       "venue": {
         "widthFt": 28,
         "depthFt": 36
@@ -205,8 +205,8 @@
     },
     {
       "id": "wedding-100",
-      "label": "100-Guest Wedding \u00b7 round tables \u00b7 with dance floor",
-      "summary": "Two 30\u00d760 marquees side-by-side \u00b7 12 round tables of 8 (96 seats) \u00b7 15\u00d715 dance floor",
+      "label": "100-Guest Wedding · round tables · with dance floor",
+      "summary": "Two 30×60 marquees side-by-side · 12 round tables of 8 (96 seats) · 15×15 dance floor",
       "venue": {
         "widthFt": 60,
         "depthFt": 70
@@ -303,8 +303,8 @@
     },
     {
       "id": "wedding-100-rect",
-      "label": "100-Guest Wedding \u00b7 long tables \u00b7 with dance floor",
-      "summary": "Two 30\u00d760 marquees side-by-side \u00b7 4 columns \u00d7 2 head-table pairs (96 seats) \u00b7 15\u00d715 dance floor",
+      "label": "100-Guest Wedding · long tables · with dance floor",
+      "summary": "Two 30×60 marquees side-by-side · 4 columns × 2 head-table pairs (96 seats) · 15×15 dance floor",
       "venue": {
         "widthFt": 60,
         "depthFt": 70
@@ -457,8 +457,8 @@
     },
     {
       "id": "wedding-100-no-dance",
-      "label": "100-Guest Wedding \u00b7 round tables \u00b7 no dance floor",
-      "summary": "Two 30\u00d760 marquees side-by-side \u00b7 12 round tables of 8 (96 seats) \u00b7 roomier dinner layout",
+      "label": "100-Guest Wedding · round tables · no dance floor",
+      "summary": "Two 30×60 marquees side-by-side · 12 round tables of 8 (96 seats) · roomier dinner layout",
       "venue": {
         "widthFt": 60,
         "depthFt": 70
@@ -550,8 +550,8 @@
     },
     {
       "id": "wedding-100-rect-no-dance",
-      "label": "100-Guest Wedding \u00b7 long tables \u00b7 no dance floor",
-      "summary": "20\u00d760 marquee \u00b7 2 columns \u00d7 4 head-table pairs (96 seats) \u00b7 efficient layout",
+      "label": "100-Guest Wedding · long tables · no dance floor",
+      "summary": "20×60 marquee · 2 columns × 4 head-table pairs (96 seats) · efficient layout",
       "venue": {
         "widthFt": 28,
         "depthFt": 70
@@ -694,8 +694,8 @@
     },
     {
       "id": "wedding-150",
-      "label": "150-Guest Wedding \u00b7 round tables \u00b7 with dance floor",
-      "summary": "Three marquees joined \u00b7 18 round tables of 8 (144 seats) \u00b7 18\u00d718 dance floor",
+      "label": "150-Guest Wedding · round tables · with dance floor",
+      "summary": "Three marquees joined · 18 round tables of 8 (144 seats) · 18×18 dance floor",
       "venue": {
         "widthFt": 80,
         "depthFt": 80
@@ -833,8 +833,8 @@
     },
     {
       "id": "wedding-150-rect",
-      "label": "150-Guest Wedding \u00b7 long tables \u00b7 with dance floor",
-      "summary": "Two 30\u00d760 marquees side-by-side \u00b7 4 columns \u00d7 3 head-table pairs (144 seats) \u00b7 15\u00d715 dance floor",
+      "label": "150-Guest Wedding · long tables · with dance floor",
+      "summary": "Two 30×60 marquees side-by-side · 4 columns × 3 head-table pairs (144 seats) · 15×15 dance floor",
       "venue": {
         "widthFt": 60,
         "depthFt": 70
@@ -1051,8 +1051,8 @@
     },
     {
       "id": "wedding-150-no-dance",
-      "label": "150-Guest Wedding \u00b7 round tables \u00b7 no dance floor",
-      "summary": "Three marquees joined \u00b7 18 round tables of 8 (144 seats) \u00b7 roomier dinner layout",
+      "label": "150-Guest Wedding · round tables · no dance floor",
+      "summary": "Three marquees joined · 18 round tables of 8 (144 seats) · roomier dinner layout",
       "venue": {
         "widthFt": 80,
         "depthFt": 80
@@ -1185,8 +1185,8 @@
     },
     {
       "id": "wedding-150-rect-no-dance",
-      "label": "150-Guest Wedding \u00b7 long tables \u00b7 no dance floor",
-      "summary": "Two 20\u00d760 marquees side-by-side \u00b7 4 columns \u00d7 3 head-table pairs (144 seats) \u00b7 efficient layout",
+      "label": "150-Guest Wedding · long tables · no dance floor",
+      "summary": "Two 20×60 marquees side-by-side · 4 columns × 3 head-table pairs (144 seats) · efficient layout",
       "venue": {
         "widthFt": 40,
         "depthFt": 70
@@ -1398,8 +1398,8 @@
     },
     {
       "id": "wedding-200",
-      "label": "200-Guest Wedding \u00b7 round tables \u00b7 with dance floor",
-      "summary": "Four 30\u00d760 marquees (2\u00d72 grid) \u00b7 25 round tables of 8 (200 seats) \u00b7 20\u00d720 dance floor",
+      "label": "200-Guest Wedding · round tables · with dance floor",
+      "summary": "Four 30×60 marquees (2×2 grid) · 25 round tables of 8 (200 seats) · 20×20 dance floor",
       "venue": {
         "widthFt": 60,
         "depthFt": 120
@@ -1584,8 +1584,8 @@
     },
     {
       "id": "wedding-200-rect",
-      "label": "200-Guest Wedding \u00b7 long tables \u00b7 with dance floor",
-      "summary": "Four 20\u00d760 marquees (2\u00d72 grid) \u00b7 4 columns \u00d7 4 head-table pairs (192 seats) \u00b7 18\u00d718 dance floor",
+      "label": "200-Guest Wedding · long tables · with dance floor",
+      "summary": "Four 20×60 marquees (2×2 grid) · 4 columns × 4 head-table pairs (192 seats) · 18×18 dance floor",
       "venue": {
         "widthFt": 40,
         "depthFt": 120
@@ -1877,7 +1877,7 @@
     {
       "id": "birthday-30",
       "label": "30-Guest Backyard Birthday",
-      "summary": "20\u00d720 marquee \u00b7 2 head tables (24 seated + standing room ~6)",
+      "summary": "20×20 marquee · 2 head tables (24 seated + standing room ~6)",
       "venue": {
         "widthFt": 24,
         "depthFt": 28
@@ -1890,7 +1890,7 @@
         },
         {
           "key": "banquet-table-6ft",
-          "cx": 8,
+          "cx": 6.5,
           "cy": 11,
           "rotation": 90,
           "withChairs": true,
@@ -1898,7 +1898,7 @@
         },
         {
           "key": "banquet-table-6ft",
-          "cx": 16,
+          "cx": 17.5,
           "cy": 11,
           "rotation": 90,
           "withChairs": true,
@@ -1906,7 +1906,7 @@
         },
         {
           "key": "banquet-table-6ft",
-          "cx": 8,
+          "cx": 6.5,
           "cy": 17,
           "rotation": 90,
           "withChairs": true,
@@ -1914,7 +1914,7 @@
         },
         {
           "key": "banquet-table-6ft",
-          "cx": 16,
+          "cx": 17.5,
           "cy": 17,
           "rotation": 90,
           "withChairs": true,
@@ -1925,7 +1925,7 @@
     {
       "id": "ceremony-100",
       "label": "100-Guest Ceremony",
-      "summary": "20\u00d760 marquee \u00b7 100 chairs in rows \u00b7 4 ft center aisle \u00b7 no dining",
+      "summary": "20×60 marquee · 100 chairs in rows · 4 ft center aisle · no dining",
       "venue": {
         "widthFt": 28,
         "depthFt": 70
@@ -2541,7 +2541,7 @@
     {
       "id": "corporate-cocktail-75",
       "label": "Corporate Cocktail (75 standing)",
-      "summary": "20\u00d730 marquee \u00b7 10 cocktail highboys \u00b7 standing-only flow",
+      "summary": "20×30 marquee · 10 cocktail highboys · standing-only flow",
       "venue": {
         "widthFt": 28,
         "depthFt": 40
@@ -2606,8 +2606,8 @@
     },
     {
       "id": "corporate-seated-60",
-      "label": "60-Guest Corporate Seated \u00b7 round tables",
-      "summary": "30\u00d760 marquee \u00b7 8 round tables of 8 (64 seats) \u00b7 premium service aisles",
+      "label": "60-Guest Corporate Seated · round tables",
+      "summary": "30×60 marquee · 8 round tables of 8 (64 seats) · premium service aisles",
       "venue": {
         "widthFt": 38,
         "depthFt": 72
@@ -2670,8 +2670,8 @@
     },
     {
       "id": "corporate-seated-60-rect",
-      "label": "60-Guest Corporate Seated \u00b7 long tables",
-      "summary": "30\u00d760 marquee \u00b7 2 columns \u00d7 3 head-table pairs (72 seats) \u00b7 8 ft service aisles",
+      "label": "60-Guest Corporate Seated · long tables",
+      "summary": "30×60 marquee · 2 columns × 3 head-table pairs (72 seats) · 8 ft service aisles",
       "venue": {
         "widthFt": 38,
         "depthFt": 72
@@ -2782,8 +2782,8 @@
     },
     {
       "id": "buffet-banquet-60",
-      "label": "Buffet Banquet \u00b7 60\u201372 guests",
-      "summary": "20\u00d760 marquee \u00b7 3 head-table pairs (72 seats) \u00b7 buffet-style with 8 ft service aisles",
+      "label": "Buffet Banquet · 60–72 guests",
+      "summary": "20×60 marquee · 3 head-table pairs (72 seats) · buffet-style with 8 ft service aisles",
       "venue": {
         "widthFt": 28,
         "depthFt": 70

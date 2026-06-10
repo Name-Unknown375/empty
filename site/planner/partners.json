@@ -1,0 +1,4 @@
+{
+  "_comment": "Co-brand allowlist for partner embeds. Key = the slug a partner puts in their iframe URL (?partner=<slug>, lowercase a-z 0-9 hyphens). Value.name renders as: Built for <name> · Powered by Forever Party Rentals. Add partners here when they sign up via /embed-the-planner; the badge stays FPR-credited either way.",
+  "partners": {}
+}

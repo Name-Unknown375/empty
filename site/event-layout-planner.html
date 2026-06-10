@@ -43,7 +43,10 @@ else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=18"/>
+<!-- Root-relative on purpose: this page is also served at /p/<id> (short
+     share links, see _redirects), where relative URLs would resolve under
+     /p/ and break. -->
+<link rel="stylesheet" href="/shared.css?v=18"/>
 
 <script type="application/ld+json">
 {
@@ -65,7 +68,7 @@ else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
   "url": "https://www.foreverpartyrentals.com/event-layout-planner",
   "applicationCategory": "DesignApplication",
   "operatingSystem": "Web",
-  "browserRequirements": "Requires JavaScript. Best on tablet or desktop.",
+  "browserRequirements": "Requires JavaScript. Works on phone, tablet and desktop.",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
   "creator": { "@id": "https://www.foreverpartyrentals.com/#localbusiness" }
 }
@@ -82,7 +85,7 @@ else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
     { "@type": "Question", "name": "What dimensions and items does the planner include?",
       "acceptedAnswer": { "@type": "Answer", "text": "The catalog mirrors our actual rental inventory: marquee tents from 10×10 up to 30×60 ft, 5ft and 6ft round tables, 6ft and 8ft banquet tables, cocktail highboys, Chiavari and Garden chairs, 12×12 to 20×20 dance floors, and stage / DJ booth / bar stations. Dimensions are taken straight from our spec sheets." } },
     { "@type": "Question", "name": "Does the planner work on mobile?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The planner is built for tablet and desktop screens — drag-and-drop and pinch-to-zoom work best with a real cursor or stylus. On phones, we show a notice asking you to switch to a larger device. If you need help planning your event, contact us and we'll do the layout for you." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes — the planner works on phones and tablets. Tap an item to add it, drag to position, pinch to zoom, and press-and-hold for more options. The item palette lives in a bottom drawer and your live capacity and cost totals are one tap away. For long sessions a tablet or desktop is still the most comfortable." } },
     { "@type": "Question", "name": "Are the prices in the planner final?",
       "acceptedAnswer": { "@type": "Answer", "text": "The numbers in the planner are starting prices from our standard catalog — the same per-day and per-event rates listed on each product page. Final quotes include delivery, setup, takedown, and any package or multi-day discounts. Send your layout from inside the planner and we'll email a tailored quote within 24 hours." } }
   ]
@@ -108,7 +111,8 @@ else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
   display: block;
 }
 @media (max-width: 720px) {
-  .planner-iframe-wrap iframe { height: 540px; }
+  /* Phones get full touch editing inside the iframe — give it real height. */
+  .planner-iframe-wrap iframe { height: min(78vh, 680px); }
 }
 
 .embed-snippet {
@@ -337,8 +341,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="section" id="planner" style="padding-top:32px">
   <div class="container">
     <div class="planner-iframe-wrap">
-      <iframe src="event-layout-planner-embed" title="Event Layout Planner — interactive floor plan tool" loading="eager" allowfullscreen></iframe>
+      <!-- data-src, not src: the boot script below decides when the embed
+           loads. On the canonical /event-layout-planner path it fires in the
+           same parse tick (behavior unchanged); on /p/<id> short-link pages
+           it waits until the share payload is resolved into the URL hash. -->
+      <iframe data-src="/event-layout-planner-embed" title="Event Layout Planner — interactive floor plan tool" loading="eager" allowfullscreen></iframe>
     </div>
+    <script>
+    // Short share-link boot (Phase 2.1). Netlify rewrites /p/<id> to this
+    // page (see _redirects); here we resolve <id> via the share API into the
+    // planner's existing #s= hash BEFORE the embed iframe gets its src — the
+    // embed reads the parent hash at init (getRestoreHash), so nothing else
+    // is needed. Must sit AFTER the iframe element: it runs synchronously at
+    // parse time and needs the element to exist. No /p/ in the path → set
+    // src immediately and get out of the way.
+    (function () {
+      var frame = document.querySelector('.planner-iframe-wrap iframe[data-src]');
+      if (!frame) return;
+      var go = function () { frame.src = frame.getAttribute('data-src'); };
+      var p = location.pathname.match(/^\/p\/(.*)$/);
+      if (!p) { go(); return; }
+      var fail = function () {
+        var msg = document.createElement('div');
+        msg.style.cssText = 'padding:56px 24px;text-align:center;font-size:15px;line-height:1.7;color:var(--dark,#333)';
+        msg.innerHTML =
+          '<p style="margin:0 0 14px"><strong>Hmm — we couldn’t find that shared layout.</strong><br>' +
+          'The link may be incomplete, mistyped, or very old.</p>' +
+          '<p style="margin:0"><a href="/event-layout-planner" style="font-weight:600">Open a blank planner instead →</a></p>';
+        frame.parentNode.replaceChild(msg, frame);
+      };
+      var id = p[1].replace(/\/+$/, '');
+      if (!/^[A-Za-z0-9]{8}$/.test(id)) { fail(); return; }
+      fetch('/api/share/' + id).then(function (res) {
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        return res.text();
+      }).then(function (payload) {
+        if (!payload || payload.indexOf('2*') !== 0) throw new Error('bad payload');
+        // Move to the canonical planner URL, carrying any ?view= flag and
+        // the resolved state hash, before the embed loads and reads it.
+        try {
+          history.replaceState(null, '', '/event-layout-planner' + location.search + '#s=' + payload);
+        } catch (e) { /* replaceState refusal → embed just opens blank */ }
+        go();
+      }).catch(fail);
+    })();
+    </script>
     <p style="text-align:center;margin-top:14px;font-size:13px;color:var(--muted)">
       Tip: hold <kbd style="background:#fff;border:1px solid var(--border);padding:1px 6px;border-radius:3px;font-family:inherit;font-size:11px">Shift</kbd>
       while dragging for 0.25 ft snapping, or while rotating for 15° steps —
@@ -543,6 +590,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </footer>
 <!-- FOOTER:END -->
-<script src="shared.js?v=15"></script>
+<script src="/shared.js?v=15"></script>
 </body>
 </html>

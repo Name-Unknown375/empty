@@ -18,20 +18,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="planner/planner.css?v=16"/>
+<link rel="stylesheet" href="planner/planner.css?v=17"/>
 <style>
   html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
   body { overflow: hidden; }
 </style>
 </head>
 <body>
-
-<!-- Mobile fallback (shown on screens ≤720px wide via planner.css) -->
-<div class="pl-mobile-notice">
-  <h2>Best on a larger screen</h2>
-  <p>The Event Layout Planner is built for tablet and desktop screens. Open this page on a device with a larger screen to start designing your event.</p>
-  <p style="margin-top:18px"><a href="https://www.foreverpartyrentals.com/contact" target="_top" style="color:#1E3A2F;font-weight:600">Or contact us — we'll plan it for you.</a></p>
-</div>
 
 <!-- Templates dropdown menu, position-fixed, anchored to button at open-time -->
 <div id="plTemplatesMenu" class="pl-menu" role="menu" aria-label="Layout templates" hidden></div>
@@ -131,7 +124,12 @@
   <div id="plToolbar" class="planner-toolbar">
     <span class="pl-brand">Layout Planner</span>
 
-    <button class="pl-btn pl-btn-gold" id="plBtnTemplates" title="Start from a template" aria-haspopup="menu">
+    <button class="pl-btn pl-btn-gold" id="plBtnWizard" title="Answer two questions and we'll lay out your event for you">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3M8 11v3M2 8h3M11 8h3M4 4l2 2M10 10l2 2M12 4l-2 2M6 10l-2 2"/></svg>
+      Plan for me
+    </button>
+
+    <button class="pl-btn" id="plBtnTemplates" title="Start from a template" aria-haspopup="menu">
       <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M5 6h6M5 9h4"/></svg>
       Templates
     </button>
@@ -295,7 +293,8 @@
     <svg id="plSvg" xmlns="http://www.w3.org/2000/svg"></svg>
     <div id="plEmptyHint" class="pl-empty-hint">
       <strong>Design your event</strong>
-      Set your venue size on the left, then drag in tents, tables, chairs, and dance floors. Live capacity counts on the right.
+      Tell us your guest count and we'll lay it out for you — or set your venue size and drag in tents, tables, chairs, and dance floors yourself.
+      <button type="button" class="pl-btn pl-btn-gold pl-empty-wizard-btn" id="plEmptyWizardBtn">Plan it for me</button>
     </div>
   </div>
 
@@ -321,6 +320,11 @@
     </div>
     <div id="plDensity" class="pl-density-wrap" hidden></div>
 
+    <!-- Layout check — soft warnings (overlaps, outside-venue, tight
+         aisles) from planner.js renderValidation(). Hidden when clean;
+         clicking a row selects the offending items. -->
+    <div id="plValidation" class="pl-validation" hidden></div>
+
     <div class="pl-section-title">Items</div>
     <div id="plTally" class="pl-tally"></div>
 
@@ -333,6 +337,14 @@
          (third-party embeds) hide pricing in one CSS rule. -->
     <div class="pl-cost-block">
       <div class="pl-section-title" style="color:var(--pl-green)">Estimated Cost</div>
+      <!-- Live availability — pick a date, planner.js checks each placed
+           item against RentKit stock for that date and badges the cost
+           lines. Inside .pl-cost-block so partner lite-mode hides it. -->
+      <div class="pl-avail-row">
+        <label class="pl-avail-label" for="plEventDate">Check availability for your date</label>
+        <input id="plEventDate" type="date"/>
+      </div>
+      <div id="plAvailStatus" class="pl-avail-status" hidden></div>
       <div id="plQuoteLines" class="pl-quote-lines"></div>
       <div id="plQuoteTotals" class="pl-quote-totals"></div>
       <p class="pl-quote-disclaimer">
@@ -365,6 +377,7 @@
         <input type="hidden" name="layout"          value=""/>
         <input type="hidden" name="itemized_list"   value=""/>
         <input type="hidden" name="estimated_total" value=""/>
+        <input type="hidden" name="event_date"      value=""/>
         <input type="file"   name="layout_image"   id="plQuoteLayoutFile" accept="image/png" hidden/>
         <button type="submit" class="pl-btn pl-btn-gold" style="width:100%">Send Layout for Quote</button>
         <div id="plQuoteStatus" class="pl-quote-status" role="status" aria-live="polite"></div>
@@ -375,6 +388,7 @@
 
 </div>
 
-<script src="planner/planner.js?v=24"></script>
+<script src="planner/layout-gen.js?v=1"></script>
+<script src="planner/planner.js?v=25"></script>
 </body>
 </html>

@@ -19,7 +19,15 @@
 /favicon.ico                                                            /favicon.ico                                                    200!
 /_headers                                                               /_headers                                                       200!
 
-# ── Homepage ─────────────────────────────────────────────────────────────────
+# ── Planner short share links (/p/<id>) ─────────────────────────────────────
+# 200 rewrite (NOT a redirect): the hub page is served at the short URL and
+# its inline boot script resolves <id> via GET /api/share/<id>, then
+# history.replaceState()s to /event-layout-planner#s=<payload> before the
+# planner iframe loads. Target keeps the .html extension — rewrite targets
+# must name the real file in the publish dir (pretty_urls only rewrites
+# inbound request URLs, not rule targets). /api/share itself needs no rule:
+# Functions v2 routes declare their own path (see netlify/functions/share.mjs).
+/p/*                                                                    /event-layout-planner.html                                      200
 /home                                                                   /                                                               301!
 /about-us                                                               /                                                               301
 

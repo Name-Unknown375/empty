@@ -175,6 +175,10 @@
     return '6000+';
   }
 
+  // Coarse-pointer (touch-first) devices get bigger invisible hit targets
+  // on the small grab handles. Evaluated once — device class doesn't change.
+  const IS_COARSE_POINTER = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+
   // Tracks whether Space is currently held — when true, left-drag pans
   // instead of starting a marquee selection (Figma-style).
   let spaceDown = false;
@@ -293,6 +297,42 @@
       widthFt: 3, depthFt: 1.4,   // dummy defaults; per-item size overrides via item.widthFt/depthFt
       seats: 0, priceCAD: 0, priceUnit: 'event',
     };
+    // Synthetic entry for resizable "custom area" boxes — stages, buffet
+    // runs, gift tables, pools: things FPR doesn't rent but a layout has
+    // to flow around. Dimensions + name live per-item (like text labels);
+    // priceCAD=0 keeps them out of the estimate. Surfaced via a synthetic
+    // "Extras" palette group so drag/tap/drop all work unchanged.
+    byKey['custom-area'] = {
+      key: 'custom-area',
+      label: 'Custom Area',
+      shape: 'customArea',
+      widthFt: 8, depthFt: 4,     // defaults; user-saved defaults override in makeItem
+      seats: 0, priceCAD: 0, priceUnit: 'event',
+    };
+    catalog.groups.push({
+      key: 'extras',
+      label: 'Extras',
+      items: [byKey['custom-area']],
+    });
+  }
+
+  // ── Custom-area saved size defaults ───────────────────────────────────
+  // "Save as my default size" persists per-key dims so the next custom
+  // area starts at the size the user actually uses (top competitor
+  // complaint: tools that forget custom dimensions).
+  const CUSTOM_DIMS_KEY = 'fpr-planner-custom-dims-v1';
+  let customDims = (() => {
+    try {
+      const raw = localStorage.getItem(CUSTOM_DIMS_KEY);
+      if (raw) {
+        const p = JSON.parse(raw);
+        if (p && typeof p === 'object') return p;
+      }
+    } catch (e) { /* quota/privacy mode — defaults still work */ }
+    return {};
+  })();
+  function saveCustomDims() {
+    try { localStorage.setItem(CUSTOM_DIMS_KEY, JSON.stringify(customDims)); } catch (e) {}
   }
 
   // Approximate the on-canvas footprint of a label so itemSize / drag /
@@ -945,13 +985,30 @@
   function effectiveSize(item) {
     const cat = byKey[item.key];
     if (!cat) return { w: 0, d: 0 };
-    return (cat.shape === 'text') ? itemSize(item) : itemSize(cat);
+    // Text labels and custom areas carry their own per-item dims.
+    return (cat.shape === 'text' || cat.shape === 'customArea') ? itemSize(item) : itemSize(cat);
   }
 
   // Default position for a new item, dropped at world coords (wx, wy).
   function makeItem(key, wx, wy) {
     const cat = byKey[key];
     if (!cat) return null;
+    if (cat.shape === 'customArea') {
+      // Per-item dims, seeded from the user's saved defaults if any.
+      const saved = customDims[key] || {};
+      const w = (saved.widthFt > 0) ? saved.widthFt : cat.widthFt;
+      const d = (saved.depthFt > 0) ? saved.depthFt : cat.depthFt;
+      return {
+        id: newId(),
+        key,
+        text: 'Custom area',
+        x: wx - w / 2,
+        y: wy - d / 2,
+        widthFt: w,
+        depthFt: d,
+        rotation: 0,
+      };
+    }
     const sz = itemSize(cat);
     return {
       id: newId(),
@@ -980,6 +1037,9 @@
     const tableCat = byKey[table.key];
     const chairCat = byKey[chairKey];
     if (!tableCat || !chairCat) return [];
+    // Enforce the contract above: chairs auto-place around seated TABLES
+    // only — never around chairs themselves (seats=1) or zero-seat items.
+    if (!(tableCat.seats > 1)) return [];
     const N = (count != null) ? count : tableCat.seats;
     if (!(N > 0)) return [];
     let chairs;
@@ -1152,6 +1212,7 @@
   function shapeClass(item) {
     if (item.shape === 'tent') return 'pl-item-tent';
     if (item.shape === 'danceFloor') return 'pl-item-default';  // checker has its own fills
+    if (item.shape === 'customArea') return 'pl-item-custom';
     if (item.key && item.key.includes('chair')) return 'pl-item-chair';
     if (item.key && (item.key.startsWith('stage') || item.key.startsWith('bar'))) return 'pl-item-stage';
     return 'pl-item-table';
@@ -1182,28 +1243,332 @@
         tile.classList.add('pl-dragging');
       });
       tile.addEventListener('dragend', () => tile.classList.remove('pl-dragging'));
-      // Click to add at venue center (mobile / no-drag fallback)
-      tile.addEventListener('dblclick', e => {
-        const wx = state.venue.widthFt / 2;
-        const wy = state.venue.depthFt / 2;
-        const it = makeItem(tile.dataset.key, wx, wy);
-        if (!it) return;
-        commit();
-        state.items.push(it);
-        trackFirstItem(it.key);
-        if (!e.shiftKey) {
-          const chairs = placeChairsAround(it);
-          if (chairs.length) state.items.push(...chairs);
-        }
-        setSelection([it.id]);
-        render();
+      // Click to add at venue center (desktop no-drag fallback)
+      tile.addEventListener('dblclick', e => addItemFromPalette(tile.dataset.key, e.shiftKey));
+      // Touch: a plain tap places the item — HTML5 drag-and-drop doesn't
+      // exist on touch, so tap-to-add IS the mobile add path. A tap is a
+      // pointerup within 10px of its pointerdown.
+      tile.addEventListener('pointerdown', e => {
+        if (e.pointerType !== 'touch') return;
+        tile._touchStart = { x: e.clientX, y: e.clientY };
+      });
+      tile.addEventListener('pointerup', e => {
+        if (e.pointerType !== 'touch' || !tile._touchStart) return;
+        const moved = Math.abs(e.clientX - tile._touchStart.x) + Math.abs(e.clientY - tile._touchStart.y);
+        tile._touchStart = null;
+        if (moved > 10) return;
+        addItemFromPalette(tile.dataset.key, false);
+        closeMobileSheets();
+        showToast('Added to the centre of your venue — drag it into place', 2600);
       });
     });
   }
 
+  // ── Mobile chrome ─────────────────────────────────────────────────────
+  // Phones get the palette as a bottom sheet and the stats/cost/quote
+  // sidebar as a slide-over summoned by a floating totals pill. The
+  // elements exist on every viewport; CSS only reveals them ≤720px.
+  function closeMobileSheets() {
+    if (dom.palette) dom.palette.classList.remove('pl-sheet-open');
+    if (dom.sidebar) dom.sidebar.classList.remove('pl-sheet-open');
+    if (dom.scrim) dom.scrim.classList.remove('pl-scrim-show');
+  }
+  function setupMobileChrome() {
+    dom.palette = document.querySelector('.planner-palette');
+    dom.sidebar = document.querySelector('.planner-sidebar');
+    if (!dom.palette || !dom.sidebar || !dom.app) return;
+
+    dom.scrim = document.createElement('div');
+    dom.scrim.className = 'pl-scrim';
+    dom.scrim.addEventListener('click', closeMobileSheets);
+    dom.app.appendChild(dom.scrim);
+
+    const handle = document.createElement('button');
+    handle.type = 'button';
+    handle.className = 'pl-sheet-handle';
+    handle.setAttribute('aria-label', 'Open the items and venue panel');
+    handle.innerHTML = '<span class="pl-sheet-grip" aria-hidden="true"></span><span>Items &amp; venue</span>';
+    handle.setAttribute('aria-expanded', 'false');
+    handle.addEventListener('click', () => {
+      const open = dom.palette.classList.toggle('pl-sheet-open');
+      dom.sidebar.classList.remove('pl-sheet-open');
+      dom.scrim.classList.toggle('pl-scrim-show', open);
+      handle.setAttribute('aria-expanded', String(open));
+      if (dom.totalsPill) dom.totalsPill.setAttribute('aria-expanded', 'false');
+    });
+    dom.palette.insertBefore(handle, dom.palette.firstChild);
+
+    dom.totalsPill = document.createElement('button');
+    dom.totalsPill.type = 'button';
+    dom.totalsPill.className = 'pl-totals-pill';
+    dom.totalsPill.setAttribute('aria-label', 'Open the capacity and cost panel');
+    dom.totalsPill.textContent = '0 seats';
+    dom.totalsPill.setAttribute('aria-expanded', 'false');
+    dom.totalsPill.addEventListener('click', () => {
+      const open = dom.sidebar.classList.toggle('pl-sheet-open');
+      dom.palette.classList.remove('pl-sheet-open');
+      dom.scrim.classList.toggle('pl-scrim-show', open);
+      dom.totalsPill.setAttribute('aria-expanded', String(open));
+      const h = dom.palette.querySelector('.pl-sheet-handle');
+      if (h) h.setAttribute('aria-expanded', 'false');
+    });
+    dom.canvas.appendChild(dom.totalsPill);
+  }
+
+  // Shared add path for palette dblclick (desktop) and tap (touch).
+  function addItemFromPalette(key, suppressChairs) {
+    const it = makeItem(key, state.venue.widthFt / 2, state.venue.depthFt / 2);
+    if (!it) return;
+    commit();
+    state.items.push(it);
+    trackFirstItem(it.key);
+    if (!suppressChairs) {
+      const chairs = placeChairsAround(it);
+      if (chairs.length) state.items.push(...chairs);
+    }
+    setSelection([it.id]);
+    render();
+  }
+
   // ── Render: SVG canvas ────────────────────────────────────────────────
+  // ── Layout validation + table numbering ──────────────────────────────
+  // Soft guidance, never hard blocks. Industry defaults documented here:
+  //   • 4 ft minimum guest aisle between seated-table chair rings
+  //     (service aisles want 6–8 ft; fire-code egress paths are 44 in)
+  //   • furniture shouldn't overlap or sit outside the venue boundary
+  // Both maps recompute once per render — ≤~50 solid items keeps the
+  // pairwise checks trivial.
+  let _issues = { flagged: new Set(), messages: [] };
+  let _tableNums = new Map();
+
+  const _isSeatedTable = (it) => {
+    const c = byKey[it.key];
+    return !!(c && (c.shape === 'circle' || c.shape === 'rect') && c.seats > 1 && !c.key.includes('chair'));
+  };
+
+  // Seated tables numbered in reading order (top-left → bottom-right,
+  // 4 ft row tolerance). Numbers appear from 2 tables up, render on the
+  // canvas and in every export, and renumber automatically as tables move.
+  function computeTableNumbers() {
+    const tables = state.items.filter(_isSeatedTable);
+    if (tables.length < 2) return new Map();
+    const center = (t) => {
+      const sz = effectiveSize(t);
+      return { x: t.x + sz.w / 2, y: t.y + sz.d / 2 };
+    };
+    const sorted = tables.slice().sort((a, b) => {
+      const ca = center(a), cb = center(b);
+      if (Math.abs(ca.y - cb.y) > 4) return ca.y - cb.y;
+      return ca.x - cb.x;
+    });
+    const m = new Map();
+    sorted.forEach((t, i) => m.set(t.id, i + 1));
+    return m;
+  }
+
+  // Rotated-rect corners of an item, in world feet. `pad` inflates the
+  // rect on every side (used for chair envelopes in the aisle check).
+  function _itemCorners(it, pad = 0) {
+    const sz = effectiveSize(it);
+    const cx = it.x + sz.w / 2, cy = it.y + sz.d / 2;
+    const rad = (it.rotation || 0) * Math.PI / 180;
+    const cos = Math.cos(rad), sin = Math.sin(rad);
+    const hw = sz.w / 2 + pad, hd = sz.d / 2 + pad;
+    return [[-hw, -hd], [hw, -hd], [hw, hd], [-hw, hd]].map(([x, y]) => ({
+      x: cx + x * cos - y * sin,
+      y: cy + x * sin + y * cos,
+    }));
+  }
+
+  function _segPointDist(p, a, b) {
+    const abx = b.x - a.x, aby = b.y - a.y;
+    const len2 = abx * abx + aby * aby;
+    const t = len2 === 0 ? 0 : Math.max(0, Math.min(1, ((p.x - a.x) * abx + (p.y - a.y) * aby) / len2));
+    return Math.hypot(p.x - (a.x + t * abx), p.y - (a.y + t * aby));
+  }
+
+  // Minimum distance between two convex quads (0 when they intersect).
+  function _quadMinDist(qa, qb) {
+    if (_quadsOverlap(qa, qb, 0)) return 0;
+    let min = Infinity;
+    for (const [q1, q2] of [[qa, qb], [qb, qa]]) {
+      for (const p of q1) {
+        for (let i = 0; i < 4; i++) {
+          const d = _segPointDist(p, q2[i], q2[(i + 1) % 4]);
+          if (d < min) min = d;
+        }
+      }
+    }
+    return min;
+  }
+
+  // Separating-axis test on two convex quads, with a small penetration
+  // tolerance so deliberately abutting items (head-table pairs, joined
+  // marquees) don't trip the overlap warning.
+  function _quadsOverlap(qa, qb, tol) {
+    const axes = [];
+    for (const q of [qa, qb]) {
+      for (let i = 0; i < 4; i++) {
+        const p = q[i], n = q[(i + 1) % 4];
+        axes.push({ x: -(n.y - p.y), y: n.x - p.x });
+      }
+    }
+    for (const ax of axes) {
+      const len = Math.hypot(ax.x, ax.y) || 1;
+      let minA = Infinity, maxA = -Infinity, minB = Infinity, maxB = -Infinity;
+      for (const p of qa) { const d = (p.x * ax.x + p.y * ax.y) / len; if (d < minA) minA = d; if (d > maxA) maxA = d; }
+      for (const p of qb) { const d = (p.x * ax.x + p.y * ax.y) / len; if (d < minB) minB = d; if (d > maxB) maxB = d; }
+      if (maxA - tol <= minB || maxB - tol <= minA) return false;
+    }
+    return true;
+  }
+
+  function _pointInPolygon(p, poly) {
+    let inside = false;
+    for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+      const a = poly[i], b = poly[j];
+      if ((a.y > p.y) !== (b.y > p.y) &&
+          p.x < (b.x - a.x) * (p.y - a.y) / (b.y - a.y) + a.x) {
+        inside = !inside;
+      }
+    }
+    return inside;
+  }
+
+  function _pointInVenue(p) {
+    if (isPolygonVenue()) return _pointInPolygon(p, state.venue.polygon);
+    return p.x >= -0.05 && p.y >= -0.05 &&
+           p.x <= state.venue.widthFt + 0.05 && p.y <= state.venue.depthFt + 0.05;
+  }
+
+  function validateLayout() {
+    const flagged = new Set();
+    const messages = [];
+    // Solids = anything that physically occupies floor space except chairs
+    // (they hug tables by design) and text labels. Tents are checked for
+    // the outside-venue rule only — furniture inside a tent is the point.
+    const solids = state.items.filter(it => {
+      const c = byKey[it.key];
+      return c && c.shape !== 'text' && c.shape !== 'tent' && !(c.key && c.key.includes('chair'));
+    });
+    const tents = state.items.filter(it => byKey[it.key] && byKey[it.key].shape === 'tent');
+
+    // 1. Overlapping furniture
+    const corners = new Map();
+    const cornersOf = (it) => {
+      if (!corners.has(it.id)) corners.set(it.id, _itemCorners(it));
+      return corners.get(it.id);
+    };
+    let overlapPairs = 0;
+    for (let i = 0; i < solids.length; i++) {
+      for (let j = i + 1; j < solids.length; j++) {
+        if (_quadsOverlap(cornersOf(solids[i]), cornersOf(solids[j]), 0.05)) {
+          flagged.add(solids[i].id);
+          flagged.add(solids[j].id);
+          overlapPairs++;
+        }
+      }
+    }
+    if (overlapPairs > 0) {
+      messages.push({
+        ids: [...flagged],
+        text: overlapPairs === 1 ? 'Two items overlap' : `${overlapPairs} pairs of items overlap`,
+      });
+    }
+
+    // 2. Items poking outside the venue boundary
+    const outside = [];
+    for (const it of [...solids, ...tents]) {
+      if (cornersOf(it).some(p => !_pointInVenue(p))) outside.push(it);
+    }
+    if (outside.length > 0) {
+      for (const it of outside) flagged.add(it.id);
+      messages.push({
+        ids: outside.map(it => it.id),
+        text: outside.length === 1
+          ? `${(byKey[outside[0].key] || {}).label || 'An item'} extends outside the venue`
+          : `${outside.length} items extend outside the venue`,
+      });
+    }
+
+    // 3. Tight aisles: < 3 ft between the ACTUAL chairs of two different
+    // tables (guests pass behind pulled-out chairs). Measuring real chair
+    // items — not an inflated envelope — keeps intentional composites
+    // (head-table pairs, end-to-end banquet runs with no end chairs) from
+    // false-flagging. Touching/overlapping chair sets (joined units) are
+    // skipped via the > 0.05 floor.
+    // 2.75 sits just under the tightest stock template (200-guest rounds
+    // at ~2.8 ft) — anything below this is tighter than we'd ever ship.
+    const AISLE_MIN_FT = 2.75;
+    const seated = state.items.filter(_isSeatedTable);
+    const chairQuads = new Map(); // chairId -> corners
+    const chairsOf = (t) => getChildren(t.id).filter(c => byKey[c.key] && c.key.includes('chair'));
+    const quadOf = (c) => {
+      if (!chairQuads.has(c.id)) chairQuads.set(c.id, _itemCorners(c));
+      return chairQuads.get(c.id);
+    };
+    const tightPairs = [];
+    for (let i = 0; i < seated.length; i++) {
+      for (let j = i + 1; j < seated.length; j++) {
+        const a = seated[i], b = seated[j];
+        const sa = effectiveSize(a), sb = effectiveSize(b);
+        // Centre-distance prefilter: skip pairs too far apart to matter.
+        const reach = (Math.max(sa.w, sa.d) + Math.max(sb.w, sb.d)) / 2 + 2 * 2.2 + AISLE_MIN_FT + 1;
+        const cd = Math.hypot(
+          (a.x + sa.w / 2) - (b.x + sb.w / 2),
+          (a.y + sa.d / 2) - (b.y + sb.d / 2)
+        );
+        if (cd > reach) continue;
+        // Abutting tables (head-table pairs, end-to-end banquet runs) are
+        // one deliberate unit — their chairs sit close by design.
+        if (_quadMinDist(cornersOf(a), cornersOf(b)) < 0.6) continue;
+        // Collinear same-orientation banquet segments (centres on one
+        // line, even with a gap between segments) also read as a single
+        // long table, not an aisle. Rect tables only — rounds have no axis.
+        if (sa.w !== sa.d && sb.w !== sb.d) {
+          const rotA = (((a.rotation || 0) % 180) + 180) % 180;
+          const rotB = (((b.rotation || 0) % 180) + 180) % 180;
+          const sameOrient = Math.abs(rotA - rotB) < 10 || Math.abs(rotA - rotB) > 170;
+          if (sameOrient) {
+            const dxc = (b.x + sb.w / 2) - (a.x + sa.w / 2);
+            const dyc = (b.y + sb.d / 2) - (a.y + sa.d / 2);
+            const baseAng = ((sa.w >= sa.d ? 0 : 90) + (a.rotation || 0)) * Math.PI / 180;
+            const lateral = Math.abs(-Math.sin(baseAng) * dxc + Math.cos(baseAng) * dyc);
+            if (lateral < 1.5) continue;
+          }
+        }
+        const ca = chairsOf(a), cb = chairsOf(b);
+        if (!ca.length || !cb.length) continue;
+        let min = Infinity;
+        for (const x of ca) {
+          for (const y of cb) {
+            const d = _quadMinDist(quadOf(x), quadOf(y));
+            if (d < min) min = d;
+            if (min <= 0.05) break;
+          }
+          if (min <= 0.05) break;
+        }
+        if (min > 0.05 && min < AISLE_MIN_FT) tightPairs.push([a, b, min]);
+      }
+    }
+    if (tightPairs.length > 0) {
+      const ids = [...new Set(tightPairs.flatMap(([a, b]) => [a.id, b.id]))];
+      for (const id of ids) flagged.add(id);
+      const worst = tightPairs.reduce((m, p) => Math.min(m, p[2]), Infinity);
+      messages.push({
+        ids,
+        text: `${tightPairs.length === 1 ? 'One table pair has' : tightPairs.length + ' table pairs have'} under ~3 ft between chairs (tightest ${Math.max(0, worst).toFixed(1)} ft) — guests need room to pull out and pass`,
+      });
+    }
+
+    return { flagged, messages };
+  }
+
   function render() {
     if (!dom.svg) return;
+
+    _tableNums = computeTableNumbers();
+    _issues = validateLayout();
 
     // Hide/show empty hint
     dom.emptyHint.style.display = (state.items.length === 0) ? 'block' : 'none';
@@ -1321,6 +1686,7 @@
     // Update stats / tally / cost estimator
     renderStats();
     renderQuote();
+    renderValidation();
 
     // Update toolbar enabled states
     dom.btnUndo.disabled = history.length === 0;
@@ -1578,6 +1944,7 @@
   // PNG/Print export (drawItemInto) so both paths render identically.
   function drawSprite(g, cat, item, sz) {
     if (cat.shape === 'text')       return drawTextLabelSprite(g, item, sz);
+    if (cat.shape === 'customArea') return drawCustomAreaSprite(g, item, sz);
     if (cat.shape === 'tent')       return drawTentSprite(g, sz);
     if (cat.shape === 'danceFloor') return drawDanceFloorSprite(g, sz);
     if (cat.shape === 'circle') {
@@ -1594,6 +1961,31 @@
       if (cat.seats > 1) return drawBanquetSprite(g, sz);
     }
     return drawGenericRectSprite(g, cat, sz);
+  }
+
+  // CUSTOM AREA — dashed outline + centred name + dims caption. Context
+  // the layout flows around (stage, buffet run, pool); never priced.
+  function drawCustomAreaSprite(g, item, sz) {
+    svg('rect', {
+      x: -sz.w / 2, y: -sz.d / 2, width: sz.w, height: sz.d, rx: 0.15,
+      fill: 'rgba(30,58,47,.05)', stroke: CHAIR_STROKE,
+      'stroke-width': SPR_PRIMARY, 'stroke-dasharray': '6 4',
+      'vector-effect': SPR_NSS,
+    }, g);
+    const label = (item.text || '').trim() || 'Custom area';
+    const fontFt = Math.max(0.7, Math.min(1.5, (sz.w * 0.9) / Math.max(4, label.length * 0.6)));
+    svg('text', {
+      x: 0, y: 0, 'dominant-baseline': 'middle', 'text-anchor': 'middle',
+      'font-size': fontFt, fill: 'rgba(30,58,47,.75)',
+      'font-family': 'Jost, sans-serif', 'font-weight': '600',
+    }, g).textContent = label;
+    if (sz.d >= 3) {
+      svg('text', {
+        x: 0, y: fontFt * 0.9, 'dominant-baseline': 'hanging', 'text-anchor': 'middle',
+        'font-size': fontFt * 0.55, fill: 'rgba(30,58,47,.45)',
+        'font-family': 'Jost, sans-serif', 'font-weight': '500',
+      }, g).textContent = `${sz.w}×${sz.d} ft`;
+    }
   }
 
   // CHIAVARI — square seat (slightly trapezoidal: back narrower than
@@ -1840,10 +2232,9 @@
   function drawItem(parent, item) {
     const cat = byKey[item.key];
     if (!cat) return;
-    // Text labels carry their own per-instance dimensions on the item;
-    // every other shape uses the catalog. itemSize() reads widthFt/depthFt
-    // off whichever side passes them.
-    const sz = (cat.shape === 'text') ? itemSize(item) : itemSize(cat);
+    // effectiveSize handles per-item dims (text labels, custom areas) vs
+    // catalog dims (everything else).
+    const sz = effectiveSize(item);
     const cx = item.x + sz.w / 2;
     const cy = item.y + sz.d / 2;
 
@@ -1864,12 +2255,67 @@
         'font-family': 'Jost, sans-serif', 'font-weight': '500',
       }, g).textContent = `${cat.widthFt}×${cat.depthFt}`;
     }
+
+    drawTableNumberBadge(g, item);
+
+    // Validation halo — red dashed ring around flagged items.
+    if (_issues.flagged.has(item.id)) {
+      svg('rect', {
+        x: -sz.w / 2 - 0.2, y: -sz.d / 2 - 0.2,
+        width: sz.w + 0.4, height: sz.d + 0.4,
+        class: 'pl-issue-halo', 'vector-effect': 'non-scaling-stroke',
+      }, g);
+    }
+  }
+
+  // Numbered badge for seated tables (reading order; only with 2+ tables).
+  // Counter-rotated so the number stays upright on rotated tables. Shared
+  // by the live canvas and all exports.
+  function drawTableNumberBadge(g, item) {
+    const n = _tableNums.get(item.id);
+    if (!n) return;
+    const b = svg('g', { transform: `rotate(${-(item.rotation || 0)})`, 'pointer-events': 'none' }, g);
+    svg('circle', {
+      cx: 0, cy: 0, r: 0.8,
+      fill: '#1E3A2F', stroke: '#fff', 'stroke-width': 1.2,
+      'vector-effect': SPR_NSS, opacity: 0.92,
+    }, b);
+    svg('text', {
+      x: 0, y: 0.06, 'dominant-baseline': 'middle', 'text-anchor': 'middle',
+      'font-size': 0.9, fill: '#fff',
+      'font-family': 'Jost, sans-serif', 'font-weight': '600',
+    }, b).textContent = String(n);
+  }
+
+  // Sidebar warnings panel. Hidden when the layout is clean; each row
+  // click selects the offending items so they're easy to find.
+  function renderValidation() {
+    const host = document.getElementById('plValidation');
+    if (!host) return;
+    if (_issues.messages.length === 0) {
+      host.hidden = true;
+      host.innerHTML = '';
+      return;
+    }
+    host.hidden = false;
+    host.innerHTML = '<div class="pl-validation-title">Layout check</div>' +
+      _issues.messages.map((m, i) =>
+        `<button type="button" class="pl-validation-row" data-issue="${i}">${m.text}</button>`
+      ).join('');
+    host.querySelectorAll('.pl-validation-row').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const m = _issues.messages[parseInt(btn.dataset.issue, 10)];
+        if (!m) return;
+        setSelection(m.ids.filter(id => state.items.some(it => it.id === id)));
+        render();
+      });
+    });
   }
 
   function drawSelection(parent, item, withHandle) {
     const cat = byKey[item.key];
     if (!cat) return;
-    const sz = (cat.shape === 'text') ? itemSize(item) : itemSize(cat);
+    const sz = effectiveSize(item);
     const cx = item.x + sz.w / 2;
     const cy = item.y + sz.d / 2;
 
@@ -1906,6 +2352,15 @@
       'pointer-events': 'auto',
     }, sel);
     knob.style.cursor = 'grab';
+    if (IS_COARSE_POINTER) {
+      // Invisible oversized hit circle so a fingertip can grab the knob.
+      svg('circle', {
+        cx: 0, cy: handleY, r: 1.3,
+        fill: 'transparent', stroke: 'none',
+        'data-handle': 'rotate',
+        'pointer-events': 'auto',
+      }, sel);
+    }
   }
 
   // ── Stats / tally ─────────────────────────────────────────────────────
@@ -1915,6 +2370,17 @@
     let seated = 0, tents = 0, tables = 0, chairs = 0, df = 0;
     let tentArea = 0, tableArea = 0, dfArea = 0;
     const counts = {};
+
+    // Seats rule: a table WITH chairs seats its chairs (each chair = 1);
+    // a chairless table seats its catalog capacity. Counting both would
+    // double-count every set table.
+    const tablesWithChairs = new Set();
+    for (const it of state.items) {
+      const cat = byKey[it.key];
+      if (cat && cat.key && cat.key.includes('chair') && it.parentId) {
+        tablesWithChairs.add(it.parentId);
+      }
+    }
 
     for (const it of state.items) {
       const cat = byKey[it.key];
@@ -1927,9 +2393,20 @@
       const area = sz.w * sz.d;
       if (cat.shape === 'tent') { tents++; tentArea += area; }
       else if (cat.shape === 'danceFloor') { df++; dfArea += area; }
+      else if (cat.shape === 'customArea') {
+        // Custom areas (stage, buffet…) consume floor space the same way
+        // tables do for the standing-capacity heuristic. Use the item's
+        // own dims, not the catalog defaults.
+        const esz = itemSize(it);
+        tableArea += esz.w * esz.d;
+      }
       else if (cat.key && cat.key.includes('chair')) { chairs++; seated += (cat.seats || 0); }
-      else if (cat.key && cat.key.includes('table')) { tables++; seated += (cat.seats || 0); tableArea += area; }
-      else { /* future: stage, bar, custom */ }
+      else if (cat.key && cat.key.includes('table')) {
+        tables++;
+        if (!tablesWithChairs.has(it.id)) seated += (cat.seats || 0);
+        tableArea += area;
+      }
+      else { /* future: stage, bar */ }
     }
     // Standing capacity rule of thumb: 8 sqft per standing guest in covered space,
     // minus footprint already taken by tables and dance floors.
@@ -2023,6 +2500,7 @@
     if (lines.length === 0) {
       dom.quoteLines.innerHTML = '<div class="pl-quote-empty">Add items to see an estimate.</div>';
       dom.quoteTotals.innerHTML = '';
+      updateTotalsPill(0);
       return;
     }
 
@@ -2033,7 +2511,7 @@
       return `
         <div class="pl-quote-line">
           <div class="pl-quote-line-main">
-            ${l.qty}× ${l.label}
+            ${l.qty}× ${l.label} ${availabilityBadge(l)}
             <span class="pl-quote-line-meta">${meta}</span>
           </div>
           <div class="pl-quote-line-sub">${fmtMoney(l.subtotal)}</div>
@@ -2052,6 +2530,136 @@
     if (perEvent > 0) rows.push(`<div class="pl-quote-totals-row"><span>Tents &amp; dance floors</span><span>${fmtMoney(perEvent)}</span></div>`);
     rows.push(`<div class="pl-quote-totals-row pl-grand"><span>Estimated total</span><span>${fmtMoney(grand)}</span></div>`);
     dom.quoteTotals.innerHTML = rows.join('');
+    updateTotalsPill(grand);
+  }
+
+  // ── Live availability (RentKit) ───────────────────────────────────────
+  // Pick an event date → every placed (priced) item is checked against
+  // RentKit's real stock for that date and the cost lines get badges.
+  // Direct browser call — the embedded-shop API is public, orgId-keyed,
+  // and serves CORS for our origin (verified). Whole feature is inside
+  // .pl-cost-block, so partner lite-mode never shows FPR stock.
+  const RENTKIT_AVAIL_URL = 'https://api.rentkit.com/api/embedded-shop/getAvailableInventoryForIds';
+  const RENTKIT_ORG_ID = 'LvrymFxex6oslWCxcrEg';
+  let rentkitMap = null;     // planner item key -> RentKit inventory id
+  let availability = null;   // { date, byKey: {key: {ok, stock}} }
+  let availCheckSeq = 0;
+
+  async function loadRentkitMap() {
+    if (rentkitMap) return rentkitMap;
+    try {
+      const res = await fetch('planner/rentkit-map.json', { cache: 'no-cache' });
+      const data = await res.json();
+      rentkitMap = {};
+      for (const k in data) {
+        if (k.startsWith('_') || typeof data[k] !== 'string') continue;
+        rentkitMap[k] = data[k];
+      }
+    } catch (e) {
+      rentkitMap = {};
+    }
+    return rentkitMap;
+  }
+
+  async function checkAvailability() {
+    const input = document.getElementById('plEventDate');
+    const status = document.getElementById('plAvailStatus');
+    if (!input || !input.value) {
+      availability = null;
+      if (status) status.hidden = true;
+      render();
+      return;
+    }
+    const dateStr = input.value;
+    const seq = ++availCheckSeq;
+    const map = await loadRentkitMap();
+    const counts = {};
+    for (const it of state.items) {
+      const cat = byKey[it.key];
+      if (!cat || !cat.priceCAD) continue;
+      counts[it.key] = (counts[it.key] || 0) + 1;
+    }
+    const idToKeys = {};
+    const ids = [];
+    for (const k of Object.keys(counts)) {
+      const id = map[k];
+      if (!id) continue;
+      (idToKeys[id] = idToKeys[id] || []).push(k);
+      if (ids.indexOf(id) === -1) ids.push(id);
+    }
+    if (ids.length === 0) {
+      availability = null;
+      if (status) {
+        status.hidden = false;
+        status.textContent = 'Add items to your layout to check their availability.';
+      }
+      return;
+    }
+    if (status) {
+      status.hidden = false;
+      status.textContent = 'Checking live availability…';
+    }
+    try {
+      const res = await fetch(RENTKIT_AVAIL_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          orgId: RENTKIT_ORG_ID,
+          rentalDateStart: dateStr,
+          rentalDateEnd: dateStr,
+          inventoryIds: ids,
+        }),
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const rows = await res.json();
+      if (seq !== availCheckSeq) return; // superseded by a newer check
+      const byKeyAvail = {};
+      for (const row of (Array.isArray(rows) ? rows : [])) {
+        for (const k of (idToKeys[row.id] || [])) {
+          byKeyAvail[k] = {
+            ok: row.isAvailable !== false,
+            stock: Number.isFinite(row.availableStock) ? row.availableStock : null,
+          };
+        }
+      }
+      availability = { date: dateStr, byKey: byKeyAvail };
+      const daysOut = Math.round((new Date(dateStr + 'T12:00:00') - Date.now()) / 86400000);
+      track('planner_availability_check', {
+        days_out: daysOut <= 14 ? '0-14' : daysOut <= 45 ? '15-45' : daysOut <= 120 ? '46-120' : '120+',
+      });
+      if (status) status.textContent = `Live availability for ${dateStr} shown on each line below.`;
+      render();
+    } catch (e) {
+      if (seq !== availCheckSeq) return;
+      availability = null;
+      if (status) status.textContent = "Couldn't check availability right now — your quote will confirm it.";
+      render();
+    }
+  }
+
+  function availabilityBadge(line) {
+    if (!availability) return '';
+    const a = availability.byKey[line.key];
+    if (!a) return '';
+    if (!a.ok || (a.stock != null && a.stock <= 0)) {
+      return '<span class="pl-avail-badge pl-avail-no">not available</span>';
+    }
+    if (a.stock != null && a.stock < line.qty) {
+      return `<span class="pl-avail-badge pl-avail-low">only ${a.stock} left</span>`;
+    }
+    return '<span class="pl-avail-badge pl-avail-ok">available</span>';
+  }
+
+  // Floating phone pill: "56 seats · $1,432". Lite/partner mode shows
+  // seats only (no FPR pricing on partner sites — same rule as the cost
+  // panel it opens).
+  function updateTotalsPill(grand) {
+    if (!dom.totalsPill) return;
+    const seated = computePlanStats().seated;
+    const seatTxt = `${seated} seat${seated === 1 ? '' : 's'}`;
+    dom.totalsPill.textContent = (isExternalEmbed || !(grand > 0))
+      ? seatTxt
+      : `${seatTxt} · ${fmtMoney(grand)}`;
   }
 
   // ── Pointer interactions ──────────────────────────────────────────────
@@ -2115,7 +2723,59 @@
     const item = firstSelected();
     const cat = item ? byKey[item.key] : null;
     const isSeatedTable = !!(cat && (cat.shape === 'circle' || cat.shape === 'rect') && cat.seats > 1 && !cat.key.includes('chair'));
-    if (!item || !isSeatedTable) { host.hidden = true; return; }
+    const isCustomArea = !!(cat && cat.shape === 'customArea');
+    if (!item || (!isSeatedTable && !isCustomArea)) { host.hidden = true; return; }
+
+    if (isCustomArea) {
+      const sz = itemSize(item);
+      host.hidden = false;
+      host.innerHTML = `
+        <div class="pl-inspector-title">Custom Area</div>
+        <div class="pl-inspector-row">
+          <label class="pl-inspector-label" for="plInspAreaName">Name</label>
+          <input class="pl-inspector-text" id="plInspAreaName" type="text" maxlength="40" value="${String(item.text || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')}"/>
+        </div>
+        <div class="pl-inspector-row">
+          <label class="pl-inspector-label" for="plInspAreaW">Size (ft)</label>
+          <div class="pl-inspector-dims">
+            <input class="pl-inspector-text" id="plInspAreaW" type="number" min="1" max="200" step="0.5" value="${sz.w}"/>
+            <span class="pl-x">×</span>
+            <input class="pl-inspector-text" id="plInspAreaD" type="number" min="1" max="200" step="0.5" value="${sz.d}"/>
+          </div>
+        </div>
+        <button type="button" class="pl-inspector-btn" id="plInspAreaSave">Save as my default size</button>
+        <div class="pl-inspector-hint">Stages, buffet runs, gift tables, pools — anything your layout flows around that isn't a rental item.</div>
+      `;
+      const nameInp = host.querySelector('#plInspAreaName');
+      nameInp.addEventListener('change', () => {
+        commit();
+        item.text = nameInp.value.trim() || 'Custom area';
+        render();
+      });
+      const wInp = host.querySelector('#plInspAreaW');
+      const dInp = host.querySelector('#plInspAreaD');
+      const applySize = () => {
+        const w = parseFloat(wInp.value), d = parseFloat(dInp.value);
+        if (!(w > 0) || !(d > 0)) return;
+        commit();
+        // Resize around the item's centre so it doesn't appear to jump.
+        const cur = itemSize(item);
+        item.x += (cur.w - w) / 2;
+        item.y += (cur.d - d) / 2;
+        item.widthFt = w;
+        item.depthFt = d;
+        render();
+      };
+      wInp.addEventListener('change', applySize);
+      dInp.addEventListener('change', applySize);
+      host.querySelector('#plInspAreaSave').addEventListener('click', () => {
+        const cur = itemSize(item);
+        customDims[item.key] = { widthFt: cur.w, depthFt: cur.d };
+        saveCustomDims();
+        showToast(`Saved — new custom areas start at ${cur.w}×${cur.d} ft`, 2600);
+      });
+      return;
+    }
     const children = getChildren(item.id);
     // Source of truth for current chair count: explicit chairCount if the
     // user has set one, else the count of children currently around the
@@ -2279,11 +2939,69 @@
     let backdropDrag = null;   // { startWX, startWY, startBX, startBY } — backdrop translate
     let vertexDrag = null;     // { idx, startWX, startWY, startVX, startVY } — polygon vertex drag
 
+    // ── Touch gestures ────────────────────────────────────────────────
+    // activePointers tracks every pointer currently down on the SVG so a
+    // second finger can flip us into pinch-zoom mid-gesture. `pinch`
+    // carries the running distance + midpoint between move frames.
+    // Long-press (500ms, <8px travel) synthesizes the right-click menu.
+    const activePointers = new Map();
+    let pinch = null;          // { dPrev, midPrev }
+    let longPressTimer = null;
+    let longPressStart = null; // { x, y, target }
+    const clearLongPress = () => {
+      clearTimeout(longPressTimer);
+      longPressTimer = null;
+      longPressStart = null;
+    };
+    // Abandon any in-flight drag (restoring item positions — commit()
+    // already ran on pointerdown, so history stays consistent).
+    const cancelGestures = () => {
+      if (moving) {
+        for (const it of state.items) {
+          const start = moving.starts.get(it.id);
+          if (start) { it.x = start.x; it.y = start.y; }
+        }
+      }
+      moving = null; rotating = null; panning = null; marquee = null; pendingClick = null;
+      backdropDrag = null; vertexDrag = null;
+      hideMarqueeRect();
+      dom.canvas.classList.remove('pl-panning');
+      dom.canvas.classList.remove('pl-marqueeing');
+    };
+
     // Pointerdown on the SVG: dispatches to rotation handle, item drag,
     // marquee select, or pan.
     dom.svg.addEventListener('pointerdown', e => {
       // Right-click → ignore (browser context menu)
       if (e.button !== 0 && e.button !== 1) return;
+
+      activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (e.pointerType === 'touch' && activePointers.size === 2) {
+        // Second finger lands: abandon the one-finger gesture, start pinch.
+        clearLongPress();
+        cancelGestures();
+        const pts = Array.from(activePointers.values());
+        pinch = {
+          dPrev: Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y),
+          midPrev: { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 },
+        };
+        render();
+        e.preventDefault();
+        return;
+      }
+      if (pinch) { e.preventDefault(); return; } // 3rd+ finger: ignore
+      if (e.pointerType === 'touch' && !isReadonly &&
+          !drawingPolygon && !calibrating && !measureMode) {
+        clearLongPress();
+        longPressStart = { x: e.clientX, y: e.clientY, target: e.target };
+        longPressTimer = setTimeout(() => {
+          if (!longPressStart) return;
+          const at = longPressStart;
+          clearLongPress();
+          cancelGestures();
+          openContextMenuAt(at.x, at.y, at.target);
+        }, 500);
+      }
 
       // Read-only mode: only allow pan (Space+drag, middle, Alt+drag);
       // suppress all editing pointerdown paths.
@@ -2443,6 +3161,27 @@
     });
 
     dom.svg.addEventListener('pointermove', e => {
+      if (activePointers.has(e.pointerId)) {
+        activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      }
+      if (pinch && activePointers.size >= 2) {
+        const pts = Array.from(activePointers.values());
+        const d = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+        const mid = { x: (pts[0].x + pts[1].x) / 2, y: (pts[0].y + pts[1].y) / 2 };
+        // Two-finger pan via midpoint delta, then cursor-anchored zoom via
+        // distance ratio. zoomAt() renders, so this is one render per frame.
+        state.view.panX += mid.x - pinch.midPrev.x;
+        state.view.panY += mid.y - pinch.midPrev.y;
+        if (pinch.dPrev > 0 && d > 0) zoomAt(mid.x, mid.y, d / pinch.dPrev);
+        else render();
+        pinch.dPrev = d;
+        pinch.midPrev = mid;
+        return;
+      }
+      if (longPressStart) {
+        const travel = Math.abs(e.clientX - longPressStart.x) + Math.abs(e.clientY - longPressStart.y);
+        if (travel > 8) clearLongPress();
+      }
       // Measure-mode cursor preview — track the mouse so the in-progress
       // segment label updates live.
       if (measureMode && measureFirstPoint) {
@@ -2566,28 +3305,37 @@
       hideMarqueeRect();
       dom.canvas.classList.remove('pl-panning');
       dom.canvas.classList.remove('pl-marqueeing');
+      if (e) {
+        activePointers.delete(e.pointerId);
+        if (activePointers.size < 2) pinch = null;
+      }
+      clearLongPress();
     };
     dom.svg.addEventListener('pointerup', endDrag);
     dom.svg.addEventListener('pointercancel', endDrag);
 
-    // Right-click → context menu. Suppress browser default; route to
-    // item-specific or canvas-empty menu based on what's under the cursor.
-    dom.svg.addEventListener('contextmenu', e => {
-      if (isReadonly) { e.preventDefault(); return; }
-      e.preventDefault();
-      const world = clientToWorld(e.clientX, e.clientY);
-      const itemEl = findItemAt(e.target);
+    // Context-menu routing — shared by right-click (mouse) and long-press
+    // (touch): item menu when the press landed on an item, canvas menu
+    // otherwise.
+    const openContextMenuAt = (clientX, clientY, target) => {
+      const world = clientToWorld(clientX, clientY);
+      const itemEl = findItemAt(target);
       if (itemEl) {
         const id = itemEl.dataset.id;
         const item = state.items.find(it => it.id === id);
         if (item) {
           const menu = buildContextMenuForItem(id, world);
           render();   // selection may have changed
-          showContextMenu(e.clientX, e.clientY, menu);
+          showContextMenu(clientX, clientY, menu);
           return;
         }
       }
-      showContextMenu(e.clientX, e.clientY, buildContextMenuForCanvas(world));
+      showContextMenu(clientX, clientY, buildContextMenuForCanvas(world));
+    };
+    dom.svg.addEventListener('contextmenu', e => {
+      if (isReadonly) { e.preventDefault(); return; }
+      e.preventDefault();
+      openContextMenuAt(e.clientX, e.clientY, e.target);
     });
     // Click anywhere outside the menu, or Esc, dismisses it.
     document.addEventListener('click', e => {
@@ -3030,7 +3778,9 @@
       // are emitted as bare `~~` so positions stay aligned.
       const hasParent = it.parentId && itemIdx.has(it.parentId);
       const hasCount  = it.chairCount != null;
-      const isLabel   = it.key === 'text-label';
+      // Custom areas reuse the label tail slots (text, widthFt, depthFt) —
+      // fontSize is simply never set for them.
+      const isLabel   = it.key === 'text-label' || it.key === 'custom-area';
       const tail = [];
       if (hasParent || hasCount || isLabel) tail.push(hasParent ? String(itemIdx.get(it.parentId)) : '');
       if (hasCount  || isLabel)             tail.push(hasCount ? String(it.chairCount) : '');
@@ -3105,8 +3855,8 @@
           const c = parseInt(f[5], 10);
           if (Number.isFinite(c)) out.chairCount = c;
         }
-        if (k === 'text-label') {
-          out.text = _unescapeText(f[6] || '') || 'Label';
+        if (k === 'text-label' || k === 'custom-area') {
+          out.text = _unescapeText(f[6] || '') || (k === 'custom-area' ? 'Custom area' : 'Label');
           if (f[7]) { const n = parseFloat(f[7]); if (Number.isFinite(n)) out.widthFt  = n; }
           if (f[8]) { const n = parseFloat(f[8]); if (Number.isFinite(n)) out.depthFt  = n; }
           if (f[9]) { const n = parseFloat(f[9]); if (Number.isFinite(n)) out.fontSize = n; }
@@ -3168,7 +3918,6 @@
 
   function shareLink(options) {
     options = options || {};
-    track('planner_share', { method: 'hash', readonly: !!options.readonly });
     if (hasBackdrop()) {
       showToast('Background photos can’t fit in a share link — use Save File instead. Link will share the layout without the photo.', 6000);
     }
@@ -3196,7 +3945,9 @@
     // Update our own hash so a refresh keeps the layout. If we're in a
     // same-origin iframe, also update the parent so the address bar
     // reflects the shareable URL the user just copied.
-    try { history.replaceState(null, '', '#s=' + encoded); } catch (e) {}
+    // NB: must be window.history — the module-scope undo stack is also
+    // named `history` and shadows the global here.
+    try { window.history.replaceState(null, '', '#s=' + encoded); } catch (e) {}
     try {
       if (window.parent && window.parent !== window &&
           window.parent.location.origin === window.location.origin) {
@@ -3204,6 +3955,9 @@
       }
     } catch (e) { /* cross-origin denial */ }
 
+    // Copy the hash link IMMEDIATELY — clipboard writes must stay inside
+    // the click gesture (Safari), and the long link must work even when
+    // the short-link API is slow, rate-limited, or down.
     // Soft length budget: Twitter/SMS truncate around ~2KB, most apps and
     // browser address bars handle 8KB cleanly. Past that, recommend Save
     // File for transfer.
@@ -3218,6 +3972,90 @@
     } else {
       fallbackCopy(url);
     }
+
+    // Best-effort short link on top (per PLANNER_INTEGRATION.md): POST the
+    // encoded payload, and on success offer a share sheet with the tidy
+    // /p/<id> URL + a scannable QR. Every failure path silently keeps the
+    // hash link that's already on the clipboard.
+    track('planner_share', { method: 'hash', readonly: !!options.readonly });
+    const ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+    const timer = ctrl ? setTimeout(() => ctrl.abort(), 4000) : null;
+    fetch('/api/share', {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' },
+      body: encoded,
+      signal: ctrl ? ctrl.signal : undefined,
+    })
+      .then(res => (res.ok ? res.json() : null))
+      .then(data => {
+        if (timer) clearTimeout(timer);
+        if (!data || !data.url) return;
+        const shortUrl = options.readonly ? data.url + '?view=readonly' : data.url;
+        track('planner_share', { method: 'short', readonly: !!options.readonly });
+        showShareSheet(shortUrl);
+      })
+      .catch(() => { if (timer) clearTimeout(timer); });
+  }
+
+  // Share sheet — shown only when a short link was created. QR codes are
+  // only generated for short URLs (a multi-KB hash URL makes an
+  // unscannable smudge, which is why the QR feature waits on the API).
+  function showShareSheet(shortUrl) {
+    const existing = document.getElementById('plShareSheet');
+    if (existing) existing.remove();
+    const backdrop = document.createElement('div');
+    backdrop.className = 'pl-modal-backdrop';
+    backdrop.id = 'plShareSheet';
+    backdrop.innerHTML = `
+      <div class="pl-modal pl-share-modal" role="dialog" aria-modal="true" aria-label="Share your layout">
+        <div class="pl-modal-body">
+          <div class="pl-share-title">Your layout link</div>
+          <div class="pl-share-url"></div>
+          <div class="pl-share-qr" aria-label="QR code for this layout link"></div>
+          <p class="pl-share-hint">Scan with a phone, or print it for your venue, planner, or delivery crew.</p>
+        </div>
+        <div class="pl-modal-footer">
+          <button type="button" class="pl-btn" data-act="close">Done</button>
+          <button type="button" class="pl-btn pl-btn-gold" data-act="copy">Copy short link</button>
+        </div>
+      </div>
+    `;
+    backdrop.querySelector('.pl-share-url').textContent = shortUrl;
+    const onShareKey = (e) => {
+      if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close(); }
+    };
+    const close = () => {
+      document.removeEventListener('keydown', onShareKey, true);
+      if (backdrop.parentNode) backdrop.parentNode.removeChild(backdrop);
+    };
+    document.addEventListener('keydown', onShareKey, true);
+    backdrop.addEventListener('click', e => {
+      const act = e.target && e.target.getAttribute && e.target.getAttribute('data-act');
+      if (act === 'close' || e.target === backdrop) close();
+      else if (act === 'copy') {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(shortUrl).then(
+            () => {
+              const btn = backdrop.querySelector('[data-act="copy"]');
+              if (btn) btn.textContent = 'Copied!';
+            },
+            () => fallbackCopy(shortUrl)
+          );
+        } else {
+          fallbackCopy(shortUrl);
+        }
+      }
+    });
+    document.body.appendChild(backdrop);
+    loadQrLib().then(() => {
+      try {
+        const qr = window.qrcode(0, 'M');
+        qr.addData(shortUrl);
+        qr.make();
+        const host = backdrop.querySelector('.pl-share-qr');
+        if (host) host.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2 });
+      } catch (e) { /* QR is decorative — the link still works */ }
+    }).catch(() => {});
   }
 
   function fallbackCopy(text) {
@@ -3428,9 +4266,11 @@
   // height } in pixels. Handles backdrop image AND polygon venues.
   // includeFooter=true draws the FPR brand strip; the print page sets
   // false because it has its own header/footer.
-  function buildExportSVG({ includeFooter = true, includeFooterBrand = true } = {}) {
+  function buildExportSVG({ includeFooter = true, includeFooterBrand = true, dimensions = false } = {}) {
     const PX_PER_FT = 24;
-    const margin = 36;
+    // Permit-style exports draw dimension lines outside the venue, so the
+    // page needs a wider margin to fit them.
+    const margin = dimensions ? 72 : 36;
     const W = state.venue.widthFt * PX_PER_FT + margin * 2;
     const H = state.venue.depthFt * PX_PER_FT + margin * 2;
 
@@ -3532,6 +4372,55 @@
       g.appendChild(venueRect);
     }
 
+    // Dimension lines for permit-style exports — venue width above, depth
+    // to the left, with end ticks and a centred measurement label. Drawn
+    // in feet coordinates (the export <g> is already scaled).
+    if (dimensions) {
+      const drawDim = (x1, y1, x2, y2, label) => {
+        const grp = document.createElementNS(SVGNS, 'g');
+        g.appendChild(grp);
+        const line = document.createElementNS(SVGNS, 'line');
+        line.setAttribute('x1', x1); line.setAttribute('y1', y1);
+        line.setAttribute('x2', x2); line.setAttribute('y2', y2);
+        line.setAttribute('stroke', '#5a5a5a');
+        line.setAttribute('stroke-width', 1.2 / PX_PER_FT);
+        grp.appendChild(line);
+        // End ticks perpendicular to the line
+        const horiz = (y1 === y2);
+        for (const [tx, ty] of [[x1, y1], [x2, y2]]) {
+          const t = document.createElementNS(SVGNS, 'line');
+          if (horiz) {
+            t.setAttribute('x1', tx); t.setAttribute('y1', ty - 0.45);
+            t.setAttribute('x2', tx); t.setAttribute('y2', ty + 0.45);
+          } else {
+            t.setAttribute('x1', tx - 0.45); t.setAttribute('y1', ty);
+            t.setAttribute('x2', tx + 0.45); t.setAttribute('y2', ty);
+          }
+          t.setAttribute('stroke', '#5a5a5a');
+          t.setAttribute('stroke-width', 1.2 / PX_PER_FT);
+          grp.appendChild(t);
+        }
+        const txt = document.createElementNS(SVGNS, 'text');
+        if (horiz) {
+          txt.setAttribute('x', (x1 + x2) / 2);
+          txt.setAttribute('y', y1 - 0.5);
+          txt.setAttribute('text-anchor', 'middle');
+        } else {
+          txt.setAttribute('x', x1 - 0.5);
+          txt.setAttribute('y', (y1 + y2) / 2);
+          txt.setAttribute('text-anchor', 'middle');
+          txt.setAttribute('transform', `rotate(-90 ${x1 - 0.5} ${(y1 + y2) / 2})`);
+        }
+        txt.setAttribute('font-size', 1.1);
+        txt.setAttribute('font-family', 'Jost, sans-serif');
+        txt.setAttribute('fill', '#5a5a5a');
+        txt.textContent = label;
+        grp.appendChild(txt);
+      };
+      drawDim(0, -1.6, state.venue.widthFt, -1.6, `${state.venue.widthFt} ft`);
+      drawDim(-1.6, 0, -1.6, state.venue.depthFt, `${state.venue.depthFt} ft`);
+    }
+
     // Same z-order as the live canvas: tents → others → labels last.
     const xtents  = state.items.filter(it => byKey[it.key] && byKey[it.key].shape === 'tent');
     const xlabels = state.items.filter(it => byKey[it.key] && byKey[it.key].shape === 'text');
@@ -3606,20 +4495,29 @@
   // initial payload unchanged. Falls back to printPlan() if loading or
   // rendering fails. Vector text in the SVG maps to Helvetica — fine for a
   // working drawing; the print path keeps the web fonts.
-  let pdfLibsPromise = null;
-  function loadPdfLibs() {
-    if (pdfLibsPromise) return pdfLibsPromise;
-    const load = (src) => new Promise((resolve, reject) => {
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
       const s = document.createElement('script');
       s.src = src;
       s.onload = resolve;
       s.onerror = () => reject(new Error('Failed to load ' + src));
       document.head.appendChild(s);
     });
-    pdfLibsPromise = load('planner/vendor/jspdf.umd.min.js?v=1')
-      .then(() => load('planner/vendor/svg2pdf.umd.min.js?v=1'))
+  }
+  let pdfLibsPromise = null;
+  function loadPdfLibs() {
+    if (pdfLibsPromise) return pdfLibsPromise;
+    pdfLibsPromise = loadScript('planner/vendor/jspdf.umd.min.js?v=1')
+      .then(() => loadScript('planner/vendor/svg2pdf.umd.min.js?v=1'))
       .catch(err => { pdfLibsPromise = null; throw err; });
     return pdfLibsPromise;
+  }
+  let qrLibPromise = null;
+  function loadQrLib() {
+    if (qrLibPromise) return qrLibPromise;
+    qrLibPromise = loadScript('planner/vendor/qrcode.min.js?v=1')
+      .catch(err => { qrLibPromise = null; throw err; });
+    return qrLibPromise;
   }
 
   async function savePDF() {
@@ -3628,36 +4526,58 @@
     try {
       await loadPdfLibs();
       const { jsPDF } = window.jspdf;
-      const { svg: out, width: W, height: H } = buildExportSVG();
+      // Permit-style drawing: dimension lines on the venue boundary.
+      const { svg: out, width: W, height: H } = buildExportSVG({ dimensions: true });
       const doc = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'letter' });
       const pageW = doc.internal.pageSize.getWidth();
       const pageH = doc.internal.pageSize.getHeight();
       const margin = 36;
-      const headerH = 34;
+      const headerH = 40;
+      const footerH = 16;
 
-      // Page 1 — header + the layout drawing, scaled to fit.
+      // Page 1 — title block + the dimensioned layout drawing.
       const title = state.eventName.trim() || 'Event Layout';
       const venueStr = isPolygonVenue()
         ? `Venue ${state.venue.widthFt} × ${state.venue.depthFt} ft (custom shape, ${Math.round(venueAreaFt2()).toLocaleString()} sq ft)`
-        : `Venue ${state.venue.widthFt} × ${state.venue.depthFt} ft`;
+        : `Venue ${state.venue.widthFt} × ${state.venue.depthFt} ft (${Math.round(venueAreaFt2()).toLocaleString()} sq ft)`;
+      const pdfStats = computePlanStats();
+
+      const availW = pageW - margin * 2;
+      const availH = pageH - margin * 2 - headerH - footerH;
+      const k = Math.min(availW / W, availH / H);
+      // True drawing scale: the export renders 24 px per foot, jsPDF uses
+      // 72 pt per inch — so feet-per-inch on paper = 72 / (24 · k).
+      const ftPerInch = 72 / (24 * k);
+
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(15);
       doc.text(title, margin, margin + 4);
       doc.setFont('helvetica', 'normal');
       doc.setFontSize(9);
       doc.setTextColor(110);
-      doc.text(`${venueStr}  ·  ${new Date().toLocaleDateString('en-CA')}`, margin, margin + 18);
+      doc.text(
+        `${venueStr}  ·  Seated ${pdfStats.seated} / Standing ${pdfStats.standing}  ·  Scale ≈ 1 in : ${ftPerInch.toFixed(1)} ft  ·  ${new Date().toLocaleDateString('en-CA')}`,
+        margin, margin + 18
+      );
       doc.setTextColor(0);
 
-      const availW = pageW - margin * 2;
-      const availH = pageH - margin * 2 - headerH;
-      const k = Math.min(availW / W, availH / H);
       await doc.svg(out, {
         x: margin + (availW - W * k) / 2,
         y: margin + headerH,
         width: W * k,
         height: H * k,
       });
+
+      // Permit footer — dimensions are stated on the drawing itself.
+      doc.setFontSize(7.5);
+      doc.setTextColor(130);
+      doc.text(
+        isExternalEmbed
+          ? 'All dimensions in feet. Verify site measurements before submission.'
+          : 'All dimensions in feet. Verify site measurements before permit submission. Prepared with the Forever Party Rentals Event Layout Planner — foreverpartyrentals.com/event-layout-planner',
+        margin, pageH - margin + 14
+      );
+      doc.setTextColor(0);
 
       // Page 2 — itemized summary (portrait). Lite/partner mode mirrors the
       // print page: quantities only, no FPR pricing.
@@ -3959,6 +4879,8 @@
         'font-family': 'Jost, sans-serif',
       }, g).textContent = `${cat.widthFt}×${cat.depthFt}`;
     }
+    // Table numbers print too — caterers and delivery crews work off them.
+    drawTableNumberBadge(g, item);
   }
 
   function triggerDownload(blob, filename) {
@@ -4081,6 +5003,207 @@
   function closeCeremonyModal() {
     const m = document.getElementById('plCeremonyModal');
     if (m) m.hidden = true;
+  }
+
+  // ── Guest-count wizard ────────────────────────────────────────────────
+  // "How many guests?" → seating style + options → preview with tent
+  // recommendation and live price → one tap builds the whole layout.
+  // Generation lives in layout-gen.js (FPRLayoutGen); recipes come back in
+  // templates.json shape so applyState(expandRecipeToState(...)) just works.
+  function estimateRecipeCost(recipe) {
+    let total = 0;
+    for (const r of recipe.items) {
+      const cat = byKey[r.key];
+      if (cat && cat.priceCAD) total += cat.priceCAD;
+      if (r.withChairs && r.chairCount) {
+        const ch = byKey[r.chairKey || DEFAULT_CHAIR_KEY];
+        if (ch && ch.priceCAD) total += ch.priceCAD * r.chairCount;
+      }
+    }
+    return total;
+  }
+
+  let wizardEl = null;
+  function closeWizard() {
+    if (wizardEl) { wizardEl.remove(); wizardEl = null; }
+  }
+  function openWizard(source) {
+    if (!window.FPRLayoutGen) {
+      showToast('Auto-planner unavailable right now — try a template instead.', 3000);
+      return;
+    }
+    track('planner_wizard_start', { source: source || 'toolbar' });
+    closeWizard();
+    const opts = {
+      guests: 50, seating: 'round',
+      danceFloor: true, headTable: false, buffet: false, bar: false,
+      chairKey: DEFAULT_CHAIR_KEY,
+    };
+    let step = 1;
+
+    wizardEl = document.createElement('div');
+    wizardEl.className = 'pl-modal-backdrop';
+    document.body.appendChild(wizardEl);
+
+    const chairOptions = [];
+    for (const g of catalog.groups) {
+      for (const c of g.items) if (c.key && c.key.includes('chair')) chairOptions.push(c);
+    }
+
+    const renderStep = () => {
+      if (step === 1) {
+        wizardEl.innerHTML = `
+          <div class="pl-modal pl-wizard-modal" role="dialog" aria-modal="true" aria-label="Plan my event">
+            <div class="pl-modal-body">
+              <div class="pl-wizard-step">Step 1 of 3</div>
+              <div class="pl-wizard-title">How many guests?</div>
+              <input type="number" id="plWizGuests" class="pl-wizard-guests" min="1" max="300" inputmode="numeric" value="${opts.guests}"/>
+              <div class="pl-wizard-chips">
+                ${[20, 50, 100, 150, 200].map(n => `<button type="button" class="pl-wizard-chip" data-guests="${n}">${n}</button>`).join('')}
+              </div>
+            </div>
+            <div class="pl-modal-footer">
+              <button type="button" class="pl-btn" data-act="cancel">Cancel</button>
+              <button type="button" class="pl-btn pl-btn-gold" data-act="next">Next</button>
+            </div>
+          </div>`;
+        const inp = wizardEl.querySelector('#plWizGuests');
+        inp.focus();
+        inp.select();
+        wizardEl.querySelectorAll('.pl-wizard-chip').forEach(ch => {
+          ch.addEventListener('click', () => { inp.value = ch.dataset.guests; });
+        });
+      } else if (step === 2) {
+        const styles = [
+          { key: 'round', label: 'Round tables', hint: 'classic wedding & gala' },
+          { key: 'banquet', label: 'Long tables', hint: 'family-style dining' },
+          { key: 'cocktail', label: 'Cocktail', hint: 'standing + highboys' },
+          { key: 'ceremony', label: 'Ceremony', hint: 'chair rows + aisle' },
+        ];
+        wizardEl.innerHTML = `
+          <div class="pl-modal pl-wizard-modal" role="dialog" aria-modal="true" aria-label="Plan my event">
+            <div class="pl-modal-body">
+              <div class="pl-wizard-step">Step 2 of 3</div>
+              <div class="pl-wizard-title">What style of event?</div>
+              <div class="pl-wizard-styles">
+                ${styles.map(s => `
+                  <button type="button" class="pl-wizard-style${opts.seating === s.key ? ' pl-wizard-style-on' : ''}" data-style="${s.key}">
+                    <strong>${s.label}</strong><span>${s.hint}</span>
+                  </button>`).join('')}
+              </div>
+              <div class="pl-wizard-opts">
+                <label><input type="checkbox" id="plWizDance" ${opts.danceFloor ? 'checked' : ''}/> Dance floor</label>
+                <label><input type="checkbox" id="plWizHead" ${opts.headTable ? 'checked' : ''}/> Head table</label>
+                <label><input type="checkbox" id="plWizBuffet" ${opts.buffet ? 'checked' : ''}/> Buffet tables</label>
+                <label><input type="checkbox" id="plWizBar" ${opts.bar ? 'checked' : ''}/> Bar station</label>
+              </div>
+              <div class="pl-wizard-chair-row">
+                <label for="plWizChair">Chairs</label>
+                <select id="plWizChair" class="pl-inspector-select">
+                  ${chairOptions.map(c => `<option value="${c.key}"${c.key === opts.chairKey ? ' selected' : ''}>${c.label} ($${c.priceCAD.toFixed(2)})</option>`).join('')}
+                </select>
+              </div>
+            </div>
+            <div class="pl-modal-footer">
+              <button type="button" class="pl-btn" data-act="back">Back</button>
+              <button type="button" class="pl-btn pl-btn-gold" data-act="next">Preview</button>
+            </div>
+          </div>`;
+        wizardEl.querySelectorAll('.pl-wizard-style').forEach(btn => {
+          btn.addEventListener('click', () => {
+            opts.seating = btn.dataset.style;
+            wizardEl.querySelectorAll('.pl-wizard-style').forEach(b => b.classList.toggle('pl-wizard-style-on', b === btn));
+          });
+        });
+      } else {
+        const recipe = window.FPRLayoutGen.generateLayout(opts);
+        const rec = window.FPRLayoutGen.recommendTent(opts);
+        if (!recipe) {
+          wizardEl.innerHTML = `
+            <div class="pl-modal pl-wizard-modal" role="dialog" aria-modal="true">
+              <div class="pl-modal-body">
+                <div class="pl-wizard-title">That's a big event!</div>
+                <p class="pl-wizard-summary">${(rec.notes && rec.notes[0]) || "We couldn't auto-fit that combination."} Call us at 778-990-7983 and we'll plan it with you.</p>
+              </div>
+              <div class="pl-modal-footer">
+                <button type="button" class="pl-btn" data-act="back">Back</button>
+                <button type="button" class="pl-btn pl-btn-gold" data-act="cancel">Close</button>
+              </div>
+            </div>`;
+          return;
+        }
+        wizardEl._recipe = recipe;
+        const cost = estimateRecipeCost(recipe);
+        const tentLine = rec.fits && rec.tentKeys.length
+          ? `${rec.tentKeys.length > 1 ? rec.tentKeys.length + '× joined ' : ''}${(byKey[rec.tentKeys[0]] || {}).label || 'marquee'} · ${rec.totalSqft.toLocaleString()} sq ft (${rec.sqftPerGuest} sq ft/guest)`
+          : '';
+        wizardEl.innerHTML = `
+          <div class="pl-modal pl-wizard-modal" role="dialog" aria-modal="true" aria-label="Plan my event">
+            <div class="pl-modal-body">
+              <div class="pl-wizard-step">Step 3 of 3</div>
+              <div class="pl-wizard-title">${recipe.label}</div>
+              <p class="pl-wizard-summary">${recipe.summary}</p>
+              ${tentLine ? `<p class="pl-wizard-tent">${tentLine}</p>` : ''}
+              ${isExternalEmbed ? '' : `<div class="pl-wizard-cost">Estimated ${fmtMoney(cost)} <span>list prices, before delivery &amp; setup</span></div>`}
+              <p class="pl-wizard-note">You can move, add, or remove anything after it's built.</p>
+            </div>
+            <div class="pl-modal-footer">
+              <button type="button" class="pl-btn" data-act="back">Back</button>
+              <button type="button" class="pl-btn pl-btn-gold" data-act="apply">Build this layout</button>
+            </div>
+          </div>`;
+      }
+    };
+
+    wizardEl.addEventListener('click', e => {
+      const act = e.target && e.target.getAttribute && e.target.getAttribute('data-act');
+      if (act === 'cancel' || e.target === wizardEl) { closeWizard(); return; }
+      if (act === 'back') { step = Math.max(1, step - 1); renderStep(); return; }
+      if (act === 'next') {
+        if (step === 1) {
+          const v = parseInt(wizardEl.querySelector('#plWizGuests').value, 10);
+          if (!Number.isFinite(v) || v < 1) return;
+          opts.guests = Math.min(300, v);
+        } else if (step === 2) {
+          opts.danceFloor = wizardEl.querySelector('#plWizDance').checked;
+          opts.headTable = wizardEl.querySelector('#plWizHead').checked;
+          opts.buffet = wizardEl.querySelector('#plWizBuffet').checked;
+          opts.bar = wizardEl.querySelector('#plWizBar').checked;
+          opts.chairKey = wizardEl.querySelector('#plWizChair').value;
+        }
+        step++;
+        renderStep();
+        return;
+      }
+      if (act === 'apply') {
+        const recipe = wizardEl._recipe;
+        const doApply = () => {
+          commit();
+          applyState(expandRecipeToState(recipe));
+          fitToVenue();
+          render();
+          track('planner_wizard_complete', {
+            guests: opts.guests,
+            style: opts.seating,
+            tent_key: (recipe.items.find(i => byKey[i.key] && byKey[i.key].shape === 'tent') || {}).key || 'none',
+          });
+          closeWizard();
+          showToast('Built! Drag anything to fine-tune, then send it for a quote.', 3500);
+        };
+        if (state.items.length > 0) {
+          plConfirm('Replace your current layout with this plan?', { okLabel: 'Replace' })
+            .then(ok => { if (ok) doApply(); });
+        } else {
+          doApply();
+        }
+      }
+    });
+    document.addEventListener('keydown', function onWizKey(e) {
+      if (!wizardEl) { document.removeEventListener('keydown', onWizKey, true); return; }
+      if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); closeWizard(); }
+    }, true);
+
+    renderStep();
   }
 
   function setupCeremonyModal() {
@@ -4422,6 +5545,9 @@
       f.querySelector('[name="itemized_list"]').value = itemizedFull;
       f.querySelector('[name="estimated_total"]').value =
         `${fmtMoney(grand)} CAD (list prices, pre-tax, before delivery & setup)`;
+      const dateField = f.querySelector('[name="event_date"]');
+      const dateInput = document.getElementById('plEventDate');
+      if (dateField) dateField.value = (dateInput && dateInput.value) || '';
 
       const submitBtn = f.querySelector('button[type="submit"]');
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Rendering layout…'; }
@@ -4594,7 +5720,9 @@
       document.body.classList.add('pl-lite');
     }
 
-    // Embed-mode chrome: render the powered-by badge
+    // Embed-mode chrome: render the powered-by badge. Allowlisted partners
+    // (?partner=<slug> against planner/partners.json) get a co-branded
+    // line — the FPR credit always stays, that's the embed deal.
     if (isEmbed) {
       const badge = document.createElement('a');
       badge.className = 'pl-powered';
@@ -4603,11 +5731,28 @@
       badge.rel = 'noopener';
       badge.innerHTML = 'Powered by <strong>Forever Party Rentals</strong> &nbsp;·&nbsp; Lower Mainland, BC';
       dom.canvas.appendChild(badge);
+      if (isExternalEmbed && PARTNER_SLUG && /^[a-z0-9-]+$/.test(PARTNER_SLUG)) {
+        fetch('planner/partners.json', { cache: 'no-cache' })
+          .then(r => (r.ok ? r.json() : null))
+          .then(data => {
+            const p = data && data.partners && data.partners[PARTNER_SLUG];
+            if (!p || !p.name) return;
+            const strong = document.createElement('strong');
+            strong.textContent = p.name; // textContent — partner names never run as HTML
+            badge.innerHTML = '';
+            badge.append('Built for ');
+            badge.appendChild(strong);
+            badge.append(' · Powered by Forever Party Rentals');
+          })
+          .catch(() => { /* allowlist missing → standard badge */ });
+      }
     }
 
     await Promise.all([loadCatalog(), loadTemplates()]);
+    if (window.FPRLayoutGen) window.FPRLayoutGen.init(catalog);
     renderPalette();
     setupCanvasInteractions();
+    setupMobileChrome();
     setupQuoteForm();
     setupTemplatesMenu();
     setupCeremonyModal();
@@ -4640,6 +5785,22 @@
       }
     }
     if (!restored) {
+      // ?gen= deep link — the tent-size calculator page passes generator
+      // options so "open this exact layout in the planner" Just Works.
+      const genParam = new URLSearchParams(location.search).get('gen');
+      if (genParam && window.FPRLayoutGen) {
+        try {
+          const gOpts = JSON.parse(genParam);
+          const recipe = window.FPRLayoutGen.generateLayout(gOpts);
+          if (recipe) {
+            applyState(expandRecipeToState(recipe));
+            restored = true;
+            restoredFrom = 'calculator_link';
+          }
+        } catch (e) { /* malformed param → fall through */ }
+      }
+    }
+    if (!restored) {
       const stored = loadFromStorage();
       if (stored) {
         applyState(stored);
@@ -4658,8 +5819,18 @@
       restored: restoredFrom,
     });
 
-    // Tour kicks off on first visit (when state is empty + flag not set).
-    maybeStartTour();
+    // Phone-first landing: a fresh phone visit opens the wizard — a
+    // guest-count keypad is a far better first touch than a blank canvas.
+    // "Cancel" is one tap to start blank. Desktop keeps the spotlight tour.
+    const wizardFirst = !restored && !isReadonly &&
+      window.matchMedia && window.matchMedia('(max-width: 720px)').matches &&
+      state.items.length === 0 && window.FPRLayoutGen;
+    if (wizardFirst) {
+      openWizard('mobile_landing');
+    } else {
+      // Tour kicks off on first visit (when state is empty + flag not set).
+      maybeStartTour();
+    }
 
     // Venue dimension inputs
     const onVenueInput = () => {
@@ -4676,6 +5847,13 @@
     dom.venueD.addEventListener('change', onVenueInput);
 
     dom.eventName.addEventListener('input', () => { state.eventName = dom.eventName.value; });
+
+    // Live availability date picker (own-site mode; lite-mode CSS hides it)
+    const eventDateInput = document.getElementById('plEventDate');
+    if (eventDateInput) {
+      eventDateInput.min = new Date().toISOString().slice(0, 10);
+      eventDateInput.addEventListener('change', checkAvailability);
+    }
 
     // Toolbar buttons
     document.getElementById('plBtnZoomIn').addEventListener('click', () => zoomCentered(1.2));
@@ -4700,6 +5878,10 @@
     if (btnPrint) btnPrint.addEventListener('click', printPlan);
     const btnPdf = document.getElementById('plBtnPdf');
     if (btnPdf) btnPdf.addEventListener('click', savePDF);
+    const btnWizard = document.getElementById('plBtnWizard');
+    if (btnWizard) btnWizard.addEventListener('click', () => openWizard('toolbar'));
+    const btnEmptyWizard = document.getElementById('plEmptyWizardBtn');
+    if (btnEmptyWizard) btnEmptyWizard.addEventListener('click', () => openWizard('empty_state'));
     // savePNG is still defined and reachable internally (used as the
     // export path under the hood — no UI surface). Keep the function
     // so the printPlan SVG-builder stays compatible if we ever want
@@ -4779,10 +5961,15 @@
 
       if (key === 'Delete' || key === 'Backspace') { e.preventDefault(); deleteSelected(); }
       else if (key === 'Escape') {
-        // Esc precedence: dismiss context menu → exit measure mode →
-        // cancel polygon draw → cancel calibration → exit backdrop move
-        // mode → clear selection.
+        // Esc precedence: dismiss context menu → close mobile sheets →
+        // exit measure mode → cancel polygon draw → cancel calibration →
+        // exit backdrop move mode → clear selection.
         if (contextMenuEl && !contextMenuEl.hidden) { hideContextMenu(); return; }
+        if ((dom.palette && dom.palette.classList.contains('pl-sheet-open')) ||
+            (dom.sidebar && dom.sidebar.classList.contains('pl-sheet-open'))) {
+          closeMobileSheets();
+          return;
+        }
         if (measureMode) { exitMeasureMode(); return; }
         if (drawingPolygon) { cancelDrawPolygon(); return; }
         if (calibrating) { cancelCalibration(); render(); return; }
