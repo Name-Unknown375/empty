@@ -1,0 +1,8 @@
+{
+  "name": "forever-party-rentals-site",
+  "private": true,
+  "description": "Static site (Netlify). package.json exists only to supply dependencies to netlify/functions/.",
+  "dependencies": {
+    "@netlify/blobs": "^10.7.9"
+  }
+}

@@ -6,100 +6,85 @@
    and re-run the generator.
    ========================================================================== #}
 <!DOCTYPE html>
+{% set ov = overrides or {} %}
+{% set page_title_used = ov.title|default(page_title, true) %}
+{% set page_description_used = ov.meta_description|default(page_description, true) %}
+{% set _base_faqs = ov.faqs|default(city.faqs, true) %}
+{% set _pricing_faq = {"q": "How much do party rentals cost in " ~ city.name ~ "?", "a": "Party rental pricing in " ~ city.name ~ " depends on the items and your guest count. As a guide, chairs start around $3–$4 each per day, 6-foot banquet and 5-foot round tables from about $10–$13, and marquee tents from roughly $400 depending on size. Bundling a tent, tables and chairs into one of our packages saves 10%, and paying in full within 24 hours of your quote saves another 10%. Build your order online for an instant, itemised " ~ city.name ~ " quote — delivery and setup are priced up front with no hidden fees or fuel surcharges."} %}
+{% set faqs_to_show = _base_faqs + [_pricing_faq] %}
+{% set testimonials_to_show = ov.testimonials|default(testimonials, true) %}
 <html lang="en">
 <head>
+<!-- Google Tag Manager — defer gtm.js load until idle to protect LCP -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var loadGTM=function(){var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);};
+if('requestIdleCallback' in w){w.requestIdleCallback(loadGTM,{timeout:3000});}
+else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
+})(window,document,'script','dataLayer','GTM-KC35GGRQ');</script>
+<!-- End Google Tag Manager -->
+
 <meta charset="UTF-8"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>{{ page_title }}</title>
-<meta name="description" content="{{ page_description }}"/>
+<title>{{ page_title_used }}</title>
+<meta name="description" content="{{ page_description_used }}"/>
 <link rel="canonical" href="{{ canonical_url }}"/>
 <meta name="robots" content="index,follow,max-image-preview:large"/>
 <link rel="alternate" hreflang="en-CA" href="{{ canonical_url }}"/>
 <link rel="alternate" hreflang="x-default" href="{{ canonical_url }}"/>
-<link rel="preload" as="image" href="{{ city.heroImage }}" fetchpriority="high"/>
+<link rel="preload" as="image"
+      href="{{ city.heroImage | replace('.webp', '-1200w.webp') }}"
+      imagesrcset="{{ city.heroImage | replace('.webp', '-600w.webp') }} 600w, {{ city.heroImage | replace('.webp', '-900w.webp') }} 900w, {{ city.heroImage | replace('.webp', '-1200w.webp') }} 1200w"
+      imagesizes="(max-width: 900px) 100vw, 50vw"
+      fetchpriority="high"/>
 
 {# ---- Open Graph ---- #}
 <meta property="og:type" content="website"/>
 <meta property="og:locale" content="en_CA"/>
 <meta property="og:site_name" content="Forever Party Rentals"/>
-<meta property="og:title" content="{{ page_title }}"/>
-<meta property="og:description" content="{{ page_description }}"/>
+<meta property="og:title" content="{{ page_title_used }}"/>
+<meta property="og:description" content="{{ page_description_used }}"/>
 <meta property="og:url" content="{{ canonical_url }}"/>
-<meta property="og:image" content="{{ city.heroImage }}"/>
-<meta property="og:image:alt" content="Party rentals in {{ city.name }}, BC"/>
+<meta property="og:image" content="https://www.foreverpartyrentals.com/images/og/social-card.webp"/>
+<meta property="og:image:type" content="image/webp"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Party rentals in {{ city.name }}, BC — Forever Party Rentals"/>
 
 {# ---- Twitter Card ---- #}
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="{{ page_title }}"/>
-<meta name="twitter:description" content="{{ page_description }}"/>
-<meta name="twitter:image" content="{{ city.heroImage }}"/>
+<meta name="twitter:title" content="{{ page_title_used }}"/>
+<meta name="twitter:description" content="{{ page_description_used }}"/>
+<meta name="twitter:image" content="https://www.foreverpartyrentals.com/images/og/social-card.webp"/>
 
 {# ---- Fonts, CSS, and third-party widget scripts ---- #}
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=5"/>
+<link rel="stylesheet" href="shared.css?v=18"/>
+{# Booking-widget assets (Bootstrap, datepicker, Adelie cart) only ship to pages
+   that embed the live calendar — typically /rentals.html. shared.css redefines
+   .container/.btn/.btn-primary etc. with !important, so the Bootstrap CSS is
+   not load-bearing for layout. Gating these saves ~80KB and 5 requests on the
+   ~200 templated pages that don't have id="adelie". #}
+{% if has_booking|default(false) %}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" media="print" onload="this.media='all'"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/css/datepicker-bs5.min.css" media="print" onload="this.media='all'"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/css/datepicker-bs5.min.css" integrity="sha384-Vn0xiUc12vxlhJvgdGKbK8mGesCKN5jyO+2jqsBW7B+VBOpI+mBb9psuN4eQ1qAT" crossorigin="anonymous" media="print" onload="this.media='all'"/>
 <link rel="preload" as="script" href="https://embed-scripts-production.web.app/adelie-skeleton.js"/>
 <link rel="preload" as="script" href="https://embed-scripts-production.web.app/adelie-cart.js"/>
 <script src="https://embed-scripts-production.web.app/adelie-skeleton.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/js/datepicker-full.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/js/datepicker-full.min.js" integrity="sha384-4hMAtu0bBhcc6iK/j0zlvZY5p8yowLa3HbUIMx2eV8PHd13aDj3r0RK6+/HKaZT6" crossorigin="anonymous" defer></script>
 <script src="https://embed-scripts-production.web.app/adelie-cart.js" defer></script>
-<script>window.orgId = "LvrymFxex6oslWCxcrEg";</script>
+<script>window.orgId = "{{ fpr.adelieOrgId }}";</script>
+{% endif %}
 
-{# ---- JSON-LD: LocalBusiness (NAP + geo + hours + rating + areaServed) ---- #}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": {{ (site_url ~ "/#localbusiness") | tojson }},
-  "name": "Forever Party Rentals",
-  "image": {{ city.heroImage | tojson }},
-  "logo": {{ logo_url | tojson }},
-  "url": {{ (site_url ~ "/") | tojson }},
-  "telephone": "+1-778-990-7983",
-  "priceRange": "$3–$3600",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "9317 188 St",
-    "addressLocality": "Surrey",
-    "addressRegion": "BC",
-    "postalCode": "V4N 3V1",
-    "addressCountry": "CA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": {{ city.coords.lat }},
-    "longitude": {{ city.coords.lng }}
-  },
-  "openingHoursSpecification": [{
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "09:30",
-    "closes": "18:00"
-  }],
-  "areaServed": [
-    { "@type": "City", "name": {{ city.name | tojson }} }{% for n in city.neighborhoods %},
-    { "@type": "Place", "name": {{ (n ~ ", " ~ city.name ~ ", BC") | tojson }} }{% endfor %}
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "200",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "sameAs": [
-    "https://www.google.com/search?q=Forever+Party+Rentals&kgmid=/g/11tnwsrdpc",
-    "https://www.instagram.com/foreverpartyrentals"
-  ]
-}
-</script>
-
-{# ---- JSON-LD: Service (party rental service, areaServed = city) ---- #}
+{# ---- JSON-LD: Service (party rental service, areaServed = city).
+   The canonical LocalBusiness entity is declared once on the homepage
+   (@id = "/#localbusiness"); every reference below resolves to it. ---- #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -137,7 +122,7 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {% for f in city.faqs -%}
+    {% for f in faqs_to_show -%}
     {
       "@type": "Question",
       "name": {{ f.q | tojson }},
@@ -158,7 +143,7 @@
   "@type": "ItemList",
   "name": {{ (city.name ~ " Customer Reviews — Forever Party Rentals") | tojson }},
   "itemListElement": [
-    {% for t in testimonials %}
+    {% for t in testimonials_to_show %}
     {
       "@type": "ListItem",
       "position": {{ loop.index }},
@@ -167,7 +152,7 @@
         "author": { "@type": "Person", "name": {{ t.name | tojson }} },
         "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
         "reviewBody": {{ t.quote | tojson }},
-        "itemReviewed": { "@id": {{ (site_url ~ "/#localbusiness") | tojson }} },
+        "itemReviewed": { "@type": "LocalBusiness", "name": "Forever Party Rentals", "@id": {{ (site_url ~ "/#localbusiness") | tojson }} },
         "publisher": { "@type": "Organization", "name": "Forever Party Rentals" }
       }
     }{% if not loop.last %},{% endif %}
@@ -192,7 +177,7 @@
       "@type": "ListItem",
       "position": 2,
       "name": "Service Areas",
-      "item": {{ (site_url ~ "/service-areas.html") | tojson }}
+      "item": {{ (site_url ~ "/service-areas") | tojson }}
     },
     {
       "@type": "ListItem",
@@ -206,19 +191,25 @@
 
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KC35GGRQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+{{ nav_html | safe }}
 <div class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="service-areas.html">Service Areas</a><span>/</span>{{ city.name }}</div>
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/service-areas">Service Areas</a><span>/</span>{{ city.name }}</div>
     <span class="eyebrow">Party Rentals in {{ city.name }}</span>
-    <h1>{{ city.name }} Party Rentals</h1>
-    <p>Premium tent, chair &amp; table rentals delivered and set up in {{ city.name }} and the surrounding area. Serving {{ neighborhood_list_short }}.</p>
+    <h1>{{ ov.h1|default(city.name ~ ' Party Rentals', true) }}</h1>
+    <p>{{ ov.hero_subtitle|default('Premium tent, chair &amp; table rentals delivered and set up in ' ~ city.name ~ ' and the surrounding area. Serving ' ~ neighborhood_list_short ~ '.', true) }}</p>
   </div>
 </div>
 
 <div class="trust-bar">
   <div class="container">
     <div class="trust-item">📅 Book Instantly Online</div>
-    <div class="trust-item">🚚 Delivery &amp; Setup Included</div>
+    <div class="trust-item">🚚 Delivery &amp; Setup Available</div>
     <div class="trust-item">✅ 25% Deposit to Secure</div>
     <div class="trust-item">🛡️ 125% Cancellation Guarantee</div>
   </div>
@@ -228,12 +219,22 @@
   <div class="container">
     <div class="split">
       <div>
-        <img src="{{ city.heroImage }}" alt="Party rentals in {{ city.name }}, BC — tent, chair and table setup" class="product-hero-img" width="1200" height="800" loading="eager"/>
+        <img src="{{ city.heroImage | replace('.webp', '-1200w.webp') }}"
+             srcset="{{ city.heroImage | replace('.webp', '-600w.webp') }} 600w, {{ city.heroImage | replace('.webp', '-900w.webp') }} 900w, {{ city.heroImage | replace('.webp', '-1200w.webp') }} 1200w"
+             sizes="(max-width: 900px) 100vw, 50vw"
+             alt="Party rentals in {{ city.name }}, BC — tent, chair and table setup"
+             class="product-hero-img" width="1200" height="800" loading="eager" decoding="async" fetchpriority="high"/>
       </div>
       <div>
         <span class="eyebrow">Serving {{ city.name }}</span>
         <h2>{{ city.name }} Event &amp; Party Rentals</h2>
+        {% if ov.intro_paragraphs %}
+          {% for para in ov.intro_paragraphs %}
+        <p style="margin:16px 0">{{ para }}</p>
+          {% endfor %}
+        {% else %}
         <p style="margin:16px 0">{{ city.intro }}</p>
+        {% endif %}
         <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
           <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> Marquee tent rentals — delivered &amp; set up</li>
           <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> Chiavari, Fanback &amp; Garden chair rentals</li>
@@ -242,7 +243,7 @@
           <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> Book online 24/7 — instant confirmation</li>
           <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> Open 7 days a week, 9:30AM–6PM</li>
         </ul>
-        <a href="rentals.html" class="btn btn-primary btn-lg">Book {{ city.name }} Rentals Online</a>
+        <a href="/rentals" class="btn btn-primary btn-lg">Book {{ city.name }} Rentals Online</a>
         <div style="margin-top:16px;font-size:13px;color:var(--muted)">Or call us: <a href="tel:778-990-7983" style="color:var(--green);font-weight:600">778-990-7983</a></div>
       </div>
     </div>
@@ -257,31 +258,44 @@
     </div>
     <div class="grid-4">
       <div class="card">
-        <img class="card-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg" alt="Tent rentals in {{ city.name }}" width="600" height="400" loading="lazy"/>
-        <div class="card-body"><h3>Tent Rentals in {{ city.name }}</h3><p>Marquee &amp; popup tents for any event, any weather.</p><p style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px">From $120/day · marquees from $400</p><a href="{{ product_links.tent }}" class="card-link">View {{ city.name }} Tent Rentals →</a></div>
+        <img class="card-img" src="/images/hero/marquee-tents.webp" alt="Tent rentals in {{ city.name }}" width="600" height="400" loading="lazy"/>
+        <div class="card-body"><h3>Tent Rentals in {{ city.name }}</h3><p>Marquee &amp; popup tents for any event, any weather.</p><p style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px">From $75/day · marquees from $550</p><a href="{{ product_links.tent }}" class="card-link">{{ ov.tent_anchor|default(anchor_tent, true) }}</a></div>
       </div>
       <div class="card">
-        <img class="card-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/50e58759-c6e7-49e1-a736-547ff66283b8/white-chiavari-chair-rentals-surrey-langley-abbotsford.jpg" alt="Chair rentals in {{ city.name }}" width="600" height="400" loading="lazy"/>
-        <div class="card-body"><h3>Chair Rentals in {{ city.name }}</h3><p>Chiavari, Fanback &amp; Resin Garden chairs.</p><p style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px">From $3/day · Chiavari from $4</p><a href="{{ product_links.chair }}" class="card-link">View {{ city.name }} Chair Rentals →</a></div>
+        <img class="card-img" src="/images/services/chiavari-chairs.webp" alt="Chair rentals in {{ city.name }}" width="600" height="400" loading="lazy"/>
+        <div class="card-body"><h3>Chair Rentals in {{ city.name }}</h3><p>Chiavari, Fanback &amp; Resin Garden chairs.</p><p style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px">From $3/day · Chiavari from $4</p><a href="{{ product_links.chair }}" class="card-link">{{ ov.chair_anchor|default(anchor_chair, true) }}</a></div>
       </div>
       <div class="card">
-        <img class="card-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/7019daee-1743-44b3-afd8-fb5fd311925d/5ft+round+tables.jpg" alt="Table rentals in {{ city.name }}" width="600" height="400" loading="lazy"/>
-        <div class="card-body"><h3>Table Rentals in {{ city.name }}</h3><p>Banquet, round, rectangular &amp; cocktail tables.</p><p style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px">From $10/day · highboys from $15</p><a href="{{ product_links.table }}" class="card-link">View {{ city.name }} Table Rentals →</a></div>
+        <img class="card-img" src="/images/services/round-tables.webp" alt="Table rentals in {{ city.name }}" width="600" height="400" loading="lazy"/>
+        <div class="card-body"><h3>Table Rentals in {{ city.name }}</h3><p>Banquet, round, rectangular &amp; cocktail tables.</p><p style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px">From $10.95/day · highboys from $15.50</p><a href="{{ product_links.table }}" class="card-link">{{ ov.table_anchor|default(anchor_table, true) }}</a></div>
       </div>
       <div class="card">
-        <img class="card-img" src="https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/4ea40662-954d-44de-98db-a524d3b842e4/BLACK-AND-WHITE-DANCE-FLOOR-JERRY-HAYES.webp" alt="Dance floor rentals in {{ city.name }}" width="600" height="400" loading="lazy"/>
-        <div class="card-body"><h3>Dance Floor in {{ city.name }}</h3><p>Elegant black &amp; white dance floors for any occasion.</p><p style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px">From $800/event · up to $1,600</p><a href="{{ product_links['dance-floor'] }}" class="card-link">View {{ city.name }} Dance Floors →</a></div>
+        <img class="card-img" src="/images/services/dance-floor.webp" alt="Dance floor rentals in {{ city.name }}" width="600" height="400" loading="lazy"/>
+        <div class="card-body"><h3>Dance Floor in {{ city.name }}</h3><p>Elegant black &amp; white dance floors for any occasion.</p><p style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px">From $800/event · up to $1,600</p><a href="{{ product_links['dance-floor'] }}" class="card-link">{{ ov.dancefloor_anchor|default(anchor_dancefloor, true) }}</a></div>
       </div>
     </div>
   </div>
 </section>
+
+{# ---- Hand-authored "Local Knowledge" section. Only rendered when an
+       override file ships custom body content. Otherwise the templated
+       Service Area section below carries the local signals. ---- #}
+{% if ov.body_html %}
+<section class="section section--light" id="local-knowledge">
+  <div class="container" style="max-width:980px">
+    <div class="local-knowledge-body">
+      {{ ov.body_html | safe }}
+    </div>
+  </div>
+</section>
+{% endif %}
 
 <section class="section">
   <div class="container">
     <div class="section-header center">
       <span class="eyebrow">Service Area</span>
       <h2>Delivering Across {{ city.name }}</h2>
-      <p>{{ city.driveTimeFromSurrey }}. Delivery and professional setup are included in every quote.</p>
+      <p>{{ city.deliveryWindow }}. Delivery and professional setup are available as add-on services — we'll quote them up front.</p>
     </div>
     <div class="split">
       <div>
@@ -295,7 +309,7 @@
         <ul style="list-style:none;padding:0;font-size:14px;color:var(--muted);line-height:2">
           {% for l in city.landmarks %}<li>• {{ l }}</li>{% endfor %}
         </ul>
-        <p style="font-size:13px;color:var(--muted);margin-top:16px">Don't see your venue? We deliver to private residences, parks, halls, and event centres throughout {{ city.name }} — <a href="contact.html" style="color:var(--gold);font-weight:600">contact us</a> for a custom quote.</p>
+        <p style="font-size:13px;color:var(--muted);margin-top:16px">Don't see your venue? We deliver to private residences, parks, halls, and event centres throughout {{ city.name }} — <a href="/contact" style="color:var(--gold);font-weight:600">contact us</a> for a custom quote.</p>
       </div>
     </div>
   </div>
@@ -306,10 +320,10 @@
     <div class="section-header center">
       <span class="eyebrow">Reviews</span>
       <h2 style="color:#fff">What Our {{ city.name }} Clients Say</h2>
-      <p>Part of 200+ five-star Google reviews from across the Lower Mainland.</p>
+      <p>Part of {{ fpr.aggregateRating.count }}+ five-star Google reviews from across the Lower Mainland.</p>
     </div>
     <div class="grid-2" style="gap:20px">
-      {% for t in testimonials %}
+      {% for t in testimonials_to_show %}
       <div class="testimonial-card">
         <div class="stars">★★★★★</div>
         <blockquote>"{{ t.quote }}"</blockquote>
@@ -320,6 +334,26 @@
   </div>
 </section>
 
+{# ---- Seasonal cross-promo to Christmas light install service.
+       Gated on christmasServiceLevel so only Tier 1+2 cities see it. ---- #}
+{% if city.christmasServiceLevel == 'full' %}
+<section class="section" style="padding-top:32px;padding-bottom:32px;background:linear-gradient(180deg, #fff 0%, var(--light) 100%)">
+  <div class="container" style="max-width:980px">
+    <div style="background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:var(--radius);padding:22px 28px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between">
+      <div style="flex:1 1 320px;min-width:0">
+        <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px">Seasonal Service</div>
+        <div style="font-size:16px;color:var(--dark);font-weight:600;margin-bottom:2px">Also offering Christmas Light Installation in {{ city.name }}</div>
+        <div style="font-size:13px;color:var(--muted)">Design, install, maintenance, takedown &amp; free off-season storage — fixed-price packages for residential &amp; commercial.</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="/christmas-lights-{{ city.slug }}" class="btn btn-outline-primary">Learn More →</a>
+        <a href="/contact" class="btn btn-primary">Get Free Design Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <section class="section section--light">
   <div class="container">
     <div class="section-header center">
@@ -327,15 +361,15 @@
       <h2>Party Rental Questions — {{ city.name }}</h2>
     </div>
     <div style="max-width:860px;margin:0 auto">
-      {% for f in city.faqs %}
+      {% for f in faqs_to_show %}
       <div class="faq-item">
         <div class="faq-q">{{ f.q }}</div>
         <div class="faq-a">{{ f.a }}</div>
       </div>
       {% endfor %}
       <div class="faq-item">
-        <div class="faq-q">What's included in the delivery and setup fee?</div>
-        <div class="faq-a">Every rental includes round-trip delivery, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. There are no hidden charges or fuel surcharges — the price you see at checkout is the price you pay.</div>
+        <div class="faq-q">What does the delivery and setup fee cover?</div>
+        <div class="faq-a">When you add delivery and setup to your order, our crew handles round-trip transport, professional setup of tents and dance floors, takedown, and pickup. Chairs and tables are stacked and placed where you want them. Delivery and setup are quoted up front with no hidden charges or fuel surcharges — the price you see at checkout is the price you pay.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Can you set up a tent on grass, gravel, or a paved driveway?</div>
@@ -349,6 +383,37 @@
   </div>
 </section>
 
+{# ---- Override-driven cross-links: blog topical clusters + nearby city pages.
+       Only rendered when an override file ships these arrays. ---- #}
+{% if ov.related_blog_posts or ov.nearby_cities %}
+<section class="section">
+  <div class="container" style="max-width:980px">
+    <div class="grid-2" style="gap:32px">
+      {% if ov.related_blog_posts %}
+      <aside>
+        <h3 style="margin:0 0 16px 0;color:var(--green);font-size:18px">Related Reading</h3>
+        <ul style="list-style:none;padding:0;margin:0">
+          {% for post in ov.related_blog_posts %}
+          <li style="margin-bottom:10px"><a href="/blog/{{ post.slug }}" style="color:var(--dark);font-weight:500">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </aside>
+      {% endif %}
+      {% if ov.nearby_cities %}
+      <aside>
+        <h3 style="margin:0 0 16px 0;color:var(--green);font-size:18px">Nearby Service Areas</h3>
+        <ul style="list-style:none;padding:0;margin:0">
+          {% for c in ov.nearby_cities %}
+          <li style="margin-bottom:10px"><a href="/{{ c.slug }}-party-rentals" style="color:var(--dark);font-weight:500">{{ c.name }} Party Rentals</a></li>
+          {% endfor %}
+        </ul>
+      </aside>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
 {# ---- NAP block: surfaces address + phone + hours that are otherwise only in JSON-LD.
    Matches exactly the values in the LocalBusiness schema above for consistency. ---- #}
 <section class="section section--light" aria-labelledby="nap-heading-{{ city.slug | default(city.name | lower) }}">
@@ -358,7 +423,7 @@
         <div id="nap-heading-{{ city.slug | default(city.name | lower) }}" style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Forever Party Rentals</div>
         <div style="font-size:14px;color:var(--dark);font-weight:600;line-height:1.5">
           <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-            <span itemprop="streetAddress">9317 188 St</span><br/>
+            <span itemprop="streetAddress">{{ fpr.addressStreet }}</span><br/>
             <span itemprop="addressLocality">Surrey</span>, <span itemprop="addressRegion">BC</span> <span itemprop="postalCode">V4N 3V1</span>
           </span>
         </div>
@@ -405,12 +470,13 @@
     <h2>Ready to Book in {{ city.name }}?</h2>
     <p>Check live availability and book online 24/7 — or call us any day of the week.</p>
     <div class="btn-row">
-      <a href="rentals.html" class="btn btn-gold btn-lg">Book Online — 24/7</a>
-      <a href="contact.html" class="btn btn-outline-white btn-lg">Contact Us</a>
+      <a href="/rentals" class="btn btn-gold btn-lg">Book Online — 24/7</a>
+      <a href="/contact" class="btn btn-outline-white btn-lg">Contact Us</a>
     </div>
   </div>
 </div>
-<script src="shared.js"></script>
+{{ footer_html | safe }}
+<script src="shared.js?v=13"></script>
 <!-- lastmod: {{ lastmod }} -->
 </body>
 </html>

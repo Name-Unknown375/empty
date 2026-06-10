@@ -1,0 +1,1073 @@
+/* Forever Party Rentals — Event Layout Planner styles
+   Loaded by both event-layout-planner.html (hub) and event-layout-planner-embed.html.
+   Tokens echo shared.css; we redeclare the few we need so the embed page stays
+   self-contained even when third parties iframe it without our shared.css. */
+
+:root {
+  --pl-green: #1E3A2F;
+  --pl-green-dark: #132619;
+  --pl-gold: #C9A44A;
+  --pl-light: #F5F8F6;
+  --pl-border: #E8EDEA;
+  --pl-muted: #595959;
+  --pl-dark: #1A1A1A;
+  --pl-radius: 4px;
+  --pl-shadow: 0 1px 4px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.04);
+}
+
+.planner-app {
+  font-family: 'Jost', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--pl-dark);
+  background: #fff;
+  display: grid;
+  grid-template-columns: 220px 1fr 260px;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  width: 100vw;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+/* ── Toolbar (top, spans all 3 columns) ─────────────────────────────────── */
+.planner-toolbar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 8px 10px;
+  min-height: 56px;
+  box-sizing: border-box;
+  background: var(--pl-green);
+  color: #fff;
+  border-bottom: 1px solid var(--pl-green-dark);
+}
+.planner-toolbar .pl-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-right: 8px;
+  letter-spacing: -.2px;
+  white-space: nowrap;
+}
+.planner-toolbar .pl-spacer { flex: 1; }
+.pl-btn {
+  appearance: none;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 6px 9px;
+  border-radius: var(--pl-radius);
+  cursor: pointer;
+  transition: background .12s, border-color .12s, transform .08s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.pl-btn:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.28); }
+.pl-btn:active { transform: translateY(1px); }
+.pl-btn:disabled { opacity: .35; cursor: not-allowed; }
+.pl-btn.pl-btn-gold {
+  background: var(--pl-gold);
+  border-color: var(--pl-gold);
+  color: #fff;
+  font-weight: 600;
+}
+.pl-btn.pl-btn-gold:hover { background: #b89139; border-color: #b89139; }
+.pl-btn.pl-btn-icon { padding: 6px 7px; }
+.pl-btn .pl-ico { width: 14px; height: 14px; display: block; }
+.pl-divider {
+  width: 1px; height: 22px; background: rgba(255,255,255,.18); margin: 0 3px;
+}
+
+/* Zoom readout */
+.pl-zoom-group {
+  display: inline-flex; align-items: center;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: var(--pl-radius);
+  overflow: hidden;
+}
+.pl-zoom-group .pl-btn {
+  border: none; border-radius: 0; background: transparent; padding: 7px 9px;
+}
+.pl-zoom-group .pl-btn:hover { background: rgba(255,255,255,.14); }
+.pl-zoom-readout {
+  font-size: 11px; padding: 0 8px; min-width: 44px; text-align: center;
+  font-variant-numeric: tabular-nums; opacity: .85;
+}
+
+/* ── Palette (left sidebar) ─────────────────────────────────────────────── */
+.planner-palette {
+  background: var(--pl-light);
+  border-right: 1px solid var(--pl-border);
+  overflow-y: auto;
+  padding: 16px 14px 24px;
+}
+.pl-venue-form { margin-bottom: 18px; }
+.pl-venue-form .pl-venue-label {
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--pl-gold); font-weight: 600; display: block; margin-bottom: 8px;
+}
+.pl-venue-row {
+  display: grid; grid-template-columns: 1fr 12px 1fr; gap: 4px; align-items: center;
+}
+.pl-venue-row .pl-x { text-align: center; color: var(--pl-muted); font-size: 13px; }
+.pl-venue-form input[type="number"] {
+  width: 100%; padding: 8px 10px; font-family: inherit; font-size: 13px;
+  border: 1px solid var(--pl-border); border-radius: var(--pl-radius);
+  background: #fff; color: var(--pl-dark);
+}
+.pl-venue-form input[type="number"]:focus { outline: 2px solid var(--pl-gold); outline-offset: 0; border-color: var(--pl-gold); }
+.pl-venue-units { font-size: 11px; color: var(--pl-muted); margin-top: 6px; text-align: center; }
+
+/* Polygon-mode summary — replaces the rect W×D inputs. */
+.pl-venue-poly-info {
+  background: rgba(30, 58, 47, .04);
+  border: 1px solid var(--pl-border);
+  border-radius: var(--pl-radius);
+  padding: 8px 10px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--pl-dark);
+}
+.pl-venue-poly-summary { margin-bottom: 8px; }
+.pl-venue-poly-summary strong { color: var(--pl-green); }
+
+/* Backdrop upload + control panel — sits below venue size in the left rail.
+   The outer button is hidden by JS once a photo is loaded; the panel
+   appears in its place. The "Add background photo" CTA gets a gold-
+   bordered ghost style to stand out without competing with the toolbar
+   gold buttons (which are filled gold). */
+.pl-backdrop-form { margin-bottom: 18px; }
+.pl-btn-backdrop {
+  background: rgba(201, 164, 74, .12);
+  border: 1.5px dashed var(--pl-gold);
+  color: var(--pl-green);
+  font-weight: 500;
+  padding: 10px 12px;
+}
+.pl-btn-backdrop:hover {
+  background: rgba(201, 164, 74, .22);
+  border-color: var(--pl-gold);
+  border-style: solid;
+}
+.pl-btn-backdrop .pl-ico { width: 16px; height: 16px; color: var(--pl-gold); }
+.pl-backdrop-form-hint {
+  font-size: 10.5px; color: var(--pl-muted);
+  margin-top: 6px; line-height: 1.4;
+  text-align: center;
+}
+.pl-btn-block { display: flex; width: 100%; justify-content: center; align-items: center; gap: 6px; }
+.pl-btn-small { font-size: 11px; padding: 6px 10px; }
+.pl-btn-active {
+  background: var(--pl-gold) !important;
+  color: var(--pl-dark) !important;
+  border-color: var(--pl-gold) !important;
+}
+.pl-btn-danger {
+  border-color: rgba(180, 40, 40, .5) !important;
+  color: #b32a2a !important;
+}
+.pl-btn-danger:hover {
+  background: rgba(180, 40, 40, .08) !important;
+}
+.pl-backdrop-panel {
+  background: rgba(201, 164, 74, .08);
+  border: 1px solid rgba(201, 164, 74, .3);
+  border-radius: var(--pl-radius);
+  padding: 10px 12px;
+}
+.pl-backdrop-panel-title {
+  font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--pl-green); font-weight: 600; margin-bottom: 8px;
+}
+.pl-backdrop-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; font-size: 11px; color: var(--pl-dark);
+  margin-bottom: 8px;
+}
+.pl-backdrop-row input[type="range"] {
+  flex: 1; max-width: 100px;
+  accent-color: var(--pl-gold);
+}
+.pl-backdrop-buttons {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px;
+}
+.pl-backdrop-buttons .pl-btn { flex: 1 1 auto; min-width: 50px; }
+/* Side-panel buttons sit on a light cream background, so the toolbar's
+   white-on-dark-green base color is unreadable. Override to dark text +
+   subtle bordered chip style. Active/danger variants keep their accents. */
+.pl-backdrop-panel .pl-btn,
+.planner-palette .pl-btn,
+.planner-sidebar .pl-btn {
+  color: var(--pl-dark);
+  background: #fff;
+  border-color: var(--pl-border);
+}
+.pl-backdrop-panel .pl-btn:hover,
+.planner-palette .pl-btn:hover,
+.planner-sidebar .pl-btn:hover {
+  background: rgba(30, 58, 47, .06);
+  border-color: var(--pl-green);
+  color: var(--pl-green);
+}
+/* Re-assert variant overrides so they still win on side-panel buttons. */
+.pl-backdrop-panel .pl-btn.pl-btn-danger,
+.planner-palette .pl-btn.pl-btn-danger,
+.planner-sidebar .pl-btn.pl-btn-danger { color: #b32a2a; background: #fff; }
+.pl-backdrop-panel .pl-btn.pl-btn-active,
+.planner-palette .pl-btn.pl-btn-active,
+.planner-sidebar .pl-btn.pl-btn-active {
+  background: var(--pl-gold) !important;
+  color: var(--pl-dark) !important;
+  border-color: var(--pl-gold) !important;
+}
+.pl-backdrop-hint {
+  font-size: 10.5px; line-height: 1.4; color: var(--pl-muted);
+}
+
+.pl-group { margin-top: 18px; }
+.pl-group-label {
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--pl-green); font-weight: 600; margin-bottom: 8px;
+}
+.pl-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.pl-tile {
+  background: #fff;
+  border: 1px solid var(--pl-border);
+  border-radius: var(--pl-radius);
+  padding: 8px 6px;
+  cursor: grab;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transition: border-color .12s, transform .08s;
+  text-align: center;
+}
+.pl-tile:hover { border-color: var(--pl-gold); transform: translateY(-1px); }
+.pl-tile:active { cursor: grabbing; }
+.pl-tile.pl-dragging { opacity: .5; }
+.pl-tile-thumb {
+  width: 100%; height: 36px; display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.pl-tile-thumb svg { display: block; max-width: 100%; max-height: 100%; }
+.pl-tile-label {
+  font-size: 10px; line-height: 1.25; color: var(--pl-dark); font-weight: 500;
+  pointer-events: none;
+}
+
+/* ── Canvas (center) ────────────────────────────────────────────────────── */
+.planner-canvas {
+  position: relative;
+  background: var(--pl-light);
+  overflow: hidden;
+  touch-action: none;
+}
+.planner-canvas svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+.planner-canvas.pl-panning svg { cursor: grabbing; }
+/* Space held → preview pan-cursor before drag starts. */
+.planner-canvas.pl-space-down svg,
+.planner-canvas.pl-space-down .pl-item-group { cursor: grab !important; }
+.planner-canvas.pl-marqueeing svg { cursor: crosshair; }
+.planner-canvas.pl-dropping {
+  outline: 3px dashed var(--pl-gold);
+  outline-offset: -6px;
+}
+
+/* Marquee selection rectangle — absolute-positioned div over the canvas,
+   shown only during empty-canvas drags. Subtle so multi-selecting feels
+   light, not heavy. */
+.pl-marquee-rect {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(30, 58, 47, .08);
+  border: 1px dashed var(--pl-green);
+  z-index: 5;
+}
+
+/* Backdrop image rendering — sits behind grid + venue + items. The group
+   transforms are handled in the SVG; this just controls cursor + outline. */
+.pl-backdrop-edit { cursor: move; }
+.planner-canvas.pl-calibrating svg { cursor: crosshair !important; }
+.planner-canvas.pl-drawing-poly svg { cursor: crosshair !important; }
+.planner-canvas.pl-measuring svg { cursor: crosshair !important; }
+
+/* Polygon vertex handles — draggable corner dots when the venue shape is
+   a polygon. Larger hit area than visual size. */
+.pl-poly-handle {
+  fill: var(--pl-gold);
+  stroke: var(--pl-green);
+  stroke-width: 1.8;
+  cursor: grab;
+  pointer-events: auto;
+}
+.pl-poly-handle:hover { fill: #fff; stroke: var(--pl-green); }
+
+/* ── Print page ──────────────────────────────────────────────────────
+   Hidden by default; shown only when body.pl-printing is set during the
+   window.print() call. The print page replaces the planner UI entirely
+   so the printed sheet shows just the event-relevant content (title +
+   layout SVG + line-item legend + footer). */
+.pl-print-page { display: none; }
+@media print {
+  @page {
+    size: letter landscape;
+    margin: 0.4in;
+  }
+  body.pl-printing > *:not(.pl-print-page) { display: none !important; }
+  body.pl-printing .pl-print-page { display: block !important; }
+  body.pl-printing { background: #fff !important; overflow: visible !important; }
+}
+.pl-print-page {
+  background: #fff;
+  color: #1E3A2F;
+  font-family: 'Jost', system-ui, sans-serif;
+  padding: 0;
+  width: 100%;
+}
+.pl-print-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  border-bottom: 2px solid #1E3A2F;
+  padding-bottom: 8pt; margin-bottom: 10pt;
+}
+.pl-print-brand-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 18pt; font-weight: 700; color: #1E3A2F;
+  line-height: 1.1;
+}
+.pl-print-brand-contact {
+  font-size: 9pt; color: rgba(30,58,47,.7);
+  margin-top: 2pt;
+}
+.pl-print-meta {
+  text-align: right;
+  font-size: 10pt;
+  color: rgba(30,58,47,.7);
+  line-height: 1.4;
+}
+.pl-print-event {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 14pt; font-weight: 600; color: #1E3A2F;
+  margin-bottom: 2pt;
+}
+.pl-print-meta-row { font-size: 9.5pt; }
+.pl-print-canvas {
+  width: 100%;
+  margin-bottom: 10pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.pl-print-canvas svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 6.2in;
+}
+.pl-print-legend {
+  font-size: 9pt;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.pl-print-legend-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 12pt; font-weight: 600;
+  color: #1E3A2F;
+  margin-bottom: 4pt;
+}
+.pl-print-table {
+  width: 100%; border-collapse: collapse;
+}
+/* Lite-mode print (third-party embeds): single-column item list, no
+   cost columns. */
+.pl-print-table-lite td {
+  padding: 3pt 6pt;
+  border-bottom: 0.5pt solid rgba(30,58,47,.18);
+}
+.pl-print-table td {
+  padding: 3pt 6pt;
+  border-bottom: 0.5pt solid rgba(30,58,47,.18);
+  vertical-align: top;
+}
+.pl-print-meta-cell {
+  font-size: 8.5pt;
+  color: rgba(30,58,47,.6);
+  width: 35%;
+}
+.pl-print-money {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  width: 80pt;
+}
+.pl-print-grand td {
+  font-weight: 600;
+  font-size: 10pt;
+  border-top: 1pt solid #1E3A2F;
+  border-bottom: none;
+  padding-top: 5pt;
+}
+.pl-print-empty {
+  font-style: italic;
+  color: rgba(30,58,47,.5);
+}
+.pl-print-disclaimer {
+  font-size: 8pt;
+  color: rgba(30,58,47,.55);
+  margin-top: 6pt;
+  line-height: 1.4;
+}
+.pl-print-footer {
+  display: flex; justify-content: space-between;
+  font-size: 8pt;
+  color: rgba(30,58,47,.5);
+  border-top: 0.5pt solid rgba(30,58,47,.25);
+  padding-top: 4pt;
+  margin-top: 8pt;
+}
+
+/* Banner shown over the canvas during 2-click scale calibration. */
+.pl-calibration-hint {
+  position: fixed;
+  top: 64px; left: 50%; transform: translateX(-50%);
+  background: var(--pl-green); color: #fff;
+  padding: 8px 16px;
+  font-size: 13px; font-weight: 500;
+  border-radius: var(--pl-radius);
+  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  z-index: 250;
+  pointer-events: none;
+}
+.pl-empty-hint {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--pl-muted);
+  font-size: 14px;
+  pointer-events: none;
+  max-width: 320px;
+  line-height: 1.6;
+}
+.pl-empty-hint strong { color: var(--pl-green); display: block; font-size: 18px; font-weight: 600; margin-bottom: 6px; }
+
+/* SVG element styles. Grid is dual-frequency: subtle 1ft minor lines for
+   high-zoom precision, bold 5ft major lines for at-a-glance scale. The
+   '5ft × 5ft grid' is the primary visual reference; foot tick labels at
+   each major intersection on the top/left edges drive the scale home. */
+.pl-grid       { stroke: rgba(30,58,47,.05); stroke-width: 0.5; fill: none; }
+.pl-grid-major { stroke: rgba(30,58,47,.28); stroke-width: 1;   fill: none; }
+.pl-grid-label {
+  font-family: 'Jost', sans-serif; font-weight: 500;
+  fill: rgba(30,58,47,.55);
+  pointer-events: none; user-select: none;
+}
+.pl-venue-fill { fill: #fff; stroke: none; }
+.pl-venue-rect { fill: none; stroke: var(--pl-green); stroke-width: 2; }
+.pl-item-table { fill: #d8c79a; stroke: #8b6f2c; stroke-width: 1; }
+.pl-item-chair { fill: #fff; stroke: #1E3A2F; stroke-width: 0.6; }
+.pl-item-tent  { fill: rgba(30,58,47,.04); stroke: var(--pl-green); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.pl-item-stage { fill: #b8b1a4; stroke: #3a3424; stroke-width: 0.8; }
+.pl-item-default { fill: #c8d4cb; stroke: var(--pl-green); stroke-width: 0.8; }
+.pl-item-label  { font: 500 9px 'Jost', sans-serif; fill: var(--pl-dark); pointer-events: none; user-select: none; text-anchor: middle; }
+.pl-item-label-light { font: 500 9px 'Jost', sans-serif; fill: rgba(255,255,255,.92); pointer-events: none; user-select: none; text-anchor: middle; }
+.pl-selection-halo { fill: none; stroke: var(--pl-gold); stroke-width: 2; stroke-dasharray: 4 3; pointer-events: none; }
+.pl-rotate-handle { fill: var(--pl-gold); stroke: #fff; stroke-width: 1.5; cursor: grab; }
+.pl-rotate-line   { stroke: var(--pl-gold); stroke-width: 1; stroke-dasharray: 2 2; pointer-events: none; }
+.pl-item-group    { cursor: grab; }
+.pl-item-group.pl-dragging { cursor: grabbing; }
+
+/* ── Sidebar (right) ────────────────────────────────────────────────────── */
+.planner-sidebar {
+  background: #fff;
+  border-left: 1px solid var(--pl-border);
+  overflow-y: auto;
+  padding: 16px 18px 24px;
+}
+.pl-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+  margin-bottom: 18px;
+}
+.pl-stat {
+  background: var(--pl-light);
+  border-radius: var(--pl-radius);
+  padding: 10px 12px;
+  border: 1px solid var(--pl-border);
+}
+.pl-stat-num {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px; font-weight: 700; color: var(--pl-green); line-height: 1;
+}
+.pl-stat-label {
+  font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--pl-muted); margin-top: 4px;
+}
+.pl-density-wrap {
+  font-size: 11px; padding: 9px 12px; margin-top: 8px;
+  border-radius: var(--pl-radius); line-height: 1.5;
+}
+.pl-density-wrap strong { font-weight: 600; }
+.pl-density-ok   { background: rgba(30,58,47,.08);  color: var(--pl-green); }
+.pl-density-warn { background: rgba(201,164,74,.18); color: #8b6f2c; }
+.pl-density-bad  { background: rgba(180,40,40,.10); color: #b32a2a; }
+.pl-section-title {
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--pl-green); font-weight: 600; margin: 22px 0 8px;
+}
+.pl-tally { font-size: 12px; color: var(--pl-dark); }
+.pl-tally-row {
+  display: flex; justify-content: space-between; padding: 4px 0;
+  border-bottom: 1px solid var(--pl-border);
+}
+.pl-tally-row:last-child { border-bottom: none; }
+.pl-tally-empty { color: var(--pl-muted); font-style: italic; padding: 8px 0; }
+.pl-tally-link {
+  color: var(--pl-dark); text-decoration: none;
+  border-bottom: 1px dotted transparent;
+  transition: color .12s, border-color .12s;
+}
+.pl-tally-link:hover { color: var(--pl-green); border-bottom-color: var(--pl-green); }
+.pl-tally-arrow { opacity: 0; margin-left: 2px; transition: opacity .12s; color: var(--pl-gold); font-weight: 700; }
+.pl-tally-link:hover .pl-tally-arrow { opacity: 1; }
+
+.pl-event-name {
+  width: 100%; padding: 8px 10px; font-family: inherit; font-size: 13px;
+  border: 1px solid var(--pl-border); border-radius: var(--pl-radius);
+  background: #fff; color: var(--pl-dark); margin-bottom: 14px;
+}
+.pl-event-name:focus { outline: 2px solid var(--pl-gold); outline-offset: 0; border-color: var(--pl-gold); }
+
+/* Inspector — appears in the right rail when a single seated table is
+   selected. Currently exposes a chair-count stepper. Designed to feel
+   contextual (gold accent matches the selection halo). */
+.pl-inspector {
+  background: rgba(201, 164, 74, .10);
+  border: 1px solid rgba(201, 164, 74, .35);
+  border-radius: var(--pl-radius);
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+.pl-inspector-title {
+  font-size: 12px; font-weight: 600; color: var(--pl-green);
+  margin-bottom: 8px;
+}
+.pl-inspector-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px;
+}
+.pl-inspector-label {
+  font-size: 12px; color: var(--pl-dark);
+}
+.pl-inspector-hint {
+  font-size: 10.5px; color: var(--pl-muted); line-height: 1.4;
+  margin-top: 8px;
+}
+.pl-stepper {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #fff;
+  border: 1px solid var(--pl-border);
+  border-radius: var(--pl-radius);
+  padding: 2px;
+}
+.pl-stepper-btn {
+  width: 24px; height: 24px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent; border: 0;
+  font-family: inherit; font-size: 16px; font-weight: 600;
+  color: var(--pl-green); cursor: pointer;
+  border-radius: 4px;
+}
+.pl-stepper-btn:hover { background: rgba(30, 58, 47, .08); }
+.pl-stepper-btn:active { background: rgba(30, 58, 47, .14); }
+.pl-stepper-val {
+  min-width: 22px; text-align: center; font-size: 13px; font-weight: 600;
+  color: var(--pl-dark);
+}
+
+.pl-inspector-select {
+  font-family: inherit;
+  font-size: 11.5px;
+  padding: 4px 6px;
+  border: 1px solid var(--pl-border);
+  border-radius: var(--pl-radius);
+  background: #fff;
+  color: var(--pl-dark);
+  max-width: 60%;
+}
+.pl-inspector-select:focus { outline: 2px solid var(--pl-gold); outline-offset: 0; }
+
+/* Estimated-cost panel — live line items, subtotals, grand total. Sits
+   between the item tally and the quote form, so users see the running
+   cost as they design. Per-day prices represent the rental rate (a
+   typical Fri–Sun event), not a per-night multiplier. */
+.pl-quote-lines { font-size: 12px; margin-top: 4px; }
+.pl-quote-line {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 8px; padding: 4px 0; align-items: baseline;
+  border-bottom: 1px dotted var(--pl-border);
+}
+.pl-quote-line:last-child { border-bottom: none; }
+.pl-quote-line-main { color: var(--pl-dark); min-width: 0; }
+.pl-quote-line-meta { display: block; font-size: 10px; color: var(--pl-muted); margin-top: 2px; }
+.pl-quote-line-sub  { font-variant-numeric: tabular-nums; min-width: 56px; text-align: right; color: var(--pl-dark); }
+.pl-quote-empty {
+  color: var(--pl-muted); font-style: italic; padding: 8px 0; font-size: 12px;
+}
+
+.pl-quote-totals {
+  border-top: 2px solid var(--pl-green); margin-top: 8px; padding-top: 8px;
+  font-size: 12px;
+}
+.pl-quote-totals-row {
+  display: flex; justify-content: space-between; padding: 2px 0;
+  color: var(--pl-muted); font-variant-numeric: tabular-nums;
+}
+.pl-quote-totals-row.pl-grand {
+  color: var(--pl-green); font-weight: 600; font-size: 15px;
+  padding-top: 6px; margin-top: 4px; border-top: 1px solid var(--pl-border);
+}
+.pl-quote-disclaimer {
+  font-size: 10px; color: var(--pl-muted); line-height: 1.5;
+  margin: 8px 0 0; padding: 0;
+}
+
+/* Quote form (bottom of sidebar) */
+.pl-quote-block { background: var(--pl-light); border-radius: var(--pl-radius); padding: 14px; margin-top: 18px; }
+.pl-quote-block .pl-section-title { margin-top: 0; }
+.pl-quote-block input,
+.pl-quote-block textarea {
+  width: 100%; padding: 8px 10px; font-family: inherit; font-size: 12px;
+  border: 1px solid var(--pl-border); border-radius: var(--pl-radius);
+  background: #fff; color: var(--pl-dark); margin-bottom: 8px;
+  resize: vertical;
+}
+.pl-quote-block textarea { min-height: 70px; }
+.pl-quote-block button { width: 100%; margin-top: 6px; }
+.pl-quote-status { font-size: 11px; color: var(--pl-muted); margin-top: 8px; min-height: 14px; }
+
+/* ── Templates dropdown menu ────────────────────────────────────────────── */
+.pl-menu {
+  position: fixed;
+  background: #fff;
+  border: 1px solid var(--pl-border);
+  border-radius: 6px;
+  padding: 6px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.18), 0 2px 6px rgba(0,0,0,.06);
+  z-index: 100;
+  min-width: 320px;
+  max-width: 360px;
+}
+.pl-menu-item {
+  display: block; width: 100%;
+  border: none; background: transparent;
+  padding: 10px 12px; font: inherit;
+  text-align: left; cursor: pointer;
+  border-radius: 4px;
+  transition: background .12s;
+}
+.pl-menu-item:hover { background: var(--pl-light); }
+.pl-menu-item .pl-menu-label {
+  display: block;
+  font-weight: 600; font-size: 13px;
+  color: var(--pl-green); margin-bottom: 2px;
+}
+.pl-menu-item .pl-menu-summary {
+  display: block; font-size: 11px; color: var(--pl-muted);
+  line-height: 1.4;
+}
+
+/* Read-only viewer mode (?view=readonly) — hides editing chrome so a
+   recipient sees just the layout. Pan + zoom remain enabled in JS;
+   we don't show the buttons because the canvas still responds to wheel
+   and Space+drag without them. */
+body.pl-readonly .planner-toolbar,
+body.pl-readonly .planner-palette,
+body.pl-readonly .planner-sidebar,
+body.pl-readonly #plBackdropPanel,
+body.pl-readonly #plTemplatesMenu,
+body.pl-readonly #plCeremonyModal { display: none !important; }
+body.pl-readonly #plannerApp {
+  grid-template-columns: 1fr !important;
+  grid-template-rows: 1fr !important;
+  grid-template-areas: "canvas" !important;
+}
+body.pl-readonly .planner-canvas {
+  grid-area: canvas;
+  width: 100vw; height: 100vh;
+}
+
+/* Lite mode (?host=external or cross-origin embedder) — hides the FPR
+   pricing block and quote form so partner rental sites embedding the
+   planner don't expose our prices or compete with their own quote
+   workflow. The "Powered by Forever Party Rentals" badge stays — that's
+   the visible-backlink trade for using the tool. */
+body.pl-lite .pl-cost-block,
+body.pl-lite .pl-quote-block { display: none !important; }
+
+/* Fullscreen toggle — icon swaps between "enter" (4 outward arrows) and
+   "exit" (4 inward arrows) based on the active state class set by JS.
+   Backed by the standard Fullscreen API on documentElement. */
+.pl-is-fullscreen #plBtnFullscreen .pl-ico-enter-fs { display: none; }
+.pl-is-fullscreen #plBtnFullscreen .pl-ico-exit-fs  { display: block !important; }
+/* In fullscreen the iframe document fills the screen; ensure the planner
+   grid doesn't get capped by any old min-height on body. */
+:fullscreen .planner-app,
+:-webkit-full-screen .planner-app {
+  width: 100vw; height: 100vh;
+}
+:fullscreen body,
+:-webkit-full-screen body {
+  height: 100vh;
+}
+
+/* First-visit tour overlay — backdrop dim + spotlight on a UI region
+   + tooltip card. The "spotlight" trick: a transparent div with an
+   outsize box-shadow covers the rest of the viewport in a dim wash,
+   leaving the spotlight rect untouched. */
+.pl-tour-overlay {
+  position: fixed; inset: 0;
+  z-index: 1000;
+  pointer-events: auto;
+}
+.pl-tour-spotlight {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 8px;
+  box-shadow: 0 0 0 9999px rgba(0,0,0,0.55);
+  transition: top .25s ease, left .25s ease, width .25s ease, height .25s ease;
+  outline: 2px solid var(--pl-gold);
+  outline-offset: -2px;
+}
+.pl-tour-card {
+  position: absolute;
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px 20px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.22), 0 4px 10px rgba(0,0,0,0.06);
+  max-width: 320px;
+  font-family: 'Jost', system-ui, sans-serif;
+  z-index: 1001;
+  visibility: hidden;
+}
+.pl-tour-step {
+  font-size: 10.5px; letter-spacing: 1.4px; text-transform: uppercase;
+  color: var(--pl-muted); font-weight: 600;
+  margin-bottom: 4px;
+}
+.pl-tour-card h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  margin: 0 0 6px;
+  font-size: 17px;
+  color: var(--pl-green);
+  line-height: 1.25;
+}
+.pl-tour-card p {
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--pl-dark);
+}
+.pl-tour-actions {
+  display: flex; gap: 8px;
+  justify-content: flex-end;
+}
+/* Tour buttons override the cream-panel button color (they sit on white) */
+.pl-tour-card .pl-btn {
+  color: var(--pl-dark);
+  background: #fff;
+  border-color: var(--pl-border);
+}
+.pl-tour-card .pl-btn:hover {
+  background: rgba(30, 58, 47, .06);
+  border-color: var(--pl-green);
+  color: var(--pl-green);
+}
+.pl-tour-card .pl-btn-gold,
+.pl-tour-card .pl-btn-gold:hover {
+  background: var(--pl-gold);
+  border-color: var(--pl-gold);
+  color: #fff;
+}
+
+/* Right-click context menu. Position-fixed; planner.js sets left/top
+   in client coords. Auto-clamps to the viewport. */
+.pl-context-menu {
+  position: fixed;
+  background: #fff;
+  border: 1px solid var(--pl-border);
+  border-radius: 6px;
+  padding: 4px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.18), 0 2px 6px rgba(0,0,0,.06);
+  z-index: 200;
+  min-width: 180px;
+  font-size: 12px;
+}
+.pl-context-item {
+  display: block; width: 100%;
+  border: none; background: transparent;
+  padding: 7px 12px; font: inherit;
+  text-align: left; cursor: pointer;
+  border-radius: 3px;
+  color: var(--pl-dark);
+}
+.pl-context-item:hover { background: var(--pl-light); color: var(--pl-green); }
+.pl-context-disabled, .pl-context-item:disabled {
+  color: var(--pl-muted) !important;
+  cursor: not-allowed;
+  background: transparent !important;
+}
+.pl-context-divider {
+  height: 1px; background: var(--pl-border); margin: 4px 6px;
+}
+
+/* Section heading inside the templates dropdown — separates built-ins
+   from user-saved templates from the "save current" action. */
+.pl-menu-section {
+  font-size: 10.5px; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--pl-muted); font-weight: 600;
+  padding: 8px 12px 4px;
+}
+.pl-menu-divider {
+  height: 1px; background: var(--pl-border); margin: 6px 4px;
+}
+/* User-template row: button + small × delete on hover. */
+.pl-menu-item-wrap {
+  display: flex; align-items: stretch;
+  border-radius: 4px;
+}
+.pl-menu-item-wrap .pl-menu-item { flex: 1; }
+.pl-menu-delete {
+  border: none; background: transparent;
+  width: 28px; min-width: 28px;
+  font-size: 18px; line-height: 1;
+  color: var(--pl-muted);
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity .12s, background .12s, color .12s;
+}
+.pl-menu-item-wrap:hover .pl-menu-delete { opacity: 1; }
+.pl-menu-delete:hover { color: #b32a2a; background: rgba(180,40,40,.08); }
+/* "Save current as template" row gets a subtle gold accent. */
+.pl-menu-save .pl-menu-label { color: var(--pl-green); }
+.pl-menu-save:hover { background: rgba(201, 164, 74, .14); }
+
+/* ── Modal dialog (used by Ceremony Seating; reusable shell) ────────────── */
+.pl-modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(20,18,14,.45);
+  backdrop-filter: blur(2px);
+  z-index: 300;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.pl-modal-backdrop[hidden] { display: none; }
+.pl-modal {
+  background: #fff;
+  border-radius: 8px;
+  width: 100%; max-width: 520px;
+  max-height: calc(100vh - 48px);
+  display: flex; flex-direction: column;
+  box-shadow: 0 24px 64px rgba(0,0,0,.32), 0 4px 12px rgba(0,0,0,.08);
+  overflow: hidden;
+}
+.pl-modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--pl-border);
+  flex-shrink: 0;
+}
+.pl-modal-header h2 {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px; color: var(--pl-green); font-weight: 700;
+  letter-spacing: -.3px;
+}
+.pl-modal-close {
+  border: none; background: transparent;
+  font-size: 28px; line-height: 1; cursor: pointer;
+  color: var(--pl-muted);
+  padding: 0 8px; border-radius: 4px;
+  font-family: inherit;
+  transition: background .12s, color .12s;
+}
+.pl-modal-close:hover { background: var(--pl-light); color: var(--pl-dark); }
+.pl-modal-body {
+  padding: 18px 22px;
+  overflow-y: auto;
+  flex: 1;
+}
+.pl-modal-hint {
+  font-size: 12px; color: var(--pl-muted);
+  line-height: 1.5; margin: 0 0 14px;
+}
+.pl-modal-footer {
+  display: flex; gap: 10px; justify-content: flex-end;
+  padding: 14px 22px;
+  border-top: 1px solid var(--pl-border);
+  background: var(--pl-light);
+  flex-shrink: 0;
+}
+.pl-modal-footer .pl-btn {
+  background: #fff; color: var(--pl-dark);
+  border: 1px solid var(--pl-border);
+}
+.pl-modal-footer .pl-btn:hover { background: var(--pl-light); }
+.pl-modal-footer .pl-btn-gold {
+  background: var(--pl-gold); color: #fff; border-color: var(--pl-gold);
+}
+.pl-modal-footer .pl-btn-gold:hover { background: #b89139; border-color: #b89139; }
+.pl-modal-footer .pl-btn-danger {
+  background: #b32a2a; color: #fff; border-color: #b32a2a;
+}
+.pl-modal-footer .pl-btn-danger:hover { background: #931f1f; border-color: #931f1f; }
+
+/* Confirm/prompt dialog (in-DOM replacement for native confirm/prompt
+   that works inside the Fullscreen API). */
+.pl-confirm-modal { max-width: 440px; }
+.pl-confirm-message {
+  margin: 0; font-size: 14px; color: var(--pl-dark); line-height: 1.5;
+}
+.pl-confirm-input {
+  width: 100%; box-sizing: border-box;
+  margin-top: 14px;
+  padding: 10px 12px;
+  font-family: inherit; font-size: 14px;
+  border: 1px solid var(--pl-border); border-radius: var(--pl-radius);
+  background: #fff; color: var(--pl-dark);
+}
+.pl-confirm-input:focus {
+  outline: 2px solid var(--pl-gold); outline-offset: 0; border-color: var(--pl-gold);
+}
+
+.pl-form-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px;
+}
+.pl-form-grid label {
+  display: flex; flex-direction: column; gap: 5px;
+  font-size: 12px; color: var(--pl-dark);
+}
+.pl-form-grid .pl-field-full { grid-column: 1 / -1; }
+.pl-field-label {
+  font-size: 11px; letter-spacing: .5px; text-transform: uppercase;
+  color: var(--pl-muted); font-weight: 600;
+}
+.pl-form-grid input[type="number"],
+.pl-form-grid select {
+  padding: 8px 10px;
+  font-family: inherit; font-size: 13px;
+  border: 1px solid var(--pl-border); border-radius: var(--pl-radius);
+  background: #fff; color: var(--pl-dark);
+  width: 100%;
+}
+.pl-form-grid input[type="number"]:focus,
+.pl-form-grid select:focus {
+  outline: 2px solid var(--pl-gold); outline-offset: 0;
+  border-color: var(--pl-gold);
+}
+.pl-radio-group {
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+.pl-radio-group input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.pl-radio-group label {
+  display: inline-block;
+  padding: 7px 12px;
+  font-size: 12px; font-weight: 500;
+  border: 1px solid var(--pl-border);
+  border-radius: var(--pl-radius);
+  cursor: pointer;
+  background: #fff;
+  transition: background .12s, border-color .12s, color .12s;
+  text-transform: none; letter-spacing: 0;
+  color: var(--pl-dark);
+}
+.pl-radio-group label:hover { background: var(--pl-light); }
+.pl-radio-group input:checked + label {
+  background: var(--pl-green);
+  color: #fff;
+  border-color: var(--pl-green);
+}
+.pl-cer-preview {
+  margin-top: 18px;
+  padding: 12px 14px;
+  background: var(--pl-light);
+  border-radius: var(--pl-radius);
+  font-size: 12px; color: var(--pl-muted);
+  line-height: 1.5;
+}
+.pl-cer-preview strong {
+  color: var(--pl-green); font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Toast (one-shot status messages: share-link copied, etc.) ─────────── */
+.pl-toast {
+  position: fixed; bottom: 24px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--pl-green); color: #fff;
+  padding: 10px 18px; border-radius: 6px;
+  font-size: 13px; font-weight: 500;
+  box-shadow: 0 6px 24px rgba(0,0,0,.28);
+  z-index: 200;
+  pointer-events: none;
+  max-width: 90%;
+}
+.pl-toast:not([hidden]) { animation: pl-toast-in .18s ease-out; }
+@keyframes pl-toast-in {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* ── Powered-by badge (embed mode) ──────────────────────────────────────── */
+.pl-powered {
+  position: absolute; bottom: 12px; left: 12px;
+  z-index: 20;
+  background: rgba(255,255,255,.94);
+  border: 1px solid var(--pl-border);
+  border-radius: var(--pl-radius);
+  padding: 6px 12px;
+  font-size: 11px;
+  color: var(--pl-muted);
+  letter-spacing: .3px;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background .12s, color .12s;
+}
+.pl-powered:hover { background: #fff; color: var(--pl-green); }
+.pl-powered strong { color: var(--pl-green); font-weight: 600; }
+
+/* Mobile fallback — the planner is desktop-first; on small screens we show
+   a notice rather than a broken touch experience. */
+@media (max-width: 720px) {
+  .planner-app { display: block; height: auto; }
+  .planner-toolbar, .planner-palette, .planner-sidebar, .planner-canvas { display: none; }
+  .pl-mobile-notice {
+    display: block !important;
+    padding: 60px 24px;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    color: var(--pl-dark);
+  }
+  .pl-mobile-notice h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--pl-green); font-size: 24px; margin-bottom: 12px;
+  }
+  .pl-mobile-notice p { color: var(--pl-muted); font-size: 14px; line-height: 1.6; }
+}
+.pl-mobile-notice { display: none; }

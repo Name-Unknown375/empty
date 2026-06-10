@@ -22,20 +22,22 @@
       "key": "tent",
       "productName": "Tent Rentals",
       "productNameSingular": "Tent Rental",
-      "fromPriceCAD": 120,
-      "fromPriceLabel": "From $120 / day (10×10 popup) — marquee tents from $400/event",
+      "fromPriceCAD": 75,
+      "fromPriceLabel": "From $75 / day (10×10 popup) — marquee tents from $550/event",
       "urlPrefix": "tent-rental",
-      "urlPrefixOverrides": { "surrey": "tent-rentals" },
-      "categoryPage": "tents.html",
+      "urlPrefixOverrides": {
+        "surrey": "tent-rentals"
+      },
+      "categoryPage": "tents",
       "breadcrumbLabel": "Tent Rentals",
       "serviceType": "Tent & Marquee Rental",
-      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+      "heroImage": "/images/hero/marquee-tents.webp",
       "heroAlt": "Marquee tent rental setup in {city}, BC",
       "tagline": "Premium marquee tent rentals delivered and set up in {city}, BC. Built for weddings, corporate events, and community celebrations — rain or shine.",
       "introSummary": "Our marquee tents are engineered for Lower Mainland weather — high-peak aluminium frames, solid sidewalls, and tie-down hardware rated for wind and sudden rain. For {city} events, our crew delivers, professionally stakes or ballasts the tent based on your surface, adds lighting or heater accessories if you need them, and returns for clean takedown. Tent sizing is flexible: we rent from 10×10 intimate canopies to 40-foot-plus marquees that seat hundreds.",
       "bullets": [
-        "Marquee tents from 10×10 up to 40×80 — seats 20 to 300+ guests",
-        "Delivered & professionally set up in {city} by our own crew",
+        "Marquee tents from 10×10 up to 30×60 — seats 20 to 150+ guests",
+        "Delivery & professional setup available in {city} — our crew handles installation",
         "Engineered frames + sidewalls for rain, wind, and sun",
         "Add tables, chairs, heaters, lighting & dance floor in one quote",
         "125% cancellation protection + on-time setup promise"
@@ -43,19 +45,19 @@
       "subcategoryCards": [
         {
           "name": "Marquee Frame Tents",
-          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+          "image": "/images/hero/marquee-tents.webp",
           "description": "Premium free-span frame tents with solid sidewalls. Perfect for weddings and large corporate events — delivered and installed by our crew.",
           "tag": "Most Popular"
         },
         {
           "name": "Popup Tents",
-          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/94b9727a-0953-4858-b5ac-f836975ed4b6/Tent+Rentals+Langley.png",
+          "image": "/images/services/tent-rentals-langley.webp",
           "description": "Easy-set popup tents for smaller {city} gatherings, market stalls, and short-notice needs. Available for delivery or pickup.",
           "tag": ""
         },
         {
           "name": "Accessories & Add-Ons",
-          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+          "image": "/images/packages/corporate.webp",
           "description": "Tent lighting, propane heaters, sidewall upgrades, flooring, and weighted-ballast kits for pavement installs — added to any {city} booking.",
           "tag": ""
         }
@@ -63,7 +65,7 @@
       "productFaqs": [
         {
           "q": "What tent sizes do you rent in {city}?",
-          "a": "We stock marquee frame tents from 10×10 up to 40×80 — that's anywhere from an intimate 20-guest gathering to a 300+ seat reception. For {city} events, our team will help you size the tent based on your guest count, seating style, and whether you're adding a dance floor or head table. Ask for our sizing guide when you book."
+          "a": "We stock marquee frame tents from 10×10 up to 30×60 — that's anywhere from an intimate 20-guest gathering to a 150-guest reception with room for a dance floor. For {city} events, our team will help you size the tent based on your guest count, seating style, and whether you're adding a dance floor or head table. Ask for our sizing guide when you book."
         },
         {
           "q": "Can you install a tent on grass, pavement, or a gravel driveway in {city}?",
@@ -79,42 +81,42 @@
       "key": "chair",
       "productName": "Chair Rentals",
       "productNameSingular": "Chair Rental",
-      "fromPriceCAD": 3,
-      "fromPriceLabel": "From $3 / day (Resin Garden) — Chiavari from $4/day",
+      "fromPriceCAD": 3.25,
+      "fromPriceLabel": "From $3.25 / day (Fanback folding) — Resin Garden $5.50 · Chiavari $8.50",
       "urlPrefix": "chair-rentals",
       "urlPrefixOverrides": {},
-      "categoryPage": "chairs.html",
+      "categoryPage": "chairs",
       "breadcrumbLabel": "Chair Rentals",
       "serviceType": "Event Chair Rental",
-      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/50e58759-c6e7-49e1-a736-547ff66283b8/white-chiavari-chair-rentals-surrey-langley-abbotsford.jpg",
+      "heroImage": "/images/services/chiavari-chairs.webp",
       "heroAlt": "Chiavari and folding chair rentals in {city}, BC",
       "tagline": "Pristine Chiavari, Fanback folding, and Resin Garden chairs delivered and stacked at your {city} venue. Book online 24/7.",
-      "introSummary": "Every chair in our {city} inventory is individually inspected, wiped down, and stacked before it leaves the warehouse — no scuffed rental chairs, no wobbly legs. Our crew delivers, places, and collects based on your floor plan. Chiavari chairs are our most-booked style for weddings; Fanback folding and Resin Garden chairs are the go-to choices for outdoor ceremonies and corporate events where durability matters.",
+      "introSummary": "Every chair in our {city} inventory is individually inspected, wiped down, and stacked before it leaves the warehouse — no scuffed rental chairs, no wobbly legs. Our crew delivers, places, and collects based on your floor plan. Chiavari chairs are our most-booked style for indoor wedding receptions; White Resin Garden chairs are the signature choice for outdoor ceremonies and garden weddings; Fanback folding is the reliable everyday option for community events and casual celebrations.",
       "bullets": [
         "White Chiavari, Fanback folding & Resin Garden chairs",
         "Individually cleaned and inspected before every event",
-        "Delivered, stacked, and placed to your {city} floor plan",
+        "Stacking & placement to your {city} floor plan included when you add delivery",
         "Bundled discount when you add tables, tents, or dance floor",
         "Book online 24/7 with live inventory checks"
       ],
       "subcategoryCards": [
         {
           "name": "Chiavari Chairs",
-          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/50e58759-c6e7-49e1-a736-547ff66283b8/white-chiavari-chair-rentals-surrey-langley-abbotsford.jpg",
+          "image": "/images/services/chiavari-chairs.webp",
           "description": "Classic white Chiavari chairs with soft ivory cushions — the wedding-reception standard for {city} receptions and formal events.",
           "tag": "Wedding Favourite"
         },
         {
           "name": "Fanback Folding Chairs",
-          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/157b8701-f36b-4250-9dc2-62b67e3c19f4/white-fanback-folding-chairs.jpg",
+          "image": "/images/products/fanback-chairs.webp",
           "description": "Elegant white folding chairs for outdoor ceremonies, community events, and casual celebrations across {city}.",
           "tag": ""
         },
         {
-          "name": "Resin Garden Chairs",
-          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/4ea13d04-bce7-4e68-9718-e38795773fbf/Garden+Chair+Rentals.jpg",
-          "description": "Durable, weather-resistant white garden chairs — ideal for {city} outdoor events of any size, including poolside and beachfront.",
-          "tag": ""
+          "name": "White Resin Garden Chairs",
+          "image": "/images/products/garden-chairs.webp",
+          "description": "The signature outdoor-wedding chair — sculpted silhouette, photograph-ready bright white finish, weather-ready for {city} ceremonies.",
+          "tag": "Premium Wedding"
         }
       ],
       "productFaqs": [
@@ -124,7 +126,7 @@
         },
         {
           "q": "Do you place the chairs in rows, or just drop them off?",
-          "a": "Both options are available. For {city} weddings and ceremonies, our crew lays chairs out to your floor plan — row-by-row, circle, or custom — at no extra charge. For pickup or budget deliveries, we'll stack-drop on site and collect the same way. Tell us which you want when you book."
+          "a": "Both options are available. For {city} weddings and ceremonies, when you add delivery our crew lays chairs out to your floor plan — row-by-row, circle, or custom — at no additional setup surcharge. For pickup or budget deliveries, we'll stack-drop on site and collect the same way. Tell us which you want when you book."
         },
         {
           "q": "Can I mix chair styles — Chiavari inside, Garden chairs outside?",
@@ -136,20 +138,20 @@
       "key": "table",
       "productName": "Table Rentals",
       "productNameSingular": "Table Rental",
-      "fromPriceCAD": 10,
-      "fromPriceLabel": "From $10 / day (6ft banquet, 5ft round) — cocktail highboys from $15/day",
+      "fromPriceCAD": 10.95,
+      "fromPriceLabel": "From $10.95 / day (6ft banquet) — 5ft round $13.50 · 8ft banquet $14.95 · cocktail highboys $15.50",
       "urlPrefix": "table-rentals",
       "urlPrefixOverrides": {},
-      "categoryPage": "tables.html",
+      "categoryPage": "tables",
       "breadcrumbLabel": "Table Rentals",
       "serviceType": "Event Table Rental",
-      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/7019daee-1743-44b3-afd8-fb5fd311925d/5ft+round+tables.jpg",
+      "heroImage": "/images/services/round-tables.webp",
       "heroAlt": "Banquet and round table rentals in {city}, BC",
       "tagline": "Banquet, round, rectangular, and cocktail tables delivered and set up at your {city} venue. Pair with Chiavari chairs and marquee tents in one quote.",
-      "introSummary": "Forever Party Rentals stocks the full event-table lineup at our Surrey warehouse — 6-foot and 8-foot rectangular banquet tables, 5-foot and 6-foot rounds, and highboy cocktail tables for receptions and stand-up networking events. Every table is wiped and inspected before loading. For {city} events, we deliver, unfold, and position to your floor plan; no extra charge for setup when you book delivery.",
+      "introSummary": "Forever Party Rentals stocks the full event-table lineup — 6-foot and 8-foot rectangular banquet tables, 5-foot and 6-foot rounds, and highboy cocktail tables for receptions and stand-up networking events. Every table is wiped and inspected before loading. For {city} events, we deliver, unfold, and position to your floor plan; no extra charge for setup when you book delivery.",
       "bullets": [
         "Banquet, round, rectangular & cocktail tables — all sizes",
-        "Delivered, placed & collected in {city} by our crew",
+        "Placement & collection in {city} included when you add delivery",
         "Cleaned and inspected before every rental",
         "Bundle with chairs, tents & linens for a single-source quote",
         "Open 7 days a week with live online availability"
@@ -157,19 +159,19 @@
       "subcategoryCards": [
         {
           "name": "Banquet Tables",
-          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/2250304b-d667-430b-b756-cc7a0c5ae5b4/6ftrectangulartables.jpg",
+          "image": "/images/products/6ft-rectangular-tables.webp",
           "description": "6-foot and 8-foot rectangular banquet tables — the workhorse of any {city} wedding, gala, or corporate dinner.",
           "tag": "Most Popular"
         },
         {
           "name": "Round Tables",
-          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/7019daee-1743-44b3-afd8-fb5fd311925d/5ft+round+tables.jpg",
+          "image": "/images/services/round-tables.webp",
           "description": "5-foot and 6-foot round tables for seated dinners — the classic configuration for {city} wedding receptions.",
           "tag": ""
         },
         {
           "name": "Cocktail & Highboy Tables",
-          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
+          "image": "/images/packages/corporate.webp",
           "description": "Standing-height cocktail tables for {city} networking events, wedding receptions, and pre-dinner mingling.",
           "tag": ""
         }
@@ -197,10 +199,10 @@
       "fromPriceLabel": "From $800 / event (12×12) — up to $1,600 for a 20×20 installation",
       "urlPrefix": "dance-floor-rental",
       "urlPrefixOverrides": {},
-      "categoryPage": "dance-floor.html",
+      "categoryPage": "dance-floor",
       "breadcrumbLabel": "Dance Floor Rentals",
       "serviceType": "Event Dance Floor Rental",
-      "heroImage": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/4ea40662-954d-44de-98db-a524d3b842e4/BLACK-AND-WHITE-DANCE-FLOOR-JERRY-HAYES.webp",
+      "heroImage": "/images/services/dance-floor.webp",
       "heroAlt": "Black and white checkered dance floor rental in {city}, BC",
       "tagline": "Elegant black-and-white checkered dance floors delivered, levelled, and installed at your {city} reception. Perfect for weddings, galas, and milestone celebrations.",
       "introSummary": "Our signature dance floor is a classic black-and-white checkered surface, engineered from interlocking panels with a subfloor that levels across grass, carpet, or uneven venue floors. For {city} weddings and galas, our crew arrives ahead of guest service, levels the panels to your tent or room, trims around head tables and staging, and returns for takedown at end-of-night. Typical sizes run 12×12 up to 20×20, scaled to guest count.",
@@ -208,26 +210,26 @@
         "Classic black-and-white checkered panel system",
         "Professional levelling over grass, carpet, or tent flooring",
         "Sizes from 12×12 (50 guests) up to 20×20 (200+ guests)",
-        "Installed in {city} by our crew — no DIY assembly",
+        "Crew installation in {city} included when you add delivery — no DIY assembly",
         "Bundle with tent, tables & chairs for a complete {city} package"
       ],
       "subcategoryCards": [
         {
           "name": "Black & White Dance Floor",
-          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/4ea40662-954d-44de-98db-a524d3b842e4/BLACK-AND-WHITE-DANCE-FLOOR-JERRY-HAYES.webp",
+          "image": "/images/services/dance-floor.webp",
           "description": "Our signature checkered floor — the classic choice for {city} weddings and reception centrepieces.",
           "tag": "Signature Rental"
         },
         {
           "name": "Complete Reception Package",
-          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/397f8c6b-521c-4be9-9ca1-cfe6a6706e65/Marquee+Tents+Lowermainlad+for+Rent.jpg",
+          "image": "/images/hero/marquee-tents.webp",
           "description": "Bundle the dance floor with a marquee tent, round tables, Chiavari chairs, and bistro lighting for a one-quote {city} reception.",
           "tag": ""
         },
         {
           "name": "Delivery, Install & Takedown",
-          "image": "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/1692149888352-00LBRBSIDWQTGU8Z56HI/Gala-corporate-dinner-setting.jpg",
-          "description": "Every {city} dance floor rental includes professional levelling, installation, and post-event takedown. No assembly on your end.",
+          "image": "/images/packages/corporate.webp",
+          "description": "Add delivery to your {city} dance floor rental and our crew handles professional levelling, installation, and post-event takedown — no assembly on your end.",
           "tag": ""
         }
       ],
@@ -244,6 +246,242 @@
           "q": "How long does it take to install the dance floor?",
           "a": "For a standard 15×15 or 18×18 floor in {city}, our crew needs roughly 60–90 minutes of clear floor time to install and level. We coordinate the delivery window with your venue so the floor is in place before florals, staging, and head table dressing."
         }
+      ]
+    },
+    "battery-power-station": {
+      "key": "battery-power-station",
+      "productName": "Battery & Power Station Rentals",
+      "productNameSingular": "Battery & Power Station Rental",
+      "fromPriceCAD": 55,
+      "fromPriceLabel": "From $55 / 2-day weekend (Delta 2 extra battery) — EcoFlow Delta 2 from $110 · Delta 3 Max from $215 · Delta 3 Ultra from $335",
+      "urlPrefix": "battery-power-station-rental",
+      "urlPrefixOverrides": {},
+      "categoryPage": "battery-power-stations",
+      "breadcrumbLabel": "Battery & Power Station Rentals",
+      "serviceType": "Portable Power Station & Battery Rental",
+      "heroImage": "https://ca.ecoflow.com/cdn/shop/files/D3MP_e5fda900-06e0-4c5d-aad1-b60fde2ade46_530x530.png?v=1764333138",
+      "heroAlt": "EcoFlow portable power station rental for events in {city}, BC",
+      "tagline": "Silent EcoFlow power stations delivered for {city} weddings, off-grid receptions, and pop-up events. 1024 Wh to 11 kWh of clean power — no fumes, no generator hum.",
+      "introSummary": "Forever Party Rentals stocks the full EcoFlow Delta lineup so your {city} event has clean, silent, generator-grade power without the diesel. Delta 2 (1024 Wh, 1800/2700 W AC) handles a DJ booth, a string of bistro lights, and phone-charging duty. Delta 3 Max (2048 Wh, 3000/6000 W AC) runs an espresso bar, food trucks' POS, or a small heater in shoulder-season weather. Delta 3 Ultra (3072 Wh, 3600/7200 W AC, expandable to 11 kWh) carries the whole reception's lighting + AV. Add a 220 W bifacial solar panel to recharge in daylight between days for festivals or week-long pop-ups.",
+      "bullets": [
+        "EcoFlow Delta 2, Delta 3 Max, Delta 3 Ultra — 1024 Wh to 11 kWh of clean power",
+        "Silent operation — safe indoors, under tents, near sleeping guests in {city}",
+        "Two rate tiers — 2-day weekend (the minimum) or weekly (5–7 day) for extended events",
+        "220 W bifacial solar panel available — recharge between days for multi-day {city} events",
+        "Delivery, on-site walkthrough, and pickup included with every {city} rental"
+      ],
+      "subcategoryCards": [
+        {
+          "name": "EcoFlow Delta 2 (1024 Wh)",
+          "image": "https://ca.ecoflow.com/cdn/shop/files/sl_ds_d2_us_flv_530x530.png?v=1776673756",
+          "description": "Our entry power station — 1024 Wh, 1800 W AC, ~12 kg. Runs a DJ booth, lighting, and phones for a {city} backyard wedding.",
+          "tag": ""
+        },
+        {
+          "name": "EcoFlow Delta 3 Max (2048 Wh)",
+          "image": "https://ca.ecoflow.com/cdn/shop/files/D3MP_e5fda900-06e0-4c5d-aad1-b60fde2ade46_530x530.png?v=1764333138",
+          "description": "The event workhorse — 2048 Wh, 3000 W AC (6000 W surge). Espresso bars, food-truck POS, shoulder-season heaters across {city}.",
+          "tag": "Most Booked"
+        },
+        {
+          "name": "EcoFlow Delta 3 Ultra (3072 Wh)",
+          "image": "https://ca.ecoflow.com/cdn/shop/files/D3UP_d9623256-7427-40e7-90c9-176cea96f7a2_530x530.png?v=1774426449",
+          "description": "Reception-scale power — 3072 Wh, 3600 W AC, expandable to 11 kWh with extra batteries. Whole-tent AV + lighting for {city} galas.",
+          "tag": "Premium"
+        },
+        {
+          "name": "Solar + Extra Batteries",
+          "image": "https://ca.ecoflow.com/cdn/shop/files/ecoflow-us-ecoflow-nextgen-220w-bifacial-portable-solar-panel-solar-panels-30936146280521_2_41b22244-a67b-4798-9c3b-4fe678c1e4a6_530x530.png?v=1744882315",
+          "description": "220 W bifacial portable solar plus 1024 Wh extra batteries for Delta 2 and Delta 3 — extend runtime or recharge in {city} daylight between event days.",
+          "tag": ""
+        }
+      ],
+      "productFaqs": [
+        {
+          "q": "Can I run a tent heater off an EcoFlow at a {city} event?",
+          "a": "A 1500 W ceramic heater pulls roughly 1500 Wh per hour — a Delta 3 Max (2048 Wh) gives you about 75 minutes of heat, and a Delta 3 Ultra (3072 Wh) about 2 hours. For all-evening heat in {city} we recommend our propane tent heaters; for short cocktail-hour warming or AV+light loads, the EcoFlows are silent and indoor-safe."
+        },
+        {
+          "q": "Is this safe to run inside a marquee tent or indoor venue in {city}?",
+          "a": "Yes — EcoFlow power stations have zero emissions, near-silent operation (~30 dB in standby), and no fuel storage. They're rated for indoor use and we routinely deploy them inside enclosed marquees, banquet halls, and historic {city} venues that ban gas generators."
+        },
+        {
+          "q": "How long can I keep the rental for a {city} multi-day event?",
+          "a": "Every battery has two rate tiers: a 2-day weekend rate (Friday delivery, Sunday pickup) and a weekly rate (5–7 day window) for festivals, week-long activations, or production schedules. Both include delivery, on-site walkthrough, and pickup in {city}."
+        },
+        {
+          "q": "Do I need the 220 W solar panel for a one-day event?",
+          "a": "Usually no — a fully charged Delta 3 Max or Ultra will power most one-day {city} events on its own. The solar panel earns its keep on multi-day activations (festivals, week-long pop-ups) where you can't get to a wall outlet between days."
+        },
+        {
+          "q": "Can the Delta 3 Ultra really power a whole reception in {city}?",
+          "a": "For lighting, AV, DJ, and small kitchen appliances — yes. With extra batteries it scales to 11 kWh, which covers a typical 5-hour reception with bistro lights, a sound system, and a coffee/dessert bar. For HVAC or large catering kitchens we still recommend grid power; we'll spec the right unit when you book."
+        }
+      ],
+      "cityWhitelist": [
+        "surrey",
+        "vancouver",
+        "langley",
+        "burnaby",
+        "maple-ridge",
+        "abbotsford",
+        "coquitlam",
+        "mission"
+      ]
+    },
+    "starlink": {
+      "key": "starlink",
+      "productName": "Starlink Internet Rentals",
+      "productNameSingular": "Starlink Internet Rental",
+      "fromPriceCAD": 145,
+      "fromPriceLabel": "From $145 / 2-day weekend — Starlink Standard Actuated kit with Roam (Canada + USA) subscription",
+      "urlPrefix": "starlink-rental",
+      "urlPrefixOverrides": {},
+      "categoryPage": "starlink-rentals",
+      "breadcrumbLabel": "Starlink Internet Rentals",
+      "serviceType": "Portable Starlink Satellite Internet Rental",
+      "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/25/Starlink_dish_01.webp",
+      "heroAlt": "Starlink Standard Actuated dish rental for events in {city}, BC",
+      "tagline": "Plug-and-play Starlink internet for {city} weddings, off-grid receptions, film shoots, and remote events. Zoom-grade speeds anywhere with a clear view of the sky.",
+      "introSummary": "Forever Party Rentals delivers Starlink Standard Actuated kits to {city} events that grid internet can't reach — venues without fibre, shoulder-season pop-ups, off-grid weddings, and production shoots in BC's backcountry. The kit includes the self-aligning dish, WiFi router, all cabling, and the Roam (Canada + USA) subscription pre-activated. Speeds typically hit 100–200 Mbps down with 25–50 ms latency — Zoom calls, livestreams, contactless payments, and DJ streaming all work without a hitch. Pair it with one of our EcoFlow power stations for a fully self-contained connectivity + power kit that runs anywhere.",
+      "bullets": [
+        "100–200+ Mbps download · 25–50 ms latency — Zoom, livestream & POS-grade",
+        "Self-aligning Standard Actuated dish — points itself, no manual tuning",
+        "Roam (Canada + USA) subscription included — pre-activated, no setup hassle",
+        "Plug-and-play kit: dish + router + 15 m cable + storage case for {city} events",
+        "Pairs with our EcoFlow power stations — fully off-grid connectivity for {city}"
+      ],
+      "subcategoryCards": [
+        {
+          "name": "Starlink Standard Actuated Kit",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/2/25/Starlink_dish_01.webp",
+          "description": "Dish + router + cabling + Roam subscription, ready to deploy at {city} weddings, off-grid venues, and film shoots. Self-aligns to the satellites in under 5 minutes.",
+          "tag": "All-in-One Kit"
+        },
+        {
+          "name": "Pair With EcoFlow Power",
+          "image": "https://ca.ecoflow.com/cdn/shop/files/D3MP_e5fda900-06e0-4c5d-aad1-b60fde2ade46_530x530.png?v=1764333138",
+          "description": "Starlink draws ~50–75 W continuous. A Delta 3 Max powers a {city} event's Starlink + lighting + DJ for the full evening with capacity to spare.",
+          "tag": "Off-Grid Combo"
+        },
+        {
+          "name": "Setup & Walkthrough",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/2/25/Starlink_dish_01.webp",
+          "description": "Our crew delivers the kit, places the dish for clear-sky alignment, walks you through the WiFi setup, and confirms speeds before we leave the {city} venue.",
+          "tag": ""
+        }
+      ],
+      "productFaqs": [
+        {
+          "q": "Will Starlink work at my {city} venue?",
+          "a": "Starlink needs a clear view of the sky — ideally pointing north with no large trees, buildings, or roof overhangs blocking the dish's field of view. The Starlink app has a built-in obstruction tool we can run during your {city} site visit. In dense forest or downtown alleys with tall buildings on all sides, performance can degrade. We'll flag any concerns during booking."
+        },
+        {
+          "q": "What speeds should I expect at a {city} event?",
+          "a": "On the Roam plan with a clear sky, expect 100–200 Mbps download, 10–20 Mbps upload, and 25–50 ms latency. That's enough for Zoom calls, 4K video streaming, simultaneous DJ streaming + guest WiFi, livestream rigs, and credit-card payment terminals all running at the same time. We've stress-tested it at multiple {city} events with no degradation."
+        },
+        {
+          "q": "How long does setup take?",
+          "a": "About 5 minutes once you place the dish. The Standard Actuated dish is self-aligning — you set it down with a clear view of the sky, plug in power, and it tilts itself to find the satellites. The router broadcasts WiFi within ~30 seconds of connecting. For {city} events we deliver it pre-configured and walk through setup with your crew on-site."
+        },
+        {
+          "q": "How does this work with our EcoFlow rental?",
+          "a": "Starlink draws roughly 50–75 W continuous (peaks at ~150 W when the dish is melting snow). On a 2048 Wh Delta 3 Max that's 25–30 hours of continuous Starlink, or roughly 8 hours of Starlink + lighting + DJ at a typical {city} reception load. Most events power Starlink through the EcoFlow's USB-C or AC outlet — we'll confirm the right combo when you book."
+        },
+        {
+          "q": "What's the rental minimum?",
+          "a": "Two-day weekend is the minimum (Friday delivery, Sunday pickup) — that's the same minimum as our power station rentals so {city} weekend events can book the kits together. For longer activations (festivals, week-long film shoots, multi-day production), we offer a weekly (5–7 day) rate that works out cheaper per day."
+        }
+      ],
+      "cityWhitelist": [
+        "surrey",
+        "vancouver",
+        "langley",
+        "burnaby",
+        "richmond",
+        "abbotsford",
+        "coquitlam",
+        "north-vancouver",
+        "maple-ridge"
+      ]
+    },
+    "projector": {
+      "key": "projector",
+      "productName": "Projector & Screen Rentals",
+      "productNameSingular": "Projector & Screen Rental",
+      "fromPriceCAD": 175,
+      "fromPriceLabel": "From $175 / day (5000-lumen HD laser projector) — add a 100″ screen with stand from $70 / day",
+      "urlPrefix": "projector-rental",
+      "urlPrefixOverrides": {},
+      "categoryPage": "projector-rentals",
+      "breadcrumbLabel": "Projector & Screen Rentals",
+      "serviceType": "HD Projector & Screen Rental",
+      "heroImage": "https://res.cloudinary.com/db15ezfng/image/upload/v1780016783/inventory/odrsxtqnna7xyfzedews.jpg",
+      "heroAlt": "HD projector and 100-inch screen rental for events in {city}, BC",
+      "tagline": "Bright 5000-lumen HD projector and 100″ screen rentals for {city} backyard movie nights, weddings, and corporate presentations — delivered and set up by our crew.",
+      "introSummary": "Forever Party Rentals rents a ViewSonic LS740HD — a 5000-lumen Full HD laser projector bright enough to hold its image in a tented reception or a lit conference room, not just a pitch-black basement. Add our 100″ screen with floor stand and you have a complete big-screen kit for {city} backyard movie nights, wedding slideshows, AGMs, sports viewing parties, and conference presentations. Every booking includes HDMI cabling; just plug in a laptop, streaming stick, or game console. We deliver, set up the screen and stand, dial in the picture, and collect afterward — and because we already truck tents, tables, and EcoFlow power stations across {city}, your projector ships on the same order for one delivery window.",
+      "bullets": [
+        "ViewSonic LS740HD — 5000 lumens, Full HD 1080p laser projector, bright enough for lit rooms & tents",
+        "100″ screen with floor stand available as an add-on — a complete big-screen kit for {city} events",
+        "HDMI cabling included — plug in a laptop, streaming stick, or console and go",
+        "Delivered, set up, and collected by our crew across {city} — no DIY assembly",
+        "Pairs with our marquee tents and EcoFlow power stations for off-grid outdoor movie nights in {city}"
+      ],
+      "subcategoryCards": [
+        {
+          "name": "5000-Lumen HD Laser Projector",
+          "image": "https://res.cloudinary.com/db15ezfng/image/upload/v1780016783/inventory/odrsxtqnna7xyfzedews.jpg",
+          "description": "The ViewSonic LS740HD throws a crisp Full HD 1080p image at 5000 lumens — bright enough for {city} marquee receptions, lit boardrooms, and dusk backyard screenings. Laser light source, instant on, HDMI in.",
+          "tag": "Most Popular"
+        },
+        {
+          "name": "100″ Screen with Stand",
+          "image": "https://res.cloudinary.com/db15ezfng/image/upload/v1780016783/inventory/odrsxtqnna7xyfzedews.jpg",
+          "description": "Add our portable 100″ projection screen with floor stand for a true big-screen setup at {city} movie nights, weddings, and presentations. We assemble and position it on delivery.",
+          "tag": "Add-On"
+        },
+        {
+          "name": "Projector & Laptop Stand",
+          "image": "https://res.cloudinary.com/db15ezfng/image/upload/v1780016980/inventory/jge7bgls9kxjrnx9riz6.jpg",
+          "description": "A simple stand to raise the projector and hold a laptop at the right height — keeps the image level and the presenter's notes within reach at {city} corporate events.",
+          "tag": "Add-On"
+        }
+      ],
+      "productFaqs": [
+        {
+          "q": "Can I use the projector outdoors during the day in {city}?",
+          "a": "At 5000 lumens the ViewSonic LS740HD is one of the brighter event projectors out there, but no projector beats direct sunlight. For {city} outdoor screenings we recommend starting after dusk, or projecting inside a shaded marquee tent during the day. In a lit indoor room — a conference hall, banquet room, or boardroom — it holds a clear image with the lights on."
+        },
+        {
+          "q": "What's included with the projector rental?",
+          "a": "The base rental is the ViewSonic LS740HD projector plus HDMI cabling. The 100″ screen with floor stand and a projector/laptop stand are available as add-ons — you can add both to the same booking and we'll deliver everything together. Audio isn't included in the kit; most {city} events run sound from a laptop, a portable speaker, or our other AV gear, and we're happy to advise on the right setup."
+        },
+        {
+          "q": "Do you set up the projector and screen in {city}?",
+          "a": "Yes. Our crew delivers to your {city} venue, assembles and positions the 100″ screen and stand, places the projector, and confirms a clean, level image before we leave. We collect everything after your event. If you'd rather pick up and self-install, that's an option too — just let us know when you book."
+        },
+        {
+          "q": "Can I run the projector off-grid for a backyard movie night?",
+          "a": "Absolutely — this is one of our favourite {city} combos. The projector pairs with our EcoFlow power stations so you can run a full backyard or park movie night with no wall outlet, and with one of our marquee tents you get a rain-proof screening either way. Book the projector, screen, and power station on one order and we deliver it all in a single window."
+        },
+        {
+          "q": "How far in advance should I book a projector in {city}?",
+          "a": "We carry limited projector and screen stock, so summer weekends and the December corporate-party season book up first. For a {city} event we recommend reserving 2–3 weeks ahead when you can; that said, it's always worth checking our live availability calendar for last-minute dates."
+        }
+      ],
+      "cityWhitelist": [
+        "surrey",
+        "vancouver",
+        "langley",
+        "burnaby",
+        "richmond",
+        "abbotsford",
+        "coquitlam",
+        "maple-ridge",
+        "north-vancouver",
+        "new-westminster",
+        "delta",
+        "white-rock"
       ]
     }
   }

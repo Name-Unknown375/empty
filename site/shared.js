@@ -1,191 +1,16 @@
 // ── Forever Party Rentals — Shared JS ──
-const FPR = {
-  phone: '778-990-7983',
-  email: 'welcome@foreverpartyrentals.com',
-  address: '9317 188 St, Surrey BC V4N 3V1',
-  hours: 'Mon–Sun 9:30AM–6PM',
-  logo: 'https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/993255ee-d7bd-41ba-a9dc-659d794941af/Forever+Party+Rentals+Logo.png?format=1500w',
-  bookingUrl: 'rentals.html',
-  checkoutUrl: 'checkout.html',
-};
+// As of v=13 the nav and footer are pre-rendered into every HTML file at build
+// time (see _build/partials/ + _build/render_partials.py). This file only
+// hydrates the existing DOM (dropdown handlers, mobile toggle, active-link
+// highlight) and runs page-level helpers (FAQ accordion, contact form, etc.).
+// FPR brand constants and the CITIES array were removed — they live in
+// _build/site_constants.json and _build/city_data.json now.
 
-// ── City data ──
-const CITIES = [
-  { city: 'Surrey', slug: 'surrey' },
-  { city: 'Langley', slug: 'langley' },
-  { city: 'Abbotsford', slug: 'abbotsford' },
-  { city: 'White Rock', slug: 'white-rock' },
-  { city: 'Delta', slug: 'delta' },
-  { city: 'Burnaby', slug: 'burnaby' },
-  { city: 'Coquitlam', slug: 'coquitlam' },
-  { city: 'Maple Ridge', slug: 'maple-ridge' },
-  { city: 'Vancouver', slug: 'vancouver' },
-  { city: 'North Vancouver', slug: 'north-vancouver' },
-  { city: 'Richmond', slug: 'richmond' },
-  { city: 'Pitt Meadows', slug: 'pitt-meadows' },
-  { city: 'Port Moody', slug: 'port-moody' },
-  { city: 'New Westminster', slug: 'new-westminster' },
-  { city: 'Langley Township', slug: 'langley-township' },
-  { city: 'Fort Langley', slug: 'fort-langley' },
-  { city: 'Willoughby', slug: 'willoughby' },
-  { city: 'Aldergrove', slug: 'aldergrove' },
-  { city: 'Carvolth', slug: 'carvolth' },
-  { city: 'Chilliwack', slug: 'chilliwack' },
-  { city: 'East Clayton', slug: 'east-clayton' },
-  { city: 'East Newton North', slug: 'east-newton-north' },
-  { city: 'Harrison Hot Springs', slug: 'harrison-hot-springs' },
-  { city: 'Ladner', slug: 'ladner' },
-  { city: 'Mission', slug: 'mission' },
-  { city: 'Port Kells', slug: 'port-kells' },
-  { city: 'Tsawwassen', slug: 'tsawwassen' },
-  { city: 'Walnut Grove', slug: 'walnut-grove' },
-];
 
-// ── Inject top bar + nav ──
-function buildNav() {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  const active = (pg) => path === pg ? ' active' : '';
-
-  // Build city dropdown columns (split into 2 cols of ~9)
-  const col1 = CITIES.slice(0, 9);
-  const col2 = CITIES.slice(9);
-
-  const cityDropdownStyle = `
-    .mega-dropdown { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); background:#fff; border:1px solid var(--border); border-radius:6px; box-shadow:0 8px 40px rgba(0,0,0,.12); padding:20px; z-index:200; min-width:520px; }
-    .nav-link:hover .mega-dropdown, .nav-link.is-open .mega-dropdown { display:block; }
-    .mega-dropdown-inner { display:grid; grid-template-columns:1fr 1fr; gap:0 24px; }
-    .mega-col-title { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); font-weight:700; padding:4px 12px 8px; }
-    .mega-dropdown a { display:block; padding:6px 12px; font-size:13px; color:#444; border-radius:4px; white-space:nowrap; }
-    .mega-dropdown a:hover { background:var(--light); color:var(--green); }
-    .mega-dropdown .mega-divider { border-top:1px solid var(--border); margin:8px 0; }
-    .mega-dropdown .mega-all { color:var(--green) !important; font-weight:600 !important; }
-  `;
-
-  const style = document.createElement('style');
-  style.textContent = cityDropdownStyle;
-  document.head.appendChild(style);
-
-  // Skip-to-content link (first focusable element)
-  const skip = document.createElement('a');
-  skip.href = '#main';
-  skip.className = 'skip-link';
-  skip.textContent = 'Skip to main content';
-
-  const topbar = document.createElement('div');
-  topbar.id = 'topbar';
-  topbar.setAttribute('role', 'complementary');
-  topbar.setAttribute('aria-label', 'Contact information');
-  topbar.innerHTML = `
-    <div class="container">
-      <a class="tb-item" href="tel:${FPR.phone}" aria-label="Call us at ${FPR.phone}"><span class="tb-ico" aria-hidden="true">✆</span>${FPR.phone}</a>
-      <a class="tb-item" href="mailto:${FPR.email}" aria-label="Email us at ${FPR.email}"><span class="tb-ico" aria-hidden="true">✉</span>${FPR.email}</a>
-      <span class="tb-item tb-muted" aria-hidden="true">${FPR.hours}</span>
-    </div>`;
-
-  const tentCityLinks = CITIES.map(c => `<a href="tent-rental-${c.slug}.html">${c.city}</a>`).join('');
-  const chairCityLinks = CITIES.map(c => `<a href="chair-rentals-${c.slug}.html">${c.city}</a>`).join('');
-  const tableCityLinks = CITIES.map(c => `<a href="table-rentals-${c.slug}.html">${c.city}</a>`).join('');
-  const danceCityLinks = CITIES.map(c => `<a href="dance-floor-rental-${c.slug}.html">${c.city}</a>`).join('');
-  const partyCityLinks = CITIES.map(c => `<a href="${c.slug}-party-rentals.html">${c.city}</a>`).join('');
-
-  const nav = document.createElement('nav');
-  nav.id = 'nav';
-  nav.setAttribute('aria-label', 'Main navigation');
-  nav.innerHTML = `
-    <div class="container nav-inner">
-      <a class="nav-logo" href="/" aria-label="Forever Party Rentals — home"><img src="${FPR.logo}" alt="Forever Party Rentals" width="150" height="125"/></a>
-      <div class="nav-links" role="menubar">
-
-        <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents">Tent Rentals <span aria-hidden="true">▾</span></button>
-          <div class="dropdown" id="dd-tents" role="menu" aria-label="Tent Rentals">
-            <a role="menuitem" href="tents.html">All Tent Rentals</a>
-            <div class="dropdown-sub">
-              <a role="menuitem" href="marquee-tent-rental-lowermainland-surrey-langley-vancouver.html" aria-haspopup="true">Marquee Tent Rental Lower Mainland <span class="dropdown-sub-caret" aria-hidden="true">▸</span></a>
-              <div class="subdropdown" role="menu" aria-label="Marquee Tent Sizes">
-                <a role="menuitem" href="product-marquee-tent-20x20.html">20×20 Marquee Tent</a>
-                <a role="menuitem" href="product-marquee-tent-20x30.html">20×30 Marquee Tent</a>
-                <a role="menuitem" href="product-marquee-tent-20x40.html">20×40 Marquee Tent</a>
-                <a role="menuitem" href="product-marquee-tent-20x60.html">20×60 Marquee Tent</a>
-                <a role="menuitem" href="product-marquee-tent-40x80.html">40×80 Marquee Tent</a>
-              </div>
-            </div>
-            <a role="menuitem" href="product-popup-tent-10x10.html">10×10 Popup Tent</a>
-            <a role="menuitem" href="product-tent-sidewall.html">Tent Sidewalls</a>
-            <a role="menuitem" href="product-tent-heater.html">Tent Heaters</a>
-          </div>
-        </div>
-
-        <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs">Chair Rentals <span aria-hidden="true">▾</span></button>
-          <div class="dropdown" id="dd-chairs" role="menu" aria-label="Chair Rentals">
-            <a role="menuitem" href="chairs.html">All Chair Rentals</a>
-            <a role="menuitem" href="product-white-chiavari-chair.html">Chiavari Chairs</a>
-            <a role="menuitem" href="product-fanback-garden-chair.html">Fanback Chairs</a>
-            <a role="menuitem" href="product-resin-garden-chair.html">Resin Garden Chairs</a>
-          </div>
-        </div>
-
-        <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables">Table Rentals <span aria-hidden="true">▾</span></button>
-          <div class="dropdown" id="dd-tables" role="menu" aria-label="Table Rentals">
-            <a role="menuitem" href="tables.html">All Table Rentals</a>
-            <a role="menuitem" href="product-banquet-table-8ft.html">8ft Banquet Tables</a>
-            <a role="menuitem" href="product-banquet-table-6ft.html">6ft Banquet Tables</a>
-            <a role="menuitem" href="product-round-table-5ft.html">5ft Round Tables</a>
-            <a role="menuitem" href="product-cocktail-table.html">Cocktail Tables</a>
-          </div>
-        </div>
-
-        <div class="nav-link"><a href="dance-floor.html"${active('dance-floor.html')}>Dance Floor</a></div>
-
-        <div class="nav-link" style="position:relative">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-areas">Service Areas <span aria-hidden="true">▾</span></button>
-          <div class="mega-dropdown" id="dd-areas" role="menu" aria-label="Service Areas">
-            <a role="menuitem" href="service-areas.html" class="mega-all">All Service Areas</a>
-            <div class="mega-divider" aria-hidden="true"></div>
-            <div class="mega-col-title">Party Rentals By City</div>
-            <div class="mega-dropdown-inner">${partyCityLinks.replace(/<a /g, '<a role="menuitem" ')}</div>
-          </div>
-        </div>
-
-        <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-events">Events <span aria-hidden="true">▾</span></button>
-          <div class="dropdown" id="dd-events" role="menu" aria-label="Events">
-            <a role="menuitem" href="corporate.html">Corporate Events</a>
-            <a role="menuitem" href="corporate.html#charity">Charity Events</a>
-          </div>
-        </div>
-        <div class="nav-link"><a href="blog/index.html"${window.location.pathname.includes('/blog') ? ' active' : ''}>Blog</a></div>
-        <div class="nav-link"><a href="contact.html"${active('contact.html')}>Contact</a></div>
-      </div>
-      <a class="btn btn-primary nav-cta" href="${FPR.bookingUrl}">Book Now</a>
-      <button type="button" class="nav-hamburger" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMobile">
-        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
-      </button>
-    </div>
-    <div class="nav-mobile" id="navMobile" role="menu" aria-label="Mobile navigation" hidden>
-      <a role="menuitem" href="index.html">Home</a>
-      <a role="menuitem" href="tents.html">Tent Rentals</a>
-      <a role="menuitem" href="marquee-tent-rental-lowermainland-surrey-langley-vancouver.html">Marquee Tent Rental Lower Mainland</a>
-      <a role="menuitem" href="chairs.html">Chair Rentals</a>
-      <a role="menuitem" href="tables.html">Table Rentals</a>
-      <a role="menuitem" href="dance-floor.html">Dance Floor</a>
-      <a role="menuitem" href="corporate.html">Corporate &amp; Charity</a>
-      <a role="menuitem" href="service-areas.html">Service Areas</a>
-      <a role="menuitem" href="blog/index.html">Blog</a>
-      <a role="menuitem" href="contact.html">Contact</a>
-      <a role="menuitem" href="${FPR.bookingUrl}" style="color:var(--green);font-weight:600;margin-top:8px">→ Book Now Online</a>
-    </div>`;
-
-  document.body.prepend(nav);
-  document.body.prepend(topbar);
-  document.body.prepend(skip);
-
-  initNavA11y();
-}
-
-function initNavA11y() {
+// Hydrate the static (or just-built) nav: attaches dropdown click/hover/Escape
+// handlers and the mobile hamburger toggle. Safe to call against either the
+// JS-built DOM (legacy path) or the pre-rendered partial.
+function hydrateNav() {
   document.querySelectorAll('#nav .nav-trigger').forEach(btn => {
     const parent = btn.parentElement;
     const menu = parent.querySelector('.dropdown, .mega-dropdown');
@@ -225,65 +50,6 @@ function initNavA11y() {
   }
 }
 
-// ── Inject footer ──
-function buildFooter() {
-  const footer = document.createElement('footer');
-  footer.id = 'footer';
-  footer.innerHTML = `
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <a href="/" aria-label="Forever Party Rentals — home" class="footer-logo"><img src="${FPR.logo}" alt="Forever Party Rentals"/></a>
-          <p class="footer-desc">Surrey's highest quality event rental company. Tents, chairs, tables & dance floors — delivered and set up across the Lower Mainland.</p>
-          <div class="footer-ctas">
-            <a href="${FPR.bookingUrl}" class="btn btn-gold" style="font-size:12px;padding:9px 20px">Book Online</a>
-            <a href="tel:${FPR.phone}" class="btn btn-outline-white" style="font-size:12px;padding:9px 20px">${FPR.phone}</a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">Rentals</div>
-          <a class="footer-link" href="tents.html">Marquee Tent Rentals</a>
-          <a class="footer-link" href="tents.html#popup">Tents For Pickup</a>
-          <a class="footer-link" href="chairs.html">Chair Rentals</a>
-          <a class="footer-link" href="tables.html">Table Rentals</a>
-          <a class="footer-link" href="dance-floor.html">Dance Floor Rental</a>
-        </div>
-        <div>
-          <div class="footer-col-title">Service Areas</div>
-          <a class="footer-link" href="surrey-party-rentals.html">Surrey</a>
-          <a class="footer-link" href="langley-party-rentals.html">Langley</a>
-          <a class="footer-link" href="vancouver-party-rentals.html">Vancouver</a>
-          <a class="footer-link" href="burnaby-party-rentals.html">Burnaby</a>
-          <a class="footer-link" href="abbotsford-party-rentals.html">Abbotsford</a>
-          <a class="footer-link" href="richmond-party-rentals.html">Richmond</a>
-          <a class="footer-link" href="coquitlam-party-rentals.html">Coquitlam</a>
-          <a class="footer-link" href="north-vancouver-party-rentals.html">North Vancouver</a>
-          <a class="footer-link" href="service-areas.html" style="color:var(--gold)">All 28 Cities →</a>
-        </div>
-        <div>
-          <div class="footer-col-title">Contact</div>
-          <a class="footer-link" href="tel:${FPR.phone}">${FPR.phone}</a>
-          <a class="footer-link" href="mailto:${FPR.email}">${FPR.email}</a>
-          <span class="footer-link">${FPR.hours}</span>
-          <span class="footer-link">${FPR.address}</span>
-          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><span aria-hidden="true">⭐</span> 200+ Google Reviews →</a>
-          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentals" rel="noopener noreferrer" target="_blank" style="display:block"><span aria-hidden="true">📸</span> @foreverpartyrentals</a>
-          <a class="footer-link" href="reviews.html">Reviews</a>
-          <a class="footer-link" href="faq.html">FAQ</a>
-          <a class="footer-link" href="corporate.html">Corporate Events</a>
-          <a class="footer-link" href="blog/index.html">Blog</a>
-          <a class="footer-link" href="contact.html">Contact Us</a>
-          <a class="footer-link" href="privacy.html">Privacy Policy</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        © 2026 Forever Party Rentals · Serving Surrey, Langley, Abbotsford, White Rock, Delta, Burnaby, Vancouver & the Lower Mainland
-      </div>
-    </div>`;
-  document.body.appendChild(footer);
-}
 
 // ── FAQ accordion ──
 function initFAQ() {
@@ -320,32 +86,81 @@ function initFAQ() {
 }
 
 // ── Contact form handler ──
+// Submits to Netlify Forms (the form has data-netlify="true"). On Netlify
+// the POST is intercepted by their build-time form handler and a notification
+// email is sent to welcome@foreverpartyrentals.com. On non-Netlify hosts (or
+// network failure), we fall back to opening the user's mailto: client so the
+// message is never lost.
 function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const get = (name) => (form.querySelector(`[name="${name}"]`) || {}).value || '';
-    const firstName = get('first_name');
-    const lastName  = get('last_name');
-    const email     = get('email');
-    const phone     = get('phone');
-    const eventDate = get('event_date');
-    const rental    = get('rental_type');
-    const message   = get('message');
+  const status = document.getElementById('contactFormStatus');
+  const button = form.querySelector('button[type="submit"]');
 
+  const setStatus = (text, kind) => {
+    if (!status) return;
+    status.textContent = text || '';
+    status.style.color = kind === 'error' ? '#b3261e'
+                       : kind === 'success' ? 'var(--green)'
+                       : 'var(--muted)';
+  };
+
+  const buildMailto = (data) => {
+    const fn = data.first_name || '';
+    const ln = data.last_name || '';
     const body = [
-      `Name: ${firstName} ${lastName}`,
-      `Email: ${email}`,
-      phone     ? `Phone: ${phone}`       : null,
-      eventDate ? `Event Date: ${eventDate}` : null,
-      rental    ? `Rental Type: ${rental}` : null,
+      `Name: ${fn} ${ln}`.trim(),
+      `Email: ${data.email || ''}`,
+      data.phone        ? `Phone: ${data.phone}`            : null,
+      data.event_date   ? `Event Date: ${data.event_date}`  : null,
+      data.rental_type  ? `Rental Type: ${data.rental_type}`: null,
       '',
-      message,
+      data.message || '',
     ].filter(l => l !== null).join('\n');
+    const subject = `Event Rental Enquiry — ${fn} ${ln}`.trim();
+    return `mailto:welcome@foreverpartyrentals.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
-    const subject = `Event Rental Enquiry — ${firstName} ${lastName}`;
-    window.location.href = `mailto:${FPR.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Honeypot — if filled, silently drop (looks like success to the bot)
+    const honey = form.querySelector('[name="bot-field"]');
+    if (honey && honey.value) {
+      setStatus("Thanks — we'll be in touch shortly.", 'success');
+      form.reset();
+      return;
+    }
+
+    // Collect data once, used for both Netlify and mailto paths
+    const fd = new FormData(form);
+    const data = Object.fromEntries(fd.entries());
+
+    if (button) { button.disabled = true; button.textContent = 'Sending…'; }
+    setStatus('Sending your message…');
+
+    // Try Netlify Forms (POST to current page with form-encoded body)
+    const params = new URLSearchParams();
+    fd.forEach((v, k) => params.append(k, v));
+    try {
+      const res = await fetch(form.getAttribute('action') || '/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString(),
+      });
+      if (res.ok) {
+        // Netlify accepted the submission — go to the thank-you page
+        window.location.href = form.getAttribute('action') || '/thank-you';
+        return;
+      }
+      throw new Error(`HTTP ${res.status}`);
+    } catch (err) {
+      // Fallback: open the user's email client with everything prefilled
+      setStatus("Opening your email app — please review and click Send.", 'success');
+      window.location.href = buildMailto(data);
+    } finally {
+      if (button) { button.disabled = false; button.textContent = 'Send Message'; }
+    }
   });
 }
 
@@ -358,17 +173,18 @@ const TESTIMONIALS = [
 ];
 
 const CLIENTS = [
-  { name: 'lululemon', src: 'https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/d4c3d016-f57c-4ac8-8a90-b908afd0d5ef/Lululemon_Athletica_logo.png' },
-  { name: 'CIBC Run for the Cure', src: 'https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/83297d69-9e73-4f11-9935-d1b3025a47bd/RFTC-logo-H_EN_black.png' },
-  { name: 'Inclusion Langley', src: 'https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/8f08c5b9-8d6a-4ae4-8925-a820bf492d3e/inclusion-langley-logo-notagline.png' },
-  { name: 'Softball BC', src: 'https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/26753f19-0f8a-4b23-8106-22400f24f2e6/unnamed.jpg' },
-  { name: 'Vancouver Auto Show', src: 'https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/d416c3dd-4529-4401-9cc6-4e7416bc1fc2/Elevate-Vancouver-Auto-Show-2024.png' },
+  { name: 'lululemon', src: '/images/partners/lululemon.png' },
+  { name: 'CIBC Run for the Cure', src: '/images/partners/cibc-run-for-the-cure.png' },
+  { name: 'Inclusion Langley', src: '/images/partners/inclusion-langley.png' },
+  { name: 'Softball BC', src: '/images/partners/softball-bc.jpg' },
+  { name: 'Vancouver Auto Show', src: '/images/partners/vancouver-auto-show.png' },
 ];
 
-// Render testimonial cards into a container
+// Render testimonial cards into a container.
+// No-op if the container is already pre-rendered (preferred — avoids CLS).
 function renderTestimonials(containerId, data = TESTIMONIALS) {
   const el = document.getElementById(containerId);
-  if (!el) return;
+  if (!el || el.childElementCount > 0) return;
   el.innerHTML = data.map(t => `
     <div class="testimonial-card">
       <div class="stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
@@ -378,20 +194,77 @@ function renderTestimonials(containerId, data = TESTIMONIALS) {
     </div>`).join('');
 }
 
-// Render client logos — duplicated for seamless infinite scroll
+// Render client logos — duplicated for seamless infinite scroll.
+// No-op if the container is already pre-rendered.
 function renderLogos(containerId, data = CLIENTS) {
   const el = document.getElementById(containerId);
-  if (!el) return;
+  if (!el || el.childElementCount > 0) return;
   const img = c => `<img src="${c.src}" alt="${c.name}" loading="lazy" decoding="async">`;
   el.innerHTML = [...data, ...data].map(img).join('');
 }
 
+// ── Active-link hydration ──
+// Adds `.active` to the top-level nav <a> whose href matches the current page.
+// Data-driven against the static partial — no per-link list to maintain.
+function hydrateActiveLink() {
+  const path = window.location.pathname;
+  // Normalize: '/' stays '/', strip trailing slash and .html elsewhere.
+  const slug = path === '/' ? '/' : path.replace(/\.html$/, '').replace(/\/$/, '');
+  document.querySelectorAll('#nav .nav-link > a[href]').forEach(a => {
+    const href = (a.getAttribute('href') || '').replace(/\/$/, '');
+    if (href === slug) a.classList.add('active');
+  });
+}
+
+// ── Share buttons (blog post .post-share) ──
+// Wires up the four social/share anchors using the page's canonical URL
+// (or location.href as fallback) and document.title.
+function initShareButtons() {
+  const container = document.querySelector('.post-share');
+  if (!container) return;
+  const canonical = document.querySelector('link[rel="canonical"]');
+  const url = (canonical && canonical.href) || window.location.href;
+  const title = document.title;
+  const enc = encodeURIComponent;
+
+  container.querySelectorAll('a').forEach(a => {
+    const label = (a.getAttribute('aria-label') || '').toLowerCase();
+    if (label.includes('facebook')) {
+      a.href = `https://www.facebook.com/sharer/sharer.php?u=${enc(url)}`;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    } else if (label.includes('twitter')) {
+      a.href = `https://twitter.com/intent/tweet?url=${enc(url)}&text=${enc(title)}`;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    } else if (label.includes('email')) {
+      a.href = `mailto:?subject=${enc(title)}&body=${enc(url)}`;
+    } else if (label.includes('copy')) {
+      a.href = url;
+      a.addEventListener('click', async (e) => {
+        e.preventDefault();
+        try {
+          await navigator.clipboard.writeText(url);
+          const original = a.textContent;
+          a.textContent = 'Copied!';
+          setTimeout(() => { a.textContent = original; }, 1500);
+        } catch {
+          window.prompt('Copy this link:', url);
+        }
+      });
+    }
+  });
+}
+
 // ── Init on load ──
+// Every page is pre-rendered with static #nav and #footer (see _build/partials/),
+// so init is pure hydration: attach event handlers + apply per-page state.
 document.addEventListener('DOMContentLoaded', () => {
-  buildNav();
-  buildFooter();
+  hydrateNav();
+  hydrateActiveLink();
   initFAQ();
   initContactForm();
+  initShareButtons();
   injectFavicon();
   setMainId();
   // Render dynamic content if containers exist

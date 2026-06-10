@@ -26,22 +26,32 @@ import json
 from pathlib import Path
 from xml.sax.saxutils import escape
 
+from urlpath import url_path
+
 HERE = Path(__file__).resolve().parent
 SITE_DIR = HERE.parent / "site"
 CITY_DATA_FILE = HERE / "city_data.json"
 PRODUCT_DATA_FILE = HERE / "products.json"
+SITE_CONSTANTS_FILE = HERE / "site_constants.json"
 
-SITE_URL = "https://foreverpartyrentals.com"
+with open(SITE_CONSTANTS_FILE, encoding="utf-8") as _f:
+    SITE_URL = json.load(_f)["siteUrl"]
 
 # Files we don't want in the sitemap
 EXCLUDED = {
     "checkout.html",          # transactional dead-end
     "404.html",               # error page — not a destination
     "testimonials.html",      # noindex — consolidated into reviews.html
+    "event-layout-planner-embed.html",  # noindex iframe surface; canonical is the hub page
+    "thank-you.html",         # noindex post-conversion page
+    "widget-test.html",       # noindex dev/test surface
 }
 
 # Top-level product/category + key commercial pages
-TOP_CATEGORY_PAGES = {"tents.html", "chairs.html", "tables.html", "dance-floor.html", "rentals.html"}
+TOP_CATEGORY_PAGES = {"tents.html", "chairs.html", "tables.html", "dance-floor.html", "rentals.html", "christmas-lights.html", "packages.html"}
+
+# Tier-1 cities get the 0.9 priority bump on their Christmas pages as well.
+CHRISTMAS_TIER_1_SLUGS = {"surrey", "langley", "vancouver", "burnaby"}
 
 # Informational / trust pages — indexable but lower priority
 INFO_PAGES = {
@@ -69,11 +79,24 @@ def priority_and_freq(path: Path, tier_map: dict[str, int]) -> tuple[float, str]
     if filename.startswith("product-") and filename.endswith(".html"):
         return 0.85, "weekly"
 
+    # Event package pages: {event}-package-{N}-guests.html
+    if filename.endswith("-guests.html") and "-package-" in filename:
+        return 0.85, "weekly"
+
     # city pages: <slug>-party-rentals.html
     if filename.endswith("-party-rentals.html"):
         slug = filename[:-len("-party-rentals.html")]
         tier = tier_map.get(slug, 3)
         return (0.9 if tier == 1 else 0.8), "weekly"
+
+    # Christmas light city pages: christmas-lights-<slug>.html
+    if filename.startswith("christmas-lights-") and filename.endswith(".html"):
+        slug = filename[len("christmas-lights-"):-len(".html")]
+        return (0.9 if slug in CHRISTMAS_TIER_1_SLUGS else 0.8), "weekly"
+
+    # Regional Christmas Lower Mainland page — keyword-rich, high commercial intent
+    if filename == "christmas-light-installation-lower-mainland.html":
+        return 0.9, "weekly"
 
     # product-per-city pages: tent-rental-<slug>.html etc.
     return 0.8, "weekly"
@@ -99,13 +122,14 @@ def load_tier_map() -> dict[str, int]:
 
 
 def url_for(path: Path) -> str:
-    """Map local filename to public URL. index.html → site root."""
+    """Map local filename to public URL. Strips .html suffix for clean URLs
+    (Netlify pretty_urls=true serves /foo.html content at /foo and 301s
+    .html → clean). index.html → site root; blog/index.html → /blog/."""
     if path.parent == SITE_DIR / "blog":
-        return (f"{SITE_URL}/blog/" if path.name == "index.html"
-                else f"{SITE_URL}/blog/{path.name}")
-    if path.name == "index.html":
-        return f"{SITE_URL}/"
-    return f"{SITE_URL}/{path.name}"
+        if path.name == "index.html":
+            return f"{SITE_URL}/blog/"
+        return f"{SITE_URL}/blog{url_path(path.name)}"
+    return f"{SITE_URL}{url_path(path.name)}"
 
 
 def lastmod_for(path: Path) -> str:
@@ -121,7 +145,7 @@ def lastmod_for(path: Path) -> str:
                 return text[i + len(marker):end].strip()
     except OSError:
         pass
-    ts = dt.datetime.utcfromtimestamp(path.stat().st_mtime)
+    ts = dt.datetime.fromtimestamp(path.stat().st_mtime, tz=dt.timezone.utc)
     return ts.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 

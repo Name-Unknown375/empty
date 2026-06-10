@@ -1,0 +1,223 @@
+{
+  "_comment": "Christmas Light Installation service data. Read by generate_christmas_light_pages.py with city_data.json. Separate from products.json because the service shape is different (install/takedown/maintenance/storage, not equipment rental).",
+  "service": {
+    "key": "christmas-lights",
+    "serviceName": "Christmas Light Installation",
+    "serviceNameSingular": "Christmas Light Installation",
+    "urlPrefix": "christmas-lights",
+    "categoryPage": "christmas-lights",
+    "regionalPage": "christmas-light-installation-lower-mainland.html",
+    "breadcrumbLabel": "Christmas Lights",
+    "serviceType": "Christmas Light Installation",
+    "providerType": "HomeAndConstructionBusiness",
+    "heroImage": "images/christmas/hero.webp",
+    "heroAlt": "Warm-white C9 LED Christmas light installation on a home at dusk — serving {city}, BC",
+    "tagline": "Professional design, install, maintenance, takedown, and free off-season storage — serving {city}, BC and surrounding neighborhoods.",
+    "introSummary": "Our Christmas light installation service covers everything from the first design walk-through to January takedown: WCB-covered crews, commercial-grade LED strands that last 5+ seasons, and a same-day maintenance guarantee if a strand ever fails during the holidays. Every {city} install is quoted as a fixed-price package — no hourly surprises, no line-item storage fee, no change-order charge when the plan evolves at install time. We light up your home, we keep it lit, and we come back to take it all down.",
+    "bullets": [
+      "Insured & WCB-covered installation crews — certified on 2 & 3-story roofs",
+      "Commercial-grade LED strands — not big-box consumer lights",
+      "Same-day or 48-hour fix guarantee if a strand fails during December",
+      "Free off-season storage in our climate-controlled warehouse",
+      "Fixed-price packages — no hourly rates, no surprise add-ons"
+    ],
+    "trustBar": [
+      {
+        "icon": "🛡️",
+        "text": "Insured & WCB-Covered"
+      },
+      {
+        "icon": "💡",
+        "text": "Commercial-Grade LEDs"
+      },
+      {
+        "icon": "📦",
+        "text": "Storage Included"
+      },
+      {
+        "icon": "⚡",
+        "text": "Same-Day Fix Guarantee"
+      }
+    ],
+    "packages": [
+      {
+        "key": "starter",
+        "name": "Starter",
+        "tag": "",
+        "targetHome": "Single-story homes, townhouses, small porches",
+        "coverage": "Up to ~100 linear feet of roofline",
+        "features": [
+          "Warm-white C9 LED roofline",
+          "Single clip-style install (no staples)",
+          "One on-site design consult",
+          "Season-long maintenance",
+          "Takedown + free storage"
+        ],
+        "image": "images/christmas/package-starter.webp"
+      },
+      {
+        "key": "classic",
+        "name": "Classic",
+        "tag": "Most Popular",
+        "targetHome": "Two-story homes, bungalows with accent trees",
+        "coverage": "Up to ~150 linear feet + 1 accent element",
+        "features": [
+          "Roofline + one accent: tree wrap OR bushes OR pathway",
+          "Warm-white or mixed C9 LED",
+          "On-site design consult + 2D layout plan",
+          "Season-long maintenance (mid-December check-in)",
+          "Takedown + free storage"
+        ],
+        "image": "images/christmas/package-classic.jpg"
+      },
+      {
+        "key": "premium",
+        "name": "Premium",
+        "tag": "Best Value",
+        "targetHome": "Large homes, commercial storefronts, estate properties",
+        "coverage": "Up to ~200+ linear feet + multiple accent elements",
+        "features": [
+          "Roofline + trees + bushes + pathway + door frame",
+          "Warm-white, color, or mixed scheme — your choice",
+          "Full 3D design mockup before install",
+          "Priority maintenance (24-hour response)",
+          "Timer or Wi-Fi smart controls included",
+          "Takedown + free storage"
+        ],
+        "image": "images/christmas/package-premium.jpg"
+      }
+    ],
+    "process": [
+      {
+        "step": 1,
+        "title": "Free Design Consultation",
+        "body": "We visit your property, walk the rooflines, talk about style preferences (warm-white vs color, classic vs modern), and take measurements for power planning."
+      },
+      {
+        "step": 2,
+        "title": "Custom Design & Quote",
+        "body": "We send a fixed-price package quote with a written install plan. For Premium clients we include a rendered 3D mockup so you can preview the finished look."
+      },
+      {
+        "step": 3,
+        "title": "Professional Installation",
+        "body": "WCB-covered crews arrive in October or early November, install in a single visit, and leave your property cleaner than we found it. Most homes are complete in 2–4 hours."
+      },
+      {
+        "step": 4,
+        "title": "Season-Long Maintenance",
+        "body": "If a strand fails mid-December, we're on-site within 24–48 hours to replace it — no charge. We also do a proactive mid-season check for Premium and Classic packages."
+      },
+      {
+        "step": 5,
+        "title": "Takedown & Free Storage",
+        "body": "We return in January (or earlier if you prefer) for a clean takedown. Your lights are labeled, packed, and stored in our climate-controlled warehouse at no extra cost — ready for next November."
+      }
+    ],
+    "subcategoryCards": [
+      {
+        "name": "Residential Roofline",
+        "image": "images/christmas/residential-roofline.jpg",
+        "description": "Classic C9 warm-white or colored LED rooflines for homes in {city}. Single-clip install — no staples, no holes, no roof damage.",
+        "tag": ""
+      },
+      {
+        "name": "Trees, Bushes & Pathway",
+        "image": "images/christmas/trees-pathway.webp",
+        "description": "Full-wrap tree installations, bush accents, and lit walkway stakes — turn any {city} property into a holiday landmark.",
+        "tag": ""
+      },
+      {
+        "name": "Commercial & Strata",
+        "image": "images/christmas/commercial-strata.webp",
+        "description": "Storefronts, office towers, strata complexes, and retirement residences in {city}. Fleet-insured, WCB-compliant, after-hours install windows available.",
+        "tag": ""
+      }
+    ],
+    "productFaqs": [
+      {
+        "q": "When should I book Christmas light installation in {city}?",
+        "a": "Our install calendar for {city} typically fills by late October for November installs. For guaranteed installation before December 1st, book by the first week of October. We accept bookings year-round — if you're reading this in spring or summer, locking in now also locks in this season's pricing and secures a priority install slot."
+      },
+      {
+        "q": "What's included in each package?",
+        "a": "Every {city} package includes: on-site design consultation, fixed-price written quote, commercial-grade LED strands (we own them — you don't buy them), WCB-covered install crew, season-long maintenance with a 24–48 hour fix guarantee, January takedown, and free climate-controlled storage of your lights through the off-season. There's no separate storage fee, no hourly labor charge, and no surcharge for returning to fix a failed strand."
+      },
+      {
+        "q": "Do you use commercial-grade LEDs?",
+        "a": "Yes — we only install commercial-grade LED strands (not big-box consumer lights). Commercial LEDs use thicker wire insulation, sealed-socket bulbs, and modular male/female connectors so we can replace one bulb instead of the whole strand. In {city}'s coastal weather, consumer-grade lights typically last 1–2 seasons; our commercial strands are rated for 5+ seasons."
+      },
+      {
+        "q": "Do you install on 2-story and 3-story homes in {city}?",
+        "a": "Yes. Our crews are WCB-certified for work at height and carry the ladder and rope equipment needed for 2-story and 3-story homes throughout {city}. We carry appropriate liability insurance and can provide proof of insurance to your homeowner's policy or strata if needed. If your home has unusual access challenges (peaked roofs over 30 ft, or extreme pitches), we'll flag it at the design consult and price accordingly."
+      },
+      {
+        "q": "Do you provide the lights, or do I need to buy them?",
+        "a": "We provide the lights. Our commercial-grade LED strands are part of the package — you don't buy or own any lights. They're installed, maintained, taken down, and stored by us for use on your home each November. If you'd prefer to use lights you already own, we offer a 'hang-your-own' install service at a reduced rate, but we cannot warranty the strands."
+      },
+      {
+        "q": "Are the lights insured against wind or wildlife damage?",
+        "a": "Yes. All strands installed in {city} are covered against weather and wildlife damage through the holiday season — if a branch falls, a crow pulls a strand down, or a windstorm knocks lights off a gable, we repair or replace at no charge. Our insurance also covers any accidental damage caused by our crew during install or takedown."
+      },
+      {
+        "q": "Can you add timers or smart Wi-Fi controls?",
+        "a": "Yes — timers are included free with every package. Smart Wi-Fi controls (app-scheduled on/off, dimming, multi-zone scenes) are included in Premium packages and available as a paid add-on for Starter and Classic. Smart controls work over your home Wi-Fi; no separate hub required."
+      },
+      {
+        "q": "When do you take down lights? Can I keep them up until spring?",
+        "a": "Standard takedown is in the first two weeks of January. If you'd prefer to keep lights up longer (we've had {city} clients ask for Chinese New Year, Valentine's Day, and 'until the snow melts'), just tell us at booking — there's no additional charge, we just slot you into the late-takedown queue."
+      },
+      {
+        "q": "Do you work with strata councils and property managers in {city}?",
+        "a": "Yes — strata complexes and commercial property managers in {city} make up about 20% of our annual installs. We carry $5M liability insurance, WCB clearance letters, and can provide all documentation your property manager needs. We also offer after-hours install windows for retail storefronts and office towers to avoid disrupting tenants or customers."
+      },
+      {
+        "q": "What venues or businesses in {city} have you installed lights for?",
+        "a": "We install lights for private homes, strata complexes, and a handful of commercial properties across {city}. We respect client privacy so we don't publish a list of addresses, but we're happy to share references at the design consultation. If you're comparing quotes, ask us who we've worked with in your neighborhood — we likely have a local reference."
+      }
+    ],
+    "hubFaqs": [
+      {
+        "q": "How does your Christmas light service work from start to finish?",
+        "a": "Five steps: (1) You book a free design consultation. (2) We visit, measure, and send a fixed-price quote with a written install plan. (3) Our WCB-covered crew installs in October or November. (4) We maintain the display all season — 24-to-48-hour response if a strand fails. (5) We take everything down in January and store your lights for free in our warehouse until next November."
+      },
+      {
+        "q": "What sets Forever apart from other Christmas light installers in the Lower Mainland?",
+        "a": "Three things: fixed-price packages (no hourly surprises, no separate storage fee), commercial-grade LEDs that last 5+ seasons (vs. the 1–2 seasons typical of big-box lights), and our same-day/48-hour fix guarantee if anything fails during December. We're also backed by 150+ five-star Google reviews from our party rental side — a track record most specialist installers can't match."
+      },
+      {
+        "q": "Do you service residential and commercial properties?",
+        "a": "Both. We install for private homes (single-story to 3-story), strata complexes and townhouse rows, storefronts and office towers, retirement residences, and community centres. Commercial and strata clients make up roughly 20% of our annual installs. Commercial installs can be scheduled for after-hours or overnight windows to avoid disrupting tenants."
+      },
+      {
+        "q": "What's the difference between your Starter, Classic, and Premium packages?",
+        "a": "Starter is a single-story roofline with warm-white C9 LEDs — clean, classic, efficient. Classic adds one accent (tree wrap, bushes, or pathway) and works well for two-story homes. Premium is the full display — roofline + trees + bushes + pathway + door frame, with a 3D mockup before install, priority 24-hour maintenance, and smart Wi-Fi controls included. All packages include install, maintenance, takedown, and free storage."
+      },
+      {
+        "q": "Can I bundle Christmas lights with my corporate holiday party rentals?",
+        "a": "Yes — we're one of the only providers in the Lower Mainland who can handle both the outdoor lighting and the indoor event rentals (tents, tables, Chiavari chairs, dance floors) on a single quote and a single invoice. For corporate clients we've installed storefront lighting while also delivering the tent and tables for the company's holiday party. Ask about a bundled package at your design consultation."
+      },
+      {
+        "q": "What areas of the Lower Mainland do you serve?",
+        "a": "Our Christmas light installation service covers 14 cities across Metro Vancouver and the Fraser Valley: Surrey, Langley, Vancouver, Burnaby (our Tier 1 cities), plus Abbotsford, Coquitlam, Delta, Langley Township, Maple Ridge, New Westminster, North Vancouver, Port Moody, Richmond, and White Rock. For cities outside this list we offer priority-booking or by-quote service depending on travel distance — contact us and we'll check."
+      }
+    ],
+    "localLang": {
+      "verb_at_landmark": "designed custom holiday light displays for homes near {landmark}",
+      "verb_at_neighborhood": "installed full-roofline displays across {neighborhood}",
+      "logistics": "For {city} installs, our crews arrive in October or early November in a liveried truck, complete most single-home installations in a single 2–4 hour visit, and return for a mid-December maintenance sweep to catch any failed strands before the holidays peak. Every {city} package is fixed-price — no hourly rates, no surprise add-ons, and no separate storage fee.",
+      "close": "All {city} installations include free off-season storage of your commercial-grade LED strands in our climate-controlled warehouse — we bring the same strands back next November, saving you the cost of replacing lights every year."
+    }
+  },
+  "cityFaqs": {
+    "_comment": "City-specific FAQ pool (1–2 per page) layered on top of productFaqs. Drawn deterministically by city slug hash.",
+    "service_confirmation": {
+      "q": "Do you install Christmas lights in {city} and surrounding neighborhoods?",
+      "a": "Yes — {city} is one of our core service areas. We install throughout all {city} neighborhoods. Most {city} installations are completed in a single 2–4 hour visit. Book a free design consultation to walk your property before October to secure a November install slot."
+    },
+    "local_track_record": {
+      "q": "Have you installed Christmas lights in {city} before?",
+      "a": "Yes — {city} is on our regular install route. We've designed and installed custom holiday displays on homes, townhouses, and commercial properties across {city} for multiple seasons. At the design consultation we can share references from nearby properties if you'd like to see our work before booking."
+    }
+  }
+}

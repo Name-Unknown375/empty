@@ -1,19 +1,47 @@
 # Forever Party Rentals — Netlify deployment config
 #
-# pretty_urls is DISABLED. Canonical URL form is *.html (matches sitemap.xml,
-# canonical tags, and 98% of internal links). With pretty_urls disabled,
-# Netlify will 301-redirect /foo → /foo.html (consolidating signals to
-# the canonical), instead of serving both forms with 200 (duplicate content).
+# pretty_urls is ENABLED. Canonical URL form is extensionless (/foo, not
+# /foo.html) — matches sitemap.xml, canonical tags, and 100% of internal
+# links. With pretty_urls = true, Netlify automatically:
+#   1. Serves `foo.html` content at `/foo`
+#   2. 301-redirects `/foo.html` → `/foo` (consolidating signals to canonical)
+# That eliminates the duplicate-content situation where both /foo and /foo.html
+# returned 200 with identical content.
 #
-# The 200! rewrites at the top of site/_redirects keep /rentals and
-# /checkout addressable without .html (they're aliases to the canonical
-# .html paths) — those are evaluated before Netlify's HTML processing.
+# Static files keep their extension (sitemap.xml, robots.txt, llms.txt,
+# favicon.svg, shared.css/js) via explicit `200!` rewrites at the top of
+# site/_redirects — those are evaluated before Netlify's HTML processing.
+#
+# /rentals.html and /checkout.html (the Adelie booking widget pages) are
+# fine under pretty_urls=true: the widget initializes from a static JS
+# variable (window.orgId), not the URL, so it works at /rentals and /checkout.
 
 [build]
   publish = "site"
+
+# Serverless functions (planner analytics beacon; short share links land
+# here in a later phase). Functions declare their public route via
+# `export const config = { path: ... }` — no _redirects entries needed.
+[functions]
+  directory = "netlify/functions"
 
 [build.processing]
   skip_processing = false
 
 [build.processing.html]
-  pretty_urls = false
+  pretty_urls = true
+
+# Force apex (non-www) host to canonical www host. GSC has been showing both
+# foreverpartyrentals.com/... and www.foreverpartyrentals.com/... ranking for
+# the same queries, splitting link equity. This collapses them.
+[[redirects]]
+  from = "https://foreverpartyrentals.com/*"
+  to = "https://www.foreverpartyrentals.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://foreverpartyrentals.com/*"
+  to = "https://www.foreverpartyrentals.com/:splat"
+  status = 301
+  force = true

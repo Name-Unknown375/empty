@@ -1,0 +1,142 @@
+# Forever Party Rentals — 301 redirects from old Squarespace URLs to new static site
+# Format: OLD_PATH  NEW_PATH  STATUS
+# Works on Netlify and Cloudflare Pages (drop this file at site root).
+# First match wins — keep specific paths above any catch-alls.
+#
+# CANONICAL URL FORM: extensionless (e.g. /burnaby-party-rentals, /chairs).
+# Netlify pretty_urls = true (set in netlify.toml) serves `foo.html` at /foo
+# and 301-redirects /foo.html → /foo automatically — no rules needed here.
+
+# ── Static assets that MUST serve as-is (top of file, before catch-alls) ────
+# Netlify's `:slug` placeholder matches dotted filenames like `shared.css`.
+# These explicit 200! rules pin them at their canonical path.
+/shared.css                                                             /shared.css                                                     200!
+/shared.js                                                              /shared.js                                                      200!
+/sitemap.xml                                                            /sitemap.xml                                                    200!
+/robots.txt                                                             /robots.txt                                                     200!
+/llms.txt                                                               /llms.txt                                                       200!
+/favicon.svg                                                            /favicon.svg                                                    200!
+/favicon.ico                                                            /favicon.ico                                                    200!
+/_headers                                                               /_headers                                                       200!
+
+# ── Homepage ─────────────────────────────────────────────────────────────────
+/home                                                                   /                                                               301!
+/about-us                                                               /                                                               301
+
+# ── Utility / static pages ───────────────────────────────────────────────────
+/faqs                                                                   /faq                                                            301!
+/checkout-2                                                             /checkout                                                       301!
+/testimonials                                                           /reviews                                                        301!
+
+# ── Top-level category / catalog pages ───────────────────────────────────────
+/our-rentals                                                            /rentals                                                        301!
+/our-rentals-1                                                          /rentals                                                        301!
+/table-rental-and-chair-rentals                                         /rentals                                                        301!
+/chair-rentals                                                          /chairs                                                         301!
+/dance-floor-rental                                                     /dance-floor                                                    301!
+
+# ── Product pages ────────────────────────────────────────────────────────────
+/chiavari-chair-rentals                                                 /product-white-chiavari-chair                                   301!
+/fanback-chair-rentals                                                  /product-fanback-garden-chair                                   301!
+/white-resin-garden-chairs                                              /product-resin-garden-chair                                     301!
+/round-table-rentals                                                    /product-round-table-5ft                                        301!
+/rectangular-table-rentals                                              /product-banquet-table-6ft                                      301!
+/rectangular-table-rentals-1                                            /product-banquet-table-6ft                                      301!
+/cocktail-table-rentals                                                 /product-cocktail-table                                         301!
+/popup-tents-for-pickup                                                 /product-popup-tent-10x10                                       301!
+/9000-watt-portable-gas-generator-rentals                               /rentals                                                        301
+
+# ── Tent sizing pages → matching product page (or size chart blog) ───────────
+/20x20-marquee-tent-rental-sizing                                       /product-marquee-tent-20x20                                     301!
+# Squarespace variant without the "-sizing" suffix (surfacing as 404 in GSC).
+/20x20-marquee-tent-rental                                              /product-marquee-tent-20x20                                     301!
+/20x30-marquee-tent-rental-sizing                                       /product-marquee-tent-20x30                                     301!
+/20x40-marquee-tent-rental-sizing                                       /product-marquee-tent-20x40                                     301!
+/20x60-marquee-tent-rental-sizing                                       /product-marquee-tent-20x60                                     301!
+/20x80-marquee-tent-rental-sizing                                       /product-marquee-tent-30x60                                     301!
+/product-marquee-tent-40x80                                             /product-marquee-tent-30x60                                     301!
+/30x40-marquee-tent-rental-sizing                                       /blog/tent-size-chart-20x20-20x40-20x60-40x80                   301
+/30x60-marquee-tent-rental-sizing                                       /blog/tent-size-chart-20x20-20x40-20x60-40x80                   301
+
+# ── Corporate / charity ──────────────────────────────────────────────────────
+/corporate-event-rentals                                                /corporate                                                      301!
+/charity-event-rentals                                                  /corporate                                                      301
+
+# ── Christmas / seasonal — retargeted to new Christmas-light service pages ─
+/burnaby-christmas-lights                                               /christmas-lights-burnaby                                       301!
+/christmas-lights-2                                                     /christmas-lights                                               301!
+
+# ── Old blog (/tent-party-rentals-resources/*) ───────────────────────────────
+/tent-party-rentals-resources/the-ultimate-guide-to-choosing-the-perfect-tent-rental-for-your-event  /blog/tent-size-guide-lower-mainland-wedding 301
+/tent-party-rentals-resources/are-tent-rentals-right-for-your-wedding-or-event                       /blog/backyard-wedding-tent-sizing-bc        301
+/tent-party-rentals-resources/corporate-event-planning-how-to-impress-your-boss-and-colleagues-with-forever-party-rentals  /corporate          301
+/tent-party-rentals-resources/rucx8xiod9ri14auek3b55rosk5pat                                         /blog/                                       301
+/tent-party-rentals-resources                                                                        /blog/                                       301!
+# Catch-all for any other Squarespace-era subpaths still surfacing in GSC as 404s.
+# Specific rules above win (first-match), so this only fires for unmapped subpaths.
+/tent-party-rentals-resources/*                                                                      /blog/                                       301!
+
+# ── Legacy root-level guide articles ─────────────────────────────────────────
+/choosing-the-right-tent-size-for-your-event-a-guide                    /blog/tent-size-guide-lower-mainland-wedding                    301
+# Note: /how-many-people-fit-at-round-tables and
+# /how-many-people-fit-at-a-6ft-rectangular-table were previously 301'd to
+# the matching SKU pages. Those informational URLs had pos-5–6 rank history
+# and ~58k impressions/quarter, so they've been restored as standalone
+# Q&A pages (see site/how-many-people-fit-*.html). Do NOT re-add 301s here.
+
+# ── Party rentals — direct city-page matches (typos/abbreviations) ─────────
+/langley-twp-party-rentals                                              /langley-township-party-rentals                                 301
+
+# ── Surrey neighborhoods → Surrey parent page ───────────────────────────────
+/anniedale-party-rentals                                                /surrey-party-rentals                                           301
+/bridgeview-party-rentals                                               /surrey-party-rentals                                           301
+/campbell-heights-party-rentals                                         /surrey-party-rentals                                           301
+/clayton-party-rentals                                                  /east-clayton-party-rentals                                     301
+/cloverdale-party-rentals                                               /surrey-party-rentals                                           301
+/fleetwood-party-rentals                                                /surrey-party-rentals                                           301
+/forest-knolls-party-rentals                                            /surrey-party-rentals                                           301
+/fraser-heights-party-rentals                                           /surrey-party-rentals                                           301
+/guildford-party-rentals                                                /surrey-party-rentals                                           301
+/johnston-heights-party-rentals                                         /surrey-party-rentals                                           301
+/newton-party-rentals                                                   /surrey-party-rentals                                           301
+/north-cloverdale-west-party-rentals                                    /surrey-party-rentals                                           301
+/strawberry-hill-party-rentals                                          /surrey-party-rentals                                           301
+/sullivan-party-rentals                                                 /surrey-party-rentals                                           301
+/tynehead-party-rentals                                                 /surrey-party-rentals                                           301
+/aloha-estates-party-rentals                                            /surrey-party-rentals                                           301
+/kensington-prairie-party-rentals                                       /surrey-party-rentals                                           301
+/southwest-gordon-estate-party-rentals                                  /surrey-party-rentals                                           301
+/barnston-island-party-rentals                                          /surrey-party-rentals                                           301
+
+# ── Delta neighborhoods ─────────────────────────────────────────────────────
+/north-delta-party-rentals                                              /delta-party-rentals                                            301
+/sunshine-hills-party-rentals                                           /delta-party-rentals                                            301
+/mud-bay-party-rentals                                                  /delta-party-rentals                                            301
+
+# ── Langley Township neighborhoods ──────────────────────────────────────────
+/brookswood-party-rentals                                               /langley-party-rentals                                          301
+/fern-ridge-party-rentals                                               /langley-township-party-rentals                                 301
+/glen-valley-party-rentals                                              /langley-township-party-rentals                                 301
+/hopington-party-rentals                                                /langley-township-party-rentals                                 301
+/milner-party-rentals                                                   /langley-township-party-rentals                                 301
+/murrayville-party-rentals                                              /langley-township-party-rentals                                 301
+
+# ── Maple Ridge / Pitt Meadows / Port Coquitlam neighborhoods ───────────────
+/albion-party-rentals                                                   /maple-ridge-party-rentals                                      301
+/hammond-party-rentals                                                  /maple-ridge-party-rentals                                      301
+/port-hammond-party-rentals                                             /maple-ridge-party-rentals                                      301
+/mary-hill-party-rentals                                                /coquitlam-party-rentals                                        301
+
+# ── Tent rental city pages (handle old typos/singular vs plural) ────────────
+/tent-rental-fortlangley                                                /tent-rental-fort-langley                                       301
+/tent-rental-new-westminter-tent-rentals                                /tent-rental-new-westminster                                    301
+/tent-rental-pitt-meadow                                                /tent-rental-pitt-meadows                                       301
+/tent-rentals-surrey-1                                                  /tent-rentals-surrey                                            301
+/tent-rentals-vancouver                                                 /tent-rental-vancouver                                          301
+
+# ── No catch-all needed: Netlify pretty_urls=true handles /foo ↔ /foo.html ──
+# Specifically:
+#   GET /foo       → 200 (serves foo.html)
+#   GET /foo.html  → 301 → /foo (consolidates signals to the clean canonical)
+# Removing the catch-all here also removes the previous duplicate-content path
+# where both /foo and /foo.html returned 200.

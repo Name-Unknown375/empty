@@ -21,7 +21,9 @@
 html { scroll-behavior: smooth; }
 body { font-family: var(--sans); color: var(--dark); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 img { display: block; max-width: 100%; }
-a { text-decoration: none; color: inherit; }
+body a { text-decoration: none; color: inherit; }
+body a[href^="tel:"], body a[href^="mailto:"] { text-decoration: underline; }
+body a[href^="tel:"] > span, body a[href^="mailto:"] > span { display: inline-block; text-decoration: none; }
 
 /* ── Accessibility: skip link + focus states ── */
 .skip-link { position: absolute; left: -9999px; top: 0; z-index: 9999; background: var(--gold); color: #fff; padding: 12px 20px; font-weight: 600; font-size: 14px; border-radius: 0 0 4px 0; }
@@ -89,8 +91,8 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
 #nav { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 0 rgba(0,0,0,.02), 0 6px 20px -12px rgba(30,58,47,.18); }
 #nav .nav-inner { display: flex; align-items: center; height: 96px; gap: 8px; }
 #nav .nav-logo { display: flex; align-items: center; margin-right: 28px; flex: none; }
-#nav .nav-logo img { height: 72px; width: auto; max-width: none; object-fit: contain; transition: transform .2s; }
-#nav .nav-logo:hover img { transform: scale(1.02); }
+#nav .nav-logo img { height: 72px; width: auto; max-width: none; object-fit: contain; transition: transform .2s; transform: translateZ(0); will-change: transform; backface-visibility: hidden; }
+#nav .nav-logo:hover img { transform: translateZ(0) scale(1.02); }
 #nav .nav-links { display: flex; align-items: center; gap: 2px; margin-left: auto; }
 #nav .nav-link { position: relative; }
 #nav .nav-link > a, #nav .nav-link > span, #nav .nav-link > button.nav-trigger {
@@ -117,6 +119,16 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
 #nav .nav-link .dropdown { display: none; position: absolute; top: 100%; left: 0; min-width: 220px; background: #fff; border: 1px solid var(--border); border-top: 2px solid var(--gold); border-radius: 0 0 4px 4px; box-shadow: 0 14px 40px -8px rgba(30,58,47,.18); padding: 10px; z-index: 200; }
 #nav .nav-link:hover .dropdown, #nav .nav-link.is-open .dropdown,
 #nav .nav-link:hover .mega-dropdown, #nav .nav-link.is-open .mega-dropdown { display: block; }
+/* Mega-dropdown (Service Areas city grid) — rules previously injected at runtime
+   by shared.js cityDropdownStyle. Moved here in commit 1 of the static-nav refactor
+   so the markup works without JS injection. */
+#nav .mega-dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,.12); padding: 20px; z-index: 200; min-width: 520px; }
+#nav .mega-dropdown-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+#nav .mega-col-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 700; padding: 4px 12px 8px; }
+#nav .mega-dropdown a { display: block; padding: 6px 12px; font-size: 13px; color: #444; border-radius: 4px; white-space: nowrap; }
+#nav .mega-dropdown a:hover { background: var(--light); color: var(--green); }
+#nav .mega-dropdown .mega-divider { border-top: 1px solid var(--border); margin: 8px 0; }
+#nav .mega-dropdown .mega-all { color: var(--green) !important; font-weight: 600 !important; }
 #nav .nav-link .dropdown a { display: block; padding: 9px 14px; font-size: 13px; color: #444; border-radius: 2px; letter-spacing: .2px; transition: background .15s, color .15s, padding-left .18s; }
 #nav .nav-link .dropdown a:hover { background: var(--light); color: var(--green); padding-left: 18px; }
 /* Nested submenu (flies out to the right on hover) */
@@ -132,18 +144,20 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
 #nav .nav-hamburger span { width: 22px; height: 2px; background: var(--dark); border-radius: 2px; transition: all .25s; }
 #nav .nav-mobile { display: none; position: fixed; inset: 0; top: 96px; background: #fff; z-index: 90; overflow-y: auto; padding: 20px; }
 #nav .nav-mobile.open { display: block; }
-#nav .nav-mobile a { display: block; padding: 14px 16px; font-size: 15px; border-bottom: 1px solid var(--border); color: var(--dark); }
+#nav .nav-mobile a { display: block; padding: 14px 16px; font-size: 15px; color: var(--dark); }
 #nav .nav-mobile a:hover { color: var(--green); }
-@media (max-width: 1100px) {
+@media (max-width: 1400px) {
   #nav .nav-link > a, #nav .nav-link > span, #nav .nav-link > button.nav-trigger { padding: 10px 10px; font-size: 12px; letter-spacing: .3px; }
   #nav .nav-link > a::after, #nav .nav-link > span::after, #nav .nav-link > button.nav-trigger::after { left: 10px; right: 10px; }
+  #nav .nav-cta { margin-left: 12px !important; padding: 12px 18px !important; font-size: 11px !important; letter-spacing: 1px !important; }
+  #nav .nav-logo { margin-right: 16px; }
 }
-@media (max-width: 900px) {
-  #nav .nav-inner { height: 80px; }
-  #nav .nav-logo img { height: 56px; }
-  #nav .nav-links, #nav .nav-cta { display: none; }
+@media (max-width: 1280px) {
+  #nav .nav-inner { height: 100px; }
+  #nav .nav-logo img { height: 80px; }
+  #nav .nav-links, #nav .nav-cta { display: none !important; }
   #nav .nav-hamburger { display: flex; }
-  #nav .nav-mobile { top: 80px; }
+  #nav .nav-mobile { top: 100px; }
   #topbar { font-size: 11px; padding: 8px 0; }
   #topbar .tb-item { padding: 0 10px; font-size: 11px; }
   #topbar .tb-item.tb-muted { display: none; }
@@ -164,6 +178,12 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
 /* ── CARDS ── */
 .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
 .card-img { width: 100%; height: 220px; object-fit: cover; }
+
+/* ── CARNIVAL GAME PHOTOS — focal-point cropping ── */
+img[src$="/carnival/ring-toss.jpg"]        { object-position: center 38%; }
+img[src$="/carnival/bottle-knockdown.jpg"] { object-position: center 55%; }
+img[src$="/carnival/cup-toss.jpg"]         { object-position: center 45%; }
+img[src$="/carnival/balloon-pop.jpg"]      { object-position: center center; }
 .card-body { padding: 24px; }
 .card-tag { display: inline-block; background: var(--gold); color: #fff; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 8px; margin-bottom: 10px; font-weight: 700; }
 .card h3 { margin-bottom: 8px; font-size: 20px; }
@@ -201,6 +221,16 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
 .trust-bar { background: var(--green); padding: 20px 0; }
 .trust-bar .container { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
 .trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.82); font-size: 13px; }
+
+/* ── SKU PAGE — tighten hero/intro padding so the availability widget lands above the fold ── */
+.sku-page .page-hero { padding: 32px 0; }
+.sku-page .trust-bar { padding: 12px 0; }
+.sku-page main > .section:first-of-type,
+.sku-page .trust-bar + .section { padding-top: 36px; padding-bottom: 48px; }
+@media (max-width: 768px) {
+  .sku-page .page-hero { padding: 24px 0; }
+  .sku-page .trust-bar + .section { padding-top: 28px; padding-bottom: 36px; }
+}
 
 /* ── CLIENT LOGOS ── */
 .logos-bar { padding: 28px 0; border-bottom: 1px solid var(--border); overflow: hidden; }
@@ -462,3 +492,181 @@ a.area-pill:hover { background: var(--green); color: #fff; border-color: var(--g
 .mt-8 { margin-top: 32px; }
 .mb-4 { margin-bottom: 16px; }
 .mb-8 { margin-bottom: 32px; }
+
+/* ── LOCAL KNOWLEDGE (override-only handcrafted body section) ── */
+.local-knowledge-body { font-size: 17px; line-height: 1.75; color: var(--dark); }
+.local-knowledge-body > * + * { margin-top: 18px; }
+.local-knowledge-body h2 {
+  font-family: var(--serif);
+  font-size: 36px;
+  line-height: 1.2;
+  color: var(--green);
+  margin-top: 56px;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+.local-knowledge-body h2:first-child { margin-top: 0; }
+.local-knowledge-body h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--green);
+  margin-top: 32px;
+  margin-bottom: 4px;
+}
+.local-knowledge-body p { margin: 0; }
+.local-knowledge-body p.lead {
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--dark);
+  font-weight: 400;
+}
+.local-knowledge-body a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.local-knowledge-body a:hover { color: var(--gold); }
+.local-knowledge-body ul, .local-knowledge-body ol { padding-left: 22px; margin: 0; }
+.local-knowledge-body li { margin-bottom: 8px; }
+.local-knowledge-body strong { color: var(--green); font-weight: 600; }
+
+.local-knowledge-body img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  margin: 36px 0 0;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+}
+/* Markdown wraps images and their caption (next-line italic) into one <p>.
+   Style the wrapping <p> + caption <em> as a single figure-like block. */
+.local-knowledge-body p:has(> img) {
+  margin: 0;
+  display: block;
+}
+.local-knowledge-body p:has(> img) > em {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+  margin: 10px 0 36px;
+}
+/* Fallback for browsers without :has() — keep caption readable */
+.local-knowledge-body img + br + em,
+.local-knowledge-body img ~ em {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Floated / sized image variants — markdown attr_list syntax:
+     ![alt](/path){.float-right}  → small image, floats right, text wraps
+     ![alt](/path){.float-left}   → small image, floats left, text wraps
+     ![alt](/path){.small}        → centered, ~half-width, no float
+*/
+.local-knowledge-body img.float-right,
+.local-knowledge-body img.float-left,
+.local-knowledge-body img.small {
+  max-width: 340px;
+  margin: 8px 0 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+.local-knowledge-body img.float-right { float: right; margin-left: 28px; }
+.local-knowledge-body img.float-left { float: left; margin-right: 28px; }
+.local-knowledge-body img.small { display: block; margin-left: auto; margin-right: auto; max-width: 460px; }
+
+/* When the floated image carries a caption, scope the caption to the same width */
+.local-knowledge-body p:has(> img.float-right),
+.local-knowledge-body p:has(> img.float-left) {
+  display: block;
+  max-width: 340px;
+}
+.local-knowledge-body p:has(> img.float-right) {
+  float: right;
+  margin: 8px 0 12px 28px;
+}
+.local-knowledge-body p:has(> img.float-left) {
+  float: left;
+  margin: 8px 28px 12px 0;
+}
+.local-knowledge-body p:has(> img.float-right) > em,
+.local-knowledge-body p:has(> img.float-left) > em,
+.local-knowledge-body p:has(> img.small) > em {
+  text-align: left;
+  margin: 6px 0 0;
+}
+.local-knowledge-body p:has(> img.float-right) > img,
+.local-knowledge-body p:has(> img.float-left) > img,
+.local-knowledge-body p:has(> img.small) > img {
+  margin: 0;
+  float: none;
+}
+
+/* Float clearer — H2s and section breaks force any wrapped float to clear */
+.local-knowledge-body h2,
+.local-knowledge-body h3,
+.local-knowledge-body blockquote,
+.local-knowledge-body .local-knowledge-callout,
+.local-knowledge-body .local-knowledge-split { clear: both; }
+
+@media (max-width: 720px) {
+  /* On mobile, drop the floats — let images go full-width but cap the height */
+  .local-knowledge-body img.float-right,
+  .local-knowledge-body img.float-left,
+  .local-knowledge-body img.small {
+    float: none;
+    max-width: 100%;
+    margin: 24px auto;
+  }
+  .local-knowledge-body p:has(> img.float-right),
+  .local-knowledge-body p:has(> img.float-left) {
+    float: none;
+    max-width: 100%;
+    margin: 24px 0;
+  }
+  .local-knowledge-body p:has(> img.float-right) > em,
+  .local-knowledge-body p:has(> img.float-left) > em {
+    text-align: center;
+  }
+}
+
+.local-knowledge-body blockquote {
+  border-left: 3px solid var(--gold);
+  padding: 8px 0 8px 24px;
+  margin: 36px 0;
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--green);
+  font-style: italic;
+}
+.local-knowledge-body blockquote p { margin: 0; }
+
+.local-knowledge-callout {
+  background: var(--light);
+  border-left: 4px solid var(--gold);
+  padding: 24px 28px;
+  margin: 36px 0;
+  border-radius: 4px;
+}
+.local-knowledge-callout h3 { margin-top: 0 !important; font-size: 18px !important; }
+.local-knowledge-callout p:last-child { margin-bottom: 0; }
+
+.local-knowledge-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+  margin: 36px 0;
+}
+.local-knowledge-split img { margin: 0; }
+.local-knowledge-split p { margin: 0; }
+
+@media (max-width: 720px) {
+  .local-knowledge-body { font-size: 16px; }
+  .local-knowledge-body h2 { font-size: 28px; margin-top: 40px; }
+  .local-knowledge-body h3 { font-size: 19px; }
+  .local-knowledge-body p.lead { font-size: 17px; }
+  .local-knowledge-body blockquote { font-size: 19px; padding-left: 18px; }
+  .local-knowledge-split { grid-template-columns: 1fr; gap: 16px; }
+}

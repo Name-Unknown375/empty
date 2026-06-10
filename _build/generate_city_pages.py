@@ -16,27 +16,80 @@ Writes to ../<slug>-party-rentals.html in the parent `project/site/` directory
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 import sys
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
+from urlpath import url_path
+from render_partials import render_nav, render_footer
+from overrides_loader import load_overrides
+
 HERE = Path(__file__).resolve().parent
 SITE_DIR = HERE.parent / "site"            # .../project/site
 DATA_FILE = HERE / "city_data.json"
 PRODUCT_DATA_FILE = HERE / "products.json"
+SITE_CONSTANTS_FILE = HERE / "site_constants.json"
 TEMPLATE_FILE = "template.html"
 
-# --- Configurable site constants -------------------------------------------
-SITE_URL = "https://foreverpartyrentals.com"
-# Hosted brand logo (same URL shared.js uses for on-page nav/footer logos).
-# Kept here so JSON-LD `logo`/`image` fields reference a real, loadable image —
-# Google discards schema with broken image references.
-LOGO_URL = (
-    "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/"
-    "993255ee-d7bd-41ba-a9dc-659d794941af/Forever+Party+Rentals+Logo.png?format=1500w"
-)
+# Brand identity (siteUrl, logo, address, phone, orgId, rating, …) is the
+# single source of truth in site_constants.json — load once, pass into
+# the template as `fpr`. Backward-compat aliases site_url/logo_url stay
+# until the templates are migrated.
+with open(SITE_CONSTANTS_FILE, encoding="utf-8") as _f:
+    FPR = json.load(_f)
+SITE_URL = FPR["siteUrl"]
+LOGO_URL = FPR["logoUrl"]
+
+
+# Anchor-text pools for the equipment-card grid on city pages.
+# Deterministic per-(slug, category) selection from these pools breaks the
+# uniform "View {city} X Rentals →" anchor pattern that was repeating verbatim
+# across all 28 city pages — a footprint Google's quality systems associate
+# with engineered local-landing networks. Each city's anchor stays stable
+# build-to-build because selection is by md5(slug+category), not random.
+ANCHOR_POOLS = {
+    "tent": [
+        "View {city} tent rentals →",
+        "Browse {city} marquee tents →",
+        "See tent options for {city} →",
+        "Tent rentals in {city} →",
+        "Marquee &amp; popup tent setup →",
+    ],
+    "chair": [
+        "View {city} chair rentals →",
+        "Browse {city} chair options →",
+        "See chair lineup for {city} →",
+        "Chair rentals in {city} →",
+        "Chiavari, Fanback &amp; Garden chairs →",
+    ],
+    "table": [
+        "View {city} table rentals →",
+        "Browse {city} table options →",
+        "See table lineup for {city} →",
+        "Table rentals in {city} →",
+        "Banquet, round &amp; cocktail tables →",
+    ],
+    "dance-floor": [
+        "View {city} dance floors →",
+        "Browse {city} dance floor options →",
+        "See dance floor styles for {city} →",
+        "Dance floor rentals in {city} →",
+        "Black &amp; white dance floor setups →",
+    ],
+}
+
+
+def select_anchor(slug: str, category: str, city_name: str) -> str:
+    """Pick a deterministic anchor phrase for (slug, category) and substitute city.
+    Uses md5 hash so selection is stable across Python invocations
+    (built-in hash() is randomized when PYTHONHASHSEED is unset)."""
+    pool = ANCHOR_POOLS[category]
+    digest = hashlib.md5(f"{slug}|{category}".encode("utf-8")).digest()
+    idx = digest[0] % len(pool)
+    return pool[idx].format(city=city_name)
 
 
 def load_data():
@@ -50,10 +103,11 @@ def load_products():
 
 
 def product_city_url(product: dict, city_slug: str) -> str:
-    """URL (filename) of the product-per-city page for this product + city."""
+    """Root-relative URL of the product-per-city page for this product + city.
+    Leading '/' keeps the href working from any page depth (root or /blog/*)."""
     overrides = product.get("urlPrefixOverrides", {}) or {}
     prefix = overrides.get(city_slug, product["urlPrefix"])
-    return f"{prefix}-{city_slug}.html"
+    return url_path(f"{prefix}-{city_slug}.html")
 
 
 def neighborhood_list_short(neighborhoods, limit=4):
@@ -68,7 +122,7 @@ def neighborhood_list_short(neighborhoods, limit=4):
 
 def build_context(slug, city, data, products):
     """Assemble the Jinja2 render context for one city."""
-    canonical = f"{SITE_URL}/{slug}-party-rentals.html"
+    canonical = f"{SITE_URL}{url_path(f'{slug}-party-rentals.html')}"
 
     pool = data["testimonialPool"]
     testimonials = [pool[i] for i in city["testimonialIndices"]]
@@ -76,11 +130,10 @@ def build_context(slug, city, data, products):
     # Hero short list: first 4 neighborhoods
     nhb_short = neighborhood_list_short(city["neighborhoods"], limit=4)
 
-    title = f"Party & Event Rentals {city['name']} BC | Tents, Chairs & Tables | Forever Party Rentals"
+    title = f"{city['name']} Party Rentals BC — Tents, Chairs & Tables"
     description = (
-        f"Party & event rentals in {city['name']}, BC — marquee tents, Chiavari chairs "
-        f"& tables delivered and set up. Serving {nhb_short}. "
-        f"125% cancellation guarantee. Book online 24/7."
+        f"Party rentals in {city['name']}, BC — marquee tents, chairs & tables "
+        f"delivered and set up. 125% cancellation guarantee. Book online 24/7."
     )
 
     # Link each product card directly to its product-per-city page so PageRank
@@ -91,6 +144,8 @@ def build_context(slug, city, data, products):
         for key, product in products.items()
     }
 
+    overrides = load_overrides(f"{slug}-party-rentals", "cities")
+
     return {
         "city": city,
         "testimonials": testimonials,
@@ -100,8 +155,14 @@ def build_context(slug, city, data, products):
         "canonical_url": canonical,
         "site_url": SITE_URL,
         "logo_url": LOGO_URL,
+        "fpr": FPR,
         "product_links": product_links,
-        "lastmod": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "overrides": overrides,
+        "anchor_tent": select_anchor(slug, "tent", city["name"]),
+        "anchor_chair": select_anchor(slug, "chair", city["name"]),
+        "anchor_table": select_anchor(slug, "table", city["name"]),
+        "anchor_dancefloor": select_anchor(slug, "dance-floor", city["name"]),
+        "lastmod": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
     }
 
 
@@ -153,6 +214,11 @@ def main():
         trim_blocks=True,
         lstrip_blocks=True,
     )
+    # Static-nav refactor: render the nav/footer partials once and pass them in
+    # as Jinja globals so {{ nav_html|safe }} / {{ footer_html|safe }} works
+    # without per-page context plumbing.
+    env.globals["nav_html"] = render_nav()
+    env.globals["footer_html"] = render_footer()
     template = env.get_template(TEMPLATE_FILE)
 
     if args.out:

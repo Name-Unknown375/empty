@@ -1,0 +1,66 @@
+{# ============================================================================
+   Forever Party Rentals — footer partial
+   Renders #footer (4-column grid + footer-bottom).
+   Inputs (provided by render_partials.py):
+     fpr — site_constants.json contents (phone/email/hours/address/logo/bookingUrl)
+   Markup intentionally matches shared.js buildFooter() byte-for-byte (modulo
+   whitespace) so client-side hydration is a no-op.
+   ============================================================================ #}
+<footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" aria-label="Forever Party Rentals — home" class="footer-logo"><img src="{{ fpr.logo }}" alt="Forever Party Rentals"/></a>
+          <p class="footer-desc">The Lower Mainland's highest quality event rental company. Tents, chairs, tables &amp; dance floors — delivered and set up across BC.</p>
+          <div class="footer-ctas">
+            <a href="{{ fpr.bookingUrl }}" class="btn btn-gold" style="font-size:12px;padding:9px 20px">Book Online</a>
+            <a href="tel:{{ fpr.phone }}" class="btn btn-outline-white" style="font-size:12px;padding:9px 20px">{{ fpr.phone }}</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Rentals</div>
+          <a class="footer-link" href="/tents">Tent Rentals</a>
+          <a class="footer-link" href="/tents#popup">Tents For Pickup</a>
+          <a class="footer-link" href="/chairs">Chair Rentals</a>
+          <a class="footer-link" href="/tables">Table Rentals</a>
+          <a class="footer-link" href="/dance-floor">Dance Floor Rental</a>
+          <a class="footer-link" href="/wedding-rentals">Wedding Rentals</a>
+          <a class="footer-link" href="/event-rentals">Event Rentals</a>
+          <a class="footer-link" href="/event-layout-planner">Free Tent, Table and Chair Layout Planner</a>
+          <a class="footer-link" href="/christmas-lights" style="color:var(--gold)">🎄 Christmas Light Installation</a>
+        </div>
+        <div>
+          <div class="footer-col-title">Service Areas</div>
+          <a class="footer-link" href="/surrey-party-rentals">Surrey</a>
+          <a class="footer-link" href="/langley-party-rentals">Langley</a>
+          <a class="footer-link" href="/vancouver-party-rentals">Vancouver</a>
+          <a class="footer-link" href="/burnaby-party-rentals">Burnaby</a>
+          <a class="footer-link" href="/abbotsford-party-rentals">Abbotsford</a>
+          <a class="footer-link" href="/richmond-party-rentals">Richmond</a>
+          <a class="footer-link" href="/coquitlam-party-rentals">Coquitlam</a>
+          <a class="footer-link" href="/north-vancouver-party-rentals">North Vancouver</a>
+          <a class="footer-link" href="/service-areas" style="color:var(--gold)">All 28 Cities →</a>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <a class="footer-link" href="tel:{{ fpr.phone }}">{{ fpr.phone }}</a>
+          <a class="footer-link" href="mailto:{{ fpr.email }}">{{ fpr.email }}</a>
+          <span class="footer-link">{{ fpr.hours }}</span>
+          <span class="footer-link">{{ fpr.address }}</span>
+          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&amp;kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><span aria-hidden="true">⭐</span> 150+ Google Reviews →</a>
+          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentalsbc/" rel="noopener noreferrer" target="_blank" style="display:block"><span aria-hidden="true">📸</span> @foreverpartyrentalsbc</a>
+          <a class="footer-link" href="/reviews">Reviews</a>
+          <a class="footer-link" href="/faq">FAQ</a>
+          <a class="footer-link" href="/corporate">Corporate Events</a>
+          <a class="footer-link" href="/blog/">Blog</a>
+          <a class="footer-link" href="/contact">Contact Us</a>
+          <a class="footer-link" href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        © 2026 Forever Party Rentals · Serving Vancouver, Burnaby, Surrey, Langley, Richmond, North Vancouver &amp; the Lower Mainland
+      </div>
+    </div>
+</footer>

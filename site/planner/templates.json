@@ -1,0 +1,2896 @@
+{
+  "_comment": "Forever Party Rentals \u2014 Event Layout Planner starter templates. Premium spacing standard: ~4 ft chair-pull-out / walk aisle between chair backs. Default chair is resin garden (1.67\u00d71.83 ft); banquet tables 6ft are vertical (rotation:90) with chairCount:6 (no end chairs) so head/foot joint overlap doesn't occur. Multi-tent layouts (100+ guests) use two or three smaller marquees adjacent \u2014 matches real-world event setups since the largest single catalog tent is 30\u00d760. Coordinates cx/cy are item centers in feet. Tables marked withChairs:true get auto-chair placement applied at load time via planner.js placeChairsAround(). chairCount on a table overrides the catalog default (used to limit chairs to long-sides-only for end-to-end runs or vertical stacking).",
+  "templates": [
+    {
+      "id": "intimate-wedding-20",
+      "label": "20-Guest Intimate Wedding \u00b7 head table",
+      "summary": "20\u00d720 marquee \u00b7 3 banquet tables end-to-end as one 18 ft head table (18 seats + standing toasts)",
+      "venue": {
+        "widthFt": 24,
+        "depthFt": 28
+      },
+      "items": [
+        {
+          "key": "marquee-tent-20x20",
+          "cx": 12,
+          "cy": 14
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 6,
+          "cy": 14,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 12,
+          "cy": 14,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 18,
+          "cy": 14,
+          "withChairs": true,
+          "chairCount": 6
+        }
+      ]
+    },
+    {
+      "id": "wedding-50",
+      "label": "50-Guest Wedding \u00b7 long tables \u00b7 with dance floor",
+      "summary": "20\u00d740 marquee \u00b7 2 head-table pairs (48 seats) \u00b7 8\u00d78 dance floor",
+      "venue": {
+        "widthFt": 28,
+        "depthFt": 48
+      },
+      "items": [
+        {
+          "key": "marquee-tent-20x40",
+          "cx": 14,
+          "cy": 22
+        },
+        {
+          "key": "dance-floor-8x8",
+          "cx": 14,
+          "cy": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 15,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 21,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 31,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 37,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 15,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 21,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 31,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 37,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        }
+      ]
+    },
+    {
+      "id": "wedding-50-no-dance",
+      "label": "50-Guest Wedding \u00b7 long tables \u00b7 no dance floor",
+      "summary": "20\u00d730 marquee \u00b7 2 head-table pairs (48 seats) \u00b7 cozy dinner layout",
+      "venue": {
+        "widthFt": 28,
+        "depthFt": 36
+      },
+      "items": [
+        {
+          "key": "marquee-tent-20x30",
+          "cx": 14,
+          "cy": 15
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 5,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 11,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 19,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 25,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 5,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 11,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 19,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 25,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        }
+      ]
+    },
+    {
+      "id": "wedding-100",
+      "label": "100-Guest Wedding \u00b7 round tables \u00b7 with dance floor",
+      "summary": "Two 30\u00d760 marquees side-by-side \u00b7 12 round tables of 8 (96 seats) \u00b7 15\u00d715 dance floor",
+      "venue": {
+        "widthFt": 60,
+        "depthFt": 70
+      },
+      "items": [
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 15,
+          "cy": 35
+        },
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 45,
+          "cy": 35
+        },
+        {
+          "key": "dance-floor-15x15",
+          "cx": 30,
+          "cy": 13
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 9,
+          "cy": 27,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 23,
+          "cy": 27,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 37,
+          "cy": 27,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 51,
+          "cy": 27,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 9,
+          "cy": 41,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 23,
+          "cy": 41,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 37,
+          "cy": 41,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 51,
+          "cy": 41,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 9,
+          "cy": 55,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 23,
+          "cy": 55,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 37,
+          "cy": 55,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 51,
+          "cy": 55,
+          "withChairs": true
+        }
+      ]
+    },
+    {
+      "id": "wedding-100-rect",
+      "label": "100-Guest Wedding \u00b7 long tables \u00b7 with dance floor",
+      "summary": "Two 30\u00d760 marquees side-by-side \u00b7 4 columns \u00d7 2 head-table pairs (96 seats) \u00b7 15\u00d715 dance floor",
+      "venue": {
+        "widthFt": 60,
+        "depthFt": 70
+      },
+      "items": [
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 15,
+          "cy": 35
+        },
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 45,
+          "cy": 35
+        },
+        {
+          "key": "dance-floor-15x15",
+          "cx": 30,
+          "cy": 13
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 12,
+          "cy": 26,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 12,
+          "cy": 32,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 12,
+          "cy": 46,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 12,
+          "cy": 52,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 24,
+          "cy": 26,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 24,
+          "cy": 32,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 24,
+          "cy": 46,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 24,
+          "cy": 52,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 36,
+          "cy": 26,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 36,
+          "cy": 32,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 36,
+          "cy": 46,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 36,
+          "cy": 52,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 48,
+          "cy": 26,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 48,
+          "cy": 32,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 48,
+          "cy": 46,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 48,
+          "cy": 52,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        }
+      ]
+    },
+    {
+      "id": "wedding-100-no-dance",
+      "label": "100-Guest Wedding \u00b7 round tables \u00b7 no dance floor",
+      "summary": "Two 30\u00d760 marquees side-by-side \u00b7 12 round tables of 8 (96 seats) \u00b7 roomier dinner layout",
+      "venue": {
+        "widthFt": 60,
+        "depthFt": 70
+      },
+      "items": [
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 15,
+          "cy": 35
+        },
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 45,
+          "cy": 35
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 9,
+          "cy": 15,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 23,
+          "cy": 15,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 37,
+          "cy": 15,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 51,
+          "cy": 15,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 9,
+          "cy": 32,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 23,
+          "cy": 32,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 37,
+          "cy": 32,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 51,
+          "cy": 32,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 9,
+          "cy": 49,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 23,
+          "cy": 49,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 37,
+          "cy": 49,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 51,
+          "cy": 49,
+          "withChairs": true
+        }
+      ]
+    },
+    {
+      "id": "wedding-100-rect-no-dance",
+      "label": "100-Guest Wedding \u00b7 long tables \u00b7 no dance floor",
+      "summary": "20\u00d760 marquee \u00b7 2 columns \u00d7 4 head-table pairs (96 seats) \u00b7 efficient layout",
+      "venue": {
+        "widthFt": 28,
+        "depthFt": 70
+      },
+      "items": [
+        {
+          "key": "marquee-tent-20x60",
+          "cx": 14,
+          "cy": 30
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 6,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 12,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 20,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 26,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 34,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 40,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 48,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 54,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 6,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 12,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 20,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 26,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 34,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 40,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 48,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 54,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        }
+      ]
+    },
+    {
+      "id": "wedding-150",
+      "label": "150-Guest Wedding \u00b7 round tables \u00b7 with dance floor",
+      "summary": "Three marquees joined \u00b7 18 round tables of 8 (144 seats) \u00b7 18\u00d718 dance floor",
+      "venue": {
+        "widthFt": 80,
+        "depthFt": 80
+      },
+      "items": [
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 15,
+          "cy": 40
+        },
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 45,
+          "cy": 40
+        },
+        {
+          "key": "marquee-tent-20x60",
+          "cx": 70,
+          "cy": 40
+        },
+        {
+          "key": "dance-floor-18x18",
+          "cx": 40,
+          "cy": 21
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 8,
+          "cy": 37,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 37,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 34,
+          "cy": 37,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 47,
+          "cy": 37,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 60,
+          "cy": 37,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 73,
+          "cy": 37,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 8,
+          "cy": 50,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 50,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 34,
+          "cy": 50,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 47,
+          "cy": 50,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 60,
+          "cy": 50,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 73,
+          "cy": 50,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 8,
+          "cy": 63,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 63,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 34,
+          "cy": 63,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 47,
+          "cy": 63,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 60,
+          "cy": 63,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 73,
+          "cy": 63,
+          "withChairs": true
+        }
+      ]
+    },
+    {
+      "id": "wedding-150-rect",
+      "label": "150-Guest Wedding \u00b7 long tables \u00b7 with dance floor",
+      "summary": "Two 30\u00d760 marquees side-by-side \u00b7 4 columns \u00d7 3 head-table pairs (144 seats) \u00b7 15\u00d715 dance floor",
+      "venue": {
+        "widthFt": 60,
+        "depthFt": 70
+      },
+      "items": [
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 15,
+          "cy": 30
+        },
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 45,
+          "cy": 30
+        },
+        {
+          "key": "dance-floor-15x15",
+          "cx": 30,
+          "cy": 10
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 22,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 28,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 35,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 41,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 48,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 54,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 21,
+          "cy": 22,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 21,
+          "cy": 28,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 21,
+          "cy": 35,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 21,
+          "cy": 41,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 21,
+          "cy": 48,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 21,
+          "cy": 54,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 39,
+          "cy": 22,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 39,
+          "cy": 28,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 39,
+          "cy": 35,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 39,
+          "cy": 41,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 39,
+          "cy": 48,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 39,
+          "cy": 54,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 51,
+          "cy": 22,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 51,
+          "cy": 28,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 51,
+          "cy": 35,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 51,
+          "cy": 41,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 51,
+          "cy": 48,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 51,
+          "cy": 54,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        }
+      ]
+    },
+    {
+      "id": "wedding-150-no-dance",
+      "label": "150-Guest Wedding \u00b7 round tables \u00b7 no dance floor",
+      "summary": "Three marquees joined \u00b7 18 round tables of 8 (144 seats) \u00b7 roomier dinner layout",
+      "venue": {
+        "widthFt": 80,
+        "depthFt": 80
+      },
+      "items": [
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 15,
+          "cy": 40
+        },
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 45,
+          "cy": 40
+        },
+        {
+          "key": "marquee-tent-20x60",
+          "cx": 70,
+          "cy": 40
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 8,
+          "cy": 22,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 22,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 34,
+          "cy": 22,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 47,
+          "cy": 22,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 60,
+          "cy": 22,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 73,
+          "cy": 22,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 8,
+          "cy": 38,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 38,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 34,
+          "cy": 38,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 47,
+          "cy": 38,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 60,
+          "cy": 38,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 73,
+          "cy": 38,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 8,
+          "cy": 54,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 54,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 34,
+          "cy": 54,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 47,
+          "cy": 54,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 60,
+          "cy": 54,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 73,
+          "cy": 54,
+          "withChairs": true
+        }
+      ]
+    },
+    {
+      "id": "wedding-150-rect-no-dance",
+      "label": "150-Guest Wedding \u00b7 long tables \u00b7 no dance floor",
+      "summary": "Two 20\u00d760 marquees side-by-side \u00b7 4 columns \u00d7 3 head-table pairs (144 seats) \u00b7 efficient layout",
+      "venue": {
+        "widthFt": 40,
+        "depthFt": 70
+      },
+      "items": [
+        {
+          "key": "marquee-tent-20x60",
+          "cx": 10,
+          "cy": 30
+        },
+        {
+          "key": "marquee-tent-20x60",
+          "cx": 30,
+          "cy": 30
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 9,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 15,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 27,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 33,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 45,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 51,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 9,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 15,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 27,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 33,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 45,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 51,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 9,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 15,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 27,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 33,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 45,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 51,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 9,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 15,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 27,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 33,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 45,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 51,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        }
+      ]
+    },
+    {
+      "id": "wedding-200",
+      "label": "200-Guest Wedding \u00b7 round tables \u00b7 with dance floor",
+      "summary": "Four 30\u00d760 marquees (2\u00d72 grid) \u00b7 25 round tables of 8 (200 seats) \u00b7 20\u00d720 dance floor",
+      "venue": {
+        "widthFt": 60,
+        "depthFt": 120
+      },
+      "items": [
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 15,
+          "cy": 30
+        },
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 45,
+          "cy": 30
+        },
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 15,
+          "cy": 90
+        },
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 45,
+          "cy": 90
+        },
+        {
+          "key": "dance-floor-20x20",
+          "cx": 30,
+          "cy": 14
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 7,
+          "cy": 30,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 30,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 39,
+          "cy": 30,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 53,
+          "cy": 30,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 7,
+          "cy": 43,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 43,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 39,
+          "cy": 43,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 53,
+          "cy": 43,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 7,
+          "cy": 56,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 56,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 39,
+          "cy": 56,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 53,
+          "cy": 56,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 7,
+          "cy": 68,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 68,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 39,
+          "cy": 68,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 53,
+          "cy": 68,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 7,
+          "cy": 81,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 81,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 39,
+          "cy": 81,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 53,
+          "cy": 81,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 7,
+          "cy": 94,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 94,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 39,
+          "cy": 94,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 53,
+          "cy": 94,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 21,
+          "cy": 107,
+          "withChairs": true
+        }
+      ]
+    },
+    {
+      "id": "wedding-200-rect",
+      "label": "200-Guest Wedding \u00b7 long tables \u00b7 with dance floor",
+      "summary": "Four 20\u00d760 marquees (2\u00d72 grid) \u00b7 4 columns \u00d7 4 head-table pairs (192 seats) \u00b7 18\u00d718 dance floor",
+      "venue": {
+        "widthFt": 40,
+        "depthFt": 120
+      },
+      "items": [
+        {
+          "key": "marquee-tent-20x60",
+          "cx": 10,
+          "cy": 30
+        },
+        {
+          "key": "marquee-tent-20x60",
+          "cx": 30,
+          "cy": 30
+        },
+        {
+          "key": "marquee-tent-20x60",
+          "cx": 10,
+          "cy": 90
+        },
+        {
+          "key": "marquee-tent-20x60",
+          "cx": 30,
+          "cy": 90
+        },
+        {
+          "key": "dance-floor-18x18",
+          "cx": 20,
+          "cy": 12
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 28,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 34,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 46,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 52,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 68,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 74,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 86,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 5,
+          "cy": 92,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 28,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 34,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 46,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 52,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 68,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 74,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 86,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 15,
+          "cy": 92,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 28,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 34,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 46,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 52,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 68,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 74,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 86,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 25,
+          "cy": 92,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 28,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 34,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 46,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 52,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 68,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 74,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 86,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 35,
+          "cy": 92,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        }
+      ]
+    },
+    {
+      "id": "birthday-30",
+      "label": "30-Guest Backyard Birthday",
+      "summary": "20\u00d720 marquee \u00b7 2 head tables (24 seated + standing room ~6)",
+      "venue": {
+        "widthFt": 24,
+        "depthFt": 28
+      },
+      "items": [
+        {
+          "key": "marquee-tent-20x20",
+          "cx": 12,
+          "cy": 14
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 8,
+          "cy": 11,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 16,
+          "cy": 11,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 8,
+          "cy": 17,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 16,
+          "cy": 17,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        }
+      ]
+    },
+    {
+      "id": "ceremony-100",
+      "label": "100-Guest Ceremony",
+      "summary": "20\u00d760 marquee \u00b7 100 chairs in rows \u00b7 4 ft center aisle \u00b7 no dining",
+      "venue": {
+        "widthFt": 28,
+        "depthFt": 70
+      },
+      "items": [
+        {
+          "key": "marquee-tent-20x60",
+          "cx": 14,
+          "cy": 35
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 8.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 8.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 8.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 8.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 16.835,
+          "cy": 8.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 18.505,
+          "cy": 8.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 20.175,
+          "cy": 8.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 21.845,
+          "cy": 8.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 11.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 11.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 11.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 11.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 16.835,
+          "cy": 11.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 18.505,
+          "cy": 11.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 20.175,
+          "cy": 11.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 21.845,
+          "cy": 11.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 15.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 15.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 15.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 15.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 16.835,
+          "cy": 15.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 18.505,
+          "cy": 15.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 20.175,
+          "cy": 15.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 21.845,
+          "cy": 15.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 18.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 18.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 18.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 18.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 16.835,
+          "cy": 18.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 18.505,
+          "cy": 18.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 20.175,
+          "cy": 18.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 21.845,
+          "cy": 18.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 22.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 22.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 22.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 22.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 16.835,
+          "cy": 22.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 18.505,
+          "cy": 22.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 20.175,
+          "cy": 22.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 21.845,
+          "cy": 22.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 25.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 25.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 25.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 25.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 16.835,
+          "cy": 25.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 18.505,
+          "cy": 25.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 20.175,
+          "cy": 25.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 21.845,
+          "cy": 25.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 29.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 29.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 29.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 29.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 16.835,
+          "cy": 29.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 18.505,
+          "cy": 29.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 20.175,
+          "cy": 29.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 21.845,
+          "cy": 29.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 32.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 32.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 32.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 32.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 16.835,
+          "cy": 32.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 18.505,
+          "cy": 32.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 20.175,
+          "cy": 32.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 21.845,
+          "cy": 32.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 36.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 36.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 36.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 36.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 16.835,
+          "cy": 36.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 18.505,
+          "cy": 36.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 20.175,
+          "cy": 36.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 21.845,
+          "cy": 36.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 39.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 39.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 39.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 39.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 16.835,
+          "cy": 39.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 18.505,
+          "cy": 39.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 20.175,
+          "cy": 39.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 21.845,
+          "cy": 39.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 43.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 43.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 43.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 43.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 16.835,
+          "cy": 43.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 18.505,
+          "cy": 43.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 20.175,
+          "cy": 43.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 21.845,
+          "cy": 43.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 46.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 46.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 46.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 46.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 16.835,
+          "cy": 46.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 18.505,
+          "cy": 46.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 20.175,
+          "cy": 46.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 21.845,
+          "cy": 46.5,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 6.155,
+          "cy": 50.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 7.825,
+          "cy": 50.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 9.495,
+          "cy": 50.0,
+          "rotation": 0
+        },
+        {
+          "key": "resin-garden-chair",
+          "cx": 11.165,
+          "cy": 50.0,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "id": "corporate-cocktail-75",
+      "label": "Corporate Cocktail (75 standing)",
+      "summary": "20\u00d730 marquee \u00b7 10 cocktail highboys \u00b7 standing-only flow",
+      "venue": {
+        "widthFt": 28,
+        "depthFt": 40
+      },
+      "items": [
+        {
+          "key": "marquee-tent-20x30",
+          "cx": 14,
+          "cy": 20
+        },
+        {
+          "key": "cocktail-table",
+          "cx": 9,
+          "cy": 8
+        },
+        {
+          "key": "cocktail-table",
+          "cx": 19,
+          "cy": 8
+        },
+        {
+          "key": "cocktail-table",
+          "cx": 9,
+          "cy": 14
+        },
+        {
+          "key": "cocktail-table",
+          "cx": 19,
+          "cy": 14
+        },
+        {
+          "key": "cocktail-table",
+          "cx": 9,
+          "cy": 20
+        },
+        {
+          "key": "cocktail-table",
+          "cx": 19,
+          "cy": 20
+        },
+        {
+          "key": "cocktail-table",
+          "cx": 9,
+          "cy": 26
+        },
+        {
+          "key": "cocktail-table",
+          "cx": 19,
+          "cy": 26
+        },
+        {
+          "key": "cocktail-table",
+          "cx": 9,
+          "cy": 32
+        },
+        {
+          "key": "cocktail-table",
+          "cx": 19,
+          "cy": 32
+        }
+      ]
+    },
+    {
+      "id": "corporate-seated-60",
+      "label": "60-Guest Corporate Seated \u00b7 round tables",
+      "summary": "30\u00d760 marquee \u00b7 8 round tables of 8 (64 seats) \u00b7 premium service aisles",
+      "venue": {
+        "widthFt": 38,
+        "depthFt": 72
+      },
+      "items": [
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 19,
+          "cy": 36
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 11,
+          "cy": 14,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 27,
+          "cy": 14,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 11,
+          "cy": 27,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 27,
+          "cy": 27,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 11,
+          "cy": 40,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 27,
+          "cy": 40,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 11,
+          "cy": 53,
+          "withChairs": true
+        },
+        {
+          "key": "round-table-5ft",
+          "cx": 27,
+          "cy": 53,
+          "withChairs": true
+        }
+      ]
+    },
+    {
+      "id": "corporate-seated-60-rect",
+      "label": "60-Guest Corporate Seated \u00b7 long tables",
+      "summary": "30\u00d760 marquee \u00b7 2 columns \u00d7 3 head-table pairs (72 seats) \u00b7 8 ft service aisles",
+      "venue": {
+        "widthFt": 38,
+        "depthFt": 72
+      },
+      "items": [
+        {
+          "key": "marquee-tent-30x60",
+          "cx": 19,
+          "cy": 36
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 14,
+          "cy": 14,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 14,
+          "cy": 20,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 14,
+          "cy": 34,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 14,
+          "cy": 40,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 14,
+          "cy": 54,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 14,
+          "cy": 60,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 24,
+          "cy": 14,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 24,
+          "cy": 20,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 24,
+          "cy": 34,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 24,
+          "cy": 40,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 24,
+          "cy": 54,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 24,
+          "cy": 60,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        }
+      ]
+    },
+    {
+      "id": "buffet-banquet-60",
+      "label": "Buffet Banquet \u00b7 60\u201372 guests",
+      "summary": "20\u00d760 marquee \u00b7 3 head-table pairs (72 seats) \u00b7 buffet-style with 8 ft service aisles",
+      "venue": {
+        "widthFt": 28,
+        "depthFt": 70
+      },
+      "items": [
+        {
+          "key": "marquee-tent-20x60",
+          "cx": 14,
+          "cy": 35
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 12,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 12,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 18,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 18,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 32,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 32,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 38,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 38,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 52,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 52,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 9,
+          "cy": 58,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        },
+        {
+          "key": "banquet-table-6ft",
+          "cx": 19,
+          "cy": 58,
+          "rotation": 90,
+          "withChairs": true,
+          "chairCount": 6
+        }
+      ]
+    }
+  ]
+}

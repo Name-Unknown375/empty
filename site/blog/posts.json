@@ -2,8 +2,8 @@
   "$schema": "./posts.schema.json",
   "meta": {
     "version": 1,
-    "lastUpdated": "2026-04-22",
-    "totalPosts": 30,
+    "lastUpdated": "2026-05-04",
+    "totalPosts": 23,
     "topics": {
       "sizing": {
         "label": "Tent Sizing & Planning",
@@ -29,6 +29,21 @@
         "label": "Wedding Guides",
         "cover": "cov-clay",
         "order": 5
+      },
+      "cost": {
+        "label": "Pricing & Budget",
+        "cover": "cov-ink",
+        "order": 6
+      },
+      "logistics": {
+        "label": "Permits & Setup",
+        "cover": "cov-slate",
+        "order": 7
+      },
+      "events": {
+        "label": "Event Playbooks",
+        "cover": "cov-forest",
+        "order": 8
       }
     },
     "authors": {
@@ -43,6 +58,127 @@
     }
   },
   "posts": [
+    {
+      "slug": "wedding-tent-rental-cost-vancouver",
+      "topic": "cost",
+      "title": "Wedding Tent Rental Cost in <em>Vancouver</em>",
+      "h4": "What a Wedding Tent Actually Costs in BC",
+      "excerpt": "Honest price ranges, the five hidden costs nobody warns you about, sample quotes for 50/100/150 guests, and the questions to ask before you sign anything.",
+      "author": "devon",
+      "date": "2025-09-07",
+      "read": 16,
+      "status": "live"
+    },
+    {
+      "slug": "best-event-tents-rain-vancouver",
+      "topic": "weather",
+      "title": "The Best Event Tents for <em>Rain</em> in Vancouver",
+      "h4": "Tents That Actually Hold Up in BC Weather",
+      "excerpt": "Rain — not wind — is what ruins most BC events. Frame vs. pole, sidewalls, gutters, wind ratings, and the six-item rain kit we deploy every shoulder-season weekend.",
+      "author": "devon",
+      "date": "2025-09-22",
+      "read": 15,
+      "status": "live"
+    },
+    {
+      "slug": "marquee-vs-sailcloth-vs-frame-tent",
+      "topic": "compare",
+      "title": "Marquee vs. Sailcloth vs. <em>Frame Tent</em>",
+      "h4": "How to Pick the Right Wedding Tent Style",
+      "excerpt": "Three styles, three very different weddings. How each one looks, holds up in BC weather, sets up, and prices — with picks for 50, 100, and 150 guests.",
+      "author": "devon",
+      "date": "2025-05-17",
+      "read": 13,
+      "status": "live"
+    },
+    {
+      "slug": "tent-permits-surrey-metro-vancouver-parks",
+      "topic": "logistics",
+      "title": "Tent <em>Permits</em> in Surrey, Vancouver & Metro Parks",
+      "h4": "BC Tent Permit & Setup Rules — Plain English",
+      "excerpt": "When you need a permit, who issues what, lawn vs. asphalt staking, the lead-time calendar, and the permit packet checklist that gets approved on the first try.",
+      "author": "team",
+      "date": "2025-06-18",
+      "read": 14,
+      "status": "live"
+    },
+    {
+      "slug": "heated-tent-rental-fall-wedding-bc",
+      "topic": "weather",
+      "title": "<em>Heated Tents</em> for Fall & Winter Weddings in BC",
+      "h4": "BTU Math, Power, and Real Fall Wedding Numbers",
+      "excerpt": "When BC weddings need heat, the BTU math by tent size, propane vs. electric, sidewall pairing, and the cost to add reliable warmth to a shoulder-season event.",
+      "author": "devon",
+      "date": "2025-08-27",
+      "read": 13,
+      "status": "live"
+    },
+    {
+      "slug": "party-tent-over-patio-deck",
+      "topic": "logistics",
+      "title": "Putting a <em>Party Tent</em> Over Your Patio or Deck",
+      "h4": "Anchoring a Tent Without Driving Stakes",
+      "excerpt": "Pavers, decks, concrete, and street festivals — how we anchor without ground stakes. Ballast options, deck loading, eave clearance, and when to switch to a popup.",
+      "author": "devon",
+      "date": "2025-07-01",
+      "read": 14,
+      "status": "live"
+    },
+    {
+      "slug": "chair-table-rental-prices-surrey-bc",
+      "topic": "cost",
+      "title": "Chair & Table <em>Rental Prices</em> in Surrey, BC",
+      "h4": "What Chairs and Tables Really Cost Out Here",
+      "excerpt": "Per-chair and per-table price ranges across Surrey, Chiavari vs. fanback vs. resin garden, delivery fees, and the bundling math at 50, 100, and 150 guests.",
+      "author": "team",
+      "date": "2025-06-26",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "clear-top-tent-rentals-bc-weddings",
+      "topic": "wedding",
+      "title": "<em>Clear Top Tents</em> for BC Weddings",
+      "h4": "What Clear Top Marquees Actually Look Like at Night",
+      "excerpt": "What 'clear top' means, day vs. night look, the heat and condensation realities of BC summer, lighting that pairs, and the cost premium over a standard marquee.",
+      "author": "devon",
+      "date": "2026-04-16",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "dance-floor-dj-space-wedding-tent",
+      "topic": "wedding",
+      "title": "<em>Dance Floor</em> & DJ Space in Your Wedding Tent",
+      "h4": "Sizing the Dance Floor and Placing the DJ",
+      "excerpt": "The 30%-of-guests rule, panel sizes that tile cleanly, where to put the DJ booth, power and cable runs, and full layouts for 50, 100, and 150 guest weddings.",
+      "author": "devon",
+      "date": "2026-03-28",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "backyard-birthday-rental-equipment-bc",
+      "topic": "events",
+      "title": "Affordable <em>Backyard Birthday</em> Rentals in BC",
+      "h4": "The Right Rentals for a 30-Guest Backyard Party",
+      "excerpt": "Minimum viable kit for a backyard birthday, rent-vs-buy math at three price points, weekend vs. weekday pricing, and the day-of timeline that keeps a kids' party calm.",
+      "author": "team",
+      "date": "2025-07-15",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "corporate-picnic-festival-rentals-bc",
+      "topic": "events",
+      "title": "<em>Corporate Picnics</em>, Retreats & Festival Rentals in BC",
+      "h4": "Corporate Event Rental Pricing & Layouts",
+      "excerpt": "The four corporate event archetypes, pricing tiers for 50/100/150-person gatherings, four seating layouts, branded check-in flow, and lead times for September.",
+      "author": "devon",
+      "date": "2026-02-08",
+      "read": 12,
+      "status": "live"
+    },
     {
       "slug": "tent-size-guide-lower-mainland-wedding",
       "topic": "sizing",

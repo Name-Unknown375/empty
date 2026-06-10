@@ -1,10 +1,14 @@
 # Forever Party Rentals — robots.txt
-# https://foreverpartyrentals.com/robots.txt
+# https://www.foreverpartyrentals.com/robots.txt
 
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
 # Transactional page — no SEO value, excluded to save crawl budget.
+# Both forms blocked: Netlify exposes /checkout (pretty URL, alias) and
+# /checkout.html (direct file, kept via _redirects 200! force-rewrite).
+Disallow: /checkout
 Disallow: /checkout.html
 
-Sitemap: https://foreverpartyrentals.com/sitemap.xml
+Sitemap: https://www.foreverpartyrentals.com/sitemap.xml

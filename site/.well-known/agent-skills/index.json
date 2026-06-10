@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agentskills.io/schemas/index.v0.2.0.json",
+  "skills": [
+    {
+      "name": "book-rental",
+      "type": "skill",
+      "description": "Help a customer request a quote or booking for tent, chair, and table rentals from Forever Party Rentals in the Lower Mainland of British Columbia.",
+      "url": "https://www.foreverpartyrentals.com/.well-known/agent-skills/book-rental/SKILL.md",
+      "sha256": "910c3a2aadf828d1ab8ea46dea31172baebaaf4a4bc5ce0e10f1b5e85e3adf9d"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "_comment": "Maps products_sku.json keys to Adelie inventory Item IDs (Column A of the inventory CSV export). Two value shapes are supported: (1) a bare string for SKUs that map 1:1 to a single inventory item, or (2) an array of {id, label} objects for category-style SKU pages that surface multiple inventory items stacked on the page (e.g. dance floors come in three sizes). SKUs absent from this map render without the availability widget — they keep the existing /rentals.html CTA. tent-sidewall, EcoFlow and Starlink SKUs are intentionally omitted for now.",
+
+  "white-chiavari-chair":   "49dr6aO6iGDrrbs2ZMJn",
+  "fanback-garden-chair":   "rpWISwoRgbwhy31LL4RO",
+  "resin-garden-chair":     "haTcu9MPklPpxZINalHh",
+
+  "round-table-5ft":        "5OeLhlFSqnkRSzCOOMWJ",
+  "banquet-table-6ft":      "K7nGqiWma8hGGe4H8SVg",
+  "cocktail-table":         "uFSpLEibsBA8wLmpcaol",
+
+  "popup-tent-10x10":       "sM8DUGRGnIUVykBrkOrs",
+  "marquee-tent-20x20":     "qytPqXD9kA1hlKhGtVZW",
+  "marquee-tent-20x30":     "fX89N5Gcb0iMRC8vRfar",
+  "marquee-tent-20x40":     "gRjUQXUVljE9KwOqHHzL",
+  "marquee-tent-20x60":     "B9lzlTyz3V9uV5ovr7kT",
+  "marquee-tent-30x60":     "9YJw1KT50TX0PKhdkxay",
+
+  "tent-heater":            "D2MGKQvIVvSnNvguEjPo",
+  "bistro-string-lights":   "LGlMH5fIJDLrZciDzPTn",
+
+  "black-white-dance-floor": [
+    { "label": "16x16 — fits ~60 dancers",          "id": "8elRcplJeScQUfPRdQFQ" },
+    { "label": "12x12 — fits ~40 dancers",          "id": "pxTgbALRGy49fnZlotSk" },
+    { "label": "8x8 — fits ~20 dancers (black only)", "id": "MoHaYuSeDxhdHoPDvwAW" }
+  ],
+
+  "projector-screen-rental": [
+    { "label": "ViewSonic LS740HD 5000-Lumen Projector",      "id": "5bYHmtubfzzqlzIQnaBk" },
+    { "label": "Add-on — 100\" Projector Screen with Stand",  "id": "kDu0agZvH8R0TKbByb24" },
+    { "label": "Add-on — Projector & Laptop Stand",           "id": "xB5hZN3acuYjk2G869SQ" }
+  ]
+}

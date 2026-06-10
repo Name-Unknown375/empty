@@ -1,0 +1,34 @@
+{
+  "_comment": "Forever Party Rentals — single source of truth for brand/identity constants. Loaded by render_partials.py and the 5 page generators (city, product, sku, package, christmas-lights). The sitemap generator and verify.py also read siteUrl. When changing any value here, regenerate all pages: python3 _build/generate_city_pages.py --all && python3 _build/generate_product_pages.py --all && python3 _build/generate_sku_pages.py --all && python3 _build/generate_package_pages.py --all && python3 _build/generate_christmas_light_pages.py --all && python3 _build/generate_sitemap.py && python3 _build/apply_partials.py --all",
+
+  "siteUrl": "https://www.foreverpartyrentals.com",
+  "phone": "778-990-7983",
+  "phoneE164": "+1-778-990-7983",
+  "email": "welcome@foreverpartyrentals.com",
+  "address": "9317 188 St, Surrey BC V4N 3V1",
+  "addressStreet": "9317 188 St",
+  "addressLocality": "Surrey",
+  "addressRegion": "BC",
+  "addressPostalCode": "V4N 3V1",
+  "addressCountry": "CA",
+  "hours": "Mon–Sun 9:30AM–6PM",
+  "hoursOpens": "09:30",
+  "hoursCloses": "18:00",
+  "geo": { "lat": 49.1648, "lng": -122.7066 },
+
+  "logo": "/images/logo.webp",
+  "logoUrl": "/images/logo.webp",
+
+  "bookingUrl": "/rentals",
+  "checkoutUrl": "/checkout",
+  "adelieOrgId": "LvrymFxex6oslWCxcrEg",
+
+  "googleBusinessUrl": "https://www.google.com/search?q=Forever+Party+Rentals&kgmid=/g/11tnwsrdpc",
+  "kgmid": "/g/11tnwsrdpc",
+
+  "aggregateRating": {
+    "value": "5.0",
+    "count": "150",
+    "_note": "Pulled from public Google Business Profile. Update both this number and the human-facing '150+ five-star Google reviews' copy in templates whenever the GBP changes — never inflate."
+  }
+}

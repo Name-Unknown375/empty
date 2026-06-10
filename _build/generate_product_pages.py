@@ -13,6 +13,8 @@ Usage:
     python3 generate_product_pages.py --products tent --cities surrey --out _pilot
 """
 
+from __future__ import annotations
+
 import argparse
 import datetime as dt
 import json
@@ -20,19 +22,23 @@ import sys
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
+from render_partials import render_nav, render_footer
+
+from urlpath import url_path
+from overrides_loader import load_overrides
 
 HERE = Path(__file__).resolve().parent
 SITE_DIR = HERE.parent / "site"
 CITY_DATA_FILE = HERE / "city_data.json"
 PRODUCT_DATA_FILE = HERE / "products.json"
+SITE_CONSTANTS_FILE = HERE / "site_constants.json"
 TEMPLATE_FILE = "product_template.html"
 
-SITE_URL = "https://foreverpartyrentals.com"
-# Hosted brand logo — see generate_city_pages.py for rationale.
-LOGO_URL = (
-    "https://images.squarespace-cdn.com/content/v1/6377fe3c61a4ae0a3c0e29fc/"
-    "993255ee-d7bd-41ba-a9dc-659d794941af/Forever+Party+Rentals+Logo.png?format=1500w"
-)
+# Brand identity centralised in site_constants.json — see generate_city_pages.py.
+with open(SITE_CONSTANTS_FILE, encoding="utf-8") as _f:
+    FPR = json.load(_f)
+SITE_URL = FPR["siteUrl"]
+LOGO_URL = FPR["logoUrl"]
 
 
 def load_data():
@@ -108,6 +114,21 @@ PRODUCT_LOCAL_LANG = {
             "Most {city} reception bookings combine the dance floor with a marquee "
             "tent, round tables, and bistro lighting in one quote — stage-ready by "
             "the time guest service begins."
+        ),
+    },
+    "projector": {
+        "verb_at_landmark": "run big-screen presentations and outdoor screenings near {landmark}",
+        "verb_at_neighborhood": "set up backyard movie nights for families in {neighborhood}",
+        "logistics": (
+            "Because {city} events range from lit conference rooms to dusk backyard "
+            "screenings, we bring a 5000-lumen laser projector that holds its image "
+            "where dimmer home-theatre units wash out — and we set the 100″ screen "
+            "and stand, frame the picture, and confirm the source before we leave."
+        ),
+        "close": (
+            "Most {city} projector bookings ship alongside a marquee tent or an "
+            "EcoFlow power station, so an off-grid movie night arrives on a single "
+            "truck in one delivery window."
         ),
     },
 }
@@ -216,15 +237,23 @@ def build_faqs(product: dict, city: dict) -> list[dict]:
 
 def build_siblings(city_slug: str, current_key: str, products: dict) -> list[dict]:
     """List the *other* product-per-city pages for this city, for cross-linking.
-    Each entry exposes enough fields for the sibling-cards UI in the template."""
+    Each entry exposes enough fields for the sibling-cards UI in the template.
+    Sibling links honour cityWhitelist: if a sibling product restricts itself to
+    a subset of cities, fall back to its category landing page for cities outside
+    the whitelist (so we never emit a dead link to a never-generated city page)."""
     out = []
     for key, p in products.items():
         if key == current_key:
             continue
+        whitelist = p.get("cityWhitelist")
+        if whitelist and city_slug not in whitelist:
+            url = url_path(p["categoryPage"])
+        else:
+            url = url_path(f"{page_slug(p, city_slug)}.html")
         out.append({
             "key": key,
             "name": p["productName"],
-            "url": f"{page_slug(p, city_slug)}.html",
+            "url": url,
             "image": p["heroImage"],
             "serviceType": p.get("serviceType", p["productName"]),
         })
@@ -233,44 +262,42 @@ def build_siblings(city_slug: str, current_key: str, products: dict) -> list[dic
 
 def build_context(city_slug: str, city: dict, product: dict, data: dict, all_products: dict) -> dict:
     slug = page_slug(product, city_slug)
-    canonical = f"{SITE_URL}/{slug}.html"
-    city_page = f"{city_slug}-party-rentals.html"
+    canonical = f"{SITE_URL}{url_path(f'{slug}.html')}"
+    city_page = url_path(f"{city_slug}-party-rentals.html")
 
     pool = data["testimonialPool"]
     testimonials = [pool[i] for i in city["testimonialIndices"]]
 
-    title = (
-        f"{product['productName']} {city['name']} BC | "
-        f"{product['subcategoryCards'][0]['name']} &amp; More | Forever Party Rentals"
-    )
+    title = f"{product['productName']} in {city['name']}, BC — Delivery & Setup Available"
     _product_desc_templates = {
         "tent": (
-            "Marquee & frame tent rentals in {city}, BC — 20×20, 20×40 & 20×60 tents "
-            "delivered, staked, and collected by our crew. Serving {nb}. Book online 24/7."
+            "Marquee tent rentals in {city}, BC — 20×20, 20×40 & 20×60 frames "
+            "delivered and set up by our crew. Book online 24/7."
         ),
         "chair": (
-            "Chiavari, Fanback & Resin Garden chair rentals in {city}, BC — delivered "
-            "and set up to your floor plan. Serving {nb}. Book online 24/7."
+            "Chiavari, Fanback & Resin Garden chair rentals in {city}, BC — "
+            "delivered and set up to your floor plan. Book online 24/7."
         ),
         "table": (
-            "Banquet, round & cocktail table rentals in {city}, BC — positioned to your "
-            "layout by our crew. Serving {nb}. Book online 24/7."
+            "Banquet, round & cocktail table rentals in {city}, BC — "
+            "positioned to your layout by our crew. Book online 24/7."
         ),
         "dance-floor": (
-            "Black & white dance floor rentals in {city}, BC — levelled and staged by "
-            "our crew. Serving {nb}. Book online 24/7."
+            "Black & white dance floor rentals in {city}, BC — "
+            "levelled and staged by our crew. Book online 24/7."
+        ),
+        "projector": (
+            "HD projector & 100″ screen rentals in {city}, BC — 5000-lumen laser "
+            "projector for movie nights, weddings & presentations. Book online 24/7."
         ),
     }
     _desc_tpl = _product_desc_templates.get(product["key"])
     if _desc_tpl:
-        description = _desc_tpl.format(
-            city=city["name"],
-            nb=", ".join(city["neighborhoods"][:3]),
-        )
+        description = _desc_tpl.format(city=city["name"])
     else:
         description = (
-            f"{product['productName']} in {city['name']}, BC — delivered, set up, and collected by "
-            f"our crew. Serving {', '.join(city['neighborhoods'][:3])}. Book online 24/7."
+            f"{product['productName']} in {city['name']}, BC — "
+            f"delivered, set up, and collected by our crew. Book online 24/7."
         )
 
     tagline = sub(product["tagline"], city["name"])
@@ -286,8 +313,20 @@ def build_context(city_slug: str, city: dict, product: dict, data: dict, all_pro
     faqs = build_faqs(product, city)
     siblings = build_siblings(city_slug, product["key"], all_products)
 
+    # Cross-category upsell: link the battery pages to the matching Starlink
+    # per-city page when one exists, otherwise fall back to the universal SKU
+    # page. Same pattern can serve future category-to-category cross-sells.
+    starlink = all_products.get("starlink")
+    if starlink and city_slug in (starlink.get("cityWhitelist") or []):
+        starlink_city_url = url_path(f"{page_slug(starlink, city_slug)}.html")
+    else:
+        starlink_city_url = url_path("product-starlink-standard-actuated.html")
+
+    overrides = load_overrides(slug, "products")
+
     return {
         "city": city,
+        "city_slug": city_slug,
         "product": product,
         "siblings": siblings,
         "testimonials": testimonials,
@@ -302,9 +341,12 @@ def build_context(city_slug: str, city: dict, product: dict, data: dict, all_pro
         "page_description": description,
         "canonical_url": canonical,
         "city_page": city_page,
+        "starlink_city_url": starlink_city_url,
         "site_url": SITE_URL,
         "logo_url": LOGO_URL,
-        "lastmod": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "fpr": FPR,
+        "overrides": overrides,
+        "lastmod": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
     }
 
 
@@ -358,6 +400,8 @@ def main():
         trim_blocks=True,
         lstrip_blocks=True,
     )
+    env.globals["nav_html"] = render_nav()
+    env.globals["footer_html"] = render_footer()
     template = env.get_template(TEMPLATE_FILE)
 
     out_dir = (HERE / args.out) if args.out else SITE_DIR
@@ -368,6 +412,9 @@ def main():
         city = city_data["cities"][city_slug]
         for product_key in products:
             product = product_data["products"][product_key]
+            whitelist = product.get("cityWhitelist")
+            if whitelist and city_slug not in whitelist:
+                continue
             ctx = build_context(city_slug, city, product, city_data, product_data["products"])
             html = template.render(**ctx)
             slug = page_slug(product, city_slug)

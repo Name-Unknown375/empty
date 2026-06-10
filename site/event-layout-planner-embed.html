@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Forever Party Rentals — Event Layout Planner (embed surface)
+     This file is the bare planner app. Loaded both inside an iframe on the
+     hub page (event-layout-planner.html) and on third-party sites that
+     embed the tool. No nav, no footer, no GTM. Headers in site/_headers
+     relax X-Frame-Options + frame-ancestors for this exact path so cross-
+     origin iframing works. Excluded from sitemap.xml; canonical points to
+     the hub page so search engines consolidate signals there. -->
+<meta charset="UTF-8"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Event Layout Planner — Forever Party Rentals</title>
+<meta name="description" content="Drag-and-drop event layout planner from Forever Party Rentals. Plan tents, tables, chairs, dance floors and stage in 2D for your event."/>
+<meta name="robots" content="noindex,follow"/>
+<link rel="canonical" href="https://www.foreverpartyrentals.com/event-layout-planner"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="planner/planner.css?v=16"/>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
+  body { overflow: hidden; }
+</style>
+</head>
+<body>
+
+<!-- Mobile fallback (shown on screens ≤720px wide via planner.css) -->
+<div class="pl-mobile-notice">
+  <h2>Best on a larger screen</h2>
+  <p>The Event Layout Planner is built for tablet and desktop screens. Open this page on a device with a larger screen to start designing your event.</p>
+  <p style="margin-top:18px"><a href="https://www.foreverpartyrentals.com/contact" target="_top" style="color:#1E3A2F;font-weight:600">Or contact us — we'll plan it for you.</a></p>
+</div>
+
+<!-- Templates dropdown menu, position-fixed, anchored to button at open-time -->
+<div id="plTemplatesMenu" class="pl-menu" role="menu" aria-label="Layout templates" hidden></div>
+
+<!-- Toast for share-link copied + similar one-shot notifications -->
+<div id="plToast" class="pl-toast" role="status" aria-live="polite" hidden></div>
+
+<!-- Calibration banner — shown over the canvas while the user is in
+     2-click scale-set mode. planner.js shows/hides via the .hidden attr. -->
+<div id="plCalibrationHint" class="pl-calibration-hint" role="status" aria-live="polite" hidden></div>
+
+<!-- First-visit tour. Overlay backdrop + spotlight + card, all driven by
+     planner.js. The spotlight uses an outsize box-shadow trick to dim
+     everything except the highlighted target rect. -->
+<div id="plTourOverlay" class="pl-tour-overlay" hidden>
+  <div id="plTourSpotlight" class="pl-tour-spotlight"></div>
+  <div id="plTourCard" class="pl-tour-card" role="dialog" aria-labelledby="plTourTitle">
+    <div id="plTourStep" class="pl-tour-step">1 / 3</div>
+    <h3 id="plTourTitle">Title</h3>
+    <p id="plTourBody">Body</p>
+    <div class="pl-tour-actions">
+      <button type="button" class="pl-btn" id="plTourSkip">Skip</button>
+      <button type="button" class="pl-btn pl-btn-gold" id="plTourNext">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- Ceremony seating modal — opened by Ceremony toolbar button. All inputs
+     bind to the live preview at the bottom; on Apply, planner.js generates
+     and adds chairs to the current state (does NOT replace existing items). -->
+<div id="plCeremonyModal" class="pl-modal-backdrop" hidden>
+  <div class="pl-modal" role="dialog" aria-labelledby="plCerTitle" aria-modal="true">
+    <div class="pl-modal-header">
+      <h2 id="plCerTitle">Ceremony Seating</h2>
+      <button type="button" class="pl-modal-close" id="plCerClose" aria-label="Close">×</button>
+    </div>
+    <div class="pl-modal-body">
+      <p class="pl-modal-hint">Generate rows of chairs facing the altar. Centered on your venue. Move or adjust afterwards as needed.</p>
+
+      <div class="pl-form-grid">
+        <label class="pl-field-full">
+          <span class="pl-field-label">Chair type</span>
+          <select id="plCerChair">
+            <option value="fanback-garden-chair">Fanback Folding ($3.25/day · most-booked outdoor)</option>
+            <option value="resin-garden-chair">Resin Garden ($5.50/day · premium outdoor)</option>
+            <option value="white-chiavari-chair">Chiavari ($8.50/day · indoor reception standard)</option>
+          </select>
+        </label>
+
+        <label class="pl-field-full">
+          <span class="pl-field-label">Sections (aisles)</span>
+          <div class="pl-radio-group" id="plCerSectionsGroup">
+            <input type="radio" name="cerSections" value="1" id="plCerSec1"><label for="plCerSec1">1 — theatre block</label>
+            <input type="radio" name="cerSections" value="2" id="plCerSec2" checked><label for="plCerSec2">2 — single center aisle</label>
+            <input type="radio" name="cerSections" value="3" id="plCerSec3"><label for="plCerSec3">3 — double aisle</label>
+          </div>
+        </label>
+
+        <label>
+          <span class="pl-field-label">Seats per row, per section</span>
+          <input id="plCerSeats" type="number" min="1" max="20" value="5"/>
+        </label>
+        <label>
+          <span class="pl-field-label">Rows</span>
+          <input id="plCerRows" type="number" min="1" max="30" value="5"/>
+        </label>
+        <label>
+          <span class="pl-field-label">Aisle width (ft)</span>
+          <input id="plCerAisle" type="number" min="2" max="10" step="0.5" value="4"/>
+        </label>
+        <label>
+          <span class="pl-field-label">Chair spacing in row (ft)</span>
+          <input id="plCerChairSpace" type="number" min="0" max="2" step="0.25" value="0.25"/>
+        </label>
+        <label>
+          <span class="pl-field-label">Row spacing front-to-back (ft)</span>
+          <input id="plCerRowSpace" type="number" min="1" max="6" step="0.25" value="2.5"/>
+        </label>
+      </div>
+
+      <div class="pl-cer-preview" id="plCerPreview" aria-live="polite">
+        <strong id="plCerTotal">50</strong> chairs ·
+        <strong id="plCerWidth">17.5</strong> ft wide ·
+        <strong id="plCerDepth">19.5</strong> ft deep
+      </div>
+    </div>
+    <div class="pl-modal-footer">
+      <button type="button" class="pl-btn" id="plCerCancel">Cancel</button>
+      <button type="button" class="pl-btn pl-btn-gold" id="plCerApply">Add Ceremony Seating</button>
+    </div>
+  </div>
+</div>
+
+<div id="plannerApp" class="planner-app">
+
+  <!-- ── Toolbar (top) ─────────────────────────────────────────────── -->
+  <div id="plToolbar" class="planner-toolbar">
+    <span class="pl-brand">Layout Planner</span>
+
+    <button class="pl-btn pl-btn-gold" id="plBtnTemplates" title="Start from a template" aria-haspopup="menu">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="12" height="10" rx="1"/><path d="M5 6h6M5 9h4"/></svg>
+      Templates
+    </button>
+
+    <button class="pl-btn" id="plBtnMeasure" title="Measure distance between two points (Esc to clear)">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="1" y="6" width="14" height="4" rx="0.5"/>
+        <line x1="3" y1="6" x2="3" y2="8.2"/>
+        <line x1="6" y1="6" x2="6" y2="9"/>
+        <line x1="9" y1="6" x2="9" y2="8.2"/>
+        <line x1="12" y1="6" x2="12" y2="9"/>
+      </svg>
+      Measure
+    </button>
+
+    <button class="pl-btn" id="plBtnAddLabel" title="Add a text label (DJ, Bar, Caterer Prep…)">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h10M5 4v8M11 4v8M3 12h4M9 12h4"/></svg>
+      Label
+    </button>
+
+    <button class="pl-btn" id="plBtnCeremony" title="Generate ceremony seating with configurable rows, aisle, and sections">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+        <circle cx="3" cy="3.5" r="1"/><circle cx="6" cy="3.5" r="1"/><circle cx="10" cy="3.5" r="1"/><circle cx="13" cy="3.5" r="1"/>
+        <circle cx="3" cy="8" r="1"/>  <circle cx="6" cy="8" r="1"/>  <circle cx="10" cy="8" r="1"/>  <circle cx="13" cy="8" r="1"/>
+        <circle cx="3" cy="12.5" r="1"/><circle cx="6" cy="12.5" r="1"/><circle cx="10" cy="12.5" r="1"/><circle cx="13" cy="12.5" r="1"/>
+      </svg>
+      Ceremony
+    </button>
+
+    <span class="pl-divider"></span>
+
+    <button class="pl-btn pl-btn-icon" id="plBtnUndo" title="Undo (Ctrl+Z)" aria-label="Undo">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4L2 8l4 4M2 8h8a4 4 0 0 1 0 8h-2"/></svg>
+    </button>
+    <button class="pl-btn pl-btn-icon" id="plBtnRedo" title="Redo (Ctrl+Shift+Z)" aria-label="Redo">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4l4 4-4 4M14 8H6a4 4 0 0 0 0 8h2"/></svg>
+    </button>
+
+    <span class="pl-divider"></span>
+
+    <button class="pl-btn pl-btn-icon" id="plBtnRotateLeft" title="Rotate 90° left" aria-label="Rotate left">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a5 5 0 1 0 1.5-3.5L2 7"/><path d="M2 3v4h4"/></svg>
+    </button>
+    <button class="pl-btn pl-btn-icon" id="plBtnRotateRight" title="Rotate 90° right" aria-label="Rotate right">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8a5 5 0 1 1-1.5-3.5L14 7"/><path d="M14 3v4h-4"/></svg>
+    </button>
+    <button class="pl-btn pl-btn-icon" id="plBtnDuplicate" title="Duplicate (Ctrl+D)" aria-label="Duplicate">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="9" height="9" rx="1"/><path d="M3 11V3a1 1 0 0 1 1-1h8"/></svg>
+    </button>
+    <button class="pl-btn pl-btn-icon" id="plBtnDelete" title="Delete (Del)" aria-label="Delete">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h10M6 4V3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1M5 4l1 9a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1l1-9"/></svg>
+    </button>
+
+    <span class="pl-divider"></span>
+
+    <span class="pl-zoom-group">
+      <button class="pl-btn pl-btn-icon" id="plBtnZoomOut" title="Zoom out" aria-label="Zoom out">
+        <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10"/></svg>
+      </button>
+      <span class="pl-zoom-readout" id="plZoomReadout">100%</span>
+      <button class="pl-btn pl-btn-icon" id="plBtnZoomIn" title="Zoom in" aria-label="Zoom in">
+        <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10M8 3v10"/></svg>
+      </button>
+    </span>
+    <button class="pl-btn pl-btn-icon" id="plBtnZoomFit" title="Fit to venue" aria-label="Fit">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6V3h3M13 6V3h-3M3 10v3h3M13 10v3h-3"/></svg>
+    </button>
+
+    <span class="pl-divider"></span>
+
+    <button class="pl-btn" id="plBtnClear" title="Clear all items">Clear</button>
+    <button class="pl-btn" id="plBtnLoadJson" title="Load a saved layout">Load</button>
+    <button class="pl-btn" id="plBtnSaveJson" title="Save layout file (.json)">Save File</button>
+    <button class="pl-btn" id="plBtnShare" title="Copy a shareable link to this layout. Hold Shift to copy a view-only link (recipient can pan + zoom but not edit).">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="4" cy="8" r="2"/><circle cx="12" cy="3.5" r="2"/><circle cx="12" cy="12.5" r="2"/><path d="M5.7 7l4.6-2.8M5.7 9l4.6 2.8"/></svg>
+      Share
+    </button>
+    <button class="pl-btn pl-btn-gold" id="plBtnPdf" title="Download your layout as a PDF (drawing + itemized summary)">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M5 7l3 3 3-3M3 12v2h10v-2"/></svg>
+      PDF
+    </button>
+    <button class="pl-btn" id="plBtnPrint" title="Print this layout">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5V2h8v3M4 12h8v3H4z"/><rect x="2" y="5" width="12" height="7" rx="1"/></svg>
+      Print
+    </button>
+
+    <span class="pl-spacer"></span>
+
+    <button class="pl-btn pl-btn-icon" id="plBtnFullscreen" title="Toggle fullscreen (F)" aria-label="Toggle fullscreen">
+      <svg class="pl-ico pl-ico-enter-fs" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4"/></svg>
+      <svg class="pl-ico pl-ico-exit-fs" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M6 2v4H2M10 2v4h4M6 14v-4H2M10 14v-4h4"/></svg>
+    </button>
+    <button class="pl-btn pl-btn-icon" id="plBtnHelp" title="Show the quick tour again" aria-label="Show tour">
+      <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M6 6.5a2 2 0 0 1 4 0c0 1.4-2 1.5-2 3M8 12.2v.05"/></svg>
+    </button>
+  </div>
+
+  <!-- ── Palette (left) ────────────────────────────────────────────── -->
+  <aside class="planner-palette">
+    <div class="pl-venue-form">
+      <label class="pl-venue-label">Venue Size</label>
+      <div class="pl-venue-row" id="plVenueSizeRow">
+        <input id="plVenueW" type="number" min="5" max="500" step="1" value="40" aria-label="Venue width in feet"/>
+        <span class="pl-x">×</span>
+        <input id="plVenueD" type="number" min="5" max="500" step="1" value="30" aria-label="Venue depth in feet"/>
+      </div>
+      <div class="pl-venue-units" id="plVenueUnits">feet</div>
+
+      <!-- Polygon-mode info: shown instead of the size inputs when the
+           venue is a custom shape. AABB + total area, plus a button to
+           revert back to a rectangle. -->
+      <div id="plVenuePolyInfo" class="pl-venue-poly-info" hidden>
+        <div class="pl-venue-poly-summary">
+          Custom shape · <strong id="plVenuePolyAabb">— × —</strong> ft AABB<br/>
+          <span id="plVenuePolyArea">—</span> sq ft
+        </div>
+        <button type="button" class="pl-btn pl-btn-small pl-btn-block" id="plBtnVenueResetRect">Reset to rectangle</button>
+      </div>
+
+      <button type="button" class="pl-btn pl-btn-small pl-btn-block" id="plBtnVenueDraw" style="margin-top:8px">
+        <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l4 2 6-1 1 5-7 5-4-3z"/></svg>
+        Draw custom shape
+      </button>
+    </div>
+
+    <!-- Site-photo backdrop. Upload a Google Maps screenshot of the
+         customer's yard, calibrate scale with two clicks, drop the
+         layout on top. The control panel appears once a backdrop is
+         loaded; planner.js renderBackdropPanel() drives visibility. -->
+    <div class="pl-backdrop-form">
+      <button type="button" class="pl-btn pl-btn-block pl-btn-backdrop" id="plBtnAddBackdrop">
+        <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="1"/><circle cx="6" cy="7" r="1"/><path d="M2 11l3-3 3 3 2-2 4 4"/></svg>
+        Add background photo
+      </button>
+      <div class="pl-backdrop-form-hint">Drop your yard's photo or a Google Maps screenshot to design on top of it.</div>
+      <input type="file" id="plBackdropFile" accept="image/*" hidden/>
+      <div id="plBackdropPanel" class="pl-backdrop-panel" hidden>
+        <div class="pl-backdrop-panel-title">Background photo</div>
+        <label class="pl-backdrop-row">
+          <span>Opacity</span>
+          <input type="range" id="plBackdropOpacity" min="0.1" max="1" step="0.05" value="0.5"/>
+        </label>
+        <div class="pl-backdrop-buttons">
+          <button type="button" class="pl-btn pl-btn-small" id="plBtnBackdropMove">Move</button>
+          <button type="button" class="pl-btn pl-btn-small" id="plBtnBackdropCalibrate">Re-scale</button>
+          <button type="button" class="pl-btn pl-btn-small pl-btn-danger" id="plBtnBackdropRemove">Remove</button>
+        </div>
+        <div class="pl-backdrop-hint">Tip: use Re-scale to set the photo's real-world size — click two points and enter the distance in feet.</div>
+      </div>
+    </div>
+
+    <div id="plPaletteGroups"></div>
+
+    <div style="margin-top:24px;font-size:11px;color:var(--pl-muted);line-height:1.5">
+      <strong style="color:var(--pl-green)">Tips:</strong> drop a table to auto-place chairs around it — adjust the count from the right panel. Drag on empty canvas to multi-select, Shift-click to add, hold Space to pan. ⌘C / ⌘V copies a whole selection (including chairs). Hold Shift while dropping to skip auto-chairs, while moving for 0.25 ft snapping, or while rotating for 15° steps — hold Alt for 90° rotation snap, ⌘/Ctrl for 180°.
+    </div>
+  </aside>
+
+  <!-- ── Canvas (center) ───────────────────────────────────────────── -->
+  <div id="plCanvas" class="planner-canvas">
+    <svg id="plSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+    <div id="plEmptyHint" class="pl-empty-hint">
+      <strong>Design your event</strong>
+      Set your venue size on the left, then drag in tents, tables, chairs, and dance floors. Live capacity counts on the right.
+    </div>
+  </div>
+
+  <!-- ── Sidebar (right) ───────────────────────────────────────────── -->
+  <aside class="planner-sidebar">
+    <input id="plEventName" class="pl-event-name" type="text" placeholder="Event name (optional)" aria-label="Event name"/>
+
+    <!-- Inspector — populated by planner.js renderInspector(). Shown only
+         when a single seated table is selected; hidden otherwise. The
+         chair-count stepper regenerates auto-placed chairs around the
+         table on change. -->
+    <div id="plInspector" class="pl-inspector" hidden></div>
+
+    <div class="pl-stats">
+      <div class="pl-stat">
+        <div class="pl-stat-num" id="plStatSeated">0</div>
+        <div class="pl-stat-label">Seated</div>
+      </div>
+      <div class="pl-stat">
+        <div class="pl-stat-num" id="plStatStanding">0</div>
+        <div class="pl-stat-label">Standing</div>
+      </div>
+    </div>
+    <div id="plDensity" class="pl-density-wrap" hidden></div>
+
+    <div class="pl-section-title">Items</div>
+    <div id="plTally" class="pl-tally"></div>
+
+    <!-- Estimated cost panel — line items, subtotals, grand total. Live-
+         updated by planner.js renderQuote(); pre-fills the form's hidden
+         fields on submit so the email Netlify sends is human-readable.
+         FPR's standard rental window covers a typical event weekend
+         (Fri–Sun pickup); per-day rates here ARE the rental rate, not
+         a per-night multiplier. The .pl-cost-block wrapper lets lite-mode
+         (third-party embeds) hide pricing in one CSS rule. -->
+    <div class="pl-cost-block">
+      <div class="pl-section-title" style="color:var(--pl-green)">Estimated Cost</div>
+      <div id="plQuoteLines" class="pl-quote-lines"></div>
+      <div id="plQuoteTotals" class="pl-quote-totals"></div>
+      <p class="pl-quote-disclaimer">
+        Forever Party Rentals starting prices for a standard event rental (Fri–Sun pickup). Final quote includes delivery, setup, and any package discounts.
+      </p>
+    </div>
+
+    <!-- Quote form — Netlify-detected at build (data-netlify=true). The
+         layout JSON, itemized list, and estimated total are stuffed into
+         hidden fields on submit so the auto-email reads cleanly. -->
+    <div class="pl-quote-block">
+      <div class="pl-section-title" style="color:var(--pl-green);margin-top:0">Get a Quote</div>
+      <p style="font-size:11px;color:var(--pl-muted);margin-bottom:10px;line-height:1.5">
+        We'll review your layout and email a tailored quote within 24 hours.
+      </p>
+      <!-- enctype must be multipart/form-data so the auto-generated layout
+           image (PNG of the customer's design) can attach to the submission.
+           The hidden layout_image file input is declared so Netlify Forms
+           detects it at build time; planner.js fills it just before submit. -->
+      <form id="plQuoteForm" name="planner-quote" method="POST" enctype="multipart/form-data" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you">
+        <input type="hidden" name="form-name" value="planner-quote"/>
+        <p style="position:absolute;left:-9999px" aria-hidden="true">
+          <label>Don't fill this if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"/></label>
+        </p>
+        <input type="text" name="first_name" placeholder="First name" required/>
+        <input type="text" name="last_name" placeholder="Last name" required/>
+        <input type="email" name="email" placeholder="Email" required/>
+        <input type="tel" name="phone" placeholder="Phone (optional)"/>
+        <textarea name="message" placeholder="Tell us about your event — date, location, anything else…"></textarea>
+        <input type="hidden" name="layout"          value=""/>
+        <input type="hidden" name="itemized_list"   value=""/>
+        <input type="hidden" name="estimated_total" value=""/>
+        <input type="file"   name="layout_image"   id="plQuoteLayoutFile" accept="image/png" hidden/>
+        <button type="submit" class="pl-btn pl-btn-gold" style="width:100%">Send Layout for Quote</button>
+        <div id="plQuoteStatus" class="pl-quote-status" role="status" aria-live="polite"></div>
+        <p style="font-size:10.5px;color:var(--pl-muted);margin-top:6px;line-height:1.4">A PNG of your layout is attached to the quote so we know exactly what you designed.</p>
+      </form>
+    </div>
+  </aside>
+
+</div>
+
+<script src="planner/planner.js?v=24"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+{
+  "_comment": "Forever Party Rentals — event package definitions. Components priced from products_sku.json; package totals = sum(components) × (1 - discountRate). Spandex is a package-internal line item at spandexPackagePrice (retail spandexRetailPrice). Paired with package_template.html, rendered by generate_package_pages.py.",
+  "_priceNote": "Single source of truth for package structure + marketing copy. Update here and regenerate. Component unit prices come from products_sku.json.",
+
+  "discountRate": 0.10,
+  "chairSpareRate": 0.10,
+  "sizes": [50, 100, 150],
+
+  "tentBySize": {
+    "50":  "marquee-tent-20x40",
+    "100": "marquee-tent-20x60",
+    "150": "marquee-tent-30x60"
+  },
+
+  "premiumCocktailCountBySize": {
+    "50":  3,
+    "100": 5,
+    "150": 7
+  },
+
+  "spandexPackagePrice": 10,
+  "spandexRetailPrice":  15,
+
+  "eventTypes": {
+    "wedding": {
+      "slug": "wedding",
+      "label": "Wedding",
+      "labelPossessive": "Wedding",
+      "heroImage": "/images/packages/wedding.webp",
+      "heroAlt": "Outdoor wedding reception setup — Forever Party Rentals",
+      "tableKey": "round-table-5ft",
+      "tableLabel": "5ft Round Tables",
+      "tableSeats": 8,
+      "extraTables": {},
+      "tagline": "Curated wedding rental packages for {size}-guest celebrations across the Lower Mainland — priced, bundled, and 10% less than booking items separately.",
+      "intro": "Whether you're hosting an intimate ceremony or a full-tent reception, our wedding packages bundle the essentials — tables, chairs, and optional tent — at 10% off the a-la-carte total. Every package is designed around {size} guests with the 10% chair-spare rule built in, the right tent size pre-selected, and Tier 3 adding the garden-wedding aesthetic with ambient bistro lighting and cocktail-hour tables with spandex covers.",
+      "faqs": [
+        {
+          "q": "Can I customize what's in a wedding package?",
+          "a": "Absolutely. The package is a starting point — add linens, dance floor, heaters, or upgrade chairs before checkout. Anything you add keeps the 10% package discount on the original bundle; add-ons are at standard rates."
+        },
+        {
+          "q": "What if my guest count changes after I book?",
+          "a": "We'll adjust to the next package tier if it fits — no repricing surprises. If you're between sizes (e.g., 75 guests), we recommend the 100-guest package so you have the right tent footprint and enough chair spares."
+        },
+        {
+          "q": "Does the wedding package include delivery and setup?",
+          "a": "Delivery and professional setup are available as an add-on across all tiers — included in every quote we send. Pickup from our warehouse is also available with the same 10% package discount applied."
+        }
+      ]
+    },
+
+    "corporate": {
+      "slug": "corporate",
+      "label": "Corporate",
+      "labelPossessive": "Corporate Event",
+      "heroImage": "/images/packages/corporate.webp",
+      "heroAlt": "Corporate gala dinner setup — Forever Party Rentals",
+      "tableKey": "banquet-table-6ft",
+      "tableLabel": "6ft Banquet Tables",
+      "tableSeats": 6,
+      "extraTables": {
+        "cocktail-table": { "per": 15, "tiers": [1, 2], "label": "Cocktail Highboys (networking)" }
+      },
+      "tagline": "Corporate event packages for {size}-guest galas, product launches, and company dinners — 10% off when you bundle tables, chairs, and tent together.",
+      "intro": "Built for corporate planners: 6ft banquet tables for seated dinners, cocktail highboys for networking, and the right tent for outdoor company events. Tiers 1 & 2 include one cocktail table per 15 guests for cocktail-hour networking; Tier 3 upgrades to our Garden Premium with spandex-covered cocktail tables and bistro string lighting for a more refined gala aesthetic.",
+      "faqs": [
+        {
+          "q": "Do you invoice businesses directly for corporate events?",
+          "a": "Yes. We accept company credit cards, cheques, and email invoicing with net-15 terms for established corporate clients. Email welcome@foreverpartyrentals.com for an invoice-ready quote."
+        },
+        {
+          "q": "Can we add AV, stage, or sound equipment?",
+          "a": "We don't carry AV ourselves, but we partner with trusted Lower Mainland AV vendors and can coordinate delivery windows so everything arrives and sets up together."
+        },
+        {
+          "q": "What about charity or non-profit events?",
+          "a": "We offer discounted rates for registered non-profits in addition to the 10% package discount. See our Corporate & Charity page for details."
+        }
+      ]
+    },
+
+    "backyard": {
+      "slug": "backyard",
+      "label": "Backyard",
+      "labelPossessive": "Backyard Party",
+      "heroImage": "/images/packages/backyard.webp",
+      "heroAlt": "Backyard party rental setup — Forever Party Rentals",
+      "tableKey": "banquet-table-6ft",
+      "tableLabel": "6ft Banquet Tables (family-style)",
+      "tableSeats": 8,
+      "extraTables": {},
+      "tagline": "Backyard party packages for {size}-guest birthdays, graduations, anniversaries, and family celebrations — all the essentials, 10% off.",
+      "intro": "Family-style banquet seating, reliable outdoor chairs, and a pop-up-free setup — our backyard packages are built for the Lower Mainland climate and designed to look great even on grass, gravel, or stamped-concrete patios. Tier 3 is the celebration upgrade: Resin Garden chairs, a tent, bistro string lights for the evening, and cocktail tables with spandex for your cake or welcome display.",
+      "faqs": [
+        {
+          "q": "Can you set up on grass or on my back patio?",
+          "a": "Yes — our crew carries both engineered stakes for grass and ballasted weight kits for pavement, driveways, and stamped-concrete patios. Let us know your surface type when booking and we'll confirm the anchor method in your quote."
+        },
+        {
+          "q": "What if I just need chairs and tables without the tent?",
+          "a": "That's Tier 1 (Essentials). You still get the 10% package discount versus booking each item separately, and you can always add a tent or other items later without losing the bundle price."
+        },
+        {
+          "q": "Is there a minimum order or delivery fee for my neighborhood?",
+          "a": "Package pricing covers the rental items; delivery is calculated based on your postal code. Pickup from our warehouse is always available with the 10% discount applied and no delivery charge."
+        }
+      ]
+    }
+  },
+
+  "tiers": [
+    {
+      "id": 1,
+      "slug": "essentials",
+      "name": "Essentials",
+      "marketingHeadline": "The essentials, bundled.",
+      "marketingSubline": "Tables and chairs — perfect for indoor venues or covered patios.",
+      "chairKey": "fanback-garden-chair",
+      "chairLabel": "Fanback Folding Chairs",
+      "tent": false,
+      "extras": []
+    },
+    {
+      "id": 2,
+      "slug": "covered",
+      "name": "Covered",
+      "marketingHeadline": "Weather-tight, guest-ready.",
+      "marketingSubline": "Everything in Essentials, plus a professionally-installed marquee tent sized for your guest count.",
+      "chairKey": "fanback-garden-chair",
+      "chairLabel": "Fanback Folding Chairs",
+      "tent": true,
+      "extras": []
+    },
+    {
+      "id": 3,
+      "slug": "garden-premium",
+      "name": "Garden Premium",
+      "marketingHeadline": "The full garden-wedding experience.",
+      "marketingSubline": "Resin Garden chairs, marquee tent, ambient bistro string lighting, and cocktail tables with spandex covers for your cake, gift, or welcome display.",
+      "chairKey": "resin-garden-chair",
+      "chairLabel": "White Resin Garden Chairs",
+      "tent": true,
+      "extras": ["bistro-lights", "cocktails-with-spandex"]
+    }
+  ]
+}
