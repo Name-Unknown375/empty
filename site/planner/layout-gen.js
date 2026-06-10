@@ -25,8 +25,19 @@
   const BANQUET_PITCH_X = 13.5;
   const BANQUET_PITCH_Y = 10;
   const COCKTAIL_PITCH = 8;
-  const ROW_PITCH = 3;         // ceremony row spacing
+  const ROW_PITCH = 2.5;       // ceremony row spacing (= ceremony modal default)
+  const CEREMONY_CHAIR_GAP = 0.25; // in-row chair gap (= ceremony modal default)
   const CEREMONY_AISLE = 4;
+  const ALTAR_FT = 6;          // ceremony head zone (arch/officiant)
+  const CHAIR_ENV = 1.83 + 0.25; // chair depth + pull-out gap, each side of a table
+  // Footprint envelopes (table + tucked chairs) — the last row/column of a
+  // grid only needs its envelope, not a full pitch. Charging full pitch for
+  // every row is what used to bump layouts into the next tent size up.
+  const ENV = {
+    round:    { x: 5 + CHAIR_ENV * 2,   y: 5 + CHAIR_ENV * 2 },     // 9.16
+    banquet:  { x: 6 + CHAIR_ENV * 2,   y: 2.5 + CHAIR_ENV * 2 },   // 10.16 × 6.66
+    cocktail: { x: 2.5,                 y: 2.5 },
+  };
 
   function init(catalog) {
     byKey = {};
@@ -82,8 +93,15 @@
     }
     // Smallest first; long thin ribbons (aspect > ~2.2) carry a soft
     // penalty so a squarer combo of similar area wins — nicer layouts,
-    // saner dance-floor placement.
-    const score = (c) => c.w * c.d * (1 + Math.max(0, c.d / c.w - 2.2) * 0.3);
+    // saner dance-floor placement. The 30×60 carries a hard bias penalty:
+    // FPR stocks five 20-ft-wide marquee sizes and a single 30×60, so the
+    // big tent should only be recommended when no 20x option fits within
+    // ~35% more area.
+    const score = (c) => {
+      let s = c.w * c.d * (1 + Math.max(0, c.d / c.w - 2.2) * 0.3);
+      if (c.keys.indexOf('marquee-tent-30x60') !== -1) s *= 1.35;
+      return s;
+    };
     return configs.sort((a, b) => score(a) - score(b));
   }
 
@@ -101,15 +119,15 @@
     const style = opts.seating || 'round';
     if (style === 'cocktail') {
       const n = Math.ceil(guests / 6);
-      return { style, guests, units: n, unitKey: 'cocktail-table', pitchX: COCKTAIL_PITCH, pitchY: COCKTAIL_PITCH, seatsPerUnit: 0 };
+      return { style, guests, units: n, unitKey: 'cocktail-table', pitchX: COCKTAIL_PITCH, pitchY: COCKTAIL_PITCH, envX: ENV.cocktail.x, envY: ENV.cocktail.y, seatsPerUnit: 0 };
     }
     if (style === 'ceremony') {
       return { style, guests, units: guests, unitKey: opts.chairKey || 'resin-garden-chair' };
     }
     if (style === 'banquet') {
-      return { style, guests, units: Math.ceil(guests / 8), unitKey: 'banquet-table-6ft', pitchX: BANQUET_PITCH_X, pitchY: BANQUET_PITCH_Y, seatsPerUnit: 8 };
+      return { style, guests, units: Math.ceil(guests / 8), unitKey: 'banquet-table-6ft', pitchX: BANQUET_PITCH_X, pitchY: BANQUET_PITCH_Y, envX: ENV.banquet.x, envY: ENV.banquet.y, seatsPerUnit: 8 };
     }
-    return { style: 'round', guests, units: Math.ceil(guests / 8), unitKey: 'round-table-5ft', pitchX: ROUND_PITCH, pitchY: ROUND_PITCH, seatsPerUnit: 8 };
+    return { style: 'round', guests, units: Math.ceil(guests / 8), unitKey: 'round-table-5ft', pitchX: ROUND_PITCH, pitchY: ROUND_PITCH, envX: ENV.round.x, envY: ENV.round.y, seatsPerUnit: 8 };
   }
 
   // Required floor zones (in feet, along the long axis) for a given plan
@@ -124,19 +142,23 @@
 
     if (plan.style === 'ceremony') {
       const chair = byKey[plan.unitKey];
-      const perChair = (chair ? chair.widthFt : 1.5) + 0.35;
+      const perChair = (chair ? chair.widthFt : 1.5) + CEREMONY_CHAIR_GAP;
+      const chairDepth = chair ? chair.depthFt : 1.83;
       const sideW = (usableW - CEREMONY_AISLE) / 2;
       const perSide = Math.floor(sideW / perChair);
       if (perSide < 1) return null;
       const perRow = perSide * 2;
       const rows = Math.ceil(plan.guests / perRow);
-      zones.rows = { rows, perSide, perChair, depth: rows * ROW_PITCH };
-      depthNeeded += rows * ROW_PITCH + 8; // 8 ft altar/arch zone
+      const depth = (rows - 1) * ROW_PITCH + chairDepth;
+      zones.rows = { rows, perSide, perChair, chairDepth, depth };
+      depthNeeded += depth + ALTAR_FT;
     } else {
-      const cols = Math.max(1, Math.floor(usableW / plan.pitchX));
+      // Last column/row only needs its envelope, not a full pitch.
+      const cols = Math.max(1, Math.floor((usableW - plan.envX) / plan.pitchX) + 1);
       const rows = Math.ceil(plan.units / cols);
-      zones.grid = { cols, rows, depth: rows * plan.pitchY };
-      depthNeeded += rows * plan.pitchY;
+      const depth = (rows - 1) * plan.pitchY + plan.envY;
+      zones.grid = { cols, rows, depth };
+      depthNeeded += depth;
     }
 
     if (opts.danceFloor && plan.style !== 'ceremony') {
@@ -248,7 +270,7 @@
       const chairW = chair ? chair.widthFt : 1.5;
       let placed = 0;
       for (let r = 0; r < z.rows && placed < plan.guests; r++) {
-        const cy = cursorY + r * ROW_PITCH + ROW_PITCH / 2;
+        const cy = cursorY + r * ROW_PITCH + z.chairDepth / 2;
         for (const side of [-1, 1]) {
           for (let s = 0; s < z.perSide && placed < plan.guests; s++) {
             const offset = CEREMONY_AISLE / 2 + s * z.perChair + chairW / 2;
@@ -257,18 +279,21 @@
           }
         }
       }
+      cursorY += z.depth + ALTAR_FT;
     } else {
       const z = fit.zones.grid;
-      const gridW = z.cols * plan.pitchX;
-      const left = centerX - gridW / 2;
+      // Rows/columns are envelope-aligned: a row's centre sits envY/2 into
+      // its pitch cell, so the grid ends exactly at the last chair edge.
+      const rowWidth = (n) => (n - 1) * plan.pitchX + plan.envX;
+      const left = centerX - rowWidth(z.cols) / 2;
       let placed = 0;
       for (let r = 0; r < z.rows && placed < plan.units; r++) {
         // Center a final partial row so layouts look intentional.
         const inRow = Math.min(z.cols, plan.units - placed);
-        const rowLeft = centerX - (inRow * plan.pitchX) / 2;
+        const rowLeft = inRow === z.cols ? left : centerX - rowWidth(inRow) / 2;
         for (let c = 0; c < inRow; c++) {
-          const cx = (inRow === z.cols ? left + c * plan.pitchX : rowLeft + c * plan.pitchX) + plan.pitchX / 2;
-          const cy = cursorY + r * plan.pitchY + plan.pitchY / 2;
+          const cx = rowLeft + plan.envX / 2 + c * plan.pitchX;
+          const cy = cursorY + r * plan.pitchY + plan.envY / 2;
           const item = { key: plan.unitKey, cx, cy };
           if (plan.seatsPerUnit > 0) {
             item.withChairs = true;
@@ -280,7 +305,7 @@
           placed++;
         }
       }
-      cursorY += z.rows * plan.pitchY;
+      cursorY += z.depth;
     }
 
     if (fit.zones.dance) {

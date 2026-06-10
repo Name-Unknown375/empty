@@ -109,6 +109,26 @@ check('ceremony-100', { guests: 100, seating: 'ceremony' });
 check('venue-fit-40x60', { guests: 60, seating: 'round', venue: { widthFt: 40, depthFt: 60 }, danceFloor: true });
 check('buffet-60', { guests: 60, seating: 'banquet', buffet: true });
 
+// Inventory-preference regression: FPR stocks five 20-ft-wide marquee
+// sizes and one 30×60 — the big tent must only be recommended when no 20x
+// combination fits (empirically: 150+ guests with a dance floor).
+for (const guests of [20, 30, 50, 80, 100, 120]) {
+  for (const seating of ['round', 'banquet', 'cocktail', 'ceremony']) {
+    const rec = gen.recommendTent({ guests, seating, danceFloor: seating !== 'ceremony' });
+    if (rec.tentKeys.includes('marquee-tent-30x60')) {
+      fail(`prefer-20x ${guests}-${seating}`, `recommended 30x60 (${rec.tentKeys.join('+')}) at ${guests} guests`);
+    }
+  }
+}
+{
+  const cer = gen.recommendTent({ guests: 100, seating: 'ceremony' });
+  if (cer.tentKeys.join() !== 'marquee-tent-20x60') {
+    fail('ceremony-100-single-tent', `expected one 20x60 (matches the hand-built template), got ${cer.tentKeys.join('+')}`);
+  } else {
+    console.log('  ✓ prefer-20x: no 30x60 below 150 guests; ceremony-100 = single 20×60');
+  }
+}
+
 if (failures) {
   console.error(`\n${failures} failure(s)`);
   process.exit(1);
