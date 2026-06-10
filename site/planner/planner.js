@@ -4081,6 +4081,7 @@
     clearTimeout(autoSaveTimer);
     autoSaveTimer = setTimeout(saveToStorage, 500);
   }
+  let warnedAutosave = false;
   function saveToStorage() {
     try {
       const payload = JSON.stringify({
@@ -4089,7 +4090,14 @@
         timestamp: Date.now(),
       });
       localStorage.setItem(STORAGE_KEY, payload);
-    } catch (e) { /* quota or disabled — silent */ }
+    } catch (e) {
+      // Quota full or storage disabled — warn ONCE so the user knows to
+      // Save File / Share instead of trusting silent auto-save.
+      if (!warnedAutosave) {
+        warnedAutosave = true;
+        showToast("Auto-save isn't working in this browser (storage full or blocked) — use Save File or Share to keep your layout.", 6000);
+      }
+    }
   }
   function loadFromStorage() {
     try {

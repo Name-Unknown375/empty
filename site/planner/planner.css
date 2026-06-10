@@ -1366,6 +1366,13 @@ body.pl-lite .pl-quote-block { display: none !important; }
     cursor: pointer;
   }
 }
+/* Respect OS-level reduced-motion: sheets/scrim snap instead of sliding */
+@media (prefers-reduced-motion: reduce) {
+  .planner-palette,
+  .planner-sidebar,
+  .pl-scrim { transition: none; }
+}
+
 /* Read-only viewers have no palette/sidebar — hide their mobile chrome too */
 .pl-readonly .pl-totals-pill,
 .pl-readonly .pl-sheet-handle,
