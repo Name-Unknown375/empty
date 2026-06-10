@@ -57,9 +57,24 @@ function check(name, opts) {
     const s = size(i.key);
     const rot = (i.rotation || 0) % 180 !== 0;
     let w = rot ? s.d : s.w, d = rot ? s.w : s.d;
-    if (i.withChairs) { w += CHAIR_ENV * 2; d += CHAIR_ENV * 2; }
-    return { key: i.key, x1: i.cx - w / 2, y1: i.cy - d / 2, x2: i.cx + w / 2, y2: i.cy + d / 2, head: !!i.withChairs && (i.chairCount || 0) <= 4 };
+    if (i.withChairs) {
+      if (i.key.startsWith('banquet-table')) {
+        // ≤6 chairs sit on the long sides only — they inflate the short
+        // axis, never the table ends (which is what lets runs join).
+        if (rot) w += CHAIR_ENV * 2; else d += CHAIR_ENV * 2;
+        if ((i.chairCount || 0) > 6) { if (rot) d += CHAIR_ENV * 2; else w += CHAIR_ENV * 2; }
+      } else {
+        w += CHAIR_ENV * 2; d += CHAIR_ENV * 2;
+      }
+    }
+    return { key: i.key, cx: i.cx, cy: i.cy, x1: i.cx - w / 2, y1: i.cy - d / 2, x2: i.cx + w / 2, y2: i.cy + d / 2, head: !!i.withChairs && (i.chairCount || 0) <= 4 };
   });
+  // Banquet tables joined end-to-end in a run (same column, centres one
+  // table-length apart) are a deliberate composite — same rule as the
+  // planner's validateLayout.
+  const sameRun = (a, b) =>
+    a.key === 'banquet-table-6ft' && b.key === 'banquet-table-6ft' &&
+    Math.abs(a.cx - b.cx) < 0.1 && Math.abs(a.cy - b.cy) <= 6.05;
   for (const e of env) {
     if (e.x1 < -0.01 || e.y1 < -0.01 || e.x2 > venue.widthFt + 0.01 || e.y2 > venue.depthFt + 0.01) {
       fail(name, `${e.key} envelope outside venue (${e.x1.toFixed(1)},${e.y1.toFixed(1)})–(${e.x2.toFixed(1)},${e.y2.toFixed(1)}) in ${venue.widthFt}×${venue.depthFt}`);
@@ -73,6 +88,7 @@ function check(name, opts) {
       // chairs-around envelopes may touch; require real penetration > 0.3
       // head-table halves are a deliberate composite — skip their pair
       if (a.head && b.head) continue;
+      if (sameRun(a, b)) continue;
       const ox = Math.min(a.x2, b.x2) - Math.max(a.x1, b.x1);
       const oy = Math.min(a.y2, b.y2) - Math.max(a.y1, b.y1);
       if (ox > 0.3 && oy > 0.3) {

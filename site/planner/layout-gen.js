@@ -22,13 +22,20 @@
 
   const INSET_FT = 2;          // keep furniture this far inside tent walls
   const ROUND_PITCH = 12.5;
-  const BANQUET_PITCH_X = 13.5;
-  const BANQUET_PITCH_Y = 10;
   const COCKTAIL_PITCH = 8;
   const ROW_PITCH = 2.5;       // ceremony row spacing (= ceremony modal default)
   const CEREMONY_CHAIR_GAP = 0.25; // in-row chair gap (= ceremony modal default)
   const CEREMONY_AISLE = 4;
-  const ALTAR_FT = 6;          // ceremony head zone (arch/officiant)
+  const CEREMONY_INSET = 1.5;  // ceremony rows sit closer to the walls than dining
+  const ALTAR_FT = 5;          // ceremony head zone (arch/officiant), at the front
+  // Banquet runs — the convention from the hand-built templates
+  // (wedding-50, corporate-seated-60-rect): tables rotate 90°, join
+  // end-to-end in runs of two (12 ft), 6 chairs per table on the long
+  // sides, columns on a 10 ft pitch, 4 ft walk gap between run-rows.
+  const BANQUET_COL_PITCH = 10;
+  const BANQUET_RUN_GAP = 4;
+  const BANQUET_RUN_LEN = 12;  // 2 × 6ft tables end-to-end
+  const BANQUET_EDGE_INSET = 1.65;
   const CHAIR_ENV = 1.83 + 0.25; // chair depth + pull-out gap, each side of a table
   // Footprint envelopes (table + tucked chairs) — the last row/column of a
   // grid only needs its envelope, not a full pitch. Charging full pitch for
@@ -125,7 +132,8 @@
       return { style, guests, units: guests, unitKey: opts.chairKey || 'resin-garden-chair' };
     }
     if (style === 'banquet') {
-      return { style, guests, units: Math.ceil(guests / 8), unitKey: 'banquet-table-6ft', pitchX: BANQUET_PITCH_X, pitchY: BANQUET_PITCH_Y, envX: ENV.banquet.x, envY: ENV.banquet.y, seatsPerUnit: 8 };
+      // 6 seats per table (3 per long side) — matches the templates' runs.
+      return { style, guests, units: Math.ceil(guests / 6), unitKey: 'banquet-table-6ft', seatsPerUnit: 6 };
     }
     return { style: 'round', guests, units: Math.ceil(guests / 8), unitKey: 'round-table-5ft', pitchX: ROUND_PITCH, pitchY: ROUND_PITCH, envX: ENV.round.x, envY: ENV.round.y, seatsPerUnit: 8 };
   }
@@ -137,6 +145,10 @@
     if (usableW <= 0) return null;
     let depthNeeded = INSET_FT * 2;
     const zones = {};
+    // Buffet banquets run along the right wall — reserve their lane so
+    // the seating block can't collide with them. (Ceremony rows are
+    // centred on the aisle and don't share width with a buffet.)
+    const buffetW = (opts.buffet && plan.style !== 'ceremony') ? 6 : 0;
 
     if (opts.headTable) { zones.head = 8; depthNeeded += 8; }
 
@@ -151,10 +163,20 @@
       const rows = Math.ceil(plan.guests / perRow);
       const depth = (rows - 1) * ROW_PITCH + chairDepth;
       zones.rows = { rows, perSide, perChair, chairDepth, depth };
-      depthNeeded += depth + ALTAR_FT;
+      // Ceremony rows sit closer to the walls than dining tables do.
+      depthNeeded += depth + ALTAR_FT - (INSET_FT - CEREMONY_INSET) * 2;
+    } else if (plan.style === 'banquet') {
+      const usable = w - BANQUET_EDGE_INSET * 2 - buffetW;
+      const envW = ENV.banquet.y; // rotated: table width 2.5 + chairs both sides
+      const cols = Math.max(1, Math.floor((usable - envW) / BANQUET_COL_PITCH) + 1);
+      const runs = Math.ceil(plan.units / 2);
+      const rows = Math.ceil(runs / cols);
+      const depth = rows * BANQUET_RUN_LEN + (rows - 1) * BANQUET_RUN_GAP;
+      zones.runs = { cols, rows, runs, envW, depth };
+      depthNeeded += depth;
     } else {
       // Last column/row only needs its envelope, not a full pitch.
-      const cols = Math.max(1, Math.floor((usableW - plan.envX) / plan.pitchX) + 1);
+      const cols = Math.max(1, Math.floor((usableW - buffetW - plan.envX) / plan.pitchX) + 1);
       const rows = Math.ceil(plan.units / cols);
       const depth = (rows - 1) * plan.pitchY + plan.envY;
       zones.grid = { cols, rows, depth };
@@ -169,10 +191,8 @@
         depthNeeded += df.depthFt + 3;
       }
     }
-    if (opts.buffet) {
-      // 8ft banquets along a long wall eat ~5 ft of width but no depth;
-      // require the width to spare it.
-      if (usableW < (plan.pitchX || 10) + 5) return null;
+    if (buffetW > 0) {
+      if (usableW - buffetW < 8) return null; // no room left to seat anyone
       zones.buffet = true;
     }
     if (dMax != null && depthNeeded > dMax) return null;
@@ -232,7 +252,10 @@
         if (fit) { compromise = vComp; break; }
       }
       if (!fit) return null;
-      originX = INSET_FT; originY = INSET_FT; usableW = W - INSET_FT * 2;
+      originX = INSET_FT;
+      // Centre the furniture block vertically instead of top-loading it.
+      originY = INSET_FT + Math.max(0, (D - fit.depthNeeded) / 2);
+      usableW = W - INSET_FT * 2;
     } else {
       for (const c of tentConfigs()) {
         const f = fitInWidth(plan, opts, c.w, c.d);
@@ -241,7 +264,9 @@
       if (!cfg) return null;
       // Venue = tent footprint + 4 ft of working room on every side.
       W = cfg.w + 8; D = cfg.d + 8;
-      originX = 4 + INSET_FT; originY = 4 + INSET_FT;
+      originX = 4 + INSET_FT;
+      // Centre the furniture block in the tent instead of top-loading it.
+      originY = 4 + INSET_FT + Math.max(0, (cfg.d - fit.depthNeeded) / 2);
       usableW = cfg.w - INSET_FT * 2;
       for (const p of cfg.placements) {
         const tentItem = { key: p.key, cx: 4 + p.cx, cy: 4 + p.cy };
@@ -252,14 +277,18 @@
 
     let cursorY = originY;
     const centerX = originX + usableW / 2;
+    // The buffet lane sits on the right wall — shift everything else left
+    // so seating and buffet can't collide. Ceremony keeps the true centre
+    // (rows align on the aisle; no buffet lane is reserved for it).
+    const furnitureCX = fit.zones.buffet ? centerX - 3 : centerX;
 
     // Head table across the top (two 6ft banquets end-to-end, chairs on
     // the far side only is beyond recipe vocabulary — give it chairs and
     // let the user trim; matches existing template style).
     if (fit.zones.head) {
       items.push(
-        { key: 'banquet-table-6ft', cx: centerX - 3, cy: cursorY + 3, withChairs: true, chairCount: 4, chairKey },
-        { key: 'banquet-table-6ft', cx: centerX + 3, cy: cursorY + 3, withChairs: true, chairCount: 4, chairKey }
+        { key: 'banquet-table-6ft', cx: furnitureCX - 3, cy: cursorY + 3, withChairs: true, chairCount: 4, chairKey },
+        { key: 'banquet-table-6ft', cx: furnitureCX + 3, cy: cursorY + 3, withChairs: true, chairCount: 4, chairKey }
       );
       cursorY += fit.zones.head;
     }
@@ -268,6 +297,8 @@
       const z = fit.zones.rows;
       const chair = byKey[plan.unitKey];
       const chairW = chair ? chair.widthFt : 1.5;
+      // Altar/arch zone at the FRONT (top of the plan); rows face it.
+      cursorY += ALTAR_FT;
       let placed = 0;
       for (let r = 0; r < z.rows && placed < plan.guests; r++) {
         const cy = cursorY + r * ROW_PITCH + z.chairDepth / 2;
@@ -279,18 +310,42 @@
           }
         }
       }
-      cursorY += z.depth + ALTAR_FT;
+      cursorY += z.depth;
+    } else if (plan.style === 'banquet') {
+      const z = fit.zones.runs;
+      const gridW = (z.cols - 1) * BANQUET_COL_PITCH + z.envW;
+      const firstCol = furnitureCX - gridW / 2 + z.envW / 2;
+      let placed = 0;
+      for (let r = 0; r < z.rows && placed < plan.units; r++) {
+        const rowY = cursorY + r * (BANQUET_RUN_LEN + BANQUET_RUN_GAP);
+        for (let c = 0; c < z.cols && placed < plan.units; c++) {
+          const cx = firstCol + c * BANQUET_COL_PITCH;
+          for (let t = 0; t < 2 && placed < plan.units; t++) {
+            items.push({
+              key: plan.unitKey,
+              cx,
+              cy: rowY + 3 + t * 6, // two 6ft tables end-to-end per run
+              rotation: 90,
+              withChairs: true,
+              chairCount: plan.seatsPerUnit,
+              chairKey,
+            });
+            placed++;
+          }
+        }
+      }
+      cursorY += z.depth;
     } else {
       const z = fit.zones.grid;
       // Rows/columns are envelope-aligned: a row's centre sits envY/2 into
       // its pitch cell, so the grid ends exactly at the last chair edge.
       const rowWidth = (n) => (n - 1) * plan.pitchX + plan.envX;
-      const left = centerX - rowWidth(z.cols) / 2;
+      const left = furnitureCX - rowWidth(z.cols) / 2;
       let placed = 0;
       for (let r = 0; r < z.rows && placed < plan.units; r++) {
         // Center a final partial row so layouts look intentional.
         const inRow = Math.min(z.cols, plan.units - placed);
-        const rowLeft = inRow === z.cols ? left : centerX - rowWidth(inRow) / 2;
+        const rowLeft = inRow === z.cols ? left : furnitureCX - rowWidth(inRow) / 2;
         for (let c = 0; c < inRow; c++) {
           const cx = rowLeft + plan.envX / 2 + c * plan.pitchX;
           const cy = cursorY + r * plan.pitchY + plan.envY / 2;
@@ -310,7 +365,7 @@
 
     if (fit.zones.dance) {
       const z = fit.zones.dance;
-      items.push({ key: z.key, cx: centerX, cy: cursorY + 3 + z.d / 2 });
+      items.push({ key: z.key, cx: furnitureCX, cy: cursorY + 3 + z.d / 2 });
       cursorY += z.d + 3;
     }
 
