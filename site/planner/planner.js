@@ -1504,9 +1504,11 @@
     // (head-table pairs, end-to-end banquet runs with no end chairs) from
     // false-flagging. Touching/overlapping chair sets (joined units) are
     // skipped via the > 0.05 floor.
-    // 2.75 sits just under the tightest stock template (200-guest rounds
-    // at ~2.8 ft) — anything below this is tighter than we'd ever ship.
-    const AISLE_MIN_FT = 2.75;
+    // Industry catering pitch for 5ft rounds is 10–10.75 ft centres —
+    // chair-back gaps of 1.5–1.7 ft are standard install density (and
+    // what the wizard/templates generate). Flag only below 1.5 ft, where
+    // guests genuinely can't pull out and pass.
+    const AISLE_MIN_FT = 1.5;
     const seated = state.items.filter(_isSeatedTable);
     const chairQuads = new Map(); // chairId -> corners
     const chairsOf = (t) => getChildren(t.id).filter(c => byKey[c.key] && c.key.includes('chair'));
@@ -1564,7 +1566,7 @@
       const worst = tightPairs.reduce((m, p) => Math.min(m, p[2]), Infinity);
       messages.push({
         ids,
-        text: `${tightPairs.length === 1 ? 'One table pair has' : tightPairs.length + ' table pairs have'} under ~3 ft between chairs (tightest ${Math.max(0, worst).toFixed(1)} ft) — guests need room to pull out and pass`,
+        text: `${tightPairs.length === 1 ? 'One table pair is' : tightPairs.length + ' table pairs are'} extremely tight (under 1.5 ft between chairs, tightest ${Math.max(0, worst).toFixed(1)} ft) — guests can't pull out and pass`,
       });
     }
 

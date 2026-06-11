@@ -102,6 +102,13 @@ function check(name, opts) {
   if (!opts.venue) {
     const tentItems = items.filter(i => byKey[i.key].shape === 'tent');
     if (tentItems.length === 0) return fail(name, 'no tent chosen');
+    // STOCK: never recommend more tents than FPR owns (RentKit fleet).
+    const STOCK = { 'marquee-tent-20x20': 4, 'marquee-tent-20x30': 4, 'marquee-tent-20x40': 2, 'marquee-tent-20x60': 2, 'marquee-tent-30x60': 1, 'popup-tent-10x10': 25 };
+    const used = {};
+    for (const t of tentItems) used[t.key] = (used[t.key] || 0) + 1;
+    for (const [k, n] of Object.entries(used)) {
+      if (n > (STOCK[k] || 0)) fail(name, `uses ${n}× ${k} but stock is ${STOCK[k] || 0}`);
+    }
     const area = tentItems.reduce((n, i) => { const s = size(i.key); return n + s.w * s.d; }, 0);
     const rec = gen.recommendTent(opts);
     if (!rec.fits) fail(name, 'recommendTent says it does not fit');
@@ -126,9 +133,9 @@ check('venue-fit-40x60', { guests: 60, seating: 'round', venue: { widthFt: 40, d
 check('buffet-60', { guests: 60, seating: 'banquet', buffet: true });
 
 // Inventory-preference regression: FPR stocks five 20-ft-wide marquee
-// sizes and one 30×60 — the big tent must only be recommended when no 20x
-// combination fits (empirically: 150+ guests with a dance floor).
-for (const guests of [20, 30, 50, 80, 100, 120]) {
+// sizes and ONE 30×60 — with real stock caps (max join: 2× 20×60), the
+// 30×60 may only enter above 100 guests, where no 20x option can fit.
+for (const guests of [20, 30, 50, 80, 100]) {
   for (const seating of ['round', 'banquet', 'cocktail', 'ceremony']) {
     const rec = gen.recommendTent({ guests, seating, danceFloor: seating !== 'ceremony' });
     if (rec.tentKeys.includes('marquee-tent-30x60')) {
