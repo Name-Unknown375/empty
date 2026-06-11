@@ -56,7 +56,8 @@ export default async function handler(req) {
     return json(400, { error: 'invalid JSON' });
   }
 
-  if (payload?.event_type !== 'publish_articles' || !Array.isArray(payload?.data?.articles)) {
+  const KNOWN_EVENTS = ['publish_articles', 'update_article', 'update_articles'];
+  if (!KNOWN_EVENTS.includes(payload?.event_type) || !Array.isArray(payload?.data?.articles)) {
     return json(400, { error: 'unexpected payload shape' });
   }
 
@@ -68,7 +69,7 @@ export default async function handler(req) {
     if (!slug) continue;
     await store.set(
       `articles/${slug}`,
-      JSON.stringify({ ...article, _receivedAt: new Date().toISOString(), _status: 'draft' }),
+      JSON.stringify({ ...article, _receivedAt: new Date().toISOString(), _status: 'draft', _event: payload.event_type }),
     );
     const entry = {
       slug,
