@@ -1,0 +1,45 @@
+query,impressions_28d,position,clicks,owner_page,bucket,action
+party rentals surrey,160,3.95,4,/surrey-party-rentals,1-city-head,defend / links+answer block; Vancouver = priority fight
+party rentals langley,83,5.22,3,/langley-party-rentals,1-city-head,defend / links+answer block; Vancouver = priority fight
+party rentals vancouver,190,20.33,0,/vancouver-party-rentals,1-city-head,defend / links+answer block; Vancouver = priority fight
+party rentals burnaby,55,3.58,6,/burnaby-party-rentals,1-city-head,defend / links+answer block; Vancouver = priority fight
+party rentals richmond,20,3.55,1,/richmond-party-rentals,1-city-head,defend / links+answer block; Vancouver = priority fight
+party rentals coquitlam,61,11.34,1,/coquitlam-party-rentals,1-city-head,defend / links+answer block; Vancouver = priority fight
+party rentals abbotsford,116,9.22,4,/abbotsford-party-rentals,1-city-head,defend / links+answer block; Vancouver = priority fight
+party rentals maple ridge,43,2.47,4,/maple-ridge-party-rentals,1-city-head,defend / links+answer block; Vancouver = priority fight
+party rentals north vancouver,76,11.26,0,/north-vancouver-party-rentals,1-city-head,defend / links+answer block; Vancouver = priority fight
+party rentals new westminster,0,,0,/new-westminster-party-rentals,1-city-head,defend / links+answer block; Vancouver = priority fight
+party rentals white rock,0,,0,/white-rock-party-rentals,1-city-head,defend / links+answer block; Vancouver = priority fight
+party rentals delta,0,,0,/delta-party-rentals,1-city-head,defend / links+answer block; Vancouver = priority fight
+tent rentals surrey,155,13.33,2,/tent-rentals-surrey,1-city-head,defend / links+answer block; Vancouver = priority fight
+tent rental surrey,126,5.98,4,/tent-rentals-surrey,1-city-head,defend / links+answer block; Vancouver = priority fight
+tent rentals langley,28,2.39,4,/tent-rental-langley,1-city-head,defend / links+answer block; Vancouver = priority fight
+tent rentals vancouver,69,41.46,0,/tent-rental-vancouver,1-city-head,defend / links+answer block; Vancouver = priority fight
+chair rentals surrey,51,1.96,6,/chair-rentals-surrey,1-city-head,defend / links+answer block; Vancouver = priority fight
+chair rentals vancouver,96,38.91,0,/chair-rentals-vancouver,1-city-head,defend / links+answer block; Vancouver = priority fight
+party rentals near me,303,9.22,5,/ (home),2-striking,strengthen home answer block + GBP; AI-citation play
+table and chair rentals,128,14.01,4,/tables,2-striking,title: Table & Chair Rentals — add combined section
+marquee tent,86,13.09,0,/marquee-tent-rental-lowermainland-surrey-langley-vancouver,2-striking,internal links from blog
+event tent rental,83,16.28,2,/event-rentals,2-striking,interlink tents<->event page
+wedding party rentals,182,15.36,0,/wedding-rentals,2-striking,optimize title/H1 to exact phrase + links
+wedding chair rentals,61,18.72,2,/product-white-chiavari-chair,2-striking,add wedding-chair section/anchor
+starlink rental,71,10.86,8,/starlink-rentals,2-striking,supporting blog post + interlinks
+starlink rental vancouver,50,5.46,9,/starlink-rentals,2-striking,same
+dance floor rental,81,25.0,2,/dance-floor,2-striking,links from city pages + blog
+party rentals,532,18.08,15,/ (home),3-category,category-page depth + authority (links) lifts localized generics
+tent rental,331,23.16,12,/tents,3-category,category-page depth + authority (links) lifts localized generics
+tent rentals,311,27.51,3,/tents,3-category,category-page depth + authority (links) lifts localized generics
+chair rentals,229,26.56,5,/chairs,3-category,category-page depth + authority (links) lifts localized generics
+chair rental,115,15.35,2,/chairs,3-category,category-page depth + authority (links) lifts localized generics
+table rentals,189,34.86,1,/tables,3-category,category-page depth + authority (links) lifts localized generics
+party tent rentals,121,19.93,3,/tents,3-category,category-page depth + authority (links) lifts localized generics
+tent rental near me,102,23.05,2,/tents,3-category,category-page depth + authority (links) lifts localized generics
+chair rentals near me,70,24.17,1,/chairs,3-category,category-page depth + authority (links) lifts localized generics
+rental chairs,81,21.1,0,/chairs,3-category,category-page depth + authority (links) lifts localized generics
+birthday party rentals,196,18.5,0,NEW /birthday-party-rentals,4-gap,"CREATE page: packages, bouncy alternative angle, carnival games tie-in"
+corporate party event rental,128,27.59,0,/corporate,4-gap,"optimize title to include ""event rental"""
+event rentals surrey,114,1.41,0,/event-rentals,4-gap,"pos 1.4, 0 clicks: inspect SERP (AIO/title); fix snippet"
+event rentals,263,50.84,0,/event-rentals,4-gap,too generic to win nationally; ignore
+how many people can sit at a 6 foot table,332,7.71,0,/how-many-people-fit-at-a-6ft-rectangular-table,5-info,CTR rewrite covers whole cluster (~2500 impr)
+5ft round table seats how many,154,6.65,1,/how-many-people-fit-at-round-tables,5-info,same
+marquee capacity guide,98,66.93,0,/blog/tent-size-chart-20x20-20x40-20x60-40x80,5-info,"retitle to include ""marquee capacity"""
