@@ -24,8 +24,9 @@
     {{AUTHOR_INITIAL}}    — "D" or "F" — single letter for avatar monogram
     {{RELATED_SLUGS}}     — comma-separated: "slug-a,slug-b,slug-c" (3 posts)
 
-  Body sections: duplicate the <section class="pc-section"> block for each
-  numbered chapter. The sidebar TOC auto-builds from them.
+  Body sections: duplicate the <section id="..."> block for each numbered
+  chapter (h2 starts with <span class="h2-num">0N</span>) and add a matching
+  <li> link to the static .post-toc list — the TOC is NOT built by JS.
   ════════════════════════════════════════════════════════════════════
 -->
 <head>
@@ -278,12 +279,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Hero -->
 <section class="post-hero {{TOPIC_COVER_CLASS}}">
   <div class="container">
-    <div class="breadcrumb" style="margin-bottom:20px">
-      <a href="../">Home</a> <span>/</span>
-      <a href="./">Blog</a> <span>/</span>
-      <span>{{TOPIC_LABEL}}</span>
+    <div class="breadcrumb">
+      <a href="../">Home</a><span>/</span>
+      <a href="./">Blog</a><span>/</span>
+      <span style="color:rgba(255,255,255,.85)">{{TOPIC_LABEL}}</span>
     </div>
-    <span class="ph-topic">{{TOPIC_LABEL}}</span>
+    <span class="post-topic">{{TOPIC_LABEL}}</span>
     <h1>{{TITLE_HTML}}</h1>
     <p class="post-deck">{{EXCERPT}}</p>
     <div class="post-meta">
@@ -297,31 +298,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- Body with TOC sidebar -->
-<section class="post-body">
-  <div class="container post-grid">
+<section>
+  <div class="container">
+    <div class="post-layout">
 
-    <!-- TOC (auto-built from .pc-section[data-toc]) -->
-    <aside class="post-toc">
-      <div class="ptoc-label">In This Guide</div>
-      <ol id="postToc"><!-- rendered by JS --></ol>
-    </aside>
+      <!-- Static TOC — one <li> per section below; keep ids in sync -->
+      <aside class="post-toc" aria-label="Table of contents">
+        <div class="toc-label">In This Guide</div>
+        <ol>
+          <li><a href="#section-one">Section One Title</a></li>
+          <li><a href="#section-two">Section Two Title</a></li>
+        </ol>
+      </aside>
 
-    <article class="post-content">
+      <article class="post-body">
 
-      <section class="pc-section" data-toc="Section One Title">
-        <h2><span class="sec-num">01</span> Section One Title</h2>
+      <section id="section-one">
+        <h2><span class="h2-num">01</span>Section One Title</h2>
         <p>Body copy. Use <strong>bold</strong> for emphasis, <em>italic</em> for subtle stress, and <a href="../rentals">inline links</a> to product pages or internal blog posts when relevant.</p>
         <p>Aim for 1,500–2,000 words total, broken across 8–12 numbered sections. Each section should earn its place — a single insight, a concrete number, or a decision framework.</p>
       </section>
 
-      <section class="pc-section" data-toc="Section Two Title">
-        <h2><span class="sec-num">02</span> Section Two Title</h2>
+      <section id="section-two">
+        <h2><span class="h2-num">02</span>Section Two Title</h2>
         <p>Use these block components where they earn it:</p>
 
         <!-- Key box — use for must-remember facts -->
-        <aside class="keybox">
-          <strong>Key takeaway:</strong> A short, concrete insight the reader should leave with.
-        </aside>
+        <div class="post-keybox">
+          <div class="kb-label">Key Takeaways</div>
+          <ul>
+            <li><strong>Key takeaway:</strong> A short, concrete insight the reader should leave with.</li>
+          </ul>
+        </div>
 
         <!-- Pull quote — attribute to Devon or team only -->
         <blockquote>
@@ -330,31 +338,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </blockquote>
 
         <!-- Inline CTA — use once mid-article, once at end -->
-        <div class="inline-cta">
-          <h3>Planning your event?</h3>
-          <p>Check live availability and book online 24/7 — or get a custom quote for anything complex.</p>
-          <div class="btn-row">
-            <a href="../rentals" class="btn btn-gold">Browse Rentals</a>
-            <a href="../contact" class="btn btn-outline">Talk to Our Team</a>
-          </div>
-        </div>
+        <a class="cta-inline" href="../rentals">
+          <span class="cta-eyebrow">Planning your event?</span>
+          <span class="cta-title">Browse rentals &amp; book online 24/7</span>
+          <span class="cta-sub">Check live availability — or get a custom quote for anything complex.</span>
+        </a>
       </section>
 
-      <!-- Duplicate .pc-section blocks for additional chapters. -->
+      <!-- Duplicate the <section id="..."> blocks above for additional chapters; add a matching TOC <li> for each. -->
 
       <!-- Author byline -->
       <aside class="post-author">
-        <div class="pa-inner">
-          <div class="pa-avatar" aria-hidden="true">{{AUTHOR_INITIAL}}</div>
-          <div>
-            <div class="pa-label">About the Author</div>
-            <div class="pa-name">{{AUTHOR_NAME}}</div>
-            <div class="pa-bio">Short bio — 1-2 sentences. Keep consistent across posts.</div>
-          </div>
+        <div class="pa-avatar" aria-hidden="true">{{AUTHOR_INITIAL}}</div>
+        <div>
+          <div class="pa-label">About the Author</div>
+          <div class="pa-name">{{AUTHOR_NAME}}</div>
+          <div class="pa-bio">Short bio — 1-2 sentences. Keep consistent across posts.</div>
         </div>
       </aside>
 
-    </article>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -434,20 +438,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- FOOTER:END -->
 <script src="../shared.js?v=14"></script>
 
-<!-- CMS loader: renders TOC + related posts from posts.json -->
+<!-- CMS loader: renders related posts from posts.json -->
 <script>
-/* Auto-build TOC from section data-toc attributes */
-(function buildToc() {
-  const toc = document.getElementById('postToc');
-  if (!toc) return;
-  const sections = document.querySelectorAll('.pc-section[data-toc]');
-  toc.innerHTML = [...sections].map((sec, i) => {
-    const id = 'sec-' + (i + 1);
-    sec.id = id;
-    return `<li><a href="#${id}"><span class="ptoc-num">${String(i+1).padStart(2,'0')}</span>${sec.dataset.toc}</a></li>`;
-  }).join('');
-})();
-
 /* Load related posts from posts.json (fallback to inline mirror) */
 (async () => {
   const el = document.getElementById('relatedGrid');

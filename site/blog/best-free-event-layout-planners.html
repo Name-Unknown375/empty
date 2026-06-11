@@ -52,6 +52,10 @@ else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
 .cmp-table th, .cmp-table td { border: 1px solid var(--border); padding: 9px 12px; text-align: left; vertical-align: top; }
 .cmp-table th { background: var(--light); color: var(--green); font-size: 11.5px; letter-spacing: 1px; text-transform: uppercase; }
 .cmp-wrap { overflow-x: auto; margin: 18px 0; }
+.inline-cta { background: var(--light); border-left: 3px solid var(--green); padding: 24px 28px; margin: 32px 0; border-radius: 0 var(--radius) var(--radius) 0; }
+.inline-cta h3 { margin-top: 0; }
+.inline-cta p { font-size: 14px; color: var(--muted); }
+.inline-cta .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
 </style>
 
 <!-- JSON-LD: Article -->
@@ -257,12 +261,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Hero -->
 <section class="post-hero hero-ink">
   <div class="container">
-    <div class="breadcrumb" style="margin-bottom:20px">
-      <a href="../">Home</a> <span>/</span>
-      <a href="./">Blog</a> <span>/</span>
-      <span>Comparisons</span>
+    <div class="breadcrumb">
+      <a href="../">Home</a><span>/</span>
+      <a href="./">Blog</a><span>/</span>
+      <span style="color:rgba(255,255,255,.85)">Comparisons</span>
     </div>
-    <span class="ph-topic">Comparisons</span>
+    <span class="post-topic">Comparisons</span>
     <h1>The Best <em>Free</em> Event Layout Planners (2026)</h1>
     <p class="post-deck">Seven tools that draw your floor plan for free — honestly compared on signup walls, to-scale editing, mobile support, export, live pricing, and what happens after the plan is drawn. Including the one we built.</p>
     <div class="post-meta">
@@ -275,20 +279,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- Body with TOC sidebar -->
-<section class="post-body">
-  <div class="container post-grid">
+<section>
+  <div class="container">
+    <div class="post-layout">
 
-    <!-- TOC (auto-built from .pc-section[data-toc]) -->
-    <aside class="post-toc">
-      <div class="ptoc-label">In This Guide</div>
-      <ol id="postToc"><!-- rendered by JS --></ol>
-    </aside>
+      <aside class="post-toc" aria-label="Table of contents">
+        <div class="toc-label">In This Guide</div>
+        <ol>
+          <li><a href="#judging">How we judged (and our bias)</a></li>
+          <li><a href="#eventfloorplanner">eventfloorplanner.com</a></li>
+          <li><a href="#zola">Zola</a></li>
+          <li><a href="#weddingwire">WeddingWire</a></li>
+          <li><a href="#canva">Canva</a></li>
+          <li><a href="#toptableplanner">TopTablePlanner</a></li>
+          <li><a href="#centric">Centric Events' free tool</a></li>
+          <li><a href="#ours">Ours: the FPR planner</a></li>
+          <li><a href="#comparison">Side-by-side comparison</a></li>
+        </ol>
+      </aside>
 
-    <article class="post-content">
+      <article class="post-body">
 
-      <section class="pc-section" data-toc="How we judged (and our bias)">
-        <h2><span class="sec-num">01</span> How We Judged — and Our Bias, Up Front</h2>
+      <section id="judging">
+        <h2><span class="h2-num">01</span>How We Judged — and Our Bias, Up Front</h2>
         <p>Full disclosure before anything else: we make one of the tools on this list. Forever Party Rentals built and maintains the <a href="../event-layout-planner">free event layout planner</a> on this site, so read our verdicts with that in mind. We've tried to be genuinely fair — several of these tools do things ours doesn't, and we say so.</p>
         <p>We compared each tool on the six things that actually matter when you're planning a real event:</p>
         <ul>
@@ -299,54 +312,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><strong>Live pricing</strong> — does the plan tell you what the stuff in it costs?</li>
           <li><strong>Quote handoff</strong> — when the layout's done, does it connect to actually renting the items?</li>
         </ul>
-        <aside class="keybox">
+        <aside class="post-keybox">
           <strong>Note on "free":</strong> free tiers change constantly. Everything below reflects what we found in mid-2026 — double-check the current terms before building your seating chart somewhere that might paywall it.
         </aside>
       </section>
 
-      <section class="pc-section" data-toc="eventfloorplanner.com">
-        <h2><span class="sec-num">02</span> eventfloorplanner.com — The No-Frills Workhorse</h2>
+      <section id="eventfloorplanner">
+        <h2><span class="h2-num">02</span>eventfloorplanner.com — The No-Frills Workhorse</h2>
         <p>A browser-based floor planner built specifically for events: set your room dimensions, drop in tables, chairs, dance floors and staging, and everything stays to scale. It's been a quiet staple of the events industry for years, and the free tier genuinely lets you draw a usable plan.</p>
         <p><strong>Where it shines:</strong> straightforward to-scale editing with an event-specific object library — no learning curve borrowed from CAD software. <strong>Where it doesn't:</strong> it's desktop-first, the interface shows its age, and the plan exists in a vacuum — no pricing, no inventory, no path from drawing to booking. You'll re-enter everything with whatever rental company you choose.</p>
         <p><em>Best for:</em> planners who just want a clean, neutral diagram and don't care about pricing.</p>
       </section>
 
-      <section class="pc-section" data-toc="Zola">
-        <h2><span class="sec-num">03</span> Zola — Best Guest-List Integration, iOS Only</h2>
+      <section id="zola">
+        <h2><span class="h2-num">03</span>Zola — Best Guest-List Integration, iOS Only</h2>
         <p>Zola's seating chart tool lives inside its free wedding-planning app, and its killer feature is real: because Zola already holds your guest list and RSVPs, assigning actual humans to actual seats is dramatically better than in any standalone diagram tool. Drag Aunt Carol to table six; when she RSVPs "no," the chart knows.</p>
         <p>The trade-offs: you need a Zola account, the floor-plan side is a seating chart first and a spatial plan second — it's not trying to tell you whether a 20×40 tent fits your yard — and the full experience is built around the iOS app. Android and desktop users get a thinner version of the tool.</p>
         <p><em>Best for:</em> couples already planning their wedding in Zola. The guest-list integration is genuinely the best in this list, and we don't have an answer to it.</p>
       </section>
 
-      <section class="pc-section" data-toc="WeddingWire">
-        <h2><span class="sec-num">04</span> WeddingWire — Free Seating Charts Behind an Account</h2>
+      <section id="weddingwire">
+        <h2><span class="h2-num">04</span>WeddingWire — Free Seating Charts Behind an Account</h2>
         <p>WeddingWire's free seating chart tool ties into its guest list and RSVP tracking, much like Zola's, and runs in a desktop browser. You can lay out tables, assign guests, and share the result with your venue or planner.</p>
         <p>It requires a WeddingWire account, it's desktop-oriented rather than phone-friendly, and like every guest-list-first tool, the floor plan is more diagram than scale drawing — fine for "who sits where," less useful for "does this physically fit." Expect the usual vendor-marketplace emails that come with the account.</p>
         <p><em>Best for:</em> couples already using WeddingWire for vendor search and RSVPs who want seating assignments in the same place.</p>
       </section>
 
-      <section class="pc-section" data-toc="Canva">
-        <h2><span class="sec-num">05</span> Canva — Beautiful Posters, Not Floor Plans</h2>
+      <section id="canva">
+        <h2><span class="h2-num">05</span>Canva — Beautiful Posters, Not Floor Plans</h2>
         <p>Canva deserves its spot here because half the "seating chart templates" you'll find on Pinterest are Canva files. As a design tool it's superb: the free tier is generous, it runs everywhere, and the display boards it produces — the gold-lettered "find your seat" poster at the reception entrance — are genuinely lovely.</p>
         <p>But be clear about what it is: Canva is not to-scale and doesn't pretend to be. A Canva "floor plan" is an illustration. Nothing stops you drawing a dance floor two feet wide, and nothing tells you 12 round tables won't fit in a 20×30 tent (they won't — not even close).</p>
         <p><em>Best for:</em> the printed seating-chart display, after a real layout tool has done the spatial math.</p>
       </section>
 
-      <section class="pc-section" data-toc="TopTablePlanner">
-        <h2><span class="sec-num">06</span> TopTablePlanner — Polished, But It's a Trial</h2>
+      <section id="toptableplanner">
+        <h2><span class="h2-num">06</span>TopTablePlanner — Polished, But It's a Trial</h2>
         <p>TopTablePlanner is a long-running, well-regarded table planning service used by venues and planners, with drag-and-drop tables, guest assignment, and clean printing. It earns its keep at the professional end.</p>
         <p>The catch for this list: it's a paid product with a free trial, not a free tool. If you only need a plan for one event inside the trial window, that may not matter to you — but your plan lives behind a subscription afterward.</p>
         <p><em>Best for:</em> venues and planners doing this repeatedly, who'll get value from a paid tier.</p>
       </section>
 
-      <section class="pc-section" data-toc="Centric Events' free tool">
-        <h2><span class="sec-num">07</span> Centric Events' Free Diagram Tool — Industry-Grade, Lighter Tier</h2>
+      <section id="centric">
+        <h2><span class="h2-num">07</span>Centric Events' Free Diagram Tool — Industry-Grade, Lighter Tier</h2>
         <p>Centric Events (an event-diagramming software company) offers a free tier of its professional diagramming product. You're getting a genuinely capable engine — to-scale rooms, proper object libraries, the kind of output venue coordinators recognize — with the limits you'd expect of a free tier on a commercial product: account required, and the deeper features (collaboration, 3D, larger object sets) sit in the paid plans, which is fair enough; that's the business.</p>
         <p><em>Best for:</em> anyone who wants a taste of the professional diagramming workflow without the professional invoice.</p>
       </section>
 
-      <section class="pc-section" data-toc="Ours: the FPR planner">
-        <h2><span class="sec-num">08</span> Ours — The Forever Party Rentals Planner</h2>
+      <section id="ours">
+        <h2><span class="h2-num">08</span>Ours — The Forever Party Rentals Planner</h2>
         <p>Here's the one we built, and why we built it: every tool above either gates the plan behind an account, skips the spatial math, or leaves you holding a pretty diagram with no idea what the contents cost. Our <a href="../event-layout-planner">planner</a> opens instantly — no signup, no watermark, no trial clock — with every item sized from our actual rental inventory, full touch editing on phones, PNG export, and two things nobody else on this list does:</p>
         <ul>
           <li><strong>Live pricing.</strong> The layout totals itself from our real catalog as you drag. Add a 15×15 dance floor, watch the number change. Budget conversations get a lot shorter.</li>
@@ -356,8 +369,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Honest limitations: it's 2D only, the catalog is our inventory (tents, tables, chairs, dance floors — not arbitrary custom objects), and it doesn't manage your guest list — Zola keeps that crown. The pricing is in CAD from our Lower Mainland catalog, so outside BC treat the totals as ballpark.</p>
       </section>
 
-      <section class="pc-section" data-toc="Side-by-side comparison">
-        <h2><span class="sec-num">09</span> Side-by-Side</h2>
+      <section id="comparison">
+        <h2><span class="h2-num">09</span>Side-by-Side</h2>
         <div class="cmp-wrap">
           <table class="cmp-table">
             <thead><tr><th>Tool</th><th>Signup</th><th>To-scale</th><th>Mobile</th><th>Export</th><th>Live pricing</th><th>Quote handoff</th></tr></thead>
@@ -389,19 +402,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </section>
 
-      <!-- Author byline -->
       <aside class="post-author">
-        <div class="pa-inner">
-          <div class="pa-avatar" aria-hidden="true">D</div>
-          <div>
-            <div class="pa-label">About the Author</div>
-            <div class="pa-name">Devon</div>
-            <div class="pa-bio">Founder of Forever Party Rentals. Personally installs 200+ events a year across Surrey, Langley, Vancouver, and the Fraser Valley.</div>
-          </div>
+        <div class="pa-avatar" aria-hidden="true">D</div>
+        <div>
+          <div class="pa-label">About the Author</div>
+          <div class="pa-name">Devon</div>
+          <div class="pa-bio">Founder of Forever Party Rentals. Personally installs 200+ events a year across Surrey, Langley, Vancouver, and the Fraser Valley.</div>
         </div>
       </aside>
 
-    </article>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -481,20 +492,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- FOOTER:END -->
 <script src="../shared.js?v=14"></script>
 
-<!-- CMS loader: renders TOC + related posts from posts.json -->
+<!-- CMS loader: renders related posts from posts.json -->
 <script>
-/* Auto-build TOC from section data-toc attributes */
-(function buildToc() {
-  const toc = document.getElementById('postToc');
-  if (!toc) return;
-  const sections = document.querySelectorAll('.pc-section[data-toc]');
-  toc.innerHTML = [...sections].map((sec, i) => {
-    const id = 'sec-' + (i + 1);
-    sec.id = id;
-    return `<li><a href="#${id}"><span class="ptoc-num">${String(i+1).padStart(2,'0')}</span>${sec.dataset.toc}</a></li>`;
-  }).join('');
-})();
-
 /* Load related posts from posts.json (fallback to inline mirror) */
 (async () => {
   const el = document.getElementById('relatedGrid');
