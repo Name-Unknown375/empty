@@ -5178,9 +5178,15 @@
         }
         wizardEl._recipe = recipe;
         const cost = estimateRecipeCost(recipe);
-        const tentLine = rec.fits && rec.tentKeys.length
-          ? `${rec.tentKeys.length > 1 ? rec.tentKeys.length + '× joined ' : ''}${(byKey[rec.tentKeys[0]] || {}).label || 'marquee'} · ${rec.totalSqft.toLocaleString()} sq ft (${rec.sqftPerGuest} sq ft/guest)`
-          : '';
+        let tentLine = '';
+        if (rec.fits && rec.tentKeys.length) {
+          const tentCounts = {};
+          rec.tentKeys.forEach(k => { tentCounts[k] = (tentCounts[k] || 0) + 1; });
+          const tentLabel = Object.entries(tentCounts)
+            .map(([k, n]) => `${n > 1 ? n + '× ' : ''}${(byKey[k] || {}).label || 'marquee'}`)
+            .join(' + ') + (rec.tentKeys.length > 1 ? ' joined' : '');
+          tentLine = `${tentLabel} · ${rec.totalSqft.toLocaleString()} sq ft (${rec.sqftPerGuest} sq ft/guest)`;
+        }
         wizardEl.innerHTML = `
           <div class="pl-modal pl-wizard-modal" role="dialog" aria-modal="true" aria-label="Plan my event">
             <div class="pl-modal-body">

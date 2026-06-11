@@ -9,9 +9,11 @@
  * Grounding rules (in priority order):
  *   1. STOCK — never recommend tents FPR can't physically deliver
  *      (fleet counts below, verified against RentKit).
- *   2. PRICE — among configurations that fit, recommend the cheapest;
- *      the single 30×60 carries a bias penalty so 20-ft-wide stock is
- *      preferred unless the 30×60 is meaningfully cheaper.
+ *   2. UTILIZATION — among configurations the furniture fits in, pick
+ *      the smallest total tent area (don't rent space the event can't
+ *      use); within ~10% of the tightest area, pick the cheapest, then
+ *      the combo using the fewest scarce units (stock ≤ 2), so the
+ *      20×40s/20×60s/30×60 stay free for events that truly need them.
  *   3. SPACING — industry catering pitch (5ft rounds on ~10.75 ft
  *      centres ≈ 13 sq ft/guest; banquet runs per the hand-built
  *      templates; ceremony rows per the ceremony modal defaults).
@@ -66,6 +68,7 @@
 
   function init(catalog) {
     byKey = {};
+    cachedConfigs = null;
     for (const g of catalog.groups) {
       for (const it of g.items) byKey[it.key] = it;
     }
@@ -74,79 +77,154 @@
       .sort((a, b) => a.widthFt * a.depthFt - b.widthFt * b.depthFt);
   }
 
-  // Tent configurations, every one deliverable from stock:
+  // Tent configurations, every one deliverable from stock, capped at
+  // MAX_TENTS marquees per event:
   //   • singles
-  //   • same-model side-by-side pairs (joined along the long edge)
-  //   • the 30×60 joined with one/both 20×60s (lengths match at 60 ft)
-  // Normalized so depth ≥ width; a combo wider than deep gets rotated
-  // whole (each unit takes rotation 90 in the recipe).
-  function tentConfigs() {
-    const configs = [];
-    const stocked = (k, n) => byKey[k] && (TENT_STOCK[k] || 0) >= n;
+  //   • 20-ft-wide "columns" — one tent, or two joined end-to-end (≤60 ft)
+  //   • 1–3 equal-length columns joined side-by-side
+  //   • the 30×60 joined with 60-ft columns along the shared 60 ft edge
+  // Both orientations of every footprint are emitted so the fitter can
+  // pack furniture across the wide side when that uses the tent better.
+  const MAX_TENTS = 4;
+  let cachedConfigs = null;
 
-    for (const key of Object.keys(TENT_STOCK)) {
-      if (!stocked(key, 1)) continue;
-      const t = byKey[key];
-      const w = Math.min(t.widthFt, t.depthFt);
-      const d = Math.max(t.widthFt, t.depthFt);
-      configs.push({ keys: [key], w, d, placements: [{ key, cx: w / 2, cy: d / 2 }] });
-      if (stocked(key, 2)) {
-        let cfg = {
-          keys: [key, key],
-          w: w * 2, d,
-          placements: [{ key, cx: w / 2, cy: d / 2 }, { key, cx: w * 1.5, cy: d / 2 }],
-        };
-        if (cfg.w > cfg.d) {
-          cfg = {
-            keys: cfg.keys, w: cfg.d, d: cfg.w,
-            placements: cfg.placements.map(p => ({ key: p.key, cx: p.cy, cy: p.cx, rotation: 90 })),
-          };
-        }
-        configs.push(cfg);
+  function tentConfigs() {
+    if (cachedConfigs) return cachedConfigs;
+    const configs = [];
+    const seen = new Set();
+
+    const inStock = (keys) => {
+      const need = {};
+      for (const k of keys) {
+        if (!byKey[k]) return false;
+        need[k] = (need[k] || 0) + 1;
+        if (need[k] > (TENT_STOCK[k] || 0)) return false;
+      }
+      return true;
+    };
+    // Emit a config plus its 90°-rotated twin (deduped by keys+footprint).
+    const pushBoth = (cfg) => {
+      const variants = [cfg];
+      if (cfg.w !== cfg.d) {
+        variants.push({
+          keys: cfg.keys, w: cfg.d, d: cfg.w,
+          placements: cfg.placements.map(p => {
+            const t = byKey[p.key];
+            const q = { key: p.key, cx: p.cy, cy: p.cx };
+            if (t && t.widthFt !== t.depthFt && !p.rotation) q.rotation = 90;
+            return q;
+          }),
+        });
+      }
+      for (const v of variants) {
+        const sig = v.keys.slice().sort().join(',') + '|' + v.w + 'x' + v.d;
+        if (!seen.has(sig)) { seen.add(sig); configs.push(v); }
+      }
+    };
+
+    // 20-ft-wide columns: single tents, or two joined end-to-end (≤60 ft —
+    // e.g. two 20×30s standing in for a 20×60 when those are booked out).
+    const models = Object.keys(TENT_STOCK)
+      .filter(k => byKey[k] && Math.min(byKey[k].widthFt, byKey[k].depthFt) === 20);
+    const colLen = (k) => Math.max(byKey[k].widthFt, byKey[k].depthFt);
+    const columns = models.map(k => ({ keys: [k], len: colLen(k) }));
+    for (let i = 0; i < models.length; i++) {
+      for (let j = i; j < models.length; j++) {
+        const len = colLen(models[i]) + colLen(models[j]);
+        if (len <= 60) columns.push({ keys: [models[i], models[j]], len });
       }
     }
 
-    // 30×60 + n×20×60, joined along the shared 60 ft edge → 50×60 / 70×60.
-    if (stocked('marquee-tent-30x60', 1) && stocked('marquee-tent-20x60', 1)) {
-      configs.push({
-        keys: ['marquee-tent-30x60', 'marquee-tent-20x60'],
-        w: 50, d: 60,
-        placements: [
-          { key: 'marquee-tent-30x60', cx: 15, cy: 30 },
-          { key: 'marquee-tent-20x60', cx: 40, cy: 30 },
-        ],
+    // Lay out chosen columns left-to-right; `lead` is the 30×60 when the
+    // combo joins it along the shared 60 ft edge.
+    const emit = (cols, len, lead) => {
+      const keys = cols.reduce((a, c) => a.concat(c.keys), lead ? [lead] : []);
+      if (keys.length > MAX_TENTS || !inStock(keys)) return;
+      const leadW = lead ? Math.min(byKey[lead].widthFt, byKey[lead].depthFt) : 0;
+      const placements = [];
+      if (lead) placements.push({ key: lead, cx: leadW / 2, cy: len / 2 });
+      cols.forEach((c, ci) => {
+        const cx = leadW + ci * 20 + 10;
+        let cy = 0;
+        for (const k of c.keys) {
+          const l = colLen(k);
+          placements.push({ key: k, cx, cy: cy + l / 2 });
+          cy += l;
+        }
       });
-    }
-    if (stocked('marquee-tent-30x60', 1) && stocked('marquee-tent-20x60', 2)) {
-      configs.push({
-        keys: ['marquee-tent-30x60', 'marquee-tent-20x60', 'marquee-tent-20x60'],
-        w: 70, d: 60,
-        placements: [
-          { key: 'marquee-tent-30x60', cx: 15, cy: 30 },
-          { key: 'marquee-tent-20x60', cx: 40, cy: 30 },
-          { key: 'marquee-tent-20x60', cx: 60, cy: 30 },
-        ],
-      });
-    }
-
-    // Cheapest deliverable option first. Long thin ribbons carry a soft
-    // penalty; anything using the single 30×60 carries a hard one — FPR
-    // stocks five 20-ft-wide sizes, so the big tent is only recommended
-    // when it's meaningfully cheaper than the 20x route.
-    const price = (c) => c.keys.reduce((s, k) => s + ((byKey[k] && byKey[k].priceCAD) || 0), 0);
-    const score = (c) => {
-      let s = price(c) * (1 + Math.max(0, c.d / c.w - 2.2) * 0.15);
-      // Each join is extra rigging labour — at equal price, one tent
-      // beats two (and keeps the long processional aisle for ceremonies).
-      s *= 1 + 0.15 * (c.keys.length - 1);
-      // Hard 30×60 bias (owner preference: lean on the five 20-ft-wide
-      // sizes; the single 30×60 is reserved for events nothing else can
-      // hold). At 1.6 it only ever wins when no 20x config fits; drop
-      // toward ~1.3 to let it win mid-size events where it's cheaper.
-      if (c.keys.indexOf('marquee-tent-30x60') !== -1) s *= 1.6;
-      return s;
+      pushBoth({ keys, w: leadW + cols.length * 20, d: len, placements });
     };
-    return configs.sort((a, b) => score(a) - score(b));
+
+    // 1–3 equal-length columns side-by-side (multisets, with repetition).
+    const byLen = {};
+    for (const c of columns) (byLen[c.len] = byLen[c.len] || []).push(c);
+    for (const lenKey of Object.keys(byLen)) {
+      const pool = byLen[lenKey];
+      const len = Number(lenKey);
+      const pick = (start, chosen) => {
+        if (chosen.length) {
+          emit(chosen, len, null);
+          if (len === 60) emit(chosen, len, 'marquee-tent-30x60');
+        }
+        if (chosen.length >= 3) return;
+        for (let i = start; i < pool.length; i++) {
+          chosen.push(pool[i]);
+          pick(i, chosen);
+          chosen.pop();
+        }
+      };
+      pick(0, []);
+    }
+    if ((TENT_STOCK['marquee-tent-30x60'] || 0) > 0 && byKey['marquee-tent-30x60']) {
+      pushBoth({
+        keys: ['marquee-tent-30x60'], w: 30, d: 60,
+        placements: [{ key: 'marquee-tent-30x60', cx: 15, cy: 30 }],
+      });
+    }
+    cachedConfigs = configs;
+    return configs;
+  }
+
+  // ── Tent selection ───────────────────────────────────────────────────
+  // Among configs the furniture actually fits in: (1) smallest total tent
+  // area — don't rent space the event can't use; within UTIL_BAND of the
+  // tightest area, (2) cheapest, then (3) fewest scarce units (stock ≤ 2),
+  // keeping the 20×40s/20×60s/30×60 free for events that truly need them,
+  // then (4) the tighter depth fit.
+  const UTIL_BAND = 1.10;
+
+  function comboPrice(cfg) {
+    return cfg.keys.reduce((s, k) => s + ((byKey[k] && byKey[k].priceCAD) || 0), 0);
+  }
+  function scarceUnits(cfg) {
+    return cfg.keys.reduce((s, k) => s + ((TENT_STOCK[k] || 0) <= 2 ? 1 : 0), 0);
+  }
+  function chooseTentConfig(plan, opts) {
+    for (const variant of [opts, { ...opts, _danceOutside: true }]) {
+      if (variant._danceOutside && (!opts.danceFloor || plan.style === 'ceremony')) continue;
+      const cands = [];
+      for (const cfg of tentConfigs()) {
+        const fit = fitInWidth(plan, variant, cfg.w, cfg.d);
+        if (fit) cands.push({ cfg, fit, area: cfg.w * cfg.d });
+      }
+      if (!cands.length) continue;
+      let bestArea = Infinity;
+      for (const c of cands) bestArea = Math.min(bestArea, c.area);
+      cands.sort((a, b) => {
+        const inA = a.area <= bestArea * UTIL_BAND ? 0 : 1;
+        const inB = b.area <= bestArea * UTIL_BAND ? 0 : 1;
+        if (inA !== inB) return inA - inB;
+        if (inA === 0) {
+          return (comboPrice(a.cfg) - comboPrice(b.cfg))
+            || (scarceUnits(a.cfg) - scarceUnits(b.cfg))
+            || (a.area - b.area)
+            || (a.fit.depthNeeded - b.fit.depthNeeded);
+        }
+        return a.area - b.area;
+      });
+      return { cfg: cands[0].cfg, fit: cands[0].fit, danceOutside: !!variant._danceOutside };
+    }
+    return null;
   }
 
   function snapDanceFloor(guests) {
@@ -297,24 +375,21 @@
     const perGuest = plan.style === 'cocktail' ? 8 : plan.style === 'ceremony' ? 8 : 13;
     const df = (opts.danceFloor && plan.style !== 'ceremony') ? snapDanceFloor(plan.guests) : null;
     const sqftNeeded = plan.guests * perGuest + (df ? df.widthFt * df.depthFt : 0) + (opts.headTable ? 120 : 0) + (opts.buffet ? 100 : 0);
-    for (const variant of [opts, { ...opts, _danceOutside: true }]) {
-      if (variant._danceOutside && (!opts.danceFloor || plan.style === 'ceremony')) continue;
-      for (const cfg of tentConfigs()) {
-        const fit = fitInWidth(plan, variant, cfg.w, cfg.d);
-        if (!fit) continue;
-        const totalSqft = cfg.w * cfg.d;
-        const notes = [];
-        if (cfg.keys.length > 1) notes.push(`${cfg.keys.length} marquees joined (${cfg.w}×${cfg.d} ft combined)`);
-        if (variant._danceOutside) notes.push('dance floor on the lawn beside the tent');
-        return {
-          tentKeys: cfg.keys,
-          sqftNeeded,
-          totalSqft,
-          sqftPerGuest: Math.round((totalSqft / plan.guests) * 10) / 10,
-          fits: true,
-          notes,
-        };
-      }
+    const pick = chooseTentConfig(plan, opts);
+    if (pick) {
+      const cfg = pick.cfg;
+      const totalSqft = cfg.w * cfg.d;
+      const notes = [];
+      if (cfg.keys.length > 1) notes.push(`${cfg.keys.length} marquees joined (${cfg.w}×${cfg.d} ft combined)`);
+      if (pick.danceOutside) notes.push('dance floor on the lawn beside the tent');
+      return {
+        tentKeys: cfg.keys,
+        sqftNeeded,
+        totalSqft,
+        sqftPerGuest: Math.round((totalSqft / plan.guests) * 10) / 10,
+        fits: true,
+        notes,
+      };
     }
     return { tentKeys: [], sqftNeeded, totalSqft: 0, sqftPerGuest: 0, fits: false, notes: ['Bigger than our largest deliverable tent combination — contact us for a custom multi-tent plan.'] };
   }
@@ -350,15 +425,9 @@
       originY = INSET_FT + Math.max(0, (D - fit.depthNeeded) / 2);
       usableW = W - INSET_FT * 2;
     } else {
-      outer:
-      for (const variant of [opts, { ...opts, _danceOutside: true }]) {
-        if (variant._danceOutside && (!opts.danceFloor || plan.style === 'ceremony')) continue;
-        for (const c of tentConfigs()) {
-          const f = fitInWidth(plan, variant, c.w, c.d);
-          if (f) { cfg = c; fit = f; danceOutside = !!variant._danceOutside; break outer; }
-        }
-      }
-      if (!cfg) return null;
+      const pick = chooseTentConfig(plan, opts);
+      if (!pick) return null;
+      cfg = pick.cfg; fit = pick.fit; danceOutside = pick.danceOutside;
       const lawnDance = danceOutside ? snapDanceFloor(plan.guests) : null;
       // Venue = tent footprint + 4 ft of working room on every side, plus
       // room below the tent when the dance floor lives on the lawn.
