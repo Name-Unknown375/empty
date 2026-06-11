@@ -1,7 +1,7 @@
 ---
 slug: chilliwack-party-rentals
 title: "Chilliwack Tent Rentals — Cultus Lake + Mountain Setup"
-meta_description: "Chilliwack wedding tent, chair, table & dance floor rentals — Cultus Lake, Sardis acreages, Mount Cheam mountain backdrops. 160+ five-star reviews."
+meta_description: "Chilliwack wedding tent, chair, table & dance floor rentals — Cultus Lake, Sardis acreages, Mount Cheam mountain backdrops. 150+ five-star reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Chilliwack lake weddings, mountain-backdrop ceremonies, and Sardis acreage receptions — delivered and crew-installed."
 
 intro_paragraphs:
@@ -99,4 +99,4 @@ Setup runs 5–6 hours; teardown 3–4. Both quoted up front. For Cultus Lake be
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

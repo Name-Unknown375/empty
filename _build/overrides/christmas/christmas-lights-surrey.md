@@ -1,7 +1,7 @@
 ---
 slug: christmas-lights-surrey
 title: "Surrey Christmas Light Installation — Local Crew"
-meta_description: "Surrey Christmas light installation — acreage rooflines, residential, commercial. $8.50–$12/linear ft. Free off-season storage. 160+ five-star reviews."
+meta_description: "Surrey Christmas light installation — acreage rooflines, residential, commercial. $8.50–$12/linear ft. Free off-season storage. 150+ five-star reviews."
 hero_subtitle: "Professional Christmas light installation across Surrey — Cloverdale and South Surrey acreages, residential rooflines across Newton, Fleetwood, and Guildford, plus King George commercial corridor."
 
 intro_paragraphs:
@@ -90,6 +90,6 @@ Setup runs 6–8 hours given the linear footage; takedown 4–5 hours. Both quot
 
 ## Why Surrey homes book us a second time
 
-160+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
+150+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
 
 Local proximity, free off-season storage, and a fixed-price quote within 24 hours. That's the service.

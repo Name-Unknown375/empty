@@ -1,7 +1,7 @@
 ---
 slug: langley-township-party-rentals
 title: "Langley Township Tent Rentals — Township-Wide Setup"
-meta_description: "Langley Township wedding tent, chair, table & dance floor rentals — Brookswood, Murrayville, Campbell Valley, vineyard installs. 160+ five-star reviews."
+meta_description: "Langley Township wedding tent, chair, table & dance floor rentals — Brookswood, Murrayville, Campbell Valley, vineyard installs. 150+ five-star reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals across Langley Township — Brookswood, Murrayville, Campbell Valley, and vineyard country — delivered and crew-installed."
 
 intro_paragraphs:
@@ -99,4 +99,4 @@ Setup runs 5–6 hours; teardown 3–4. Both quoted up front. For other guest co
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

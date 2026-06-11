@@ -1,7 +1,7 @@
 ---
 slug: port-kells-party-rentals
 title: "Port Kells Tent Rentals — Industrial + Tynehead Setup"
-meta_description: "Port Kells wedding tent, chair, table & dance floor rentals — Tynehead Park ceremonies, industrial corporate events, fastest delivery. 160+ five-star reviews."
+meta_description: "Port Kells wedding tent, chair, table & dance floor rentals — Tynehead Park ceremonies, industrial corporate events, fastest delivery. 150+ five-star reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Port Kells industrial corporate events, Tynehead Park ceremonies, and 192 Street corridor functions — delivered and crew-installed."
 
 intro_paragraphs:
@@ -96,4 +96,4 @@ Setup runs 2–3 hours; teardown 1–2. Both quoted up front. For Tynehead Park 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

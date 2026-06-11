@@ -1,7 +1,7 @@
 ---
 slug: table-rentals-north-vancouver
 title: "Table Rentals in North Vancouver — Round, Banquet & Cocktail"
-meta_description: "Table rentals in North Vancouver — 5ft round, 6ft and 8ft banquet, and cocktail highboys delivered and positioned by the local crew. 160+ reviews."
+meta_description: "Table rentals in North Vancouver — 5ft round, 6ft and 8ft banquet, and cocktail highboys delivered and positioned by the local crew. 150+ reviews."
 hero_subtitle: "Table rentals in North Vancouver — 5ft round tables for North Shore receptions, 6ft and 8ft banquet tables for head, gift, and buffet, cocktail highboys for mingling. Delivered and positioned for Lynn Canyon, Grouse Mountain, Lonsdale Quay, and Edgemont setups."
 
 intro_paragraphs:
@@ -90,4 +90,4 @@ Total: 23 tables, all positioned to your floor plan during a single delivery win
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

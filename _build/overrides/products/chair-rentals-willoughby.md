@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-willoughby
 title: "Chair Rentals in Willoughby — Yorkson, Routley"
-meta_description: "Chair rentals in Willoughby — White Chiavari, Fanback folding and Resin Garden chairs for Yorkson, Langley Events Centre and park events. 160+ reviews."
+meta_description: "Chair rentals in Willoughby — White Chiavari, Fanback folding and Resin Garden chairs for Yorkson, Langley Events Centre and park events. 150+ reviews."
 hero_subtitle: "Chair rentals in Willoughby delivered by the local crew — White Chiavari for Yorkson and Willoughby Heights residence receptions, Fanback folding for Langley Events Centre corporate scale, Resin Garden for Willoughby Community Park and Sendall Gardens ceremonies."
 
 intro_paragraphs:
@@ -92,4 +92,4 @@ For LEC corporate events at 300+ guest scale, Fanback folding ships in volume. F
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

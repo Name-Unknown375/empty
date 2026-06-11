@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-east-newton-north
 title: "Chair Rentals in East Newton"
-meta_description: "Chair rentals in East Newton — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Bear Creek Park ceremonies. 160+ reviews."
+meta_description: "Chair rentals in East Newton — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Bear Creek Park ceremonies. 150+ reviews."
 hero_subtitle: "Chair rentals in East Newton delivered by the home-warehouse crew — White Chiavari for residential receptions, Fanback folding for Newton Athletic Park community events, Resin Garden for Bear Creek Park ceremonies and Unwin Park outdoor weddings."
 
 intro_paragraphs:
@@ -92,4 +92,4 @@ For Newton Athletic Park community events at scale, Fanback folding ships in vol
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent. And our Surrey home-dock means the same crew that loaded your chairs unloads them at your venue.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

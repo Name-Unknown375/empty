@@ -88,6 +88,6 @@ Setup runs 6–8 hours; takedown 4–5 hours. Both quoted up front.
 
 ## Why Township homes book us a second time
 
-160+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
+150+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
 
 Free consultation, fixed-price quote within 24 hours, and your strands stored in our warehouse all summer. That's the service.

@@ -1,7 +1,7 @@
 ---
 slug: carvolth-party-rentals
 title: "Carvolth Tent Rentals — Business Park + Residential Setup"
-meta_description: "Carvolth tent, chair, table & dance floor rentals — 200 Street business park events, Meridian Farm Market, residential backyards. 160+ five-star reviews."
+meta_description: "Carvolth tent, chair, table & dance floor rentals — 200 Street business park events, Meridian Farm Market, residential backyards. 150+ five-star reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Carvolth business-park corporate events, Meridian Farm Market gatherings, and residential backyard parties — delivered and crew-installed."
 
 intro_paragraphs:
@@ -96,4 +96,4 @@ Setup runs 2–3 hours; teardown 1–2. Both quoted up front. For Meridian Farm 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

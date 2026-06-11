@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-walnut-grove
 title: "Tent Rentals in Walnut Grove — Yorkson, Bedford Landing"
-meta_description: "Tent rentals in Walnut Grove — marquees for Yorkson backyards, Bedford Landing residences and Derby Reach-adjacent acreages. 160+ five-star reviews."
+meta_description: "Tent rentals in Walnut Grove — marquees for Yorkson backyards, Bedford Landing residences and Derby Reach-adjacent acreages. 150+ five-star reviews."
 hero_subtitle: "Tent rentals in Walnut Grove for Yorkson-border residential receptions, Bedford Landing-adjacent residence weddings, Gloucester rural-edge acreage events, and Walnut Grove Community Park supplemental tents."
 
 intro_paragraphs:
@@ -78,4 +78,4 @@ Setup runs 4–5 hours for a 20×60 + sidewall configuration; teardown is 2–3 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

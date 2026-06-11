@@ -1,7 +1,7 @@
 ---
 slug: burnaby-party-rentals
 title: "Burnaby Party Rentals — Tents, Chairs, Tables"
-meta_description: "Burnaby party rentals — tents, Chiavari chairs, banquet tables, dance floors. Delivered to Deer Lake, Brentwood, Metrotown by the local crew. 160+ reviews."
+meta_description: "Burnaby party rentals — tents, Chiavari chairs, banquet tables, dance floors. Delivered to Deer Lake, Brentwood, Metrotown by the local crew. 150+ reviews."
 hero_subtitle: "Burnaby party rentals delivered, set up, and picked up by the local crew — tents, Chiavari chairs, banquet tables, and dance floors for weddings at Deer Lake, corporate galas in Metrotown, and rooftop receptions."
 
 intro_paragraphs:
@@ -95,4 +95,4 @@ Setup runs 5–6 hours; teardown 3–4. Both quoted up front. This is a single-t
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

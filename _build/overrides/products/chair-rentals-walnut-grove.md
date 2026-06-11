@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-walnut-grove
 title: "Chair Rentals in Walnut Grove — Chiavari, Fanback"
-meta_description: "Chair rentals in Walnut Grove — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Derby Reach Park weddings. 160+ reviews."
+meta_description: "Chair rentals in Walnut Grove — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Derby Reach Park weddings. 150+ reviews."
 hero_subtitle: "Chair rentals in Walnut Grove delivered by the local crew — White Chiavari for Bedford Landing residence receptions, Fanback folding for ceremony rows and community-venue events, Resin Garden for Derby Reach forest ceremonies and Walnut Grove park weddings."
 
 intro_paragraphs:
@@ -92,4 +92,4 @@ The two-chair-line setup is the most common Walnut Grove wedding configuration w
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

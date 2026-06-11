@@ -1,7 +1,7 @@
 ---
 slug: surrey-party-rentals
 title: "Surrey Party Rentals — Tents, Chairs, Tables"
-meta_description: "Surrey party rentals — tents, chairs, tables & dance floors from our local crew. Same-week availability, mid-event swaps, warehouse pickup. 160+ reviews."
+meta_description: "Surrey party rentals — tents, chairs, tables & dance floors from our local crew. Same-week availability, mid-event swaps, warehouse pickup. 150+ reviews."
 hero_subtitle: "Surrey party rentals delivered across the city by the local crew — tents, chairs, tables, and dance floors with same-week availability, mid-event swaps, and warehouse pickup as options."
 
 intro_paragraphs:
@@ -105,4 +105,4 @@ For different headcounts, the [50/100/150/200 rental checklist](/blog/party-rent
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-ladner
 title: "Chair Rentals in Ladner"
-meta_description: "Chair rentals in Ladner — White Chiavari, Fanback folding and Resin Garden chairs for Westham Island farms and Ladner Village receptions. 160+ reviews."
+meta_description: "Chair rentals in Ladner — White Chiavari, Fanback folding and Resin Garden chairs for Westham Island farms and Ladner Village receptions. 150+ reviews."
 hero_subtitle: "Chair rentals in Ladner delivered by the local crew via Highway 17 — White Chiavari for Ladner Village heritage receptions, Fanback folding for community events, Resin Garden for Westham Island farm weddings and Reifel Bird Sanctuary outdoor ceremonies."
 
 intro_paragraphs:
@@ -96,4 +96,4 @@ The two-chair-line setup is the most common Westham Island farm-wedding configur
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

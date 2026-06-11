@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-maple-ridge
 title: "Chair Rentals in Maple Ridge — Chiavari, Fanback & Garden"
-meta_description: "Chair rentals in Maple Ridge — White Chiavari, Fanback folding and Resin Garden chairs delivered, wiped and positioned by our crew. 160+ five-star reviews."
+meta_description: "Chair rentals in Maple Ridge — White Chiavari, Fanback folding and Resin Garden chairs delivered, wiped and positioned by our crew. 150+ five-star reviews."
 hero_subtitle: "Chair rentals in Maple Ridge delivered, wiped, and positioned by the local crew — White Chiavari for receptions, Fanback folding for ceremony rows, Resin Garden chairs for Golden Ears and Alouette Lake ceremonies."
 
 intro_paragraphs:
@@ -90,4 +90,4 @@ For other guest counts, the [50/100/150/200 rental checklist](/blog/party-rental
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

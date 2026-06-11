@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-east-clayton
 title: "Tent Rentals in East Clayton — Clayton Heights"
-meta_description: "Tent rentals in East Clayton — marquees for Clayton Heights residence receptions, Cloverdale Rodeo Grounds-adjacent supplemental events. 160+ reviews."
+meta_description: "Tent rentals in East Clayton — marquees for Clayton Heights residence receptions, Cloverdale Rodeo Grounds-adjacent supplemental events. 150+ reviews."
 hero_subtitle: "Tent rentals in East Clayton for Clayton Heights residence receptions, Cloverdale Rodeo Grounds-adjacent supplemental marquees, Clayton Community Centre supplemental tents, and Willowbrook-corridor business functions — among the shortest delivery routes from our Surrey warehouse."
 
 intro_paragraphs:
@@ -76,4 +76,4 @@ Setup runs 3–4 hours for a 20×40 + sidewall configuration; teardown is 2 hour
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

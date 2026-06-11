@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-tsawwassen
 title: "Tent Rentals in Tsawwassen — Centennial Beach, English Bluff"
-meta_description: "Tent rentals in Tsawwassen — marquees for English Bluff, Tsawwassen Shores waterfront and Beach Grove, engineered for Boundary Bay wind. 160+ reviews."
+meta_description: "Tent rentals in Tsawwassen — marquees for English Bluff, Tsawwassen Shores waterfront and Beach Grove, engineered for Boundary Bay wind. 150+ reviews."
 hero_subtitle: "Tent rentals in Tsawwassen for English Bluff cliff-edge residence receptions, Tsawwassen Shores waterfront weddings, Beach Grove shoreline events, and South Delta peninsula acreages — engineered for the Lower Mainland's most consistent onshore wind pattern."
 
 intro_paragraphs:
@@ -90,4 +90,4 @@ Setup runs 5–6 hours for a 20×60 + sidewall + doubled-anchor configuration; t
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

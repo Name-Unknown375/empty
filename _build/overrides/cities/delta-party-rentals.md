@@ -1,7 +1,7 @@
 ---
 slug: delta-party-rentals
 title: "Delta Tent Rentals — Coastal + Heritage Setup"
-meta_description: "Delta wedding tent, chair, table & dance floor rentals — coastal wind-rated installs, Ladner heritage setups, North Delta backyards. 160+ five-star reviews."
+meta_description: "Delta wedding tent, chair, table & dance floor rentals — coastal wind-rated installs, Ladner heritage setups, North Delta backyards. 150+ five-star reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Delta coastal weddings, Ladner Village heritage receptions, and North Delta backyards — delivered and crew-installed."
 
 intro_paragraphs:
@@ -98,4 +98,4 @@ For Ladner Village heritage-home receptions where the marquee comes off the orde
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

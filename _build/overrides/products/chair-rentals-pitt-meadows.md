@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-pitt-meadows
 title: "Chair Rentals in Pitt Meadows — Swaneset, Pitt Lake"
-meta_description: "Chair rentals in Pitt Meadows — White Chiavari, Fanback folding and Resin Garden chairs for Swaneset Bay and Pitt Lake ceremonies. 160+ five-star reviews."
+meta_description: "Chair rentals in Pitt Meadows — White Chiavari, Fanback folding and Resin Garden chairs for Swaneset Bay and Pitt Lake ceremonies. 150+ five-star reviews."
 hero_subtitle: "Chair rentals in Pitt Meadows delivered by the local crew — White Chiavari for Swaneset Bay Resort receptions, Fanback folding for ceremony rows at larger destination weddings, Resin Garden for Pitt Lake shoreline ceremonies and Pitt-Addington Marsh outdoor weddings."
 
 intro_paragraphs:
@@ -96,4 +96,4 @@ The two-chair-line setup is the most common Swaneset configuration. For other gu
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

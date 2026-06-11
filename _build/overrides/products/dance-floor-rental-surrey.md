@@ -1,7 +1,7 @@
 ---
 slug: dance-floor-rental-surrey
 title: "Dance Floor Rentals in Surrey — Local Crew, Same-Week"
-meta_description: "Dance floor rentals in Surrey — 12×12, 12×16 and 16×20 portable floors delivered and leveled with subfloor, same-week from our warehouse. 160+ reviews."
+meta_description: "Dance floor rentals in Surrey — 12×12, 12×16 and 16×20 portable floors delivered and leveled with subfloor, same-week from our warehouse. 150+ reviews."
 hero_subtitle: "Dance floor rentals in Surrey — 12×12, 12×16, and 16×20 portable floors delivered, leveled, and crew-installed by the local Surrey team. Same-week availability for most sizes."
 
 intro_paragraphs:
@@ -92,4 +92,4 @@ For a smaller 60–80 guest Surrey backyard wedding, swap to a 12×12 (subfloor 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

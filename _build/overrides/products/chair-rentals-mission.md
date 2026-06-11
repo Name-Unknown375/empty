@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-mission
 title: "Chair Rentals in Mission — Chiavari, Fanback"
-meta_description: "Chair rentals in Mission — White Chiavari, Fanback folding and Resin Garden chairs for Heritage Park, Westminster Abbey and Hatzic Valley events. 160+ reviews."
+meta_description: "Chair rentals in Mission — White Chiavari, Fanback folding and Resin Garden chairs for Heritage Park, Westminster Abbey and Hatzic Valley events. 150+ reviews."
 hero_subtitle: "Chair rentals in Mission delivered by the Lower Mainland crew that handles the Fraser Valley corridor — White Chiavari for receptions, Fanback folding for ceremony rows and community events, Resin Garden for Fraser River Heritage Park and Hatzic Lake outdoor ceremonies."
 
 intro_paragraphs:
@@ -96,4 +96,4 @@ The two-chair-line setup is the standard Mission wedding configuration when the 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

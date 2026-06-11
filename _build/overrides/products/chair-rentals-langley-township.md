@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-langley-township
 title: "Chair Rentals in Langley Township — Vineyard, Berry-Farm"
-meta_description: "Chair rentals in Langley Township — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Township 7, Krause Berry Farms. 160+ reviews."
+meta_description: "Chair rentals in Langley Township — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Township 7, Krause Berry Farms. 150+ reviews."
 hero_subtitle: "Chair rentals in Langley Township delivered, wiped, and positioned across the Township — White Chiavari for Township 7 vineyard receptions, Fanback folding for ceremony rows and the Langley Events Centre, Resin Garden for Krause Berry Farms and Campbell Valley Park."
 
 intro_paragraphs:
@@ -97,4 +97,4 @@ The two-line setup at 200-guest scale is the standard Township vineyard configur
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

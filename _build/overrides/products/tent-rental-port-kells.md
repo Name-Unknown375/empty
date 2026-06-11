@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-port-kells
 title: "Tent Rentals in Port Kells — Serpentine + Industrial-Park"
-meta_description: "Tent rentals in Port Kells — marquees for residential backyards, industrial-park corporate events and Tynehead-adjacent acreages. 160+ five-star reviews."
+meta_description: "Tent rentals in Port Kells — marquees for residential backyards, industrial-park corporate events and Tynehead-adjacent acreages. 150+ five-star reviews."
 hero_subtitle: "Tent rentals in Port Kells for residential backyard receptions, Serpentine River-adjacent residence weddings, industrial-park corporate supplemental marquees, and Tynehead Park-adjacent property events — short Highway 1 delivery from our Surrey warehouse."
 
 intro_paragraphs:
@@ -76,4 +76,4 @@ Setup runs 3–4 hours for a 20×40 + sidewall configuration; teardown is 2 hour
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

@@ -1,7 +1,7 @@
 ---
 slug: table-rentals-langley
 title: "Table Rentals in Langley — Round, Banquet & Cocktail"
-meta_description: "Table rentals in Langley — 5ft round, 6ft and 8ft banquet, cocktail highboys for vineyard, acreage, and corporate setups. 160+ five-star reviews."
+meta_description: "Table rentals in Langley — 5ft round, 6ft and 8ft banquet, cocktail highboys for vineyard, acreage, and corporate setups. 150+ five-star reviews."
 hero_subtitle: "Table rentals in Langley — 5ft round tables for vineyard receptions, 6ft and 8ft banquet tables for head, gift, and buffet, cocktail highboys for mingling. Delivered and positioned for Krause, Township 7, Brookswood, and Langley Events Centre setups."
 
 intro_paragraphs:
@@ -90,4 +90,4 @@ Total: 23 tables, all positioned to your floor plan during a single delivery win
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

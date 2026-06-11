@@ -1,7 +1,7 @@
 ---
 slug: aldergrove-party-rentals
 title: "Aldergrove Tent Rentals — Rural Acreage + Zoo Setup"
-meta_description: "Aldergrove wedding tent, chair, table & dance floor rentals — rural acreage installs, Greater Vancouver Zoo events, Aldergrove Park. 160+ five-star reviews."
+meta_description: "Aldergrove wedding tent, chair, table & dance floor rentals — rural acreage installs, Greater Vancouver Zoo events, Aldergrove Park. 150+ five-star reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Aldergrove rural weddings, Aldergrove Regional Park ceremonies, and Greater Vancouver Zoo events — delivered and crew-installed."
 
 intro_paragraphs:
@@ -99,4 +99,4 @@ Setup runs 5–6 hours; teardown 3–4. Both quoted up front. For Greater Vancou
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-160+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
