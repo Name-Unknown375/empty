@@ -131,6 +131,50 @@ PRODUCT_LOCAL_LANG = {
             "truck in one delivery window."
         ),
     },
+    "starlink": {
+        # Newer, lower-volume line — frame around venue/geography fit rather
+        # than specific past-job claims (style_guide: no fabricated history).
+        "experience_override": (
+            "{city} has no shortage of venues where grid internet doesn't reach — "
+            "from {landmark} to events around {neighborhood} — and a Starlink kit "
+            "drops a Zoom-grade connection into any of them."
+        ),
+        "verb_at_landmark": "delivered plug-and-play Starlink kits for off-grid events near {landmark}",
+        "verb_at_neighborhood": "set up Zoom-grade connectivity for remote gatherings around {neighborhood}",
+        "logistics": (
+            "Whether it's a park shelter, an acreage property, or a shoulder-season "
+            "pop-up, every kit ships with the self-aligning dish, WiFi router, all "
+            "cabling, and a pre-activated Roam subscription. We confirm a clear view "
+            "of the sky and a live 100–200 Mbps connection before we leave the site."
+        ),
+        "close": (
+            "Most {city} Starlink bookings pair with an EcoFlow power station so the "
+            "dish and router run fully off-grid — both arrive on one truck in a single "
+            "delivery window."
+        ),
+    },
+    "battery-power-station": {
+        # Newer, lower-volume line — keep claims to capability + product facts.
+        "experience_override": (
+            "From {landmark} to backyard receptions around {neighborhood}, plenty of "
+            "{city} events run where shore power doesn't reach — and a silent EcoFlow "
+            "station covers the DJ booth, the lighting, and the catering load without a generator."
+        ),
+        "verb_at_landmark": "delivered silent EcoFlow power stations for events near {landmark}",
+        "verb_at_neighborhood": "powered DJ booths, bistro lighting, and food vendors at gatherings in {neighborhood}",
+        "logistics": (
+            "{city} events run the full power range — a DJ booth and string lights at a "
+            "backyard wedding, an espresso bar or food-truck POS at a corporate pop-up, a "
+            "shoulder-season heater after dark — so we stock the full EcoFlow Delta lineup "
+            "from the 1024 Wh Delta 2 to the 11 kWh-expandable Delta 3 Ultra. Every unit "
+            "arrives charged, with a walkthrough of your power budget so nothing trips mid-event."
+        ),
+        "close": (
+            "Most {city} power-station bookings ship alongside a marquee tent, a Starlink "
+            "kit, or a projector — clean, silent, generator-grade power on a single truck "
+            "with no diesel fumes and no generator hum."
+        ),
+    },
 }
 
 
@@ -178,14 +222,35 @@ def _build_local_intro(product: dict, city: dict) -> str:
     # Build the sentences
     parts = []
 
-    # Experience sentence: two specific past-work references
-    exp_landmark = lang["verb_at_landmark"].format(landmark=landmark) if landmark else ""
-    exp_nb = lang["verb_at_neighborhood"].format(neighborhood=nb1) if nb1 else ""
-    if exp_landmark and exp_nb:
+    # Experience sentence. Products with real, high-volume history (tent, chair,
+    # …) use a "We've …" past-work sentence. Newer / lower-volume lines set
+    # `experience_override` so we frame the city's need + product fit instead of
+    # claiming a job history we can't stand behind (style_guide: no fabrication).
+    override_tpl = lang.get("experience_override")
+    if override_tpl and (landmark or nb1):
         parts.append(
-            f"We've {exp_landmark} and {exp_nb} — and we know the access "
-            f"quirks of {city_name}'s popular event sites."
+            override_tpl.format(
+                city=city_name,
+                landmark=landmark or nb1,
+                neighborhood=nb1 or landmark,
+            )
         )
+
+    # Experience sentence: two specific local references. Rotate among a few
+    # skeletons (deterministic by slug) so sibling pages in the same product
+    # family don't all open with the identical sentence structure.
+    exp_landmark = lang["verb_at_landmark"].format(landmark=landmark) if landmark and not override_tpl else ""
+    exp_nb = lang["verb_at_neighborhood"].format(neighborhood=nb1) if nb1 and not override_tpl else ""
+    if exp_landmark and exp_nb:
+        both_templates = (
+            f"We've {exp_landmark} and {exp_nb} — and we know the access "
+            f"quirks of {city_name}'s popular event sites.",
+            f"We've {exp_nb} and {exp_landmark}, so {city_name}'s venues — and "
+            f"their access quirks — are familiar ground for our crew.",
+            f"From {exp_landmark} to {exp_nb}, we've worked the range of "
+            f"{city_name} event sites and know how each one loads in.",
+        )
+        parts.append(both_templates[seed % len(both_templates)])
     elif exp_landmark:
         parts.append(f"We've {exp_landmark} and we know {city_name}'s venue access quirks.")
     elif exp_nb:

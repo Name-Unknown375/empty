@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="planner/planner.css?v=18"/>
+<link rel="stylesheet" href="planner/planner.css?v=19"/>
 <style>
   html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
   body { overflow: hidden; }
@@ -284,7 +284,7 @@
     <div id="plPaletteGroups"></div>
 
     <div style="margin-top:24px;font-size:11px;color:var(--pl-muted);line-height:1.5">
-      <strong style="color:var(--pl-green)">Tips:</strong> drop a table to auto-place chairs around it — adjust the count from the right panel. Drag on empty canvas to multi-select, Shift-click to add, hold Space to pan. ⌘C / ⌘V copies a whole selection (including chairs). Hold Shift while dropping to skip auto-chairs, while moving for 0.25 ft snapping, or while rotating for 15° steps — hold Alt for 90° rotation snap, ⌘/Ctrl for 180°.
+      <strong style="color:var(--pl-green)">Tips:</strong> drop a table to auto-place chairs around it — adjust the count from the right panel. Drag on empty canvas to multi-select, then right-click to align or distribute the selection. Shift-click adds to a selection, Space pans. ⌘C / ⌘V copies a whole selection (including chairs). Custom areas and labels have corner handles — drag to resize. Hold Shift while dropping to skip auto-chairs, while moving or resizing for snapping, or while rotating for 15° steps — Alt for 90°, ⌘/Ctrl for 180°. Add a guest list in the right panel to put names beside seats.
     </div>
   </aside>
 
@@ -324,6 +324,16 @@
          aisles) from planner.js renderValidation(). Hidden when clean;
          clicking a row selects the offending items. -->
     <div id="plValidation" class="pl-validation" hidden></div>
+
+    <!-- Guest list — names + per-table seat assignment, rendered by
+         planner.js renderGuestPanel(). <details> keeps the rail compact;
+         the summary line carries the live counts. Assigned names render
+         beside their table's chairs on the canvas and in the PDF's
+         seating chart. -->
+    <details class="pl-guests" id="plGuestDetails">
+      <summary class="pl-section-title pl-guests-summary" id="plGuestSummary">Guest list</summary>
+      <div id="plGuestPanel"></div>
+    </details>
 
     <div class="pl-section-title">Items</div>
     <div id="plTally" class="pl-tally"></div>
@@ -389,6 +399,6 @@
 </div>
 
 <script src="planner/layout-gen.js?v=4"></script>
-<script src="planner/planner.js?v=27"></script>
+<script src="planner/planner.js?v=28"></script>
 </body>
 </html>

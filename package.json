@@ -4,5 +4,8 @@
   "description": "Static site (Netlify). package.json exists only to supply dependencies to netlify/functions/.",
   "dependencies": {
     "@netlify/blobs": "^10.7.9"
+  },
+  "devDependencies": {
+    "jsdom": "^29.1.1"
   }
 }

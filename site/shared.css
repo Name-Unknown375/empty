@@ -89,23 +89,27 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
 
 /* ── NAV ── */
 #nav { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 0 rgba(0,0,0,.02), 0 6px 20px -12px rgba(30,58,47,.18); }
-#nav .nav-inner { display: flex; align-items: center; height: 96px; gap: 8px; }
-#nav .nav-logo { display: flex; align-items: center; margin-right: 28px; flex: none; }
+/* The nav bar is full-bleed white, so its inner row may run wider than the
+   1280px page container — the full menu + CTA needs the extra room. The
+   topbar inner is widened to match so the right edges stay aligned. */
+#nav .nav-inner { display: flex; align-items: center; height: 96px; gap: 8px; max-width: 1560px; }
+#topbar .container { max-width: 1560px; }
+#nav .nav-logo { display: flex; align-items: center; margin-right: 16px; flex: none; }
 #nav .nav-logo img { height: 72px; width: auto; max-width: none; object-fit: contain; transition: transform .2s; transform: translateZ(0); will-change: transform; backface-visibility: hidden; }
 #nav .nav-logo:hover img { transform: translateZ(0) scale(1.02); }
 #nav .nav-links { display: flex; align-items: center; gap: 2px; margin-left: auto; }
 #nav .nav-link { position: relative; }
 #nav .nav-link > a, #nav .nav-link > span, #nav .nav-link > button.nav-trigger {
-  padding: 10px 14px; font-size: 13px; font-weight: 500; color: #2a2a2a;
+  padding: 10px 10px; font-size: 12px; font-weight: 500; color: #2a2a2a;
   display: block; cursor: pointer; white-space: nowrap;
-  letter-spacing: .4px; text-transform: uppercase;
+  letter-spacing: .3px; text-transform: uppercase;
   transition: color .18s;
   position: relative;
   background: none; border: none; font-family: inherit;
 }
 /* gold underline indicator */
 #nav .nav-link > a::after, #nav .nav-link > span::after, #nav .nav-link > button.nav-trigger::after {
-  content: ''; position: absolute; left: 14px; right: 14px; bottom: 4px;
+  content: ''; position: absolute; left: 10px; right: 10px; bottom: 4px;
   height: 1.5px; background: var(--gold); transform: scaleX(0); transform-origin: center;
   transition: transform .22s ease;
 }
@@ -137,7 +141,7 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
 #nav .nav-link .dropdown .dropdown-sub:hover > a .dropdown-sub-caret, #nav .nav-link .dropdown .dropdown-sub.is-open > a .dropdown-sub-caret { color: var(--green); transform: translateX(2px); }
 #nav .nav-link .dropdown .subdropdown { display: none; position: absolute; top: -11px; left: 100%; min-width: 220px; background: #fff; border: 1px solid var(--border); border-top: 2px solid var(--gold); border-radius: 0 4px 4px 4px; box-shadow: 0 14px 40px -8px rgba(30,58,47,.18); padding: 10px; z-index: 201; margin-left: 1px; }
 #nav .nav-link .dropdown .dropdown-sub:hover .subdropdown, #nav .nav-link .dropdown .dropdown-sub.is-open .subdropdown { display: block; }
-#nav .nav-cta { margin-left: 20px !important; padding: 14px 26px !important; font-size: 12px !important; letter-spacing: 1.2px !important; text-transform: uppercase !important; border: 1.5px solid var(--gold) !important; background: var(--gold) !important; color: #fff !important; box-shadow: 0 4px 14px -4px rgba(201,164,74,.5) !important; }
+#nav .nav-cta { margin-left: 12px !important; padding: 12px 18px !important; font-size: 11px !important; letter-spacing: 1px !important; text-transform: uppercase !important; border: 1.5px solid var(--gold) !important; background: var(--gold) !important; color: #fff !important; box-shadow: 0 4px 14px -4px rgba(201,164,74,.5) !important; }
 #nav .nav-cta:hover { background: var(--green) !important; border-color: var(--green) !important; box-shadow: 0 6px 18px -4px rgba(30,58,47,.35) !important; }
 /* Mobile hamburger */
 #nav .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; margin-left: auto; background: none; border: none; }
@@ -146,13 +150,10 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
 #nav .nav-mobile.open { display: block; }
 #nav .nav-mobile a { display: block; padding: 14px 16px; font-size: 15px; color: var(--dark); }
 #nav .nav-mobile a:hover { color: var(--green); }
+/* The full menu (logo + 9 links + CTA) needs ~1300px even at compact sizing,
+   so anything narrower than 1400px gets the hamburger — below that the
+   Book Now CTA was getting clipped off the right edge. */
 @media (max-width: 1400px) {
-  #nav .nav-link > a, #nav .nav-link > span, #nav .nav-link > button.nav-trigger { padding: 10px 10px; font-size: 12px; letter-spacing: .3px; }
-  #nav .nav-link > a::after, #nav .nav-link > span::after, #nav .nav-link > button.nav-trigger::after { left: 10px; right: 10px; }
-  #nav .nav-cta { margin-left: 12px !important; padding: 12px 18px !important; font-size: 11px !important; letter-spacing: 1px !important; }
-  #nav .nav-logo { margin-right: 16px; }
-}
-@media (max-width: 1280px) {
   #nav .nav-inner { height: 100px; }
   #nav .nav-logo img { height: 80px; }
   #nav .nav-links, #nav .nav-cta { display: none !important; }
@@ -164,6 +165,21 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
 }
 @media (max-width: 540px) {
   #topbar .container { justify-content: center; }
+}
+
+/* ── ADELIE BOOKING WIDGET (third-party embed) ── */
+/* Adelie's injected stylesheet "breaks out" of our 960px container at
+   desktop widths with a fixed width + negative right margin
+   (width:1180px; margin-right:-244px). Between ~1100 and ~1260px viewport
+   that pushes 100+px past the right edge and drags the whole page into
+   horizontal scroll. !important is required to beat their injected rules;
+   width:auto keeps the widget inside our container at every width. */
+#adelie {
+  width: auto !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  overflow-x: auto;
 }
 
 /* ── PAGE HERO (inner pages) ── */
@@ -237,11 +253,14 @@ img[src$="/carnival/balloon-pop.jpg"]      { object-position: center center; }
 .logos-bar-inner { display: flex; align-items: center; gap: 40px; }
 .logos-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #111; white-space: nowrap; flex-shrink: 0; }
 .logo-marquee { overflow: hidden; flex: 1; -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
-.logo-track { display: flex; gap: 64px; align-items: center; width: max-content; animation: logo-scroll 35s linear infinite; }
+.logo-track { display: flex; gap: 64px; align-items: center; width: max-content; animation: logo-scroll 80s linear infinite; }
 .logo-track:hover { animation-play-state: paused; }
 @keyframes logo-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .logo-track img { height: 28px; object-fit: contain; opacity: .45; filter: grayscale(1); transition: opacity .15s; flex-shrink: 0; }
 .logo-track img:hover { opacity: .75; }
+.logo-word { font-size: 15px; font-weight: 500; letter-spacing: .8px; white-space: nowrap; color: #1a1a1a; opacity: .45; transition: opacity .15s; flex-shrink: 0; }
+.logo-word:hover { opacity: .75; }
+@media (prefers-reduced-motion: reduce) { .logo-track { animation: none; } }
 
 /* ── STATS ── */
 .stat-item { text-align: center; }

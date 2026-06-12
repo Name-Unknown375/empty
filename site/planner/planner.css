@@ -1382,3 +1382,58 @@ body.pl-lite .pl-quote-block { display: none !important; }
 .pl-readonly .pl-sheet-handle,
 .pl-readonly .pl-scrim { display: none !important; }
 .pl-mobile-notice { display: none; }
+
+/* ── Resize handles (custom areas + text labels) ───────────────────────── */
+.pl-resize-handle { fill: #fff; stroke: var(--pl-gold); stroke-width: 1.5; }
+.pl-resize-handle:hover { fill: var(--pl-gold); }
+
+/* ── Guest names on the canvas ─────────────────────────────────────────── */
+.pl-guest-name {
+  font-family: inherit; font-weight: 600;
+  fill: var(--pl-green);
+  paint-order: stroke; stroke: rgba(255,255,255,.85); stroke-width: 0.18px;
+}
+
+/* ── Guest list panel (right rail) ─────────────────────────────────────── */
+.pl-guests { margin-top: 22px; }
+.pl-guests-summary {
+  margin: 0 0 8px; cursor: pointer; list-style: none; user-select: none;
+}
+.pl-guests-summary::-webkit-details-marker { display: none; }
+.pl-guests-summary::before {
+  content: '▸'; display: inline-block; margin-right: 6px;
+  transition: transform .15s; color: var(--pl-gold);
+}
+.pl-guests[open] .pl-guests-summary::before { transform: rotate(90deg); }
+.pl-guest-add { display: flex; gap: 6px; margin-bottom: 8px; }
+.pl-guest-add input {
+  flex: 1; min-width: 0; padding: 7px 9px; font-size: 12px;
+  border: 1px solid var(--pl-border); border-radius: var(--pl-radius);
+  font-family: inherit;
+}
+.pl-guest-add input:focus { outline: 2px solid var(--pl-gold); outline-offset: 0; border-color: var(--pl-gold); }
+.pl-guest-group {
+  font-size: 10.5px; letter-spacing: .8px; text-transform: uppercase;
+  color: var(--pl-muted); font-weight: 600; margin: 10px 0 4px;
+}
+.pl-guest-group.pl-guest-over { color: #B3402E; }
+.pl-guest-row {
+  display: flex; align-items: center; gap: 6px; padding: 3px 0;
+  border-bottom: 1px solid var(--pl-border); font-size: 12px;
+}
+.pl-guest-nm { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pl-guest-table {
+  font-size: 11px; padding: 3px 4px; border: 1px solid var(--pl-border);
+  border-radius: var(--pl-radius); background: #fff; font-family: inherit;
+  max-width: 92px;
+}
+.pl-guest-del {
+  border: none; background: none; color: var(--pl-muted); cursor: pointer;
+  font-size: 14px; line-height: 1; padding: 2px 4px; border-radius: 3px;
+}
+.pl-guest-del:hover { color: #B3402E; background: rgba(179,64,46,.08); }
+.pl-guest-toggle {
+  display: flex; align-items: center; gap: 6px; margin-top: 10px;
+  font-size: 11px; color: var(--pl-muted); cursor: pointer;
+}
+.pl-guest-empty { font-size: 11px; color: var(--pl-muted); line-height: 1.5; }

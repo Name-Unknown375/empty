@@ -172,12 +172,43 @@ const TESTIMONIALS = [
   { name: 'Amber Schmidt', event: 'Celebration', text: 'Forever Party Rentals was amazing. Incredibly accommodating, the tables were brand new in the plastic, and they made drop off super flexible.' },
 ];
 
+// Client list sourced from RentKit customer records (June 2026).
+// Entries with `src` render as logo images; entries without render as
+// styled text wordmarks (.logo-word). To upgrade a wordmark to a real
+// logo, drop the file in /images/partners/ and add a `src` here.
 const CLIENTS = [
   { name: 'lululemon', src: '/images/partners/lululemon.png' },
+  { name: 'Canadian Cancer Society' },
   { name: 'CIBC Run for the Cure', src: '/images/partners/cibc-run-for-the-cure.png' },
+  { name: 'KPMG' },
+  { name: 'Scotiabank' },
   { name: 'Inclusion Langley', src: '/images/partners/inclusion-langley.png' },
+  { name: 'PwC' },
+  { name: 'BC Hydro' },
   { name: 'Softball BC', src: '/images/partners/softball-bc.jpg' },
+  { name: 'Arc\'teryx' },
+  { name: 'MEC' },
   { name: 'Vancouver Auto Show', src: '/images/partners/vancouver-auto-show.png' },
+  { name: 'L\'Oréal' },
+  { name: '7-Eleven' },
+  { name: 'EllisDon' },
+  { name: 'Aecon' },
+  { name: 'CBRE' },
+  { name: 'Colliers' },
+  { name: 'QuadReal' },
+  { name: 'Trans Mountain' },
+  { name: 'Sherwin-Williams' },
+  { name: 'Benjamin Moore' },
+  { name: 'Fraser Health' },
+  { name: 'First Nations Health Authority' },
+  { name: 'BCIT' },
+  { name: 'Justice Institute of BC' },
+  { name: 'Trinity Western University' },
+  { name: 'YMCA BC' },
+  { name: 'YWCA Metro Vancouver' },
+  { name: 'Big Brothers Big Sisters' },
+  { name: 'KidSport' },
+  { name: 'Vancouver Foundation' },
 ];
 
 // Render testimonial cards into a container.
@@ -199,8 +230,14 @@ function renderTestimonials(containerId, data = TESTIMONIALS) {
 function renderLogos(containerId, data = CLIENTS) {
   const el = document.getElementById(containerId);
   if (!el || el.childElementCount > 0) return;
-  const img = c => `<img src="${c.src}" alt="${c.name}" loading="lazy" decoding="async">`;
-  el.innerHTML = [...data, ...data].map(img).join('');
+  const item = (c, hidden) => {
+    const hide = hidden ? ' aria-hidden="true"' : '';
+    return c.src
+      ? `<img src="${c.src}" alt="${hidden ? '' : c.name}"${hide} loading="lazy" decoding="async">`
+      : `<span class="logo-word"${hide}>${c.name}</span>`;
+  };
+  // Second copy is decorative — it exists only for the seamless loop.
+  el.innerHTML = data.map(c => item(c, false)).join('') + data.map(c => item(c, true)).join('');
 }
 
 // ── Active-link hydration ──

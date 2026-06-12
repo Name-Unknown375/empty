@@ -44,6 +44,7 @@
     eventName: '',
     venue: { widthFt: 40, depthFt: 30 },
     items: [],
+    guests: [],     // [{ id, name, tableId|null }] — see Guest list section
     view: { scale: 14, panX: 0, panY: 0 },
     selectedIds: [],
     eventDays: 1,   // pinned to 1 — FPR weekend rentals are priced as a single rental
@@ -52,6 +53,8 @@
   let future = [];           // redo stack
   let nextId = 1;
   const newId = () => `i${nextId++}`;
+  let nextGuestId = 1;
+  const newGuestId = () => `g${nextGuestId++}`;
 
   // ── Selection helpers ────────────────────────────────────────────────
   // Items can be a "table+chairs" composite via parentId on each chair.
@@ -206,6 +209,7 @@
       eventName: state.eventName,
       venue: state.venue,
       items: state.items,
+      guests: state.guests,
       eventDays: state.eventDays,
     };
     if (!withMeta) return core;
@@ -228,12 +232,30 @@
     if (!Number.isFinite(state.venue.widthFt) || state.venue.widthFt <= 0) state.venue.widthFt = 40;
     if (!Number.isFinite(state.venue.depthFt) || state.venue.depthFt <= 0) state.venue.depthFt = 30;
     state.items = parsed.items.map(it => ({ ...it }));
+    // Guests: explicit array (incl. empty) replaces; undefined PRESERVES the
+    // current list — templates and the layout wizard replace furniture, and
+    // a typed-in guest list shouldn't be collateral damage. Assignments to
+    // tables that no longer exist are kept but treated as unassigned by
+    // every display surface (non-destructive — undo can resurrect tables).
+    if (Array.isArray(parsed.guests)) {
+      state.guests = parsed.guests
+        .map(g => ({
+          id: typeof g.id === 'string' ? g.id : newGuestId(),
+          name: String(g.name || '').trim().slice(0, 60),
+          tableId: g.tableId || null,
+        }))
+        .filter(g => g.name);
+    }
     state.eventDays = parsed.eventDays || 1;
     if (resetSelection) clearSelection();
     // Bump nextId past anything in the loaded items so new items don't collide.
     for (const it of state.items) {
       const n = parseInt(String(it.id || '').replace(/^i/, ''), 10);
       if (Number.isFinite(n) && n >= nextId) nextId = n + 1;
+    }
+    for (const g of state.guests) {
+      const n = parseInt(String(g.id || '').replace(/^g/, ''), 10);
+      if (Number.isFinite(n) && n >= nextGuestId) nextGuestId = n + 1;
     }
   }
 
@@ -1666,6 +1688,9 @@
     for (const it of others) drawItem(root, it);
     for (const it of labels) drawItem(root, it);
 
+    // Guest names beside their assigned tables' chairs (zoom-gated).
+    drawGuestNames(root);
+
     // Selection halos drawn last, on top of everything. The rotate handle
     // only appears when exactly one item is selected (multi-rotate uses
     // toolbar buttons which rotate each item around its own center).
@@ -1709,6 +1734,9 @@
     // Inspector (chair-count stepper) — visible only when single seated
     // table is selected. Lives in the right rail above the stats.
     renderInspector();
+
+    // Guest list panel (right rail).
+    renderGuestPanel();
 
     // Backdrop panel visibility + button state.
     renderBackdropPanel();
@@ -2370,6 +2398,242 @@
         'pointer-events': 'auto',
       }, sel);
     }
+
+    // Corner resize handles — only for items that carry per-instance dims
+    // (custom areas and text labels; catalog rentals are real products with
+    // fixed footprints, so resizing them would lie about what arrives on
+    // the truck). Drawn in the rotated selection frame; the drag handler
+    // maps pointer deltas back into this local frame.
+    if (cat.shape === 'customArea' || cat.shape === 'text') {
+      const hs = 0.45; // handle square size, ft
+      const corners = [
+        { c: 'nw', x: -sz.w/2 - pad, y: -sz.d/2 - pad },
+        { c: 'ne', x:  sz.w/2 + pad, y: -sz.d/2 - pad },
+        { c: 'se', x:  sz.w/2 + pad, y:  sz.d/2 + pad },
+        { c: 'sw', x: -sz.w/2 - pad, y:  sz.d/2 + pad },
+      ];
+      for (const k of corners) {
+        const h = svg('rect', {
+          x: k.x - hs/2, y: k.y - hs/2, width: hs, height: hs,
+          class: 'pl-resize-handle', 'vector-effect': 'non-scaling-stroke',
+          'data-handle': 'resize', 'data-corner': k.c,
+          'pointer-events': 'auto',
+        }, sel);
+        h.style.cursor = (k.c === 'nw' || k.c === 'se') ? 'nwse-resize' : 'nesw-resize';
+        if (IS_COARSE_POINTER) {
+          svg('rect', {
+            x: k.x - 1.1, y: k.y - 1.1, width: 2.2, height: 2.2,
+            fill: 'transparent', stroke: 'none',
+            'data-handle': 'resize', 'data-corner': k.c,
+            'pointer-events': 'auto',
+          }, sel);
+        }
+      }
+    }
+  }
+
+  // ── Guest list / seating assignments ──────────────────────────────────
+  // Guests live in state.guests as { id, name, tableId|null } and ride
+  // through every persistence surface (undo, autosave, .json, share URL).
+  // Assignment is per-TABLE — robust to chair regeneration (chair children
+  // are wholesale-replaced by the count stepper / type swap, so per-chair
+  // ids would not survive). Within a table, list order = seat order, and
+  // names render beside the table's chairs in that order. A tableId whose
+  // table no longer exists is treated as unassigned everywhere but kept on
+  // the guest (undo can resurrect the table, and the assignment with it).
+  let showGuestNames = true;
+  try { showGuestNames = localStorage.getItem('fpr-planner-guest-names') !== '0'; } catch (e) {}
+
+  // Seated tables in stable display order with 1-based numbers. Reuses the
+  // canvas numbering when it's active (2+ tables); a lone table is "Table 1".
+  function tableDisplayList() {
+    const tables = state.items.filter(_isSeatedTable);
+    const center = (t) => {
+      const sz = effectiveSize(t);
+      return { x: t.x + sz.w / 2, y: t.y + sz.d / 2 };
+    };
+    tables.sort((a, b) => {
+      const ca = center(a), cb = center(b);
+      if (Math.abs(ca.y - cb.y) > 4) return ca.y - cb.y;
+      return ca.x - cb.x;
+    });
+    return tables.map((t, i) => {
+      const chairs = getChildren(t.id).filter(ch => byKey[ch.key] && byKey[ch.key].key.includes('chair'));
+      const cat = byKey[t.key];
+      const seats = chairs.length > 0 ? chairs.length
+        : (t.chairCount != null ? t.chairCount : (cat && cat.seats) || 0);
+      return {
+        table: t,
+        num: i + 1,
+        seats,
+        guests: state.guests.filter(g => g.tableId === t.id),
+      };
+    });
+  }
+  function unassignedGuests() {
+    const tableIds = new Set(state.items.filter(_isSeatedTable).map(t => t.id));
+    return state.guests.filter(g => !g.tableId || !tableIds.has(g.tableId));
+  }
+
+  // Accepts "Jane Doe" or a pasted "Jane, Raj, Mei-Ling" / newline list.
+  function addGuestsFromText(text) {
+    const names = String(text || '').split(/[,\n;]+/)
+      .map(s => s.trim().slice(0, 60)).filter(Boolean);
+    if (!names.length) return 0;
+    commit();
+    for (const name of names) state.guests.push({ id: newGuestId(), name, tableId: null });
+    render();
+    track('planner_guests_add', { count: names.length, total: state.guests.length });
+    return names.length;
+  }
+  function assignGuest(guestId, tableId) {
+    const g = state.guests.find(x => x.id === guestId);
+    if (!g) return;
+    commit();
+    g.tableId = tableId || null;
+    render();
+  }
+  function removeGuest(guestId) {
+    const i = state.guests.findIndex(x => x.id === guestId);
+    if (i === -1) return;
+    commit();
+    state.guests.splice(i, 1);
+    render();
+  }
+
+  // Short display form: "Jane D." — long enough to recognize, short enough
+  // to sit beside a chair without colliding with the neighbours.
+  function guestShortName(name) {
+    const parts = String(name).trim().split(/\s+/);
+    return parts[0] + (parts[1] ? ' ' + parts[1][0].toUpperCase() + '.' : '');
+  }
+
+  // Canvas pass: names beside each assigned table's chairs (or around the
+  // rim of a chairless table). Skipped when zoomed out far enough that the
+  // text would be unreadable smudge (< 8 px/ft).
+  function drawGuestNames(root) {
+    if (!showGuestNames || state.guests.length === 0 || state.view.scale < 8) return;
+    for (const row of tableDisplayList()) {
+      if (!row.guests.length) continue;
+      const t = row.table;
+      const sz = effectiveSize(t);
+      const cx = t.x + sz.w / 2, cy = t.y + sz.d / 2;
+      const chairs = getChildren(t.id).filter(ch => byKey[ch.key] && byKey[ch.key].key.includes('chair'));
+      row.guests.forEach((g, i) => {
+        let px, py;
+        if (chairs[i]) {
+          const csz = effectiveSize(chairs[i]);
+          const ccx = chairs[i].x + csz.w / 2, ccy = chairs[i].y + csz.d / 2;
+          const len = Math.hypot(ccx - cx, ccy - cy) || 1;
+          px = ccx + (ccx - cx) / len * 1.0;
+          py = ccy + (ccy - cy) / len * 1.0;
+        } else {
+          // Chairless table: distribute around an ellipse just outside it.
+          const ang = (i / Math.max(row.guests.length, 1)) * Math.PI * 2 - Math.PI / 2;
+          px = cx + Math.cos(ang) * (sz.w / 2 + 1.4);
+          py = cy + Math.sin(ang) * (sz.d / 2 + 1.4);
+        }
+        const txt = svg('text', {
+          x: px, y: py,
+          class: 'pl-guest-name',
+          'text-anchor': 'middle',
+          'font-size': 0.9,
+          'pointer-events': 'none',
+        }, root);
+        txt.textContent = guestShortName(g.name);
+      });
+    }
+  }
+
+  // Sidebar panel — list grouped by table, with per-guest table <select>.
+  // Rebuilt on every render; the add-input's value/focus is preserved
+  // across rebuilds so background renders never eat a half-typed name.
+  function renderGuestPanel() {
+    const host = dom.guestPanel;
+    if (!host) return;
+    const addInput = host.querySelector('#plGuestAddInput');
+    const hadFocus = addInput && document.activeElement === addInput;
+    const pendingVal = addInput ? addInput.value : '';
+
+    const rows = tableDisplayList();
+    const unassigned = unassignedGuests();
+    const total = state.guests.length;
+    if (dom.guestSummary) {
+      dom.guestSummary.textContent = total === 0
+        ? 'Guest list'
+        : `Guest list (${total}${unassigned.length ? ` · ${unassigned.length} unseated` : ''})`;
+    }
+
+    const tableOpts = (sel) => `<option value=""${!sel ? ' selected' : ''}>Unseated</option>` +
+      rows.map(r => `<option value="${r.table.id}"${sel === r.table.id ? ' selected' : ''}>Table ${r.num}</option>`).join('');
+    const guestRow = (g) => `
+      <div class="pl-guest-row" data-guest="${g.id}">
+        <span class="pl-guest-nm">${escapeHtml(g.name)}</span>
+        <select class="pl-guest-table" aria-label="Table for ${escapeHtml(g.name)}">${tableOpts(g.tableId && rows.some(r => r.table.id === g.tableId) ? g.tableId : null)}</select>
+        <button type="button" class="pl-guest-del" aria-label="Remove ${escapeHtml(g.name)}">×</button>
+      </div>`;
+
+    let html = `
+      <div class="pl-guest-add">
+        <input id="plGuestAddInput" type="text" maxlength="400" placeholder="Add names — commas for several"/>
+        <button type="button" class="pl-btn pl-btn-small" id="plGuestAddBtn">Add</button>
+      </div>`;
+    if (total > 0) {
+      for (const r of rows) {
+        if (!r.guests.length) continue;
+        const over = r.guests.length > r.seats && r.seats > 0;
+        html += `<div class="pl-guest-group${over ? ' pl-guest-over' : ''}">Table ${r.num} — ${r.guests.length}/${r.seats}${over ? ' (not enough seats)' : ''}</div>`;
+        html += r.guests.map(guestRow).join('');
+      }
+      if (unassigned.length) {
+        html += `<div class="pl-guest-group">Unseated — ${unassigned.length}</div>`;
+        html += unassigned.map(guestRow).join('');
+      }
+      html += `
+        <label class="pl-guest-toggle">
+          <input type="checkbox" id="plGuestShowNames"${showGuestNames ? ' checked' : ''}/>
+          Show names on the layout
+        </label>`;
+    } else {
+      html += `<div class="pl-guest-empty">Type names to build a seating plan — assign each guest to a table and the names appear beside their chairs.</div>`;
+    }
+    host.innerHTML = html;
+
+    const input = host.querySelector('#plGuestAddInput');
+    const addBtn = host.querySelector('#plGuestAddBtn');
+    if (input) {
+      input.value = pendingVal;
+      if (hadFocus) { input.focus(); try { input.setSelectionRange(pendingVal.length, pendingVal.length); } catch (e) {} }
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          if (addGuestsFromText(input.value)) {
+            const fresh = dom.guestPanel.querySelector('#plGuestAddInput');
+            if (fresh) { fresh.value = ''; fresh.focus(); }
+          }
+        }
+      });
+    }
+    if (addBtn) addBtn.addEventListener('click', () => {
+      const inp = host.querySelector('#plGuestAddInput');
+      if (inp && addGuestsFromText(inp.value)) {
+        const fresh = dom.guestPanel.querySelector('#plGuestAddInput');
+        if (fresh) { fresh.value = ''; fresh.focus(); }
+      }
+    });
+    host.querySelectorAll('.pl-guest-row').forEach(rowEl => {
+      const gid = rowEl.dataset.guest;
+      const sel = rowEl.querySelector('.pl-guest-table');
+      if (sel) sel.addEventListener('change', () => assignGuest(gid, sel.value || null));
+      const del = rowEl.querySelector('.pl-guest-del');
+      if (del) del.addEventListener('click', () => removeGuest(gid));
+    });
+    const show = host.querySelector('#plGuestShowNames');
+    if (show) show.addEventListener('change', () => {
+      showGuestNames = show.checked;
+      try { localStorage.setItem('fpr-planner-guest-names', showGuestNames ? '1' : '0'); } catch (e) {}
+      render();
+    });
   }
 
   // ── Stats / tally ─────────────────────────────────────────────────────
@@ -2943,6 +3207,7 @@
     let panning = null;        // { startX, startY, panStartX, panStartY }
     let moving = null;         // { ids:Set<id>, startWX, startWY, starts:Map<id,{x,y}> }
     let rotating = null;       // { id, cx, cy, startAngle, itemStartRotation }
+    let resizing = null;       // { id, corner, cx, cy, rot, startW, startD, startFs } — custom-area / label corner drag
     let marquee = null;        // { startCX, startCY, additive, didDrag, prevSelection }
     let pendingClick = null;   // { id, additive } — set on item-down to defer toggle to up if no drag occurred
     let backdropDrag = null;   // { startWX, startWY, startBX, startBY } — backdrop translate
@@ -2972,7 +3237,7 @@
           if (start) { it.x = start.x; it.y = start.y; }
         }
       }
-      moving = null; rotating = null; panning = null; marquee = null; pendingClick = null;
+      moving = null; rotating = null; resizing = null; panning = null; marquee = null; pendingClick = null;
       backdropDrag = null; vertexDrag = null;
       hideMarqueeRect();
       dom.canvas.classList.remove('pl-panning');
@@ -3089,6 +3354,27 @@
         backdropDrag = {
           startWX: w.x, startWY: w.y,
           startBX: b.x, startBY: b.y,
+        };
+        commit();
+        dom.svg.setPointerCapture(e.pointerId);
+        return;
+      }
+
+      // Resize handle? (custom areas + text labels — single selection only)
+      if (e.target.dataset && e.target.dataset.handle === 'resize') {
+        e.preventDefault();
+        const item = firstSelected();
+        if (!item) return;
+        const sz = effectiveSize(item);
+        resizing = {
+          id: item.id,
+          corner: e.target.dataset.corner,
+          cx: item.x + sz.w / 2,
+          cy: item.y + sz.d / 2,
+          rot: (item.rotation || 0) * Math.PI / 180,
+          startW: sz.w,
+          startD: sz.d,
+          startFs: item.fontSize || 1.2,
         };
         commit();
         dom.svg.setPointerCapture(e.pointerId);
@@ -3250,7 +3536,57 @@
         render();
         return;
       }
-      if (rotating) {
+      if (resizing) {
+        const item = state.items.find(it => it.id === resizing.id);
+        if (!item) return;
+        const cat = byKey[item.key];
+        if (!cat) return;
+        const w = clientToWorld(e.clientX, e.clientY);
+        // Pointer position in the item's LOCAL frame (origin = item center
+        // at drag start, axes rotated with the item).
+        const cos = Math.cos(-resizing.rot), sin = Math.sin(-resizing.rot);
+        const dx = w.x - resizing.cx, dy = w.y - resizing.cy;
+        const lx = dx * cos - dy * sin;
+        const ly = dx * sin + dy * cos;
+        // The dragged corner's sign pair; the OPPOSITE corner stays fixed.
+        const sx = resizing.corner.includes('e') ? 1 : -1;
+        const sy = resizing.corner.includes('s') ? 1 : -1;
+        const ox = -sx * resizing.startW / 2;  // opposite corner, local
+        const oy = -sy * resizing.startD / 2;
+
+        let newW, newD;
+        if (cat.shape === 'text') {
+          // Labels scale uniformly via fontSize; bbox follows the text metrics.
+          const startDiag = Math.hypot(resizing.startW, resizing.startD) || 1;
+          const k = Math.hypot(lx - ox, ly - oy) / startDiag;
+          const fs = Math.max(0.5, Math.min(6, resizing.startFs * k));
+          item.fontSize = fs;
+          const szL = approximateLabelSize(item.text, fs);
+          newW = szL.widthFt; newD = szL.depthFt;
+          item.widthFt = newW; item.depthFt = newD;
+        } else {
+          newW = Math.abs(lx - ox);
+          newD = Math.abs(ly - oy);
+          // Shift = snap dims to 0.5 ft (sibling of the move/rotate snaps).
+          if (e.shiftKey) {
+            newW = Math.round(newW * 2) / 2;
+            newD = Math.round(newD * 2) / 2;
+          }
+          newW = Math.max(1, Math.min(200, newW));
+          newD = Math.max(1, Math.min(200, newD));
+          item.widthFt = newW; item.depthFt = newD;
+        }
+        // New center: midpoint of fixed corner → dragged corner, in local
+        // frame, mapped back to world. Keeps the opposite corner pinned.
+        const ncxL = ox + sx * newW / 2;
+        const ncyL = oy + sy * newD / 2;
+        const cosF = Math.cos(resizing.rot), sinF = Math.sin(resizing.rot);
+        const ncx = resizing.cx + ncxL * cosF - ncyL * sinF;
+        const ncy = resizing.cy + ncxL * sinF + ncyL * cosF;
+        item.x = ncx - newW / 2;
+        item.y = ncy - newD / 2;
+        render();
+      } else if (rotating) {
         const w = clientToWorld(e.clientX, e.clientY);
         const angle = Math.atan2(w.y - rotating.cy, w.x - rotating.cx) * 180 / Math.PI;
         let next = rotating.itemStartRotation + (angle - rotating.startAngle);
@@ -3332,7 +3668,7 @@
       if (vertexDrag) {
         fitVenueToPolygon();
       }
-      moving = null; rotating = null; panning = null; marquee = null; pendingClick = null;
+      moving = null; rotating = null; resizing = null; panning = null; marquee = null; pendingClick = null;
       backdropDrag = null; vertexDrag = null;
       hideMarqueeRect();
       dom.canvas.classList.remove('pl-panning');
@@ -3532,6 +3868,81 @@
       ch.rotation = ((ch.rotation || 0) + deg) % 360;
     }
   }
+  // ── Align / distribute ────────────────────────────────────────────────
+  // Operates on "units": selected items minus any whose parent is also
+  // selected (chairs ride along with their table). Each unit's bounding
+  // box includes its children and its rotation, so a table+chair ring
+  // aligns by the envelope a guest actually experiences, not the bare
+  // tabletop. Reachable from the right-click menu on a multi-selection.
+  function _selectionUnits() {
+    return selectedItems().filter(it => !(it.parentId && isSelected(it.parentId)));
+  }
+  // World-frame AABB of an item + its children, rotation included.
+  function _unitAabb(item) {
+    let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+    const eat = (it) => {
+      for (const p of _itemCorners(it)) {
+        if (p.x < minX) minX = p.x;
+        if (p.y < minY) minY = p.y;
+        if (p.x > maxX) maxX = p.x;
+        if (p.y > maxY) maxY = p.y;
+      }
+    };
+    eat(item);
+    for (const ch of getChildren(item.id)) eat(ch);
+    return { minX, minY, maxX, maxY, w: maxX - minX, h: maxY - minY };
+  }
+  function _moveUnit(item, dx, dy) {
+    if (!dx && !dy) return;
+    item.x += dx; item.y += dy;
+    for (const ch of getChildren(item.id)) { ch.x += dx; ch.y += dy; }
+  }
+  function alignSelected(mode) {
+    const units = _selectionUnits();
+    if (units.length < 2) return;
+    const boxes = units.map(u => ({ u, b: _unitAabb(u) }));
+    commit();
+    // Targets: edges use the selection's extremes; centers use the
+    // selection bbox midpoint.
+    const minX = Math.min(...boxes.map(x => x.b.minX));
+    const maxX = Math.max(...boxes.map(x => x.b.maxX));
+    const minY = Math.min(...boxes.map(x => x.b.minY));
+    const maxY = Math.max(...boxes.map(x => x.b.maxY));
+    for (const { u, b } of boxes) {
+      let dx = 0, dy = 0;
+      if (mode === 'left')    dx = minX - b.minX;
+      if (mode === 'right')   dx = maxX - b.maxX;
+      if (mode === 'centerH') dx = (minX + maxX) / 2 - (b.minX + b.maxX) / 2;
+      if (mode === 'top')     dy = minY - b.minY;
+      if (mode === 'bottom')  dy = maxY - b.maxY;
+      if (mode === 'centerV') dy = (minY + maxY) / 2 - (b.minY + b.maxY) / 2;
+      _moveUnit(u, dx, dy);
+    }
+    render();
+  }
+  // Equal gaps between unit bboxes along one axis; first and last stay put.
+  function distributeSelected(axis) {
+    const units = _selectionUnits();
+    if (units.length < 3) return;
+    const horiz = axis === 'h';
+    const boxes = units.map(u => ({ u, b: _unitAabb(u) }))
+      .sort((a, z) => horiz
+        ? (a.b.minX + a.b.maxX) - (z.b.minX + z.b.maxX)
+        : (a.b.minY + a.b.maxY) - (z.b.minY + z.b.maxY));
+    const first = boxes[0].b, last = boxes[boxes.length - 1].b;
+    const span = horiz ? (last.maxX - first.minX) : (last.maxY - first.minY);
+    const total = boxes.reduce((s, x) => s + (horiz ? x.b.w : x.b.h), 0);
+    const gap = (span - total) / (boxes.length - 1);
+    commit();
+    let cursor = horiz ? first.minX : first.minY;
+    for (const { u, b } of boxes) {
+      const d = cursor - (horiz ? b.minX : b.minY);
+      _moveUnit(u, horiz ? d : 0, horiz ? 0 : d);
+      cursor += (horiz ? b.w : b.h) + gap;
+    }
+    render();
+  }
+
   function clearAll() {
     if (state.items.length === 0) return;
     plConfirm('Clear the entire layout? (Undo will restore it.)', { okLabel: 'Clear', danger: true }).then(ok => {
@@ -3661,17 +4072,40 @@
     // If the clicked item isn't currently selected, select just it so all
     // actions operate on a sensible target. (Mirrors Figma's behavior.)
     if (!inSel) setSelection([itemId]);
-    return [
+    const menu = [
       { label: 'Bring to front', action: () => bringToFront(state.selectedIds) },
       { label: 'Send to back',   action: () => sendToBack(state.selectedIds) },
       '-',
       { label: 'Rotate 90° left',  action: () => rotateSelected(-90) },
       { label: 'Rotate 90° right', action: () => rotateSelected(90) },
       '-',
+    ];
+    // Align / distribute — only meaningful on a multi-selection. Units
+    // exclude chairs whose table is also selected (they ride along).
+    const nUnits = _selectionUnits().length;
+    if (nUnits >= 2) {
+      menu.push(
+        { label: 'Align left',   action: () => alignSelected('left') },
+        { label: 'Align center', action: () => alignSelected('centerH') },
+        { label: 'Align right',  action: () => alignSelected('right') },
+        { label: 'Align top',    action: () => alignSelected('top') },
+        { label: 'Align middle', action: () => alignSelected('centerV') },
+        { label: 'Align bottom', action: () => alignSelected('bottom') },
+      );
+      if (nUnits >= 3) {
+        menu.push(
+          { label: 'Distribute horizontally', action: () => distributeSelected('h') },
+          { label: 'Distribute vertically',   action: () => distributeSelected('v') },
+        );
+      }
+      menu.push('-');
+    }
+    menu.push(
       { label: 'Copy',      action: () => copySelectionToClipboard() },
       { label: 'Duplicate', action: duplicateSelected },
       { label: 'Delete',    action: deleteSelected },
-    ];
+    );
+    return menu;
   }
 
   function buildContextMenuForCanvas(world) {
@@ -3834,7 +4268,19 @@
     const name  = _escapeText(s.eventName || '');
     const keys  = keyTable.join('.');
     const items = itemEncs.join('_');
-    const raw   = '2*' + keys + '*' + venue + '*' + name + '*' + items;
+    let raw     = '2*' + keys + '*' + venue + '*' + name + '*' + items;
+    // Optional 6th segment: guest list, "name~tableItemIdx" joined by `_`.
+    // Only appended when guests exist, so guest-free links are byte-identical
+    // to the previous schema. Older cached planners opening a guest-bearing
+    // link still parse items correctly: the extra "*G…" glues onto the LAST
+    // item's final numeric field, where parseFloat/parseInt stop at `*`.
+    if (s.guests && s.guests.length) {
+      const guestEncs = s.guests.map(g => {
+        const tIdx = g.tableId && itemIdx.has(g.tableId) ? String(itemIdx.get(g.tableId)) : '';
+        return _escapeText(g.name) + (tIdx ? '~' + tIdx : '');
+      });
+      raw += '*' + guestEncs.join('_');
+    }
     return encodeURIComponent(raw);
   }
 
@@ -3865,9 +4311,11 @@
     const d    = parseFloat(v[1]);
     if (!Number.isFinite(w) || !Number.isFinite(d)) return null;
     const eventName = _unescapeText(parts[3] || '');
-    // ITEMS may itself contain '*' if the schema ever grows — re-join the
-    // remainder defensively.
-    const itemsStr = parts.slice(4).join('*');
+    // parts[4] = items; parts[5] (optional, newer links) = guest list.
+    // `*` inside text fields is always escaped to `!3`, so a plain split
+    // on '*' cleanly separates the two segments.
+    const itemsStr = parts[4] || '';
+    const guestsStr = parts[5] || '';
     const itemStrs = itemsStr ? itemsStr.split('_') : [];
     const ids = itemStrs.map((_, idx) => 'i' + (idx + 1));
     try {
@@ -3898,10 +4346,20 @@
         }
         return out;
       });
+      const guests = !guestsStr ? [] : guestsStr.split('_').map((str, i) => {
+        const f = str.split('~');
+        const g = { id: 'g' + (i + 1), name: _unescapeText(f[0] || '').slice(0, 60), tableId: null };
+        if (f[1] !== undefined && f[1] !== '') {
+          const tIdx = parseInt(f[1], 10);
+          if (Number.isFinite(tIdx) && ids[tIdx]) g.tableId = ids[tIdx];
+        }
+        return g;
+      }).filter(g => g.name);
       return {
         eventName,
         venue: { widthFt: w, depthFt: d },
         items,
+        guests,
         eventDays: 1,
       };
     } catch (e) { return null; }
@@ -4651,6 +5109,27 @@
         writeLine(`${qty} ×  ${cat ? cat.label : key}`);
       }
       y += 8;
+
+      // Seating chart — only when a guest list exists. Long name lists
+      // wrap via splitTextToSize so a 12-top doesn't run off the page.
+      if (state.guests.length > 0) {
+        const wrapWidth = pw - margin * 2;
+        const writeWrapped = (text, opts) => {
+          for (const ln of doc.splitTextToSize(String(text), wrapWidth)) writeLine(ln, opts);
+        };
+        writeLine('SEATING', { size: 10, bold: true });
+        for (const r of tableDisplayList()) {
+          if (!r.guests.length) continue;
+          writeWrapped(
+            `Table ${r.num} (${r.guests.length}/${r.seats}):  ${r.guests.map(g => g.name).join(', ')}`
+          );
+        }
+        const un = unassignedGuests();
+        if (un.length) {
+          writeWrapped(`Unseated (${un.length}):  ${un.map(g => g.name).join(', ')}`, { color: 110 });
+        }
+        y += 8;
+      }
 
       if (!isExternalEmbed) {
         const lines = buildLineItems();
@@ -5733,6 +6212,8 @@
     dom.quoteStatus = document.getElementById('plQuoteStatus');
     dom.toast = document.getElementById('plToast');
     dom.inspector = document.getElementById('plInspector');
+    dom.guestPanel = document.getElementById('plGuestPanel');
+    dom.guestSummary = document.getElementById('plGuestSummary');
 
     dom.venueSizeRow        = document.getElementById('plVenueSizeRow');
     dom.venueUnits          = document.getElementById('plVenueUnits');

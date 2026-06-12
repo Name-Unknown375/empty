@@ -65,6 +65,46 @@
       "quote": "Forever Party Rentals was amazing. Incredibly accommodating, the tables were brand new in the plastic, and they made drop off super flexible.",
       "name": "Amber Schmidt",
       "event": "Celebration"
+    },
+    {
+      "quote": "Booked a 20x40 tent for our backyard wedding. Setup was flawless, the crew showed up early, and the tent held up through a surprise downpour. Worth every dollar.",
+      "name": "Jenna & Michael",
+      "event": "Backyard Wedding"
+    },
+    {
+      "quote": "We rented chiavari chairs and round tables for our 50-person anniversary dinner. The chairs looked brand new and the team was in and out in under an hour. Incredibly easy.",
+      "name": "Raymond D.",
+      "event": "Anniversary Dinner"
+    },
+    {
+      "quote": "Ordered online on a Sunday night and had a crew at our venue Tuesday morning. The online booking made it so simple — I didn't have to chase anyone for a quote.",
+      "name": "Priya S.",
+      "event": "Backyard Party"
+    },
+    {
+      "quote": "We've used Forever for three corporate events now. On-time every time, professional crew, and the inventory is always spotless. Our go-to rental partner.",
+      "name": "Daniel L.",
+      "event": "Corporate Event"
+    },
+    {
+      "quote": "The dance floor was the highlight of our reception — perfectly level, looked gorgeous, and they installed it around our existing setup without any issues.",
+      "name": "Alexandra M.",
+      "event": "Wedding Reception"
+    },
+    {
+      "quote": "Tent, tables, chairs, dance floor, and heaters for 120 guests. The 25% deposit model made it easy to budget, and the early-pay discount saved us real money.",
+      "name": "Omar H.",
+      "event": "Wedding"
+    },
+    {
+      "quote": "I had to reschedule twice because of weather. Devon was completely understanding both times and rolled the deposit forward without any hassle. Phenomenal customer service.",
+      "name": "Kelsey V.",
+      "event": "Outdoor Event"
+    },
+    {
+      "quote": "From the first phone call to the final pickup, every interaction was friendly and professional. This team actually cares about your event. Five stars isn't enough.",
+      "name": "Graham R.",
+      "event": "Celebration"
     }
   ],
   "cities": {
@@ -153,10 +193,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        5,
+        6,
+        7,
+        8
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Langley — vineyard ceremonies, berry-farm receptions, acreage backyards, and Langley Events Centre corporate gatherings"
@@ -201,10 +241,10 @@
         }
       ],
       "testimonialIndices": [
+        10,
+        11,
         0,
-        1,
-        2,
-        3
+        1
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery to every Vancouver venue — park ceremonies, rooftop receptions, downtown event spaces, and West Side backyards"
@@ -249,10 +289,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        3,
+        4,
+        5,
+        6
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Burnaby — Deer Lake Park ceremonies, Hart House and Burnaby Village heritage receptions, and Brentwood and Metrotown rooftop corporate events"
@@ -277,11 +317,10 @@
       "landmarks": [
         "Mill Lake Park",
         "Tradex Exhibition Centre",
-        "Swaneset Bay Resort",
         "Clayburn Village",
         "Abbotsford Airport"
       ],
-      "intro": "Abbotsford is one of our regular Highway 1 delivery routes, and it's one of the most rewarding cities we serve — Fraser Valley weddings have a specific setting that demands equipment that can stand up to wind, grass, long afternoons, and golden-hour photos. We've installed marquee tents for ceremonies at Swaneset Bay Resort, set up Chiavari chairs and banquet tables at private properties on Sumas Mountain, and delivered round tables and linens for corporate events at the Tradex Exhibition Centre. Whether your event is in Clearbrook, Matsqui, Sandy Hill, or just across the Aldergrove border, our Abbotsford party rentals arrive on time, hand-set, and ready to photograph. Book online 24/7, pick your delivery window, and we'll confirm within minutes — or call any day of the week if your event has extras we should scope.",
+      "intro": "Abbotsford is one of our regular Highway 1 delivery routes, and it's one of the most rewarding cities we serve — Fraser Valley weddings have a specific setting that demands equipment that can stand up to wind, grass, long afternoons, and golden-hour photos. We've installed marquee tents for vineyard and acreage ceremonies across the Mt. Lehman wine country, set up Chiavari chairs and banquet tables at private properties on Sumas Mountain, and delivered round tables and linens for corporate events at the Tradex Exhibition Centre. Whether your event is in Clearbrook, Matsqui, Sandy Hill, or just across the Aldergrove border, our Abbotsford party rentals arrive on time, hand-set, and ready to photograph. Book online 24/7, pick your delivery window, and we'll confirm within minutes — or call any day of the week if your event has extras we should scope.",
       "faqs": [
         {
           "q": "Do you deliver party rentals to Abbotsford?",
@@ -293,14 +332,14 @@
         },
         {
           "q": "Have you worked at venues in Abbotsford like Mill Lake Park?",
-          "a": "Yes — we regularly deliver rentals to Mill Lake Park, Tradex Exhibition Centre, and Swaneset Bay Resort and dozens of private residences across Abbotsford. We know the setback rules for most public parks in Abbotsford and can advise on what permits (if any) your venue requires for tents."
+          "a": "Yes — we regularly deliver rentals to Mill Lake Park, Tradex Exhibition Centre, and Clayburn Village and dozens of private residences across Abbotsford. We know the setback rules for most public parks in Abbotsford and can advise on what permits (if any) your venue requires for tents."
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        8,
+        9,
+        10,
+        11
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Abbotsford — Mill Lake Park ceremonies, vineyard and farm receptions, Tradex corporate events, and Clayburn-area heritage backyards"
@@ -344,10 +383,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
         1,
         2,
-        3
+        3,
+        4
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Coquitlam — Lafarge Lake ceremonies, Town Centre civic events, and Burke Mountain acreage receptions"
@@ -392,10 +431,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        6,
+        7,
+        8,
+        9
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Richmond — Steveston Heritage waterfront weddings, Minoru Park ceremonies, Olympic Oval corporate events, and River Rock-area receptions"
@@ -439,10 +478,10 @@
         }
       ],
       "testimonialIndices": [
+        11,
         0,
         1,
-        2,
-        3
+        2
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Maple Ridge — Golden Ears forest ceremonies, Alouette Lake shoreline weddings, and Hammond and Silver Valley acreage receptions"
@@ -486,10 +525,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        4,
+        5,
+        6,
+        7
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across North Vancouver — North Shore mountain ceremonies, Lonsdale Quay corporate events, and Capilano and Edgemont backyard receptions"
@@ -534,10 +573,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        9,
+        10,
+        11,
+        0
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across West Vancouver — Whytecliff Park ocean-backdrop ceremonies, Ambleside waterfront receptions, British Properties estate weddings, and Cypress Park mountain events"
@@ -580,10 +619,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
         2,
-        3
+        3,
+        4,
+        5
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Delta — Boundary Bay shoreline weddings, Ladner Village heritage receptions, and South Delta acreage celebrations"
@@ -627,10 +666,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        7,
+        8,
+        9,
+        10
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across White Rock — pier-side ceremonies, Marine Drive promenade weddings, and Semiahmoo Peninsula acreage receptions"
@@ -722,10 +761,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        5,
+        6,
+        7,
+        8
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across New Westminster — Queen's Park ceremonies, Pier Park waterfront receptions, Anvil Centre corporate events, and Sapperton heritage backyards"
@@ -768,10 +807,10 @@
         }
       ],
       "testimonialIndices": [
+        10,
+        11,
         0,
-        1,
-        2,
-        3
+        1
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Pitt Meadows — Swaneset Bay vineyard and resort receptions, Pitt Lake shoreline ceremonies, and Osprey Village waterfront events"
@@ -816,10 +855,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        3,
+        4,
+        5,
+        6
       ],
       "christmasServiceLevel": "full",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Langley Township — vineyard ceremonies, berry-farm receptions, Campbell Valley park weddings, and acreage backyard celebrations"
@@ -861,10 +900,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        8,
+        9,
+        10,
+        11
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Fort Langley — National Historic Site ceremonies, Derby Reach park weddings, and heritage-village backyard receptions"
@@ -905,10 +944,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
         1,
         2,
-        3
+        3,
+        4
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Willoughby — Langley Events Centre corporate events, Willoughby Community Park ceremonies, and residential backyard receptions"
@@ -949,10 +988,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        6,
+        7,
+        8,
+        9
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Carvolth — Langley Events Centre corporate events, Meridian Farm Market gatherings, and residential backyard receptions"
@@ -992,10 +1031,10 @@
         }
       ],
       "testimonialIndices": [
+        11,
         0,
         1,
-        2,
-        3
+        2
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Port Kells — Tynehead Park forest ceremonies, Serpentine River-adjacent receptions, and industrial-zone corporate events"
@@ -1036,10 +1075,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        4,
+        5,
+        6,
+        7
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across East Newton — Bear Creek Park ceremonies, Newton Athletic Park events, and residential backyard receptions"
@@ -1080,10 +1119,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        9,
+        10,
+        11,
+        0
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across East Clayton — Cloverdale Rodeo Grounds events, Clayton Community Centre receptions, and residential backyard ceremonies"
@@ -1124,10 +1163,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
         2,
-        3
+        3,
+        4,
+        5
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Walnut Grove — Derby Reach forest ceremonies, Bedford Landing waterfront receptions, and residential acreage weddings"
@@ -1169,10 +1208,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        7,
+        8,
+        9,
+        10
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Tsawwassen — Centennial Beach shoreline ceremonies, Diefenbaker Park weddings, and South Delta acreage receptions"
@@ -1259,10 +1298,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        5,
+        6,
+        7,
+        8
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Aldergrove — Aldergrove Regional Park ceremonies, Community Centre corporate events, and rural-residential backyard receptions"
@@ -1305,10 +1344,10 @@
         }
       ],
       "testimonialIndices": [
+        10,
+        11,
         0,
-        1,
-        2,
-        3
+        1
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Chilliwack — Cultus Lake shoreline ceremonies, Heritage Park weddings, and Eastern Fraser Valley acreage receptions"
@@ -1351,10 +1390,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        3,
+        4,
+        5,
+        6
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Mission — Fraser River Heritage Park ceremonies, Westminster Abbey-area receptions, and rural acreage weddings"
@@ -1396,10 +1435,10 @@
         }
       ],
       "testimonialIndices": [
-        0,
-        1,
-        2,
-        3
+        8,
+        9,
+        10,
+        11
       ],
       "christmasServiceLevel": "none",
       "deliveryWindow": "Tent, chair, table, and dance floor delivery across Harrison Hot Springs — destination wedding ceremonies, Harrison Beach lakefront receptions, and Sasquatch Park forest weddings"
