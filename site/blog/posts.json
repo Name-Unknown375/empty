@@ -3,7 +3,7 @@
   "meta": {
     "version": 1,
     "lastUpdated": "2026-06-16",
-    "totalPosts": 25,
+    "totalPosts": 28,
     "topics": {
       "sizing": {
         "label": "Tent Sizing & Planning",
@@ -58,6 +58,39 @@
     }
   },
   "posts": [
+    {
+      "slug": "burnaby-wedding-venues-rental-guide",
+      "topic": "venues",
+      "title": "Burnaby's <em>Best Wedding &amp; Event Venues</em>",
+      "h4": "Burnaby Wedding Venues + Rental Planning",
+      "excerpt": "Deer Lake's heritage mansions, the Burnaby Mountain rose garden, Shadbolt, and the Village Museum. Which venues book through the City, which need their own catering, and the tent rules that catch couples out.",
+      "author": "team",
+      "date": "2026-06-16",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "richmond-wedding-venues-rental-guide",
+      "topic": "venues",
+      "title": "Richmond's <em>Best Wedding &amp; Event Venues</em>",
+      "h4": "Richmond Wedding Venues + Rental Planning",
+      "excerpt": "Minoru Chapel, Steveston's Garry Point, Britannia, and London Farm. Plus the one rule that changes every Richmond tent: you can't stake into the ground.",
+      "author": "team",
+      "date": "2026-06-16",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "new-westminster-wedding-venues-rental-guide",
+      "topic": "venues",
+      "title": "New Westminster's <em>Best Wedding &amp; Event Venues</em>",
+      "h4": "New Westminster Wedding Venues + Rental Planning",
+      "excerpt": "The Queen's Park Rose Garden, Centennial Lodge, and Westminster Pier Park. The City's designated ceremony spots, the insurance rule, and why every New West tent is a weighted install.",
+      "author": "team",
+      "date": "2026-06-16",
+      "read": 11,
+      "status": "live"
+    },
     {
       "slug": "event-wifi-starlink-rental",
       "topic": "events",
