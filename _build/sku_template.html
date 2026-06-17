@@ -103,7 +103,7 @@ else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
       }{% if not loop.last %},{% endif %}
       {%- endfor %}
     ]
-  },
+  }
   {% else %}
   "offers": {
     "@type": "Offer",
@@ -119,15 +119,15 @@ else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
     "availability": "https://schema.org/InStock",
     "areaServed": "Metro Vancouver, BC",
     "seller": { "@id": {{ (site_url ~ "/#localbusiness") | tojson }} }
-  },
-  {% endif %}
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": {{ fpr.aggregateRating.value | tojson }},
-    "reviewCount": {{ fpr.aggregateRating.count | tojson }},
-    "bestRating": "5",
-    "worstRating": "1"
   }
+  {% endif %}
+  {# aggregateRating intentionally omitted. Product review stars require
+     reviews that are (a) specific to THIS product and (b) visible on this page
+     (Google structured-data policy). The business-wide 5.0/150 rating is neither,
+     and reusing it here is the same self-serving-review violation that collapsed
+     the LocalBusiness review snippets in May 2026. Re-add an aggregateRating ONLY
+     when real per-SKU reviews are collected and rendered on the page below.
+     See SEO_REVIEW_2026-06-16.md §3. #}
 }
 </script>
 
