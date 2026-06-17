@@ -2,8 +2,8 @@
   "$schema": "./posts.schema.json",
   "meta": {
     "version": 1,
-    "lastUpdated": "2026-06-10",
-    "totalPosts": 24,
+    "lastUpdated": "2026-06-16",
+    "totalPosts": 25,
     "topics": {
       "sizing": {
         "label": "Tent Sizing & Planning",
@@ -58,6 +58,17 @@
     }
   },
   "posts": [
+    {
+      "slug": "event-wifi-starlink-rental",
+      "topic": "events",
+      "title": "Event WiFi: When You Need a <em>Starlink Rental</em>",
+      "h4": "When Your Venue Has No Internet",
+      "excerpt": "Venue WiFi that buckles under 150 guests, acreage weddings with zero bars, film shoots pushing dailies from the backcountry — when event WiFi needs Starlink, the speeds and power math, and the clear-sky check that decides it.",
+      "author": "devon",
+      "date": "2026-06-16",
+      "read": 10,
+      "status": "live"
+    },
     {
       "slug": "wedding-tent-rental-cost-vancouver",
       "topic": "cost",
