@@ -118,6 +118,24 @@ Create `site/blog/index.html` hub + 6 pillar guides (~1500 words each, Article J
 - The testimonial pool currently has **4 verified Google reviews** (rewritten Apr 2026). Don't fabricate.
 - Surrey's tent URL override is a landmine — always route through `page_slug(product, city_slug)`.
 
+## Pre-deploy checks (run all four before every `netlify deploy --prod`)
+
+```
+python3 _build/verify.py --all        # generated-page content/override verification
+python3 _build/check_links.py        # 0 broken internal links
+python3 _build/verify_partials.py    # nav/footer structural sanity
+python3 _build/check_schema.py       # JSON-LD: parse + per-class required types +
+                                     # review-policy (no Review anywhere; aggregateRating
+                                     # only on homepage) + NAP/geo consistency +
+                                     # every indexable page must carry schema
+```
+
+`check_schema.py` is the guard that keeps schema coverage permanent: any new
+indexable page without JSON-LD, any reintroduced Review/aggregateRating markup,
+or any LocalBusiness NAP/geo drifting from `site_constants.json` fails the check.
+Note deploys are Netlify-CLI (`netlify deploy --prod` ships the working tree);
+git pushes alone deploy nothing.
+
 ## Suggested resumption order (for the fresh window)
 
 ```

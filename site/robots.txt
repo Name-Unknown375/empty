@@ -11,6 +11,8 @@ Allow: /
 Disallow: /checkout
 Disallow: /checkout.html
 
+Disallow: /blog/_template
+
 Sitemap: https://www.foreverpartyrentals.com/sitemap.xml
 # Auto-published Outrank articles (served dynamically; not in the static
 # sitemap.xml above because the build-time generator only walks static files).
