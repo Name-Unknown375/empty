@@ -199,7 +199,7 @@ The redo confirmed the big conclusions (+15% clicks, Starlink win, Vancouver reg
 | # | Action | Why |
 |---|---|---|
 | 9 | **Tier & prune the programmatic tail** (product-city pages at 0–1 sessions → consolidate into city hubs; keep the ~20 earners) | Latent core-update risk; unchanged since June 10 plan |
-| 10 | **`_build/local_band_report.py`** — script that ingests each month's GSC export and emits this doc's §1–§3 tables automatically | Makes this review a 10-minute monthly check with consistent definitions |
+| 10 | **`_build/local_band_report.py`** — script that ingests each month's GSC export and emits this doc's §1–§3 tables automatically | Makes this review a 10-minute monthly check with consistent definitions. **✅ Built Jul 2** — validated against this doc's numbers; also evaluates the Aug-1 pass bands + Sep-1 rollback watch |
 
 ### Explicit don't-do (unchanged, reaffirmed by this data)
 No city-page rewrites · no new thin product-city pages · don't chase US table-capacity clicks (Canada sees 525 of its 20.5k impressions; 0 conversions; keep as AI-citation asset) · no title churn outside the one §6 batch · no GBP tricks / virtual Vancouver office · don't panic at page-average positions (Burnaby page-avg 50 while its money query sits at 2.4).
@@ -208,6 +208,6 @@ No city-page rewrites · no new thin product-city pages · don't chase US table-
 
 ## 9. Measurement going forward
 
-- **Monthly (1st of month):** export GSC (Canada / Web / 28d) → run the local-band scoreboard (§3) + bucket split (§2). Judge on: local-band clicks, the ~30-query scoreboard, key events — **never** aggregate CTR/position.
+- **Monthly (1st of month):** export GSC (Canada / Web / 28d) → save the CSVs as `_build/seo_baseline/<window-end-date>_Queries.csv` etc. → `python3 _build/local_band_report.py` (emits §1–§3, the Aug-1 pass bands, and the title-rollback watch automatically). Judge on: local-band clicks, the ~30-query scoreboard, key events — **never** aggregate CTR/position.
 - **Watch list for the Aug 1 read:** Vancouver-proper positions (did off-site work start moving them?) · projector cluster first clicks · Starlink long-tail CTR · Maple Ridge click recovery · "event rentals surrey" resolution · brand impressions >250 · leak URLs → ~0.
 - **Known blind spots:** GSC hides 57% of clicks behind truncation/anonymization (directional only below the top queries); GSC has no sub-country geo (use GA4 BC filter); baseline exports must always be saved **with the Canada filter applied** so future comparisons stay apples-to-apples.
