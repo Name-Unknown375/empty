@@ -1,7 +1,7 @@
 ---
 slug: north-vancouver-party-rentals
-title: "North Vancouver Tent Rentals — Crew + Setup"
-meta_description: "North Vancouver wedding tent, chair, table & dance floor rentals — delivered, crew-installed, anchored for elevation wind. 150+ five-star reviews."
+title: "North Vancouver Party Rentals — Deep Cove + Lonsdale Setup"
+meta_description: "North Vancouver & North Shore party rentals — tents, chairs, tables & dance floors crew-installed at Lonsdale, Deep Cove & Lynn Valley. 150+ reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for North Shore weddings, mountain ceremonies, and Lonsdale corporate events — delivered and crew-installed across North Vancouver."
 
 intro_paragraphs:

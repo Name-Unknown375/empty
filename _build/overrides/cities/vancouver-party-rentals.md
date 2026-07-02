@@ -1,7 +1,7 @@
 ---
 slug: vancouver-party-rentals
-title: "Vancouver Party Rentals — Tents, Chairs, Tables + Crew Setup"
-meta_description: "Vancouver party rentals — marquee tents, Chiavari chairs, round tables, dance floors. Delivered and crew-installed to your venue across the city. 150+ reviews."
+title: "Vancouver Party Rentals — Stanley Park + Backyard Setups"
+meta_description: "Vancouver party rentals — marquee tents, Chiavari chairs, tables & dance floors crew-installed at Stanley Park, QE Park & backyard venues. 150+ reviews."
 hero_subtitle: "Vancouver party rentals — marquee tents, Chiavari chairs, round tables, and dance floors delivered to your venue, levelled, and crew-installed by the people who answer your call."
 
 intro_paragraphs:

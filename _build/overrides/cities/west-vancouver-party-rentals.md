@@ -1,7 +1,7 @@
 ---
 slug: west-vancouver-party-rentals
-title: "West Vancouver Tent & Chair Rentals — Crew + Setup"
-meta_description: "West Vancouver wedding tent, chair, table & dance floor rentals — delivered, crew-installed, anchored for ocean wind. 150+ five-star reviews."
+title: "West Vancouver Party Rentals — Ambleside + Whytecliff Setup"
+meta_description: "West Vancouver party rentals — tents, chairs, tables & dance floors, wind-anchored for Ambleside, Whytecliff Park & British Properties. 150+ reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Ambleside waterfront, British Properties estate, Whytecliff Park ocean-backdrop, and Horseshoe Bay celebrations — delivered and crew-installed across West Vancouver."
 
 intro_paragraphs:

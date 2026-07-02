@@ -1,6 +1,6 @@
 ---
 slug: tent-rentals-surrey
-title: "Tent Rentals in Surrey — Marquees, Sidewalls"
+title: "Tent Rentals in Surrey — Marquees from $550, Same-Week"
 meta_description: "Tent rentals in Surrey — marquee tents from 20×20 to 30×60, delivered and installed same-week by our local Surrey-warehouse crew. 150+ five-star reviews."
 hero_subtitle: "Tent rentals in Surrey delivered and installed by the home crew — South Surrey acreage receptions, Cloverdale Rodeo Grounds equestrian galas, Bear Creek Park civic ceremonies, and Guildford backyard weddings. The warehouse is in Surrey, the truck is closer than any competitor's."
 

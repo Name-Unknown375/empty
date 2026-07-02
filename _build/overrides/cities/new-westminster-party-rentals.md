@@ -1,7 +1,7 @@
 ---
 slug: new-westminster-party-rentals
-title: "New Westminster Tent Rentals — Compact Setup, Fast Delivery"
-meta_description: "New Westminster wedding tent, chair, table & dance floor rentals — compact-footprint setups, fast delivery, same-week orders. 150+ five-star reviews."
+title: "New Westminster Party Rentals — Queen's Park + Pier Park"
+meta_description: "New Westminster party rentals — tents, chairs, tables & dance floors for Queen's Park, Pier Park, Anvil Centre & Sapperton events. 150+ five-star reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for New Westminster park ceremonies, Anvil Centre cultural events, and Sapperton heritage receptions — delivered and crew-installed."
 
 intro_paragraphs:
@@ -21,10 +21,10 @@ faqs:
     a: "New Westminster is one of our shorter delivery routes, which means same-week chair, table, and 10×10 popup tent orders are usually feasible if our trucks aren't already booked, even in peak season. Marquee tents 20×40 and larger need 7+ days minimum for installer scheduling."
 
 related_blog_posts:
+  - slug: new-westminster-wedding-venues-rental-guide
+    title: "New Westminster Wedding & Event Venues — The Rental Guide"
   - slug: tent-size-guide-lower-mainland-wedding
     title: "Tent Size Guide for Lower Mainland Weddings"
-  - slug: backyard-wedding-tent-sizing-bc
-    title: "Backyard Wedding Tent Sizing for BC Homes"
   - slug: party-rental-checklist-50-100-150-200-guests
     title: "Rental Checklist for 50, 100, 150 & 200 Guests"
 

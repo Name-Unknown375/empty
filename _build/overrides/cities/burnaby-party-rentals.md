@@ -21,12 +21,12 @@ faqs:
     a: "Yes — Burnaby is one of our 14 Christmas light installation cities. The two services are quoted separately because Christmas runs October through January and event rentals run year-round. Free off-season storage is included on every Christmas light install."
 
 related_blog_posts:
+  - slug: burnaby-wedding-venues-rental-guide
+    title: "Burnaby Wedding & Event Venues — The Rental Guide"
   - slug: party-rental-checklist-50-100-150-200-guests
     title: "Rental Checklist for 50, 100, 150 & 200 Guests"
   - slug: tent-size-guide-lower-mainland-wedding
     title: "Tent Size Guide for Lower Mainland Weddings"
-  - slug: tent-layout-ceremony-to-reception-flip
-    title: "The Ceremony-to-Reception Flip"
 
 nearby_cities:
   - slug: vancouver

@@ -1,7 +1,7 @@
 ---
 slug: richmond-party-rentals
 title: "Richmond Tent Rentals — Cultural Weddings + Setup"
-meta_description: "Richmond wedding tent, chair, table & dance floor rentals — multi-stage cultural weddings, Steveston wind-rated installs. 150+ five-star reviews."
+meta_description: "Richmond wedding tent, chair, table & dance floor rentals — multi-stage cultural weddings, Steveston wind-rated installs. Marquees from $550. 150+ reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Richmond cultural weddings, Steveston outdoor ceremonies, and Olympic Oval corporate events — delivered and crew-installed."
 
 intro_paragraphs:
@@ -21,10 +21,10 @@ faqs:
     a: "Yes — Richmond cultural weddings often span two venues (ceremony at one site, reception at another). We can split a single quote across two delivery windows on the same day, with the same crew handling both load-ins. One quote, two stops, one team accountable end-to-end."
 
 related_blog_posts:
+  - slug: richmond-wedding-venues-rental-guide
+    title: "Richmond Wedding & Event Venues — The Rental Guide"
   - slug: tent-size-guide-lower-mainland-wedding
     title: "Tent Size Guide for Lower Mainland Weddings"
-  - slug: how-much-space-per-guest-wedding-tent
-    title: "How Much Square Footage Per Guest?"
   - slug: party-rental-checklist-50-100-150-200-guests
     title: "Rental Checklist for 50, 100, 150 & 200 Guests"
 
