@@ -3,8 +3,8 @@
    Renders #footer (4-column grid + footer-bottom).
    Inputs (provided by render_partials.py):
      fpr — site_constants.json contents (phone/email/hours/address/logo/bookingUrl)
-   Markup intentionally matches shared.js buildFooter() byte-for-byte (modulo
-   whitespace) so client-side hydration is a no-op.
+   Since shared.js v13 the footer is pre-rendered at build time only; shared.js
+   just hydrates handlers (no client-side footer rebuild to keep in sync).
    ============================================================================ #}
 <footer id="footer">
     <div class="container">
@@ -39,6 +39,10 @@
           <a class="footer-link" href="/richmond-party-rentals">Richmond</a>
           <a class="footer-link" href="/coquitlam-party-rentals">Coquitlam</a>
           <a class="footer-link" href="/north-vancouver-party-rentals">North Vancouver</a>
+          <a class="footer-link" href="/maple-ridge-party-rentals">Maple Ridge</a>
+          <a class="footer-link" href="/new-westminster-party-rentals">New Westminster</a>
+          <a class="footer-link" href="/white-rock-party-rentals">White Rock</a>
+          <a class="footer-link" href="/delta-party-rentals">Delta</a>
           <a class="footer-link" href="/service-areas" style="color:var(--gold)">All 28 Cities →</a>
         </div>
         <div>
@@ -60,7 +64,7 @@
     </div>
     <div class="footer-bottom">
       <div class="container">
-        © 2026 Forever Party Rentals · Serving Vancouver, Burnaby, Surrey, Langley, Richmond, North Vancouver &amp; the Lower Mainland
+        © 2026 Forever Party Rentals · Serving Vancouver, Burnaby, Surrey, Langley, Richmond, North Vancouver, New Westminster, Maple Ridge &amp; the Lower Mainland
       </div>
     </div>
 </footer>
