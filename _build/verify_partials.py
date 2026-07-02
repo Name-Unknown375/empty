@@ -71,20 +71,22 @@ def structural_check(nav_html: str, footer_html: str) -> list[str]:
     requiring the user to capture prod HTML first."""
     failures = []
 
+    # dd-batteries was folded into dd-misc in a0b96c0 (planner Phase 0 nav rework);
+    # city counts updated to match the current cities/christmas arrays.
     expected_nav_ids = ["nav", "navMobile", "dd-tents", "dd-chairs", "dd-tables",
-                        "dd-batteries", "dd-packages", "dd-areas",
+                        "dd-misc", "dd-packages", "dd-areas",
                         "topbar"]
     for sid in expected_nav_ids:
         if f'id="{sid}"' not in nav_html:
             failures.append(f"nav: missing id=\"{sid}\"")
 
-    # Mega-dropdown city links: 28 party-rental cities + 14 christmas-light cities
+    # Mega-dropdown city links: 29 party-rental cities + 15 christmas-light cities
     party_links = len(re.findall(r'href="/[a-z\-]+-party-rentals"', nav_html))
-    if party_links != 28:
-        failures.append(f"nav: expected 28 party-rentals city links, got {party_links}")
+    if party_links != 29:
+        failures.append(f"nav: expected 29 party-rentals city links, got {party_links}")
     christmas_links = len(re.findall(r'href="/christmas-lights-[a-z\-]+"', nav_html))
-    if christmas_links != 14:
-        failures.append(f"nav: expected 14 christmas-lights city links, got {christmas_links}")
+    if christmas_links != 15:
+        failures.append(f"nav: expected 15 christmas-lights city links, got {christmas_links}")
 
     if 'id="footer"' not in footer_html:
         failures.append("footer: missing id=\"footer\"")

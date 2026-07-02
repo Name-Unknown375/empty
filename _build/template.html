@@ -136,30 +136,12 @@ else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
 }
 </script>
 
-{# ---- JSON-LD: Review list (Sprint 5.14 — layered under AggregateRating) ---- #}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": {{ (city.name ~ " Customer Reviews — Forever Party Rentals") | tojson }},
-  "itemListElement": [
-    {% for t in testimonials_to_show %}
-    {
-      "@type": "ListItem",
-      "position": {{ loop.index }},
-      "item": {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": {{ t.name | tojson }} },
-        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-        "reviewBody": {{ t.quote | tojson }},
-        "itemReviewed": { "@type": "LocalBusiness", "name": "Forever Party Rentals", "@id": {{ (site_url ~ "/#localbusiness") | tojson }} },
-        "publisher": { "@type": "Organization", "name": "Forever Party Rentals" }
-      }
-    }{% if not loop.last %},{% endif %}
-    {% endfor %}
-  ]
-}
-</script>
+{# ---- JSON-LD: Review list REMOVED 2026-06-18 (audit): per-city ItemList of
+       Review objects (hardcoded 5★, recycled testimonial pool) is the same
+       self-serving review markup the 2026-06-16 compliance pass removed from
+       product/SKU pages — it just missed this template. Visible testimonial
+       cards below are kept; only the schema is gone. Homepage LocalBusiness
+       aggregateRating remains the sole rating markup site-wide. ---- #}
 
 {# ---- JSON-LD: BreadcrumbList ---- #}
 <script type="application/ld+json">
@@ -335,7 +317,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="grid-2" style="gap:20px">
       {% for t in testimonials_to_show %}
       <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
         <blockquote>"{{ t.quote }}"</blockquote>
         <div class="tc-name">{{ t.name }}</div><div class="tc-event">{{ t.event }}</div>
       </div>

@@ -390,7 +390,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="grid-2" style="gap:20px">
       {% for t in testimonials_to_show %}
       <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
         <blockquote>"{{ t.quote }}"</blockquote>
         <div class="tc-name">{{ t.name }}</div><div class="tc-event">{{ t.event }}</div>
       </div>

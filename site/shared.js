@@ -218,7 +218,7 @@ function renderTestimonials(containerId, data = TESTIMONIALS) {
   if (!el || el.childElementCount > 0) return;
   el.innerHTML = data.map(t => `
     <div class="testimonial-card">
-      <div class="stars" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
+      <div class="stars" role="img" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
       <blockquote>"${t.text}"</blockquote>
       <div class="tc-name">${t.name}</div>
       <div class="tc-event">${t.event}</div>
