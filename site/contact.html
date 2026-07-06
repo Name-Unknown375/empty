@@ -260,22 +260,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="form-grid">
             <div class="form-group">
               <label for="first-name">First Name</label>
-              <input id="first-name" type="text" name="first_name" placeholder="Jane" required/>
+              <input id="first-name" type="text" name="first_name" placeholder="Jane" autocomplete="given-name" required/>
             </div>
             <div class="form-group">
               <label for="last-name">Last Name</label>
-              <input id="last-name" type="text" name="last_name" placeholder="Smith" required/>
+              <input id="last-name" type="text" name="last_name" placeholder="Smith" autocomplete="family-name" required/>
             </div>
           </div>
           <div class="form-grid">
             <div class="form-group">
               <label for="email">Email</label>
-              <input id="email" type="email" name="email" placeholder="jane@example.com" required/>
+              <input id="email" type="email" name="email" placeholder="jane@example.com" autocomplete="email" required/>
             </div>
             <div class="form-group">
-              <label for="phone">Phone (Optional)</label>
-              <input id="phone" type="tel" name="phone" placeholder="778-000-0000"/>
+              <label for="phone">Phone</label>
+              <input id="phone" type="tel" name="phone" placeholder="778-000-0000" autocomplete="tel" required/>
             </div>
+          </div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fulfilment">Delivery or Pickup?</label>
+              <select id="fulfilment" name="delivery_or_pickup">
+                <option>Delivery</option>
+                <option>Pickup — Surrey warehouse</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="guest-count">Guest Count (Approx.)</label>
+              <input id="guest-count" type="number" name="guest_count" min="1" max="10000" inputmode="numeric" placeholder="e.g. 50"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="delivery-address" id="delivery-address-label">Delivery Address</label>
+            <input id="delivery-address" type="text" name="delivery_address" placeholder="Street address &amp; city — e.g. 12345 88 Ave, Surrey" autocomplete="street-address" required/>
+            <div id="delivery-address-hint" style="font-size:12px;color:var(--muted);margin-top:4px">An exact address gets you an exact delivery quote — a city or venue name works too.</div>
           </div>
           <div class="form-group">
             <label for="event-date">Event Date</label>
@@ -298,10 +317,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="form-group">
             <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us about your event — location, guest count, what you need…" required></textarea>
+            <textarea id="message" name="message" placeholder="Tell us about your event — what you need, quantities, timing, site access…" required></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-lg" style="width:100%">Send Message</button>
-          <div id="contactFormStatus" role="status" aria-live="polite" style="margin-top:14px;font-size:13px;color:var(--muted);min-height:18px"></div>
+          <div style="font-size:12px;color:var(--muted);text-align:center;margin-top:10px">We reply within 24 hours — usually the same day.</div>
+          <div id="contactFormStatus" role="status" aria-live="polite" style="margin-top:8px;font-size:13px;color:var(--muted);min-height:18px"></div>
         </form>
       </div>
 
@@ -424,6 +444,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </footer>
 <!-- FOOTER:END -->
-<script src="shared.js?v=15"></script>
+<script src="shared.js?v=17"></script>
 </body>
 </html>

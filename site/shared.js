@@ -111,15 +111,42 @@ function initContactForm() {
     const body = [
       `Name: ${fn} ${ln}`.trim(),
       `Email: ${data.email || ''}`,
-      data.phone        ? `Phone: ${data.phone}`            : null,
-      data.event_date   ? `Event Date: ${data.event_date}`  : null,
-      data.rental_type  ? `Rental Type: ${data.rental_type}`: null,
+      data.phone              ? `Phone: ${data.phone}`                          : null,
+      data.delivery_or_pickup ? `Delivery or Pickup: ${data.delivery_or_pickup}`: null,
+      data.guest_count        ? `Guest Count: ${data.guest_count}`              : null,
+      data.delivery_address   ? `Delivery Address: ${data.delivery_address}`    : null,
+      data.event_date         ? `Event Date: ${data.event_date}`                : null,
+      data.rental_type        ? `Rental Type: ${data.rental_type}`              : null,
       '',
       data.message || '',
     ].filter(l => l !== null).join('\n');
     const subject = `Event Rental Enquiry — ${fn} ${ln}`.trim();
     return `mailto:welcome@foreverpartyrentals.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
+
+  // Past dates make no sense for an event enquiry
+  const dateInput = form.querySelector('#event-date');
+  if (dateInput) {
+    const today = new Date();
+    const pad = (n) => String(n).padStart(2, '0');
+    dateInput.min = `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`;
+  }
+
+  // Address is only mandatory when we're delivering
+  const fulfilment = form.querySelector('#fulfilment');
+  const address = form.querySelector('#delivery-address');
+  const addressLabel = form.querySelector('#delivery-address-label');
+  const addressHint = form.querySelector('#delivery-address-hint');
+  if (fulfilment && address) {
+    fulfilment.addEventListener('change', () => {
+      const pickup = fulfilment.value.indexOf('Pickup') === 0;
+      address.required = !pickup;
+      if (addressLabel) addressLabel.textContent = pickup ? 'Delivery Address (Not Needed for Pickup)' : 'Delivery Address';
+      if (addressHint) addressHint.textContent = pickup
+        ? 'Pickup is from 9317 188 St, Surrey — we’ll confirm a time with you.'
+        : 'An exact address gets you an exact delivery quote — a city or venue name works too.';
+    });
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
