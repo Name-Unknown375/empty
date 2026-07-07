@@ -689,3 +689,43 @@ a.area-pill:hover { background: var(--green); color: #fff; border-color: var(--g
   .local-knowledge-body blockquote { font-size: 19px; padding-left: 18px; }
   .local-knowledge-split { grid-template-columns: 1fr; gap: 16px; }
 }
+
+/* ── Mobile sticky CTA bar (call + book) ─────────────────────────────────
+   Rendered by the nav partial on every page; shown only ≤768px. Suppressed
+   via [hidden] on /checkout + planner pages (inline script in the partial). */
+.mobile-cta-bar { display: none; }
+.mobile-cta-bar[hidden] { display: none !important; }
+@media (max-width: 768px) {
+  .mobile-cta-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 998;
+    display: flex; height: 56px;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -2px 12px rgba(0,0,0,.18);
+  }
+  .mobile-cta-bar a {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    gap: 6px; font-weight: 700; font-size: 15px; text-decoration: none;
+    border-top: 2px solid var(--green);
+  }
+  .mcb-call { background: #fff; color: var(--green); }
+  .mcb-book { background: var(--green); color: #fff; }
+  /* reserve room so the bar never covers page content or the footer */
+  body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
+  html.no-cta-bar body { padding-bottom: 0; }
+  /* lift Adelie's floating cart above the bar */
+  #adelie_floating_cart_icon_main { bottom: 86px !important; }
+  #adelie_floating_cart_main { bottom: 86px !important; }
+}
+
+/* ── Adelie inline widgets: reserve space so injection doesn't shift layout
+   (product pages were measuring CLS 0.24 on mobile) ── */
+[data-adelie="date-picker"] { min-height: 133px; }
+[data-adelie="availability-checker"] { min-height: 47px; }
+
+/* ── City-page hero quick links (CTA cluster) ── */
+.hero-quicklinks { margin-top: 14px; font-size: 14px; line-height: 1.9; }
+.hero-quicklinks a { color: var(--green); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.hero-quicklinks a:hover { text-decoration: underline; }
+.hero-quicklinks span { color: var(--muted); margin: 0 7px; }
+.cta-banner .hero-quicklinks a { color: #fff; text-decoration: underline; }
+.cta-banner .hero-quicklinks span { color: rgba(255,255,255,.55); }

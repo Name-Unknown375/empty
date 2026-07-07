@@ -47,7 +47,7 @@ else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=19"/>
+<link rel="stylesheet" href="shared.css?v=22"/>
 
 <script type="application/ld+json">
 {
@@ -321,6 +321,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a role="menuitem" href="/rentals" style="color:var(--green);font-weight:600;margin-top:8px">→ Book Now Online</a>
     </div>
 </nav>
+
+<div id="fprCtaBar" class="mobile-cta-bar" role="navigation" aria-label="Call or book">
+  <a class="mcb-call" href="tel:778-990-7983"><span aria-hidden="true">✆</span>&nbsp;778-990-7983</a>
+  <a class="mcb-book" href="/rentals">Book Online</a>
+</div>
+<script>(function(){if(/checkout|layout-planner|^\/planner/.test(location.pathname)){var b=document.getElementById('fprCtaBar');if(b){b.hidden=true;}document.documentElement.classList.add('no-cta-bar');}})();</script>
 <div class="page-hero">
   <div class="container">
     <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/service-areas">Service Areas</a><span>/</span>Aldergrove</div>
@@ -370,6 +376,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </ul>
         <a href="/rentals" class="btn btn-primary btn-lg">Book Aldergrove Rentals Online</a>
         <div style="margin-top:16px;font-size:13px;color:var(--muted)">Or call us: <a href="tel:778-990-7983" style="color:var(--green);font-weight:600">778-990-7983</a></div>
+        <div class="hero-quicklinks">Popular in Aldergrove: <a href="/tent-rental-aldergrove">Tent Rentals</a><span>·</span><a href="/chair-rentals-aldergrove">Chairs</a><span>·</span><a href="/table-rentals-aldergrove">Tables</a><span>·</span><a href="/dance-floor-rental-aldergrove">Dance Floors</a></div>
       </div>
     </div>
   </div>
@@ -383,7 +390,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="grid-4">
       <div class="card">
-        <img class="card-img" src="/images/hero/marquee-tents.webp" alt="Tent rentals in Aldergrove" width="600" height="400" loading="lazy"/>
+        <img class="card-img" src="/images/hero/marquee-tents-600w.webp" alt="Tent rentals in Aldergrove" width="600" height="400" loading="lazy"/>
         <div class="card-body"><h3>Tent Rentals in Aldergrove</h3><p>Marquee &amp; popup tents for any event, any weather.</p><p style="font-size:12px;color:var(--green);font-weight:600;margin-top:4px">From $75/day · marquees from $550</p><a href="/tent-rental-aldergrove" class="card-link">Tent rentals in Aldergrove →</a></div>
       </div>
       <div class="card">
@@ -637,6 +644,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/rentals" class="btn btn-gold btn-lg">Book Online — 24/7</a>
       <a href="/contact" class="btn btn-outline-white btn-lg">Contact Us</a>
     </div>
+    <div class="hero-quicklinks"><a href="/tent-rental-aldergrove">Tent rentals in Aldergrove</a><span>·</span><a href="/chair-rentals-aldergrove">Chair rentals</a><span>·</span><a href="/table-rentals-aldergrove">Table rentals</a><span>·</span><a href="/dance-floor-rental-aldergrove">Dance floors</a></div>
   </div>
 </div>
 <footer id="footer">
@@ -701,7 +709,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 </footer>
-<script src="shared.js?v=13"></script>
-<!-- lastmod: 2026-07-07T01:51:34Z -->
+<script src="shared.js?v=17"></script>
+<!-- lastmod: 2026-07-07T16:48:47Z -->
 </body>
 </html>

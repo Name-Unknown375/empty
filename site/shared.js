@@ -176,8 +176,22 @@ function initContactForm() {
         body: params.toString(),
       });
       if (res.ok) {
-        // Netlify accepted the submission — go to the thank-you page
-        window.location.href = form.getAttribute('action') || '/thank-you';
+        // Netlify accepted the submission — record the conversion, then go to
+        // the thank-you page. The short delay gives GTM a chance to dispatch;
+        // the /thank-you pageview remains the backstop trigger.
+        const guests = parseInt(data.guest_count, 10);
+        trackEvent({
+          event: 'quote_form_submit',
+          fulfilment: data.delivery_or_pickup || '(not set)',
+          rental_type: data.rental_type || '(not set)',
+          guest_bucket: !guests ? '(not set)'
+                      : guests < 50 ? 'under_50'
+                      : guests < 100 ? '50_99'
+                      : guests < 150 ? '100_149' : '150_plus',
+        });
+        setTimeout(() => {
+          window.location.href = form.getAttribute('action') || '/thank-you';
+        }, 300);
         return;
       }
       throw new Error(`HTTP ${res.status}`);
@@ -189,6 +203,39 @@ function initContactForm() {
       if (button) { button.disabled = false; button.textContent = 'Send Message'; }
     }
   });
+}
+
+// ── Conversion tracking (dataLayer → GTM) ──
+// Pushes named events for GTM to turn into GA4 key events. GTM container
+// config (triggers/tags for quote_form_submit / phone_click / book_now_click)
+// is a one-time setup in GTM-KC35GGRQ — see DEPLOY_CHECKLIST.md.
+function trackEvent(payload) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(payload);
+}
+
+function initConversionTracking() {
+  document.addEventListener('click', (e) => {
+    const a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    if (href.indexOf('tel:') === 0) {
+      trackEvent({
+        event: 'phone_click',
+        link_location: a.closest('.mobile-cta-bar') ? 'mobile_cta_bar'
+                     : a.closest('#topbar') ? 'topbar' : 'page',
+        page_path: location.pathname,
+      });
+    } else if (a.classList.contains('nav-cta') || a.classList.contains('mcb-book')
+               || (a.classList.contains('btn') && /^\/rentals\/?$/.test(href))) {
+      trackEvent({
+        event: 'book_now_click',
+        link_location: a.closest('.mobile-cta-bar') ? 'mobile_cta_bar'
+                     : a.closest('#nav') ? 'nav' : 'page',
+        page_path: location.pathname,
+      });
+    }
+  }, { capture: true });
 }
 
 // ── Shared testimonials data ──
@@ -328,6 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
   hydrateActiveLink();
   initFAQ();
   initContactForm();
+  initConversionTracking();
   initShareButtons();
   injectFavicon();
   setMainId();

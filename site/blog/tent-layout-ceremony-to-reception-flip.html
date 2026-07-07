@@ -46,7 +46,7 @@ else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="../shared.css?v=18"/>
+<link rel="stylesheet" href="../shared.css?v=22"/>
 
 <script type="application/ld+json">
 {
@@ -246,6 +246,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a role="menuitem" href="/rentals" style="color:var(--green);font-weight:600;margin-top:8px">→ Book Now Online</a>
     </div>
 </nav>
+
+<div id="fprCtaBar" class="mobile-cta-bar" role="navigation" aria-label="Call or book">
+  <a class="mcb-call" href="tel:778-990-7983"><span aria-hidden="true">✆</span>&nbsp;778-990-7983</a>
+  <a class="mcb-book" href="/rentals">Book Online</a>
+</div>
+<script>(function(){if(/checkout|layout-planner|^\/planner/.test(location.pathname)){var b=document.getElementById('fprCtaBar');if(b){b.hidden=true;}document.documentElement.classList.add('no-cta-bar');}})();</script>
 <!-- NAV:END -->
 
 <main id="main">
@@ -1458,7 +1464,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </footer>
 <!-- FOOTER:END -->
-<script src="../shared.js?v=14"></script>
+<script src="../shared.js?v=17"></script>
 <!-- lastmod: 2026-04-22T12:00:00Z -->
 
 </body>
