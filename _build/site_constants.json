@@ -11,8 +11,8 @@
   "addressRegion": "BC",
   "addressPostalCode": "V4N 3V1",
   "addressCountry": "CA",
-  "hours": "Mon–Sun 9:30AM–6PM",
-  "hoursOpens": "09:30",
+  "hours": "Mon–Sun 10:30AM–6PM",
+  "hoursOpens": "10:30",
   "hoursCloses": "18:00",
   "geo": { "lat": 49.1648, "lng": -122.7066 },
 
