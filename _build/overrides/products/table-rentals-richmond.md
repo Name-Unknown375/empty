@@ -52,8 +52,8 @@ Three tables, three jobs. Richmond event floor plans usually need all three:
 
 ## Richmond venue access and floor-plan staging
 
-![A row of cocktail-hour highboy tables at an outdoor reception with guests in conversation behind](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Brighouse corporate event.*
+![Round tables in navy linens with white folding chairs and cocktail tables staged for a corporate party](/images/lifestyle/corporate-party-round-tables-cocktail-tables.jpg){.float-right}
+*Navy rounds and highboys staged for a company party.*
 
 ### Brighouse hotel ballrooms
 

@@ -52,8 +52,8 @@ Three tables, three jobs. Vancouver event floor plans usually need all three:
 
 ## Floor-plan staging and Vancouver venue access
 
-![A row of cocktail-hour highboy tables at an outdoor reception with guests in conversation behind](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Vancouver reception cocktail hour.*
+![Round tables and white Chiavari chairs set for a wedding reception under a chandelier](/images/lifestyle/wedding-reception-chiavari-chairs-ballroom.jpg){.float-right}
+*White Chiavari and rounds dressed for a ballroom reception.*
 
 ### Park ceremonies
 

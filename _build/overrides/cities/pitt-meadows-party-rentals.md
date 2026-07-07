@@ -57,8 +57,8 @@ On the truck for a typical Pitt Meadows event:
 
 ## Open skies, farmland, and Pitt Meadows wind realities
 
-![A long banquet table set up under a marquee with chairs and string lighting overhead](/images/lifestyle/tent-chairs-tables.jpg){.float-right}
-*A banquet-style reception under marquee on Pitt Meadows grass.*
+![Pop-up canopies and signboards set up on a grass field for a community event](/images/lifestyle/community-event-pop-up-canopies.jpg){.float-right}
+*Canopy row staged for a community event day.*
 
 ### Open-sky wind
 

@@ -57,8 +57,8 @@ On the truck for a typical White Rock install:
 
 ## White Rock tent install patterns we cover
 
-![Cocktail-hour highboy tables set up at an outdoor reception with guests in conversation behind](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Marine Drive event.*
+![A large high-peak tent and two canopies set up in a backyard beside a pool](/images/lifestyle/backyard-party-tents-pool.jpg){.float-right}
+*Main tent plus two canopies around a backyard pool.*
 
 ### White Rock Pier and Marine Drive promenade
 

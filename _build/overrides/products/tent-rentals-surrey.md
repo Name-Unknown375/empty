@@ -51,6 +51,9 @@ Two specific things that gap buys you:
 
 ## South Surrey peninsula — the marquee calendar core
 
+![A backyard wedding reception at night under connected tents with string lights and clear sidewalls glowing](/images/lifestyle/backyard-wedding-tent-night-string-lights.jpg){.float-right}
+*A backyard reception running late under string lights.*
+
 South Surrey acreage weddings are the largest single share of our Surrey marquee bookings. Crescent Beach, Hazelmere Valley, Elgin, and the broader peninsula run on rural-road truck access with firm lawn or graded acreage as the surface.
 
 The standard install is a 20×60 marquee with sidewalls, engineered ground stakes, bistro string lighting along the ridge, and (October–April) a tent heater. Setup runs 4–5 hours; teardown is 2–3. For larger weddings (150–200 guests), 30×60 marquee on a single footprint or linked 20×40s for split ceremony/reception zones.

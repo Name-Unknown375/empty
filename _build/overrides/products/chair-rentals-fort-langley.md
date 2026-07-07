@@ -52,8 +52,8 @@ Three chair lines cover almost every Fort Langley event:
 
 ## Heritage village, National Historic Site, Derby Reach — Fort Langley patterns
 
-![Rows of white ceremony chairs at an outdoor wedding setup](/images/lifestyle/ceremony-chairs-3.jpg){.float-right}
-*Ceremony chairs staged on Fort Langley grass.*
+![Rows of gold Chiavari chairs facing a floral ceremony arch at a garden wedding](/images/lifestyle/gold-chiavari-chairs-garden-wedding.jpg){.float-right}
+*Chiavari rows facing a floral arch at a garden ceremony.*
 
 ### Fort Langley National Historic Site
 

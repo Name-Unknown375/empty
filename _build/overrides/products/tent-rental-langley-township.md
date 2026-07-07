@@ -50,6 +50,9 @@ Engineered ground stakes are the default anchor on vineyard lawn. Where irrigati
 
 ## Krause Berry Farms and agritourism
 
+![Banquet tables with white linens and fanback folding chairs set for a reception inside a frame tent](/images/lifestyle/tent-reception-tables-fanback-chairs.jpg){.float-right}
+*Banquet rows and fanback chairs dressed under a frame tent.*
+
 Krause Berry Farms agritourism weddings have their own staging rhythm — the farm runs as a working business through the wedding season, and our delivery window coordinates with their farm operations and tasting-room hours. Berry-farm working soil is firm in summer (good for stakes), softer in shoulder seasons.
 
 Most Krause weddings are 100–150 guest configurations with a 20×60 or 30×40 marquee on the lawn-side of the property. Bistro lighting along the ridge is standard; the marquee opens onto the farm-store and tasting-area zones during cocktail hour.

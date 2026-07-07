@@ -53,6 +53,9 @@ This is the same long-haul template we use for Chilliwack (90 minutes) and the d
 
 ## Harrison Hot Springs Resort — the destination core
 
+![Event tents staked on a farm field in the rain ahead of an event](/images/lifestyle/farm-event-tents-rain-setup.jpg){.float-right}
+*Rain-day install — the tents go up on schedule either way.*
+
 The Resort drives most of the destination marquee calendar. Most Resort installs are 20×60 marquees on the outdoor courtyards or adjacent grounds. We coordinate the install window with the Resort's events team during quoting; the Resort's loading-dock access is ample and they're familiar with vendor-coordinated install patterns.
 
 Standard Resort install:

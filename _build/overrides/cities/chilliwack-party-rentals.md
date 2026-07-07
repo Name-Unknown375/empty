@@ -57,8 +57,8 @@ On the truck for a typical Chilliwack event:
 
 ## Lake exposure, mountain wind, and Chilliwack operational realities
 
-![A long banquet-style table set up under a tent with chairs and string lighting overhead](/images/lifestyle/tent-chairs-tables.jpg){.float-right}
-*A Chilliwack acreage reception under marquee.*
+![Event tents staked on a farm field in the rain ahead of an event](/images/lifestyle/farm-event-tents-rain-setup.jpg){.float-right}
+*Rain-day install — the tents go up on schedule either way.*
 
 ### Cultus Lake wind plan
 

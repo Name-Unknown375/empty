@@ -52,8 +52,8 @@ Three chair lines cover almost every Tsawwassen event:
 
 ## Centennial Beach, English Bluff, Tsawwassen Village — peninsula chair patterns
 
-![Rows of white ceremony chairs at an outdoor wedding setup](/images/lifestyle/ceremony-chairs-3.jpg){.float-right}
-*Beach-resilient chairs staged at a Tsawwassen shoreline ceremony.*
+![Rows of white Chiavari chairs set for a wedding ceremony in a bright venue with floor-to-ceiling windows](/images/lifestyle/white-chiavari-chairs-ceremony.jpg){.float-right}
+*White Chiavari rows set for an indoor ceremony.*
 
 ### Centennial Beach — the Resin Garden case study
 

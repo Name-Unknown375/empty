@@ -55,6 +55,9 @@ We coordinate the install window with the resort's events team during quoting. M
 
 ## Pitt Lake shoreline ceremony tents
 
+![A high-peak frame tent shading a backyard pool deck](/images/lifestyle/high-peak-tent-pool-deck.jpg){.float-right}
+*A high-peak frame tent fitted over a backyard pool deck.*
+
 Pitt Lake shoreline ceremony marquees are seasonal (May–September) and typically smaller (20×20 to 20×30). Permit setbacks at the shoreline access points cap most installs below 20×40. The reception flips to a Central Meadows residence, Osprey Village restaurant, or Swaneset Bay indoor space.
 
 The remote nature of some Pitt Lake access points means we coordinate pre-stage time with the property owner or venue; standard same-day install pattern doesn't always apply at the more remote shoreline ceremony spots.

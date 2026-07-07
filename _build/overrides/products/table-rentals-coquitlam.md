@@ -52,8 +52,8 @@ Three tables, three jobs. Coquitlam event floor plans usually need all three:
 
 ## Coquitlam venue access and floor-plan staging
 
-![A row of cocktail-hour highboy tables at an outdoor reception with guests in conversation behind](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Town Centre corporate event.*
+![Rows of banquet tables and black folding chairs set up inside an unfinished building for a site event](/images/lifestyle/construction-site-event-tables-chairs.jpg){.float-right}
+*Banquet rows staged for a construction-site crew lunch.*
 
 ### Westwood Plateau Golf — clubhouse and ceremony lawn
 

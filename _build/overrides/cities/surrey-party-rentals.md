@@ -39,8 +39,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![A 20×40 marquee tent set up on a level backyard lawn with the side walls open and other tents in the background](/images/lifestyle/tent-setup.jpg)
-*A 20×40 marquee setup — the standard footprint for most Surrey backyard and acreage receptions.*
+![Our crew staging round tables and white resin folding chairs during a venue setup](/images/lifestyle/event-setup-crew-round-tables.jpg)
+*Our crew mid-setup — rounds and resin chairs staged before linens.*
 
 The same single inventory and crew calendar runs across the entire Lower Mainland — but Surrey customers get a measurable operational edge from us being based here.
 

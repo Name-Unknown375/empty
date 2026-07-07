@@ -39,8 +39,8 @@ nearby_cities:
 
 ## What our Langley chair lineup covers
 
-![Rows of white ceremony chairs and a wedding setup on lush grass with greenery framing the scene](/images/lifestyle/ceremony-chairs-3.jpg)
-*A vineyard-row ceremony staged on Langley grass.*
+![Rows of gold Chiavari chairs facing a floral ceremony arch at a garden wedding](/images/lifestyle/gold-chiavari-chairs-garden-wedding.jpg)
+*Chiavari rows facing a floral arch at a garden ceremony.*
 
 Three chair lines that cover almost every Langley event:
 

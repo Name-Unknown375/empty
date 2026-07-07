@@ -52,8 +52,8 @@ Three chair lines cover almost every Willoughby event:
 
 ## Events Centre, Sendall Gardens, Yorkson — Willoughby chair patterns
 
-![Rows of white ceremony chairs at an outdoor wedding setup](/images/lifestyle/ceremony-chairs-3.jpg){.float-right}
-*Ceremony chairs staged at a Willoughby park venue.*
+![Rows of white Chiavari chairs set for a wedding ceremony in a bright venue with floor-to-ceiling windows](/images/lifestyle/white-chiavari-chairs-ceremony.jpg){.float-right}
+*White Chiavari rows set for an indoor ceremony.*
 
 ### Langley Events Centre
 

@@ -57,8 +57,8 @@ On the truck for a typical Langley vineyard or acreage event:
 
 ## Vineyards, berry farms, and Langley acreage logistics
 
-![Rows of white chairs and a wedding ceremony setup on lush grass with greenery framing the scene](/images/lifestyle/ceremony-chairs-3.jpg){.float-right}
-*A vineyard-row ceremony staged on Langley grass.*
+![A backyard wedding reception at night under connected tents with string lights and clear sidewalls glowing](/images/lifestyle/backyard-wedding-tent-night-string-lights.jpg){.float-right}
+*A backyard reception running late under string lights.*
 
 Langley acreage and vineyard installs differ from urban setups in three operational ways.
 

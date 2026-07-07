@@ -52,8 +52,8 @@ Three tables, three jobs. Port Moody event floor plans usually need all three:
 
 ## Port Moody venue access and floor-plan staging
 
-![A row of cocktail-hour highboy tables at an outdoor reception with guests in conversation behind](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Heritage Mountain backyard event.*
+![Banquet tables with white linens and black folding chairs set up outside an office building](/images/lifestyle/corporate-lunch-tables-parking-lot.jpg){.float-right}
+*Banquet rows staged outside an office for a staff lunch.*
 
 ### Rocky Point Park and Shoreline Trail — waterfront
 

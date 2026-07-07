@@ -57,8 +57,8 @@ On the truck for a typical Carvolth event:
 
 ## Business-park scale, fast delivery, and Carvolth operational realities
 
-![A row of cocktail-hour highboy tables set up outdoors with guests in conversation visible behind](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a 200 Street tenant-appreciation event.*
+![Two high-peak frame tents covering picnic tables in an office courtyard](/images/lifestyle/corporate-event-tents-office-courtyard.jpg){.float-right}
+*Two high-peak frames over an office courtyard for a staff event.*
 
 ### 200 Street business corridor
 

@@ -52,6 +52,9 @@ New West's compressed geography means the install conversation is venue-specific
 
 ## Fraser-side wind and ballast strategy
 
+![High-peak frame tents covering a restaurant patio lined with picnic tables](/images/lifestyle/restaurant-patio-tent-rental.jpg){.float-right}
+*Season-extending patio cover for a restaurant.*
+
 Pier Park's exposure to Fraser River afternoon wind is consistent year-round. Stakes work on the lawn zones, but we always pair them with supplemental ballast at the corners that face the river. On the hardscape sections (the pier itself, the Quay's waterfront promenade), it's ballast-only — concrete weights, not water-fillable.
 
 The 5–6 hour install window on a Pier Park 20×60 includes the time to walk the perimeter and position ballast against the wind line. Other vendors sometimes skip that step. We don't.

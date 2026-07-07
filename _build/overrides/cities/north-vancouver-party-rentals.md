@@ -57,8 +57,8 @@ On the truck for a typical North Van event:
 
 ## Steep driveways, hairpin roads, and North Shore access
 
-![A clean white marquee tent set up at a backyard wedding with the side walls open and chairs visible inside](/images/lifestyle/tent-setup.jpg){.float-right}
-*A 20×40 marquee staged on a mid-grade North Van lawn.*
+![A high-peak frame tent on a manicured garden lawn with a mountain view behind](/images/lifestyle/high-peak-tent-garden-mountain-view.jpg){.float-right}
+*A single high-peak on a garden lawn, mountains behind.*
 
 North Van delivery isn't urban delivery. Four operational realities shape the quote.
 

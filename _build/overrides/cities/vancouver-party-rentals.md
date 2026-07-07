@@ -41,8 +41,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![A 20×40 marquee tent set up on level lawn with rows of white folding chairs and banquet tables underneath — the standard reception footprint we install across Vancouver](/images/lifestyle/tent-chairs-tables.jpg)
-*A 20×40 marquee — the standard reception footprint for 80–120 Vancouver guests.*
+![A frame tent installed on a rooftop patio with the downtown Vancouver skyline and North Shore mountains behind](/images/lifestyle/rooftop-tent-rental-vancouver-skyline.jpg)
+*A rooftop terrace install — downtown Vancouver behind.*
 
 We run a single inventory and a single crew calendar across the entire Lower Mainland. That means a Vancouver couple gets the same catalogue any other city gets — without short-ships, without sub-rentals from another vendor, without "we'll have to check our partner network."
 

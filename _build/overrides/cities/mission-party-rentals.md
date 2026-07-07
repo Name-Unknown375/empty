@@ -57,8 +57,8 @@ On the truck for a typical Mission event:
 
 ## Foothill elevation, river wind, and Mission operational realities
 
-![A clean white marquee tent staged on level lawn with side walls open](/images/lifestyle/tent-setup.jpg){.float-right}
-*A marquee staged on a Hatzic acreage.*
+![Pop-up canopies and signboards set up on a grass field for a community event](/images/lifestyle/community-event-pop-up-canopies.jpg){.float-right}
+*Canopy row staged for a community event day.*
 
 ### Foothill elevation changes the wind plan
 

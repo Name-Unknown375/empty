@@ -57,8 +57,8 @@ On the truck for a typical Port Kells event:
 
 ## Industrial corridor, forest ceremonies, and Port Kells operational realities
 
-![A row of cocktail-hour highboy tables at an outdoor reception with guests in conversation](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a 192 Street industrial-corporate event.*
+![A long frame tent covering a parking lot between two commercial buildings at dusk](/images/lifestyle/commercial-tent-warehouse-event.jpg){.float-right}
+*A long frame footprint between warehouses for a company event.*
 
 ### 192 Street industrial corporate events
 

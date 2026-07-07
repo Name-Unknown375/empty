@@ -53,6 +53,9 @@ Standard install pattern:
 
 ## Aldergrove Village backyards
 
+![Three connected high-peak tents glowing at dusk on a rural property](/images/lifestyle/connected-party-tents-evening.jpg){.float-right}
+*Three connected high-peaks at dusk — one continuous footprint for dinner and dancing.*
+
 Aldergrove Village's central residential streets accept standard delivery patterns. Most village backyards accept a 20×30 to 20×40 marquee comfortably; lots in the older village core constrain footprint to 20×30 or smaller.
 
 ## Greater Vancouver Zoo and Community Centre

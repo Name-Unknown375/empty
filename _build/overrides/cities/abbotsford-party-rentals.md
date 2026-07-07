@@ -39,8 +39,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![A white marquee tent standing alone in a vast open Fraser Valley field at golden hour](/images/lifestyle/tent-golden-hour-1.jpg)
-*A 20×40 marquee on open Fraser Valley grass — the standard acreage footprint.*
+![A two-peak frame tent standing in an open farm field with a mountain backdrop](/images/lifestyle/frame-tent-farm-field-mountains.jpg)
+*A frame tent staked on open acreage, mountains behind.*
 
 Same single inventory and crew calendar across the entire Lower Mainland. An Abbotsford couple gets the same catalogue any other city gets — without short-ships, without sub-rentals from another vendor.
 

@@ -46,6 +46,9 @@ Clayton Heights' wider-lot residential streets host most of the East Clayton mar
 
 ## Cloverdale Rodeo Grounds-adjacent
 
+![A high-peak frame tent set up on a sunny backyard lawn](/images/lifestyle/backyard-tent-rental-sunny-lawn.jpg){.float-right}
+*A backyard frame tent staked and ready before the tables arrive.*
+
 The Rodeo Grounds south of East Clayton drives the larger marquee bookings. Supplemental tents at the Rodeo Grounds run on hardscape footprints with full ballast; linked 20×40s and 30×60 marquees have been installed there for the bigger events.
 
 ## Clayton Community Centre

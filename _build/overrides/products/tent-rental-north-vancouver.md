@@ -52,6 +52,9 @@ Three specific things drive that:
 
 ## Lynn Valley acreage — the marquee calendar core
 
+![A high-peak frame tent on a manicured garden lawn with a mountain view behind](/images/lifestyle/high-peak-tent-garden-mountain-view.jpg){.float-right}
+*A single high-peak on a garden lawn, mountains behind.*
+
 Lynn Valley acreage weddings are the largest single share of our North Van marquee bookings. Most installs are 20×60 marquees on the lawn, engineered stakes paired with ballast, sidewalls year-round, bistro lighting along the ridge, and tent heater October–April.
 
 Truck access is good on the main Lynn Valley arterials; the upper acreage streets occasionally need smaller-truck staging and we plan that during quoting. We measure overhead-branch clearance for the marquee placement during the pre-quote walk.

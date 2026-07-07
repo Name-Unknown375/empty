@@ -58,8 +58,8 @@ On the truck for a typical Delta event:
 
 ## Coastal wind, Ladner access, and Delta operational realities
 
-![Cocktail-hour highboy tables set up outdoors with guests in conversation behind them](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Delta cocktail hour.*
+![Round tables, cocktail tables, and a balloon arch set up for a party inside a warehouse](/images/lifestyle/warehouse-party-balloon-arch-tables.jpg){.float-right}
+*Rounds, highboys, and a balloon arch turning a warehouse into a venue.*
 
 ### Boundary Bay and Tsawwassen wind exposure
 

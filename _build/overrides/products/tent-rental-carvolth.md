@@ -46,6 +46,9 @@ Most Carvolth marquee bookings are residential weddings in the Northwest Willoug
 
 ## LEC-adjacent supplemental marquees
 
+![A frame tent mid-setup with turf flooring down and tables still stacked](/images/lifestyle/tent-setup-in-progress.jpg){.float-right}
+*Mid-install — flooring first, then tables come off the stack.*
+
 The Langley Events Centre's indoor facilities handle most corporate events without supplemental marquees. When LEC does book marquees, it's for sponsor activations, outdoor cocktail-hour cover at the large galas, or registration overflow. 20×20 to 20×40 footprints; the LEC events team coordinates vendor windows.
 
 ## 200 Street business-park

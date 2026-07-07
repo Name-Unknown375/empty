@@ -55,6 +55,9 @@ This is the same install template we use for Chilliwack and Harrison Hot Springs
 
 ## Hatzic Valley and Hatzic Lake acreage
 
+![A two-peak frame tent standing in an open farm field with a mountain backdrop](/images/lifestyle/frame-tent-farm-field-mountains.jpg){.float-right}
+*A frame tent staked on open acreage, mountains behind.*
+
 Hatzic Valley acreage weddings drive the upscale Mission marquee calendar. Most are 100–150 guests under a 20×60 marquee on the acreage lawn. Hatzic Lake-adjacent properties run an additional anchor consideration — sidewalls year-round given the lake-side onshore breeze.
 
 Engineered ground stakes are the default; supplemental ballast at the lake-facing or valley-facing corners where the wind line concentrates.

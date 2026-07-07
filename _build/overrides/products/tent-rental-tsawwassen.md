@@ -52,6 +52,9 @@ Three specific patterns drive that:
 
 ## English Bluff — cliff-edge residence installs
 
+![A large high-peak tent and two canopies set up in a backyard beside a pool](/images/lifestyle/backyard-party-tents-pool.jpg){.float-right}
+*Main tent plus two canopies around a backyard pool.*
+
 English Bluff's cliff-edge residences host some of the most-photographed Lower Mainland wedding sightlines — ocean-and-island backdrops with mountain-edge framing. Most are 100–150 guest configurations with a 20×60 marquee on the residence lawn.
 
 The cliff-edge wind plan is the operational anchor of every English Bluff install:

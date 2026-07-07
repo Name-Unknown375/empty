@@ -52,8 +52,8 @@ Three chair lines that cover almost every Vancouver event:
 
 ## Park, rooftop, backyard — Vancouver chair patterns
 
-![Rows of white ceremony chairs facing an altar at an outdoor wedding](/images/lifestyle/ceremony-chairs-1.jpg){.float-right}
-*White Chiavari ceremony rows staged on a Vancouver lawn.*
+![Rows of white Chiavari chairs set for a wedding ceremony in a bright venue with floor-to-ceiling windows](/images/lifestyle/white-chiavari-chairs-ceremony.jpg){.float-right}
+*White Chiavari rows set for an indoor ceremony.*
 
 ### Park ceremonies
 

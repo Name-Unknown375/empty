@@ -52,8 +52,8 @@ Three tables, three jobs. North Vancouver event floor plans usually need all thr
 
 ## North Shore access and table staging
 
-![Cocktail-hour highboy tables set up at an outdoor reception with guests in conversation](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Lonsdale Quay restaurant patio event.*
+![Banquet tables with white linens and black folding chairs set up outside an office building](/images/lifestyle/corporate-lunch-tables-parking-lot.jpg){.float-right}
+*Banquet rows staged outside an office for a staff lunch.*
 
 ### Steep driveways and hand-carry
 

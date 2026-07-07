@@ -57,8 +57,8 @@ On the truck for a typical Coquitlam event:
 
 ## Elevation, tree cover, and Coquitlam's two operational patterns
 
-![A wedding ceremony setup with rows of chairs and a decorated arch on a lush green lawn](/images/lifestyle/ceremony-chairs-3.jpg){.float-right}
-*A ceremony staged on a Coquitlam acreage lawn.*
+![Three pop-up canopy tents with sidewalls and chairs set up on a grass field](/images/lifestyle/pop-up-canopy-tents-park-event.jpg){.float-right}
+*Pop-up canopies with sidewalls staged for an outdoor event.*
 
 ### Lower Coquitlam (Town Centre, Maillardville, Eagle Ridge)
 

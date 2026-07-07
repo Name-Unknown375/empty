@@ -54,8 +54,8 @@ Three floor sizes that cover almost every Langley vineyard, acreage, and corpora
 
 ## Langley dance floor install patterns we cover
 
-![A group of people on a dance floor at a wedding reception with festive party energy](/images/lifestyle/dance-floor-1.jpg){.float-right}
-*A 16×20 dance floor in use at a Langley vineyard wedding.*
+![Banquet tables, fanback chairs, and a black-and-white checkered dance floor under a tent strung with bistro lights](/images/lifestyle/tent-reception-dance-floor-string-lights.jpg){.float-right}
+*Checkered dance floor, banquet rows, and bistro lights under one tent.*
 
 ### Vineyard receptions
 

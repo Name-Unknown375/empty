@@ -39,8 +39,8 @@ nearby_cities:
 
 ## What our New Westminster chair lineup covers
 
-![A row of clean white ceremony chairs lined up on grass at an outdoor wedding](/images/lifestyle/ceremony-chairs-1.jpg)
-*White ceremony chairs staged for a New Westminster Queen's Park wedding.*
+![Round tables and white Chiavari chairs set for a wedding reception under a chandelier](/images/lifestyle/wedding-reception-chiavari-chairs-ballroom.jpg)
+*White Chiavari and rounds dressed for a ballroom reception.*
 
 Three chair lines that cover almost every New West event:
 

@@ -52,8 +52,8 @@ Three chair lines cover almost every Mission event:
 
 ## Hatzic, Silverhill, Heritage Park — Mission chair patterns
 
-![Rows of white ceremony chairs at an outdoor wedding setup](/images/lifestyle/ceremony-chairs-3.jpg){.float-right}
-*Ceremony chairs staged on a Mission acreage lawn.*
+![Rows of white Chiavari chairs set for a wedding ceremony in a bright venue with floor-to-ceiling windows](/images/lifestyle/white-chiavari-chairs-ceremony.jpg){.float-right}
+*White Chiavari rows set for an indoor ceremony.*
 
 ### Hatzic Valley and Hatzic Lake acreage
 

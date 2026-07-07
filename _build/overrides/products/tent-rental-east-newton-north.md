@@ -49,6 +49,9 @@ East Newton sits in our home-warehouse delivery zone — the same advantage we d
 
 ## Residential backyards — the marquee core
 
+![A backyard wedding reception at night under connected tents with string lights and clear sidewalls glowing](/images/lifestyle/backyard-wedding-tent-night-string-lights.jpg){.float-right}
+*A backyard reception running late under string lights.*
+
 East Newton's residential streets along the King George corridor, Newton Town Centre's adjacent residential blocks, and the broader East Newton area accept standard residential marquee installs. Most weddings are 60–100 guests under a 20×40 marquee on the residential lawn. Larger residential lots accept a 20×60.
 
 ## Bear Creek Park

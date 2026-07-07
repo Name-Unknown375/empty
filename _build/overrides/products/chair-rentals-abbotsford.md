@@ -52,8 +52,8 @@ Three chair lines that cover almost every Abbotsford event:
 
 ## Vineyards, Tradex, Mill Lake — Abbotsford chair patterns
 
-![A row of cocktail-hour highboy tables at an outdoor reception with guests in conversation](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys at an Abbotsford vineyard reception — the chair rental pairs with these.*
+![Banquet tables with white linens and fanback folding chairs set for a reception inside a frame tent](/images/lifestyle/tent-reception-tables-fanback-chairs.jpg){.float-right}
+*Banquet rows and fanback chairs dressed under a frame tent.*
 
 ### Vineyard and farm weddings — Mount Lehman, Matsqui
 

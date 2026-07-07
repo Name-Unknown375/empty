@@ -57,8 +57,8 @@ On the truck for a typical Langley install:
 
 ## Surface, wind, and the Langley anchor strategy
 
-![Rows of white ceremony chairs and a wedding setup on lush grass with greenery framing the scene](/images/lifestyle/ceremony-chairs-3.jpg){.float-right}
-*A vineyard-row ceremony staged on Langley grass.*
+![Banquet tables, fanback chairs, and a black-and-white checkered dance floor under a tent strung with bistro lights](/images/lifestyle/tent-reception-dance-floor-string-lights.jpg){.float-right}
+*Checkered dance floor, banquet rows, and bistro lights under one tent.*
 
 ### Engineered stakes on farm soil
 

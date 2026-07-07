@@ -57,8 +57,8 @@ On the truck for a typical Port Moody install:
 
 ## Port Moody tent install patterns we cover
 
-![Cocktail-hour highboy tables set up at an outdoor reception with guests in conversation behind](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Heritage Mountain backyard event.*
+![High-peak frame tents covering a restaurant patio lined with picnic tables](/images/lifestyle/restaurant-patio-tent-rental.jpg){.float-right}
+*Season-extending patio cover for a restaurant.*
 
 ### Rocky Point and Shoreline Trail — waterfront
 

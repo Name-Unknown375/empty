@@ -52,8 +52,8 @@ Three chair lines that cover almost every Coquitlam event:
 
 ## Lafarge Lake, Westwood Plateau, Burke Mountain — Coquitlam chair patterns
 
-![A row of cocktail-hour highboy tables at an outdoor reception with guests in conversation](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys at a Town Centre civic event — the chair rental pairs with these.*
+![Round tables in navy linens with white folding chairs and cocktail tables staged for a corporate party](/images/lifestyle/corporate-party-round-tables-cocktail-tables.jpg){.float-right}
+*Navy rounds and highboys staged for a company party.*
 
 ### Lafarge Lake and Town Centre civic ceremonies
 

@@ -57,8 +57,8 @@ On the truck for a typical Burnaby install:
 
 ## Burnaby tent install patterns we cover
 
-![Cocktail-hour highboy tables set up at an outdoor reception with guests in conversation behind](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Brentwood corporate event.*
+![Two high-peak frame tents covering picnic tables in an office courtyard](/images/lifestyle/corporate-event-tents-office-courtyard.jpg){.float-right}
+*Two high-peak frames over an office courtyard for a staff event.*
 
 ### Heritage and Deer Lake venues
 

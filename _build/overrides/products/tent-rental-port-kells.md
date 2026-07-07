@@ -46,6 +46,9 @@ Port Kells residential streets and Serpentine River-adjacent residences host mos
 
 ## Tynehead Regional Park
 
+![A long frame tent covering a parking lot between two commercial buildings at dusk](/images/lifestyle/commercial-tent-warehouse-event.jpg){.float-right}
+*A long frame footprint between warehouses for a company event.*
+
 Tynehead's forest-canopy ceremony zones rarely accept marquee installs. The standard pattern is a ceremony chairs-only at Tynehead (the forest canopy provides cover), reception marquee at the adjacent residential address.
 
 ## Port Kells industrial-park corporate

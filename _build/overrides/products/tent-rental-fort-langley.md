@@ -50,6 +50,9 @@ The marquee itself is the same on a Bedford Landing lot as on a heritage village
 
 ## Fort Langley National Historic Site
 
+![Three pop-up canopy tents with sidewalls and chairs set up on a grass field](/images/lifestyle/pop-up-canopy-tents-park-event.jpg){.float-right}
+*Pop-up canopies with sidewalls staged for an outdoor event.*
+
 Fort Langley NHS ceremony zones run on heritage permits with strict setback rules. Most accept 20×20 cocktail tents or 20×30 supplemental marquees; full reception marquees rarely fit the permitted footprint. The standard pattern: smaller ceremony marquee at the NHS, reception marquee at the adjacent residential venue.
 
 Parks Canada coordinates the delivery window — we book it through their events team during quoting.

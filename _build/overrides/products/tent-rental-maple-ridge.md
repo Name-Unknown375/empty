@@ -39,8 +39,8 @@ nearby_cities:
 
 ## What our Maple Ridge tent lineup covers
 
-![A clean white marquee tent staged on level lawn with side walls open and chairs visible inside](/images/lifestyle/tent-setup.jpg)
-*A 20×40 marquee staged for a Hammond acreage wedding.*
+![A high-peak frame tent on a manicured garden lawn with a mountain view behind](/images/lifestyle/high-peak-tent-garden-mountain-view.jpg)
+*A single high-peak on a garden lawn, mountains behind.*
 
 The same single inventory and crew calendar runs across the entire Lower Mainland. A Maple Ridge tent install gets the same equipment any other city gets — without short-ships, without sub-rentals from another vendor.
 

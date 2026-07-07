@@ -39,8 +39,8 @@ nearby_cities:
 
 ## What our Vancouver tent lineup covers
 
-![A long banquet-style table set up under a marquee with chairs and string lighting overhead](/images/lifestyle/tent-chairs-tables.jpg)
-*A 20×40 marquee — the standard footprint for Vancouver park-and-reception weddings.*
+![A frame tent installed on a rooftop patio with the downtown Vancouver skyline and North Shore mountains behind](/images/lifestyle/rooftop-tent-rental-vancouver-skyline.jpg)
+*A rooftop terrace install — downtown Vancouver behind.*
 
 The same single inventory and crew calendar runs across the entire Lower Mainland. A Vancouver tent install gets the same equipment any other city gets — without short-ships, without sub-rentals from another vendor.
 

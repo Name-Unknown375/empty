@@ -56,8 +56,8 @@ On the truck for a typical New West event:
 
 ## Compact footprint, fast delivery, and venue access
 
-![A row of clean white Chiavari chairs lined up on grass at an outdoor wedding](/images/lifestyle/chiavari-setup.jpg){.float-right}
-*Chiavari chairs staged for a New Westminster ceremony.*
+![High-peak frame tents covering a restaurant patio lined with picnic tables](/images/lifestyle/restaurant-patio-tent-rental.jpg){.float-right}
+*Season-extending patio cover for a restaurant.*
 
 ### Short delivery window
 

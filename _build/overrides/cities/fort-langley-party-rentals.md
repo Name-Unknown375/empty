@@ -39,8 +39,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![A clean white marquee tent set up on an open lawn during the day — the standard footprint for Fort Langley acreage weddings](/images/lifestyle/wedding-tent-reception-1.jpg)
-*A 20×40 marquee — the standard footprint for Glover Road acreage receptions.*
+![Three connected high-peak tents glowing at dusk on a rural property](/images/lifestyle/connected-party-tents-evening.jpg)
+*Three connected high-peaks at dusk — one continuous footprint for dinner and dancing.*
 
 Same single inventory and crew calendar across the entire Lower Mainland. A Fort Langley couple gets the same catalogue any other city gets — without short-ships, without sub-rentals from another vendor.
 

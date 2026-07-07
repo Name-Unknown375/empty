@@ -53,6 +53,9 @@ Most installs are 20×40 to 20×60 marquees on the residential lawn. The marquee
 
 ## Langley Events Centre — supplemental and outdoor
 
+![A high-peak frame tent set up on a sunny backyard lawn](/images/lifestyle/backyard-tent-rental-sunny-lawn.jpg){.float-right}
+*A backyard frame tent staked and ready before the tables arrive.*
+
 The LEC's indoor facilities handle most corporate events without supplemental marquees. When LEC does book marquees, it's for sponsor activations, outdoor cocktail-hour cover at the large galas, or registration overflow. 20×20 to 20×40 footprints; the LEC events team coordinates vendor windows.
 
 ## Sendall Gardens and Willoughby Community Park

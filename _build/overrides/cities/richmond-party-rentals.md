@@ -56,8 +56,8 @@ On the truck for a typical Richmond event:
 
 ## Three operational patterns specific to Richmond
 
-![Cocktail-hour highboy tables set up at an outdoor reception with guests in conversation in the background](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Richmond cocktail hour.*
+![Banquet tables with white linens and black folding chairs set up outside an office building](/images/lifestyle/corporate-lunch-tables-parking-lot.jpg){.float-right}
+*Banquet rows staged outside an office for a staff lunch.*
 
 ### Cultural-wedding timing precision
 

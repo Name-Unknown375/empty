@@ -52,8 +52,8 @@ Three tables, three jobs. Abbotsford event floor plans usually need all three:
 
 ## Abbotsford venue access and floor-plan staging
 
-![A row of cocktail-hour highboy tables at an outdoor reception with guests in conversation behind](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Tradex corporate event.*
+![Banquet tables with white linens and fanback folding chairs set for a reception inside a frame tent](/images/lifestyle/tent-reception-tables-fanback-chairs.jpg){.float-right}
+*Banquet rows and fanback chairs dressed under a frame tent.*
 
 ### Vineyards and farms — Mount Lehman, Matsqui
 

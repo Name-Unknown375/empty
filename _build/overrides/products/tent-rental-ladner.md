@@ -55,6 +55,9 @@ Most Westham Island marquees are 20×40; the larger farm receptions with covered
 
 ## Ladner Village heritage and 48 Avenue
 
+![A high-peak frame tent shading a backyard pool deck](/images/lifestyle/high-peak-tent-pool-deck.jpg){.float-right}
+*A high-peak frame tent fitted over a backyard pool deck.*
+
 Ladner Village's heritage residential streets and 48 Avenue restaurant row have tight truck access — shorter delivery windows, pre-stage close to the property line. Most Ladner Village heritage backyards accept a 20×30 to 20×40 marquee comfortably. Side-passage access caps install crew window length.
 
 The marquee itself doesn't change between an open Westham Island farm and a tight Ladner Village backyard. What changes is the install procedure and how the crew positions equipment around side passages.

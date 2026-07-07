@@ -52,6 +52,9 @@ The marquee itself doesn't change between these. What changes is the headcount t
 
 ## Derby Reach Regional Park
 
+![A high-peak frame tent set up on a sunny backyard lawn](/images/lifestyle/backyard-tent-rental-sunny-lawn.jpg){.float-right}
+*A backyard frame tent staked and ready before the tables arrive.*
+
 Derby Reach's forest-canopy ceremony zones rarely accept marquee installs — GVRD park-permit setbacks limit footprints to 20×20 cocktail tents at most. The standard Walnut Grove pattern: ceremony chairs-only at the park (the forest canopy provides cover), with the reception marquee installed at the adjacent Bedford Landing-adjacent or Yorkson residence.
 
 ## Walnut Grove Community Park and Secondary

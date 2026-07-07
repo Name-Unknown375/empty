@@ -50,6 +50,9 @@ A Chilliwack marquee is structurally identical to a Burnaby or Surrey marquee. W
 
 ## Promontory, Rosedale, Hatzic Valley — Mount Cheam-view acreage
 
+![A two-peak frame tent standing in an open farm field with a mountain backdrop](/images/lifestyle/frame-tent-farm-field-mountains.jpg){.float-right}
+*A frame tent staked on open acreage, mountains behind.*
+
 Mount Cheam-view acreage weddings drive the upscale Chilliwack marquee calendar. Most are 150–200 guest configurations with a 30×60 marquee on the lawn. Truck access on Eastern Fraser Valley rural roads is ample; the main install variable is the slope and the lawn condition at the specific acreage.
 
 The standard install is a 30×60 marquee with sidewalls, engineered ground stakes, bistro string lighting along the ridge, tent heater October–April. Setup runs 6–7 hours for a 30×60; teardown is 4–5.

@@ -52,8 +52,8 @@ Three chair lines that cover almost every West Van event:
 
 ## Ocean-edge, estate, rooftop, corporate — West Van chair patterns
 
-![Rows of white ceremony chairs at an outdoor wedding](/images/lifestyle/ceremony-chairs-3.jpg){.float-right}
-*Ceremony seating on a West Van lawn — clean lines, clear sightlines to the water.*
+![Rows of gold Chiavari chairs facing a floral ceremony arch at a garden wedding](/images/lifestyle/gold-chiavari-chairs-garden-wedding.jpg){.float-right}
+*Chiavari rows facing a floral arch at a garden ceremony.*
 
 ### Whytecliff, Lighthouse Park, Ambleside ocean ceremonies
 

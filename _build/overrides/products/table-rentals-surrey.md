@@ -52,8 +52,8 @@ Three tables, three jobs. Surrey event floor plans usually need all three:
 
 ## Surface, access, and Surrey table staging
 
-![A row of cocktail-hour highboy tables at an outdoor reception with guests in conversation](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Surrey corporate event.*
+![Our crew staging round tables and white resin folding chairs during a venue setup](/images/lifestyle/event-setup-crew-round-tables.jpg){.float-right}
+*Our crew mid-setup — rounds and resin chairs staged before linens.*
 
 ### Acreage and rural-residential
 

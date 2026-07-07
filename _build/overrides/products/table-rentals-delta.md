@@ -52,8 +52,8 @@ Three tables, three jobs. Delta event floor plans usually need all three:
 
 ## Delta venue access and floor-plan staging
 
-![A row of cocktail-hour highboy tables at an outdoor reception with guests in conversation behind](/images/lifestyle/cocktail-hour-1.jpg){.float-right}
-*Cocktail highboys staged for a Tsawwassen acreage event.*
+![Round tables, cocktail tables, and a balloon arch set up for a party inside a warehouse](/images/lifestyle/warehouse-party-balloon-arch-tables.jpg){.float-right}
+*Rounds, highboys, and a balloon arch turning a warehouse into a venue.*
 
 ### Boundary Bay and Reifel — shoreline tables
 

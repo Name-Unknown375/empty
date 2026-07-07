@@ -56,8 +56,8 @@ On the truck for a typical East Newton event:
 
 ## High-density residential, multicultural events, and East Newton operational realities
 
-![A clean white marquee tent staged on level lawn with the side walls open](/images/lifestyle/tent-setup.jpg){.float-right}
-*A marquee staged on an East Newton residential lot.*
+![A frame tent mid-setup with turf flooring down and tables still stacked](/images/lifestyle/tent-setup-in-progress.jpg){.float-right}
+*Mid-install — flooring first, then tables come off the stack.*
 
 ### Multicultural family-event scale
 
