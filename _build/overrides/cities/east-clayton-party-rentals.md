@@ -1,7 +1,7 @@
 ---
 slug: east-clayton-party-rentals
 title: "East Clayton Tent Rentals — Clayton Heights + Cloverdale"
-meta_description: "East Clayton wedding tent, chair, table & dance floor rentals — Clayton Heights backyards, Cloverdale Rodeo events, community functions. 150+ reviews."
+meta_description: "East Clayton wedding tent, chair, table & dance floor rentals — Clayton Heights backyards, Cloverdale Rodeo events, community functions. 190+ reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for East Clayton backyard weddings, Cloverdale Rodeo events, and Clayton Community Centre functions — delivered and crew-installed."
 
 intro_paragraphs:
@@ -99,4 +99,4 @@ Setup runs 4–5 hours; teardown 2–3. Both quoted up front. For Cloverdale Rod
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

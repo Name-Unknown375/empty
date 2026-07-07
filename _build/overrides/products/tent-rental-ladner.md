@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-ladner
 title: "Tent Rentals in Ladner — Westham Island Farm"
-meta_description: "Tent rentals in Ladner — marquee tents for Westham Island farm weddings, Ladner Village heritage backyards, Port Guichon waterfront residences. 150+ reviews."
+meta_description: "Tent rentals in Ladner — marquee tents for Westham Island farm weddings, Ladner Village heritage backyards, Port Guichon waterfront residences. 190+ reviews."
 hero_subtitle: "Tent rentals in Ladner for Westham Island agritourism farm weddings, Ladner Village heritage backyards, Port Guichon waterfront residence receptions, and Millennium Park community events — sized for the village's intimate-scale wedding market."
 
 intro_paragraphs:
@@ -93,4 +93,4 @@ Setup runs 4–5 hours for a 20×60 + sidewall configuration; teardown is 2–3 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

@@ -1,7 +1,7 @@
 ---
 slug: dance-floor-rental-west-vancouver
 title: "Dance Floor Rentals in West Vancouver — Crew + Setup"
-meta_description: "Dance floor rentals in West Vancouver — 12×12, 12×16, 16×20 portable floors with subfloor for terraced lawns. Delivered and crew-installed. 150+ reviews."
+meta_description: "Dance floor rentals in West Vancouver — 12×12, 12×16, 16×20 portable floors with subfloor for terraced lawns. Delivered and crew-installed. 190+ reviews."
 hero_subtitle: "Dance floor rentals in West Vancouver — 12×12, 12×16, and 16×20 portable floors delivered, levelled with subfloor on terraced British Properties lawns and waterfront grass, installed by the same crew that loaded it."
 
 intro_paragraphs:
@@ -96,4 +96,4 @@ For a Park Royal corporate or a Dundarave waterfront-condo rooftop reception wit
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

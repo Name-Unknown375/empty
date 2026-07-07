@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-new-westminster
 title: "Chair Rentals in New Westminster"
-meta_description: "Chair rentals in New Westminster — White Chiavari, Fanback folding and Resin Garden chairs delivered and positioned by the local crew. 150+ reviews."
+meta_description: "Chair rentals in New Westminster — White Chiavari, Fanback folding and Resin Garden chairs delivered and positioned by the local crew. 190+ reviews."
 hero_subtitle: "Chair rentals in New Westminster delivered, wiped, and positioned by the local crew — White Chiavari for Queen's Park and Anvil Centre receptions, Fanback folding for ceremony rows, Resin Garden chairs for Westminster Pier waterfront ceremonies."
 
 intro_paragraphs:
@@ -89,4 +89,4 @@ For other guest counts, the [50/100/150/200 rental checklist](/blog/party-rental
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

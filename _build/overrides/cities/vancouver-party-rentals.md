@@ -1,7 +1,7 @@
 ---
 slug: vancouver-party-rentals
 title: "Vancouver Party Rentals — Stanley Park + Backyard Setups"
-meta_description: "Vancouver party rentals — marquee tents, Chiavari chairs, tables & dance floors crew-installed at Stanley Park, QE Park & backyard venues. 150+ reviews."
+meta_description: "Vancouver party rentals — marquee tents, Chiavari chairs, tables & dance floors crew-installed at Stanley Park, QE Park & backyard venues. 190+ reviews."
 hero_subtitle: "Vancouver party rentals — marquee tents, Chiavari chairs, round tables, and dance floors delivered to your venue, levelled, and crew-installed by the people who answer your call."
 
 intro_paragraphs:
@@ -105,4 +105,4 @@ If your guest count is closer to 50 or 150, our [rental checklist for 50/100/150
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service we're selling. The catalogue is just the proof.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service we're selling. The catalogue is just the proof.

@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-langley-township
 title: "Tent Rentals in Langley Township — Vineyards, Farms"
-meta_description: "Tent rentals in Langley Township — marquee tents for Township 7 vineyards, Krause Berry Farms receptions and Campbell Valley ceremonies. 150+ reviews."
+meta_description: "Tent rentals in Langley Township — marquee tents for Township 7 vineyards, Krause Berry Farms receptions and Campbell Valley ceremonies. 190+ reviews."
 hero_subtitle: "Tent rentals in Langley Township for Township 7 vineyard receptions, Krause Berry Farms agritourism weddings, Campbell Valley Park ceremonies, and Walnut Grove acreage events — engineered for working-farm soil and open-valley wind."
 
 intro_paragraphs:
@@ -86,4 +86,4 @@ Setup runs 6–7 hours for a 30×60 + sidewall configuration; teardown is 4–5 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

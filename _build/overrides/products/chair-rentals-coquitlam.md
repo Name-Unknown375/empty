@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-coquitlam
 title: "Chair Rentals in Coquitlam — Chiavari, Fanback & Garden"
-meta_description: "Chair rentals in Coquitlam — White Chiavari, Fanback folding, and Resin Garden chairs delivered, stacked, and positioned by the local crew. 150+ reviews."
+meta_description: "Chair rentals in Coquitlam — White Chiavari, Fanback folding, and Resin Garden chairs delivered, stacked, and positioned by the local crew. 190+ reviews."
 hero_subtitle: "Chair rentals in Coquitlam delivered, wiped, and positioned by the local crew — White Chiavari for receptions, Fanback folding for ceremony rows and corporate events, Resin Garden for Lafarge Lake and Mundy Park ceremonies."
 
 intro_paragraphs:
@@ -95,4 +95,4 @@ The Chiavari-only configuration is the most common Coquitlam Westwood wedding ch
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-north-vancouver
 title: "Tent Rentals in North Vancouver"
-meta_description: "Tent rentals in North Vancouver — marquee tents delivered to Lynn Valley, Deep Cove waterfront, Edgemont and Capilano-area events. 150+ five-star reviews."
+meta_description: "Tent rentals in North Vancouver — marquee tents delivered to Lynn Valley, Deep Cove waterfront, Edgemont and Capilano-area events. 190+ five-star reviews."
 hero_subtitle: "Tent rentals in North Vancouver for Lynn Valley acreage receptions, Deep Cove waterfront ceremonies, Edgemont and Capilano-area backyards — engineered for North Shore wind patterns and afternoon mountain inflow."
 
 intro_paragraphs:
@@ -92,4 +92,4 @@ Setup runs 5–6 hours for a 20×60 + sidewall + doubled-anchor configuration; t
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

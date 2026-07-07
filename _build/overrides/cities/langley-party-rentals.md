@@ -1,7 +1,7 @@
 ---
 slug: langley-party-rentals
 title: "Langley Party Rentals — Tents, Chairs, Tables"
-meta_description: "Langley party rentals — tents, chairs, tables & dance floors for vineyard weddings, acreage receptions, and Langley Events Centre corporate galas. 150+ reviews."
+meta_description: "Langley party rentals — tents, chairs, tables & dance floors for vineyard weddings, acreage receptions, and Langley Events Centre corporate galas. 190+ reviews."
 hero_subtitle: "Langley party rentals for vineyard weddings, acreage receptions, and Langley Events Centre corporate galas — tents, chairs, tables, and dance floors delivered and crew-installed."
 
 intro_paragraphs:
@@ -101,4 +101,4 @@ Setup runs 5–6 hours; teardown 3–4. Both quoted up front. For other guest co
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

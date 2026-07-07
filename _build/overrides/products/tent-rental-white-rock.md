@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-white-rock
 title: "Marquee Tent Rentals in White Rock — Crew + Setup"
-meta_description: "Marquee tent rentals in White Rock 20×20 to 30×60 — engineered install, sidewalls, ballast for beach and pier wind, lighting. 150+ five-star reviews."
+meta_description: "Marquee tent rentals in White Rock 20×20 to 30×60 — engineered install, sidewalls, ballast for beach and pier wind, lighting. 190+ five-star reviews."
 hero_subtitle: "Tent rentals in White Rock from 20×20 cocktail tents to 30×60 reception marquees — engineered installation with beach and pier-wind ballast, sidewalls and bistro lighting, delivered and crew-installed for Marine Drive, Semiahmoo, and Peace Arch events."
 
 intro_paragraphs:
@@ -104,4 +104,4 @@ Setup runs 4–5 hours for a 20×60 + sidewall configuration; teardown is 2–3 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

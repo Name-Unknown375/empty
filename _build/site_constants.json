@@ -28,7 +28,7 @@
 
   "aggregateRating": {
     "value": "5.0",
-    "count": "150",
-    "_note": "Pulled from public Google Business Profile. Update both this number and the human-facing '150+ five-star Google reviews' copy in templates whenever the GBP changes — never inflate."
+    "count": "192",
+    "_note": "Pulled from public Google Business Profile. Update both this number and the human-facing '190+ five-star Google reviews' copy in templates whenever the GBP changes — never inflate."
   }
 }

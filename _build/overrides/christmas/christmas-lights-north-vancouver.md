@@ -88,6 +88,6 @@ Setup runs 5–7 hours given the steep-roof access; takedown 3–4 hours. Both q
 
 ## Why North Van homes book us a second time
 
-150+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
+190+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
 
 Free consultation, fixed-price quote within 24 hours, and your strands stored in our warehouse all summer. That's the service.

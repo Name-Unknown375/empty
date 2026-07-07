@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-richmond
 title: "Chair Rentals in Richmond — Chiavari, Fanback & Garden"
-meta_description: "Chair rentals in Richmond — White Chiavari, Fanback folding, and Resin Garden chairs delivered, stacked, and positioned by the local crew. 150+ reviews."
+meta_description: "Chair rentals in Richmond — White Chiavari, Fanback folding, and Resin Garden chairs delivered, stacked, and positioned by the local crew. 190+ reviews."
 hero_subtitle: "Chair rentals in Richmond delivered, wiped, and positioned by the local crew — White Chiavari for Brighouse hotel receptions, Fanback folding for ceremony rows and Olympic Oval corporate events, Resin Garden for Steveston waterfront and Garry Point ceremonies."
 
 intro_paragraphs:
@@ -92,4 +92,4 @@ The two-chair-line setup is the most common Richmond waterfront wedding configur
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

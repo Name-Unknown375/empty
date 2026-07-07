@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-carvolth
 title: "Chair Rentals in Carvolth — Chiavari, Fanback + LEC-Adjacent"
-meta_description: "Chair rentals in Carvolth — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Langley Events Centre corporate events. 150+ reviews."
+meta_description: "Chair rentals in Carvolth — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Langley Events Centre corporate events. 190+ reviews."
 hero_subtitle: "Chair rentals in Carvolth delivered by the local crew — White Chiavari for Northwest Willoughby Heights residence receptions, Fanback folding for Langley Events Centre corporate-scale seating, Resin Garden for Willoughby Community Park-adjacent outdoor ceremonies."
 
 intro_paragraphs:
@@ -88,4 +88,4 @@ For LEC corporate events, the order shifts to 300+ Fanback configurations. For o
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

@@ -1,7 +1,7 @@
 ---
 slug: richmond-party-rentals
 title: "Richmond Tent Rentals — Cultural Weddings + Setup"
-meta_description: "Richmond wedding tent, chair, table & dance floor rentals — multi-stage cultural weddings, Steveston wind-rated installs. Marquees from $550. 150+ reviews."
+meta_description: "Richmond wedding tent, chair, table & dance floor rentals — multi-stage cultural weddings, Steveston wind-rated installs. Marquees from $550. 190+ reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Richmond cultural weddings, Steveston outdoor ceremonies, and Olympic Oval corporate events — delivered and crew-installed."
 
 intro_paragraphs:
@@ -100,4 +100,4 @@ For multi-stage cultural weddings the chair count typically scales (200–300 gu
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

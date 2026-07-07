@@ -1,7 +1,7 @@
 ---
 slug: abbotsford-party-rentals
 title: "Abbotsford Tent Rentals — Acreage + Mill Lake Setup"
-meta_description: "Abbotsford wedding tent, chair, table & dance floor rentals — installed on Fraser Valley acreages and Mill Lake Park. 150+ five-star reviews. Book online."
+meta_description: "Abbotsford wedding tent, chair, table & dance floor rentals — installed on Fraser Valley acreages and Mill Lake Park. 190+ five-star reviews. Book online."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Abbotsford acreage weddings, Mill Lake Park ceremonies, and Fraser Valley corporate events — delivered and crew-installed."
 
 intro_paragraphs:
@@ -105,4 +105,4 @@ For sizing math on smaller or larger headcounts — 50 guests in a backyard, 200
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

@@ -1,7 +1,7 @@
 ---
 slug: dance-floor-rental-langley
 title: "Dance Floor Rentals in Langley — Vineyard + Acreage"
-meta_description: "Dance floor rentals in Langley — 12×12, 12×16, 16×20 portable floors with subfloor for vineyard and farm-soil installs. 150+ five-star reviews."
+meta_description: "Dance floor rentals in Langley — 12×12, 12×16, 16×20 portable floors with subfloor for vineyard and farm-soil installs. 190+ five-star reviews."
 hero_subtitle: "Dance floor rentals in Langley — 12×12, 12×16, and 16×20 portable floors delivered, leveled on subfloor for vineyard and acreage installs, and crew-installed for Krause, Township 7, and Brookswood events."
 
 intro_paragraphs:
@@ -92,4 +92,4 @@ For 200-guest vineyard weddings, the floor scales to 16×20 with corresponding s
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

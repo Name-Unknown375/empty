@@ -1,7 +1,7 @@
 ---
 slug: fort-langley-party-rentals
 title: "Fort Langley Tent Rentals — Heritage Village Setup"
-meta_description: "Fort Langley wedding tent, chair, table & dance floor rentals — Historic Site, Bedford Landing, Glover Road acreages. 150+ five-star reviews."
+meta_description: "Fort Langley wedding tent, chair, table & dance floor rentals — Historic Site, Bedford Landing, Glover Road acreages. 190+ five-star reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Fort Langley heritage weddings, Bedford Landing waterfront events, and Glover Road acreage receptions — delivered and crew-installed."
 
 intro_paragraphs:
@@ -97,4 +97,4 @@ Setup at the Historic Site runs 2–3 hours (chairs only); the Glover Road recep
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

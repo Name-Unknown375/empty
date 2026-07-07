@@ -1,7 +1,7 @@
 ---
 slug: harrison-hot-springs-party-rentals
 title: "Harrison Hot Springs Tent Rentals — Destination Setup"
-meta_description: "Harrison Hot Springs wedding tent, chair, table & dance floor rentals — destination wedding setup, lakefront ceremonies. 150+ five-star reviews."
+meta_description: "Harrison Hot Springs wedding tent, chair, table & dance floor rentals — destination wedding setup, lakefront ceremonies. 190+ five-star reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Harrison Hot Springs destination weddings, lakefront ceremonies, and Resort receptions — delivered and crew-installed."
 
 intro_paragraphs:
@@ -98,4 +98,4 @@ For full Harrison destination wedding planning, our [Harrison destination weddin
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

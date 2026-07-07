@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-langley
 title: "Marquee Tent Rentals in Langley — Vineyard + Acreage"
-meta_description: "Marquee tent rentals in Langley 20×20 to 30×60 — engineered install, sidewalls, bistro lighting, vineyard and acreage setups. 150+ five-star reviews."
+meta_description: "Marquee tent rentals in Langley 20×20 to 30×60 — engineered install, sidewalls, bistro lighting, vineyard and acreage setups. 190+ five-star reviews."
 hero_subtitle: "Tent rentals in Langley from 20×20 vineyard ceremony tents to 30×60 acreage receptions — engineered installation, sidewalls and bistro lighting, delivered and crew-installed for Krause Berry Farms, Township 7, and Langley Events Centre events."
 
 intro_paragraphs:
@@ -100,4 +100,4 @@ Setup runs 4–5 hours for a 20×60 + sidewall configuration; teardown is 2–3 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

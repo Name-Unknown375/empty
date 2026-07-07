@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-fort-langley
 title: "Chair Rentals in Fort Langley — Heritage Village"
-meta_description: "Chair rentals in Fort Langley — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Fort Langley National Historic Site. 150+ reviews."
+meta_description: "Chair rentals in Fort Langley — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Fort Langley National Historic Site. 190+ reviews."
 hero_subtitle: "Chair rentals in Fort Langley delivered, wiped, and positioned by the local crew — White Chiavari for heritage village receptions, Fanback folding for ceremony rows at the National Historic Site, Resin Garden for Derby Reach Regional Park and Fort to Fort Trail ceremonies."
 
 intro_paragraphs:
@@ -96,4 +96,4 @@ The two-chair-line setup is the most common Fort Langley wedding configuration w
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

@@ -1,7 +1,7 @@
 ---
 slug: christmas-lights-vancouver
 title: "Vancouver Christmas Light Installation — Free Storage"
-meta_description: "Vancouver Christmas light installation — design, install, takedown, free off-season storage. $8.50–$12/linear ft. WCB-covered crews. 150+ five-star reviews."
+meta_description: "Vancouver Christmas light installation — design, install, takedown, free off-season storage. $8.50–$12/linear ft. WCB-covered crews. 190+ five-star reviews."
 hero_subtitle: "Professional Christmas light installation across Vancouver — heritage West Side homes, downtown commercial, Yaletown condos. Fixed-price packages with free off-season storage included."
 
 intro_paragraphs:
@@ -90,6 +90,6 @@ Setup runs 4–6 hours depending on roof complexity; takedown 2–3 hours. Both 
 
 ## Why Vancouver homes book us a second time
 
-150+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from the first consultation through January takedown — no handoffs, no third-party installer, no "we'll have to check our partner network."
+190+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from the first consultation through January takedown — no handoffs, no third-party installer, no "we'll have to check our partner network."
 
 Free consultation, fixed-price quote within 24 hours, and your strands stored in our warehouse all summer. That's the service.

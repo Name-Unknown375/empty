@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-fort-langley
 title: "Tent Rentals in Fort Langley — Heritage Village"
-meta_description: "Tent rentals in Fort Langley — marquees for Bedford Landing receptions, National Historic Site events and heritage-village backyards. 150+ reviews."
+meta_description: "Tent rentals in Fort Langley — marquees for Bedford Landing receptions, National Historic Site events and heritage-village backyards. 190+ reviews."
 hero_subtitle: "Tent rentals in Fort Langley for Bedford Landing residence receptions, Derby Reach Park ceremonies, heritage village backyards, and Fort Wine Co events — sized for the village's intimate-scale weddings rather than the broader Township vineyard volume."
 
 intro_paragraphs:
@@ -84,4 +84,4 @@ Setup runs 4–5 hours for a 20×60 + sidewall configuration; teardown is 2–3 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

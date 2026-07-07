@@ -1,7 +1,7 @@
 ---
 slug: christmas-lights-langley
 title: "Langley Christmas Light Installation — Free Storage"
-meta_description: "Langley Christmas light installation — vineyard, acreage, residential rooflines. $8.50–$12/linear ft. Free off-season storage. 150+ five-star reviews."
+meta_description: "Langley Christmas light installation — vineyard, acreage, residential rooflines. $8.50–$12/linear ft. Free off-season storage. 190+ five-star reviews."
 hero_subtitle: "Professional Christmas light installation across Langley — vineyard exteriors, Brookswood and Murrayville acreage rooflines, residential blocks throughout the city. Fixed-price packages with free off-season storage."
 
 intro_paragraphs:
@@ -90,6 +90,6 @@ Setup runs 7–9 hours given the linear footage and acreage scale; takedown 4–
 
 ## Why Langley homes book us a second time
 
-150+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
+190+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
 
 Free consultation, fixed-price quote within 24 hours, and your strands stored in our warehouse all summer. That's the service.

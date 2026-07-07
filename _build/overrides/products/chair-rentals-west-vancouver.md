@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-west-vancouver
 title: "Chair Rentals in West Vancouver — Chiavari, Fanback, Resin"
-meta_description: "Chair rentals in West Vancouver — White Chiavari, Fanback folding, Resin Garden chairs delivered to Ambleside, British Properties, Whytecliff. 150+ reviews."
+meta_description: "Chair rentals in West Vancouver — White Chiavari, Fanback folding, Resin Garden chairs delivered to Ambleside, British Properties, Whytecliff. 190+ reviews."
 hero_subtitle: "Chair rentals in West Vancouver delivered and positioned by the local crew — Chiavari for British Properties receptions, Resin Garden for ocean-edge ceremonies at Whytecliff and Lighthouse Park, Fanback folding for high-headcount setups."
 
 intro_paragraphs:
@@ -84,4 +84,4 @@ This is the two-line configuration. For weddings where the ceremony and receptio
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-150+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
