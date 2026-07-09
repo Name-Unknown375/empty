@@ -10,6 +10,20 @@ if('requestIdleCallback' in w){w.requestIdleCallback(loadGTM,{timeout:3000});}
 else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
 })(window,document,'script','dataLayer','GTM-KC35GGRQ');</script>
 <!-- End Google Tag Manager -->
+<!-- Meta Pixel — fbq stub queues events immediately; fbevents.js deferred until idle to protect LCP (same pattern as GTM above) -->
+<script>!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];var loadPixel=function(){t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s);};
+if('requestIdleCallback' in f){f.requestIdleCallback(loadPixel,{timeout:3000});}
+else{f.addEventListener('load',function(){setTimeout(loadPixel,1500);});}}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1497259508391912');
+fbq('track', 'PageView');</script>
+<!-- End Meta Pixel -->
 
 <meta charset="UTF-8"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
@@ -172,6 +186,11 @@ else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KC35GGRQ"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<!-- Meta Pixel (noscript) -->
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscript=1"
+/></noscript>
+<!-- End Meta Pixel (noscript) -->
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
@@ -737,7 +756,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
 </footer>
-<script src="shared.js?v=17"></script>
+<script src="shared.js?v=18"></script>
 <!-- lastmod: 2026-07-07T21:39:14Z -->
 </body>
 </html>

@@ -2,8 +2,8 @@
   "$schema": "./posts.schema.json",
   "meta": {
     "version": 1,
-    "lastUpdated": "2026-06-16",
-    "totalPosts": 28,
+    "lastUpdated": "2026-07-09",
+    "totalPosts": 33,
     "topics": {
       "sizing": {
         "label": "Tent Sizing & Planning",
@@ -58,6 +58,61 @@
     }
   },
   "posts": [
+    {
+      "slug": "best-outdoor-wedding-venues-metro-vancouver",
+      "topic": "venues",
+      "title": "The 10 Best <em>Outdoor Wedding Venues</em> in Metro Vancouver",
+      "h4": "Metro Vancouver's Best Outdoor Venues, Ranked",
+      "excerpt": "Ceperley Meadow to Whytecliff's cove — ten outdoor venues we've actually delivered to, ranked by what each does best, with the permit and tent realities for each.",
+      "author": "team",
+      "date": "2026-06-19",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "party-rental-price-list-metro-vancouver-2026",
+      "topic": "cost",
+      "title": "The Complete <em>2026 Price List</em> for Party Rentals",
+      "h4": "Every Rental Price We Charge, In One Place",
+      "excerpt": "Every price we charge, on one page: tents from $75 to $1,890, chairs from $3.25, tables from $10.95, dance floor, power, Starlink — updated for 2026.",
+      "author": "devon",
+      "date": "2026-07-03",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "wedding-package-comparison-50-100-150-guests",
+      "topic": "compare",
+      "title": "Wedding Packages Compared: <em>50 vs 100 vs 150 Guests</em>",
+      "h4": "Which Package Size Fits Your Guest List",
+      "excerpt": "Same marquee family, three guest counts, three budgets. The exact components, totals, and per-guest math behind our 50, 100, and 150-guest wedding packages.",
+      "author": "devon",
+      "date": "2026-06-29",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "party-rental-questions-answered",
+      "topic": "logistics",
+      "title": "The <em>12 Questions</em> We Get Asked Every Week",
+      "h4": "Real Questions, Real Numbers, Straight Answers",
+      "excerpt": "How far ahead to book, what delivery costs, what happens when it rains — the twelve questions our phone line hears every week, answered with real numbers.",
+      "author": "team",
+      "date": "2026-06-24",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "party-rentals-not-worth-it",
+      "topic": "compare",
+      "title": "5 Party Rentals That <em>Aren't Worth It</em> (And 3 That Are)",
+      "h4": "An Operator's Honest Cut-Down",
+      "excerpt": "After 22 years of deliveries we'll tell you straight: five rentals that rarely earn their line item — and three that are worth more than they cost.",
+      "author": "devon",
+      "date": "2026-07-09",
+      "read": 10,
+      "status": "live"
+    },
     {
       "slug": "burnaby-wedding-venues-rental-guide",
       "topic": "venues",

@@ -84,6 +84,21 @@ CAPACITY_REFS = [
         "url": "/blog/how-much-space-per-guest-wedding-tent.html",
         "summary": "Square-foot-per-guest rules of thumb by event format.",
     },
+    {
+        "title": "Party rental prices in Metro Vancouver — complete 2026 price list",
+        "url": "/blog/party-rental-price-list-metro-vancouver-2026.html",
+        "summary": "Every rental price on one page: chairs from $3.25, 5 ft rounds $13.50, marquees $550–$1,890, dance floor $800.",
+    },
+    {
+        "title": "The 12 questions Metro Vancouver renters ask us every week",
+        "url": "/blog/party-rental-questions-answered.html",
+        "summary": "Booking lead times, rain policy, no-stake setups, permits, discounts, cancellation terms — answered with real numbers.",
+    },
+    {
+        "title": "10 best outdoor wedding venues in Metro Vancouver, ranked",
+        "url": "/blog/best-outdoor-wedding-venues-metro-vancouver.html",
+        "summary": "Ranked by permit friction, tent rules, and backdrop — by the rental crew that delivers to all ten.",
+    },
 ]
 
 

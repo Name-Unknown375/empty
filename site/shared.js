@@ -205,13 +205,24 @@ function initContactForm() {
   });
 }
 
-// ── Conversion tracking (dataLayer → GTM) ──
+// ── Conversion tracking (dataLayer → GTM, mirrored to Meta Pixel) ──
 // Pushes named events for GTM to turn into GA4 key events. GTM container
 // config (triggers/tags for quote_form_submit / phone_click / book_now_click)
 // is a one-time setup in GTM-KC35GGRQ — see DEPLOY_CHECKLIST.md.
+// Events named in META_EVENT_NAMES also fire as Meta standard events so Meta
+// ads can optimize on real conversions. fbq is the head-snippet stub and
+// queues safely before fbevents.js loads; book_now_click is deliberately
+// unmapped (browsing intent, too weak a signal to train ad delivery on).
+const META_EVENT_NAMES = { quote_form_submit: 'Lead', phone_click: 'Contact' };
 function trackEvent(payload) {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(payload);
+  const metaName = META_EVENT_NAMES[payload.event];
+  if (metaName && typeof window.fbq === 'function') {
+    const props = Object.assign({}, payload);
+    delete props.event;
+    window.fbq('track', metaName, props);
+  }
 }
 
 function initConversionTracking() {
