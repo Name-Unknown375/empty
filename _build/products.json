@@ -195,8 +195,8 @@
       "key": "dance-floor",
       "productName": "Dance Floor Rentals",
       "productNameSingular": "Dance Floor Rental",
-      "fromPriceCAD": 750,
-      "fromPriceLabel": "From $750 / event (12×12) — up to $1,600 for a 20×20 installation",
+      "fromPriceCAD": 500,
+      "fromPriceLabel": "From $500 / event (8×8) — up to $1,100 for a 16×16 installation",
       "urlPrefix": "dance-floor-rental",
       "urlPrefixOverrides": {},
       "categoryPage": "dance-floor",
@@ -205,7 +205,7 @@
       "heroImage": "/images/services/dance-floor.webp",
       "heroAlt": "Black and white checkered dance floor rental in {city}, BC",
       "tagline": "Elegant black-and-white checkered dance floors delivered, levelled, and installed at your {city} reception. Perfect for weddings, galas, and milestone celebrations.",
-      "introSummary": "Our signature dance floor is a classic black-and-white checkered surface, engineered from interlocking panels with a subfloor that levels across grass, carpet, or uneven venue floors. For {city} weddings and galas, our crew arrives ahead of guest service, levels the panels to your tent or room, trims around head tables and staging, and returns for takedown at end-of-night. Typical sizes run 12×12 up to 20×20, scaled to guest count.",
+      "introSummary": "Our signature dance floor is a classic black-and-white checkered surface, engineered from interlocking panels with a subfloor that levels across grass, carpet, or uneven venue floors. For {city} weddings and galas, our crew arrives ahead of guest service, levels the panels to your tent or room, trims around head tables and staging, and returns for takedown at end-of-night. Sizes run 8×8, 12×12, and 16×16, scaled to guest count — the 8×8 also comes in all-black or all-white.",
       "bullets": [
         "Classic black-and-white checkered panel system",
         "Professional levelling over grass, carpet, or tent flooring",
@@ -236,7 +236,7 @@
       "productFaqs": [
         {
           "q": "What size dance floor do I need for my {city} event?",
-          "a": "A general rule of thumb: ~4.5 square feet per dancer, assuming half your guests are dancing at once. A 12×12 floor works for about 50 guests; 15×15 for 100; 18×18 for 150; and 20×20 for 200+. For {city} weddings, we'll help you right-size during booking."
+          "a": "A general rule of thumb: ~4.5 square feet per dancer, assuming a third to half of your guests are dancing at once. An 8×8 floor suits backyard parties up to ~50 guests; a 12×12 works to about 100; a 16×16 covers 150+. For {city} weddings, we'll help you right-size during booking."
         },
         {
           "q": "Can you install the dance floor on grass or under a tent in {city}?",
@@ -244,7 +244,7 @@
         },
         {
           "q": "How long does it take to install the dance floor?",
-          "a": "For a standard 15×15 or 18×18 floor in {city}, our crew needs roughly 60–90 minutes of clear floor time to install and level. We coordinate the delivery window with your venue so the floor is in place before florals, staging, and head table dressing."
+          "a": "For a 12×12 or 16×16 floor in {city}, our crew needs roughly 60–90 minutes of clear floor time to install and level. We coordinate the delivery window with your venue so the floor is in place before florals, staging, and head table dressing."
         }
       ]
     },

@@ -1,8 +1,8 @@
 ---
 slug: dance-floor-rental-west-vancouver
 title: "Dance Floor Rentals in West Vancouver — Crew + Setup"
-meta_description: "Dance floor rentals in West Vancouver — 12×12, 12×16, 16×20 portable floors with subfloor for terraced lawns. Delivered and crew-installed. 190+ reviews."
-hero_subtitle: "Dance floor rentals in West Vancouver — 12×12, 12×16, and 16×20 portable floors delivered, levelled with subfloor on terraced British Properties lawns and waterfront grass, installed by the same crew that loaded it."
+meta_description: "Dance floor rentals in West Vancouver — 12×12, 12×12, 16×16 portable floors with subfloor for terraced lawns. Delivered and crew-installed. 190+ reviews."
+hero_subtitle: "Dance floor rentals in West Vancouver — 12×12, 12×12, and 16×16 portable floors delivered, levelled with subfloor on terraced British Properties lawns and waterfront grass, installed by the same crew that loaded it."
 
 intro_paragraphs:
   - "A West Van dance floor rental is almost always a levelling problem more than a flooring problem. British Properties lawns are terraced. Caulfeild and Dundarave backyards step down toward the water. Ambleside seawall receptions sit on irregular boulevard grass. Only Park Royal corporate venues and a handful of waterfront-condo rooftops give us a truly level starting surface. The dance floor we install is the same one we install in Burnaby; what's different is the subfloor underneath and the install time it adds. We quote both up front, not after the truck arrives."
@@ -14,11 +14,11 @@ faqs:
   - q: "Do I always need subfloor for a West Vancouver dance floor?"
     a: "On grass and terraced lawn, yes. The vast majority of West Van outdoor receptions sit on irregular surfaces — British Properties terraces, Caulfeild lawns, Dundarave waterfront grass — and the dance floor needs subfloor panels to level the surface beneath. Indoors at Park Royal corporate venues, on level rooftop decks, or on a Caulfeild interior patio with sound flooring, we install the floor directly with edge ramps only."
   - q: "What size dance floor for a 100-guest West Vancouver wedding?"
-    a: "12×16 is the standard for 100 guests — roughly 30–40% of your guests will be on the floor at any moment, which is the comfort target. For 60–80 guest backyard or estate weddings, 12×12. For 150-guest British Properties estate receptions, 16×20 with full subfloor."
+    a: "12×12 is the standard for 60–100 guests — roughly 30–40% of your guests will be on the floor at any moment, which is the comfort target. For smaller backyard or estate weddings (up to ~50 guests), the 8×8. For 150-guest British Properties estate receptions, 16×16 with full subfloor."
   - q: "Can you install a dance floor on a waterfront-condo rooftop in Ambleside or Dundarave?"
     a: "Yes — rooftop dance floor installs are a common West Van booking, especially for downsized Ambleside-area receptions. We confirm freight-elevator dimensions, weight rating, and rooftop structural capacity before quoting. Panels at <60 lb each fit nearly every freight elevator. Rooftop wind exposure means the dance floor stays put but the surrounding tent setup needs ballast — see our [West Van tent rental page](/tent-rental-west-vancouver) for the rooftop anchor pattern."
   - q: "How fast can you deliver a West Vancouver dance floor on short notice?"
-    a: "Same-week is usually feasible for 12×12 and 12×16 floors if our trucks aren't already booked. Larger 16×20+ floors with full subfloor for a terraced estate lawn need 7+ days for crew sizing and panel staging. Call before booking online and we'll tell you straight whether the timeline works."
+    a: "Same-week is usually feasible for 8×8 and 12×12 floors if our trucks aren't already booked. Our largest 16×16 floors with full subfloor for a terraced estate lawn need 7+ days for crew sizing and panel staging. Call before booking online and we'll tell you straight whether the timeline works."
 
 related_blog_posts:
   - slug: tent-size-guide-lower-mainland-wedding
@@ -45,8 +45,8 @@ nearby_cities:
 Three floor sizes that cover almost every West Van wedding and corporate booking:
 
 - **12×12 portable dance floor** — 60–80 guests, smaller Caulfeild and Dundarave backyard receptions, intimate Ambleside venues
-- **12×16 portable dance floor** — the workhorse. 100-guest weddings, most British Properties estate setups, waterfront-condo rooftops. Pairs cleanly with a 20×60 marquee footprint.
-- **16×20 portable dance floor** — 150–200 guests, larger upper-bench British Properties estate receptions
+- **12×12 portable dance floor** — the workhorse. 100-guest weddings, most British Properties estate setups, waterfront-condo rooftops. Pairs cleanly with a 20×60 marquee footprint.
+- **16×16 portable dance floor** — 150–200 guests, larger upper-bench British Properties estate receptions
 - **Subfloor panels** — engineered platforms that level grass, terraced lawn, and irregular patio surfaces. The default install pattern for West Van outdoor receptions. Adds 90–120 minutes to setup; quoted separately.
 - **Edge ramps** — included on every install where guests step from surrounding floor onto the dance floor. Trip-hazard safety, not aesthetic.
 
@@ -59,7 +59,7 @@ Three floor sizes that cover almost every West Van wedding and corporate booking
 
 ### British Properties terraced lawns
 
-Subfloor is mandatory. The terraced grade often means more subfloor underneath than dance floor on top — a 12×16 dance floor on a meaningfully terraced lawn might sit on a 14×18 subfloor footprint to ensure level coverage to the edge ramps. We measure grade during quoting and budget the panel count accordingly.
+Subfloor is mandatory. The terraced grade often means more subfloor underneath than dance floor on top — a 12×12 dance floor on a meaningfully terraced lawn might sit on a 14×14 subfloor footprint to ensure level coverage to the edge ramps. We measure grade during quoting and budget the panel count accordingly.
 
 ### Ambleside and Dundarave waterfront grass
 
@@ -67,7 +67,7 @@ Subfloor on most installs. The boulevard and lawn-side seawall reception sites a
 
 ### Waterfront-condo rooftops
 
-Level surface, no subfloor. Edge ramps only. Setup drops to 45–60 minutes for a 12×16. The constraint is freight-elevator capacity, not floor preparation.
+Level surface, no subfloor. Edge ramps only. Setup drops to 45–60 minutes for a 12×12. The constraint is freight-elevator capacity, not floor preparation.
 
 ### Park Royal and indoor venues
 
@@ -75,7 +75,7 @@ Existing flooring, no subfloor, edge ramps only. Fast install, fast teardown.
 
 ### Per-item pricing
 
-The same in Caulfeild as on a Dundarave rooftop. Our 12×16 portable dance floor is one rate, full stop. The line that changes is delivery and subfloor — surface, freight elevator, terraced grade — never the per-floor rate.
+The same in Caulfeild as on a Dundarave rooftop. Our 12×12 portable dance floor is one rate, full stop. The line that changes is delivery and subfloor — surface, freight elevator, terraced grade — never the per-floor rate.
 
 ## Subfloor on terraced lawn — what the install actually involves
 
@@ -85,12 +85,12 @@ The default West Van outdoor install pattern is: arrive at low-tide or pre-event
 
 For a 100-guest West Van wedding under marquee on a British Properties estate lawn, a typical dance floor order looks like:
 
-- 1 × **12×16 portable dance floor** (the standard for 100 guests)
-- Subfloor panels sized to the lawn grade (typically 14×18 footprint to ensure level coverage)
+- 1 × **12×12 portable dance floor** (the standard for 100 guests)
+- Subfloor panels sized to the lawn grade (typically 14×14 footprint to ensure level coverage)
 - Edge ramps on all four sides
 - Crew install (120 minutes for floor + subfloor on a meaningfully terraced lawn)
 
-For a Park Royal corporate or a Dundarave waterfront-condo rooftop reception with existing flooring, the same 12×16 ships without subfloor and the install drops to 45–60 minutes. For 60–80 guest Caulfeild backyards, swap to 12×12; for 150–200 guest upper-bench estates, 16×20 with full subfloor. The [50/100/150/200 rental checklist](/blog/party-rental-checklist-50-100-150-200-guests) maps dance floor sizing to your headcount alongside the rest of the rental list.
+For a Park Royal corporate or a Dundarave waterfront-condo rooftop reception with existing flooring, the same 12×12 ships without subfloor and the install drops to 45–60 minutes. For 60–80 guest Caulfeild backyards, swap to 12×12; for 150–200 guest upper-bench estates, 16×16 with full subfloor. The [50/100/150/200 rental checklist](/blog/party-rental-checklist-50-100-150-200-guests) maps dance floor sizing to your headcount alongside the rest of the rental list.
 
 ## Why couples book us a second time
 
