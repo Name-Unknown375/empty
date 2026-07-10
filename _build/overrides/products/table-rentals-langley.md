@@ -45,7 +45,7 @@ nearby_cities:
 Three tables, three jobs. Langley event floor plans usually need all three:
 
 - **[5ft round tables](/product-round-table-5ft) ($13.50/day, seats 8)** — the classic wedding-reception configuration. The reception workhorse for vineyard weddings (Township 7, Krause, Domaine de Chaberton) where the formal dinner aesthetic suits round seating.
-- **[6ft rectangular banquet tables](/product-banquet-table-6ft) ($10.95/day, seats 6–8)** — the single most versatile SKU we ship. Long-row family-style dining, buffet stations, gift tables, DJ booths, bar setups. The volume choice for school grads and Langley Events Centre corporate functions.
+- **[6ft rectangular banquet tables](/product-banquet-table-6ft) ($10.95/day, seats 6–8)** — the single most versatile table we ship. Long-row family-style dining, buffet stations, gift tables, DJ booths, bar setups. The volume choice for school grads and Langley Events Centre corporate functions.
 - **[Cocktail highboy tables](/product-cocktail-table) ($15.50/day, standing)** — 42-inch standing-height rounds for cocktail hour and networking events. Plan ~1 highboy per 10–12 standing guests.
 
 > Vineyards have a calendar of their own. Tables stage when the venue says we can stage — we coordinate during quoting.

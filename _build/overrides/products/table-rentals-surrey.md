@@ -45,7 +45,7 @@ nearby_cities:
 Three tables, three jobs. Surrey event floor plans usually need all three:
 
 - **[5ft round tables](/product-round-table-5ft) ($13.50/day, seats 8)** — the classic wedding-reception configuration. The reception workhorse for Cloverdale acreages, Hazelmere golf-course weddings, and any seated-dinner event.
-- **[6ft rectangular banquet tables](/product-banquet-table-6ft) ($10.95/day, seats 6–8)** — the single most versatile SKU we ship. Family-style dining rows, buffet stations, gift tables, DJ booths, bar setups, registration desks, head tables. The volume choice for school grads and community events.
+- **[6ft rectangular banquet tables](/product-banquet-table-6ft) ($10.95/day, seats 6–8)** — the single most versatile table we ship. Family-style dining rows, buffet stations, gift tables, DJ booths, bar setups, registration desks, head tables. The volume choice for school grads and community events.
 - **[Cocktail highboy tables](/product-cocktail-table) ($15.50/day, standing)** — 42-inch standing-height rounds for cocktail hour, networking events, and pre-dinner mingling. Plan ~1 highboy per 10–12 standing guests.
 
 > Local pricing is local pricing. Same per-table rate as anywhere else we deliver — and Surrey customers can pick up directly from our warehouse.

@@ -45,7 +45,7 @@ nearby_cities:
 Three tables, three jobs. Delta event floor plans usually need all three:
 
 - **[5ft round tables](/product-round-table-5ft) ($13.50/day, seats 8)** — the classic wedding-reception configuration. Eight guests, room for centerpieces, fits two-deep into most marquee footprints (a 20×40 holds 6 rounds; a 20×60 holds 12). Standard for Tsawwassen acreage marquee receptions.
-- **[6ft rectangular banquet tables](/product-banquet-table-6ft) ($10.95/day, seats 6–8)** — the single most versatile SKU we ship. Family-style dining rows, buffet stations, gift tables, DJ booths, bar setups, registration desks at Tilbury corporate events. Under 75 lb so they re-stage quickly mid-event.
+- **[6ft rectangular banquet tables](/product-banquet-table-6ft) ($10.95/day, seats 6–8)** — the single most versatile table we ship. Family-style dining rows, buffet stations, gift tables, DJ booths, bar setups, registration desks at Tilbury corporate events. Under 75 lb so they re-stage quickly mid-event.
 - **[Cocktail highboy tables](/product-cocktail-table) ($15.50/day, standing)** — 42-inch standing-height rounds for cocktail hour, networking events, and pre-dinner mingling. Plan ~1 highboy per 10–12 standing guests.
 
 > Tables care most about access and floor plan — we don't add a per-table setup charge when delivery is on the quote.

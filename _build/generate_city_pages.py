@@ -133,7 +133,7 @@ def build_context(slug, city, data, products):
     title = f"{city['name']} Party Rentals BC — Tents, Chairs & Tables"
     description = (
         f"Party rentals in {city['name']}, BC — marquee tents, chairs & tables "
-        f"delivered and set up. 125% cancellation guarantee. Book online 24/7."
+        f"delivered and set up. Delivery from $175 or free pickup. Book online 24/7."
     )
 
     # Link each product card directly to its product-per-city page so PageRank

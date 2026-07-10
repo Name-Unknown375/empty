@@ -144,7 +144,7 @@
       "seoTitle": "How Many People Fit at a 6 Ft Rectangular Table? 6–8",
       "metaDescription": "A 6-foot rectangular banquet table seats 6–8 (8 with end chairs, 6 plated). Rent from $10.95/day with delivery & setup across Metro Vancouver, BC.",
       "shortDescription": "The most versatile table in our inventory — 6ft banquet, seats 6-8, works for anything.",
-      "longDescription": "If you can only rent one type of table, rent this one. The 6-foot rectangular banquet table is the single most versatile SKU in event rentals — family-style dining rows, buffet stations, gift tables, DJ booths, bar setups, registration desks, head tables. Seats 6-8 guests depending on end-seating. Plywood top, folding steel legs, weighs under 75 lb so our crew can restage quickly. Wiped and inspected before every rental; linens available through our preferred partners if you need them coordinated.",
+      "longDescription": "If you can only rent one type of table, rent this one. The 6-foot rectangular banquet table is the single most versatile table in event rentals — family-style dining rows, buffet stations, gift tables, DJ booths, bar setups, registration desks, head tables. Seats 6-8 guests depending on end-seating. Plywood top, folding steel legs, weighs under 75 lb so our crew can restage quickly. Wiped and inspected before every rental; linens available through our preferred partners if you need them coordinated.",
       "specs": [
         {"label": "Dimensions", "value": "72\" L × 30\" W × 30\" H"},
         {"label": "Seats", "value": "6 no end seats · 8 with end seats"},
@@ -375,7 +375,7 @@
       "category": "dance-floor",
       "heroImage": "/images/services/dance-floor.webp",
       "heroAlt": "Black and white checkered dance floor rental — Forever Party Rentals",
-      "metaDescription": "Black & white checkered dance floor rentals from $800/event. Professional subfloor levels over grass, carpet, or tent flooring. Sizes 12x12 to 20x20.",
+      "metaDescription": "Black & white checkered dance floor rentals from $750/event. Professional subfloor levels over grass, carpet, or tent flooring. Sizes 12x12 to 20x20.",
       "shortDescription": "Our signature checkered floor — professionally levelled, installed, and collected.",
       "longDescription": "The black-and-white checkered dance floor is our signature rental — an interlocking panel system on an engineered subfloor that levels cleanly across grass, carpet, or any uneven surface. Sizes scale from 12×12 (50 guests) up to 20×20 (200+ dancers). Our crew stages the floor first — before florals, staging, or head tables build around it — and levels every panel before the first guest arrives. End-of-night takedown is included when you add delivery. Pair with a 20×40 marquee and you have a full reception package in one delivery.",
       "specs": [
@@ -386,9 +386,9 @@
         {"label": "Install time", "value": "60-90 min for standard 15×15"},
         {"label": "Takedown", "value": "Post-event takedown included with delivery"}
       ],
-      "startingPriceCAD": 800.00,
+      "startingPriceCAD": 750.00,
       "priceUnit": "event",
-      "priceRange": "$800–$1600",
+      "priceRange": "$750–$1600",
       "bullets": [
         "Classic checkered finish — photographs beautifully",
         "Engineered subfloor levels over any surface",

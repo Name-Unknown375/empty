@@ -47,7 +47,7 @@ h1, .h1 { font-family: var(--serif); font-size: clamp(40px, 5vw, 64px); line-hei
 h2, .h2 { font-family: var(--serif); font-size: clamp(32px, 4vw, 48px); line-height: 1.1; font-weight: 700; }
 h3, .h3 { font-family: var(--serif); font-size: 24px; font-weight: 700; }
 p { color: var(--muted); line-height: 1.75; }
-.text-white p, .section--dark p, .section--darker p { color: rgba(255,255,255,.72); }
+.text-white p, .section--dark p, .section--darker p { color: rgba(255,255,255,.88); }
 .text-white .eyebrow, .section--dark .eyebrow, .section--darker .eyebrow { color: var(--gold); }
 .text-white h2, .section--dark h2, .section--darker h2 { color: #fff; }
 .text-white h3, .section--dark h3, .section--darker h3 { color: #fff; }
@@ -78,13 +78,13 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
 /* ── TOP BAR ── */
 #topbar { background: var(--green-dark); padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.06); }
 #topbar .container { display: flex; justify-content: flex-end; gap: 0; align-items: center; }
-#topbar .tb-item { color: rgba(255,255,255,.78); font-size: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; letter-spacing: .3px; transition: color .15s; position: relative; }
+#topbar .tb-item { color: rgba(255,255,255,.88); font-size: 13px; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; letter-spacing: .3px; transition: color .15s; position: relative; }
 #topbar .tb-item + .tb-item { border-left: 1px solid rgba(255,255,255,.12); }
 #topbar a.tb-item:hover { color: var(--gold); }
 #topbar .tb-item .tb-ico { color: var(--gold); font-size: 11px; opacity: .9; }
 #topbar .tb-item.tb-muted { color: rgba(255,255,255,.55); }
 /* Legacy fallback for any un-upgraded markup */
-#topbar a { color: rgba(255,255,255,.78); font-size: 12px; display: inline-flex; align-items: center; gap: 8px; transition: color .15s; }
+#topbar a { color: rgba(255,255,255,.88); font-size: 13px; display: inline-flex; align-items: center; gap: 8px; transition: color .15s; }
 #topbar a:hover { color: var(--gold); }
 
 /* ── NAV ── */
@@ -100,7 +100,7 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
 #nav .nav-links { display: flex; align-items: center; gap: 2px; margin-left: auto; }
 #nav .nav-link { position: relative; }
 #nav .nav-link > a, #nav .nav-link > span, #nav .nav-link > button.nav-trigger {
-  padding: 10px 10px; font-size: 12px; font-weight: 500; color: #2a2a2a;
+  padding: 10px 10px; font-size: 13px; font-weight: 500; color: #2a2a2a;
   display: block; cursor: pointer; white-space: nowrap;
   letter-spacing: .3px; text-transform: uppercase;
   transition: color .18s;
@@ -128,12 +128,12 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
    so the markup works without JS injection. */
 #nav .mega-dropdown { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: #fff; border: 1px solid var(--border); border-radius: 6px; box-shadow: 0 8px 40px rgba(0,0,0,.12); padding: 20px; z-index: 200; min-width: 520px; }
 #nav .mega-dropdown-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
-#nav .mega-col-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 700; padding: 4px 12px 8px; }
-#nav .mega-dropdown a { display: block; padding: 6px 12px; font-size: 13px; color: #444; border-radius: 4px; white-space: nowrap; }
+#nav .mega-col-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 700; padding: 4px 12px 8px; }
+#nav .mega-dropdown a { display: block; padding: 6px 12px; font-size: 14px; color: #444; border-radius: 4px; white-space: nowrap; }
 #nav .mega-dropdown a:hover { background: var(--light); color: var(--green); }
 #nav .mega-dropdown .mega-divider { border-top: 1px solid var(--border); margin: 8px 0; }
 #nav .mega-dropdown .mega-all { color: var(--green) !important; font-weight: 600 !important; }
-#nav .nav-link .dropdown a { display: block; padding: 9px 14px; font-size: 13px; color: #444; border-radius: 2px; letter-spacing: .2px; transition: background .15s, color .15s, padding-left .18s; }
+#nav .nav-link .dropdown a { display: block; padding: 9px 14px; font-size: 14px; color: #444; border-radius: 2px; letter-spacing: .2px; transition: background .15s, color .15s, padding-left .18s; }
 #nav .nav-link .dropdown a:hover { background: var(--light); color: var(--green); padding-left: 18px; }
 /* Nested submenu (flies out to the right on hover) */
 #nav .nav-link .dropdown .dropdown-sub { position: relative; }
@@ -159,8 +159,8 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
   #nav .nav-links, #nav .nav-cta { display: none !important; }
   #nav .nav-hamburger { display: flex; }
   #nav .nav-mobile { top: 100px; }
-  #topbar { font-size: 11px; padding: 8px 0; }
-  #topbar .tb-item { padding: 0 10px; font-size: 11px; }
+  #topbar { font-size: 12px; padding: 8px 0; }
+  #topbar .tb-item { padding: 0 10px; font-size: 12px; }
   #topbar .tb-item.tb-muted { display: none; }
 }
 @media (max-width: 540px) {
@@ -185,8 +185,8 @@ a.btn-lg, button.btn-lg, .btn-lg { padding: 15px 36px !important; font-size: 14p
 /* ── PAGE HERO (inner pages) ── */
 .page-hero { background: var(--green); color: #fff; padding: 64px 0; }
 .page-hero h1 { color: #fff; margin-bottom: 16px; }
-.page-hero p { color: rgba(255,255,255,.72); font-size: 16px; max-width: 560px; }
-.page-hero .breadcrumb { display: flex; gap: 8px; align-items: center; font-size: 12px; color: rgba(255,255,255,.5); margin-bottom: 20px; }
+.page-hero p { color: rgba(255,255,255,.9); font-size: 17px; max-width: 560px; }
+.page-hero .breadcrumb { display: flex; gap: 8px; align-items: center; font-size: 13px; color: rgba(255,255,255,.65); margin-bottom: 20px; }
 .page-hero .breadcrumb a { color: rgba(255,255,255,.6); }
 .page-hero .breadcrumb a:hover { color: #fff; }
 .page-hero .breadcrumb span { opacity: .4; }
@@ -201,10 +201,10 @@ img[src$="/carnival/bottle-knockdown.jpg"] { object-position: center 55%; }
 img[src$="/carnival/cup-toss.jpg"]         { object-position: center 45%; }
 img[src$="/carnival/balloon-pop.jpg"]      { object-position: center center; }
 .card-body { padding: 24px; }
-.card-tag { display: inline-block; background: var(--gold); color: #fff; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 8px; margin-bottom: 10px; font-weight: 700; }
+.card-tag { display: inline-block; background: var(--gold); color: #fff; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 8px; margin-bottom: 10px; font-weight: 700; }
 .card h3 { margin-bottom: 8px; font-size: 20px; }
-.card p { font-size: 13px; }
-.card .card-link { margin-top: 16px; color: var(--green); font-size: 13px; font-weight: 600; }
+.card p { font-size: 15px; }
+.card .card-link { margin-top: 16px; color: var(--green); font-size: 14px; font-weight: 600; }
 
 /* ── SECTION HEADERS ── */
 .section-header { margin-bottom: 56px; }
@@ -236,7 +236,7 @@ img[src$="/carnival/balloon-pop.jpg"]      { object-position: center center; }
 /* ── TRUST BAR ── */
 .trust-bar { background: var(--green); padding: 20px 0; }
 .trust-bar .container { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
-.trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.82); font-size: 13px; }
+.trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.92); font-size: 14px; }
 
 /* ── SKU PAGE — tighten hero/intro padding so the availability widget lands above the fold ── */
 .sku-page .page-hero { padding: 32px 0; }
@@ -251,7 +251,7 @@ img[src$="/carnival/balloon-pop.jpg"]      { object-position: center center; }
 /* ── CLIENT LOGOS ── */
 .logos-bar { padding: 28px 0; border-bottom: 1px solid var(--border); overflow: hidden; }
 .logos-bar-inner { display: flex; align-items: center; gap: 40px; }
-.logos-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #111; white-space: nowrap; flex-shrink: 0; }
+.logos-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #111; white-space: nowrap; flex-shrink: 0; }
 .logo-marquee { overflow: hidden; flex: 1; -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
 .logo-track { display: flex; gap: 64px; align-items: center; width: max-content; animation: logo-scroll 80s linear infinite; }
 .logo-track:hover { animation-play-state: paused; }
@@ -265,7 +265,7 @@ img[src$="/carnival/balloon-pop.jpg"]      { object-position: center center; }
 /* ── STATS ── */
 .stat-item { text-align: center; }
 .stat-item .stat-num { font-family: var(--serif); font-size: 48px; color: var(--gold); font-weight: 700; line-height: 1; }
-.stat-item .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.55); margin-top: 8px; }
+.stat-item .stat-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.72); margin-top: 8px; }
 .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; padding: 40px 0; border-top: 1px solid rgba(255,255,255,.1); border-bottom: 1px solid rgba(255,255,255,.1); }
 @media (max-width: 640px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
 
@@ -273,7 +273,7 @@ img[src$="/carnival/balloon-pop.jpg"]      { object-position: center center; }
 .testimonial-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); padding: 28px 24px; border-radius: var(--radius); }
 .testimonial-card .stars { color: var(--gold); letter-spacing: 1px; font-size: 14px; }
 .testimonial-card blockquote { font-family: var(--serif); font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.85); margin: 14px 0 16px; font-style: italic; }
-.testimonial-card .tc-name { font-weight: 600; font-size: 13px; color: #fff; }
+.testimonial-card .tc-name { font-weight: 600; font-size: 14px; color: #fff; }
 .testimonial-card .tc-event { font-size: 11px; color: var(--gold); margin-top: 4px; letter-spacing: .5px; }
 
 /* ── GUARANTEES ── */
@@ -293,15 +293,30 @@ img[src$="/carnival/balloon-pop.jpg"]      { object-position: center center; }
 
 /* ── FAQ ── */
 .faq-item { border-bottom: 1px solid var(--border); }
-.faq-q { padding: 20px 0; font-weight: 600; color: var(--green); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 15px; }
+/* ── Two ways to book: choice block ── */
+.book-choice { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: stretch; max-width: 860px; margin: 32px auto; }
+.book-choice .bc-opt { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 26px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.book-choice .bc-opt h3 { font-size: 19px; margin: 0; color: var(--dark); }
+.book-choice .bc-opt p { font-size: 15px; color: var(--muted); margin: 0 0 6px; line-height: 1.6; }
+.book-choice .bc-opt .btn { margin-top: auto; }
+.book-choice .bc-or { align-self: center; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.book-choice .bc-sub { font-size: 13px; color: var(--muted); }
+.book-choice .bc-sub a { color: var(--green); font-weight: 600; text-decoration: underline; }
+@media (max-width: 720px) { .book-choice { grid-template-columns: 1fr; } .book-choice .bc-or { justify-self: center; } }
+
+/* ── Booking-widget fallback line ── */
+.widget-fallback { text-align: center; font-size: 15px; color: var(--muted); margin: 18px auto 0; max-width: 560px; line-height: 1.6; }
+.widget-fallback a { color: var(--green); font-weight: 600; text-decoration: underline; }
+
+.faq-q { padding: 20px 0; font-weight: 600; color: var(--green); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 16px; }
 .faq-q::after { content: '+'; font-size: 20px; font-weight: 300; color: var(--gold); flex-shrink: 0; transition: transform .2s; }
 .faq-item.open .faq-q::after { transform: rotate(45deg); }
-.faq-a { display: none; padding-bottom: 20px; font-size: 14px; color: var(--muted); line-height: 1.75; }
+.faq-a { display: none; padding-bottom: 20px; font-size: 15px; color: var(--muted); line-height: 1.75; }
 .faq-item.open .faq-a { display: block; }
 
 /* ── CONTACT ── */
 .contact-form { display: flex; flex-direction: column; gap: 16px; }
-.form-group label { display: block; font-size: 12px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
+.form-group label { display: block; font-size: 13px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: var(--green); margin-bottom: 6px; }
 .form-group input, .form-group textarea, .form-group select { width: 100%; border: 1.5px solid var(--border); border-radius: var(--radius); padding: 12px 16px; font-family: var(--sans); font-size: 14px; color: var(--dark); background: #fff; outline: none; transition: border-color .15s; }
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--green); }
 .form-group textarea { resize: vertical; min-height: 120px; }
@@ -311,7 +326,7 @@ img[src$="/carnival/balloon-pop.jpg"]      { object-position: center center; }
 /* ── AREAS MAP ── */
 .areas-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 @media (max-width: 768px) { .areas-grid { grid-template-columns: repeat(2, 1fr); } }
-.area-pill { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 12px 16px; font-size: 13px; color: var(--green); font-weight: 500; text-align: center; transition: background .15s, border-color .15s; }
+.area-pill { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 12px 16px; font-size: 14px; color: var(--green); font-weight: 500; text-align: center; transition: background .15s, border-color .15s; }
 a.area-pill:hover { background: var(--green); color: #fff; border-color: var(--green); }
 
 /* ── FOOTER ── */
@@ -320,12 +335,12 @@ a.area-pill:hover { background: var(--green); color: #fff; border-color: var(--g
 @media (max-width: 900px) { #footer .footer-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 540px) { #footer .footer-grid { grid-template-columns: 1fr; } }
 #footer .footer-logo img { height: 44px; object-fit: contain; filter: brightness(0) invert(1); margin-bottom: 16px; }
-#footer .footer-desc { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.75; max-width: 240px; }
-#footer .footer-col-title { font-size: 10px; letter-spacing: 2.5px; color: var(--gold); text-transform: uppercase; font-weight: 600; margin-bottom: 20px; }
-#footer .footer-link { display: block; font-size: 13px; color: rgba(255,255,255,.55); margin-bottom: 10px; cursor: pointer; transition: color .15s; }
+#footer .footer-desc { font-size: 14px; color: rgba(255,255,255,.72); line-height: 1.75; max-width: 240px; }
+#footer .footer-col-title { font-size: 11px; letter-spacing: 2.5px; color: var(--gold); text-transform: uppercase; font-weight: 600; margin-bottom: 20px; }
+#footer .footer-link { display: block; font-size: 14px; color: rgba(255,255,255,.72); margin-bottom: 10px; cursor: pointer; transition: color .15s; }
 #footer .footer-link:hover { color: rgba(255,255,255,.9); }
 #footer .footer-ctas { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
-#footer .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding: 20px 0; text-align: center; font-size: 11px; color: rgba(255,255,255,.3); }
+#footer .footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding: 20px 0; text-align: center; font-size: 12px; color: rgba(255,255,255,.45); }
 
 /* ── ADELIE WIDGET WRAPPER ── */
 .adelie-section { padding: 0; }
@@ -334,7 +349,7 @@ a.area-pill:hover { background: var(--green); color: #fff; border-color: var(--g
 /* ── INLINE CTA BANNER ── */
 .cta-banner { background: var(--green); color: #fff; padding: 56px 0; text-align: center; }
 .cta-banner h2 { color: #fff; margin-bottom: 16px; }
-.cta-banner p { color: rgba(255,255,255,.72); margin-bottom: 32px; }
+.cta-banner p { color: rgba(255,255,255,.88); margin-bottom: 32px; }
 .cta-banner .btn-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
 
 /* ── BLOG ── */
@@ -370,7 +385,7 @@ a.area-pill:hover { background: var(--green); color: #fff; border-color: var(--g
 .blog-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s; }
 .blog-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,.08); border-color: transparent; }
 .blog-card .bc-cover { aspect-ratio: 16/10; position: relative; display: flex; align-items: center; justify-content: center; padding: 28px; overflow: hidden; }
-.blog-card .bc-cover .bc-topic { position: absolute; top: 16px; left: 16px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; padding: 4px 10px; background: rgba(255,255,255,.9); color: var(--green); border-radius: 2px; }
+.blog-card .bc-cover .bc-topic { position: absolute; top: 16px; left: 16px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700; padding: 4px 10px; background: rgba(255,255,255,.9); color: var(--green); border-radius: 2px; }
 .blog-card .bc-cover h3 { font-family: var(--serif); font-size: 22px; line-height: 1.18; color: #fff; text-align: center; text-wrap: balance; }
 .blog-card .bc-cover h3 em { color: var(--gold); font-style: italic; }
 /* Gold cover cards: emphasis cream, topic chip forest-green for contrast. */
@@ -380,7 +395,7 @@ a.area-pill:hover { background: var(--green); color: #fff; border-color: var(--g
 .blog-card .bc-meta { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
 .blog-card .bc-meta .bc-dot { margin: 0 6px; opacity: .5; }
 .blog-card .bc-body h4 { font-family: var(--serif); font-size: 18px; line-height: 1.28; color: var(--dark); }
-.blog-card .bc-body p { font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; }
+.blog-card .bc-body p { font-size: 14px; color: var(--muted); line-height: 1.65; flex: 1; }
 .blog-card .bc-read { font-size: 12px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: var(--green); margin-top: 4px; }
 
 /* Title-card cover palette (deterministic by topic) */

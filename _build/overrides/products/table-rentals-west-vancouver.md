@@ -45,7 +45,7 @@ nearby_cities:
 Three tables, three jobs. West Van floor plans typically need all three:
 
 - **[5ft round tables](/product-round-table-5ft) ($13.50/day, seats 8)** — the classic wedding-reception configuration. Eight guests, room for centerpieces, fits two-deep into a 20×40 (6 rounds) or two and a half deep into a 20×60 (12 rounds).
-- **[6ft rectangular banquet tables](/product-banquet-table-6ft) ($10.95/day, seats 6–8)** — the most versatile SKU. Head tables, gift, cake, DJ, registration, bar, buffet. Under 75 lb so they re-stage quickly mid-event.
+- **[6ft rectangular banquet tables](/product-banquet-table-6ft) ($10.95/day, seats 6–8)** — the most versatile table. Head tables, gift, cake, DJ, registration, bar, buffet. Under 75 lb so they re-stage quickly mid-event.
 - **[Cocktail highboy tables](/product-cocktail-table) ($15.50/day, standing)** — 42-inch standing-height rounds. The Ambleside seawall and Dundarave waterfront crowds run heavier on highboys than most West Van bookings — pre-dinner cocktail hour on the terrace is the format. Plan ~1 highboy per 10–12 standing guests.
 
 > Tables care about access and floor plan. No per-table setup surcharge when delivery is on the quote.

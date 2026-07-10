@@ -38,7 +38,7 @@
       "label": "Dance Floor",
       "items": [
         { "key": "dance-floor-8x8",   "label": "8×8 Dance Floor",       "shape": "danceFloor", "widthFt": 8,  "depthFt": 8,  "seats": 0, "priceCAD": 500,  "priceUnit": "event", "sku": "black-white-dance-floor" },
-        { "key": "dance-floor-12x12", "label": "12×12 Dance Floor",     "shape": "danceFloor", "widthFt": 12, "depthFt": 12, "seats": 0, "priceCAD": 800,  "priceUnit": "event", "sku": "black-white-dance-floor" },
+        { "key": "dance-floor-12x12", "label": "12×12 Dance Floor",     "shape": "danceFloor", "widthFt": 12, "depthFt": 12, "seats": 0, "priceCAD": 750,  "priceUnit": "event", "sku": "black-white-dance-floor" },
         { "key": "dance-floor-15x15", "label": "15×15 Dance Floor",     "shape": "danceFloor", "widthFt": 15, "depthFt": 15, "seats": 0, "priceCAD": 1050, "priceUnit": "event", "sku": "black-white-dance-floor" },
         { "key": "dance-floor-18x18", "label": "18×18 Dance Floor",     "shape": "danceFloor", "widthFt": 18, "depthFt": 18, "seats": 0, "priceCAD": 1350, "priceUnit": "event", "sku": "black-white-dance-floor" },
         { "key": "dance-floor-20x20", "label": "20×20 Dance Floor",     "shape": "danceFloor", "widthFt": 20, "depthFt": 20, "seats": 0, "priceCAD": 1600, "priceUnit": "event", "sku": "black-white-dance-floor" }

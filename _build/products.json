@@ -40,7 +40,7 @@
         "Delivery & professional setup available in {city} — our crew handles installation",
         "Engineered frames + sidewalls for rain, wind, and sun",
         "Add tables, chairs, heaters, lighting & dance floor in one quote",
-        "125% cancellation protection + on-time setup promise"
+        "Clear deposit terms — your date is locked once the 25% deposit is paid"
       ],
       "subcategoryCards": [
         {
@@ -195,8 +195,8 @@
       "key": "dance-floor",
       "productName": "Dance Floor Rentals",
       "productNameSingular": "Dance Floor Rental",
-      "fromPriceCAD": 800,
-      "fromPriceLabel": "From $800 / event (12×12) — up to $1,600 for a 20×20 installation",
+      "fromPriceCAD": 750,
+      "fromPriceLabel": "From $750 / event (12×12) — up to $1,600 for a 20×20 installation",
       "urlPrefix": "dance-floor-rental",
       "urlPrefixOverrides": {},
       "categoryPage": "dance-floor",

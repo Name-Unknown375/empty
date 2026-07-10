@@ -99,6 +99,18 @@ HAND_AUTHORED = [
     # listing it here too made apply_partials inject a second nav on top of the
     # generator's inline one.)
     "product-banquet-table-8ft.html",
+    # Standalone hub + carnival pages (July 2026): hand-authored, carry the
+    # NAV/FOOTER sentinels but were missing from this list, so their navs
+    # drifted whenever the partials changed.
+    "event-rentals.html",
+    "wedding-rentals.html",
+    "carnival-games.html",
+    "carnival-games-bundle-2.html",
+    "carnival-games-bundle-4.html",
+    "product-bottle-knockdown.html",
+    "product-balloon-darts.html",
+    "product-cup-toss.html",
+    "product-ring-toss.html",
     "blog/index.html",
 ]
 

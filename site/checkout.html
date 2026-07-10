@@ -55,7 +55,7 @@ fbq('track', 'PageView');</script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=22"/>
+<link rel="stylesheet" href="shared.css?v=23"/>
 
 <!-- Adelie checkout — critical CSS -->
 <link
@@ -266,6 +266,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           </div>
         </div>
 
+        <div class="nav-link"><a href="/pricing">Prices</a></div>
+
         <div class="nav-link"><a href="/contact">Contact</a></div>
       </div>
       <a class="btn btn-primary nav-cta" href="/rentals">Book Now</a>
@@ -285,6 +287,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
       <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
       <a role="menuitem" href="/packages">Event Packages</a>
+      <a role="menuitem" href="/pricing">Prices</a>
       <a role="menuitem" href="/service-areas">Service Areas</a>
       <a role="menuitem" href="/contact">Contact</a>
       <a role="menuitem" href="/rentals" style="color:var(--green);font-weight:600;margin-top:8px">→ Book Now Online</a>
@@ -301,7 +304,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
   <div class="container">
     <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/rentals">Rentals</a><span>/</span>Checkout</div>
     <h1>Secure Your Booking</h1>
-    <p>Complete your order below. A 25% non-refundable deposit secures your date — balance due before delivery.</p>
+    <p>Complete your order below — delivery &amp; setup (from $175 by distance) shows as its own line before you pay. Your date is locked once the deposit is paid. Deposits aren’t refundable if you cancel; balance due before delivery.</p>
   </div>
 </div>
 <div class="adelie-section">
@@ -311,41 +314,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       orgId="LvrymFxex6oslWCxcrEg"
     >
     </div>
-  </div>
-</div>
-<div class="trust-bar">
-  <div class="container">
-    <div class="trust-item">🔒 Secure Payment</div>
-    <div class="trust-item">📧 Instant Confirmation</div>
-    <div class="trust-item">🛡️ 125% Cancellation Guarantee</div>
-    <div class="trust-item">⏱️ On-Time Setup Promise</div>
-  </div>
-</div>
-
-<!-- Cross-sell popup: Cocktail Table + Spandex bundle -->
-<style>
-  .fpr-xsell-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:9998;display:none;opacity:0;transition:opacity .2s}
-  .fpr-xsell-backdrop.open{display:flex;opacity:1;align-items:flex-end;justify-content:center}
-  .fpr-xsell{background:#fff;border-radius:12px 12px 0 0;width:100%;max-width:480px;padding:22px 22px 18px;box-shadow:0 -8px 32px rgba(0,0,0,.18);transform:translateY(100%);transition:transform .25s ease-out}
-  .fpr-xsell-backdrop.open .fpr-xsell{transform:translateY(0)}
-  @media(min-width:600px){
-    .fpr-xsell-backdrop.open{align-items:center}
-    .fpr-xsell{border-radius:12px}
-  }
-  .fpr-xsell-eyebrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#888;font-weight:600;margin-bottom:6px}
-  .fpr-xsell h3{font-size:18px;margin:0 0 4px;color:#1a1a1a}
-  .fpr-xsell p{font-size:13px;color:#555;margin:0 0 14px;line-height:1.45}
-  .fpr-xsell-close{position:absolute;top:10px;right:14px;background:none;border:0;font-size:22px;line-height:1;color:#999;cursor:pointer;padding:4px 8px}
-  .fpr-xsell-close:hover{color:#333}
-  .fpr-xsell-inner{position:relative}
-  .fpr-xsell-dismiss{display:block;margin-top:12px;background:none;border:0;color:#777;font-size:12px;text-decoration:underline;cursor:pointer;padding:4px 0}
-</style>
-
-<div class="fpr-xsell-backdrop" id="fprXsell" role="dialog" aria-modal="true" aria-labelledby="fprXsellTitle" hidden>
-  <div class="fpr-xsell">
-    <div class="fpr-xsell-inner">
-      <button type="button" class="fpr-xsell-close" aria-label="Close">&times;</button>
-      <div class="fpr-xsell-eyebrow">People also add</div>
+    <div class="fpr-xsell-card" id="fprXsell" aria-labelledby="fprXsellTitle">
+      <div class="fpr-xsell-eyebrow">Popular add-on</div>
       <h3 id="fprXsellTitle">Cocktail Table + White Spandex — $30</h3>
       <p>Add a 28" cocktail table with white spandex linen as a bundle. Saves you from picking the table and linen separately.</p>
       <div data-adelie="availability-checker"
@@ -353,21 +323,30 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
            data-product-id="xzFDs0DrIYdzyG0PEP9F"
            show-quantity="true"
            show-status="false"></div>
-      <button type="button" class="fpr-xsell-dismiss">No thanks</button>
     </div>
+    <p class="widget-fallback">Having trouble checking out? Call or text <a href="tel:778-990-7983">778-990-7983</a> and we’ll take your booking over the phone.</p>
   </div>
 </div>
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-item">🔒 Secure Payment</div>
+    <div class="trust-item">📧 Instant Confirmation</div>
+    <div class="trust-item">📅 Your date is locked once the deposit is paid</div>
+  </div>
+</div>
+
+<!-- Cross-sell: static inline card (was an auto-opening popup) -->
+<style>
+  .fpr-xsell-card{background:#fff;border:1px solid var(--border);border-radius:12px;max-width:480px;margin:28px auto 0;padding:22px;box-shadow:0 4px 18px rgba(0,0,0,.06)}
+  .fpr-xsell-eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#888;font-weight:600;margin-bottom:6px}
+  .fpr-xsell-card h3{font-size:18px;margin:0 0 4px;color:#1a1a1a}
+  .fpr-xsell-card p{font-size:14px;color:#555;margin:0 0 14px;line-height:1.5}
+</style>
 
 <script>
 (function(){
   var el=document.getElementById('fprXsell');
   if(!el) return;
-  var open=function(){el.hidden=false;requestAnimationFrame(function(){el.classList.add('open')});};
-  var close=function(){el.classList.remove('open');setTimeout(function(){el.hidden=true},250)};
-  el.querySelector('.fpr-xsell-close').addEventListener('click',close);
-  el.querySelector('.fpr-xsell-dismiss').addEventListener('click',close);
-  el.addEventListener('click',function(e){if(e.target===el)close()});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!el.hidden)close()});
   // Hide the "X available" stock pill rendered by Adelie inside the widget.
   var widget=el.querySelector('[data-adelie="availability-checker"]');
   var hidePill=function(){
@@ -382,7 +361,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
     }
   };
   if(widget) new MutationObserver(hidePill).observe(widget,{childList:true,subtree:true,characterData:true});
-  setTimeout(open,2000);
 })();
 </script>
 <!-- FOOTER:START -->
@@ -406,6 +384,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="/dance-floor">Dance Floor Rental</a>
           <a class="footer-link" href="/wedding-rentals">Wedding Rentals</a>
           <a class="footer-link" href="/event-rentals">Event Rentals</a>
+          <a class="footer-link" href="/pricing">Price List</a>
           <a class="footer-link" href="/event-layout-planner">Free Tent, Table and Chair Layout Planner</a>
           <a class="footer-link" href="/christmas-lights" style="color:var(--gold)">🎄 Christmas Light Installation</a>
         </div>

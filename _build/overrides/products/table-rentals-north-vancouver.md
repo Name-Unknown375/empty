@@ -45,7 +45,7 @@ nearby_cities:
 Three tables, three jobs. North Vancouver event floor plans usually need all three:
 
 - **[5ft round tables](/product-round-table-5ft) ($13.50/day, seats 8)** — the classic wedding-reception configuration. The reception workhorse for Lynn Valley acreages, Capilano-area private homes, and any seated-dinner event.
-- **[6ft rectangular banquet tables](/product-banquet-table-6ft) ($10.95/day, seats 6–8)** — the single most versatile SKU we ship. Family-style dining rows, buffet stations, gift tables, DJ booths, bar setups. Under 75 lb so they handle hand-carry from the road when steep driveways require it.
+- **[6ft rectangular banquet tables](/product-banquet-table-6ft) ($10.95/day, seats 6–8)** — the single most versatile table we ship. Family-style dining rows, buffet stations, gift tables, DJ booths, bar setups. Under 75 lb so they handle hand-carry from the road when steep driveways require it.
 - **[Cocktail highboy tables](/product-cocktail-table) ($15.50/day, standing)** — 42-inch standing-height rounds for cocktail hour and networking events. Plan ~1 highboy per 10–12 standing guests.
 
 > North Shore deliveries reward planning. Steep driveways, overhead branches, and bridge-traffic windows all show up before the quote, not after.
