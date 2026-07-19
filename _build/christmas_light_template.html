@@ -66,11 +66,9 @@ fbq('track', 'PageView');</script>
 <meta name="twitter:image" content="https://www.foreverpartyrentals.com/images/og/social-card.webp"/>
 
 {# ---- Fonts + CSS. No Adelie cart scripts — quote-based service. ---- #}
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=23"/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
+<link rel="stylesheet" href="shared.css?v=26"/>
 
 {# ---- JSON-LD: LocalBusiness (NAP + geo + hours + areaServed).
        No aggregateRating here — Christmas reviews haven't accumulated yet; the
@@ -173,13 +171,35 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 /></noscript>
 <!-- End Meta Pixel (noscript) -->
 
+{% set check_ico %}<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>{% endset %}
+{% set shield_ico %}<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>{% endset %}
+{% set bulb_ico %}<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5A7 7 0 1 0 5 9c0 1 .5 2.5 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>{% endset %}
+{% set box_ico %}<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg>{% endset %}
+{% set zap_ico %}<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>{% endset %}
+{% set check_circle_ico %}<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>{% endset %}
+{# Map the data-file emoji icons to inline SVGs (v2 de-emoji pass); unknown
+   icons fall back to a check-circle so no raw emoji ever renders. Keys are
+   unicode-escaped (shield+VS16, bulb, package, high-voltage) so no literal
+   emoji lives in this template. #}
+{% set trust_ico_map = {'\U0001F6E1\uFE0F': shield_ico, '\U0001F4A1': bulb_ico, '\U0001F4E6': box_ico, '\u26A1': zap_ico} %}
 {{ nav_html | safe }}
 <div class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/{{ service.categoryPage }}">{{ service.breadcrumbLabel }}</a><span>/</span>{{ city.name }}</div>
-    <span class="eyebrow">Christmas Light Installation in {{ city.name }}</span>
-    <h1>{{ city.name }} Christmas Light Installation</h1>
-    <p>{{ tagline_used }}</p>
+    <div class="hero-split">
+      <div class="hero-copy">
+        <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/{{ service.categoryPage }}">{{ service.breadcrumbLabel }}</a><span>/</span>{{ city.name }}</div>
+        <span class="eyebrow">Christmas Light Installation in {{ city.name }}</span>
+        <h1>{{ city.name }} Christmas Light Installation</h1>
+        <p>{{ tagline_used }}</p>
+      </div>
+      <div class="hero-media">
+        <img src="{{ service.heroImage | replace('.webp', '-900w.webp') }}"
+             srcset="{{ service.heroImage | replace('.webp', '-600w.webp') }} 600w, {{ service.heroImage | replace('.webp', '-900w.webp') }} 900w"
+             sizes="(max-width: 900px) 100vw, 45vw"
+             alt="{{ hero_alt }}"
+             width="900" height="600" loading="eager" decoding="async" fetchpriority="high"/>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -187,23 +207,17 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <div class="trust-bar">
   <div class="container">
     {% for t in service.trustBar %}
-    <div class="trust-item">{{ t.icon }} {{ t.text }}</div>
+    <div class="trust-item">{{ trust_ico_map.get(t.icon, check_circle_ico) | safe }} {{ t.text }}</div>
     {% endfor %}
   </div>
 </div>
 
 <section class="section">
   <div class="container">
+    {# v2: the install shot moved up into the split hero, so this section
+       recomposes as text left + checklist panel right (no duplicate image). #}
     <div class="split">
       <div>
-        <img src="{{ service.heroImage | replace('.webp', '-1200w.webp') }}"
-             srcset="{{ service.heroImage | replace('.webp', '-600w.webp') }} 600w, {{ service.heroImage | replace('.webp', '-900w.webp') }} 900w, {{ service.heroImage | replace('.webp', '-1200w.webp') }} 1200w"
-             sizes="(max-width: 900px) 100vw, 50vw"
-             alt="{{ hero_alt }}"
-             class="product-hero-img" width="1200" height="800" loading="eager" decoding="async" fetchpriority="high"/>
-      </div>
-      <div>
-        <span class="eyebrow">Serving {{ city.name }}</span>
         <h2>Professional Christmas Light Installation in {{ city.name }}</h2>
         {% if ov.intro_paragraphs %}
           {% for p in ov.intro_paragraphs %}<p style="margin:0 0 16px 0">{{ p }}</p>{% endfor %}
@@ -211,13 +225,18 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <p style="margin:16px 0">{{ intro_summary }}</p>
           {% if local_intro %}<p style="margin:0 0 20px 0">{{ local_intro }}</p>{% endif %}
         {% endif %}
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
-          {% for b in bullets %}
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> {{ b }}</li>
-          {% endfor %}
-        </ul>
         <a href="/contact" class="btn btn-primary btn-lg">Request Free Design Consultation</a>
         <div style="margin-top:16px;font-size:13px;color:var(--muted)">Or call us directly: <a href="tel:778-990-7983" style="color:var(--green);font-weight:600">778-990-7983</a></div>
+      </div>
+      <div>
+        <div class="offer-panel">
+          <h3>Every Install Includes</h3>
+          <ul>
+            {% for b in bullets %}
+            <li>{{ check_ico | safe }} {{ b }}</li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -241,7 +260,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <p style="font-size:13px;color:var(--green);font-weight:600;margin:4px 0 8px 0">{{ p.coverage }}</p>
           <p style="font-size:12px;color:var(--muted);margin-bottom:12px">For: {{ p.targetHome }}</p>
           <ul style="list-style:none;padding:0;margin:0 0 16px 0;font-size:13px;color:var(--muted);line-height:1.7">
-            {% for f in p.features %}<li>✓ {{ f }}</li>{% endfor %}
+            {% for f in p.features %}<li>{{ check_ico | safe }} {{ f }}</li>{% endfor %}
           </ul>
           <a href="/contact" class="btn btn-primary" style="margin-top:8px">Request {{ p.name }} Quote</a>
         </div>
@@ -266,8 +285,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">How It Works</span>
-      <h2>Your {{ city.name }} Christmas Light Installation — Step by Step</h2>
+      <h2>How It Works</h2>
       <p>From first consultation to January takedown, we handle every step. You never touch a light.</p>
     </div>
     <div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
@@ -288,7 +306,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">What We Light Up</span>
       <h2>Christmas Light Installations for {{ city.name }}</h2>
       <p>Every install starts with a free on-site design consultation — we walk your property, plan the power, and send a fixed-price quote.</p>
     </div>
@@ -312,7 +329,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Service Area</span>
       <h2>Installing Christmas Lights Across {{ city.name }}</h2>
       <p>{{ city.deliveryWindow }}. Design consultations are free and every package is fixed-price.</p>
     </div>
@@ -352,8 +368,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">FAQ</span>
-      <h2>Christmas Light Questions — {{ city.name }}</h2>
+      <h2>{{ city.name }} Christmas Light FAQ</h2>
     </div>
     <div style="max-width:860px;margin:0 auto">
       {% for f in faqs_to_show %}
@@ -397,7 +412,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Why Forever</span>
       <h2>Why {{ city.name }} Homeowners Choose Us</h2>
     </div>
     <div class="grid-3">
@@ -420,7 +434,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 {# ---- Single cross-link to party-rental city page (replaces rental sibling cards) ---- #}
 <section class="section section--light">
   <div class="container" style="max-width:860px;text-align:center">
-    <span class="eyebrow">Also in {{ city.name }}</span>
     <h2 style="margin:8px 0 12px">Need Party Rentals for Your Holiday Event?</h2>
     <p style="color:var(--muted);margin-bottom:20px">Corporate holiday parties, family gatherings, and community events in {{ city.name }} — we deliver tents, Chiavari chairs, banquet tables, and dance floors. Bundle with your Christmas light install on a single invoice.</p>
     <a href="{{ city_page }}" class="btn btn-outline-primary btn-lg">See {{ city.name }} Party Rentals →</a>
@@ -438,7 +451,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
   </div>
 </div>
 {{ footer_html | safe }}
-<script src="shared.js?v=18"></script>
+<script src="shared.js?v=21"></script>
 <!-- lastmod: {{ lastmod }} -->
 </body>
 </html>

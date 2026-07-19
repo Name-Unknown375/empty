@@ -52,11 +52,9 @@ fbq('track', 'PageView');</script>
 <meta name="twitter:description" content="Burnaby Christmas light installation — Brentwood/Metrotown commercial, Deer Lake residential. $8.50–$12/linear ft. Free off-season storage. 190+ reviews."/>
 <meta name="twitter:image" content="https://www.foreverpartyrentals.com/images/og/social-card.webp"/>
 
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=23"/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
+<link rel="stylesheet" href="shared.css?v=26"/>
 
 <script type="application/ld+json">
 {
@@ -181,10 +179,11 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
+
 <div id="topbar" role="complementary" aria-label="Contact information">
     <div class="container">
-      <a class="tb-item" href="tel:778-990-7983" aria-label="Call us at 778-990-7983"><span class="tb-ico" aria-hidden="true">✆</span>778-990-7983</a>
-      <a class="tb-item" href="mailto:welcome@foreverpartyrentals.com" aria-label="Email us at welcome@foreverpartyrentals.com"><span class="tb-ico" aria-hidden="true">✉</span>welcome@foreverpartyrentals.com</a>
+      <a class="tb-item" href="tel:778-990-7983" aria-label="Call us at 778-990-7983"><span class="tb-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>778-990-7983</a>
+      <a class="tb-item" href="mailto:welcome@foreverpartyrentals.com" aria-label="Email us at welcome@foreverpartyrentals.com"><span class="tb-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>welcome@foreverpartyrentals.com</a>
       <span class="tb-item tb-muted" aria-hidden="true">Mon–Sun 10:30AM–6PM</span>
     </div>
 </div>
@@ -195,7 +194,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <div class="nav-links" role="menubar">
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents">Tent Rentals <span aria-hidden="true">▾</span></button>
+          
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents" aria-label="Tent Rentals">Tents <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tents" role="menu" aria-label="Tent Rentals">
             <a role="menuitem" href="/tents">All Tent Rentals</a>
             <div class="dropdown-sub">
@@ -216,7 +216,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         </div>
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs">Chair Rentals <span aria-hidden="true">▾</span></button>
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs" aria-label="Chair Rentals">Chairs <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-chairs" role="menu" aria-label="Chair Rentals">
             <a role="menuitem" href="/chairs">All Chair Rentals</a>
             <a role="menuitem" href="/product-white-chiavari-chair">Chiavari Chairs</a>
@@ -226,7 +226,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         </div>
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables">Table Rentals <span aria-hidden="true">▾</span></button>
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables" aria-label="Table Rentals">Tables <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tables" role="menu" aria-label="Table Rentals">
             <a role="menuitem" href="/tables">All Table Rentals</a>
             <a role="menuitem" href="/product-banquet-table-8ft">8ft Banquet Tables</a>
@@ -320,44 +320,66 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       </button>
     </div>
     <div class="nav-mobile" id="navMobile" role="menu" aria-label="Mobile navigation" hidden>
-      <a role="menuitem" href="/">Home</a>
-      <a role="menuitem" href="/tents">Tent Rentals</a>
-      <a role="menuitem" href="/marquee-tent-rental-lowermainland-surrey-langley-vancouver">Marquee Tent Rental Lower Mainland</a>
-      <a role="menuitem" href="/chairs">Chair Rentals</a>
-      <a role="menuitem" href="/tables">Table Rentals</a>
-      <a role="menuitem" href="/dance-floor">Dance Floor</a>
-      <a role="menuitem" href="/event-layout-planner">Free Layout Planner</a>
-      <a role="menuitem" href="/battery-power-stations">Battery &amp; Power Stations</a>
-      <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
-      <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
-      <a role="menuitem" href="/packages">Event Packages</a>
-      <a role="menuitem" href="/pricing">Prices</a>
-      <a role="menuitem" href="/service-areas">Service Areas</a>
-      <a role="menuitem" href="/contact">Contact</a>
-      <a role="menuitem" href="/rentals" style="color:var(--green);font-weight:600;margin-top:8px">→ Book Now Online</a>
+      <div class="nm-group" role="group">
+        <a role="menuitem" href="/">Home</a>
+        <a role="menuitem" href="/rentals" class="nm-book">→ Book Now Online</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Rentals">
+        <div class="nm-title" role="presentation">Rentals</div>
+        <a role="menuitem" href="/tents">Tent Rentals</a>
+        <a role="menuitem" href="/marquee-tent-rental-lowermainland-surrey-langley-vancouver">Marquee Tent Rental Lower Mainland</a>
+        <a role="menuitem" href="/chairs">Chair Rentals</a>
+        <a role="menuitem" href="/tables">Table Rentals</a>
+        <a role="menuitem" href="/dance-floor">Dance Floor</a>
+        <a role="menuitem" href="/battery-power-stations">Battery &amp; Power Stations</a>
+        <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
+        <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Packages and pricing">
+        <div class="nm-title" role="presentation">Packages &amp; Pricing</div>
+        <a role="menuitem" href="/packages">Event Packages</a>
+        <a role="menuitem" href="/pricing">Prices</a>
+        <a role="menuitem" href="/event-layout-planner">Free Layout Planner</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Company">
+        <div class="nm-title" role="presentation">Company</div>
+        <a role="menuitem" href="/service-areas">Service Areas</a>
+        <a role="menuitem" href="/contact">Contact</a>
+      </div>
     </div>
 </nav>
 
 <div id="fprCtaBar" class="mobile-cta-bar" role="navigation" aria-label="Call or book">
-  <a class="mcb-call" href="tel:778-990-7983"><span aria-hidden="true">✆</span>&nbsp;778-990-7983</a>
+  <a class="mcb-call" href="tel:778-990-7983"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>&nbsp;778-990-7983</a>
   <a class="mcb-book" href="/rentals">Book Online</a>
 </div>
 <script>(function(){if(/checkout|layout-planner|^\/planner/.test(location.pathname)){var b=document.getElementById('fprCtaBar');if(b){b.hidden=true;}document.documentElement.classList.add('no-cta-bar');}})();</script>
 <div class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/christmas-lights">Christmas Lights</a><span>/</span>Burnaby</div>
-    <span class="eyebrow">Christmas Light Installation in Burnaby</span>
-    <h1>Burnaby Christmas Light Installation</h1>
-    <p>Professional Christmas light installation across Burnaby — Brentwood and Metrotown commercial strata, Deer Lake heritage residential, North Burnaby acreage rooflines.</p>
+    <div class="hero-split">
+      <div class="hero-copy">
+        <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/christmas-lights">Christmas Lights</a><span>/</span>Burnaby</div>
+        <span class="eyebrow">Christmas Light Installation in Burnaby</span>
+        <h1>Burnaby Christmas Light Installation</h1>
+        <p>Professional Christmas light installation across Burnaby — Brentwood and Metrotown commercial strata, Deer Lake heritage residential, North Burnaby acreage rooflines.</p>
+      </div>
+      <div class="hero-media">
+        <img src="images/christmas/hero-900w.webp"
+             srcset="images/christmas/hero-600w.webp 600w, images/christmas/hero-900w.webp 900w"
+             sizes="(max-width: 900px) 100vw, 45vw"
+             alt="Warm-white C9 LED Christmas light installation on a home at dusk — serving Burnaby, BC"
+             width="900" height="600" loading="eager" decoding="async" fetchpriority="high"/>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="trust-bar">
   <div class="container">
-    <div class="trust-item">🛡️ Insured & WCB-Covered</div>
-    <div class="trust-item">💡 Commercial-Grade LEDs</div>
-    <div class="trust-item">📦 Storage Included</div>
-    <div class="trust-item">⚡ Same-Day Fix Guarantee</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Insured & WCB-Covered</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5A7 7 0 1 0 5 9c0 1 .5 2.5 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg> Commercial-Grade LEDs</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96 12 12.01l8.73-5.05M12 22.08V12"/></svg> Storage Included</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg> Same-Day Fix Guarantee</div>
   </div>
 </div>
 
@@ -365,24 +387,21 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
   <div class="container">
     <div class="split">
       <div>
-        <img src="images/christmas/hero-1200w.webp"
-             srcset="images/christmas/hero-600w.webp 600w, images/christmas/hero-900w.webp 900w, images/christmas/hero-1200w.webp 1200w"
-             sizes="(max-width: 900px) 100vw, 50vw"
-             alt="Warm-white C9 LED Christmas light installation on a home at dusk — serving Burnaby, BC"
-             class="product-hero-img" width="1200" height="800" loading="eager" decoding="async" fetchpriority="high"/>
+        <h2>Professional Christmas Light Installation in Burnaby</h2>
+<p style="margin:0 0 16px 0">Burnaby Christmas light installs split between two operational rhythms. Brentwood and Metrotown commercial properties — strata buildings, retail plazas, restaurant exteriors — run on building-management access windows and after-5pm timing. Deer Lake-area heritage homes and North Burnaby acreage rooflines run on traditional residential install patterns. The pricing is fixed: $8.50–$12 per linear foot of lighting, quoted up front.</p><p style="margin:0 0 16px 0">We light it up. We keep it lit through the season. We come back to take it down in January. We store it for free until next year. That's the loop.</p>        <a href="/contact" class="btn btn-primary btn-lg">Request Free Design Consultation</a>
+        <div style="margin-top:16px;font-size:13px;color:var(--muted)">Or call us directly: <a href="tel:778-990-7983" style="color:var(--green);font-weight:600">778-990-7983</a></div>
       </div>
       <div>
-        <span class="eyebrow">Serving Burnaby</span>
-        <h2>Professional Christmas Light Installation in Burnaby</h2>
-<p style="margin:0 0 16px 0">Burnaby Christmas light installs split between two operational rhythms. Brentwood and Metrotown commercial properties — strata buildings, retail plazas, restaurant exteriors — run on building-management access windows and after-5pm timing. Deer Lake-area heritage homes and North Burnaby acreage rooflines run on traditional residential install patterns. The pricing is fixed: $8.50–$12 per linear foot of lighting, quoted up front.</p><p style="margin:0 0 16px 0">We light it up. We keep it lit through the season. We come back to take it down in January. We store it for free until next year. That's the loop.</p>        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> Insured & WCB-covered installation crews — certified on 2 & 3-story roofs</li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> Commercial-grade LED strands — not big-box consumer lights</li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> Same-day or 48-hour fix guarantee if a strand fails during December</li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> Free off-season storage in our climate-controlled warehouse</li>
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> Fixed-price packages — no hourly rates, no surprise add-ons</li>
-        </ul>
-        <a href="/contact" class="btn btn-primary btn-lg">Request Free Design Consultation</a>
-        <div style="margin-top:16px;font-size:13px;color:var(--muted)">Or call us directly: <a href="tel:778-990-7983" style="color:var(--green);font-weight:600">778-990-7983</a></div>
+        <div class="offer-panel">
+          <h3>Every Install Includes</h3>
+          <ul>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Insured & WCB-covered installation crews — certified on 2 & 3-story roofs</li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Commercial-grade LED strands — not big-box consumer lights</li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Same-day or 48-hour fix guarantee if a strand fails during December</li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Free off-season storage in our climate-controlled warehouse</li>
+            <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Fixed-price packages — no hourly rates, no surprise add-ons</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -403,7 +422,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <p style="font-size:13px;color:var(--green);font-weight:600;margin:4px 0 8px 0">Up to ~100 linear feet of roofline</p>
           <p style="font-size:12px;color:var(--muted);margin-bottom:12px">For: Single-story homes, townhouses, small porches</p>
           <ul style="list-style:none;padding:0;margin:0 0 16px 0;font-size:13px;color:var(--muted);line-height:1.7">
-<li>✓ Warm-white C9 LED roofline</li><li>✓ Single clip-style install (no staples)</li><li>✓ One on-site design consult</li><li>✓ Season-long maintenance</li><li>✓ Takedown + free storage</li>          </ul>
+<li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Warm-white C9 LED roofline</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Single clip-style install (no staples)</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> One on-site design consult</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Season-long maintenance</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Takedown + free storage</li>          </ul>
           <a href="/contact" class="btn btn-primary" style="margin-top:8px">Request Starter Quote</a>
         </div>
       </div>
@@ -414,7 +433,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <p style="font-size:13px;color:var(--green);font-weight:600;margin:4px 0 8px 0">Up to ~150 linear feet + 1 accent element</p>
           <p style="font-size:12px;color:var(--muted);margin-bottom:12px">For: Two-story homes, bungalows with accent trees</p>
           <ul style="list-style:none;padding:0;margin:0 0 16px 0;font-size:13px;color:var(--muted);line-height:1.7">
-<li>✓ Roofline + one accent: tree wrap OR bushes OR pathway</li><li>✓ Warm-white or mixed C9 LED</li><li>✓ On-site design consult + 2D layout plan</li><li>✓ Season-long maintenance (mid-December check-in)</li><li>✓ Takedown + free storage</li>          </ul>
+<li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Roofline + one accent: tree wrap OR bushes OR pathway</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Warm-white or mixed C9 LED</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> On-site design consult + 2D layout plan</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Season-long maintenance (mid-December check-in)</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Takedown + free storage</li>          </ul>
           <a href="/contact" class="btn btn-primary" style="margin-top:8px">Request Classic Quote</a>
         </div>
       </div>
@@ -425,7 +444,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <p style="font-size:13px;color:var(--green);font-weight:600;margin:4px 0 8px 0">Up to ~200+ linear feet + multiple accent elements</p>
           <p style="font-size:12px;color:var(--muted);margin-bottom:12px">For: Large homes, commercial storefronts, estate properties</p>
           <ul style="list-style:none;padding:0;margin:0 0 16px 0;font-size:13px;color:var(--muted);line-height:1.7">
-<li>✓ Roofline + trees + bushes + pathway + door frame</li><li>✓ Warm-white, color, or mixed scheme — your choice</li><li>✓ Full 3D design mockup before install</li><li>✓ Priority maintenance (24-hour response)</li><li>✓ Timer or Wi-Fi smart controls included</li><li>✓ Takedown + free storage</li>          </ul>
+<li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Roofline + trees + bushes + pathway + door frame</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Warm-white, color, or mixed scheme — your choice</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Full 3D design mockup before install</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Priority maintenance (24-hour response)</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Timer or Wi-Fi smart controls included</li><li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Takedown + free storage</li>          </ul>
           <a href="/contact" class="btn btn-primary" style="margin-top:8px">Request Premium Quote</a>
         </div>
       </div>
@@ -483,8 +502,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">How It Works</span>
-      <h2>Your Burnaby Christmas Light Installation — Step by Step</h2>
+      <h2>How It Works</h2>
       <p>From first consultation to January takedown, we handle every step. You never touch a light.</p>
     </div>
     <div style="max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
@@ -530,7 +548,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">What We Light Up</span>
       <h2>Christmas Light Installations for Burnaby</h2>
       <p>Every install starts with a free on-site design consultation — we walk your property, plan the power, and send a fixed-price quote.</p>
     </div>
@@ -566,7 +583,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Service Area</span>
       <h2>Installing Christmas Lights Across Burnaby</h2>
       <p>Tent, chair, table, and dance floor delivery across Burnaby — Deer Lake Park ceremonies, Hart House and Burnaby Village heritage receptions, and Brentwood and Metrotown rooftop corporate events. Design consultations are free and every package is fixed-price.</p>
     </div>
@@ -601,8 +617,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">FAQ</span>
-      <h2>Christmas Light Questions — Burnaby</h2>
+      <h2>Burnaby Christmas Light FAQ</h2>
     </div>
     <div style="max-width:860px;margin:0 auto">
       <div class="faq-item">
@@ -662,7 +677,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Why Forever</span>
       <h2>Why Burnaby Homeowners Choose Us</h2>
     </div>
     <div class="grid-3">
@@ -684,7 +698,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 
 <section class="section section--light">
   <div class="container" style="max-width:860px;text-align:center">
-    <span class="eyebrow">Also in Burnaby</span>
     <h2 style="margin:8px 0 12px">Need Party Rentals for Your Holiday Event?</h2>
     <p style="color:var(--muted);margin-bottom:20px">Corporate holiday parties, family gatherings, and community events in Burnaby — we deliver tents, Chiavari chairs, banquet tables, and dance floors. Bundle with your Christmas light install on a single invoice.</p>
     <a href="/burnaby-party-rentals" class="btn btn-outline-primary btn-lg">See Burnaby Party Rentals →</a>
@@ -723,7 +736,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="/event-rentals">Event Rentals</a>
           <a class="footer-link" href="/pricing">Price List</a>
           <a class="footer-link" href="/event-layout-planner">Free Tent, Table and Chair Layout Planner</a>
-          <a class="footer-link" href="/christmas-lights" style="color:var(--gold)">🎄 Christmas Light Installation</a>
+          <a class="footer-link" href="/christmas-lights" style="color:var(--gold)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c5 5.5 15 5.5 20 0"/><circle cx="6.5" cy="10.6" r="1.7"/><circle cx="12" cy="12.1" r="1.7"/><circle cx="17.5" cy="10.6" r="1.7"/></svg> Christmas Light Installation</a>
         </div>
         <div>
           <div class="footer-col-title">Service Areas</div>
@@ -747,8 +760,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="mailto:welcome@foreverpartyrentals.com">welcome@foreverpartyrentals.com</a>
           <span class="footer-link">Mon–Sun 10:30AM–6PM</span>
           <span class="footer-link">9317 188 St, Surrey BC V4N 3V1</span>
-          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&amp;kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><span aria-hidden="true">⭐</span> 190+ Google Reviews →</a>
-          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentalsbc/" rel="noopener noreferrer" target="_blank" style="display:block"><span aria-hidden="true">📸</span> @foreverpartyrentalsbc</a>
+          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&amp;kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg> 190+ Google Reviews →</a>
+          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentalsbc/" rel="noopener noreferrer" target="_blank" style="display:block"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="4"/></svg> @foreverpartyrentalsbc</a>
           <a class="footer-link" href="/reviews">Reviews</a>
           <a class="footer-link" href="/faq">FAQ</a>
           <a class="footer-link" href="/corporate">Corporate Events</a>
@@ -764,7 +777,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       </div>
     </div>
 </footer>
-<script src="shared.js?v=18"></script>
-<!-- lastmod: 2026-07-10T00:34:22Z -->
+<script src="shared.js?v=21"></script>
+<!-- lastmod: 2026-07-18T18:17:36Z -->
 </body>
 </html>

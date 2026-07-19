@@ -52,11 +52,9 @@ fbq('track', 'PageView');</script>
 <meta name="twitter:description" content="50-guest backyard rental package: tables, chairs & tent bundled at 10% off. Serving the Lower Mainland."/>
 <meta name="twitter:image" content="https://www.foreverpartyrentals.com/images/og/social-card.webp"/>
 
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=23"/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
+<link rel="stylesheet" href="shared.css?v=26"/>
 
 <script type="application/ld+json">
 {
@@ -175,10 +173,11 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 
 <a href="#main" class="skip-link">Skip to main content</a>
 
+
 <div id="topbar" role="complementary" aria-label="Contact information">
     <div class="container">
-      <a class="tb-item" href="tel:778-990-7983" aria-label="Call us at 778-990-7983"><span class="tb-ico" aria-hidden="true">✆</span>778-990-7983</a>
-      <a class="tb-item" href="mailto:welcome@foreverpartyrentals.com" aria-label="Email us at welcome@foreverpartyrentals.com"><span class="tb-ico" aria-hidden="true">✉</span>welcome@foreverpartyrentals.com</a>
+      <a class="tb-item" href="tel:778-990-7983" aria-label="Call us at 778-990-7983"><span class="tb-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>778-990-7983</a>
+      <a class="tb-item" href="mailto:welcome@foreverpartyrentals.com" aria-label="Email us at welcome@foreverpartyrentals.com"><span class="tb-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>welcome@foreverpartyrentals.com</a>
       <span class="tb-item tb-muted" aria-hidden="true">Mon–Sun 10:30AM–6PM</span>
     </div>
 </div>
@@ -189,7 +188,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <div class="nav-links" role="menubar">
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents">Tent Rentals <span aria-hidden="true">▾</span></button>
+          
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents" aria-label="Tent Rentals">Tents <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tents" role="menu" aria-label="Tent Rentals">
             <a role="menuitem" href="/tents">All Tent Rentals</a>
             <div class="dropdown-sub">
@@ -210,7 +210,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         </div>
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs">Chair Rentals <span aria-hidden="true">▾</span></button>
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs" aria-label="Chair Rentals">Chairs <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-chairs" role="menu" aria-label="Chair Rentals">
             <a role="menuitem" href="/chairs">All Chair Rentals</a>
             <a role="menuitem" href="/product-white-chiavari-chair">Chiavari Chairs</a>
@@ -220,7 +220,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         </div>
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables">Table Rentals <span aria-hidden="true">▾</span></button>
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables" aria-label="Table Rentals">Tables <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tables" role="menu" aria-label="Table Rentals">
             <a role="menuitem" href="/tables">All Table Rentals</a>
             <a role="menuitem" href="/product-banquet-table-8ft">8ft Banquet Tables</a>
@@ -314,44 +314,59 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       </button>
     </div>
     <div class="nav-mobile" id="navMobile" role="menu" aria-label="Mobile navigation" hidden>
-      <a role="menuitem" href="/">Home</a>
-      <a role="menuitem" href="/tents">Tent Rentals</a>
-      <a role="menuitem" href="/marquee-tent-rental-lowermainland-surrey-langley-vancouver">Marquee Tent Rental Lower Mainland</a>
-      <a role="menuitem" href="/chairs">Chair Rentals</a>
-      <a role="menuitem" href="/tables">Table Rentals</a>
-      <a role="menuitem" href="/dance-floor">Dance Floor</a>
-      <a role="menuitem" href="/event-layout-planner">Free Layout Planner</a>
-      <a role="menuitem" href="/battery-power-stations">Battery &amp; Power Stations</a>
-      <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
-      <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
-      <a role="menuitem" href="/packages">Event Packages</a>
-      <a role="menuitem" href="/pricing">Prices</a>
-      <a role="menuitem" href="/service-areas">Service Areas</a>
-      <a role="menuitem" href="/contact">Contact</a>
-      <a role="menuitem" href="/rentals" style="color:var(--green);font-weight:600;margin-top:8px">→ Book Now Online</a>
+      <div class="nm-group" role="group">
+        <a role="menuitem" href="/">Home</a>
+        <a role="menuitem" href="/rentals" class="nm-book">→ Book Now Online</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Rentals">
+        <div class="nm-title" role="presentation">Rentals</div>
+        <a role="menuitem" href="/tents">Tent Rentals</a>
+        <a role="menuitem" href="/marquee-tent-rental-lowermainland-surrey-langley-vancouver">Marquee Tent Rental Lower Mainland</a>
+        <a role="menuitem" href="/chairs">Chair Rentals</a>
+        <a role="menuitem" href="/tables">Table Rentals</a>
+        <a role="menuitem" href="/dance-floor">Dance Floor</a>
+        <a role="menuitem" href="/battery-power-stations">Battery &amp; Power Stations</a>
+        <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
+        <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Packages and pricing">
+        <div class="nm-title" role="presentation">Packages &amp; Pricing</div>
+        <a role="menuitem" href="/packages">Event Packages</a>
+        <a role="menuitem" href="/pricing">Prices</a>
+        <a role="menuitem" href="/event-layout-planner">Free Layout Planner</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Company">
+        <div class="nm-title" role="presentation">Company</div>
+        <a role="menuitem" href="/service-areas">Service Areas</a>
+        <a role="menuitem" href="/contact">Contact</a>
+      </div>
     </div>
 </nav>
 
 <div id="fprCtaBar" class="mobile-cta-bar" role="navigation" aria-label="Call or book">
-  <a class="mcb-call" href="tel:778-990-7983"><span aria-hidden="true">✆</span>&nbsp;778-990-7983</a>
+  <a class="mcb-call" href="tel:778-990-7983"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>&nbsp;778-990-7983</a>
   <a class="mcb-book" href="/rentals">Book Online</a>
 </div>
 <script>(function(){if(/checkout|layout-planner|^\/planner/.test(location.pathname)){var b=document.getElementById('fprCtaBar');if(b){b.hidden=true;}document.documentElement.classList.add('no-cta-bar');}})();</script>
 <div class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/packages">Packages</a><span>/</span><a href="/packages#backyard">Backyard Party</a><span>/</span>50 Guests</div>
-    <span class="eyebrow">Backyard Party Package · 50 Guests</span>
-    <h1>50-Guest Backyard Party Package</h1>
-    <p>Backyard party packages for 50-guest birthdays, graduations, anniversaries, and family celebrations — all the essentials, 10% off.</p>
+    <div class="hero-split">
+      <div class="hero-copy">
+        <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/packages">Packages</a><span>/</span><a href="/packages#backyard">Backyard Party</a><span>/</span>50 Guests</div>
+        <span class="eyebrow">Backyard Party Package · 50 Guests</span>
+        <h1>50-Guest Backyard Party Package</h1>
+        <p>Backyard party packages for 50-guest birthdays, graduations, anniversaries, and family celebrations — all the essentials, 10% off.</p>
+      </div>
+      <div class="hero-media--texture" aria-hidden="true"></div>
+    </div>
   </div>
 </div>
 
 <div class="trust-bar">
   <div class="container">
-    <div class="trust-item">💰 10% Off vs Booking Separately</div>
-    <div class="trust-item">🚚 Delivery &amp; Setup Available</div>
-    <div class="trust-item">✅ 25% Deposit to Secure</div>
-    <div class="trust-item">📅 Your date is locked once the deposit is paid</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg> 10% Off vs Booking Separately</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Delivery &amp; Setup Available</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> 25% Deposit Locks Your Date</div>
   </div>
 </div>
 
@@ -509,7 +524,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           </ul>
 
           <div style="background:#fffbf0;border:1px solid var(--gold);padding:12px 14px;border-radius:4px;margin-bottom:16px">
-            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px">✨ Package-Only Value</div>
+            <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg> Package-Only Value</div>
             <div style="font-size:13px;color:var(--dark);line-height:1.5">Spandex cocktail covers are <strong>$15/table</strong> retail — included in this package at <strong>$10/table</strong>, on top of the 10% bundle discount.</div>
           </div>
 
@@ -621,7 +636,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container" style="max-width:820px">
     <div class="section-header center">
-      <span class="eyebrow">Good To Know</span>
       <h2>Backyard Party Package FAQs</h2>
     </div>
     <div style="margin-top:32px">
@@ -644,7 +658,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Peace of Mind</span>
       <h2>Every Package Backed By Our Guarantees</h2>
     </div>
     <div class="grid-3">
@@ -702,7 +715,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="/event-rentals">Event Rentals</a>
           <a class="footer-link" href="/pricing">Price List</a>
           <a class="footer-link" href="/event-layout-planner">Free Tent, Table and Chair Layout Planner</a>
-          <a class="footer-link" href="/christmas-lights" style="color:var(--gold)">🎄 Christmas Light Installation</a>
+          <a class="footer-link" href="/christmas-lights" style="color:var(--gold)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c5 5.5 15 5.5 20 0"/><circle cx="6.5" cy="10.6" r="1.7"/><circle cx="12" cy="12.1" r="1.7"/><circle cx="17.5" cy="10.6" r="1.7"/></svg> Christmas Light Installation</a>
         </div>
         <div>
           <div class="footer-col-title">Service Areas</div>
@@ -726,8 +739,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="mailto:welcome@foreverpartyrentals.com">welcome@foreverpartyrentals.com</a>
           <span class="footer-link">Mon–Sun 10:30AM–6PM</span>
           <span class="footer-link">9317 188 St, Surrey BC V4N 3V1</span>
-          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&amp;kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><span aria-hidden="true">⭐</span> 190+ Google Reviews →</a>
-          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentalsbc/" rel="noopener noreferrer" target="_blank" style="display:block"><span aria-hidden="true">📸</span> @foreverpartyrentalsbc</a>
+          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&amp;kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg> 190+ Google Reviews →</a>
+          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentalsbc/" rel="noopener noreferrer" target="_blank" style="display:block"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="4"/></svg> @foreverpartyrentalsbc</a>
           <a class="footer-link" href="/reviews">Reviews</a>
           <a class="footer-link" href="/faq">FAQ</a>
           <a class="footer-link" href="/corporate">Corporate Events</a>
@@ -743,7 +756,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       </div>
     </div>
 </footer>
-<script src="shared.js?v=18"></script>
-<!-- lastmod: 2026-07-10T00:34:22Z -->
+<script src="shared.js?v=21"></script>
+<!-- lastmod: 2026-07-18T18:17:36Z -->
 </body>
 </html>

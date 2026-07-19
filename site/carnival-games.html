@@ -50,11 +50,9 @@ fbq('track', 'PageView');</script>
 <meta name="twitter:title" content="Carnival Game Rentals — Lower Mainland BC"/>
 <meta name="twitter:description" content="Bottle knockdown, balloon darts, ring toss & cup toss carnival game rentals. $650/4hr per booth, trained staff included. Bundle 2 or 4 and save."/>
 
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=23"/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
+<link rel="stylesheet" href="shared.css?v=26"/>
 
 <style>
 .cg-tile { background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%); color: #fff; min-height: 220px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
@@ -109,10 +107,11 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <!-- NAV:START -->
 <a href="#main" class="skip-link">Skip to main content</a>
 
+
 <div id="topbar" role="complementary" aria-label="Contact information">
     <div class="container">
-      <a class="tb-item" href="tel:778-990-7983" aria-label="Call us at 778-990-7983"><span class="tb-ico" aria-hidden="true">✆</span>778-990-7983</a>
-      <a class="tb-item" href="mailto:welcome@foreverpartyrentals.com" aria-label="Email us at welcome@foreverpartyrentals.com"><span class="tb-ico" aria-hidden="true">✉</span>welcome@foreverpartyrentals.com</a>
+      <a class="tb-item" href="tel:778-990-7983" aria-label="Call us at 778-990-7983"><span class="tb-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>778-990-7983</a>
+      <a class="tb-item" href="mailto:welcome@foreverpartyrentals.com" aria-label="Email us at welcome@foreverpartyrentals.com"><span class="tb-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>welcome@foreverpartyrentals.com</a>
       <span class="tb-item tb-muted" aria-hidden="true">Mon–Sun 10:30AM–6PM</span>
     </div>
 </div>
@@ -123,7 +122,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <div class="nav-links" role="menubar">
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents">Tent Rentals <span aria-hidden="true">▾</span></button>
+          
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents" aria-label="Tent Rentals">Tents <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tents" role="menu" aria-label="Tent Rentals">
             <a role="menuitem" href="/tents">All Tent Rentals</a>
             <div class="dropdown-sub">
@@ -144,7 +144,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         </div>
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs">Chair Rentals <span aria-hidden="true">▾</span></button>
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs" aria-label="Chair Rentals">Chairs <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-chairs" role="menu" aria-label="Chair Rentals">
             <a role="menuitem" href="/chairs">All Chair Rentals</a>
             <a role="menuitem" href="/product-white-chiavari-chair">Chiavari Chairs</a>
@@ -154,7 +154,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         </div>
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables">Table Rentals <span aria-hidden="true">▾</span></button>
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables" aria-label="Table Rentals">Tables <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tables" role="menu" aria-label="Table Rentals">
             <a role="menuitem" href="/tables">All Table Rentals</a>
             <a role="menuitem" href="/product-banquet-table-8ft">8ft Banquet Tables</a>
@@ -248,26 +248,37 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       </button>
     </div>
     <div class="nav-mobile" id="navMobile" role="menu" aria-label="Mobile navigation" hidden>
-      <a role="menuitem" href="/">Home</a>
-      <a role="menuitem" href="/tents">Tent Rentals</a>
-      <a role="menuitem" href="/marquee-tent-rental-lowermainland-surrey-langley-vancouver">Marquee Tent Rental Lower Mainland</a>
-      <a role="menuitem" href="/chairs">Chair Rentals</a>
-      <a role="menuitem" href="/tables">Table Rentals</a>
-      <a role="menuitem" href="/dance-floor">Dance Floor</a>
-      <a role="menuitem" href="/event-layout-planner">Free Layout Planner</a>
-      <a role="menuitem" href="/battery-power-stations">Battery &amp; Power Stations</a>
-      <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
-      <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
-      <a role="menuitem" href="/packages">Event Packages</a>
-      <a role="menuitem" href="/pricing">Prices</a>
-      <a role="menuitem" href="/service-areas">Service Areas</a>
-      <a role="menuitem" href="/contact">Contact</a>
-      <a role="menuitem" href="/rentals" style="color:var(--green);font-weight:600;margin-top:8px">→ Book Now Online</a>
+      <div class="nm-group" role="group">
+        <a role="menuitem" href="/">Home</a>
+        <a role="menuitem" href="/rentals" class="nm-book">→ Book Now Online</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Rentals">
+        <div class="nm-title" role="presentation">Rentals</div>
+        <a role="menuitem" href="/tents">Tent Rentals</a>
+        <a role="menuitem" href="/marquee-tent-rental-lowermainland-surrey-langley-vancouver">Marquee Tent Rental Lower Mainland</a>
+        <a role="menuitem" href="/chairs">Chair Rentals</a>
+        <a role="menuitem" href="/tables">Table Rentals</a>
+        <a role="menuitem" href="/dance-floor">Dance Floor</a>
+        <a role="menuitem" href="/battery-power-stations">Battery &amp; Power Stations</a>
+        <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
+        <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Packages and pricing">
+        <div class="nm-title" role="presentation">Packages &amp; Pricing</div>
+        <a role="menuitem" href="/packages">Event Packages</a>
+        <a role="menuitem" href="/pricing">Prices</a>
+        <a role="menuitem" href="/event-layout-planner">Free Layout Planner</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Company">
+        <div class="nm-title" role="presentation">Company</div>
+        <a role="menuitem" href="/service-areas">Service Areas</a>
+        <a role="menuitem" href="/contact">Contact</a>
+      </div>
     </div>
 </nav>
 
 <div id="fprCtaBar" class="mobile-cta-bar" role="navigation" aria-label="Call or book">
-  <a class="mcb-call" href="tel:778-990-7983"><span aria-hidden="true">✆</span>&nbsp;778-990-7983</a>
+  <a class="mcb-call" href="tel:778-990-7983"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>&nbsp;778-990-7983</a>
   <a class="mcb-book" href="/rentals">Book Online</a>
 </div>
 <script>(function(){if(/checkout|layout-planner|^\/planner/.test(location.pathname)){var b=document.getElementById('fprCtaBar');if(b){b.hidden=true;}document.documentElement.classList.add('no-cta-bar');}})();</script>
@@ -275,28 +286,32 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 
 <div class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><span>/</span>Carnival Games</div>
-    <span class="eyebrow">Carnival Game Rentals</span>
-    <h1>Carnival Games For Rent — Lower Mainland BC</h1>
-    <p>Bring fairground fun to your event. Bottle knockdown, balloon darts, ring toss & cup toss — $650 per booth / 4 hours including a trained staff attendant. Bundle 2 or 4 games and save 10–15%.</p>
+    <div class="hero-split">
+      <div class="hero-copy">
+        <div class="breadcrumb"><a href="/">Home</a><span>/</span>Carnival Games</div>
+        <span class="eyebrow">Carnival Game Rentals</span>
+        <h1>Carnival Games For Rent</h1>
+        <p>Bring fairground fun to your event. Bottle knockdown, balloon darts, ring toss & cup toss — $650 per booth / 4 hours including a trained staff attendant. Bundle 2 or 4 games and save 10–15%.</p>
+      </div>
+      <div class="hero-media"><img src="/images/carnival/bottle-knockdown.webp" alt="Forever Party Rentals carnival game booth — bottle knockdown under a red and white striped tent" width="1200" height="900" loading="eager" decoding="async" fetchpriority="high"/></div>
+    </div>
   </div>
 </div>
 
 <div class="trust-bar">
   <div class="container">
-    <div class="trust-item">👥 Trained Staff Per Booth</div>
-    <div class="trust-item">🚚 Setup Included · Discounted Delivery</div>
-    <div class="trust-item">⏰ 4-Hour Base · +$150/hr Extra</div>
-    <div class="trust-item">💰 Bundle 2 or 4 — Save 10–15%</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Trained Staff Per Booth</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Setup Included · Discounted Delivery</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 4-Hour Base · +$150/hr Extra</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Bundle 2 or 4 — Save 10–15%</div>
   </div>
 </div>
 
 <!-- INTRO -->
 <section class="section">
   <div class="container">
-    <div class="split">
+    <div>
       <div>
-        <span class="eyebrow">Fully-Staffed Carnival Booths</span>
         <h2>The Easiest Way To Make Your Event Memorable</h2>
         <p style="margin:16px 0">Carnival games are the secret weapon of great corporate picnics, school carnivals, charity fundraisers, birthday parties, and backyard celebrations. Each booth is a turnkey, fully-staffed station — we deliver, set up, run the game with one of our trained attendants for the full 4-hour booked window, then pack down and remove.</p>
         <p style="margin:16px 0">Pick a single game, mix-and-match a 2-game bundle, or go all-in with our full 4-game carnival pack. Need a longer event? Add hours at <strong>$150/hr per booth</strong> (or the discounted bundle rate).</p>
@@ -310,9 +325,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         </ul>
         <a href="/rentals" class="btn btn-primary btn-lg">Check Availability & Book</a>
         <div style="margin-top:16px;font-size:13px;color:var(--muted)">Or call us: <a href="tel:778-990-7983" style="color:var(--green);font-weight:600">778-990-7983</a></div>
-      </div>
-      <div>
-        <img src="/images/carnival/bottle-knockdown.webp" alt="Forever Party Rentals carnival game booth — bottle knockdown under a red and white striped tent" width="1200" height="900" loading="lazy" style="width:100%;height:420px;object-fit:cover;border-radius:var(--radius)"/>
       </div>
     </div>
   </div>
@@ -380,7 +392,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Save 10–15%</span>
       <h2>Carnival Game Bundles</h2>
       <p>Mix two games for a quick add-on, or grab the full lineup for a fully-staffed carnival corner. Bundle discount applies to both the 4-hour base rate and any additional hours.</p>
     </div>
@@ -388,7 +399,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
     <div class="cg-bundle-grid" style="margin-top:32px">
       <a href="/carnival-games-bundle-2" class="card" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;border:1px solid var(--border);overflow:hidden">
         <div class="cg-tile" style="min-height:180px">
-          <div class="cg-tile-icon" aria-hidden="true">🎟️</div>
+          <div class="cg-tile-icon" aria-hidden="true"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v3a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-3a3 3 0 0 1 0-6V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M13 5v2M13 11v2M13 17v2"/></svg></div>
           <div class="cg-tile-label">2-Game<br/>Bundle</div>
         </div>
         <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:24px 26px 26px">
@@ -408,7 +419,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <a href="/carnival-games-bundle-4" class="card" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;border:2px solid var(--gold);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.08)">
         <div style="background:var(--gold);color:#fff;text-align:center;padding:8px 12px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700">Most Popular</div>
         <div class="cg-tile" style="min-height:180px">
-          <div class="cg-tile-icon" aria-hidden="true">🎪</div>
+          <div class="cg-tile-icon" aria-hidden="true"><svg class="ico ico-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 21h20L12 3z"/><path d="M12 13v8"/></svg></div>
           <div class="cg-tile-label">4-Game<br/>Bundle</div>
         </div>
         <div class="card-body" style="flex:1;display:flex;flex-direction:column;padding:24px 26px 26px">
@@ -432,7 +443,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Where They Shine</span>
       <h2>Events That Love Carnival Games</h2>
     </div>
     <div class="grid-3">
@@ -481,7 +491,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
   <div class="container">
     <div class="split">
       <div>
-        <span class="eyebrow">Logistics</span>
         <h2>How A Carnival Game Rental Works</h2>
         <p style="margin:16px 0">Every booth is a turnkey, fully-staffed station: we bring the game, all play pieces (balls, rings, darts, etc.), small-prize stock, and a fabric backdrop. Each booth needs roughly 6×8 ft of floor space and a flat-ish surface — grass, gym floor, pavement, or patio all work.</p>
         <p style="margin:16px 0">Your booking includes a trained Forever Party Rentals attendant to run the booth for the full 4-hour window. They handle the play, scoring, prizes, and crowd flow — your team gets to host the event, not run booths. Need longer than 4 hours? Each additional hour is +$150/hr per booth (or the discounted bundle rate).</p>
@@ -512,7 +521,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Build A Full Event</span>
       <h2>Pair Carnival Games With Your Tent, Tables & Chairs</h2>
       <p>Most carnival-game bookings ride along with at least one of these — single delivery, single quote, single pickup.</p>
     </div>
@@ -549,8 +557,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container" style="max-width:800px">
     <div class="section-header center">
-      <span class="eyebrow">FAQ</span>
-      <h2>Carnival Game Rental Questions</h2>
+      <h2>Carnival Game Rental FAQ</h2>
     </div>
     <div class="faq">
       <div class="faq-item">
@@ -627,7 +634,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="/event-rentals">Event Rentals</a>
           <a class="footer-link" href="/pricing">Price List</a>
           <a class="footer-link" href="/event-layout-planner">Free Tent, Table and Chair Layout Planner</a>
-          <a class="footer-link" href="/christmas-lights" style="color:var(--gold)">🎄 Christmas Light Installation</a>
+          <a class="footer-link" href="/christmas-lights" style="color:var(--gold)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c5 5.5 15 5.5 20 0"/><circle cx="6.5" cy="10.6" r="1.7"/><circle cx="12" cy="12.1" r="1.7"/><circle cx="17.5" cy="10.6" r="1.7"/></svg> Christmas Light Installation</a>
         </div>
         <div>
           <div class="footer-col-title">Service Areas</div>
@@ -651,8 +658,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="mailto:welcome@foreverpartyrentals.com">welcome@foreverpartyrentals.com</a>
           <span class="footer-link">Mon–Sun 10:30AM–6PM</span>
           <span class="footer-link">9317 188 St, Surrey BC V4N 3V1</span>
-          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&amp;kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><span aria-hidden="true">⭐</span> 190+ Google Reviews →</a>
-          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentalsbc/" rel="noopener noreferrer" target="_blank" style="display:block"><span aria-hidden="true">📸</span> @foreverpartyrentalsbc</a>
+          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&amp;kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg> 190+ Google Reviews →</a>
+          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentalsbc/" rel="noopener noreferrer" target="_blank" style="display:block"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="4"/></svg> @foreverpartyrentalsbc</a>
           <a class="footer-link" href="/reviews">Reviews</a>
           <a class="footer-link" href="/faq">FAQ</a>
           <a class="footer-link" href="/corporate">Corporate Events</a>
@@ -669,6 +676,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
     </div>
 </footer>
 <!-- FOOTER:END -->
-<script src="shared.js?v=18"></script>
+<script src="shared.js?v=21"></script>
 </body>
 </html>

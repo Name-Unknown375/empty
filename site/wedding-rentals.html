@@ -53,12 +53,9 @@ fbq('track', 'PageView');</script>
 <meta name="twitter:description" content="Wedding rentals for the Lower Mainland — marquee tents, Chiavari chairs, banquet tables, dance floors. Delivered, crew-installed, 190+ five-star reviews."/>
 <meta name="twitter:image" content="https://www.foreverpartyrentals.com/images/og/social-card.webp"/>
 
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=23"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" media="print" onload="this.media='all'"/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
+<link rel="stylesheet" href="shared.css?v=26"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -154,10 +151,11 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <!-- NAV:START -->
 <a href="#main" class="skip-link">Skip to main content</a>
 
+
 <div id="topbar" role="complementary" aria-label="Contact information">
     <div class="container">
-      <a class="tb-item" href="tel:778-990-7983" aria-label="Call us at 778-990-7983"><span class="tb-ico" aria-hidden="true">✆</span>778-990-7983</a>
-      <a class="tb-item" href="mailto:welcome@foreverpartyrentals.com" aria-label="Email us at welcome@foreverpartyrentals.com"><span class="tb-ico" aria-hidden="true">✉</span>welcome@foreverpartyrentals.com</a>
+      <a class="tb-item" href="tel:778-990-7983" aria-label="Call us at 778-990-7983"><span class="tb-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>778-990-7983</a>
+      <a class="tb-item" href="mailto:welcome@foreverpartyrentals.com" aria-label="Email us at welcome@foreverpartyrentals.com"><span class="tb-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>welcome@foreverpartyrentals.com</a>
       <span class="tb-item tb-muted" aria-hidden="true">Mon–Sun 10:30AM–6PM</span>
     </div>
 </div>
@@ -168,7 +166,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <div class="nav-links" role="menubar">
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents">Tent Rentals <span aria-hidden="true">▾</span></button>
+          
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents" aria-label="Tent Rentals">Tents <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tents" role="menu" aria-label="Tent Rentals">
             <a role="menuitem" href="/tents">All Tent Rentals</a>
             <div class="dropdown-sub">
@@ -189,7 +188,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         </div>
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs">Chair Rentals <span aria-hidden="true">▾</span></button>
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs" aria-label="Chair Rentals">Chairs <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-chairs" role="menu" aria-label="Chair Rentals">
             <a role="menuitem" href="/chairs">All Chair Rentals</a>
             <a role="menuitem" href="/product-white-chiavari-chair">Chiavari Chairs</a>
@@ -199,7 +198,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         </div>
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables">Table Rentals <span aria-hidden="true">▾</span></button>
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables" aria-label="Table Rentals">Tables <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tables" role="menu" aria-label="Table Rentals">
             <a role="menuitem" href="/tables">All Table Rentals</a>
             <a role="menuitem" href="/product-banquet-table-8ft">8ft Banquet Tables</a>
@@ -293,26 +292,37 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       </button>
     </div>
     <div class="nav-mobile" id="navMobile" role="menu" aria-label="Mobile navigation" hidden>
-      <a role="menuitem" href="/">Home</a>
-      <a role="menuitem" href="/tents">Tent Rentals</a>
-      <a role="menuitem" href="/marquee-tent-rental-lowermainland-surrey-langley-vancouver">Marquee Tent Rental Lower Mainland</a>
-      <a role="menuitem" href="/chairs">Chair Rentals</a>
-      <a role="menuitem" href="/tables">Table Rentals</a>
-      <a role="menuitem" href="/dance-floor">Dance Floor</a>
-      <a role="menuitem" href="/event-layout-planner">Free Layout Planner</a>
-      <a role="menuitem" href="/battery-power-stations">Battery &amp; Power Stations</a>
-      <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
-      <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
-      <a role="menuitem" href="/packages">Event Packages</a>
-      <a role="menuitem" href="/pricing">Prices</a>
-      <a role="menuitem" href="/service-areas">Service Areas</a>
-      <a role="menuitem" href="/contact">Contact</a>
-      <a role="menuitem" href="/rentals" style="color:var(--green);font-weight:600;margin-top:8px">→ Book Now Online</a>
+      <div class="nm-group" role="group">
+        <a role="menuitem" href="/">Home</a>
+        <a role="menuitem" href="/rentals" class="nm-book">→ Book Now Online</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Rentals">
+        <div class="nm-title" role="presentation">Rentals</div>
+        <a role="menuitem" href="/tents">Tent Rentals</a>
+        <a role="menuitem" href="/marquee-tent-rental-lowermainland-surrey-langley-vancouver">Marquee Tent Rental Lower Mainland</a>
+        <a role="menuitem" href="/chairs">Chair Rentals</a>
+        <a role="menuitem" href="/tables">Table Rentals</a>
+        <a role="menuitem" href="/dance-floor">Dance Floor</a>
+        <a role="menuitem" href="/battery-power-stations">Battery &amp; Power Stations</a>
+        <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
+        <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Packages and pricing">
+        <div class="nm-title" role="presentation">Packages &amp; Pricing</div>
+        <a role="menuitem" href="/packages">Event Packages</a>
+        <a role="menuitem" href="/pricing">Prices</a>
+        <a role="menuitem" href="/event-layout-planner">Free Layout Planner</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Company">
+        <div class="nm-title" role="presentation">Company</div>
+        <a role="menuitem" href="/service-areas">Service Areas</a>
+        <a role="menuitem" href="/contact">Contact</a>
+      </div>
     </div>
 </nav>
 
 <div id="fprCtaBar" class="mobile-cta-bar" role="navigation" aria-label="Call or book">
-  <a class="mcb-call" href="tel:778-990-7983"><span aria-hidden="true">✆</span>&nbsp;778-990-7983</a>
+  <a class="mcb-call" href="tel:778-990-7983"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>&nbsp;778-990-7983</a>
   <a class="mcb-book" href="/rentals">Book Online</a>
 </div>
 <script>(function(){if(/checkout|layout-planner|^\/planner/.test(location.pathname)){var b=document.getElementById('fprCtaBar');if(b){b.hidden=true;}document.documentElement.classList.add('no-cta-bar');}})();</script>
@@ -320,22 +330,23 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 
 <div class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><span>/</span>Wedding Rentals</div>
-    <span class="eyebrow">Wedding Rentals</span>
-    <h1>Wedding Rentals — Vancouver, Surrey &amp; the Lower Mainland</h1>
-    <p>Marquee tents, Chiavari chairs, banquet and round tables, and dance floors — delivered, crew-installed and removed. One inventory, one crew, one quote. 190+ five-star reviews from couples across BC.</p>
+    <div class="hero-split">
+      <div class="hero-copy">
+        <div class="breadcrumb"><a href="/">Home</a><span>/</span>Wedding Rentals</div>
+        <span class="eyebrow">Wedding Rentals</span>
+        <h1>Wedding Rentals</h1>
+        <p>Marquee tents, Chiavari chairs, banquet and round tables, and dance floors — delivered, crew-installed and removed. One inventory, one crew, one quote. 190+ five-star reviews from couples across BC.</p>
+      </div>
+      <div class="hero-media"><img src="/images/services/chiavari-chairs-900w.webp" srcset="/images/services/chiavari-chairs-600w.webp 600w, /images/services/chiavari-chairs-900w.webp 900w, /images/services/chiavari-chairs-1200w.webp 1200w" sizes="(max-width: 900px) 100vw, 45vw" alt="Wedding Chiavari Chair Rentals" width="900" height="600" loading="eager" decoding="async" fetchpriority="high"/></div>
+    </div>
   </div>
 </div>
 
 <section class="section">
   <div class="container">
-    <div class="split">
+    <div>
       <div>
-        <img src="/images/services/chiavari-chairs-1200w.webp" alt="Wedding Chiavari Chair Rentals" class="product-hero-img"/ fetchpriority="high" decoding="async" loading="eager" width="1200" height="800" srcset="/images/services/chiavari-chairs-600w.webp 600w, /images/services/chiavari-chairs-900w.webp 900w, /images/services/chiavari-chairs-1200w.webp 1200w" sizes="(max-width: 900px) 100vw, 50vw">
-      </div>
-      <div>
-        <span class="eyebrow">Why Couples Book Us</span>
-        <h2>Wedding day, handled — from delivery to teardown</h2>
+        <h2>Wedding day, handled</h2>
         <p style="margin:16px 0">We rent and install every major hard good a wedding needs in one place: tent, chairs, tables and dance floor. Our crew runs the install and the strike, so the only things you carry on the day are the rings.</p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
           <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> One inventory, one crew, one quote — no sub-rentals or short-ships</li>
@@ -355,7 +366,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Built For Weddings</span>
       <h2>Wedding Rental Packages</h2>
       <p>Pre-priced bundles for the most common guest counts. Tent, Chiavari chairs, banquet or round tables, and a dance floor — all in.</p>
     </div>
@@ -389,7 +399,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">What Every Wedding Needs</span>
       <h2>Build It Piece By Piece</h2>
       <p>Prefer to build your own kit? Browse each category below and we'll bundle it into a single quote.</p>
     </div>
@@ -425,7 +434,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container" style="max-width:720px">
     <div class="card" style="padding:32px;text-align:center">
-      <span class="eyebrow">Free Tool</span>
       <h2 style="margin:8px 0 12px">Plan your wedding tent layout before you book</h2>
       <p style="margin-bottom:20px">Drop a tent into your venue, add round or banquet tables, position your dance floor and head table, and see exactly how it fits. No login, no email — just drag and drop.</p>
       <a href="/event-layout-planner" class="btn btn-primary btn-lg">Open the Free Layout Planner →</a>
@@ -436,7 +444,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container" style="max-width:900px">
     <div class="section-header center">
-      <span class="eyebrow">Venue Guides</span>
       <h2>Wedding Venues We Equip</h2>
       <p>Planning a wedding at a specific Lower Mainland venue? These guides cover layout, permits and rental sizing for the spots we deliver to most.</p>
     </div>
@@ -467,7 +474,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
   <div class="container" style="max-width:800px">
     <div class="section-header center">
       <span class="eyebrow">How It Works</span>
-      <h2>Booking Your Wedding Rentals — 4 Steps</h2>
+      <h2>Booking Your Wedding Rentals</h2>
     </div>
     <div class="grid-3" style="grid-template-columns:repeat(4,1fr)">
       <div class="card"><div class="card-body"><h3>1. Pick your dates</h3><p>Add tent, chairs, tables and dance floor to your cart online. Real-time availability.</p></div></div>
@@ -481,8 +488,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container" style="max-width:800px">
     <div class="section-header center">
-      <span class="eyebrow">FAQ</span>
-      <h2>Wedding Rental Questions</h2>
+      <h2>Wedding Rental FAQ</h2>
     </div>
     <div class="faq">
       <div class="faq-item">
@@ -547,7 +553,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="/event-rentals">Event Rentals</a>
           <a class="footer-link" href="/pricing">Price List</a>
           <a class="footer-link" href="/event-layout-planner">Free Tent, Table and Chair Layout Planner</a>
-          <a class="footer-link" href="/christmas-lights" style="color:var(--gold)">🎄 Christmas Light Installation</a>
+          <a class="footer-link" href="/christmas-lights" style="color:var(--gold)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c5 5.5 15 5.5 20 0"/><circle cx="6.5" cy="10.6" r="1.7"/><circle cx="12" cy="12.1" r="1.7"/><circle cx="17.5" cy="10.6" r="1.7"/></svg> Christmas Light Installation</a>
         </div>
         <div>
           <div class="footer-col-title">Service Areas</div>
@@ -571,8 +577,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="mailto:welcome@foreverpartyrentals.com">welcome@foreverpartyrentals.com</a>
           <span class="footer-link">Mon–Sun 10:30AM–6PM</span>
           <span class="footer-link">9317 188 St, Surrey BC V4N 3V1</span>
-          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&amp;kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><span aria-hidden="true">⭐</span> 190+ Google Reviews →</a>
-          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentalsbc/" rel="noopener noreferrer" target="_blank" style="display:block"><span aria-hidden="true">📸</span> @foreverpartyrentalsbc</a>
+          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&amp;kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg> 190+ Google Reviews →</a>
+          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentalsbc/" rel="noopener noreferrer" target="_blank" style="display:block"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="4"/></svg> @foreverpartyrentalsbc</a>
           <a class="footer-link" href="/reviews">Reviews</a>
           <a class="footer-link" href="/faq">FAQ</a>
           <a class="footer-link" href="/corporate">Corporate Events</a>
@@ -589,6 +595,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
     </div>
 </footer>
 <!-- FOOTER:END -->
-<script src="shared.js?v=18"></script>
+<script src="shared.js?v=21"></script>
 </body>
 </html>

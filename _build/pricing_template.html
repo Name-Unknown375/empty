@@ -59,11 +59,9 @@ fbq('track', 'PageView');</script>
 <meta name="twitter:description" content="{{ page_description }}"/>
 <meta name="twitter:image" content="https://www.foreverpartyrentals.com/images/og/social-card.webp"/>
 
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=23"/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
+<link rel="stylesheet" href="shared.css?v=26"/>
 
 <script type="application/ld+json">
 {
@@ -107,10 +105,15 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 
 <div class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><span>/</span>Pricing</div>
-    <span class="eyebrow">No Surprises</span>
-    <h1>Party Rental Prices</h1>
-    <p>Every price below is the same price you'll see at checkout. Delivery &amp; setup from $175 depending on distance — or pick up free from our Surrey warehouse.</p>
+    <div class="hero-split">
+      <div class="hero-copy">
+        <div class="breadcrumb"><a href="/">Home</a><span>/</span>Pricing</div>
+        <span class="eyebrow">No Surprises</span>
+        <h1>Party Rental Prices</h1>
+        <p>Every price below is the same price you'll see at checkout. Delivery &amp; setup from $175 depending on distance — or pick up free from our Surrey warehouse.</p>
+      </div>
+      <div class="hero-media--texture" aria-hidden="true"></div>
+    </div>
   </div>
 </div>
 
@@ -156,8 +159,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container">
     <div class="price-group">
-      <h2>Event Packages — Tables, Chairs &amp; Tent Bundled at 10% Off</h2>
-      <div class="pg-note">Each package comes in 50, 100 and 150-guest sizes and three tiers. Prices below are the starting tier for 50 guests — every tier already includes the 10% bundle discount.</div>
+      <h2>Event Packages</h2>
+      <div class="pg-note">Tables, chairs &amp; tent bundled at 10% off. Each package comes in 50, 100 and 150-guest sizes and three tiers. Prices below are the starting tier for 50 guests — every tier already includes the 10% bundle discount.</div>
       <div class="price-table-wrap">
       <table class="price-table">
         <thead><tr><th>Package</th><th>Price</th><th></th></tr></thead>
@@ -199,7 +202,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
   <div class="container">
     <div class="section-header center">
       <span class="eyebrow">Not Sure What You Need?</span>
-      <h2>Tell Us Your Guest Count — We'll Tell You What It Costs</h2>
+      <h2>Start With Your Guest Count</h2>
       <p style="max-width:560px;margin:12px auto 0">Our free tent size calculator turns your guest count into a recommended setup with a starting price — no email, no signup.</p>
     </div>
     <div style="text-align:center;margin-top:20px">
@@ -216,13 +219,13 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <div class="bc-opt">
         <h3>We'll do it for you</h3>
         <p>Call or text <a href="tel:{{ fpr.phone }}" style="color:var(--green);font-weight:600">{{ fpr.phone }}</a> (7 days, 10:30–6), or <a href="/contact" style="color:var(--green);font-weight:600;text-decoration:underline">send the quote form</a> — we'll build the order for you and reply with an itemised quote within 24 hours.</p>
-        <a href="tel:{{ fpr.phone }}" class="btn btn-outline"><span aria-hidden="true">📞&nbsp;</span>Call or Text Us</a>
+        <a href="tel:{{ fpr.phone }}" class="btn btn-outline"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>&nbsp;Call or Text Us</a>
       </div>
     </div>
   </div>
 </section>
 
 {{ footer_html | safe }}
-<script src="shared.js?v=18"></script>
+<script src="shared.js?v=21"></script>
 </body>
 </html>

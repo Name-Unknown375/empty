@@ -60,6 +60,7 @@ HAND_AUTHORED = [
     "privacy.html",
     "rentals.html",
     "checkout.html",
+    "thank-you.html",
     "404.html",
     "reviews.html",
     "tents.html",

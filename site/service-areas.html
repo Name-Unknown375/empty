@@ -46,11 +46,9 @@ fbq('track', 'PageView');</script>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Service Areas | Forever Party Rentals — Lower Mainland BC"/>
 <meta name="twitter:description" content="Forever Party Rentals serves Surrey, Langley, Abbotsford, Vancouver, Burnaby, Coquitlam, Maple Ridge &amp; all of the Lower Mainland."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=23"/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
+<link rel="stylesheet" href="shared.css?v=26"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -133,10 +131,11 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <!-- NAV:START -->
 <a href="#main" class="skip-link">Skip to main content</a>
 
+
 <div id="topbar" role="complementary" aria-label="Contact information">
     <div class="container">
-      <a class="tb-item" href="tel:778-990-7983" aria-label="Call us at 778-990-7983"><span class="tb-ico" aria-hidden="true">✆</span>778-990-7983</a>
-      <a class="tb-item" href="mailto:welcome@foreverpartyrentals.com" aria-label="Email us at welcome@foreverpartyrentals.com"><span class="tb-ico" aria-hidden="true">✉</span>welcome@foreverpartyrentals.com</a>
+      <a class="tb-item" href="tel:778-990-7983" aria-label="Call us at 778-990-7983"><span class="tb-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>778-990-7983</a>
+      <a class="tb-item" href="mailto:welcome@foreverpartyrentals.com" aria-label="Email us at welcome@foreverpartyrentals.com"><span class="tb-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>welcome@foreverpartyrentals.com</a>
       <span class="tb-item tb-muted" aria-hidden="true">Mon–Sun 10:30AM–6PM</span>
     </div>
 </div>
@@ -147,7 +146,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <div class="nav-links" role="menubar">
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents">Tent Rentals <span aria-hidden="true">▾</span></button>
+          
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents" aria-label="Tent Rentals">Tents <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tents" role="menu" aria-label="Tent Rentals">
             <a role="menuitem" href="/tents">All Tent Rentals</a>
             <div class="dropdown-sub">
@@ -168,7 +168,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         </div>
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs">Chair Rentals <span aria-hidden="true">▾</span></button>
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs" aria-label="Chair Rentals">Chairs <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-chairs" role="menu" aria-label="Chair Rentals">
             <a role="menuitem" href="/chairs">All Chair Rentals</a>
             <a role="menuitem" href="/product-white-chiavari-chair">Chiavari Chairs</a>
@@ -178,7 +178,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         </div>
 
         <div class="nav-link">
-          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables">Table Rentals <span aria-hidden="true">▾</span></button>
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables" aria-label="Table Rentals">Tables <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tables" role="menu" aria-label="Table Rentals">
             <a role="menuitem" href="/tables">All Table Rentals</a>
             <a role="menuitem" href="/product-banquet-table-8ft">8ft Banquet Tables</a>
@@ -272,26 +272,37 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       </button>
     </div>
     <div class="nav-mobile" id="navMobile" role="menu" aria-label="Mobile navigation" hidden>
-      <a role="menuitem" href="/">Home</a>
-      <a role="menuitem" href="/tents">Tent Rentals</a>
-      <a role="menuitem" href="/marquee-tent-rental-lowermainland-surrey-langley-vancouver">Marquee Tent Rental Lower Mainland</a>
-      <a role="menuitem" href="/chairs">Chair Rentals</a>
-      <a role="menuitem" href="/tables">Table Rentals</a>
-      <a role="menuitem" href="/dance-floor">Dance Floor</a>
-      <a role="menuitem" href="/event-layout-planner">Free Layout Planner</a>
-      <a role="menuitem" href="/battery-power-stations">Battery &amp; Power Stations</a>
-      <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
-      <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
-      <a role="menuitem" href="/packages">Event Packages</a>
-      <a role="menuitem" href="/pricing">Prices</a>
-      <a role="menuitem" href="/service-areas">Service Areas</a>
-      <a role="menuitem" href="/contact">Contact</a>
-      <a role="menuitem" href="/rentals" style="color:var(--green);font-weight:600;margin-top:8px">→ Book Now Online</a>
+      <div class="nm-group" role="group">
+        <a role="menuitem" href="/">Home</a>
+        <a role="menuitem" href="/rentals" class="nm-book">→ Book Now Online</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Rentals">
+        <div class="nm-title" role="presentation">Rentals</div>
+        <a role="menuitem" href="/tents">Tent Rentals</a>
+        <a role="menuitem" href="/marquee-tent-rental-lowermainland-surrey-langley-vancouver">Marquee Tent Rental Lower Mainland</a>
+        <a role="menuitem" href="/chairs">Chair Rentals</a>
+        <a role="menuitem" href="/tables">Table Rentals</a>
+        <a role="menuitem" href="/dance-floor">Dance Floor</a>
+        <a role="menuitem" href="/battery-power-stations">Battery &amp; Power Stations</a>
+        <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
+        <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Packages and pricing">
+        <div class="nm-title" role="presentation">Packages &amp; Pricing</div>
+        <a role="menuitem" href="/packages">Event Packages</a>
+        <a role="menuitem" href="/pricing">Prices</a>
+        <a role="menuitem" href="/event-layout-planner">Free Layout Planner</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Company">
+        <div class="nm-title" role="presentation">Company</div>
+        <a role="menuitem" href="/service-areas">Service Areas</a>
+        <a role="menuitem" href="/contact">Contact</a>
+      </div>
     </div>
 </nav>
 
 <div id="fprCtaBar" class="mobile-cta-bar" role="navigation" aria-label="Call or book">
-  <a class="mcb-call" href="tel:778-990-7983"><span aria-hidden="true">✆</span>&nbsp;778-990-7983</a>
+  <a class="mcb-call" href="tel:778-990-7983"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>&nbsp;778-990-7983</a>
   <a class="mcb-book" href="/rentals">Book Online</a>
 </div>
 <script>(function(){if(/checkout|layout-planner|^\/planner/.test(location.pathname)){var b=document.getElementById('fprCtaBar');if(b){b.hidden=true;}document.documentElement.classList.add('no-cta-bar');}})();</script>
@@ -310,52 +321,45 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
   <div class="container">
     <div class="split" style="align-items:start">
       <div>
-        <span class="eyebrow">Primary Service Area</span>
         <h2>Delivering Across the Lower Mainland</h2>
         <p style="margin:16px 0 32px">We deliver to all major cities and communities in the Lower Mainland. Add delivery to your order and our team handles transport, setup, and pickup — quoted up front based on distance from our warehouse.</p>
-        <div style="display:flex;flex-direction:column;gap:20px">
-          <div>
-            <div style="font-weight:700;color:var(--green);margin-bottom:12px;font-size:15px">Core Service Cities</div>
-            <div class="areas-grid" style="grid-template-columns:repeat(3,1fr)">
-              <a class="area-pill" href="/surrey-party-rentals">Surrey</a>
-              <a class="area-pill" href="/langley-party-rentals">Langley</a>
-              <a class="area-pill" href="/abbotsford-party-rentals">Abbotsford</a>
-              <a class="area-pill" href="/white-rock-party-rentals">White Rock</a>
-              <a class="area-pill" href="/delta-party-rentals">Delta</a>
-              <a class="area-pill" href="/burnaby-party-rentals">Burnaby</a>
-              <a class="area-pill" href="/coquitlam-party-rentals">Coquitlam</a>
-              <a class="area-pill" href="/maple-ridge-party-rentals">Maple Ridge</a>
-              <a class="area-pill" href="/vancouver-party-rentals">Vancouver</a>
-            </div>
+        <div class="areas-regions">
+          <div class="area-region">
+            <h3>Surrey &amp; Fraser Valley</h3>
+            <a href="/surrey-party-rentals">Surrey</a>
+            <a href="/white-rock-party-rentals">White Rock</a>
+            <a href="/delta-party-rentals">Delta</a>
+            <a href="/langley-party-rentals">Langley</a>
+            <a href="/langley-township-party-rentals">Langley Township</a>
+            <a href="/fort-langley-party-rentals">Fort Langley</a>
+            <a href="/willoughby-party-rentals">Willoughby</a>
+            <a href="/walnut-grove-party-rentals">Walnut Grove</a>
+            <a href="/aldergrove-party-rentals">Aldergrove</a>
+            <a href="/carvolth-party-rentals">Carvolth</a>
+            <a href="/east-clayton-party-rentals">East Clayton</a>
+            <a href="/east-newton-north-party-rentals">East Newton North</a>
+            <a href="/port-kells-party-rentals">Port Kells</a>
+            <a href="/abbotsford-party-rentals">Abbotsford</a>
+            <a href="/mission-party-rentals">Mission</a>
+            <a href="/chilliwack-party-rentals">Chilliwack</a>
+            <a href="/harrison-hot-springs-party-rentals">Harrison Hot Springs</a>
           </div>
-          <div>
-            <div style="font-weight:700;color:var(--green);margin-bottom:12px;font-size:15px">Extended Areas</div>
-            <div class="areas-grid" style="grid-template-columns:repeat(3,1fr)">
-              <a class="area-pill" href="/north-vancouver-party-rentals">North Vancouver</a>
-              <a class="area-pill" href="/richmond-party-rentals">Richmond</a>
-              <a class="area-pill" href="/pitt-meadows-party-rentals">Pitt Meadows</a>
-              <a class="area-pill" href="/port-moody-party-rentals">Port Moody</a>
-              <a class="area-pill" href="/new-westminster-party-rentals">New Westminster</a>
-              <a class="area-pill" href="/tsawwassen-party-rentals">Tsawwassen</a>
-              <a class="area-pill" href="/ladner-party-rentals">Ladner</a>
-              <a class="area-pill" href="/aldergrove-party-rentals">Aldergrove</a>
-              <a class="area-pill" href="/fort-langley-party-rentals">Fort Langley</a>
-              <a class="area-pill" href="/langley-township-party-rentals">Langley Township</a>
-              <a class="area-pill" href="/willoughby-party-rentals">Willoughby</a>
-              <a class="area-pill" href="/carvolth-party-rentals">Carvolth</a>
-              <a class="area-pill" href="/east-clayton-party-rentals">East Clayton</a>
-              <a class="area-pill" href="/east-newton-north-party-rentals">East Newton North</a>
-              <a class="area-pill" href="/port-kells-party-rentals">Port Kells</a>
-              <a class="area-pill" href="/walnut-grove-party-rentals">Walnut Grove</a>
-            </div>
+          <div class="area-region">
+            <h3>Vancouver, Burnaby &amp; North Shore</h3>
+            <a href="/vancouver-party-rentals">Vancouver</a>
+            <a href="/north-vancouver-party-rentals">North Vancouver</a>
+            <a href="/burnaby-party-rentals">Burnaby</a>
+            <a href="/new-westminster-party-rentals">New Westminster</a>
           </div>
-          <div>
-            <div style="font-weight:700;color:var(--green);margin-bottom:12px;font-size:15px">Fraser Valley &amp; Beyond</div>
-            <div class="areas-grid" style="grid-template-columns:repeat(3,1fr)">
-              <a class="area-pill" href="/chilliwack-party-rentals">Chilliwack</a>
-              <a class="area-pill" href="/mission-party-rentals">Mission</a>
-              <a class="area-pill" href="/harrison-hot-springs-party-rentals">Harrison Hot Springs</a>
-            </div>
+          <div class="area-region">
+            <h3>Tri-Cities, Richmond &amp; Ridge Meadows</h3>
+            <a href="/coquitlam-party-rentals">Coquitlam</a>
+            <a href="/port-moody-party-rentals">Port Moody</a>
+            <a href="/pitt-meadows-party-rentals">Pitt Meadows</a>
+            <a href="/maple-ridge-party-rentals">Maple Ridge</a>
+            <a href="/richmond-party-rentals">Richmond</a>
+            <a href="/tsawwassen-party-rentals">Tsawwassen</a>
+            <a href="/ladner-party-rentals">Ladner</a>
           </div>
         </div>
       </div>
@@ -366,13 +370,13 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <p style="font-size:14px;margin-bottom:24px">Many items are available for self-pickup from our warehouse — a great option for popup tents and smaller orders.</p>
           <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:32px">
             <div style="display:flex;gap:12px">
-              <span style="color:var(--gold);font-weight:700">📍</span>
+              <span style="color:var(--gold)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
               <div>
                 <div style="font-weight:600;font-size:14px">9317 188 St, Surrey BC V4N 3V1</div>
               </div>
             </div>
             <div style="display:flex;gap:12px">
-              <span style="color:var(--gold);font-weight:700">🕐</span>
+              <span style="color:var(--gold)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
               <div>
                 <div style="font-weight:600;font-size:14px">Monday – Sunday, 10:30AM – 6PM</div>
               </div>
@@ -424,7 +428,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="/event-rentals">Event Rentals</a>
           <a class="footer-link" href="/pricing">Price List</a>
           <a class="footer-link" href="/event-layout-planner">Free Tent, Table and Chair Layout Planner</a>
-          <a class="footer-link" href="/christmas-lights" style="color:var(--gold)">🎄 Christmas Light Installation</a>
+          <a class="footer-link" href="/christmas-lights" style="color:var(--gold)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c5 5.5 15 5.5 20 0"/><circle cx="6.5" cy="10.6" r="1.7"/><circle cx="12" cy="12.1" r="1.7"/><circle cx="17.5" cy="10.6" r="1.7"/></svg> Christmas Light Installation</a>
         </div>
         <div>
           <div class="footer-col-title">Service Areas</div>
@@ -448,8 +452,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="mailto:welcome@foreverpartyrentals.com">welcome@foreverpartyrentals.com</a>
           <span class="footer-link">Mon–Sun 10:30AM–6PM</span>
           <span class="footer-link">9317 188 St, Surrey BC V4N 3V1</span>
-          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&amp;kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><span aria-hidden="true">⭐</span> 190+ Google Reviews →</a>
-          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentalsbc/" rel="noopener noreferrer" target="_blank" style="display:block"><span aria-hidden="true">📸</span> @foreverpartyrentalsbc</a>
+          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&amp;kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg> 190+ Google Reviews →</a>
+          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentalsbc/" rel="noopener noreferrer" target="_blank" style="display:block"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="4"/></svg> @foreverpartyrentalsbc</a>
           <a class="footer-link" href="/reviews">Reviews</a>
           <a class="footer-link" href="/faq">FAQ</a>
           <a class="footer-link" href="/corporate">Corporate Events</a>
@@ -466,6 +470,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
     </div>
 </footer>
 <!-- FOOTER:END -->
-<script src="shared.js?v=18"></script>
+<script src="shared.js?v=21"></script>
 </body>
 </html>

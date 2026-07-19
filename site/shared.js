@@ -36,18 +36,67 @@ function hydrateNav() {
       });
     }
   });
+  // V2: hover-less devices (iPads at desktop widths) can't reach the nested
+  // flyout via :hover — first tap opens it, second tap follows the link.
+  if (window.matchMedia('(hover: none)').matches) {
+    document.querySelectorAll('#nav .dropdown-sub > a').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const sub = a.parentElement;
+        if (!sub.classList.contains('is-open')) {
+          e.preventDefault();
+          document.querySelectorAll('#nav .dropdown-sub.is-open').forEach(s => {
+            if (s !== sub) s.classList.remove('is-open');
+          });
+          sub.classList.add('is-open');
+        }
+      });
+    });
+  }
   const toggle = document.getElementById('navToggle');
   const mobile = document.getElementById('navMobile');
   if (toggle && mobile) {
+    // V2: the panel is always rendered; CSS visibility owns concealment (and
+    // keeps closed links out of the tab order), so the [hidden] attr retires.
+    mobile.removeAttribute('hidden');
     toggle.addEventListener('click', () => {
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!expanded));
       toggle.setAttribute('aria-label', expanded ? 'Open navigation menu' : 'Close navigation menu');
-      mobile.hidden = expanded;
+      if (!expanded) {
+        // Nav is sticky: at scroll-top the 40px topbar still sits above it,
+        // so anchor the panel to the nav's real bottom edge, not a fixed 72px.
+        const nav = document.getElementById('nav');
+        if (nav) mobile.style.top = Math.max(0, Math.round(nav.getBoundingClientRect().bottom)) + 'px';
+      }
       mobile.classList.toggle('open', !expanded);
       document.body.style.overflow = expanded ? '' : 'hidden';
     });
+    mobile.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { toggle.click(); toggle.focus(); }
+    });
   }
+}
+
+// ── V2: text states swap (transitions.dev 04) ──
+// Swap an element's text with a blurred up-and-out / in-from-below transition.
+// Safe under rapid calls: a pending swap is cancelled and replaced.
+function swapText(el, next) {
+  if (!el) return;
+  if (el.textContent === next) return;
+  if (!el.classList.contains('t-text-swap')) { el.textContent = next; return; }
+  const dur = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue('--text-swap-dur')
+  ) || 150;
+  if (el._swapTimer) clearTimeout(el._swapTimer);
+  el.classList.add('is-exit');
+  el._swapTimer = setTimeout(() => {
+    el._swapTimer = null;
+    el.textContent = next;
+    el.classList.remove('is-exit');
+    el.classList.add('is-enter-start');
+    void el.offsetHeight; // force reflow so the enter transition plays
+    el.classList.remove('is-enter-start');
+  }, dur);
 }
 
 
@@ -62,6 +111,16 @@ function initFAQ() {
       q.setAttribute('role', 'button');
       q.setAttribute('tabindex', '0');
     }
+    // V2: wrap answer content for the grid-rows accordion (overflow clipping
+    // and padding must live on the inner element, never the 0fr track) and
+    // mark the item animation-ready; no-JS keeps the legacy hidden answers.
+    if (!a.querySelector('.faq-a-inner')) {
+      const inner = document.createElement('div');
+      inner.className = 'faq-a-inner';
+      while (a.firstChild) inner.appendChild(a.firstChild);
+      a.appendChild(inner);
+    }
+    item.classList.add('faq-ready');
     const qid = q.id || `faq-q-${idx}`;
     const aid = a.id || `faq-a-${idx}`;
     q.id = qid; a.id = aid;
@@ -97,13 +156,58 @@ function initContactForm() {
   const status = document.getElementById('contactFormStatus');
   const button = form.querySelector('button[type="submit"]');
 
+  // V2: status + button label swap in place instead of popping (04-text-swap)
+  if (status) status.classList.add('t-text-swap');
+  let buttonLabel = null;
+  if (button && !button.querySelector('.t-text-swap')) {
+    buttonLabel = document.createElement('span');
+    buttonLabel.className = 't-text-swap';
+    buttonLabel.textContent = button.textContent.trim();
+    button.textContent = '';
+    button.appendChild(buttonLabel);
+  }
+
   const setStatus = (text, kind) => {
     if (!status) return;
-    status.textContent = text || '';
     status.style.color = kind === 'error' ? '#b3261e'
                        : kind === 'success' ? 'var(--green)'
                        : 'var(--muted)';
+    swapText(status, text || '');
   };
+
+  // V2: error-state shake (12) on failed validation. .is-error (border +
+  // message) and .is-shaking stay orthogonal so repeat submits re-shake
+  // without flickering the error treatment. Inline message appears on blur
+  // (not per keystroke) and clears as soon as the user starts correcting.
+  const groupOf = (field) => field.closest('.form-group');
+  const showFieldError = (field, shake) => {
+    const g = groupOf(field);
+    if (!g) return;
+    let msg = g.querySelector('.t-error-msg');
+    if (!msg) {
+      msg = document.createElement('span');
+      msg.className = 't-error-msg';
+      g.appendChild(msg);
+    }
+    msg.textContent = field.validationMessage || 'Please check this field.';
+    g.classList.add('is-error');
+    if (shake) {
+      g.classList.remove('is-shaking');
+      void g.offsetWidth; // reflow so the shake replays from rest
+      g.classList.add('is-shaking');
+      setTimeout(() => g.classList.remove('is-shaking'), 300);
+    }
+  };
+  const clearFieldError = (field) => {
+    const g = groupOf(field);
+    if (g) g.classList.remove('is-error');
+  };
+  form.addEventListener('invalid', (e) => showFieldError(e.target, true), true);
+  form.querySelectorAll('input, textarea, select').forEach(f => {
+    f.addEventListener('blur', () => { if (f.value && !f.checkValidity()) showFieldError(f, false); });
+    f.addEventListener('input', () => clearFieldError(f));
+    f.addEventListener('change', () => clearFieldError(f));
+  });
 
   const buildMailto = (data) => {
     const fn = data.first_name || '';
@@ -163,7 +267,7 @@ function initContactForm() {
     const fd = new FormData(form);
     const data = Object.fromEntries(fd.entries());
 
-    if (button) { button.disabled = true; button.textContent = 'Sending…'; }
+    if (button) { button.disabled = true; swapText(buttonLabel, 'Sending…'); }
     setStatus('Sending your message…');
 
     // Try Netlify Forms (POST to current page with form-encoded body)
@@ -200,7 +304,7 @@ function initContactForm() {
       setStatus("Opening your email app — please review and click Send.", 'success');
       window.location.href = buildMailto(data);
     } finally {
-      if (button) { button.disabled = false; button.textContent = 'Send Message'; }
+      if (button) { button.disabled = false; swapText(buttonLabel, 'Send Message'); }
     }
   });
 }
@@ -251,8 +355,8 @@ function initConversionTracking() {
 
 // ── Shared testimonials data ──
 const TESTIMONIALS = [
+  { name: 'Stacey Sarris', event: 'Google Review · Local Guide', text: 'Forever Party Rentals was absolutely spectacular! Devon was amazing to work with from start to finish. Extremely supportive, flexible, and accommodating throughout the entire process. Everything was seamless, professional, and stress-free. Highly recommend Forever Party Rentals for any event — outstanding service all around!' },
   { name: 'Chelsea Thompson', event: 'Wedding', text: 'Devon was so easy to coordinate with. Very professional, friendly and reliable. His tent set up team was amazing too! Would definitely recommend.' },
-  { name: 'Marissa K.', event: 'Corporate Event', text: "I've worked in the event industry for over a decade — this is by far the best rental company I have ever worked with. Devon provides excellent communication and extras free of charge." },
   { name: 'Rutendo Chitungo', event: 'Private Event', text: 'Rented the white Chiavari chairs — the most comfortable chairs. Cushions were very soft and well maintained. Highly recommend 100%.' },
   { name: 'Amber Schmidt', event: 'Celebration', text: 'Forever Party Rentals was amazing. Incredibly accommodating, the tables were brand new in the plastic, and they made drop off super flexible.' },
 ];
@@ -363,19 +467,102 @@ function initShareButtons() {
       a.href = `mailto:?subject=${enc(title)}&body=${enc(url)}`;
     } else if (label.includes('copy')) {
       a.href = url;
+      // V2: "Copy Link → Copied!" swaps in place (04-text-swap)
+      const swap = document.createElement('span');
+      swap.className = 't-text-swap';
+      swap.textContent = a.textContent.trim();
+      a.textContent = '';
+      a.appendChild(swap);
       a.addEventListener('click', async (e) => {
         e.preventDefault();
         try {
           await navigator.clipboard.writeText(url);
-          const original = a.textContent;
-          a.textContent = 'Copied!';
-          setTimeout(() => { a.textContent = original; }, 1500);
+          const original = swap.textContent;
+          swapText(swap, 'Copied!');
+          setTimeout(() => swapText(swap, original), 1500);
         } catch {
           window.prompt('Copy this link:', url);
         }
       });
     }
   });
+}
+
+// ── V2: card-link "learn more" arrow (transitions.dev 24) ──
+// Swaps the literal trailing "→" on .card-link anchors for the two-arm SVG
+// chevron that slides and spreads into an arrow on hover. Markup untouched
+// at build time — this is a progressive enhancement over ~40 templates.
+function initCardLinkArrows() {
+  const chevron =
+    '<span class="t-learn-chevron" aria-hidden="true"><svg viewBox="0 0 16 16">' +
+    '<path class="t-learn-arm t-learn-arm-top" d="M6 4L10 8"/>' +
+    '<path class="t-learn-arm t-learn-arm-bot" d="M10 8L6 12"/>' +
+    '</svg></span>';
+  document.querySelectorAll('.card-link').forEach(a => {
+    if (a.querySelector('.t-learn-chevron')) return;
+    if (!/→\s*$/.test(a.textContent)) return;
+    a.textContent = a.textContent.replace(/\s*→\s*$/, '');
+    a.insertAdjacentHTML('beforeend', chevron);
+  });
+}
+
+// ── V2: stat number pop-in (transitions.dev 02) ──
+// Splits stat text into per-character spans and pops them in with blur the
+// first time they're seen (immediately for the homepage hero stats, on
+// scroll for any below-fold band). The container stays static — the digits
+// are the animated element. The planner's .pl-stat-num counters are
+// deliberately excluded: the planner rewrites their textContent live.
+// Without IO or with reduced motion, numbers just render normally.
+function initStatPopIns() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+  const nums = document.querySelectorAll('.stat-num, .hero-stat-num');
+  if (!nums.length) return;
+  nums.forEach(el => {
+    const chars = el.textContent.split('');
+    el.textContent = '';
+    el.classList.add('t-digit-group');
+    chars.forEach((ch, i) => {
+      const span = document.createElement('span');
+      span.className = 't-digit';
+      span.textContent = ch;
+      if (i === chars.length - 2) span.dataset.stagger = '1';
+      else if (i === chars.length - 1) span.dataset.stagger = '2';
+      el.appendChild(span);
+    });
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-animating'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.4 });
+  nums.forEach(el => io.observe(el));
+}
+
+// ── V2: Adelie widget skeleton (transitions.dev 14, adapted) ──
+// The reserved-space boxes ([data-adelie]) pulse until Adelie injects its
+// UI, then the placeholder treatment stops. We only watch for children —
+// Adelie's own DOM is never touched or styled.
+function initAdelieSkeleton() {
+  document.querySelectorAll('[data-adelie]').forEach(box => {
+    if (box.childElementCount > 0) { box.classList.add('adelie-ready'); return; }
+    const mo = new MutationObserver(() => {
+      if (box.childElementCount > 0) { box.classList.add('adelie-ready'); mo.disconnect(); }
+    });
+    mo.observe(box, { childList: true });
+  });
+}
+
+// ── V2: hero texts reveal (transitions.dev 18) ──
+// Pages opt in with .t-stagger markup plus an inline html.js gate (homepage
+// only) — everywhere else this is a no-op. Double rAF so first paint lands
+// in the hidden state before the entrance runs.
+function initTextsReveal() {
+  const blocks = document.querySelectorAll('.t-stagger');
+  if (!blocks.length) return;
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    blocks.forEach(b => b.classList.add('is-shown'));
+  }));
 }
 
 // ── Init on load ──
@@ -390,6 +577,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initShareButtons();
   injectFavicon();
   setMainId();
+  initCardLinkArrows();
+  initStatPopIns();
+  initAdelieSkeleton();
+  initTextsReveal();
   // Render dynamic content if containers exist
   renderTestimonials('testimonialCards');
   renderLogos('clientLogos');
@@ -410,3 +601,36 @@ function setMainId() {
   const target = document.querySelector('.hero, .page-hero, main, [role="main"]');
   if (target && !target.id) target.id = 'main';
 }
+
+// ── V2: light scroll-reveal layer ────────────────────────────────────────
+// Fades/rises cards, steps, stats and guarantees on first view. Transform+
+// opacity only (no layout, no CLS). Gated on prefers-reduced-motion and on
+// IntersectionObserver support — without either, everything stays visible.
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!('IntersectionObserver' in window)) return;
+  // .stat-item intentionally absent: its digits pop in via initStatPopIns()
+  // and stacking a rise on the same element would double the motion.
+  var SELECTOR = '.card, .step, .guarantee-item, .blog-card, .testimonial-card, .testimonial-hero, .area-region, .book-choice .bc-opt';
+  function init() {
+    var els = document.querySelectorAll(SELECTOR);
+    if (!els.length) return;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(function (el, i) {
+      // Skip anything already in the initial viewport to protect LCP/no-flash
+      var r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) return;
+      el.classList.add('reveal');
+      // Small per-sibling stagger via transition-delay (30ms steps, capped)
+      el.style.transitionDelay = Math.min((i % 4) * 45, 135) + 'ms';
+      io.observe(el);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();

@@ -67,20 +67,16 @@ fbq('track', 'PageView');</script>
 <meta name="twitter:image" content="https://www.foreverpartyrentals.com/images/og/social-card.webp"/>
 
 {# ---- Fonts, CSS, and third-party widget scripts ---- #}
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/playfairdisplay/v40/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKeiunDXbtPK-F2qC0s.woff2" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="shared.css?v=23"/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
+<link rel="stylesheet" href="shared.css?v=26"/>
 {# Booking-widget assets — see template.html for rationale. Gated to pages
    that actually embed id="adelie"; saves ~80KB on the ~110 product-city pages. #}
 {% if has_booking|default(false) %}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" media="print" onload="this.media='all'"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/css/datepicker-bs5.min.css" integrity="sha384-Vn0xiUc12vxlhJvgdGKbK8mGesCKN5jyO+2jqsBW7B+VBOpI+mBb9psuN4eQ1qAT" crossorigin="anonymous" media="print" onload="this.media='all'"/>
 <link rel="preload" as="script" href="https://embed-scripts-production.web.app/adelie-skeleton.js"/>
 <link rel="preload" as="script" href="https://embed-scripts-production.web.app/adelie-cart.js"/>
 <script src="https://embed-scripts-production.web.app/adelie-skeleton.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/js/datepicker-full.min.js" integrity="sha384-4hMAtu0bBhcc6iK/j0zlvZY5p8yowLa3HbUIMx2eV8PHd13aDj3r0RK6+/HKaZT6" crossorigin="anonymous" defer></script>
 <script src="https://embed-scripts-production.web.app/adelie-cart.js" defer></script>
 <script>window.orgId = "{{ fpr.adelieOrgId }}";</script>
@@ -179,22 +175,33 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 /></noscript>
 <!-- End Meta Pixel (noscript) -->
 
+{% set check_ico %}<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>{% endset %}
 {{ nav_html | safe }}
 <div class="page-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/{{ product.categoryPage }}">{{ product.breadcrumbLabel }}</a><span>/</span>{{ city.name }}</div>
-    <span class="eyebrow">{{ product.productName }} in {{ city.name }}</span>
-    <h1>{{ ov.h1|default(product.productName ~ ' in ' ~ city.name, true) }}</h1>
-    <p>{{ ov.hero_subtitle|default(tagline, true) }}</p>
+    <div class="hero-split">
+      <div class="hero-copy">
+        <div class="breadcrumb"><a href="/">Home</a><span>/</span><a href="/{{ product.categoryPage }}">{{ product.breadcrumbLabel }}</a><span>/</span>{{ city.name }}</div>
+        <span class="eyebrow">{{ product.productName }} in {{ city.name }}</span>
+        <h1>{{ ov.h1|default(product.productName ~ ' in ' ~ city.name, true) }}</h1>
+        <p>{{ ov.hero_subtitle|default(tagline, true) }}</p>
+      </div>
+      <div class="hero-media">
+        <img src="{{ product.heroImage | replace('.webp', '-900w.webp') }}"
+             srcset="{{ product.heroImage | replace('.webp', '-600w.webp') }} 600w, {{ product.heroImage | replace('.webp', '-900w.webp') }} 900w"
+             sizes="(max-width: 900px) 100vw, 45vw"
+             alt="{{ hero_alt }}"
+             width="900" height="600" loading="eager" decoding="async" fetchpriority="high"/>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="trust-bar">
   <div class="container">
-    <div class="trust-item">📅 Book Instantly Online</div>
-    <div class="trust-item">🚚 Delivery &amp; Setup Available</div>
-    <div class="trust-item">✅ 25% Deposit to Secure</div>
-    <div class="trust-item">📅 Your date is locked once the deposit is paid</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Book Instantly Online</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Delivery &amp; Setup Available</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> 25% Deposit Locks Your Date</div>
   </div>
 </div>
 
@@ -209,16 +216,10 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 
 <section class="section">
   <div class="container">
+    {# v2: the product shot moved up into the split hero, so this section
+       recomposes as text left + checklist panel right (no duplicate image). #}
     <div class="split">
       <div>
-        <img src="{{ product.heroImage | replace('.webp', '-1200w.webp') }}"
-             srcset="{{ product.heroImage | replace('.webp', '-600w.webp') }} 600w, {{ product.heroImage | replace('.webp', '-900w.webp') }} 900w, {{ product.heroImage | replace('.webp', '-1200w.webp') }} 1200w"
-             sizes="(max-width: 900px) 100vw, 50vw"
-             alt="{{ hero_alt }}"
-             class="product-hero-img" width="1200" height="800" loading="eager" decoding="async" fetchpriority="high"/>
-      </div>
-      <div>
-        <span class="eyebrow">Serving {{ city.name }}</span>
         <h2>{{ product.productName }} in {{ city.name }}</h2>
         {% if product.fromPriceCAD is defined %}
         <div style="display:inline-flex;align-items:baseline;gap:10px;margin:14px 0 4px;padding:10px 16px;background:var(--light);border-left:3px solid var(--gold);border-radius:2px">
@@ -236,13 +237,18 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         <p style="margin:16px 0">{{ intro_summary }}</p>
         {% if local_intro %}<p style="margin:0 0 20px 0">{{ local_intro }}</p>{% endif %}
         {% endif %}
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
-          {% for b in bullets %}
-          <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> {{ b }}</li>
-          {% endfor %}
-        </ul>
         <a href="/rentals" class="btn btn-primary btn-lg">Check {{ city.name }} Availability</a>
         <div style="margin-top:16px;font-size:13px;color:var(--muted)">Or call us: <a href="tel:778-990-7983" style="color:var(--green);font-weight:600">778-990-7983</a></div>
+      </div>
+      <div>
+        <div class="offer-panel">
+          <h3>What You Get</h3>
+          <ul>
+            {% for b in bullets %}
+            <li>{{ check_ico | safe }} {{ b }}</li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -285,7 +291,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Service Area</span>
       <h2>Delivering {{ product.productName }} Across {{ city.name }}</h2>
       <p>{{ city.deliveryWindow }}. Delivery and professional setup are available as add-on services — from $175 depending on distance, quoted up front.</p>
     </div>
@@ -312,7 +317,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Add-Ons for {{ city.name }} Tents</span>
       <h2>Everything Else Your {{ city.name }} Tent Needs</h2>
       <p>Heaters, bistro string lights, and sidewalls ship on the same truck as your {{ city.name }} tent — add them to the same quote for one delivery window.</p>
     </div>
@@ -380,7 +384,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Also for {{ city.name }}</span>
       <h2>Bundle with Your {{ city.name }} {{ product.productName }}</h2>
       <p>Most {{ city.name }} events combine our {{ product.productName | lower }} with one or more of the categories below — all delivered on the same truck, same quote.</p>
     </div>
@@ -421,8 +424,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section section--light">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">FAQ</span>
-      <h2>{{ product.productName }} Questions — {{ city.name }}</h2>
+      <h2>{{ city.name }} {{ product.productName }} FAQ</h2>
     </div>
     <div style="max-width:860px;margin:0 auto">
       {% for f in faqs_to_show %}
@@ -469,7 +471,6 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <section class="section">
   <div class="container">
     <div class="section-header center">
-      <span class="eyebrow">Our Promises</span>
       <h2>Why Choose Forever Party Rentals</h2>
     </div>
     <div class="grid-3">
@@ -500,7 +501,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
   </div>
 </div>
 {{ footer_html | safe }}
-<script src="shared.js?v=18"></script>
+<script src="shared.js?v=21"></script>
 <!-- lastmod: {{ lastmod }} -->
 </body>
 </html>
