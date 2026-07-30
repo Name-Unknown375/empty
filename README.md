@@ -118,7 +118,7 @@ Create `site/blog/index.html` hub + 6 pillar guides (~1500 words each, Article J
 - The testimonial pool currently has **4 verified Google reviews** (rewritten Apr 2026). Don't fabricate.
 - Surrey's tent URL override is a landmine — always route through `page_slug(product, city_slug)`.
 
-## Pre-deploy checks (run all four before every `netlify deploy --prod`)
+## Pre-deploy checks (run all five before every `netlify deploy --prod`)
 
 ```
 python3 _build/verify.py --all        # generated-page content/override verification
@@ -128,11 +128,25 @@ python3 _build/check_schema.py       # JSON-LD: parse + per-class required types
                                      # review-policy (no Review anywhere; aggregateRating
                                      # only on homepage) + NAP/geo consistency +
                                      # every indexable page must carry schema
+python3 _build/check_csp.py          # every external host the pages load is permitted
+                                     # by the CSP in site/_headers (script/style/font/frame)
 ```
 
 `check_schema.py` is the guard that keeps schema coverage permanent: any new
 indexable page without JSON-LD, any reintroduced Review/aggregateRating markup,
 or any LocalBusiness NAP/geo drifting from `site_constants.json` fails the check.
+
+`check_csp.py` is the guard for third-party tags. Adding an analytics/embed
+snippet to the templates is only half the job — its host must also be in the
+CSP in `site/_headers`, or the browser refuses it and the tag dies silently
+while still being present on every page. That is exactly how Microsoft Clarity
+shipped in 196d1d6 and recorded nothing until 942c079. The check understands
+the deferred-loader shape (a host that only appears as a string literal inside
+an inline script, never as a `<script src>`) and `RUNTIME_CHAINS`, for tags
+whose advertised host loads the real payload from a different one —
+`www.clarity.ms` → `scripts.clarity.ms`. **When you add a tag, add its chain
+entry too**; run `curl -s <loader-url> | grep -oE 'https://[a-z.]+'` to find it.
+Tests: `python3 _build/tests/csp_check_test.py`.
 Note deploys are Netlify-CLI (`netlify deploy --prod` ships the working tree);
 git pushes alone deploy nothing.
 
