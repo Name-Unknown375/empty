@@ -1,0 +1,24 @@
+/* Self-hosted Google Fonts for the Chrome extension build — the planner
+   must work offline and MV3 extensions should be self-contained.
+   Google's API served variable-weight woff2 files (one per family), so a
+   single @font-face with a weight range covers every weight the app uses
+   (Jost 400/500/600; Playfair Display 600/700). Latin subset only — the
+   planner UI is English. Both fonts are SIL Open Font License. */
+
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url(jost-variable.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url(playfair-display-variable.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

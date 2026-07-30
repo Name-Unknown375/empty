@@ -44,6 +44,15 @@ const ok = (cond, msg) => cond ? console.log('ok –', msg) : fail(msg);
 ok(errors.length === 0, `boot without errors ${errors.length ? JSON.stringify(errors.map(String)) : ''}`);
 ok(doc.querySelectorAll('#plPaletteGroups .pl-tile, #plPaletteGroups [draggable]').length > 0 || doc.querySelector('#plPaletteGroups').children.length > 0, 'palette rendered');
 
+// Jul-2026 additions: tent add-ons group + planning items in Extras.
+for (const k of ['bistro-string-lights', 'tent-heater', 'tent-sidewall']) {
+  ok(!!doc.querySelector(`.pl-tile[data-key="${k}"]`), `palette has ${k} add-on tile`);
+}
+for (const k of ['stage', 'bar', 'dj-booth', 'buffet-run']) {
+  ok(!!doc.querySelector(`.pl-tile[data-key="${k}"]`), `palette has ${k} planning tile`);
+}
+ok(!!doc.querySelector('#plBtnSnap'), 'magnetic-snap toolbar toggle present');
+
 // Guest panel boots empty
 const input = doc.querySelector('#plGuestAddInput');
 ok(!!input, 'guest add input present');

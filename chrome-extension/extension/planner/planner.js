@@ -157,7 +157,7 @@
         let host = 'direct';
         try { if (document.referrer) host = new URL(document.referrer).hostname; } catch (e) {}
         navigator.sendBeacon(
-          '/api/planner-beacon',
+          SITE_URL + '/api/planner-beacon',
           new Blob([JSON.stringify({ name, params: payload, host })], { type: 'application/json' })
         );
       }
@@ -5127,7 +5127,9 @@
         baseUrl = window.parent.location.origin + window.parent.location.pathname;
       } else throw new Error();
     } catch (e) {
-      baseUrl = location.origin + '/event-layout-planner';
+      // Extension build: location.origin is chrome-extension://, useless in
+      // a shared link — always point recipients at the hub page.
+      baseUrl = PLANNER_HUB_URL;
     }
     // Holding Shift while clicking Share → view-only URL.
     const query = options.readonly ? '?view=readonly' : '';
@@ -5170,7 +5172,7 @@
     track('planner_share', { method: 'hash', readonly: !!options.readonly });
     const ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
     const timer = ctrl ? setTimeout(() => ctrl.abort(), 4000) : null;
-    fetch('/api/share', {
+    fetch(SITE_URL + '/api/share', {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain' },
       body: encoded,
@@ -6918,7 +6920,7 @@
       try {
         // Submit as multipart/form-data — DON'T set Content-Type ourselves,
         // the browser fills in the boundary parameter when body is FormData.
-        const res = await fetch('/', { method: 'POST', body: fd });
+        const res = await fetch(SITE_URL + '/', { method: 'POST', body: fd });
         if (res.ok) {
           track('planner_quote_submit', {
             outcome: 'netlify',

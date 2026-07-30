@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Event Layout Planner — Forever Party Rentals",
+  "short_name": "Layout Planner",
+  "version": "1.1.0",
+  "description": "Drag-and-drop party layout planner. Tents, tables, chairs & dance floors to scale, with live rental pricing and PDF export.",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "Open the Event Layout Planner",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://www.foreverpartyrentals.com/*",
+    "https://api.rentkit.com/*"
+  ]
+}
