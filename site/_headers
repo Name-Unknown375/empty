@@ -38,7 +38,13 @@
 #                      (GTM container GTM-KC35GGRQ in template <head>) +
 #                      Meta Pixel (fbevents.js from connect.facebook.net; its
 #                      beacons to www.facebook.com/tr ride the blanket https:
-#                      in img-src/connect-src).
+#                      in img-src/connect-src) +
+#                      Microsoft Clarity (project qu3zf92dem). The tag loader at
+#                      www.clarity.ms/tag/<id> pulls clarity.js from the same host;
+#                      *.clarity.ms covers the regional ingestion hosts. Without
+#                      these, the inline stub in <head> runs but the injected
+#                      <script src=…clarity.ms…> is refused and no session is
+#                      ever recorded.
 #                      'unsafe-inline' is required by inline <script>window.orgId = …</script>
 #                      blocks and the FAQ/contact-form/share-button hydration in shared.js.
 #   style-src        — self + Google Fonts CSS + jsDelivr (Bootstrap, datepicker).
@@ -60,7 +66,7 @@
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(self), interest-cohort=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed-scripts-production.web.app https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://www.google.ca https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https:; frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://bid.g.doubleclick.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self' mailto:; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed-scripts-production.web.app https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://www.google.ca https://connect.facebook.net https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https:; frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://bid.g.doubleclick.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self' mailto:; object-src 'none'; upgrade-insecure-requests
 
 # ── Embeddable Event Layout Planner ─────────────────────────────────────────
 # This single path is the only surface that other sites can iframe. Headers
