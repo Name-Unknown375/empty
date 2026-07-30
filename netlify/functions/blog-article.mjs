@@ -151,6 +151,39 @@ export function render(article, slug) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager — defer gtm.js load until idle to protect LCP -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var loadGTM=function(){var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);};
+if('requestIdleCallback' in w){w.requestIdleCallback(loadGTM,{timeout:3000});}
+else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
+})(window,document,'script','dataLayer','GTM-KC35GGRQ');</script>
+<!-- End Google Tag Manager -->
+<!-- Meta Pixel — fbq stub queues events immediately; fbevents.js deferred until idle to protect LCP (same pattern as GTM above) -->
+<script>!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];var loadPixel=function(){t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s);};
+if('requestIdleCallback' in f){f.requestIdleCallback(loadPixel,{timeout:3000});}
+else{f.addEventListener('load',function(){setTimeout(loadPixel,1500);});}}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1497259508391912');
+fbq('track', 'PageView');</script>
+<!-- End Meta Pixel -->
+<!-- Microsoft Clarity — clarity stub queues calls immediately; clarity.js deferred until idle to protect LCP (same pattern as GTM above) -->
+<script>(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+var loadClarity=function(){t=l.createElement(r);t.async=1;
+t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);};
+if('requestIdleCallback' in c){c.requestIdleCallback(loadClarity,{timeout:3000});}
+else{c.addEventListener('load',function(){setTimeout(loadClarity,1500);});}
+})(window,document,"clarity","script","qu3zf92dem");</script>
+<!-- End Microsoft Clarity -->
 <meta charset="UTF-8"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -169,11 +202,20 @@ export function render(article, slug) {
 <meta property="og:image" content="${esc(ogImage)}"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/shared.css?v=18"/>
+<link rel="stylesheet" href="/shared.css?v=22"/>
 <script type="application/ld+json">${jsonLd(articleLd)}</script>
 <script type="application/ld+json">${jsonLd(breadcrumbLd)}</script>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KC35GGRQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Meta Pixel (noscript) -->
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscript=1"
+/></noscript>
+<!-- End Meta Pixel (noscript) -->
 <a href="#main" class="skip-link">Skip to main content</a>
 <header id="header">
   <nav class="nav" aria-label="Primary">
@@ -207,7 +249,7 @@ ${body}
 </html>`;
 }
 
-const NOT_FOUND = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>Not found</title><meta name="robots" content="noindex"/><link rel="stylesheet" href="/shared.css?v=18"/></head><body><main id="main" style="max-width:640px;margin:8rem auto;padding:0 1.5rem;text-align:center"><h1>Page not found</h1><p>This article isn't available. <a href="/blog/">Back to the blog</a>.</p></main></body></html>`;
+const NOT_FOUND = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>Not found</title><meta name="robots" content="noindex"/><link rel="stylesheet" href="/shared.css?v=22"/></head><body><main id="main" style="max-width:640px;margin:8rem auto;padding:0 1.5rem;text-align:center"><h1>Page not found</h1><p>This article isn't available. <a href="/blog/">Back to the blog</a>.</p></main></body></html>`;
 
 export default async function handler(req) {
   if (req.method !== 'GET' && req.method !== 'HEAD') {
