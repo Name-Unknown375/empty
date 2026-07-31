@@ -202,7 +202,16 @@ function initContactForm() {
     const g = groupOf(field);
     if (g) g.classList.remove('is-error');
   };
-  form.addEventListener('invalid', (e) => showFieldError(e.target, true), true);
+  // Clarity-only instrumentation (no GTM container work needed): which field
+  // the quote form rejected. /contact is a single-point funnel at ~71% mobile,
+  // and a validation bounce is invisible in dataLayer, Meta AND Clarity today.
+  // FIELD NAME ONLY — never the value the visitor typed.
+  let invalidLogged = false;
+  form.addEventListener('invalid', (e) => {
+    showFieldError(e.target, true);
+    if (!invalidLogged) { invalidLogged = true; clarityEvent('quote_form_invalid'); }
+    clarityTag('quote_form_invalid_field', e.target.name || e.target.id || 'unknown');
+  }, true);
   form.querySelectorAll('input, textarea, select').forEach(f => {
     f.addEventListener('blur', () => { if (f.value && !f.checkValidity()) showFieldError(f, false); });
     f.addEventListener('input', () => clearFieldError(f));
@@ -300,7 +309,11 @@ function initContactForm() {
       }
       throw new Error(`HTTP ${res.status}`);
     } catch (err) {
-      // Fallback: open the user's email client with everything prefilled
+      // Fallback: open the user's email client with everything prefilled.
+      // Tag it — this path hands the lead to the visitor's mail app, where it
+      // may simply evaporate, and nothing recorded that until now.
+      clarityEvent('quote_form_mailto_fallback');
+      clarityTag('form_outcome', 'mailto_fallback');
       setStatus("Opening your email app — please review and click Send.", 'success');
       window.location.href = buildMailto(data);
     } finally {
@@ -318,15 +331,55 @@ function initContactForm() {
 // queues safely before fbevents.js loads; book_now_click is deliberately
 // unmapped (browsing intent, too weak a signal to train ad delivery on).
 const META_EVENT_NAMES = { quote_form_submit: 'Lead', phone_click: 'Contact' };
+
+// Clarity mirror: each conversion becomes a custom EVENT (findable in the
+// session list, promotable to a Smart Event) plus a few custom TAGS.
+// book_now_click IS mirrored here even though META_EVENT_NAMES omits it — a
+// Clarity event never trains ad delivery, it only makes a recording findable,
+// so a weaker signal still earns its keep.
+//
+// CLARITY_TAG_KEYS is an ALLOWLIST, not a copy of the payload. The Meta mirror
+// forwards the whole object; Clarity tag values are shown VERBATIM to whoever
+// opens the recording and are NOT covered by Clarity's content masking, so a
+// field becomes a tag only if named here. Keys are prefixed with the event name
+// so phone_click_link_location and book_now_click_link_location stay separate
+// filters. page_path is deliberately absent — 300 distinct values would make
+// the filter menu useless, and Clarity already filters by URL. That is what
+// page_class (see classifyPage below) exists for.
+const CLARITY_TAG_KEYS = ['link_location', 'fulfilment', 'rental_type', 'guest_bucket'];
+
+// Both helpers no-op until the head stub exists and swallow throws on purpose.
+// trackEvent() is called INSIDE the contact form's try/catch, where the catch
+// is the mailto fallback — so an exception there redirects a user whose POST
+// ALREADY SUCCEEDED to their email client instead of /thank-you. A third-party
+// tag must never be able to do that.
+function clarityTag(key, value) {
+  if (typeof window.clarity !== 'function') return;
+  try { window.clarity('set', key, String(value)); } catch (e) { /* never break the page */ }
+}
+function clarityEvent(name) {
+  if (typeof window.clarity !== 'function') return;
+  try { window.clarity('event', name); } catch (e) { /* never break the page */ }
+}
+
 function trackEvent(payload) {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push(payload);
   const metaName = META_EVENT_NAMES[payload.event];
   if (metaName && typeof window.fbq === 'function') {
-    const props = Object.assign({}, payload);
-    delete props.event;
-    window.fbq('track', metaName, props);
+    // Guarded for the same reason as the Clarity helpers above — fbq throwing
+    // inside the form's try block is a real (pre-existing) way to lose a lead.
+    try {
+      const props = Object.assign({}, payload);
+      delete props.event;
+      window.fbq('track', metaName, props);
+    } catch (e) { /* never break the page */ }
   }
+  clarityEvent(payload.event);
+  clarityTag('conversion', payload.event);
+  CLARITY_TAG_KEYS.forEach(k => {
+    if (payload[k]) clarityTag(payload.event + '_' + k, payload[k]);
+  });
 }
 
 function initConversionTracking() {
@@ -351,6 +404,99 @@ function initConversionTracking() {
       });
     }
   }, { capture: true });
+}
+
+// ── Clarity page tagging ──────────────────────────────────────────────────
+// One tag per pageview so 300 programmatic pages collapse into 10 filterable
+// buckets in Clarity's session list.
+//
+// THIS IS A PORT of classify() in _build/page_class.py, which is the canonical
+// taxonomy and drives the pre-deploy schema checker. THE TWO MUST NOT DRIFT —
+// _build/tests/clarity_tagging_test.mjs runs both over all 302 pages and fails
+// on any disagreement. If you add a page family, change it in both places in
+// the same commit.
+//
+// RULE ORDER IS LOAD-BEARING (mirrors the Python exactly):
+//   '-party-rentals' is tested before HUB_SLUGS, so birthday-party-rentals is
+//     a city page, not a hub;
+//   'product-' beats the product-city prefixes (product-marquee-tent-20x30);
+//   'christmas-lights-' (trailing hyphen) is christmas, while bare
+//     'christmas-lights' falls through to hub.
+//
+// Deliberately NOT lowercased: Netlify paths are case-sensitive, so
+// /Tent-Rentals-Surrey is a 404 and must not be tagged product-city.
+const PRODUCT_CITY_PREFIXES = [
+  'tent-rental-', 'tent-rentals-', 'chair-rentals-', 'table-rentals-',
+  'dance-floor-rental-', 'projector-rental-', 'battery-power-station-rental-',
+  'starlink-rental-',
+];
+const HUB_SLUGS = [
+  'tents', 'chairs', 'tables', 'dance-floor', 'rentals',
+  'wedding-rentals', 'event-rentals', 'birthday-party-rentals',
+  'corporate', 'projector-rentals', 'starlink-rentals',
+  'battery-power-stations', 'carnival-games', 'christmas-lights',
+  'packages', 'christmas-light-installation-lower-mainland',
+  'marquee-tent-rental-lowermainland-surrey-langley-vancouver',
+];
+
+function classifyPage(pathname) {
+  // Same normalization as hydrateActiveLink(): URLs are extensionless under
+  // Netlify pretty_urls, but local preview and legacy inbound links can still
+  // carry .html or a trailing slash.
+  let p = String(pathname || '/').replace(/\.html$/, '');
+  if (p !== '/') p = p.replace(/\/+$/, '');
+  if (p === '' || p === '/') return 'homepage';
+  const parts = p.replace(/^\/+/, '').split('/');
+  if (parts[0] === 'blog') {
+    if (parts.length === 1 || parts[1] === '' || parts[1] === 'index') return 'blog-hub';
+    return parts.length === 2 ? 'blog-post' : 'other';
+  }
+  // Any other nested path is 'other'. That is also the right answer for
+  // /p/<id> — the _redirects 200-REWRITE (not a redirect) that serves
+  // event-layout-planner.html, which the Python classify() also calls 'other'.
+  if (parts.length !== 1) return 'other';
+  const n = parts[0];
+  if (n === 'index') return 'homepage';
+  if (/-party-rentals$/.test(n)) return 'city';
+  if (n.indexOf('product-') === 0) return 'sku';
+  if (n.indexOf('carnival-games-bundle') === 0) return 'sku';
+  for (let i = 0; i < PRODUCT_CITY_PREFIXES.length; i++) {
+    if (n.indexOf(PRODUCT_CITY_PREFIXES[i]) === 0) return 'product-city';
+  }
+  if (n.indexOf('christmas-lights-') === 0) return 'christmas';
+  if (/^(wedding|backyard|corporate)-package-/.test(n)) return 'package';
+  if (HUB_SLUGS.indexOf(n) !== -1) return 'hub';
+  return 'other';
+}
+
+function initClarityTags() {
+  if (typeof window.clarity !== 'function') return;
+  // A page may PIN its class when the pathname can't be trusted: Netlify serves
+  // 404.html at whatever URL the visitor asked for, so /tent-rentals-surreyy
+  // would otherwise be tagged product-city. site/404.html carries
+  // <body data-page-class="404">.
+  const pinned = document.body && document.body.getAttribute('data-page-class');
+  const cls = pinned || classifyPage(window.location.pathname);
+  clarityTag('page_class', cls);
+
+  // Entry-page class, set once per session. Clarity accumulates every value set
+  // on a key during a session, so page_class alone answers "sessions that
+  // TOUCHED a product-city page" — not "sessions that ARRIVED on one", which is
+  // the question 145 programmatic landing pages exist to answer. This one does.
+  try {
+    if (!window.sessionStorage.getItem('fpr-entry-class')) {
+      window.sessionStorage.setItem('fpr-entry-class', cls);
+      clarityTag('entry_page_class', cls);
+    }
+  } catch (e) { /* storage-blocked iOS in-app webviews throw on ACCESS, not just write */ }
+
+  // Backstop for the conversion tag. quote_form_submit fires ~300 ms before a
+  // hard navigation; if clarity.js hasn't finished its idle load, the stub's
+  // queue dies with the document. Re-tagging on /thank-you is free insurance
+  // and mirrors the Meta backstop noted in DEPLOY_CHECKLIST.md §3.
+  if (/^\/thank-you\/?$/.test(window.location.pathname)) {
+    clarityTag('conversion', 'quote_form_submit');
+  }
 }
 
 // ── Shared testimonials data ──
@@ -545,11 +691,26 @@ function initStatPopIns() {
 // Adelie's own DOM is never touched or styled.
 function initAdelieSkeleton() {
   document.querySelectorAll('[data-adelie]').forEach(box => {
-    if (box.childElementCount > 0) { box.classList.add('adelie-ready'); return; }
+    if (box.childElementCount > 0) {
+      box.classList.add('adelie-ready'); clarityEvent('adelie_widget_ready'); return;
+    }
+    let timer;
     const mo = new MutationObserver(() => {
-      if (box.childElementCount > 0) { box.classList.add('adelie-ready'); mo.disconnect(); }
+      if (box.childElementCount > 0) {
+        box.classList.add('adelie-ready'); mo.disconnect();
+        clearTimeout(timer); clarityEvent('adelie_widget_ready');
+      }
     });
     mo.observe(box, { childList: true });
+    // The booking widget IS the checkout on /rentals and /checkout. If it never
+    // renders, nothing anywhere records that today — the same failure shape as
+    // the Clarity CSP outage: present on the page, silently doing nothing.
+    timer = setTimeout(() => {
+      if (box.childElementCount === 0) {
+        clarityTag('adelie', 'never_loaded');
+        clarityEvent('adelie_widget_failed');
+      }
+    }, 8000);
   });
 }
 
@@ -569,6 +730,7 @@ function initTextsReveal() {
 // Every page is pre-rendered with static #nav and #footer (see _build/partials/),
 // so init is pure hydration: attach event handlers + apply per-page state.
 document.addEventListener('DOMContentLoaded', () => {
+  initClarityTags();   // first: no other init can throw before the tag lands
   hydrateNav();
   hydrateActiveLink();
   initFAQ();

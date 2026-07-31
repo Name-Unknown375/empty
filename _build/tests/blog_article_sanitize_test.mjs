@@ -34,10 +34,17 @@ check('data: href stripped', !/href="data:/.test(html));
 check('https href kept', html.includes('href="https://ok.example/"'));
 
 // 4. iframe/style/form are discarded.
+// Scoped to <article class="post-body">, the sanitized region. Asserting over
+// the whole document gave a FALSE POSITIVE once GTM shipped (196d1d6): the
+// container's own <noscript><iframe> is first-party page chrome, not article
+// content, and tripped the iframe check while the sanitizer was working fine.
+const postBody = (h) => (h.match(/<article class="post-body">([\s\S]*?)<\/article>/) || ['', ''])[1];
 html = render(article('<iframe src="https://evil.example"></iframe><style>*{display:none}</style><form action="/steal"><input name="cc"></form><p>ok</p>'), 't4');
-check('iframe stripped', !/<iframe/.test(html));
-check('style tag stripped', !/<style/.test(html));
-check('form stripped', !/<form|<input/.test(html));
+check('post-body region is non-empty (guards the regex above)', postBody(html).includes('<p>ok</p>'));
+check('iframe stripped', !/<iframe/.test(postBody(html)));
+check('style tag stripped', !/<style/.test(postBody(html)));
+check('form stripped', !/<form|<input/.test(postBody(html)));
+check('attacker iframe absent from the whole document', !html.includes('evil.example'));
 
 // 5. Title/desc are entity-escaped in head and hero.
 html = render(article('<p>x</p>'), 't5');

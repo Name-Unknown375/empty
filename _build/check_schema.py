@@ -37,48 +37,10 @@ SITE = HERE.parent / "site"
 BLOCK_RE = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.S | re.I)
 ROBOTS_RE = re.compile(r'<meta name="robots" content="([^"]*)"', re.I)
 
-# ---------------------------------------------------------------------------
-# Page classification (filename conventions used by the generators)
-# ---------------------------------------------------------------------------
-
-PRODUCT_CITY_PREFIXES = (
-    "tent-rental-", "tent-rentals-", "chair-rentals-", "table-rentals-",
-    "dance-floor-rental-", "projector-rental-", "battery-power-station-rental-",
-    "starlink-rental-",
-)
-
-HUB_PAGES = {
-    "tents.html", "chairs.html", "tables.html", "dance-floor.html", "rentals.html",
-    "wedding-rentals.html", "event-rentals.html", "birthday-party-rentals.html",
-    "corporate.html", "projector-rentals.html", "starlink-rentals.html",
-    "battery-power-stations.html", "carnival-games.html", "christmas-lights.html",
-    "packages.html", "christmas-light-installation-lower-mainland.html",
-    "marquee-tent-rental-lowermainland-surrey-langley-vancouver.html",
-}
-
-
-def classify(p: Path) -> str:
-    n = p.name
-    if p.parent.name == "blog":
-        return "blog-hub" if n == "index.html" else "blog-post"
-    if n == "index.html":
-        return "homepage"
-    if n.endswith("-party-rentals.html"):
-        return "city"
-    if n.startswith("product-"):
-        return "sku"
-    if n.startswith("carnival-games-bundle"):
-        return "sku"
-    if n.startswith(PRODUCT_CITY_PREFIXES):
-        return "product-city"
-    if n.startswith("christmas-lights-"):
-        return "christmas"
-    if re.match(r"(wedding|backyard|corporate)-package-", n):
-        return "package"
-    if n in HUB_PAGES:
-        return "hub"
-    return "other"
-
+# Page classification lives in page_class.py — shared with the Clarity
+# `page_class` tag in site/shared.js, which ports the same taxonomy to JS.
+# _build/tests/clarity_tagging_test.mjs pins the two together.
+from page_class import classify  # noqa: E402
 
 # Required @types per class. Tuples = alternatives (any one satisfies).
 RULES: dict[str, list] = {

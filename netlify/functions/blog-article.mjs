@@ -183,6 +183,15 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);};
 if('requestIdleCallback' in c){c.requestIdleCallback(loadClarity,{timeout:3000});}
 else{c.addEventListener('load',function(){setTimeout(loadClarity,1500);});}
 })(window,document,"clarity","script","qu3zf92dem");</script>
+<!-- Clarity page tags. These articles are rendered by this function and have no
+     static file, so site/shared.js (which tags every other page) never runs
+     here — and loading it would be pointless: none of its inits have a target
+     on this page, and it would plant a second cache-bust literal in a file the
+     documented sed pass does not cover. The class is statically known anyway.
+     article_source separates auto-published Outrank articles from the
+     hand-written posts in site/blog/. No guard needed: the stub above assigns
+     window.clarity synchronously. -->
+<script>clarity('set','page_class','blog-post');clarity('set','article_source','outrank');</script>
 <!-- End Microsoft Clarity -->
 <meta charset="UTF-8"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
@@ -202,7 +211,7 @@ else{c.addEventListener('load',function(){setTimeout(loadClarity,1500);});}
 <meta property="og:image" content="${esc(ogImage)}"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/shared.css?v=22"/>
+<link rel="stylesheet" href="/shared.css?v=26"/>
 <script type="application/ld+json">${jsonLd(articleLd)}</script>
 <script type="application/ld+json">${jsonLd(breadcrumbLd)}</script>
 </head>
@@ -249,7 +258,7 @@ ${body}
 </html>`;
 }
 
-const NOT_FOUND = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>Not found</title><meta name="robots" content="noindex"/><link rel="stylesheet" href="/shared.css?v=22"/></head><body><main id="main" style="max-width:640px;margin:8rem auto;padding:0 1.5rem;text-align:center"><h1>Page not found</h1><p>This article isn't available. <a href="/blog/">Back to the blog</a>.</p></main></body></html>`;
+const NOT_FOUND = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>Not found</title><meta name="robots" content="noindex"/><link rel="stylesheet" href="/shared.css?v=26"/></head><body><main id="main" style="max-width:640px;margin:8rem auto;padding:0 1.5rem;text-align:center"><h1>Page not found</h1><p>This article isn't available. <a href="/blog/">Back to the blog</a>.</p></main></body></html>`;
 
 export default async function handler(req) {
   if (req.method !== 'GET' && req.method !== 'HEAD') {

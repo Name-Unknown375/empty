@@ -130,6 +130,9 @@ python3 _build/check_schema.py       # JSON-LD: parse + per-class required types
                                      # every indexable page must carry schema
 python3 _build/check_csp.py          # every external host the pages load is permitted
                                      # by the CSP in site/_headers (script/style/font/frame)
+node _build/tests/clarity_tagging_test.mjs
+                                     # Clarity page_class parity (JS ↔ Python taxonomy)
+                                     # + the shared.js ?v= cache-bust invariant
 ```
 
 `check_schema.py` is the guard that keeps schema coverage permanent: any new
@@ -147,6 +150,18 @@ whose advertised host loads the real payload from a different one —
 `www.clarity.ms` → `scripts.clarity.ms`. **When you add a tag, add its chain
 entry too**; run `curl -s <loader-url> | grep -oE 'https://[a-z.]+'` to find it.
 Tests: `python3 _build/tests/csp_check_test.py`.
+
+`clarity_tagging_test.mjs` guards two independent things. First, the Clarity
+`page_class` tag: `classifyPage()` in `site/shared.js` is a JS port of
+`classify()` in `_build/page_class.py` (the canonical taxonomy, also used by
+`check_schema.py`), and the test runs both over all 302 pages so the two cannot
+drift. **Add a page family in both places in the same commit.** Second — and
+unrelated to Clarity — it asserts there is exactly one `shared.js?v=` value
+across the site. `site/_headers` serves `/shared.js` as `immutable` for a year,
+so a page left on the old version silently keeps the old script forever, and
+none of the five checks above can see it (they all glob HTML only). A partial
+`sed` is the realistic way that happens: blog pages reference
+`../shared.js?v=N`, so always match the bare `shared\.js\?v=N` pattern.
 Note deploys are Netlify-CLI (`netlify deploy --prod` ships the working tree);
 git pushes alone deploy nothing.
 
