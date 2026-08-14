@@ -1,0 +1,55 @@
+{
+  "_comment": "Forever Party Rentals — Event Layout Planner item catalog. Footprint dimensions in feet, derived from spec sheets in _build/products_sku.json. Prices in CAD; priceUnit is 'day' for per-diem items, 'event' for per-event items. Used by site/planner/planner.js for the live cost estimator and quote summary. The 'sku' field links each item back to its product page on the main site. KEEP IN SYNC with _build/products_sku.json startingPriceCAD when prices change — sync both against live RentKit rates with python3 _build/sync_planner_catalog.py (--check to diff, --write to apply).",
+  "groups": [
+    {
+      "key": "tents",
+      "label": "Tents",
+      "items": [
+        { "key": "popup-tent-10x10",  "label": "10×10 Popup Tent",     "shape": "tent",  "widthFt": 10, "depthFt": 10, "seats": 0, "priceCAD": 75,    "priceUnit": "day",   "sku": "popup-tent-10x10" },
+        { "key": "marquee-tent-20x20", "label": "20×20 Marquee Tent",  "shape": "tent",  "widthFt": 20, "depthFt": 20, "seats": 0, "priceCAD": 550,   "priceUnit": "event", "sku": "marquee-tent-20x20" },
+        { "key": "marquee-tent-20x30", "label": "20×30 Marquee Tent",  "shape": "tent",  "widthFt": 20, "depthFt": 30, "seats": 0, "priceCAD": 630,   "priceUnit": "event", "sku": "marquee-tent-20x30" },
+        { "key": "marquee-tent-20x40", "label": "20×40 Marquee Tent",  "shape": "tent",  "widthFt": 20, "depthFt": 40, "seats": 0, "priceCAD": 1100,  "priceUnit": "event", "sku": "marquee-tent-20x40" },
+        { "key": "marquee-tent-20x60", "label": "20×60 Marquee Tent",  "shape": "tent",  "widthFt": 20, "depthFt": 60, "seats": 0, "priceCAD": 1260,  "priceUnit": "event", "sku": "marquee-tent-20x60" },
+        { "key": "marquee-tent-30x60", "label": "30×60 Marquee Tent",  "shape": "tent",  "widthFt": 30, "depthFt": 60, "seats": 0, "priceCAD": 1890,  "priceUnit": "event", "sku": "marquee-tent-30x60" }
+      ]
+    },
+    {
+      "key": "tables",
+      "label": "Tables",
+      "items": [
+        { "key": "round-table-5ft",      "label": "5ft Round (seats 8)",        "shape": "circle", "diameterFt": 5,    "seats": 8,  "priceCAD": 13.50, "priceUnit": "day", "sku": "round-table-5ft" },
+        { "key": "banquet-table-6ft",    "label": "6ft Banquet (seats 8)",      "shape": "rect",   "widthFt": 6, "depthFt": 2.5, "seats": 8,  "priceCAD": 10.95, "priceUnit": "day", "sku": "banquet-table-6ft" },
+        { "key": "banquet-table-8ft",    "label": "8ft Banquet (seats 10)",     "shape": "rect",   "widthFt": 8, "depthFt": 2.5, "seats": 10, "priceCAD": 14.95, "priceUnit": "day", "sku": "banquet-table-8ft" },
+        { "key": "cocktail-table-28",    "label": "28\" Cocktail Highboy",      "shape": "circle", "diameterFt": 2.333, "seats": 0, "priceCAD": 15.50, "priceUnit": "day", "sku": "cocktail-table" },
+        { "key": "cocktail-table",       "label": "30\" Cocktail Highboy",      "shape": "circle", "diameterFt": 2.5,   "seats": 0, "priceCAD": 15.50, "priceUnit": "day", "sku": "cocktail-table" }
+      ]
+    },
+    {
+      "key": "chairs",
+      "label": "Chairs",
+      "items": [
+        { "key": "white-chiavari-chair",  "label": "Chiavari Chair",      "shape": "rect", "widthFt": 1.33, "depthFt": 1.33, "seats": 1, "priceCAD": 8.50, "priceUnit": "day", "sku": "white-chiavari-chair" },
+        { "key": "fanback-garden-chair",  "label": "Fanback Folding",     "shape": "rect", "widthFt": 1.50, "depthFt": 1.83, "seats": 1, "priceCAD": 3.25, "priceUnit": "day", "sku": "fanback-garden-chair" },
+        { "key": "resin-garden-chair",    "label": "Resin Garden Chair",  "shape": "rect", "widthFt": 1.67, "depthFt": 1.83, "seats": 1, "priceCAD": 5.50, "priceUnit": "day", "sku": "resin-garden-chair" }
+      ]
+    },
+    {
+      "key": "dance-floors",
+      "label": "Dance Floor",
+      "items": [
+        { "key": "dance-floor-8x8",   "label": "8×8 Dance Floor",       "shape": "danceFloor", "widthFt": 8,  "depthFt": 8,  "seats": 0, "priceCAD": 500,  "priceUnit": "event", "sku": "black-white-dance-floor" },
+        { "key": "dance-floor-12x12", "label": "12×12 Dance Floor",     "shape": "danceFloor", "widthFt": 12, "depthFt": 12, "seats": 0, "priceCAD": 750,  "priceUnit": "event", "sku": "black-white-dance-floor" },
+        { "key": "dance-floor-16x16", "label": "16×16 Dance Floor",     "shape": "danceFloor", "widthFt": 16, "depthFt": 16, "seats": 0, "priceCAD": 1100, "priceUnit": "event", "sku": "black-white-dance-floor" }
+      ]
+    },
+    {
+      "key": "tent-addons",
+      "label": "Tent Add-ons",
+      "items": [
+        { "key": "bistro-string-lights", "label": "Bistro String Lights", "shape": "lighting", "widthFt": 20, "depthFt": 2,   "seats": 0, "priceCAD": 45,  "priceUnit": "day", "sku": "bistro-string-lights", "hint": "20 ft strand of warm globe bulbs — our crew runs it along the tent frame during install" },
+        { "key": "tent-heater",          "label": "Propane Tent Heater",  "shape": "heater",   "widthFt": 2,  "depthFt": 2,   "seats": 0, "priceCAD": 100, "priceUnit": "day", "sku": "tent-heater", "hint": "Propane tent heater — keep the dashed 3 ft ring clear around it" },
+        { "key": "tent-sidewall",        "label": "Sidewall Panel (10 ft)", "shape": "sidewall", "widthFt": 10, "depthFt": 0.7, "seats": 0, "priceCAD": 50,  "priceUnit": "day", "sku": "tent-sidewall", "hint": "Included with 20×20+ marquees — rent extra panels for popup tents or weather swaps" }
+      ]
+    }
+  ]
+}

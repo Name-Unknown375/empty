@@ -1,7 +1,7 @@
 ---
 slug: surrey-party-rentals
-title: "Surrey Party Rentals — Tents, Chairs, Tables"
-meta_description: "Surrey party rentals — tents, chairs, tables & dance floors from our local crew. Same-week availability, mid-event swaps, warehouse pickup. 190+ reviews."
+title: "Surrey Party Rentals — Local Warehouse, Setup Included"
+meta_description: "Surrey party rentals from our local warehouse — tents, chairs, tables and dance floors. Same-week availability, pickup or crew setup. 190+ reviews."
 hero_subtitle: "Surrey party rentals delivered across the city by the local crew — tents, chairs, tables, and dance floors with same-week availability, mid-event swaps, and warehouse pickup as options."
 
 intro_paragraphs:

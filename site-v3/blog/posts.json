@@ -1,0 +1,425 @@
+{
+  "$schema": "./posts.schema.json",
+  "meta": {
+    "version": 1,
+    "lastUpdated": "2026-07-09",
+    "totalPosts": 33,
+    "topics": {
+      "sizing": {
+        "label": "Tent Sizing & Planning",
+        "cover": "cov-green",
+        "order": 1
+      },
+      "venues": {
+        "label": "Hyperlocal Venues",
+        "cover": "cov-gold",
+        "order": 2
+      },
+      "compare": {
+        "label": "Comparisons",
+        "cover": "cov-ink",
+        "order": 3
+      },
+      "weather": {
+        "label": "Weather & Logistics",
+        "cover": "cov-slate",
+        "order": 4
+      },
+      "wedding": {
+        "label": "Wedding Guides",
+        "cover": "cov-clay",
+        "order": 5
+      },
+      "cost": {
+        "label": "Pricing & Budget",
+        "cover": "cov-ink",
+        "order": 6
+      },
+      "logistics": {
+        "label": "Permits & Setup",
+        "cover": "cov-slate",
+        "order": 7
+      },
+      "events": {
+        "label": "Event Playbooks",
+        "cover": "cov-forest",
+        "order": 8
+      }
+    },
+    "authors": {
+      "devon": {
+        "name": "Devon",
+        "role": "Owner, Forever Party Rentals"
+      },
+      "team": {
+        "name": "Forever Party Rentals Team",
+        "role": "Editorial"
+      }
+    }
+  },
+  "posts": [
+    {
+      "slug": "best-outdoor-wedding-venues-metro-vancouver",
+      "topic": "venues",
+      "title": "The 10 Best <em>Outdoor Wedding Venues</em> in Metro Vancouver",
+      "h4": "Metro Vancouver's Best Outdoor Venues, Ranked",
+      "excerpt": "Ceperley Meadow to Whytecliff's cove — ten outdoor venues we've actually delivered to, ranked by what each does best, with the permit and tent realities for each.",
+      "author": "team",
+      "date": "2026-06-19",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "party-rental-price-list-metro-vancouver-2026",
+      "topic": "cost",
+      "title": "The Complete <em>2026 Price List</em> for Party Rentals",
+      "h4": "Every Rental Price We Charge, In One Place",
+      "excerpt": "Every price we charge, on one page: tents from $75 to $1,890, chairs from $3.25, tables from $10.95, dance floor, power, Starlink — updated for 2026.",
+      "author": "devon",
+      "date": "2026-07-03",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "wedding-package-comparison-50-100-150-guests",
+      "topic": "compare",
+      "title": "Wedding Packages Compared: <em>50 vs 100 vs 150 Guests</em>",
+      "h4": "Which Package Size Fits Your Guest List",
+      "excerpt": "Same marquee family, three guest counts, three budgets. The exact components, totals, and per-guest math behind our 50, 100, and 150-guest wedding packages.",
+      "author": "devon",
+      "date": "2026-06-29",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "party-rental-questions-answered",
+      "topic": "logistics",
+      "title": "The <em>12 Questions</em> We Get Asked Every Week",
+      "h4": "Real Questions, Real Numbers, Straight Answers",
+      "excerpt": "How far ahead to book, what delivery costs, what happens when it rains — the twelve questions our phone line hears every week, answered with real numbers.",
+      "author": "team",
+      "date": "2026-06-24",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "party-rentals-not-worth-it",
+      "topic": "compare",
+      "title": "5 Party Rentals That <em>Aren't Worth It</em> (And 3 That Are)",
+      "h4": "An Operator's Honest Cut-Down",
+      "excerpt": "After 22 years of deliveries we'll tell you straight: five rentals that rarely earn their line item — and three that are worth more than they cost.",
+      "author": "devon",
+      "date": "2026-07-09",
+      "read": 10,
+      "status": "live"
+    },
+    {
+      "slug": "burnaby-wedding-venues-rental-guide",
+      "topic": "venues",
+      "title": "Burnaby's <em>Best Wedding &amp; Event Venues</em>",
+      "h4": "Burnaby Wedding Venues + Rental Planning",
+      "excerpt": "Deer Lake's heritage mansions, the Burnaby Mountain rose garden, Shadbolt, and the Village Museum. Which venues book through the City, which need their own catering, and the tent rules that catch couples out.",
+      "author": "team",
+      "date": "2026-06-16",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "richmond-wedding-venues-rental-guide",
+      "topic": "venues",
+      "title": "Richmond's <em>Best Wedding &amp; Event Venues</em>",
+      "h4": "Richmond Wedding Venues + Rental Planning",
+      "excerpt": "Minoru Chapel, Steveston's Garry Point, Britannia, and London Farm. Plus the one rule that changes every Richmond tent: you can't stake into the ground.",
+      "author": "team",
+      "date": "2026-06-16",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "new-westminster-wedding-venues-rental-guide",
+      "topic": "venues",
+      "title": "New Westminster's <em>Best Wedding &amp; Event Venues</em>",
+      "h4": "New Westminster Wedding Venues + Rental Planning",
+      "excerpt": "The Queen's Park Rose Garden, Centennial Lodge, and Westminster Pier Park. The City's designated ceremony spots, the insurance rule, and why every New West tent is a weighted install.",
+      "author": "team",
+      "date": "2026-06-16",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "event-wifi-starlink-rental",
+      "topic": "events",
+      "title": "Event WiFi: When You Need a <em>Starlink Rental</em>",
+      "h4": "When Your Venue Has No Internet",
+      "excerpt": "Venue WiFi that buckles under 150 guests, acreage weddings with zero bars, film shoots pushing dailies from the backcountry — when event WiFi needs Starlink, the speeds and power math, and the clear-sky check that decides it.",
+      "author": "devon",
+      "date": "2026-06-16",
+      "read": 10,
+      "status": "live"
+    },
+    {
+      "slug": "wedding-tent-rental-cost-vancouver",
+      "topic": "cost",
+      "title": "Wedding Tent Rental Cost in <em>Vancouver</em>",
+      "h4": "What a Wedding Tent Actually Costs in BC",
+      "excerpt": "Honest price ranges, the five hidden costs nobody warns you about, sample quotes for 50/100/150 guests, and the questions to ask before you sign anything.",
+      "author": "devon",
+      "date": "2025-09-07",
+      "read": 16,
+      "status": "live"
+    },
+    {
+      "slug": "best-event-tents-rain-vancouver",
+      "topic": "weather",
+      "title": "The Best Event Tents for <em>Rain</em> in Vancouver",
+      "h4": "Tents That Actually Hold Up in BC Weather",
+      "excerpt": "Rain — not wind — is what ruins most BC events. Frame vs. pole, sidewalls, gutters, wind ratings, and the six-item rain kit we deploy every shoulder-season weekend.",
+      "author": "devon",
+      "date": "2025-09-22",
+      "read": 15,
+      "status": "live"
+    },
+    {
+      "slug": "marquee-vs-sailcloth-vs-frame-tent",
+      "topic": "compare",
+      "title": "Marquee vs. Sailcloth vs. <em>Frame Tent</em>",
+      "h4": "How to Pick the Right Wedding Tent Style",
+      "excerpt": "Three styles, three very different weddings. How each one looks, holds up in BC weather, sets up, and prices — with picks for 50, 100, and 150 guests.",
+      "author": "devon",
+      "date": "2025-05-17",
+      "read": 13,
+      "status": "live"
+    },
+    {
+      "slug": "tent-permits-surrey-metro-vancouver-parks",
+      "topic": "logistics",
+      "title": "Tent <em>Permits</em> in Surrey, Vancouver & Metro Parks",
+      "h4": "BC Tent Permit & Setup Rules — Plain English",
+      "excerpt": "When you need a permit, who issues what, lawn vs. asphalt staking, the lead-time calendar, and the permit packet checklist that gets approved on the first try.",
+      "author": "team",
+      "date": "2025-06-18",
+      "read": 14,
+      "status": "live"
+    },
+    {
+      "slug": "heated-tent-rental-fall-wedding-bc",
+      "topic": "weather",
+      "title": "<em>Heated Tents</em> for Fall & Winter Weddings in BC",
+      "h4": "BTU Math, Power, and Real Fall Wedding Numbers",
+      "excerpt": "When BC weddings need heat, the BTU math by tent size, propane vs. electric, sidewall pairing, and the cost to add reliable warmth to a shoulder-season event.",
+      "author": "devon",
+      "date": "2025-08-27",
+      "read": 13,
+      "status": "live"
+    },
+    {
+      "slug": "party-tent-over-patio-deck",
+      "topic": "logistics",
+      "title": "Putting a <em>Party Tent</em> Over Your Patio or Deck",
+      "h4": "Anchoring a Tent Without Driving Stakes",
+      "excerpt": "Pavers, decks, concrete, and street festivals — how we anchor without ground stakes. Ballast options, deck loading, eave clearance, and when to switch to a popup.",
+      "author": "devon",
+      "date": "2025-07-01",
+      "read": 14,
+      "status": "live"
+    },
+    {
+      "slug": "chair-table-rental-prices-surrey-bc",
+      "topic": "cost",
+      "title": "Chair & Table <em>Rental Prices</em> in Surrey, BC",
+      "h4": "What Chairs and Tables Really Cost Out Here",
+      "excerpt": "Per-chair and per-table price ranges across Surrey, Chiavari vs. fanback vs. resin garden, delivery fees, and the bundling math at 50, 100, and 150 guests.",
+      "author": "team",
+      "date": "2025-06-26",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "clear-top-tent-rentals-bc-weddings",
+      "topic": "wedding",
+      "title": "<em>Clear Top Tents</em> for BC Weddings",
+      "h4": "What Clear Top Marquees Actually Look Like at Night",
+      "excerpt": "What 'clear top' means, day vs. night look, the heat and condensation realities of BC summer, lighting that pairs, and the cost premium over a standard marquee.",
+      "author": "devon",
+      "date": "2026-04-16",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "dance-floor-dj-space-wedding-tent",
+      "topic": "wedding",
+      "title": "<em>Dance Floor</em> & DJ Space in Your Wedding Tent",
+      "h4": "Sizing the Dance Floor and Placing the DJ",
+      "excerpt": "The 30%-of-guests rule, panel sizes that tile cleanly, where to put the DJ booth, power and cable runs, and full layouts for 50, 100, and 150 guest weddings.",
+      "author": "devon",
+      "date": "2026-03-28",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "backyard-birthday-rental-equipment-bc",
+      "topic": "events",
+      "title": "Affordable <em>Backyard Birthday</em> Rentals in BC",
+      "h4": "The Right Rentals for a 30-Guest Backyard Party",
+      "excerpt": "Minimum viable kit for a backyard birthday, rent-vs-buy math at three price points, weekend vs. weekday pricing, and the day-of timeline that keeps a kids' party calm.",
+      "author": "team",
+      "date": "2025-07-15",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "corporate-picnic-festival-rentals-bc",
+      "topic": "events",
+      "title": "<em>Corporate Picnics</em>, Retreats & Festival Rentals in BC",
+      "h4": "Corporate Event Rental Pricing & Layouts",
+      "excerpt": "The four corporate event archetypes, pricing tiers for 50/100/150-person gatherings, four seating layouts, branded check-in flow, and lead times for September.",
+      "author": "devon",
+      "date": "2026-02-08",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "tent-size-guide-lower-mainland-wedding",
+      "topic": "sizing",
+      "title": "How Many Guests Fit <em>Under a 20×40 Tent?</em>",
+      "h4": "Tent Size Chart for Lower Mainland Weddings",
+      "excerpt": "Ceremony, seated dinner, dinner-plus-dance: the same 800 sq ft fits wildly different guest counts. The math, the photos, and the questions to ask your venue.",
+      "author": "devon",
+      "date": "2026-04-08",
+      "read": 14,
+      "status": "live"
+    },
+    {
+      "slug": "tent-size-chart-20x20-20x40-20x60-40x80",
+      "topic": "sizing",
+      "title": "A <em>Visual Size Chart</em> for Every Marquee We Own",
+      "h4": "20×20, 20×40, 20×60 & 40×80 Side-by-Side",
+      "excerpt": "Every tent in our fleet drawn to scale with seating diagrams for 40, 80, 120, and 200 guests. Print-friendly PDFs at the bottom.",
+      "author": "devon",
+      "date": "2026-02-18",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "party-rental-checklist-50-100-150-200-guests",
+      "topic": "sizing",
+      "title": "The Rental Checklist For <em>50, 100, 150 & 200 Guests</em>",
+      "h4": "Party Rental Checklists by Headcount",
+      "excerpt": "Exactly what to rent — and what to skip — at four common guest counts. Chair, table, tent, dance floor, heater, and sidewall math in one place.",
+      "author": "team",
+      "date": "2025-11-14",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "how-much-space-per-guest-wedding-tent",
+      "topic": "sizing",
+      "title": "How Much <em>Square Footage Per Guest?</em>",
+      "h4": "Square Footage Per Guest: The Real Numbers",
+      "excerpt": "10 sq ft for cocktails, 12 for theatre, 15 for seated dinner, 20 with a dance floor. Why the \"rule of thumb\" is wrong for most BC weddings.",
+      "author": "devon",
+      "date": "2025-07-22",
+      "read": 9,
+      "status": "live"
+    },
+    {
+      "slug": "tent-layout-ceremony-to-reception-flip",
+      "topic": "sizing",
+      "title": "The <em>Ceremony-to-Reception Flip</em>",
+      "h4": "One Tent, Two Setups: The Flip Logistics",
+      "excerpt": "Save 40% on rentals by running the ceremony and reception under the same tent. How our crew flips a 20×40 in 45 minutes — without moving Auntie Carol.",
+      "author": "devon",
+      "date": "2025-04-02",
+      "read": 10,
+      "status": "live"
+    },
+    {
+      "slug": "backyard-wedding-tent-sizing-bc",
+      "topic": "sizing",
+      "title": "The <em>Backyard Wedding</em> Tent Playbook",
+      "h4": "Backyard Wedding Tent Sizing for BC Homes",
+      "excerpt": "Property line setbacks, slope tolerance, sprinkler head clearance, and the five measurements to send your rental company before you book.",
+      "author": "team",
+      "date": "2024-12-10",
+      "read": 13,
+      "status": "live"
+    },
+    {
+      "slug": "stanley-park-wedding-rentals-guide",
+      "topic": "venues",
+      "title": "Renting For a Wedding at <em>Stanley Park</em>",
+      "h4": "The Stanley Park Wedding Rental Guide",
+      "excerpt": "Park Board permits, Ceperley Meadow vs. Third Beach, delivery windows, and the two tent footprints that fit inside the approved ceremony zones.",
+      "author": "devon",
+      "date": "2026-03-15",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "whytecliff-park-event-rental-guide",
+      "topic": "venues",
+      "title": "Events at <em>Whytecliff Park</em>",
+      "h4": "Whytecliff Park Ceremony Rental Guide",
+      "excerpt": "West Vancouver's most dramatic ocean backdrop — and its most particular permit desk. Tidal timing, cart access, and a sample rental order.",
+      "author": "team",
+      "date": "2025-12-28",
+      "read": 9,
+      "status": "live"
+    },
+    {
+      "slug": "queen-elizabeth-park-weddings-rentals",
+      "topic": "venues",
+      "title": "<em>Queen Elizabeth Park</em> Weddings",
+      "h4": "Queen E Park Ceremony & Reception Rentals",
+      "excerpt": "Quarry Gardens, Seasons in the Park patio, and the Bloedel lawn. What each site allows, what it forbids, and how to combine them with a nearby tent venue.",
+      "author": "team",
+      "date": "2025-09-10",
+      "read": 10,
+      "status": "live"
+    },
+    {
+      "slug": "fort-langley-wedding-venues-rental-guide",
+      "topic": "venues",
+      "title": "The <em>Fort Langley</em> Wedding Guide",
+      "h4": "Fort Langley Wedding Venues + Rental Planning",
+      "excerpt": "The Bedford Channel, Fort-to-Fort Trail, Wendel's, and three barns we deliver to every summer. Drive times, setup windows, and rental minimums.",
+      "author": "devon",
+      "date": "2025-06-14",
+      "read": 11,
+      "status": "live"
+    },
+    {
+      "slug": "surrey-parks-event-rental-guide",
+      "topic": "venues",
+      "title": "Surrey's <em>Best Event Parks</em>",
+      "h4": "Surrey Park Event Rental Guide",
+      "excerpt": "Bear Creek, Redwood, Tynehead, and Crescent. Which ones allow amplified music, which require PLI certificates, and which have trucks-only lanes.",
+      "author": "team",
+      "date": "2025-03-06",
+      "read": 10,
+      "status": "live"
+    },
+    {
+      "slug": "harrison-hot-springs-destination-wedding",
+      "topic": "venues",
+      "title": "<em>Harrison Hot Springs</em> Destination Weddings",
+      "h4": "Rentals & Logistics for Harrison Weddings",
+      "excerpt": "Delivery surcharges, overnight gear storage, and the lakefront sites that require wind-rated tents. Our Harrison playbook after 40+ weekends on-site.",
+      "author": "devon",
+      "date": "2024-11-02",
+      "read": 12,
+      "status": "live"
+    },
+    {
+      "slug": "best-free-event-layout-planners",
+      "topic": "compare",
+      "title": "The Best <em>Free</em> Event Layout Planners (2026)",
+      "h4": "7 Free Floor Plan Tools, Honestly Compared",
+      "excerpt": "Zola, WeddingWire, Canva, eventfloorplanner.com, TopTablePlanner, Centric Events, and ours — which free layout tools are actually free, actually to-scale, and honest about what happens after you draw.",
+      "author": "devon",
+      "date": "2026-06-10",
+      "read": 10,
+      "status": "live"
+    }
+  ]
+}

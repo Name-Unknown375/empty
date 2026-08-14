@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Widget Test — Adelie</title>
+<meta name="robots" content="noindex,nofollow"/>
+
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
+<link rel="stylesheet" href="shared.css?v=28"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/css/datepicker-bs5.min.css" integrity="sha384-Vn0xiUc12vxlhJvgdGKbK8mGesCKN5jyO+2jqsBW7B+VBOpI+mBb9psuN4eQ1qAT" crossorigin="anonymous" media="print" onload="this.media='all'"/>
+<script src="https://embed-scripts-production.web.app/adelie-skeleton.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.3/dist/js/datepicker-full.min.js" integrity="sha384-4hMAtu0bBhcc6iK/j0zlvZY5p8yowLa3HbUIMx2eV8PHd13aDj3r0RK6+/HKaZT6" crossorigin="anonymous" defer></script>
+<script src="https://embed-scripts-production.web.app/adelie-cart.js" defer></script>
+<script>window.orgId = "LvrymFxex6oslWCxcrEg";</script>
+
+<style>
+  body { font-family: 'Jost', system-ui, sans-serif; max-width: 1100px; margin: 30px auto; padding: 0 20px; color:#222; }
+  h1 { font-size: 22px; margin-bottom: 6px; }
+  p.note { color:#555; font-size: 14px; margin-bottom: 20px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:24px }
+  .panel { border:1px solid #ddd; border-radius:8px; padding:16px; background:#fafafa; }
+  .panel h2 { font-size:14px; margin:0 0 10px; }
+  .panel code { background:#eee; padding:2px 5px; border-radius:4px; font-size:11px; }
+  .label { display:block; font-size:11px; color:#666; margin:10px 0 6px; text-transform:uppercase; letter-spacing:.05em }
+  .verdict { font-size:12px;color:#888;margin-top:6px;font-style:italic }
+  @media(max-width:780px){ .grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<h1>Adelie widget diagnostics</h1>
+<p class="note">
+  Pick a date inside each panel. Compare which widgets actually render.<br>
+  Regular rental ID: <code>uFSpLEibsBA8wLmpcaol</code> (28" Cocktail Table). Container ID: <code>DrSOkN6nDxTtflbLe7fb</code> ($30 bundle).
+</p>
+
+<div class="grid">
+
+  <div class="panel">
+    <h2>A · <code>availability-checker</code> + regular rental, no date-picker</h2>
+    <span class="label">Widget</span>
+    <div data-adelie="availability-checker"
+         data-org-id="LvrymFxex6oslWCxcrEg"
+         data-product-id="uFSpLEibsBA8wLmpcaol"
+         show-quantity="true"
+         show-status="false"></div>
+    <p class="verdict">If this renders, availability-checker works standalone — no date sibling needed.</p>
+  </div>
+
+  <div class="panel">
+    <h2>B · <code>availability-checker</code> + container, no date-picker</h2>
+    <span class="label">Widget</span>
+    <div data-adelie="availability-checker"
+         data-org-id="LvrymFxex6oslWCxcrEg"
+         data-product-id="DrSOkN6nDxTtflbLe7fb"
+         show-quantity="true"
+         show-status="false"></div>
+    <p class="verdict">Will likely stay stuck until Show In Shop is flipped to Yes for this container.</p>
+  </div>
+
+  <div class="panel">
+    <h2>C · <code>minified-product</code> + regular rental</h2>
+    <span class="label">Widget</span>
+    <div data-adelie="minified-product"
+         data-org-id="LvrymFxex6oslWCxcrEg"
+         data-product-id="uFSpLEibsBA8wLmpcaol"></div>
+    <p class="verdict">Tests if minified-product is a real widget at all, using a known-good product.</p>
+  </div>
+
+  <div class="panel">
+    <h2>D · <code>minified-product</code> + container</h2>
+    <span class="label">Widget</span>
+    <div data-adelie="minified-product"
+         data-org-id="LvrymFxex6oslWCxcrEg"
+         data-product-id="DrSOkN6nDxTtflbLe7fb"></div>
+    <p class="verdict">Will only render if minified-product exists AND container is shop-enabled.</p>
+  </div>
+
+</div>
+</body>
+</html>

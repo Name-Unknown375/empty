@@ -1,0 +1,119 @@
+# Forever Party Rentals — 301 redirects from old Squarespace URLs to new static site
+# Apache .htaccess — drop at web root on any cPanel / shared host / Apache server.
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Force https + canonical non-www (uncomment if desired)
+# RewriteCond %{HTTPS} off [OR]
+# RewriteCond %{HTTP_HOST} ^www\. [NC]
+# RewriteRule ^(.*)$ https://www.foreverpartyrentals.com/$1 [R=301,L]
+
+# ── Homepage ────────────────────────────────────────────────────────────
+Redirect 301 /home                                                                   /
+Redirect 301 /about-us                                                               /
+
+# ── Utility / static pages ──────────────────────────────────────────────
+Redirect 301 /faqs                                                                   /faq
+Redirect 301 /checkout-2                                                             /checkout.html
+
+# ── Top-level category pages ───────────────────────────────────────────
+Redirect 301 /our-rentals                                                            /rentals.html
+Redirect 301 /our-rentals-1                                                          /rentals.html
+Redirect 301 /table-rental-and-chair-rentals                                         /rentals.html
+Redirect 301 /chair-rentals                                                          /chairs
+Redirect 301 /dance-floor-rental                                                     /dance-floor
+
+# ── Product pages ───────────────────────────────────────────────────────
+Redirect 301 /chiavari-chair-rentals                                                 /product-white-chiavari-chair
+Redirect 301 /fanback-chair-rentals                                                  /product-fanback-garden-chair
+Redirect 301 /white-resin-garden-chairs                                              /product-resin-garden-chair
+Redirect 301 /round-table-rentals                                                    /product-round-table-5ft
+Redirect 301 /rectangular-table-rentals                                              /product-banquet-table-6ft
+Redirect 301 /rectangular-table-rentals-1                                            /product-banquet-table-6ft
+Redirect 301 /cocktail-table-rentals                                                 /product-cocktail-table
+Redirect 301 /popup-tents-for-pickup                                                 /product-popup-tent-10x10
+Redirect 301 /9000-watt-portable-gas-generator-rentals                               /rentals.html
+
+# ── Tent sizing pages ───────────────────────────────────────────────────
+Redirect 301 /20x20-marquee-tent-rental-sizing                                       /product-marquee-tent-20x20
+Redirect 301 /20x30-marquee-tent-rental-sizing                                       /product-marquee-tent-20x30
+Redirect 301 /20x40-marquee-tent-rental-sizing                                       /product-marquee-tent-20x40
+Redirect 301 /20x60-marquee-tent-rental-sizing                                       /product-marquee-tent-20x60
+Redirect 301 /20x80-marquee-tent-rental-sizing                                       /product-marquee-tent-30x60
+Redirect 301 /product-marquee-tent-40x80                                        /product-marquee-tent-30x60
+Redirect 301 /30x40-marquee-tent-rental-sizing                                       /blog/tent-size-chart-20x20-20x40-20x60-40x80
+Redirect 301 /30x60-marquee-tent-rental-sizing                                       /blog/tent-size-chart-20x20-20x40-20x60-40x80
+
+# ── Corporate / charity ─────────────────────────────────────────────────
+Redirect 301 /corporate-event-rentals                                                /corporate
+Redirect 301 /charity-event-rentals                                                  /corporate
+
+# ── Seasonal — retargeted to new Christmas-light service pages ────────
+Redirect 301 /burnaby-christmas-lights                                               /christmas-lights-burnaby
+Redirect 301 /christmas-lights-2                                                     /christmas-lights
+
+# ── Old blog (tent-party-rentals-resources) ────────────────────────────
+Redirect 301 /tent-party-rentals-resources/the-ultimate-guide-to-choosing-the-perfect-tent-rental-for-your-event  /blog/tent-size-guide-lower-mainland-wedding
+Redirect 301 /tent-party-rentals-resources/are-tent-rentals-right-for-your-wedding-or-event                       /blog/backyard-wedding-tent-sizing-bc
+Redirect 301 /tent-party-rentals-resources/corporate-event-planning-how-to-impress-your-boss-and-colleagues-with-forever-party-rentals  /corporate
+Redirect 301 /tent-party-rentals-resources/rucx8xiod9ri14auek3b55rosk5pat                                         /blog/
+Redirect 301 /tent-party-rentals-resources                                                                        /blog/
+
+# ── Legacy root-level guide articles ───────────────────────────────────
+Redirect 301 /choosing-the-right-tent-size-for-your-event-a-guide                    /blog/tent-size-guide-lower-mainland-wedding
+Redirect 301 /how-many-people-fit-at-round-tables                                    /product-round-table-5ft
+Redirect 301 /how-many-people-fit-at-a-6ft-rectangular-table                         /product-banquet-table-6ft
+
+# ── Party rentals — direct city-page matches ───────────────────────────
+Redirect 301 /langley-twp-party-rentals                                              /langley-township-party-rentals
+
+# ── Surrey neighborhoods → Surrey parent ───────────────────────────────
+Redirect 301 /anniedale-party-rentals                                                /surrey-party-rentals
+Redirect 301 /bridgeview-party-rentals                                               /surrey-party-rentals
+Redirect 301 /campbell-heights-party-rentals                                         /surrey-party-rentals
+Redirect 301 /clayton-party-rentals                                                  /east-clayton-party-rentals
+Redirect 301 /cloverdale-party-rentals                                               /surrey-party-rentals
+Redirect 301 /fleetwood-party-rentals                                                /surrey-party-rentals
+Redirect 301 /forest-knolls-party-rentals                                            /surrey-party-rentals
+Redirect 301 /fraser-heights-party-rentals                                           /surrey-party-rentals
+Redirect 301 /guildford-party-rentals                                                /surrey-party-rentals
+Redirect 301 /johnston-heights-party-rentals                                         /surrey-party-rentals
+Redirect 301 /newton-party-rentals                                                   /surrey-party-rentals
+Redirect 301 /north-cloverdale-west-party-rentals                                    /surrey-party-rentals
+Redirect 301 /strawberry-hill-party-rentals                                          /surrey-party-rentals
+Redirect 301 /sullivan-party-rentals                                                 /surrey-party-rentals
+Redirect 301 /tynehead-party-rentals                                                 /surrey-party-rentals
+Redirect 301 /aloha-estates-party-rentals                                            /surrey-party-rentals
+Redirect 301 /kensington-prairie-party-rentals                                       /surrey-party-rentals
+Redirect 301 /southwest-gordon-estate-party-rentals                                  /surrey-party-rentals
+Redirect 301 /barnston-island-party-rentals                                          /surrey-party-rentals
+
+# ── Delta neighborhoods ────────────────────────────────────────────────
+Redirect 301 /north-delta-party-rentals                                              /delta-party-rentals
+Redirect 301 /sunshine-hills-party-rentals                                           /delta-party-rentals
+Redirect 301 /mud-bay-party-rentals                                                  /delta-party-rentals
+
+# ── Langley Township neighborhoods ─────────────────────────────────────
+Redirect 301 /brookswood-party-rentals                                               /langley-party-rentals
+Redirect 301 /fern-ridge-party-rentals                                               /langley-township-party-rentals
+Redirect 301 /glen-valley-party-rentals                                              /langley-township-party-rentals
+Redirect 301 /hopington-party-rentals                                                /langley-township-party-rentals
+Redirect 301 /milner-party-rentals                                                   /langley-township-party-rentals
+Redirect 301 /murrayville-party-rentals                                              /langley-township-party-rentals
+
+# ── Maple Ridge / PoCo neighborhoods ───────────────────────────────────
+Redirect 301 /albion-party-rentals                                                   /maple-ridge-party-rentals
+Redirect 301 /hammond-party-rentals                                                  /maple-ridge-party-rentals
+Redirect 301 /port-hammond-party-rentals                                             /maple-ridge-party-rentals
+Redirect 301 /mary-hill-party-rentals                                                /coquitlam-party-rentals
+
+# ── Tent rental city pages (typo fixes included) ───────────────────────
+Redirect 301 /tent-rental-fortlangley                                                /tent-rental-fort-langley
+Redirect 301 /tent-rental-new-westminter-tent-rentals                                /tent-rental-new-westminster
+Redirect 301 /tent-rental-pitt-meadow                                                /tent-rental-pitt-meadows
+Redirect 301 /tent-rentals-surrey-1                                                  /tent-rentals-surrey
+Redirect 301 /tent-rentals-vancouver                                                 /tent-rental-vancouver
+
+# ── Chair rental city pages ────────────────────────────────────────────
+</IfModule>

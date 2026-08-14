@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager — defer gtm.js load until idle to protect LCP -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var loadGTM=function(){var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);};
+if('requestIdleCallback' in w){w.requestIdleCallback(loadGTM,{timeout:3000});}
+else{w.addEventListener('load',function(){setTimeout(loadGTM,1500);});}
+})(window,document,'script','dataLayer','GTM-KC35GGRQ');</script>
+<!-- End Google Tag Manager -->
+<!-- Meta Pixel — fbq stub queues events immediately; fbevents.js deferred until idle to protect LCP (same pattern as GTM above) -->
+<script>!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];var loadPixel=function(){t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s);};
+if('requestIdleCallback' in f){f.requestIdleCallback(loadPixel,{timeout:3000});}
+else{f.addEventListener('load',function(){setTimeout(loadPixel,1500);});}}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1497259508391912');
+fbq('track', 'PageView');</script>
+<!-- End Meta Pixel -->
+<!-- Microsoft Clarity — clarity stub queues calls immediately; clarity.js deferred until idle to protect LCP (same pattern as GTM above) -->
+<script>(function(c,l,a,r,i,t,y){
+c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+var loadClarity=function(){t=l.createElement(r);t.async=1;
+t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);};
+if('requestIdleCallback' in c){c.requestIdleCallback(loadClarity,{timeout:3000});}
+else{c.addEventListener('load',function(){setTimeout(loadClarity,1500);});}
+})(window,document,"clarity","script","qu3zf92dem");</script>
+<!-- End Microsoft Clarity -->
+
+<meta charset="UTF-8"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>What Size Tent Do I Need? Free Tent Size Calculator | Forever Party Rentals</title>
+<meta name="description" content="Free tent size calculator — enter your guest count and seating style and get the exact marquee size, square footage, and starting price. Built from our real rental inventory, with a to-scale layout preview."/>
+<link rel="canonical" href="https://www.foreverpartyrentals.com/tent-size-calculator"/>
+<meta name="robots" content="index,follow,max-image-preview:large"/>
+<link rel="alternate" hreflang="en-CA" href="https://www.foreverpartyrentals.com/tent-size-calculator"/>
+<link rel="alternate" hreflang="x-default" href="https://www.foreverpartyrentals.com/tent-size-calculator"/>
+
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="en_CA"/>
+<meta property="og:site_name" content="Forever Party Rentals"/>
+<meta property="og:title" content="What Size Tent Do I Need? Free Tent Size Calculator"/>
+<meta property="og:description" content="Enter your guest count and seating style — get the exact marquee size, square footage, starting price, and a to-scale layout preview. Free, no signup."/>
+<meta property="og:url" content="https://www.foreverpartyrentals.com/tent-size-calculator"/>
+<meta property="og:image" content="https://www.foreverpartyrentals.com/images/og/social-card.webp"/>
+<meta property="og:image:type" content="image/webp"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="What Size Tent Do I Need? Free Tent Size Calculator"/>
+<meta name="twitter:description" content="Guest count in, tent size out — with square footage, starting price, and a to-scale layout preview from our real rental inventory."/>
+
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
+<link rel="stylesheet" href="/shared.css?v=28"/>
+
+<style>
+/* Calculator layout */
+.calc-grid { display: grid; grid-template-columns: 380px 1fr; gap: 28px; align-items: start; }
+@media (max-width: 900px) { .calc-grid { grid-template-columns: 1fr; } }
+.calc-form {
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px 24px; box-shadow: var(--shadow);
+}
+.calc-form label.field-label { display: block; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 600; color: var(--green); margin: 18px 0 8px; }
+.calc-form label.field-label:first-child { margin-top: 0; }
+.calc-form input[type=number] {
+  width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius);
+  font-family: var(--sans); font-size: 16px;
+}
+.calc-radios { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.calc-radios label, .calc-checks label {
+  display: flex; align-items: center; gap: 8px; border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 10px 12px; font-size: 14px; cursor: pointer; background: #fff;
+}
+.calc-radios label:has(input:checked) { border-color: var(--green); background: var(--light); font-weight: 600; }
+.calc-checks { display: flex; flex-direction: column; gap: 8px; }
+.calc-checks label:has(input:checked) { border-color: var(--gold); background: var(--light); }
+.calc-result-card {
+  background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px 28px; box-shadow: var(--shadow);
+}
+.calc-result-card .crc-tent { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--green); margin: 4px 0 2px; }
+.calc-stats { display: flex; gap: 26px; flex-wrap: wrap; margin: 14px 0 4px; }
+.calc-stats .cs { font-size: 13px; color: var(--muted); }
+.calc-stats .cs strong { display: block; font-family: var(--serif); font-size: 20px; color: var(--dark); font-weight: 700; }
+.calc-svg-wrap { background: var(--light); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; margin: 16px 0; }
+.calc-svg-wrap svg { display: block; width: 100%; height: auto; max-height: 420px; margin: 0 auto; }
+.calc-note { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+.chart-table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; }
+.chart-table th, .chart-table td { border: 1px solid var(--border); padding: 10px 14px; text-align: left; }
+.chart-table th { background: var(--light); color: var(--green); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+.chart-table td strong { color: var(--green); }
+.chart-wrap { overflow-x: auto; }
+</style>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What size tent do I need for 50 guests?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For 50 guests at long banquet tables run family-style, a single 20×60 ft marquee (1,200 sq ft) works — even with a dance floor — with tent rental from $1,260 CAD. Round tables need more width: two 20×60 marquees joined side-by-side (40×60 ft, 2,400 sq ft) from $2,520 CAD. Smaller groups: 20 guests fit a 20×20 at long tables ($550) or a 20×40 at rounds ($1,100)." } },
+    { "@type": "Question", "name": "What size tent do I need for 100 guests?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For 100 guests — round or long banquet tables, with or without a dance floor — two 20×60 ft marquees joined side-by-side: a 40×60 ft footprint, 2,400 sq ft (24 sq ft per guest), with tent rental from $2,520 CAD. The dance floor tucks into a corner of the tent beside the seating rather than demanding its own full-width zone." } },
+    { "@type": "Question", "name": "What size tent do I need for 150 guests?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For 150 guests at long banquet tables, our 30×60 joined with a 20×60 (50×60 ft, 3,000 sq ft) works — with or without a dance floor — with tent rental from $3,150 CAD. Round tables with a dance floor step up to the 30×60 joined with both 20×60s (70×60 ft, 4,200 sq ft) from $4,410 CAD." } },
+    { "@type": "Question", "name": "Do I need sidewalls on my tent?",
+      "acceptedAnswer": { "@type": "Answer", "text": "In the Lower Mainland we recommend sidewalls for any event outside July–August, for evening events, and for any site exposed to wind — they keep rain, wind, and chill out and hold heat in if you add a tent heater. Sidewalls rent per panel so you can wall in only the weather side. See our tent sidewall page for current pricing." } },
+    { "@type": "Question", "name": "Do I need a permit for a party tent in BC?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It depends on the municipality and tent size. Many Metro Vancouver municipalities require a permit for larger tents (commonly over 60 square metres / about 645 sq ft) on private property, and parks have their own booking rules. A 20×20 backyard tent rarely needs one; joined marquees for 100+ guests often do. We walk every customer through their city's rules — read our tent permit guide or call us at 778-990-7983." } }
+  ]
+}
+</script>
+
+<!-- JSON-LD: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "@id": "https://www.foreverpartyrentals.com/tent-size-calculator#tool",
+  "name": "Tent Size Calculator — Forever Party Rentals",
+  "description": "Free tent size calculator. Enter guest count, seating style, and extras (dance floor, head table, buffet) to get the recommended marquee size, total square footage, starting rental price, and a to-scale layout preview.",
+  "url": "https://www.foreverpartyrentals.com/tent-size-calculator",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Web",
+  "browserRequirements": "Requires JavaScript. Works on phone, tablet and desktop.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
+  "creator": { "@id": "https://www.foreverpartyrentals.com/#localbusiness" }
+}
+</script>
+
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.foreverpartyrentals.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Tent Size Calculator", "item": "https://www.foreverpartyrentals.com/tent-size-calculator" }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KC35GGRQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Meta Pixel (noscript) -->
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscript=1"
+/></noscript>
+<!-- End Meta Pixel (noscript) -->
+
+<!-- NAV:START -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+
+<div id="topbar" role="complementary" aria-label="Contact information">
+    <div class="container">
+      <a class="tb-item" href="tel:778-990-7983" aria-label="Call us at 778-990-7983"><span class="tb-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>778-990-7983</a>
+      <a class="tb-item" href="mailto:welcome@foreverpartyrentals.com" aria-label="Email us at welcome@foreverpartyrentals.com"><span class="tb-ico" aria-hidden="true"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></span>welcome@foreverpartyrentals.com</a>
+      <span class="tb-item tb-muted" aria-hidden="true">Mon–Sun 10:30AM–6PM</span>
+    </div>
+</div>
+
+<nav id="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a class="nav-logo" href="/" aria-label="Forever Party Rentals — home"><img src="/images/logo.webp" alt="Forever Party Rentals" width="125" height="125"/></a>
+      <div class="nav-links" role="menubar">
+
+        <div class="nav-link">
+          
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tents" aria-label="Tent Rentals">Tents <span aria-hidden="true">▾</span></button>
+          <div class="dropdown" id="dd-tents" role="menu" aria-label="Tent Rentals">
+            <a role="menuitem" href="/tents">All Tent Rentals</a>
+            <div class="dropdown-sub">
+              <a role="menuitem" href="/marquee-tent-rental-lowermainland-surrey-langley-vancouver" aria-haspopup="true">Marquee Tent Rental Lower Mainland <span class="dropdown-sub-caret" aria-hidden="true">▸</span></a>
+              <div class="subdropdown" role="menu" aria-label="Marquee Tent Sizes">
+                <a role="menuitem" href="/product-marquee-tent-20x20">20×20 Marquee Tent</a>
+                <a role="menuitem" href="/product-marquee-tent-20x30">20×30 Marquee Tent</a>
+                <a role="menuitem" href="/product-marquee-tent-20x40">20×40 Marquee Tent</a>
+                <a role="menuitem" href="/product-marquee-tent-20x60">20×60 Marquee Tent</a>
+                <a role="menuitem" href="/product-marquee-tent-30x60">30×60 Marquee Tent</a>
+              </div>
+            </div>
+            <a role="menuitem" href="/product-popup-tent-10x10">10×10 Popup Tent</a>
+            <a role="menuitem" href="/product-tent-sidewall">Tent Sidewalls</a>
+            <a role="menuitem" href="/product-tent-heater">Tent Heaters</a>
+            <a role="menuitem" href="/tent-size-calculator">What Size Tent? — Calculator</a>
+          </div>
+        </div>
+
+        <div class="nav-link">
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs" aria-label="Chair Rentals">Chairs <span aria-hidden="true">▾</span></button>
+          <div class="dropdown" id="dd-chairs" role="menu" aria-label="Chair Rentals">
+            <a role="menuitem" href="/chairs">All Chair Rentals</a>
+            <a role="menuitem" href="/product-white-chiavari-chair">Chiavari Chairs</a>
+            <a role="menuitem" href="/product-fanback-garden-chair">Fanback Chairs</a>
+            <a role="menuitem" href="/product-resin-garden-chair">Resin Garden Chairs</a>
+          </div>
+        </div>
+
+        <div class="nav-link">
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables" aria-label="Table Rentals">Tables <span aria-hidden="true">▾</span></button>
+          <div class="dropdown" id="dd-tables" role="menu" aria-label="Table Rentals">
+            <a role="menuitem" href="/tables">All Table Rentals</a>
+            <a role="menuitem" href="/product-banquet-table-8ft">8ft Banquet Tables</a>
+            <a role="menuitem" href="/product-banquet-table-6ft">6ft Banquet Tables</a>
+            <a role="menuitem" href="/product-round-table-5ft">5ft Round Tables</a>
+            <a role="menuitem" href="/product-cocktail-table">Cocktail Tables</a>
+          </div>
+        </div>
+
+        <div class="nav-link"><a href="/dance-floor">Dance Floor</a></div>
+
+        <div class="nav-link"><a href="/event-layout-planner">Layout Planner</a></div>
+
+        <div class="nav-link">
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-misc">Misc <span aria-hidden="true">▾</span></button>
+          <div class="dropdown" id="dd-misc" role="menu" aria-label="More Rentals">
+            <div class="dropdown-sub">
+              <a role="menuitem" href="/battery-power-stations" aria-haspopup="true">Battery &amp; Power Stations <span class="dropdown-sub-caret" aria-hidden="true">▸</span></a>
+              <div class="subdropdown" role="menu" aria-label="Battery and Power Station Rentals">
+                <a role="menuitem" href="/battery-power-stations">All Battery &amp; Power Stations</a>
+                <a role="menuitem" href="/product-ecoflow-delta-2">EcoFlow Delta 2 (1024 Wh)</a>
+                <a role="menuitem" href="/product-ecoflow-delta-3-max">EcoFlow Delta 3 Max (2048 Wh)</a>
+                <a role="menuitem" href="/product-ecoflow-delta-3-ultra">EcoFlow Delta 3 Ultra (3072 Wh)</a>
+                <a role="menuitem" href="/product-ecoflow-220w-solar-panel">220W Solar Panel + Add-ons</a>
+              </div>
+            </div>
+            <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
+            <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
+          </div>
+        </div>
+
+        <div class="nav-link">
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-packages">Packages <span aria-hidden="true">▾</span></button>
+          <div class="dropdown" id="dd-packages" role="menu" aria-label="Event Packages">
+            <a role="menuitem" href="/packages">All Packages</a>
+            <div class="dropdown-sub">
+              <a role="menuitem" href="/packages#wedding" aria-haspopup="true">Wedding Packages <span class="dropdown-sub-caret" aria-hidden="true">▸</span></a>
+              <div class="subdropdown" role="menu" aria-label="Wedding Package Sizes">
+                <a role="menuitem" href="/wedding-package-50-guests">50 Guests</a>
+                <a role="menuitem" href="/wedding-package-100-guests">100 Guests</a>
+                <a role="menuitem" href="/wedding-package-150-guests">150 Guests</a>
+              </div>
+            </div>
+            <div class="dropdown-sub">
+              <a role="menuitem" href="/packages#corporate" aria-haspopup="true">Corporate Packages <span class="dropdown-sub-caret" aria-hidden="true">▸</span></a>
+              <div class="subdropdown" role="menu" aria-label="Corporate Package Sizes">
+                <a role="menuitem" href="/corporate-package-50-guests">50 Guests</a>
+                <a role="menuitem" href="/corporate-package-100-guests">100 Guests</a>
+                <a role="menuitem" href="/corporate-package-150-guests">150 Guests</a>
+              </div>
+            </div>
+            <div class="dropdown-sub">
+              <a role="menuitem" href="/packages#backyard" aria-haspopup="true">Backyard Packages <span class="dropdown-sub-caret" aria-hidden="true">▸</span></a>
+              <div class="subdropdown" role="menu" aria-label="Backyard Package Sizes">
+                <a role="menuitem" href="/backyard-package-50-guests">50 Guests</a>
+                <a role="menuitem" href="/backyard-package-100-guests">100 Guests</a>
+                <a role="menuitem" href="/backyard-package-150-guests">150 Guests</a>
+              </div>
+            </div>
+            <div class="dropdown-sub">
+              <a role="menuitem" href="/carnival-games" aria-haspopup="true">Carnival Games <span class="dropdown-sub-caret" aria-hidden="true">▸</span></a>
+              <div class="subdropdown" role="menu" aria-label="Carnival Game Bundles">
+                <a role="menuitem" href="/carnival-games">All Carnival Games</a>
+                <a role="menuitem" href="/carnival-games-bundle-2">2-Game Bundle</a>
+                <a role="menuitem" href="/carnival-games-bundle-4">4-Game Bundle</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-link" style="position:relative">
+          <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-areas">Service Areas <span aria-hidden="true">▾</span></button>
+          <div class="mega-dropdown" id="dd-areas" role="menu" aria-label="Service Areas">
+            <a role="menuitem" href="/service-areas" class="mega-all">All Service Areas</a>
+            <div class="mega-divider" aria-hidden="true"></div>
+            <div class="mega-col-title">Party Rentals By City</div>
+            <div class="mega-dropdown-inner"><a role="menuitem" href="/surrey-party-rentals">Surrey</a><a role="menuitem" href="/langley-party-rentals">Langley</a><a role="menuitem" href="/abbotsford-party-rentals">Abbotsford</a><a role="menuitem" href="/white-rock-party-rentals">White Rock</a><a role="menuitem" href="/delta-party-rentals">Delta</a><a role="menuitem" href="/burnaby-party-rentals">Burnaby</a><a role="menuitem" href="/coquitlam-party-rentals">Coquitlam</a><a role="menuitem" href="/maple-ridge-party-rentals">Maple Ridge</a><a role="menuitem" href="/vancouver-party-rentals">Vancouver</a><a role="menuitem" href="/north-vancouver-party-rentals">North Vancouver</a><a role="menuitem" href="/west-vancouver-party-rentals">West Vancouver</a><a role="menuitem" href="/richmond-party-rentals">Richmond</a><a role="menuitem" href="/pitt-meadows-party-rentals">Pitt Meadows</a><a role="menuitem" href="/port-moody-party-rentals">Port Moody</a><a role="menuitem" href="/new-westminster-party-rentals">New Westminster</a><a role="menuitem" href="/langley-township-party-rentals">Langley Township</a><a role="menuitem" href="/fort-langley-party-rentals">Fort Langley</a><a role="menuitem" href="/willoughby-party-rentals">Willoughby</a><a role="menuitem" href="/aldergrove-party-rentals">Aldergrove</a><a role="menuitem" href="/carvolth-party-rentals">Carvolth</a><a role="menuitem" href="/chilliwack-party-rentals">Chilliwack</a><a role="menuitem" href="/east-clayton-party-rentals">East Clayton</a><a role="menuitem" href="/east-newton-north-party-rentals">East Newton North</a><a role="menuitem" href="/harrison-hot-springs-party-rentals">Harrison Hot Springs</a><a role="menuitem" href="/ladner-party-rentals">Ladner</a><a role="menuitem" href="/mission-party-rentals">Mission</a><a role="menuitem" href="/port-kells-party-rentals">Port Kells</a><a role="menuitem" href="/tsawwassen-party-rentals">Tsawwassen</a><a role="menuitem" href="/walnut-grove-party-rentals">Walnut Grove</a></div>
+            <div class="mega-divider" aria-hidden="true"></div>
+            <div class="mega-col-title">Christmas Lights By City (14)</div>
+            <div class="mega-dropdown-inner"><a role="menuitem" href="/christmas-lights-surrey">Surrey</a><a role="menuitem" href="/christmas-lights-langley">Langley</a><a role="menuitem" href="/christmas-lights-abbotsford">Abbotsford</a><a role="menuitem" href="/christmas-lights-white-rock">White Rock</a><a role="menuitem" href="/christmas-lights-delta">Delta</a><a role="menuitem" href="/christmas-lights-burnaby">Burnaby</a><a role="menuitem" href="/christmas-lights-coquitlam">Coquitlam</a><a role="menuitem" href="/christmas-lights-maple-ridge">Maple Ridge</a><a role="menuitem" href="/christmas-lights-vancouver">Vancouver</a><a role="menuitem" href="/christmas-lights-north-vancouver">North Vancouver</a><a role="menuitem" href="/christmas-lights-west-vancouver">West Vancouver</a><a role="menuitem" href="/christmas-lights-richmond">Richmond</a><a role="menuitem" href="/christmas-lights-port-moody">Port Moody</a><a role="menuitem" href="/christmas-lights-new-westminster">New Westminster</a><a role="menuitem" href="/christmas-lights-langley-township">Langley Township</a></div>
+          </div>
+        </div>
+
+        <div class="nav-link"><a href="/pricing">Prices</a></div>
+
+        <div class="nav-link"><a href="/contact">Contact</a></div>
+      </div>
+      <a class="btn btn-primary nav-cta" href="/rentals">Book Now</a>
+      <button type="button" class="nav-hamburger" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navMobile">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile" role="menu" aria-label="Mobile navigation" hidden>
+      <div class="nm-group" role="group">
+        <a role="menuitem" href="/">Home</a>
+        <a role="menuitem" href="/rentals" class="nm-book">→ Book Now Online</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Rentals">
+        <div class="nm-title" role="presentation">Rentals</div>
+        <a role="menuitem" href="/tents">Tent Rentals</a>
+        <a role="menuitem" href="/marquee-tent-rental-lowermainland-surrey-langley-vancouver">Marquee Tent Rental Lower Mainland</a>
+        <a role="menuitem" href="/chairs">Chair Rentals</a>
+        <a role="menuitem" href="/tables">Table Rentals</a>
+        <a role="menuitem" href="/dance-floor">Dance Floor</a>
+        <a role="menuitem" href="/battery-power-stations">Battery &amp; Power Stations</a>
+        <a role="menuitem" href="/starlink-rentals">Starlink Internet</a>
+        <a role="menuitem" href="/projector-rentals">Projector &amp; Screen</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Packages and pricing">
+        <div class="nm-title" role="presentation">Packages &amp; Pricing</div>
+        <a role="menuitem" href="/packages">Event Packages</a>
+        <a role="menuitem" href="/pricing">Prices</a>
+        <a role="menuitem" href="/event-layout-planner">Free Layout Planner</a>
+      </div>
+      <div class="nm-group" role="group" aria-label="Company">
+        <div class="nm-title" role="presentation">Company</div>
+        <a role="menuitem" href="/service-areas">Service Areas</a>
+        <a role="menuitem" href="/contact">Contact</a>
+      </div>
+    </div>
+</nav>
+
+<div id="fprCtaBar" class="mobile-cta-bar" role="navigation" aria-label="Call or book">
+  <a class="mcb-call" href="tel:778-990-7983"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>&nbsp;778-990-7983</a>
+  <a class="mcb-book" href="/rentals">Book Online</a>
+</div>
+<script>(function(){if(/checkout|layout-planner|^\/planner/.test(location.pathname)){var b=document.getElementById('fprCtaBar');if(b){b.hidden=true;}document.documentElement.classList.add('no-cta-bar');}})();</script>
+<!-- NAV:END -->
+
+<main id="main">
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="/">Home</a><span>/</span>Tent Size Calculator</div>
+    <span class="eyebrow">Free Tool · No Signup</span>
+    <h1>What Size Tent Do I Need?</h1>
+    <p>Enter your guest count and seating style — get the exact marquee size, square footage, and starting price, plus a to-scale preview of your layout. Powered by the same engine as our <a href="/event-layout-planner" style="color:var(--gold)">free event layout planner</a>.</p>
+  </div>
+</div>
+
+<!-- ── CALCULATOR ───────────────────────────────────────────────────── -->
+<section class="section" id="calculator" style="padding-top:36px">
+  <div class="container">
+    <div class="calc-grid">
+
+      <form class="calc-form" id="calcForm" aria-label="Tent size calculator">
+        <label class="field-label" for="calcGuests">How many guests?</label>
+        <input type="number" id="calcGuests" name="guests" min="1" max="300" step="1" value="100" inputmode="numeric" required/>
+
+        <label class="field-label">Seating style</label>
+        <div class="calc-radios" role="radiogroup" aria-label="Seating style">
+          <label><input type="radio" name="seating" value="round" checked/> Round tables</label>
+          <label><input type="radio" name="seating" value="banquet"/> Long tables</label>
+          <label><input type="radio" name="seating" value="cocktail"/> Cocktail</label>
+          <label><input type="radio" name="seating" value="ceremony"/> Ceremony rows</label>
+        </div>
+
+        <label class="field-label">Extras</label>
+        <div class="calc-checks">
+          <label><input type="checkbox" name="danceFloor" checked/> Dance floor</label>
+          <label><input type="checkbox" name="headTable"/> Head table</label>
+          <label><input type="checkbox" name="buffet"/> Buffet station</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg" style="width:100%;margin-top:22px">Calculate My Tent Size</button>
+        <p class="calc-note" style="margin-top:12px">Sizing uses the same spacing math we use on real installs: ~10.75 ft round-table pitch (industry catering standard), 8 sq ft/guest cocktail, 4 ft ceremony aisle — and never recommends more tents than our fleet actually stocks. See <a href="/event-spacing-guide">the full spacing guide</a>.</p>
+      </form>
+
+      <div class="calc-result-card" id="calcResult" aria-live="polite">
+        <span class="eyebrow">Your Recommendation</span>
+        <div id="calcResultBody">
+          <p style="margin:14px 0;color:var(--muted);font-size:15px">Enter your guest count and press <strong>Calculate</strong> — your recommended tent, square footage, starting price, and a to-scale layout preview will appear here.</p>
+          <noscript>
+            <p style="margin:14px 0;font-size:14px"><strong>This calculator needs JavaScript.</strong> No problem — the quick-reference chart below covers the most common sizes, or call us at <a href="tel:778-990-7983">778-990-7983</a> and we'll size it for you in two minutes.</p>
+          </noscript>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── QUICK REFERENCE CHART (static — works without JS) ────────────── -->
+<section class="section section--light" id="chart">
+  <div class="container" style="max-width:900px">
+    <div class="section-header center">
+      <h2>Tent Size Chart by Guest Count</h2>
+      <p>Dinner seating only, no dance floor — exactly what the calculator engine recommends. Prices are tent-only starting prices from our current catalog (CAD, before delivery &amp; setup).</p>
+    </div>
+
+    <h3 style="margin:26px 0 10px;font-size:17px">Round tables (8 guests per 5ft round)</h3>
+    <div class="chart-wrap">
+    <table class="chart-table">
+      <thead><tr><th>Guests</th><th>Recommended tent</th><th>Footprint</th><th>Total area</th><th>Tent from</th></tr></thead>
+      <tbody>
+        <tr><td>20</td><td><strong>20×40 Marquee Tent</strong></td><td>20×40 ft</td><td>800 sq ft</td><td>$1,100</td></tr>
+        <tr><td>50</td><td><strong>2× 20×40 Marquees, joined</strong></td><td>40×40 ft</td><td>1,600 sq ft</td><td>$2,200</td></tr>
+        <tr><td>100</td><td><strong>2× 20×60 Marquees, joined</strong></td><td>40×60 ft</td><td>2,400 sq ft</td><td>$2,520</td></tr>
+        <tr><td>150</td><td><strong>30×60 + 20×60, joined</strong></td><td>50×60 ft</td><td>3,000 sq ft</td><td>$3,150</td></tr>
+        <tr><td>200</td><td><strong>30×60 + 2× 20×60, joined</strong></td><td>70×60 ft</td><td>4,200 sq ft</td><td>$4,410</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3 style="margin:30px 0 10px;font-size:17px">Long banquet tables (family-style runs, 6 per table)</h3>
+    <div class="chart-wrap">
+    <table class="chart-table">
+      <thead><tr><th>Guests</th><th>Recommended tent</th><th>Footprint</th><th>Total area</th><th>Tent from</th></tr></thead>
+      <tbody>
+        <tr><td>20</td><td><strong>20×20 Marquee Tent</strong></td><td>20×20 ft</td><td>400 sq ft</td><td>$550</td></tr>
+        <tr><td>50</td><td><strong>20×60 Marquee Tent</strong></td><td>20×60 ft</td><td>1,200 sq ft</td><td>$1,260</td></tr>
+        <tr><td>100</td><td><strong>2× 20×60 Marquees, joined</strong></td><td>40×60 ft</td><td>2,400 sq ft</td><td>$2,520</td></tr>
+        <tr><td>150</td><td><strong>30×60 + 20×60, joined</strong></td><td>50×60 ft</td><td>3,000 sq ft</td><td>$3,150</td></tr>
+        <tr><td>200</td><td><strong>30×60 + 2× 20×60, joined</strong></td><td>70×60 ft</td><td>4,200 sq ft</td><td>$4,410</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <p class="calc-note" style="margin-top:16px">The engine always sizes to the smallest 20-ft-wide marquee or joined combination that fits standard catering spacing (~10.75 ft pitch per round table, 4 ft guest aisles), never recommends more tents than our fleet stocks, and only reaches for the 30×60 when no 20-ft combination can hold the layout — typically 150+ guests. A dance floor, head table, or buffet adds footprint: use the calculator above for your exact combination. Tent specs and pricing live on the product pages: <a href="/product-marquee-tent-20x20">20×20</a>, <a href="/product-marquee-tent-20x30">20×30</a>, <a href="/product-marquee-tent-20x40">20×40</a>, <a href="/product-marquee-tent-20x60">20×60</a>, <a href="/product-marquee-tent-30x60">30×60</a>.</p>
+  </div>
+</section>
+
+<!-- ── HOW THE MATH WORKS ───────────────────────────────────────────── -->
+<section class="section">
+  <div class="container" style="max-width:900px">
+    <div class="section-header center">
+      <h2>How We Size a Tent</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card"><div class="card-body">
+        <h3>Square feet per guest</h3>
+        <p>Cocktail events run about 8 sq ft per guest. Seated dinners need 12–15 sq ft once you add chair push-back and aisles. Ceremony rows fall in between. Our engine sizes from the actual furniture footprint, not just a rule of thumb.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>Table pitch, not table size</h3>
+        <p>A 5ft round is 5 ft across — but with chairs it's a 9.2 ft envelope, and with walking room it sits on a ~10.75 ft pitch (the catering-industry standard). That's why round-table layouts need wider tents than most people expect.</p>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <h3>Dance floors &amp; extras</h3>
+        <p>We size dance floors at roughly 3 sq ft × 40% of your guest list, snapped up to our real floor sizes (8×8 to 16×16). Head tables and buffet lines reserve their own zones before the seating grid is placed.</p>
+      </div></div>
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <a href="/event-spacing-guide" class="btn btn-outline btn-lg">Read the Full Event Spacing Guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ──────────────────────────────────────────────────────────── -->
+<section class="section section--light">
+  <div class="container" style="max-width:800px">
+    <div class="section-header center">
+      <h2>Tent Sizing FAQ</h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">What size tent do I need for 50 guests?</div>
+        <div class="faq-a"><p>For 50 guests at long banquet tables run family-style, a single <a href="/product-marquee-tent-20x60">20×60 ft marquee</a> (1,200 sq ft) works — even with a dance floor — with tent rental from <strong>$1,260</strong>. Round tables need more width: two 20×60 marquees joined side-by-side (40×60 ft, 2,400 sq ft) from $2,520. Smaller groups: 20 guests fit a <a href="/product-marquee-tent-20x20">20×20</a> at long tables ($550) or a <a href="/product-marquee-tent-20x40">20×40</a> at rounds ($1,100).</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What size tent do I need for 100 guests?</div>
+        <div class="faq-a"><p>For 100 guests — round or long banquet tables, with or without a dance floor — two <a href="/product-marquee-tent-20x60">20×60 marquees</a> joined side-by-side: a 40×60 ft footprint, 2,400 sq ft (24 sq ft per guest), with tent rental from <strong>$2,520</strong>. The dance floor tucks into a corner of the tent beside the seating rather than demanding its own full-width zone.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What size tent do I need for 150 guests?</div>
+        <div class="faq-a"><p>For 150 guests at long banquet tables, our <a href="/product-marquee-tent-30x60">30×60</a> joined with a <a href="/product-marquee-tent-20x60">20×60</a> (50×60 ft, 3,000 sq ft) works — with or without a dance floor — with tent rental from <strong>$3,150</strong>. Round tables with a dance floor step up to the 30×60 joined with both 20×60s (70×60 ft, 4,200 sq ft) from $4,410.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need sidewalls on my tent?</div>
+        <div class="faq-a"><p>In the Lower Mainland we recommend <a href="/product-tent-sidewall">sidewalls</a> for any event outside July–August, for evening events, and for any site exposed to wind — they keep rain, wind, and chill out and hold heat in if you add a <a href="/product-tent-heater">tent heater</a>. Sidewalls rent per panel, so you can wall in only the weather side.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need a permit for a party tent in BC?</div>
+        <div class="faq-a"><p>It depends on the municipality and tent size. Many Metro Vancouver municipalities require a permit for larger tents (commonly over 60 square metres / about 645 sq ft) on private property, and parks have their own booking rules. A 20×20 backyard tent rarely needs one; joined marquees for 100+ guests often do. We walk every customer through their city's rules — read our <a href="/blog/tent-permits-surrey-metro-vancouver-parks">tent permit guide</a> or call <a href="tel:778-990-7983">778-990-7983</a>.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <div class="container">
+    <h2>Want to See Your Whole Layout, Not Just the Tent?</h2>
+    <p>Open the free layout planner — drag tables, chairs and dance floors into your exact venue and watch capacity and price update live. No signup.</p>
+    <div class="btn-row">
+      <a href="/event-layout-planner" class="btn btn-gold btn-lg">Open the Layout Planner</a>
+      <a href="/contact" class="btn btn-outline-white btn-lg">Ask Our Team</a>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- FOOTER:START -->
+<footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="/" aria-label="Forever Party Rentals — home" class="footer-logo"><img src="/images/logo.webp" alt="Forever Party Rentals"/></a>
+          <p class="footer-desc">The Lower Mainland's highest quality event rental company. Tents, chairs, tables &amp; dance floors — delivered and set up across BC.</p>
+          <div class="footer-ctas">
+            <a href="/rentals" class="btn btn-gold" style="font-size:12px;padding:9px 20px">Book Online</a>
+            <a href="tel:778-990-7983" class="btn btn-outline-white" style="font-size:12px;padding:9px 20px">778-990-7983</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Rentals</div>
+          <a class="footer-link" href="/tents">Tent Rentals</a>
+          <a class="footer-link" href="/tents#popup">Tents For Pickup</a>
+          <a class="footer-link" href="/chairs">Chair Rentals</a>
+          <a class="footer-link" href="/tables">Table Rentals</a>
+          <a class="footer-link" href="/dance-floor">Dance Floor Rental</a>
+          <a class="footer-link" href="/wedding-rentals">Wedding Rentals</a>
+          <a class="footer-link" href="/event-rentals">Event Rentals</a>
+          <a class="footer-link" href="/pricing">Price List</a>
+          <a class="footer-link" href="/event-layout-planner">Free Tent, Table and Chair Layout Planner</a>
+          <a class="footer-link" href="/christmas-lights" style="color:var(--gold)"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6c5 5.5 15 5.5 20 0"/><circle cx="6.5" cy="10.6" r="1.7"/><circle cx="12" cy="12.1" r="1.7"/><circle cx="17.5" cy="10.6" r="1.7"/></svg> Christmas Light Installation</a>
+        </div>
+        <div>
+          <div class="footer-col-title">Service Areas</div>
+          <a class="footer-link" href="/surrey-party-rentals">Surrey</a>
+          <a class="footer-link" href="/langley-party-rentals">Langley</a>
+          <a class="footer-link" href="/vancouver-party-rentals">Vancouver</a>
+          <a class="footer-link" href="/burnaby-party-rentals">Burnaby</a>
+          <a class="footer-link" href="/abbotsford-party-rentals">Abbotsford</a>
+          <a class="footer-link" href="/richmond-party-rentals">Richmond</a>
+          <a class="footer-link" href="/coquitlam-party-rentals">Coquitlam</a>
+          <a class="footer-link" href="/north-vancouver-party-rentals">North Vancouver</a>
+          <a class="footer-link" href="/maple-ridge-party-rentals">Maple Ridge</a>
+          <a class="footer-link" href="/new-westminster-party-rentals">New Westminster</a>
+          <a class="footer-link" href="/white-rock-party-rentals">White Rock</a>
+          <a class="footer-link" href="/delta-party-rentals">Delta</a>
+          <a class="footer-link" href="/service-areas" style="color:var(--gold)">All 28 Cities →</a>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <a class="footer-link" href="tel:778-990-7983">778-990-7983</a>
+          <a class="footer-link" href="mailto:welcome@foreverpartyrentals.com">welcome@foreverpartyrentals.com</a>
+          <span class="footer-link">Mon–Sun 10:30AM–6PM</span>
+          <span class="footer-link">9317 188 St, Surrey BC V4N 3V1</span>
+          <a class="footer-link" href="https://www.google.com/search?q=Forever+Party+Rentals&amp;kgmid=/g/11tnwsrdpc" rel="noopener noreferrer" target="_blank" style="color:var(--gold);margin-top:8px;display:block"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg> 190+ Google Reviews →</a>
+          <a class="footer-link" href="https://www.instagram.com/foreverpartyrentalsbc/" rel="noopener noreferrer" target="_blank" style="display:block"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="4"/></svg> @foreverpartyrentalsbc</a>
+          <a class="footer-link" href="/reviews">Reviews</a>
+          <a class="footer-link" href="/faq">FAQ</a>
+          <a class="footer-link" href="/corporate">Corporate Events</a>
+          <a class="footer-link" href="/blog/">Blog</a>
+          <a class="footer-link" href="/contact">Contact Us</a>
+          <a class="footer-link" href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        © 2026 Forever Party Rentals · Serving Vancouver, Burnaby, Surrey, Langley, Richmond, North Vancouver, New Westminster, Maple Ridge &amp; the Lower Mainland
+      </div>
+    </div>
+</footer>
+<!-- FOOTER:END -->
+<script src="/shared.js?v=23"></script>
+<script src="/planner/layout-gen.js?v=4"></script>
+<script>
+/* Tent size calculator — thin UI over FPRLayoutGen (same engine as the
+   planner's guest-count wizard). Catalog is fetched once, lazily. */
+(function () {
+  'use strict';
+  var form = document.getElementById('calcForm');
+  var resultBody = document.getElementById('calcResultBody');
+  if (!form || !resultBody || !window.FPRLayoutGen) return;
+
+  var catalogPromise = null;
+  var byKey = {};
+  function loadCatalog() {
+    if (!catalogPromise) {
+      catalogPromise = fetch('/planner/catalog.json').then(function (r) {
+        if (!r.ok) throw new Error('catalog HTTP ' + r.status);
+        return r.json();
+      }).then(function (catalog) {
+        FPRLayoutGen.init(catalog);
+        catalog.groups.forEach(function (g) {
+          g.items.forEach(function (it) { byKey[it.key] = it; });
+        });
+        return catalog;
+      });
+    }
+    return catalogPromise;
+  }
+
+  function money(n) {
+    return '$' + Math.round(n).toLocaleString('en-CA');
+  }
+
+  function readOpts() {
+    var guests = Math.max(1, Math.min(300, parseInt(form.guests.value, 10) || 0));
+    return {
+      guests: guests,
+      seating: form.seating.value,
+      danceFloor: form.danceFloor.checked,
+      headTable: form.headTable.checked,
+      buffet: form.buffet.checked
+    };
+  }
+
+  /* To-scale SVG preview from a generateLayout() recipe.
+     Tents = dashed rects, dance floors = filled rects, round tables /
+     highboys = circles, banquet tables & chairs-in-rows = rects.
+     Chairs around tables are skipped for cleanliness. */
+  function buildSvg(recipe) {
+    var W = recipe.venue.widthFt, D = recipe.venue.depthFt;
+    var parts = [];
+    parts.push('<svg viewBox="0 0 ' + W + ' ' + D + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="To-scale layout preview, ' + W + ' by ' + D + ' feet">');
+    parts.push('<rect x="0" y="0" width="' + W + '" height="' + D + '" fill="#fff" stroke="var(--border)" stroke-width="0.4"/>');
+    var order = { tent: 0, danceFloor: 1, rect: 2, circle: 2 };
+    var items = recipe.items.slice().sort(function (a, b) {
+      var ia = byKey[a.key] || {}, ib = byKey[b.key] || {};
+      return (order[ia.shape] || 2) - (order[ib.shape] || 2);
+    });
+    items.forEach(function (it) {
+      var spec = byKey[it.key];
+      if (!spec) return;
+      var rot = it.rotation || 0;
+      if (spec.shape === 'tent') {
+        var tw = spec.widthFt, td = spec.depthFt;
+        parts.push('<g transform="rotate(' + rot + ' ' + it.cx + ' ' + it.cy + ')">' +
+          '<rect x="' + (it.cx - tw / 2) + '" y="' + (it.cy - td / 2) + '" width="' + tw + '" height="' + td + '"' +
+          ' fill="none" stroke="var(--green)" stroke-width="0.5" stroke-dasharray="2 1.2"/></g>');
+      } else if (spec.shape === 'danceFloor') {
+        parts.push('<rect x="' + (it.cx - spec.widthFt / 2) + '" y="' + (it.cy - spec.depthFt / 2) + '" width="' + spec.widthFt + '" height="' + spec.depthFt + '"' +
+          ' fill="var(--gold)" fill-opacity="0.35" stroke="var(--gold)" stroke-width="0.3"/>');
+      } else if (spec.shape === 'circle') {
+        parts.push('<circle cx="' + it.cx + '" cy="' + it.cy + '" r="' + (spec.diameterFt / 2) + '"' +
+          ' fill="var(--light)" stroke="var(--green)" stroke-width="0.3"/>');
+      } else { /* rect: banquet tables, ceremony chairs */
+        parts.push('<g transform="rotate(' + rot + ' ' + it.cx + ' ' + it.cy + ')">' +
+          '<rect x="' + (it.cx - spec.widthFt / 2) + '" y="' + (it.cy - spec.depthFt / 2) + '" width="' + spec.widthFt + '" height="' + spec.depthFt + '"' +
+          ' fill="var(--light)" stroke="var(--green)" stroke-width="0.25" rx="0.2"/></g>');
+      }
+    });
+    parts.push('</svg>');
+    return parts.join('');
+  }
+
+  /* Starting price for the whole generated layout: every recipe item plus
+     its seat chairs, summed from catalog priceCAD. */
+  function layoutPrice(recipe) {
+    var total = 0;
+    recipe.items.forEach(function (it) {
+      var spec = byKey[it.key];
+      if (spec && typeof spec.priceCAD === 'number') total += spec.priceCAD;
+      if (it.withChairs && it.chairCount) {
+        var chair = byKey[it.chairKey || 'resin-garden-chair'];
+        if (chair) total += it.chairCount * chair.priceCAD;
+      }
+    });
+    return total;
+  }
+
+  function render(opts) {
+    var rec = FPRLayoutGen.recommendTent(opts);
+    if (!rec.fits || !rec.tentKeys.length) {
+      resultBody.innerHTML =
+        '<div class="crc-tent">Let’s plan this one together</div>' +
+        '<p style="font-size:14px;color:var(--muted);margin:10px 0 16px">' + (rec.notes[0] || 'That guest count needs a custom tent plan.') + '</p>' +
+        '<a class="btn btn-primary" href="/contact">Contact Us for a Custom Plan</a>';
+      return;
+    }
+    var tentNames;
+    if (rec.tentKeys.length === 1) {
+      tentNames = (byKey[rec.tentKeys[0]] || {}).label || rec.tentKeys[0];
+    } else {
+      tentNames = rec.tentKeys.length + '× ' + ((byKey[rec.tentKeys[0]] || {}).label || rec.tentKeys[0]) + ', joined';
+    }
+    var tentPrice = rec.tentKeys.reduce(function (s, k) { return s + ((byKey[k] || {}).priceCAD || 0); }, 0);
+
+    var recipe = FPRLayoutGen.generateLayout(opts);
+    var svg = recipe ? buildSvg(recipe) : '';
+    var fullPrice = recipe ? layoutPrice(recipe) : 0;
+    var genLink = '/event-layout-planner?gen=' + encodeURIComponent(JSON.stringify(opts));
+
+    var html =
+      '<div class="crc-tent">' + tentNames + '</div>' +
+      (rec.notes.length ? '<p style="font-size:13px;color:var(--muted);margin:2px 0 0">' + rec.notes.join(' · ') + '</p>' : '') +
+      '<div class="calc-stats">' +
+        '<div class="cs"><strong>' + rec.totalSqft.toLocaleString('en-CA') + ' sq ft</strong>total tent area</div>' +
+        '<div class="cs"><strong>' + rec.sqftPerGuest + ' sq ft</strong>per guest</div>' +
+        '<div class="cs"><strong>' + money(tentPrice) + '</strong>tent from (CAD)</div>' +
+        (fullPrice ? '<div class="cs"><strong>' + money(fullPrice) + '</strong>tent + furniture from</div>' : '') +
+      '</div>';
+    if (recipe) {
+      html += '<div class="calc-svg-wrap">' + svg + '</div>' +
+        '<p class="calc-note" style="margin-bottom:16px">' + recipe.summary + ' — drawn to scale (chairs hidden for clarity). Starting prices from our standard catalog; final quote adds delivery &amp; setup.</p>';
+    }
+    html += '<a class="btn btn-gold btn-lg" style="width:100%;text-align:center" href="' + genLink + '">Open this exact layout in the planner →</a>';
+    resultBody.innerHTML = html;
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'tent_calculator_result',
+      planner_guests: opts.guests,
+      planner_seating: opts.seating,
+      planner_tent: rec.tentKeys.join('+'),
+      planner_sqft: rec.totalSqft
+    });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var opts = readOpts();
+    resultBody.innerHTML = '<p style="margin:14px 0;color:var(--muted)">Calculating…</p>';
+    loadCatalog().then(function () { render(opts); }).catch(function () {
+      resultBody.innerHTML = '<p style="margin:14px 0;font-size:14px">Hmm, the catalog didn’t load. Refresh and try again, or call <a href="tel:778-990-7983">778-990-7983</a> and we’ll size it for you.</p>';
+    });
+  });
+})();
+</script>
+</body>
+</html>

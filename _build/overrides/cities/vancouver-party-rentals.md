@@ -1,7 +1,7 @@
 ---
 slug: vancouver-party-rentals
-title: "Vancouver Party Rentals — Stanley Park + Backyard Setups"
-meta_description: "Vancouver party rentals — marquee tents, Chiavari chairs, tables & dance floors crew-installed at Stanley Park, QE Park & backyard venues. 190+ reviews."
+title: "Vancouver Party Rentals — Tents, Chairs & Setup"
+meta_description: "Vancouver party rentals — marquee tents, Chiavari chairs, tables and dance floors crew-installed at parks and backyards. 190+ reviews. Book 24/7."
 hero_subtitle: "Vancouver party rentals — marquee tents, Chiavari chairs, round tables, and dance floors delivered to your venue, levelled, and crew-installed by the people who answer your call."
 
 intro_paragraphs:
@@ -48,8 +48,8 @@ We run a single inventory and a single crew calendar across the entire Lower Mai
 
 On the truck for a typical Vancouver wedding:
 
-- **Marquee tents** from 20×20 up to 30×60, weather-rated, with sidewall and lighting add-ons
-- **[White Chiavari chairs](/product-white-chiavari-chair)** — the wedding-reception standard; ivory cushions, lacquered hardwood frame
+- **[Marquee tents](/tent-rental-vancouver)** from 20×20 up to 30×60, weather-rated, with sidewall and lighting add-ons — park, rooftop, and backyard install notes on that page
+- **[White Chiavari chairs](/product-white-chiavari-chair)** — the wedding-reception standard; ivory cushions, lacquered hardwood frame. Full Vancouver chair lineup (Chiavari, Fanback, Resin Garden) is on [chair rentals in Vancouver](/chair-rentals-vancouver)
 - **[Fanback folding chairs](/product-fanback-garden-chair)** — the ceremony-row workhorse, lighter and faster to stage in volume
 - **[Resin Garden chairs](/product-resin-garden-chair)** — outdoor-resilient, the right call when the surface is grass and the forecast isn't certain
 - **[5ft round tables](/product-round-table-5ft)** seating 8 guests, **6ft and 8ft banquet tables** for the head, gift, cake, DJ, and bar lines

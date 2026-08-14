@@ -115,7 +115,12 @@ export default async function handler(req) {
     if (!slug) continue;
     await store.set(
       `articles/${slug}`,
-      JSON.stringify({ ...article, _receivedAt: new Date().toISOString(), _status: 'published', _event: payload.event_type }),
+      JSON.stringify({
+        ...article,
+        _receivedAt: new Date().toISOString(),
+        _status: 'published', // 200 for Outrank verification; renderer noindexes
+        _event: payload.event_type,
+      }),
     );
     const entry = {
       slug,

@@ -1,0 +1,448 @@
+# Forever Party Rentals — 301 redirects from old Squarespace URLs to new static site
+# Format: OLD_PATH  NEW_PATH  STATUS
+# Works on Netlify and Cloudflare Pages (drop this file at site root).
+# First match wins — keep specific paths above any catch-alls.
+#
+# CANONICAL URL FORM: extensionless (e.g. /burnaby-party-rentals, /chairs).
+# Netlify pretty_urls = true (set in netlify.toml) serves `foo.html` at /foo
+# and 301-redirects /foo.html → /foo automatically — no rules needed here.
+
+# ── Static assets that MUST serve as-is (top of file, before catch-alls) ────
+# Netlify's `:slug` placeholder matches dotted filenames like `shared.css`.
+# These explicit 200! rules pin them at their canonical path.
+/shared.css                                                             /shared.css                                                     200!
+/shared.js                                                              /shared.js                                                      200!
+/sitemap.xml                                                            /sitemap.xml                                                    200!
+/robots.txt                                                             /robots.txt                                                     200!
+/llms.txt                                                               /llms.txt                                                       200!
+/favicon.svg                                                            /favicon.svg                                                    200!
+/favicon.ico                                                            /favicon.ico                                                    200!
+/_headers                                                               /_headers                                                       200!
+
+# ── Planner short share links (/p/<id>) ─────────────────────────────────────
+# 200 rewrite (NOT a redirect): the hub page is served at the short URL and
+# its inline boot script resolves <id> via GET /api/share/<id>, then
+# history.replaceState()s to /event-layout-planner#s=<payload> before the
+# planner iframe loads. Target keeps the .html extension — rewrite targets
+# must name the real file in the publish dir (pretty_urls only rewrites
+# inbound request URLs, not rule targets). /api/share itself needs no rule:
+# Functions v2 routes declare their own path (see netlify/functions/share.mjs).
+/p/*                                                                    /event-layout-planner.html                                      200
+/home                                                                   /                                                               301!
+/about-us                                                               /                                                               301
+
+# ── Utility / static pages ───────────────────────────────────────────────────
+/faqs                                                                   /faq                                                            301!
+/checkout-2                                                             /checkout                                                       301!
+/testimonials                                                           /reviews                                                        301!
+
+# ── Top-level category / catalog pages ───────────────────────────────────────
+/our-rentals                                                            /rentals                                                        301!
+/our-rentals-1                                                          /rentals                                                        301!
+/table-rental-and-chair-rentals                                         /rentals                                                        301!
+/chair-rentals                                                          /chairs                                                         301!
+/dance-floor-rental                                                     /dance-floor                                                    301!
+
+# ── Product pages ────────────────────────────────────────────────────────────
+/chiavari-chair-rentals                                                 /product-white-chiavari-chair                                   301!
+/fanback-chair-rentals                                                  /product-fanback-garden-chair                                   301!
+/white-resin-garden-chairs                                              /product-resin-garden-chair                                     301!
+/round-table-rentals                                                    /product-round-table-5ft                                        301!
+/rectangular-table-rentals                                              /product-banquet-table-6ft                                      301!
+/rectangular-table-rentals-1                                            /product-banquet-table-6ft                                      301!
+/cocktail-table-rentals                                                 /product-cocktail-table                                         301!
+/popup-tents-for-pickup                                                 /product-popup-tent-10x10                                       301!
+/9000-watt-portable-gas-generator-rentals                               /rentals                                                        301
+
+# ── Tent sizing pages → matching product page (or size chart blog) ───────────
+/20x20-marquee-tent-rental-sizing                                       /product-marquee-tent-20x20                                     301!
+# Squarespace variant without the "-sizing" suffix (surfacing as 404 in GSC).
+/20x20-marquee-tent-rental                                              /product-marquee-tent-20x20                                     301!
+/20x30-marquee-tent-rental-sizing                                       /product-marquee-tent-20x30                                     301!
+/20x40-marquee-tent-rental-sizing                                       /product-marquee-tent-20x40                                     301!
+/20x60-marquee-tent-rental-sizing                                       /product-marquee-tent-20x60                                     301!
+/20x80-marquee-tent-rental-sizing                                       /product-marquee-tent-30x60                                     301!
+/product-marquee-tent-40x80                                             /product-marquee-tent-30x60                                     301!
+/30x40-marquee-tent-rental-sizing                                       /blog/tent-size-chart-20x20-20x40-20x60-40x80                   301
+/30x60-marquee-tent-rental-sizing                                       /blog/tent-size-chart-20x20-20x40-20x60-40x80                   301
+
+# ── Corporate / charity ──────────────────────────────────────────────────────
+/corporate-event-rentals                                                /corporate                                                      301!
+/charity-event-rentals                                                  /corporate                                                      301
+
+# ── Christmas / seasonal — retargeted to new Christmas-light service pages ─
+/burnaby-christmas-lights                                               /christmas-lights-burnaby                                       301!
+/christmas-lights-2                                                     /christmas-lights                                               301!
+
+# ── Old blog (/tent-party-rentals-resources/*) ───────────────────────────────
+/tent-party-rentals-resources/the-ultimate-guide-to-choosing-the-perfect-tent-rental-for-your-event  /blog/tent-size-guide-lower-mainland-wedding 301
+/tent-party-rentals-resources/are-tent-rentals-right-for-your-wedding-or-event                       /blog/backyard-wedding-tent-sizing-bc        301
+/tent-party-rentals-resources/corporate-event-planning-how-to-impress-your-boss-and-colleagues-with-forever-party-rentals  /corporate          301
+/tent-party-rentals-resources/rucx8xiod9ri14auek3b55rosk5pat                                         /blog/                                       301
+/tent-party-rentals-resources                                                                        /blog/                                       301!
+# Catch-all for any other Squarespace-era subpaths still surfacing in GSC as 404s.
+# Specific rules above win (first-match), so this only fires for unmapped subpaths.
+/tent-party-rentals-resources/*                                                                      /blog/                                       301!
+
+# ── Legacy root-level guide articles ─────────────────────────────────────────
+/choosing-the-right-tent-size-for-your-event-a-guide                    /blog/tent-size-guide-lower-mainland-wedding                    301
+# Note: /how-many-people-fit-at-round-tables and
+# /how-many-people-fit-at-a-6ft-rectangular-table were previously 301'd to
+# the matching SKU pages. Those informational URLs had pos-5–6 rank history
+# and ~58k impressions/quarter, so they've been restored as standalone
+# Q&A pages (see site/how-many-people-fit-*.html). Do NOT re-add 301s here.
+
+# ── Party rentals — direct city-page matches (typos/abbreviations) ─────────
+/langley-twp-party-rentals                                              /langley-township-party-rentals                                 301
+
+# ── Surrey neighborhoods → Surrey parent page ───────────────────────────────
+/anniedale-party-rentals                                                /surrey-party-rentals                                           301
+/bridgeview-party-rentals                                               /surrey-party-rentals                                           301
+/campbell-heights-party-rentals                                         /surrey-party-rentals                                           301
+/clayton-party-rentals                                                  /east-clayton-party-rentals                                     301
+/cloverdale-party-rentals                                               /surrey-party-rentals                                           301
+/fleetwood-party-rentals                                                /surrey-party-rentals                                           301
+/forest-knolls-party-rentals                                            /surrey-party-rentals                                           301
+/fraser-heights-party-rentals                                           /surrey-party-rentals                                           301
+/guildford-party-rentals                                                /surrey-party-rentals                                           301
+/johnston-heights-party-rentals                                         /surrey-party-rentals                                           301
+/newton-party-rentals                                                   /surrey-party-rentals                                           301
+/north-cloverdale-west-party-rentals                                    /surrey-party-rentals                                           301
+/strawberry-hill-party-rentals                                          /surrey-party-rentals                                           301
+/sullivan-party-rentals                                                 /surrey-party-rentals                                           301
+/tynehead-party-rentals                                                 /surrey-party-rentals                                           301
+/aloha-estates-party-rentals                                            /surrey-party-rentals                                           301
+/kensington-prairie-party-rentals                                       /surrey-party-rentals                                           301
+/southwest-gordon-estate-party-rentals                                  /surrey-party-rentals                                           301
+/barnston-island-party-rentals                                          /surrey-party-rentals                                           301
+
+# ── Delta neighborhoods ─────────────────────────────────────────────────────
+/north-delta-party-rentals                                              /delta-party-rentals                                            301
+/sunshine-hills-party-rentals                                           /delta-party-rentals                                            301
+/mud-bay-party-rentals                                                  /delta-party-rentals                                            301
+
+# ── Langley Township neighborhoods ──────────────────────────────────────────
+/brookswood-party-rentals                                               /langley-party-rentals                                          301
+/fern-ridge-party-rentals                                               /langley-township-party-rentals                                 301
+/glen-valley-party-rentals                                              /langley-township-party-rentals                                 301
+/hopington-party-rentals                                                /langley-township-party-rentals                                 301
+/milner-party-rentals                                                   /langley-township-party-rentals                                 301
+/murrayville-party-rentals                                              /langley-township-party-rentals                                 301
+
+# ── Maple Ridge / Pitt Meadows / Port Coquitlam neighborhoods ───────────────
+/albion-party-rentals                                                   /maple-ridge-party-rentals                                      301
+/hammond-party-rentals                                                  /maple-ridge-party-rentals                                      301
+/port-hammond-party-rentals                                             /maple-ridge-party-rentals                                      301
+/mary-hill-party-rentals                                                /coquitlam-party-rentals                                        301
+
+# ── Tent rental city pages (handle old typos/singular vs plural) ────────────
+/tent-rental-fortlangley                                                /tent-rental-fort-langley                                       301
+/tent-rental-new-westminter-tent-rentals                                /tent-rental-new-westminster                                    301
+/tent-rental-pitt-meadow                                                /tent-rental-pitt-meadows                                       301
+/tent-rentals-surrey-1                                                  /tent-rentals-surrey                                            301
+/tent-rentals-vancouver                                                 /tent-rental-vancouver                                          301
+
+# ── No catch-all needed: Netlify pretty_urls=true handles /foo ↔ /foo.html ──
+# Specifically:
+#   GET /foo       → 200 (serves foo.html)
+#   GET /foo.html  → 301 → /foo (consolidates signals to the clean canonical)
+# Removing the catch-all here also removes the previous duplicate-content path
+# where both /foo and /foo.html returned 200.
+
+# ── BEGIN GENERATED: html → extensionless 301s (generate_redirects.py — do not edit by hand) ──
+# pretty_urls was observed NOT redirecting .html variants in production;
+# these explicit 301s consolidate /foo.html signals onto /foo.
+/abbotsford-party-rentals.html                                    /abbotsford-party-rentals  301!
+/aldergrove-party-rentals.html                                    /aldergrove-party-rentals  301!
+/backyard-package-100-guests.html                                 /backyard-package-100-guests  301!
+/backyard-package-150-guests.html                                 /backyard-package-150-guests  301!
+/backyard-package-50-guests.html                                  /backyard-package-50-guests  301!
+/backyard-party-layout-planner.html                               /backyard-party-layout-planner  301!
+/battery-power-station-rental-abbotsford.html                     /battery-power-station-rental-abbotsford  301!
+/battery-power-station-rental-burnaby.html                        /battery-power-station-rental-burnaby  301!
+/battery-power-station-rental-coquitlam.html                      /battery-power-station-rental-coquitlam  301!
+/battery-power-station-rental-langley.html                        /battery-power-station-rental-langley  301!
+/battery-power-station-rental-maple-ridge.html                    /battery-power-station-rental-maple-ridge  301!
+/battery-power-station-rental-mission.html                        /battery-power-station-rental-mission  301!
+/battery-power-station-rental-surrey.html                         /battery-power-station-rental-surrey  301!
+/battery-power-station-rental-vancouver.html                      /battery-power-station-rental-vancouver  301!
+/battery-power-stations.html                                      /battery-power-stations  301!
+/birthday-party-rentals.html                                      /birthday-party-rentals  301!
+/burnaby-party-rentals.html                                       /burnaby-party-rentals  301!
+/carnival-games-bundle-2.html                                     /carnival-games-bundle-2  301!
+/carnival-games-bundle-4.html                                     /carnival-games-bundle-4  301!
+/carnival-games.html                                              /carnival-games  301!
+/carvolth-party-rentals.html                                      /carvolth-party-rentals  301!
+/chair-rentals-abbotsford.html                                    /chair-rentals-abbotsford  301!
+/chair-rentals-aldergrove.html                                    /chair-rentals-aldergrove  301!
+/chair-rentals-burnaby.html                                       /chair-rentals-burnaby  301!
+/chair-rentals-carvolth.html                                      /chair-rentals-carvolth  301!
+/chair-rentals-chilliwack.html                                    /chair-rentals-chilliwack  301!
+/chair-rentals-coquitlam.html                                     /chair-rentals-coquitlam  301!
+/chair-rentals-delta.html                                         /chair-rentals-delta  301!
+/chair-rentals-east-clayton.html                                  /chair-rentals-east-clayton  301!
+/chair-rentals-east-newton-north.html                             /chair-rentals-east-newton-north  301!
+/chair-rentals-fort-langley.html                                  /chair-rentals-fort-langley  301!
+/chair-rentals-harrison-hot-springs.html                          /chair-rentals-harrison-hot-springs  301!
+/chair-rentals-ladner.html                                        /chair-rentals-ladner  301!
+/chair-rentals-langley-township.html                              /chair-rentals-langley-township  301!
+/chair-rentals-langley.html                                       /chair-rentals-langley  301!
+/chair-rentals-maple-ridge.html                                   /chair-rentals-maple-ridge  301!
+/chair-rentals-mission.html                                       /chair-rentals-mission  301!
+/chair-rentals-new-westminster.html                               /chair-rentals-new-westminster  301!
+/chair-rentals-north-vancouver.html                               /chair-rentals-north-vancouver  301!
+/chair-rentals-pitt-meadows.html                                  /chair-rentals-pitt-meadows  301!
+/chair-rentals-port-kells.html                                    /chair-rentals-port-kells  301!
+/chair-rentals-port-moody.html                                    /chair-rentals-port-moody  301!
+/chair-rentals-richmond.html                                      /chair-rentals-richmond  301!
+/chair-rentals-surrey.html                                        /chair-rentals-surrey  301!
+/chair-rentals-tsawwassen.html                                    /chair-rentals-tsawwassen  301!
+/chair-rentals-vancouver.html                                     /chair-rentals-vancouver  301!
+/chair-rentals-walnut-grove.html                                  /chair-rentals-walnut-grove  301!
+/chair-rentals-west-vancouver.html                                /chair-rentals-west-vancouver  301!
+/chair-rentals-white-rock.html                                    /chair-rentals-white-rock  301!
+/chair-rentals-willoughby.html                                    /chair-rentals-willoughby  301!
+/chairs.html                                                      /chairs  301!
+/chilliwack-party-rentals.html                                    /chilliwack-party-rentals  301!
+/christmas-light-installation-lower-mainland.html                 /christmas-light-installation-lower-mainland  301!
+/christmas-lights-abbotsford.html                                 /christmas-lights-abbotsford  301!
+/christmas-lights-burnaby.html                                    /christmas-lights-burnaby  301!
+/christmas-lights-coquitlam.html                                  /christmas-lights-coquitlam  301!
+/christmas-lights-delta.html                                      /christmas-lights-delta  301!
+/christmas-lights-langley-township.html                           /christmas-lights-langley-township  301!
+/christmas-lights-langley.html                                    /christmas-lights-langley  301!
+/christmas-lights-maple-ridge.html                                /christmas-lights-maple-ridge  301!
+/christmas-lights-new-westminster.html                            /christmas-lights-new-westminster  301!
+/christmas-lights-north-vancouver.html                            /christmas-lights-north-vancouver  301!
+/christmas-lights-port-moody.html                                 /christmas-lights-port-moody  301!
+/christmas-lights-richmond.html                                   /christmas-lights-richmond  301!
+/christmas-lights-surrey.html                                     /christmas-lights-surrey  301!
+/christmas-lights-vancouver.html                                  /christmas-lights-vancouver  301!
+/christmas-lights-west-vancouver.html                             /christmas-lights-west-vancouver  301!
+/christmas-lights-white-rock.html                                 /christmas-lights-white-rock  301!
+/christmas-lights.html                                            /christmas-lights  301!
+/contact.html                                                     /contact  301!
+/coquitlam-party-rentals.html                                     /coquitlam-party-rentals  301!
+/corporate-event-layout-planner.html                              /corporate-event-layout-planner  301!
+/corporate-package-100-guests.html                                /corporate-package-100-guests  301!
+/corporate-package-150-guests.html                                /corporate-package-150-guests  301!
+/corporate-package-50-guests.html                                 /corporate-package-50-guests  301!
+/corporate.html                                                   /corporate  301!
+/dance-floor-rental-abbotsford.html                               /dance-floor-rental-abbotsford  301!
+/dance-floor-rental-aldergrove.html                               /dance-floor-rental-aldergrove  301!
+/dance-floor-rental-burnaby.html                                  /dance-floor-rental-burnaby  301!
+/dance-floor-rental-carvolth.html                                 /dance-floor-rental-carvolth  301!
+/dance-floor-rental-chilliwack.html                               /dance-floor-rental-chilliwack  301!
+/dance-floor-rental-coquitlam.html                                /dance-floor-rental-coquitlam  301!
+/dance-floor-rental-delta.html                                    /dance-floor-rental-delta  301!
+/dance-floor-rental-east-clayton.html                             /dance-floor-rental-east-clayton  301!
+/dance-floor-rental-east-newton-north.html                        /dance-floor-rental-east-newton-north  301!
+/dance-floor-rental-fort-langley.html                             /dance-floor-rental-fort-langley  301!
+/dance-floor-rental-harrison-hot-springs.html                     /dance-floor-rental-harrison-hot-springs  301!
+/dance-floor-rental-ladner.html                                   /dance-floor-rental-ladner  301!
+/dance-floor-rental-langley-township.html                         /dance-floor-rental-langley-township  301!
+/dance-floor-rental-langley.html                                  /dance-floor-rental-langley  301!
+/dance-floor-rental-maple-ridge.html                              /dance-floor-rental-maple-ridge  301!
+/dance-floor-rental-mission.html                                  /dance-floor-rental-mission  301!
+/dance-floor-rental-new-westminster.html                          /dance-floor-rental-new-westminster  301!
+/dance-floor-rental-north-vancouver.html                          /dance-floor-rental-north-vancouver  301!
+/dance-floor-rental-pitt-meadows.html                             /dance-floor-rental-pitt-meadows  301!
+/dance-floor-rental-port-kells.html                               /dance-floor-rental-port-kells  301!
+/dance-floor-rental-port-moody.html                               /dance-floor-rental-port-moody  301!
+/dance-floor-rental-richmond.html                                 /dance-floor-rental-richmond  301!
+/dance-floor-rental-surrey.html                                   /dance-floor-rental-surrey  301!
+/dance-floor-rental-tsawwassen.html                               /dance-floor-rental-tsawwassen  301!
+/dance-floor-rental-vancouver.html                                /dance-floor-rental-vancouver  301!
+/dance-floor-rental-walnut-grove.html                             /dance-floor-rental-walnut-grove  301!
+/dance-floor-rental-west-vancouver.html                           /dance-floor-rental-west-vancouver  301!
+/dance-floor-rental-white-rock.html                               /dance-floor-rental-white-rock  301!
+/dance-floor-rental-willoughby.html                               /dance-floor-rental-willoughby  301!
+/dance-floor.html                                                 /dance-floor  301!
+/delta-party-rentals.html                                         /delta-party-rentals  301!
+/east-clayton-party-rentals.html                                  /east-clayton-party-rentals  301!
+/east-newton-north-party-rentals.html                             /east-newton-north-party-rentals  301!
+/embed-the-planner.html                                           /embed-the-planner  301!
+/event-layout-planner-embed.html                                  /event-layout-planner-embed  301!
+/event-layout-planner.html                                        /event-layout-planner  301!
+/event-rentals.html                                               /event-rentals  301!
+/event-spacing-guide.html                                         /event-spacing-guide  301!
+/faq.html                                                         /faq  301!
+/fort-langley-party-rentals.html                                  /fort-langley-party-rentals  301!
+/harrison-hot-springs-party-rentals.html                          /harrison-hot-springs-party-rentals  301!
+/how-many-people-fit-at-a-6ft-rectangular-table.html              /how-many-people-fit-at-a-6ft-rectangular-table  301!
+/how-many-people-fit-at-round-tables.html                         /how-many-people-fit-at-round-tables  301!
+/index.html                                                       /  301!
+/ladner-party-rentals.html                                        /ladner-party-rentals  301!
+/langley-party-rentals.html                                       /langley-party-rentals  301!
+/langley-township-party-rentals.html                              /langley-township-party-rentals  301!
+/maple-ridge-party-rentals.html                                   /maple-ridge-party-rentals  301!
+/marquee-tent-rental-lowermainland-surrey-langley-vancouver.html  /marquee-tent-rental-lowermainland-surrey-langley-vancouver  301!
+/mission-party-rentals.html                                       /mission-party-rentals  301!
+/new-westminster-party-rentals.html                               /new-westminster-party-rentals  301!
+/north-vancouver-party-rentals.html                               /north-vancouver-party-rentals  301!
+/packages.html                                                    /packages  301!
+/pitt-meadows-party-rentals.html                                  /pitt-meadows-party-rentals  301!
+/port-kells-party-rentals.html                                    /port-kells-party-rentals  301!
+/port-moody-party-rentals.html                                    /port-moody-party-rentals  301!
+/privacy.html                                                     /privacy  301!
+/product-balloon-darts.html                                       /product-balloon-darts  301!
+/product-banquet-table-6ft.html                                   /product-banquet-table-6ft  301!
+/product-banquet-table-8ft.html                                   /product-banquet-table-8ft  301!
+/product-bistro-string-lights.html                                /product-bistro-string-lights  301!
+/product-black-white-dance-floor.html                             /product-black-white-dance-floor  301!
+/product-bottle-knockdown.html                                    /product-bottle-knockdown  301!
+/product-cocktail-table.html                                      /product-cocktail-table  301!
+/product-cup-toss.html                                            /product-cup-toss  301!
+/product-ecoflow-220w-solar-panel.html                            /product-ecoflow-220w-solar-panel  301!
+/product-ecoflow-delta-2-extra-battery.html                       /product-ecoflow-delta-2-extra-battery  301!
+/product-ecoflow-delta-2.html                                     /product-ecoflow-delta-2  301!
+/product-ecoflow-delta-3-extra-battery.html                       /product-ecoflow-delta-3-extra-battery  301!
+/product-ecoflow-delta-3-max.html                                 /product-ecoflow-delta-3-max  301!
+/product-ecoflow-delta-3-ultra.html                               /product-ecoflow-delta-3-ultra  301!
+/product-fanback-garden-chair.html                                /product-fanback-garden-chair  301!
+/product-marquee-tent-20x20.html                                  /product-marquee-tent-20x20  301!
+/product-marquee-tent-20x30.html                                  /product-marquee-tent-20x30  301!
+/product-marquee-tent-20x40.html                                  /product-marquee-tent-20x40  301!
+/product-marquee-tent-20x60.html                                  /product-marquee-tent-20x60  301!
+/product-marquee-tent-30x60.html                                  /product-marquee-tent-30x60  301!
+/product-popup-tent-10x10.html                                    /product-popup-tent-10x10  301!
+/product-projector-screen-rental.html                             /product-projector-screen-rental  301!
+/product-resin-garden-chair.html                                  /product-resin-garden-chair  301!
+/product-ring-toss.html                                           /product-ring-toss  301!
+/product-round-table-5ft.html                                     /product-round-table-5ft  301!
+/product-starlink-standard-actuated.html                          /product-starlink-standard-actuated  301!
+/product-tent-heater.html                                         /product-tent-heater  301!
+/product-tent-sidewall.html                                       /product-tent-sidewall  301!
+/product-white-chiavari-chair.html                                /product-white-chiavari-chair  301!
+/projector-rental-abbotsford.html                                 /projector-rental-abbotsford  301!
+/projector-rental-burnaby.html                                    /projector-rental-burnaby  301!
+/projector-rental-coquitlam.html                                  /projector-rental-coquitlam  301!
+/projector-rental-delta.html                                      /projector-rental-delta  301!
+/projector-rental-langley.html                                    /projector-rental-langley  301!
+/projector-rental-maple-ridge.html                                /projector-rental-maple-ridge  301!
+/projector-rental-new-westminster.html                            /projector-rental-new-westminster  301!
+/projector-rental-north-vancouver.html                            /projector-rental-north-vancouver  301!
+/projector-rental-richmond.html                                   /projector-rental-richmond  301!
+/projector-rental-surrey.html                                     /projector-rental-surrey  301!
+/projector-rental-vancouver.html                                  /projector-rental-vancouver  301!
+/projector-rental-white-rock.html                                 /projector-rental-white-rock  301!
+/projector-rentals.html                                           /projector-rentals  301!
+/rentals.html                                                     /rentals  301!
+/reviews.html                                                     /reviews  301!
+/richmond-party-rentals.html                                      /richmond-party-rentals  301!
+/service-areas.html                                               /service-areas  301!
+/starlink-rental-abbotsford.html                                  /starlink-rental-abbotsford  301!
+/starlink-rental-burnaby.html                                     /starlink-rental-burnaby  301!
+/starlink-rental-coquitlam.html                                   /starlink-rental-coquitlam  301!
+/starlink-rental-langley.html                                     /starlink-rental-langley  301!
+/starlink-rental-maple-ridge.html                                 /starlink-rental-maple-ridge  301!
+/starlink-rental-north-vancouver.html                             /starlink-rental-north-vancouver  301!
+/starlink-rental-richmond.html                                    /starlink-rental-richmond  301!
+/starlink-rental-surrey.html                                      /starlink-rental-surrey  301!
+/starlink-rental-vancouver.html                                   /starlink-rental-vancouver  301!
+/starlink-rentals.html                                            /starlink-rentals  301!
+/surrey-party-rentals.html                                        /surrey-party-rentals  301!
+/table-rentals-abbotsford.html                                    /table-rentals-abbotsford  301!
+/table-rentals-aldergrove.html                                    /table-rentals-aldergrove  301!
+/table-rentals-burnaby.html                                       /table-rentals-burnaby  301!
+/table-rentals-carvolth.html                                      /table-rentals-carvolth  301!
+/table-rentals-chilliwack.html                                    /table-rentals-chilliwack  301!
+/table-rentals-coquitlam.html                                     /table-rentals-coquitlam  301!
+/table-rentals-delta.html                                         /table-rentals-delta  301!
+/table-rentals-east-clayton.html                                  /table-rentals-east-clayton  301!
+/table-rentals-east-newton-north.html                             /table-rentals-east-newton-north  301!
+/table-rentals-fort-langley.html                                  /table-rentals-fort-langley  301!
+/table-rentals-harrison-hot-springs.html                          /table-rentals-harrison-hot-springs  301!
+/table-rentals-ladner.html                                        /table-rentals-ladner  301!
+/table-rentals-langley-township.html                              /table-rentals-langley-township  301!
+/table-rentals-langley.html                                       /table-rentals-langley  301!
+/table-rentals-maple-ridge.html                                   /table-rentals-maple-ridge  301!
+/table-rentals-mission.html                                       /table-rentals-mission  301!
+/table-rentals-new-westminster.html                               /table-rentals-new-westminster  301!
+/table-rentals-north-vancouver.html                               /table-rentals-north-vancouver  301!
+/table-rentals-pitt-meadows.html                                  /table-rentals-pitt-meadows  301!
+/table-rentals-port-kells.html                                    /table-rentals-port-kells  301!
+/table-rentals-port-moody.html                                    /table-rentals-port-moody  301!
+/table-rentals-richmond.html                                      /table-rentals-richmond  301!
+/table-rentals-surrey.html                                        /table-rentals-surrey  301!
+/table-rentals-tsawwassen.html                                    /table-rentals-tsawwassen  301!
+/table-rentals-vancouver.html                                     /table-rentals-vancouver  301!
+/table-rentals-walnut-grove.html                                  /table-rentals-walnut-grove  301!
+/table-rentals-west-vancouver.html                                /table-rentals-west-vancouver  301!
+/table-rentals-white-rock.html                                    /table-rentals-white-rock  301!
+/table-rentals-willoughby.html                                    /table-rentals-willoughby  301!
+/tables.html                                                      /tables  301!
+/tent-rental-abbotsford.html                                      /tent-rental-abbotsford  301!
+/tent-rental-aldergrove.html                                      /tent-rental-aldergrove  301!
+/tent-rental-burnaby.html                                         /tent-rental-burnaby  301!
+/tent-rental-carvolth.html                                        /tent-rental-carvolth  301!
+/tent-rental-chilliwack.html                                      /tent-rental-chilliwack  301!
+/tent-rental-coquitlam.html                                       /tent-rental-coquitlam  301!
+/tent-rental-delta.html                                           /tent-rental-delta  301!
+/tent-rental-east-clayton.html                                    /tent-rental-east-clayton  301!
+/tent-rental-east-newton-north.html                               /tent-rental-east-newton-north  301!
+/tent-rental-fort-langley.html                                    /tent-rental-fort-langley  301!
+/tent-rental-harrison-hot-springs.html                            /tent-rental-harrison-hot-springs  301!
+/tent-rental-ladner.html                                          /tent-rental-ladner  301!
+/tent-rental-langley-township.html                                /tent-rental-langley-township  301!
+/tent-rental-langley.html                                         /tent-rental-langley  301!
+/tent-rental-maple-ridge.html                                     /tent-rental-maple-ridge  301!
+/tent-rental-mission.html                                         /tent-rental-mission  301!
+/tent-rental-new-westminster.html                                 /tent-rental-new-westminster  301!
+/tent-rental-north-vancouver.html                                 /tent-rental-north-vancouver  301!
+/tent-rental-pitt-meadows.html                                    /tent-rental-pitt-meadows  301!
+/tent-rental-port-kells.html                                      /tent-rental-port-kells  301!
+/tent-rental-port-moody.html                                      /tent-rental-port-moody  301!
+/tent-rental-richmond.html                                        /tent-rental-richmond  301!
+/tent-rental-tsawwassen.html                                      /tent-rental-tsawwassen  301!
+/tent-rental-vancouver.html                                       /tent-rental-vancouver  301!
+/tent-rental-walnut-grove.html                                    /tent-rental-walnut-grove  301!
+/tent-rental-west-vancouver.html                                  /tent-rental-west-vancouver  301!
+/tent-rental-white-rock.html                                      /tent-rental-white-rock  301!
+/tent-rental-willoughby.html                                      /tent-rental-willoughby  301!
+/tent-rentals-surrey.html                                         /tent-rentals-surrey  301!
+/tent-size-calculator.html                                        /tent-size-calculator  301!
+/tents.html                                                       /tents  301!
+/thank-you.html                                                   /thank-you  301!
+/tsawwassen-party-rentals.html                                    /tsawwassen-party-rentals  301!
+/vancouver-party-rentals.html                                     /vancouver-party-rentals  301!
+/walnut-grove-party-rentals.html                                  /walnut-grove-party-rentals  301!
+/wedding-package-100-guests.html                                  /wedding-package-100-guests  301!
+/wedding-package-150-guests.html                                  /wedding-package-150-guests  301!
+/wedding-package-50-guests.html                                   /wedding-package-50-guests  301!
+/wedding-rentals.html                                             /wedding-rentals  301!
+/wedding-tent-layout-planner.html                                 /wedding-tent-layout-planner  301!
+/west-vancouver-party-rentals.html                                /west-vancouver-party-rentals  301!
+/white-rock-party-rentals.html                                    /white-rock-party-rentals  301!
+/widget-test.html                                                 /widget-test  301!
+/willoughby-party-rentals.html                                    /willoughby-party-rentals  301!
+/blog/backyard-birthday-rental-equipment-bc.html                  /blog/backyard-birthday-rental-equipment-bc  301!
+/blog/backyard-wedding-tent-sizing-bc.html                        /blog/backyard-wedding-tent-sizing-bc  301!
+/blog/best-event-tents-rain-vancouver.html                        /blog/best-event-tents-rain-vancouver  301!
+/blog/best-free-event-layout-planners.html                        /blog/best-free-event-layout-planners  301!
+/blog/burnaby-wedding-venues-rental-guide.html                    /blog/burnaby-wedding-venues-rental-guide  301!
+/blog/chair-table-rental-prices-surrey-bc.html                    /blog/chair-table-rental-prices-surrey-bc  301!
+/blog/clear-top-tent-rentals-bc-weddings.html                     /blog/clear-top-tent-rentals-bc-weddings  301!
+/blog/corporate-picnic-festival-rentals-bc.html                   /blog/corporate-picnic-festival-rentals-bc  301!
+/blog/dance-floor-dj-space-wedding-tent.html                      /blog/dance-floor-dj-space-wedding-tent  301!
+/blog/event-wifi-starlink-rental.html                             /blog/event-wifi-starlink-rental  301!
+/blog/fort-langley-wedding-venues-rental-guide.html               /blog/fort-langley-wedding-venues-rental-guide  301!
+/blog/harrison-hot-springs-destination-wedding.html               /blog/harrison-hot-springs-destination-wedding  301!
+/blog/heated-tent-rental-fall-wedding-bc.html                     /blog/heated-tent-rental-fall-wedding-bc  301!
+/blog/how-much-space-per-guest-wedding-tent.html                  /blog/how-much-space-per-guest-wedding-tent  301!
+/blog/index.html                                                  /blog/  301!
+/blog/marquee-vs-sailcloth-vs-frame-tent.html                     /blog/marquee-vs-sailcloth-vs-frame-tent  301!
+/blog/new-westminster-wedding-venues-rental-guide.html            /blog/new-westminster-wedding-venues-rental-guide  301!
+/blog/party-rental-checklist-50-100-150-200-guests.html           /blog/party-rental-checklist-50-100-150-200-guests  301!
+/blog/party-tent-over-patio-deck.html                             /blog/party-tent-over-patio-deck  301!
+/blog/queen-elizabeth-park-weddings-rentals.html                  /blog/queen-elizabeth-park-weddings-rentals  301!
+/blog/richmond-wedding-venues-rental-guide.html                   /blog/richmond-wedding-venues-rental-guide  301!
+/blog/stanley-park-wedding-rentals-guide.html                     /blog/stanley-park-wedding-rentals-guide  301!
+/blog/surrey-parks-event-rental-guide.html                        /blog/surrey-parks-event-rental-guide  301!
+/blog/tent-layout-ceremony-to-reception-flip.html                 /blog/tent-layout-ceremony-to-reception-flip  301!
+/blog/tent-permits-surrey-metro-vancouver-parks.html              /blog/tent-permits-surrey-metro-vancouver-parks  301!
+/blog/tent-size-chart-20x20-20x40-20x60-40x80.html                /blog/tent-size-chart-20x20-20x40-20x60-40x80  301!
+/blog/tent-size-guide-lower-mainland-wedding.html                 /blog/tent-size-guide-lower-mainland-wedding  301!
+/blog/wedding-tent-rental-cost-vancouver.html                     /blog/wedding-tent-rental-cost-vancouver  301!
+/blog/whytecliff-park-event-rental-guide.html                     /blog/whytecliff-park-event-rental-guide  301!
+# ── END GENERATED: html → extensionless 301s ──

@@ -10,14 +10,14 @@
 #
 # Static files keep their extension (sitemap.xml, robots.txt, llms.txt,
 # favicon.svg, shared.css/js) via explicit `200!` rewrites at the top of
-# site/_redirects — those are evaluated before Netlify's HTML processing.
+# site-v3/_redirects — those are evaluated before Netlify's HTML processing.
 #
 # /rentals.html and /checkout.html (the Adelie booking widget pages) are
 # fine under pretty_urls=true: the widget initializes from a static JS
 # variable (window.orgId), not the URL, so it works at /rentals and /checkout.
 
 [build]
-  publish = "site"
+  publish = "site-v3"
 
 # Serverless functions (planner analytics beacon; short share links land
 # here in a later phase). Functions declare their public route via

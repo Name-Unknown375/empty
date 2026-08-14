@@ -147,17 +147,28 @@ def build_faqs(service: dict, city: dict, city_faqs_pool: dict) -> list[dict]:
     return picked
 
 
+def christmas_title(city_name: str) -> str:
+    """Query phrase + price. Stay ≤60 characters (Wave 1/3 title formula)."""
+    full = f"{city_name} Christmas Light Installation — From $8.50/ft"
+    if len(full) <= 60:
+        return full
+    return f"{city_name} Christmas Lights — From $8.50/ft"
+
+
+def christmas_description(city_name: str) -> str:
+    return (
+        f"{city_name} Christmas light installation from $8.50/ft — design, "
+        f"commercial LED install, takedown and free storage. Now booking for fall 2026."
+    )
+
+
 def build_context(city_slug: str, city: dict, service: dict, city_faqs_pool: dict) -> dict:
     slug = page_slug(service, city_slug)
     canonical = f"{SITE_URL}{url_path(f'{slug}.html')}"
     city_page = url_path(f"{city_slug}-party-rentals.html")
 
-    title = f"{city['name']} Christmas Light Installation BC"
-    description = (
-        f"Professional Christmas light installation in {city['name']}, BC — "
-        f"design, commercial LED install, takedown & free off-season storage. "
-        f"Free consultation."
-    )
+    title = christmas_title(city["name"])
+    description = christmas_description(city["name"])
 
     tagline = sub(service["tagline"], city["name"])
     intro_summary = sub(service["introSummary"], city["name"])

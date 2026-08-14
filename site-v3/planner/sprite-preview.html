@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Sprite preview v2 — incorporates research findings from competitor
+     plan-view conventions + actual top-down photos of each item.
+     Open at: http://localhost:8765/planner/sprite-preview.html
+     Not part of the production planner; can stay or be removed. -->
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex,nofollow"/>
+<title>Sprite preview v2 — Forever Party Rentals planner</title>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
+<style>
+  :root {
+    --green: #1E3A2F;
+    --gold: #C9A44A;
+    --tan: #d8c79a;
+    --tan-edge: #8b6f2c;
+    --light: #F5F8F6;
+    --border: rgba(30,58,47,.12);
+    --muted: rgba(30,58,47,.55);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 32px 40px;
+    background: var(--light);
+    font-family: 'Jost', system-ui, sans-serif;
+    color: var(--green);
+  }
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    margin: 0 0 8px;
+    font-size: 30px;
+  }
+  .lede {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 28px;
+    max-width: 720px;
+    line-height: 1.55;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1180px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,.03);
+    margin-bottom: 32px;
+  }
+  thead th {
+    background: rgba(30,58,47,.04);
+    font-size: 11px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--green);
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 18px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.label {
+    width: 220px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  td.label strong { display: block; color: var(--green); font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+  td.label span { color: var(--muted); font-size: 11.5px; }
+  td.swatch {
+    width: 200px;
+    text-align: center;
+  }
+  .swatch-svg-wrap {
+    display: inline-block;
+    background: #fff;
+    border: 1px dashed var(--border);
+    border-radius: 4px;
+    padding: 8px;
+  }
+  td.swatch-zoom { width: 280px; text-align: center; }
+  td.notes { font-size: 12px; color: var(--muted); line-height: 1.55; }
+
+  .swatch-svg { display: block; margin: 0 auto; }
+
+  .section td {
+    background: var(--light);
+    color: var(--green);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 14px;
+  }
+
+  .pl-old-table-fill { fill: var(--tan); stroke: var(--tan-edge); stroke-width: 1; }
+  .pl-old-chair-fill { fill: #fff; stroke: var(--green); stroke-width: 0.6; }
+
+  .legend {
+    margin: 20px 0 28px;
+    padding: 14px 18px;
+    background: rgba(201, 164, 74, .10);
+    border: 1px dashed var(--gold);
+    border-radius: 6px;
+    font-size: 12.5px;
+    color: var(--green);
+    line-height: 1.55;
+    max-width: 1180px;
+  }
+  .legend strong { color: var(--green); }
+  .legend .changed { color: #5a7165; font-weight: 500; }
+</style>
+</head>
+<body>
+
+<h1>Sprite preview · v2</h1>
+<p class="lede">
+  Revised after researching how the actual products look from above + how Tripleseat / Prismm / AllSeated / AutoCAD AIA blocks
+  draw plan-view furniture symbols. Each row shows the planner's current rendering vs. the proposed v2 sprite, with a 2× zoom column for detail visibility.
+</p>
+
+<div class="legend">
+  <strong>What changed since v1</strong> (deltas baked into this page):
+  <ul style="margin:6px 0 0 18px;padding:0;line-height:1.6">
+    <li><span class="changed">Chiavari:</span> reduced slats 4 → 3, increased backrest band contrast, made the seat slightly trapezoidal (back edge narrower) to match the real silhouette.</li>
+    <li><span class="changed">Fanback:</span> fan rises 0.55 ft (from 0.4), now reads as a half-disc rather than a small bump; ribs are vertical chord lines inside the arc instead of antennas above it.</li>
+    <li><span class="changed">Resin Garden:</span> added small armrest bumps at the upper corners (the real differentiator from a Chiavari at small sizes); slimmed the backrest slab; pure white fill.</li>
+    <li><span class="changed">5ft Round:</span> dropped the (invisible) inner ring; replaced with 4 short spider-leg hints + a stronger center pedestal disc.</li>
+    <li><span class="changed">6ft Banquet:</span> dropped the corner leg ticks (not a real plan-view convention; legs are hidden from above anyway). Kept the inner bevel.</li>
+    <li><span class="changed">8ft Banquet:</span> dropped both the middle leg pair (factually inaccurate — 8ft folders use 2 leg pairs, not 3) and the corner ticks. Differs from 6ft only by length, like the industry convention.</li>
+    <li><span class="changed">Cocktail Highboy:</span> X-base now extends to ~76 % of the radius (real X-bases reach near the rim for stability); added a small dark center disc where the column meets the top.</li>
+  </ul>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Current</th>
+      <th>Proposed v2</th>
+      <th>v2 @ 2× zoom</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- ── CHAIRS ─────────────────────────────────────────────────────── -->
+    <tr class="section"><td colspan="5">Chairs</td></tr>
+
+    <tr>
+      <td class="label">
+        <strong>Chiavari Chair</strong>
+        <span>16″ × 16″ · spindle backrest, slim square seat</span>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="80" height="80" viewBox="-1 -1 2 2">
+            <rect x="-0.665" y="-0.665" width="1.33" height="1.33" class="pl-old-chair-fill" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="80" height="80" viewBox="-1 -1 2 2">
+            <!-- Trapezoidal seat — back edge slightly narrower than front -->
+            <path d="M -0.55 0.55 L 0.55 0.55 L 0.5 -0.45 L -0.5 -0.45 Z"
+                  fill="#fff" stroke="#1E3A2F" stroke-width="1.2" stroke-linejoin="round"
+                  vector-effect="non-scaling-stroke"/>
+            <!-- Backrest band (high-contrast — the dominant cue at small sizes) -->
+            <rect x="-0.55" y="-0.665" width="1.1" height="0.22" rx="0.05"
+                  fill="rgba(30,58,47,.18)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <!-- 3 spindle ticks (centered, evenly spaced) -->
+            <line x1="-0.22" y1="-0.61" x2="-0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <line x1="0"     y1="-0.61" x2="0"     y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <line x1="0.22"  y1="-0.61" x2="0.22"  y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch-zoom">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="160" height="160" viewBox="-1 -1 2 2">
+            <path d="M -0.55 0.55 L 0.55 0.55 L 0.5 -0.45 L -0.5 -0.45 Z"
+                  fill="#fff" stroke="#1E3A2F" stroke-width="1.2" stroke-linejoin="round"
+                  vector-effect="non-scaling-stroke"/>
+            <rect x="-0.55" y="-0.665" width="1.1" height="0.22" rx="0.05"
+                  fill="rgba(30,58,47,.18)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <line x1="-0.22" y1="-0.61" x2="-0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <line x1="0"     y1="-0.61" x2="0"     y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <line x1="0.22"  y1="-0.61" x2="0.22"  y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="notes">
+        Trapezoidal seat (back narrower) is the real Chiavari silhouette.
+        High-contrast backrest band is what reads at default zoom; spindles reward zoom-in.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">
+        <strong>Fanback Folding</strong>
+        <span>1.5 × 1.83 ft · half-disc fan back, wider than seat</span>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="80" height="100" viewBox="-1.1 -1.4 2.2 2.7">
+            <rect x="-0.75" y="-0.915" width="1.5" height="1.83" class="pl-old-chair-fill" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="80" height="100" viewBox="-1.1 -1.4 2.2 2.7">
+            <!-- Seat -->
+            <rect x="-0.65" y="-0.7" width="1.3" height="1.55" rx="0.1"
+                  fill="#fff" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <!-- Fan backrest — half-disc rising 0.55 ft above the seat top -->
+            <path d="M -0.78 -0.7 A 0.78 0.55 0 0 1 0.78 -0.7 Z"
+                  fill="rgba(30,58,47,.14)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <!-- 3 ribs as vertical chord lines INSIDE the arc -->
+            <line x1="-0.35" y1="-0.7" x2="-0.32" y2="-1.15" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0"     y1="-0.7" x2="0"     y2="-1.22" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0.35"  y1="-0.7" x2="0.32"  y2="-1.15" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch-zoom">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="160" height="200" viewBox="-1.1 -1.4 2.2 2.7">
+            <rect x="-0.65" y="-0.7" width="1.3" height="1.55" rx="0.1"
+                  fill="#fff" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <path d="M -0.78 -0.7 A 0.78 0.55 0 0 1 0.78 -0.7 Z"
+                  fill="rgba(30,58,47,.14)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <line x1="-0.35" y1="-0.7" x2="-0.32" y2="-1.15" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0"     y1="-0.7" x2="0"     y2="-1.22" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0.35"  y1="-0.7" x2="0.32"  y2="-1.15" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </td>
+      <td class="notes">
+        Half-disc fan extends past the seat width — the real "shovel" silhouette.
+        Ribs sit inside the arc (not as antennas) for a cleaner read.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">
+        <strong>Resin Garden Chair</strong>
+        <span>1.67 × 1.83 ft · molded plastic, integrated armrests</span>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="90" height="100" viewBox="-1.2 -1.2 2.4 2.4">
+            <rect x="-0.835" y="-0.915" width="1.67" height="1.83" class="pl-old-chair-fill" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="90" height="100" viewBox="-1.2 -1.2 2.4 2.4">
+            <!-- Seat — heavy rounding for the molded plastic look -->
+            <rect x="-0.74" y="-0.65" width="1.48" height="1.5" rx="0.22"
+                  fill="#fff" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <!-- Armrest bumps at upper corners — the key differentiator from chiavari -->
+            <circle cx="-0.74" cy="-0.55" r="0.12"
+                    fill="#fff" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <circle cx="0.74" cy="-0.55" r="0.12"
+                    fill="#fff" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <!-- Backrest slab — narrower + thinner than v1, suggests one-piece molded shell -->
+            <rect x="-0.65" y="-0.91" width="1.3" height="0.22" rx="0.11"
+                  fill="rgba(30,58,47,.14)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch-zoom">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="180" height="200" viewBox="-1.2 -1.2 2.4 2.4">
+            <rect x="-0.74" y="-0.65" width="1.48" height="1.5" rx="0.22"
+                  fill="#fff" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <circle cx="-0.74" cy="-0.55" r="0.12"
+                    fill="#fff" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <circle cx="0.74" cy="-0.55" r="0.12"
+                    fill="#fff" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <rect x="-0.65" y="-0.91" width="1.3" height="0.22" rx="0.11"
+                  fill="rgba(30,58,47,.14)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="notes">
+        Armrest bumps protrude past the seat outline — that's the unique resin-chair
+        cue at small sizes (chiavari has none, fanback has fan).
+      </td>
+    </tr>
+
+    <!-- ── ROUND TABLES ──────────────────────────────────────────────── -->
+    <tr class="section"><td colspan="5">Round tables</td></tr>
+
+    <tr>
+      <td class="label">
+        <strong>5ft Round (seats 8)</strong>
+        <span>Pedestal base · spider-leg under-structure</span>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="120" height="120" viewBox="-3 -3 6 6">
+            <circle cx="0" cy="0" r="2.5" class="pl-old-table-fill" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="120" height="120" viewBox="-3 -3 6 6">
+            <!-- Tabletop -->
+            <circle cx="0" cy="0" r="2.5" fill="#d8c79a" stroke="#8b6f2c" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <!-- 4 spider legs from center to ~r=1.0 (ghost lines, only visible on zoom-in) -->
+            <line x1="0" y1="0" x2="0" y2="-1.0" stroke="rgba(139,111,44,.4)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0" y1="0" x2="1.0" y2="0"  stroke="rgba(139,111,44,.4)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0" y1="0" x2="0" y2="1.0"  stroke="rgba(139,111,44,.4)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0" y1="0" x2="-1.0" y2="0" stroke="rgba(139,111,44,.4)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <!-- Stronger center pedestal disc — the only cue surviving at default zoom -->
+            <circle cx="0" cy="0" r="0.4" fill="rgba(139,111,44,.55)" stroke="rgba(139,111,44,.7)" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch-zoom">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="240" height="240" viewBox="-3 -3 6 6">
+            <circle cx="0" cy="0" r="2.5" fill="#d8c79a" stroke="#8b6f2c" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <line x1="0" y1="0" x2="0" y2="-1.0" stroke="rgba(139,111,44,.4)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0" y1="0" x2="1.0" y2="0"  stroke="rgba(139,111,44,.4)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0" y1="0" x2="0" y2="1.0"  stroke="rgba(139,111,44,.4)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0" y1="0" x2="-1.0" y2="0" stroke="rgba(139,111,44,.4)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <circle cx="0" cy="0" r="0.4" fill="rgba(139,111,44,.55)" stroke="rgba(139,111,44,.7)" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="notes">
+        Spider legs are ghost-faint at default zoom (good — fade gracefully) and tell the story at zoom-in.
+        Center disc is bolder so the round reads as "real table" not just "circle."
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">
+        <strong>28″ / 30″ Cocktail Highboy</strong>
+        <span>Pedestal · X-base reaches near the rim</span>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="60" height="60" viewBox="-1.5 -1.5 3 3">
+            <circle cx="0" cy="0" r="1.25" class="pl-old-table-fill" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="60" height="60" viewBox="-1.5 -1.5 3 3">
+            <!-- Tabletop -->
+            <circle cx="0" cy="0" r="1.25" fill="#d8c79a" stroke="#8b6f2c" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <!-- X-base extends to ~76% of the radius (real X-bases reach near the rim for stability) -->
+            <line x1="-0.95" y1="-0.95" x2="0.95" y2="0.95" stroke="rgba(139,111,44,.55)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="-0.95" y1="0.95" x2="0.95" y2="-0.95" stroke="rgba(139,111,44,.55)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <!-- Center disc where the column meets the top -->
+            <circle cx="0" cy="0" r="0.18" fill="rgba(139,111,44,.65)" stroke="rgba(139,111,44,.75)" stroke-width="0.6" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch-zoom">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="120" height="120" viewBox="-1.5 -1.5 3 3">
+            <circle cx="0" cy="0" r="1.25" fill="#d8c79a" stroke="#8b6f2c" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <line x1="-0.95" y1="-0.95" x2="0.95" y2="0.95" stroke="rgba(139,111,44,.55)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="-0.95" y1="0.95" x2="0.95" y2="-0.95" stroke="rgba(139,111,44,.55)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <circle cx="0" cy="0" r="0.18" fill="rgba(139,111,44,.65)" stroke="rgba(139,111,44,.75)" stroke-width="0.6" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="notes">
+        Long X + central disc = unmistakable pedestal-bar-table.
+        Differentiated from a banquet round by both small diameter AND the X-base showing.
+      </td>
+    </tr>
+
+    <!-- ── BANQUET TABLES ────────────────────────────────────────────── -->
+    <tr class="section"><td colspan="5">Banquet tables</td></tr>
+
+    <tr>
+      <td class="label">
+        <strong>6ft Banquet (seats 8)</strong>
+        <span>72″ × 30″ folding rectangular</span>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="180" height="80" viewBox="-3.4 -1.5 6.8 3">
+            <rect x="-3" y="-1.25" width="6" height="2.5" class="pl-old-table-fill" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="180" height="80" viewBox="-3.4 -1.5 6.8 3">
+            <!-- Tabletop — slightly less rounded corners (folding tables are nearly square-cornered) -->
+            <rect x="-3" y="-1.25" width="6" height="2.5" rx="0.05"
+                  fill="#d8c79a" stroke="#8b6f2c" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <!-- Inner inset (tabletop edge bevel) — Tier-2 detail for zoom-in -->
+            <rect x="-2.88" y="-1.13" width="5.76" height="2.26" rx="0.03"
+                  fill="none" stroke="rgba(139,111,44,.3)" stroke-width="0.6" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch-zoom">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="360" height="160" viewBox="-3.4 -1.5 6.8 3">
+            <rect x="-3" y="-1.25" width="6" height="2.5" rx="0.05"
+                  fill="#d8c79a" stroke="#8b6f2c" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <rect x="-2.88" y="-1.13" width="5.76" height="2.26" rx="0.03"
+                  fill="none" stroke="rgba(139,111,44,.3)" stroke-width="0.6" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="notes">
+        Cleaner without the corner ticks (which weren't a real plan-view convention).
+        Inner bevel reads as a finished tabletop edge.
+      </td>
+    </tr>
+
+    <tr>
+      <td class="label">
+        <strong>8ft Banquet (seats 10)</strong>
+        <span>96″ × 30″ — 2 leg pairs (correction from v1)</span>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="210" height="70" viewBox="-4.4 -1.5 8.8 3">
+            <rect x="-4" y="-1.25" width="8" height="2.5" class="pl-old-table-fill" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="210" height="70" viewBox="-4.4 -1.5 8.8 3">
+            <rect x="-4" y="-1.25" width="8" height="2.5" rx="0.05"
+                  fill="#d8c79a" stroke="#8b6f2c" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <rect x="-3.88" y="-1.13" width="7.76" height="2.26" rx="0.03"
+                  fill="none" stroke="rgba(139,111,44,.3)" stroke-width="0.6" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="swatch-zoom">
+        <div class="swatch-svg-wrap">
+          <svg class="swatch-svg" width="420" height="140" viewBox="-4.4 -1.5 8.8 3">
+            <rect x="-4" y="-1.25" width="8" height="2.5" rx="0.05"
+                  fill="#d8c79a" stroke="#8b6f2c" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <rect x="-3.88" y="-1.13" width="7.76" height="2.26" rx="0.03"
+                  fill="none" stroke="rgba(139,111,44,.3)" stroke-width="0.6" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+      </td>
+      <td class="notes">
+        Identical treatment to 6ft — distinguished only by length, like the industry convention.
+        v1's middle-leg pair was factually wrong (8ft folders use 2 leg pairs, not 3).
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+<!-- ── COMPOSITE: 5FT ROUND + 8 CHIAVARI ─────────────────────────────── -->
+<h2 style="font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:20px;margin:32px 0 8px">Composite preview</h2>
+<p class="lede" style="margin-bottom:18px">A 5ft round with 8 Chiavari chairs — current rendering vs. v2 sprites — at the actual default zoom (14 px / ft).</p>
+
+<table>
+  <thead>
+    <tr><th>Current</th><th>Proposed v2</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center;padding:18px">
+        <div class="swatch-svg-wrap">
+          <svg width="260" height="260" viewBox="-4 -4 8 8">
+            <circle cx="0" cy="0" r="2.5" class="pl-old-table-fill" vector-effect="non-scaling-stroke"/>
+            <g transform="translate(0,-3.18)"><rect x="-0.665" y="-0.665" width="1.33" height="1.33" class="pl-old-chair-fill" vector-effect="non-scaling-stroke"/></g>
+            <g transform="rotate(45)"><g transform="translate(0,-3.18)"><rect x="-0.665" y="-0.665" width="1.33" height="1.33" class="pl-old-chair-fill" vector-effect="non-scaling-stroke"/></g></g>
+            <g transform="rotate(90)"><g transform="translate(0,-3.18)"><rect x="-0.665" y="-0.665" width="1.33" height="1.33" class="pl-old-chair-fill" vector-effect="non-scaling-stroke"/></g></g>
+            <g transform="rotate(135)"><g transform="translate(0,-3.18)"><rect x="-0.665" y="-0.665" width="1.33" height="1.33" class="pl-old-chair-fill" vector-effect="non-scaling-stroke"/></g></g>
+            <g transform="rotate(180)"><g transform="translate(0,-3.18)"><rect x="-0.665" y="-0.665" width="1.33" height="1.33" class="pl-old-chair-fill" vector-effect="non-scaling-stroke"/></g></g>
+            <g transform="rotate(225)"><g transform="translate(0,-3.18)"><rect x="-0.665" y="-0.665" width="1.33" height="1.33" class="pl-old-chair-fill" vector-effect="non-scaling-stroke"/></g></g>
+            <g transform="rotate(270)"><g transform="translate(0,-3.18)"><rect x="-0.665" y="-0.665" width="1.33" height="1.33" class="pl-old-chair-fill" vector-effect="non-scaling-stroke"/></g></g>
+            <g transform="rotate(315)"><g transform="translate(0,-3.18)"><rect x="-0.665" y="-0.665" width="1.33" height="1.33" class="pl-old-chair-fill" vector-effect="non-scaling-stroke"/></g></g>
+          </svg>
+        </div>
+      </td>
+      <td style="text-align:center;padding:18px">
+        <div class="swatch-svg-wrap">
+          <svg width="260" height="260" viewBox="-4 -4 8 8">
+            <!-- Round table with spider legs + center disc -->
+            <circle cx="0" cy="0" r="2.5" fill="#d8c79a" stroke="#8b6f2c" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            <line x1="0" y1="0" x2="0" y2="-1.0" stroke="rgba(139,111,44,.4)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0" y1="0" x2="1.0" y2="0"  stroke="rgba(139,111,44,.4)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0" y1="0" x2="0" y2="1.0"  stroke="rgba(139,111,44,.4)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <line x1="0" y1="0" x2="-1.0" y2="0" stroke="rgba(139,111,44,.4)" stroke-width="1" vector-effect="non-scaling-stroke" stroke-linecap="round"/>
+            <circle cx="0" cy="0" r="0.4" fill="rgba(139,111,44,.55)" stroke="rgba(139,111,44,.7)" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+
+            <!-- 8 Chiavari chairs (trapezoidal seat + backrest band + 3 spindles) at 45° intervals -->
+            <g id="chiavari-template" style="display:none">
+              <path d="M -0.55 0.55 L 0.55 0.55 L 0.5 -0.45 L -0.5 -0.45 Z" fill="#fff" stroke="#1E3A2F" stroke-width="1.2" stroke-linejoin="round"/>
+              <rect x="-0.55" y="-0.665" width="1.1" height="0.22" rx="0.05" fill="rgba(30,58,47,.18)" stroke="#1E3A2F" stroke-width="1.2"/>
+              <line x1="-0.22" y1="-0.61" x2="-0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2"/>
+              <line x1="0"     y1="-0.61" x2="0"     y2="-0.49" stroke="#1E3A2F" stroke-width="1.2"/>
+              <line x1="0.22"  y1="-0.61" x2="0.22"  y2="-0.49" stroke="#1E3A2F" stroke-width="1.2"/>
+            </g>
+            <g transform="translate(0,-3.18)">
+              <path d="M -0.55 0.55 L 0.55 0.55 L 0.5 -0.45 L -0.5 -0.45 Z" fill="#fff" stroke="#1E3A2F" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+              <rect x="-0.55" y="-0.665" width="1.1" height="0.22" rx="0.05" fill="rgba(30,58,47,.18)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="-0.22" y1="-0.61" x2="-0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0" y1="-0.61" x2="0" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0.22" y1="-0.61" x2="0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            </g>
+            <g transform="rotate(45)"><g transform="translate(0,-3.18)">
+              <path d="M -0.55 0.55 L 0.55 0.55 L 0.5 -0.45 L -0.5 -0.45 Z" fill="#fff" stroke="#1E3A2F" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+              <rect x="-0.55" y="-0.665" width="1.1" height="0.22" rx="0.05" fill="rgba(30,58,47,.18)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="-0.22" y1="-0.61" x2="-0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0" y1="-0.61" x2="0" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0.22" y1="-0.61" x2="0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            </g></g>
+            <g transform="rotate(90)"><g transform="translate(0,-3.18)">
+              <path d="M -0.55 0.55 L 0.55 0.55 L 0.5 -0.45 L -0.5 -0.45 Z" fill="#fff" stroke="#1E3A2F" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+              <rect x="-0.55" y="-0.665" width="1.1" height="0.22" rx="0.05" fill="rgba(30,58,47,.18)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="-0.22" y1="-0.61" x2="-0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0" y1="-0.61" x2="0" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0.22" y1="-0.61" x2="0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            </g></g>
+            <g transform="rotate(135)"><g transform="translate(0,-3.18)">
+              <path d="M -0.55 0.55 L 0.55 0.55 L 0.5 -0.45 L -0.5 -0.45 Z" fill="#fff" stroke="#1E3A2F" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+              <rect x="-0.55" y="-0.665" width="1.1" height="0.22" rx="0.05" fill="rgba(30,58,47,.18)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="-0.22" y1="-0.61" x2="-0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0" y1="-0.61" x2="0" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0.22" y1="-0.61" x2="0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            </g></g>
+            <g transform="rotate(180)"><g transform="translate(0,-3.18)">
+              <path d="M -0.55 0.55 L 0.55 0.55 L 0.5 -0.45 L -0.5 -0.45 Z" fill="#fff" stroke="#1E3A2F" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+              <rect x="-0.55" y="-0.665" width="1.1" height="0.22" rx="0.05" fill="rgba(30,58,47,.18)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="-0.22" y1="-0.61" x2="-0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0" y1="-0.61" x2="0" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0.22" y1="-0.61" x2="0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            </g></g>
+            <g transform="rotate(225)"><g transform="translate(0,-3.18)">
+              <path d="M -0.55 0.55 L 0.55 0.55 L 0.5 -0.45 L -0.5 -0.45 Z" fill="#fff" stroke="#1E3A2F" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+              <rect x="-0.55" y="-0.665" width="1.1" height="0.22" rx="0.05" fill="rgba(30,58,47,.18)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="-0.22" y1="-0.61" x2="-0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0" y1="-0.61" x2="0" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0.22" y1="-0.61" x2="0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            </g></g>
+            <g transform="rotate(270)"><g transform="translate(0,-3.18)">
+              <path d="M -0.55 0.55 L 0.55 0.55 L 0.5 -0.45 L -0.5 -0.45 Z" fill="#fff" stroke="#1E3A2F" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+              <rect x="-0.55" y="-0.665" width="1.1" height="0.22" rx="0.05" fill="rgba(30,58,47,.18)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="-0.22" y1="-0.61" x2="-0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0" y1="-0.61" x2="0" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0.22" y1="-0.61" x2="0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            </g></g>
+            <g transform="rotate(315)"><g transform="translate(0,-3.18)">
+              <path d="M -0.55 0.55 L 0.55 0.55 L 0.5 -0.45 L -0.5 -0.45 Z" fill="#fff" stroke="#1E3A2F" stroke-width="1.2" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+              <rect x="-0.55" y="-0.665" width="1.1" height="0.22" rx="0.05" fill="rgba(30,58,47,.18)" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="-0.22" y1="-0.61" x2="-0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0" y1="-0.61" x2="0" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+              <line x1="0.22" y1="-0.61" x2="0.22" y2="-0.49" stroke="#1E3A2F" stroke-width="1.2" vector-effect="non-scaling-stroke"/>
+            </g></g>
+          </svg>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p style="margin:24px 0;font-size:12.5px;color:var(--muted);max-width:1180px;line-height:1.6">
+  <strong>Style guardrails baked into v2:</strong>
+  every sprite has a Tier-1 cue that's readable at 14 px/ft (the trapezoidal silhouette, the fan, the armrest bumps, the table-top rim, the X-base) and Tier-2 detail (slats, ribs, inner bevel, spider legs) that fades gracefully at small sizes and rewards zoom-in.
+  Stroke weights standardized: 0.04 ft for primary outlines, 0.03 ft for secondary detail, all using <code>non-scaling-stroke</code>.
+</p>
+
+</body>
+</html>

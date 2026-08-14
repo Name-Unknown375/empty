@@ -5,9 +5,10 @@ import sanitizeHtml from 'sanitize-html';
 // ---------------------------------------------------------------------------
 // Outrank POSTs articles to /api/outrank-webhook, which stores them in the
 // "outrank-articles" Netlify Blobs store. This function serves those articles
-// as live, indexable pages at /blog/<slug> WITHOUT a site rebuild (the static
+// as live pages at /blog/<slug> WITHOUT a site rebuild (the static
 // site/ bundle is immutable between deploys, so a function is the only way to
-// publish on receipt).
+// publish on receipt). Pages return 200 for Outrank verification but are
+// noindex so they do not dilute the local entity.
 //
 // ROUTING SAFETY: `preferStatic: true` means Netlify serves an existing static
 // file first and only invokes this function when NO static asset matches. So
@@ -16,16 +17,16 @@ import sanitizeHtml from 'sanitize-html';
 // function at /blog/* intercepts EVERY blog URL (functions run before static).
 //
 // "Hidden from view": these slugs are never added to site/blog/posts.json, so
-// the blog hub (/blog/) never lists them. They are reachable only by direct URL
-// and the sitemap (/sitemap-blog-auto.xml) — orphan, but live and verifiable,
-// which is what Outrank's verification needs.
+// the blog hub (/blog/) never lists them. They are reachable by direct URL
+// so Outrank can verify the webhook. They are noindex and omitted from the
+// auto-sitemap so Google and ChatGPT do not treat us as a national directory.
 //
-// INDEXING: ROBOTS below is the single switch. 'index,follow' = Google indexes
-// these AI pages (coherent with listing them in a sitemap). Flip to
-// 'noindex,follow' to serve + verify with Outrank but keep them out of Google
-// (if you do, also drop them from the sitemap to avoid a GSC "noindex in
-// sitemap" warning).
-const ROBOTS = 'index,follow,max-image-preview:large';
+// INDEXING: these AI pages stay live (200) so Outrank can verify the webhook,
+// but they must not enter Google or ChatGPT's idea of where we deliver.
+// 57 auto-posts were indexed — including /blog/rent-a-tent-brampton and
+// duplicates of /vancouver-party-rentals. noindex + empty auto-sitemap.
+// Static /blog/*.html is unaffected (preferStatic serves those files first).
+const ROBOTS = 'noindex,nofollow';
 
 const SITE = 'https://www.foreverpartyrentals.com';
 const DEFAULT_OG = `${SITE}/images/og/social-card.webp`;
@@ -79,14 +80,16 @@ const SANITIZE_OPTS = {
   },
 };
 
-function htmlResponse(status, body) {
+function htmlResponse(status, body, robots = ROBOTS) {
   return new Response(body, {
     status,
     headers: {
       'content-type': 'text/html; charset=utf-8',
       // Short edge cache so a freshly published article appears quickly but
-      // repeat hits are cheap. Adjust if you want longer caching.
-      'cache-control': 'public, max-age=0, s-maxage=300, stale-while-revalidate=86400',
+      // repeat hits are cheap. s-maxage kept low so the noindex flip
+      // propagates without waiting out a long CDN TTL.
+      'cache-control': 'public, max-age=0, s-maxage=60, stale-while-revalidate=86400',
+      'x-robots-tag': robots,
     },
   });
 }
@@ -244,6 +247,10 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 </section>
 <div class="post-layout">
   <article class="post-body">
+<aside class="callout" style="margin:0 0 1.5rem;padding:1rem 1.15rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--light)">
+  <p style="margin:0 0 0.5rem"><strong>We deliver in Metro Vancouver and the Fraser Valley.</strong> Forever Party Rentals is based in Surrey, BC. We do not deliver nationally — if this article mentions a city outside our service area, it is not a booking page for that city.</p>
+  <p style="margin:0"><a href="/service-areas">See where we deliver</a> · <a href="/rentals">Book rentals</a></p>
+</aside>
 ${body}
   </article>
 </div>

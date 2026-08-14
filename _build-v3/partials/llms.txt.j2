@@ -1,0 +1,48 @@
+# Forever Party Rentals
+
+> Tent, chair, table, and dance-floor rentals across Metro Vancouver and the
+> Fraser Valley, BC. Delivery, setup, and teardown included. Family-run from
+> Surrey, BC. {{ events_served }} events served, {{ fpr.aggregateRating.count }}+ five-star Google reviews. Phone: {{ fpr.phone }}.
+
+## Top product categories
+{% for p in product_categories -%}
+- [{{ p.name }}]({{ site_url }}{{ p.url }}): {{ p.summary }}
+{% endfor %}
+## Service areas (Metro Vancouver & Fraser Valley)
+{% for c in tier1_cities -%}
+- [{{ c.name }} Party Rentals]({{ site_url }}/{{ c.slug }}-party-rentals)
+{% endfor %}
+{%- for c in tier2_cities %}
+- [{{ c.name }} Party Rentals]({{ site_url }}/{{ c.slug }}-party-rentals)
+{%- endfor %}
+
+Full list of {{ city_count }} cities served: {{ site_url }}/service-areas
+
+## Capacity & sizing references
+{% for r in capacity_refs -%}
+- [{{ r.title }}]({{ site_url }}{{ r.url }}){% if r.summary %}: {{ r.summary }}{% endif %}
+{% endfor %}
+## Event packages
+- [Wedding packages — 50/100/150 guests]({{ site_url }}/packages#wedding)
+- [Corporate packages — 50/100/150 guests]({{ site_url }}/packages#corporate)
+- [Backyard packages — 50/100/150 guests]({{ site_url }}/packages#backyard)
+- [All event packages]({{ site_url }}/packages)
+
+## Tools
+- [Free 2D event layout planner]({{ site_url }}/event-layout-planner): drag-and-drop tents, tables, chairs, dance floors into a scaled venue. Live capacity counts and price. Free, no signup.
+
+## Booking & contact
+- [Book online]({{ site_url }}/rentals): live availability calendar, instant confirmation, 25% deposit secures the date.
+- [Contact us]({{ site_url }}/contact): {{ fpr.email }} · {{ fpr.phone }}
+- Hours: {{ fpr.hours }}
+- Warehouse: {{ fpr.address }}
+
+## About
+Forever Party Rentals is a family-run party rental company serving the Lower Mainland of British Columbia. We deliver, set up, and tear down marquee tents, Chiavari chairs, banquet and round tables, dance floors, battery power stations, and Starlink internet rentals across {{ city_count }} cities from Vancouver to Chilliwack. {{ fpr.aggregateRating.count }}+ five-star Google reviews.
+
+## Policies
+- 25% deposit secures any booking; the balance is due before delivery.
+- 125% Cancellation Protection: if we cancel your booking, you receive 125% of your deposit back.
+- 10% early-pay discount when the full balance is paid 30+ days before the event.
+- On-time setup guarantee on every delivery.
+- AI crawlers: see `/robots.txt` for `Content-Signal` policy (search=yes, ai-input=yes, ai-train=no).

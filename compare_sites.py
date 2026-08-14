@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
 """
-Forever Party Rentals — side-by-side comparison server (v1 vs v2 redesign).
+Forever Party Rentals — side-by-side comparison server (live vs v3).
 
 Serves:
-  http://localhost:8080/          → current site   (site/)
-  http://localhost:8081/          → v2 redesign    (site-v2/)
+  http://localhost:8080/          → current live site   (site/)
+  http://localhost:8081/          → v3 conversion pass  (site-v3/)
   http://localhost:8079/          → split-screen comparison UI
 
 Run:  python3 compare_sites.py     (Ctrl-C to stop)
 
 The comparison UI shows both versions in synced iframes with quick-jump
-links to the representative pages (home, city page, SKU page, /rentals,
-category page). No dependencies — Python 3 stdlib only.
+links. No dependencies — Python 3 stdlib only.
 """
 import http.server
 import threading
@@ -20,11 +19,11 @@ import webbrowser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-PORTS = {8080: ROOT / "site", 8081: ROOT / "site-v2"}
+PORTS = {8080: ROOT / "site", 8081: ROOT / "site-v3"}
 
 COMPARE_HTML = """<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"/>
-<title>FPR — v1 vs v2 comparison</title>
+<title>FPR — live vs v3 comparison</title>
 <style>
   :root { --green:#1E3A2F; --gold:#C9A44A; }
   * { box-sizing:border-box; margin:0; }
@@ -41,19 +40,20 @@ COMPARE_HTML = """<!DOCTYPE html>
 </style></head>
 <body>
 <header>
-  <strong>Forever Party Rentals — v1 vs v2</strong>
+  <strong>Forever Party Rentals — live vs v3</strong>
   <a href="#" data-p="/index.html" class="active">Home</a>
-  <a href="#" data-p="/surrey-party-rentals.html">City (Surrey)</a>
+  <a href="#" data-p="/chairs.html">Chairs</a>
+  <a href="#" data-p="/tables.html">Tables</a>
+  <a href="#" data-p="/langley-party-rentals.html">City (Langley)</a>
   <a href="#" data-p="/product-white-chiavari-chair.html">SKU (Chiavari)</a>
-  <a href="#" data-p="/tents.html">Category (Tents)</a>
-  <a href="#" data-p="/rentals.html">Booking (/rentals)</a>
-  <a href="#" data-p="/packages.html">Packages</a>
-  <a href="#" data-p="/service-areas.html">Service Areas</a>
-  <a href="#" data-p="/pricing.html">Pricing</a>
+  <a href="#" data-p="/wedding-package-100-guests.html">Package (100)</a>
+  <a href="#" data-p="/contact.html">Contact</a>
+  <a href="#" data-p="/event-layout-planner.html">Planner</a>
+  <a href="#" data-p="/rentals.html">Booking</a>
 </header>
 <div class="panes">
-  <div class="pane"><div class="pane-label">Current — <b>site/</b> :8080</div><iframe id="f1" src="http://localhost:8080/index.html"></iframe></div>
-  <div class="pane"><div class="pane-label">Redesign — <b>site-v2/</b> :8081</div><iframe id="f2" src="http://localhost:8081/index.html"></iframe></div>
+  <div class="pane"><div class="pane-label">Live — <b>site/</b> :8080</div><iframe id="f1" src="http://localhost:8080/index.html"></iframe></div>
+  <div class="pane"><div class="pane-label">V3 — <b>site-v3/</b> :8081</div><iframe id="f2" src="http://localhost:8081/index.html"></iframe></div>
 </div>
 <script>
   document.querySelectorAll('header a').forEach(a => a.addEventListener('click', e => {
@@ -89,9 +89,6 @@ class QuietHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header("Cache-Control", "no-store")
         super().end_headers()
 
-    # Pretty-URL fallback — replicates netlify.toml's pretty_urls (same logic
-    # as _build-v2/serve_local.py) so /tents resolves to tents.html and the
-    # whole site is browsable locally, not just the homepage.
     def translate_path(self, path: str) -> str:  # type: ignore[override]
         resolved = super().translate_path(path)
         fp = Path(resolved)
