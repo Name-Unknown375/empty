@@ -14,14 +14,15 @@
  *      efficient then takes the smallest footprint; spacious takes the
  *      next size up when it buys real walking room (and still the fewest
  *      marquees).
- *   3. PACKING — rounds and highboys honeycomb (staggered rows) so walk
- *      paths zigzag the way a crew actually fills a marquee. Dance sits
- *      in a corner and tables flow around it. Banquet stays in runs;
- *      ceremony stays in rows.
- *   4. SPACING — cost-efficient tries 4 ft aisles, then 3.5 / 2.5 to save
- *      a marquee; chairs may kiss the valance. Spacious tries 6 / 5 / 4 ft
- *      (never tighter), keeps chairs under the canvas, and spends leftover
- *      width on aisles between tables — not empty side yards.
+ *   3. PACKING — rooms, not algorithms. Head table at one end, even
+ *      dining rows or two equal banquet runs in the middle, dance floor
+ *      as its own zone at the far end. Rounds sit on a regular grid at
+ *      catering pitch (10.75 ft efficient / 12 ft spacious) with a
+ *      centre aisle — not a zipper honeycomb. Banquet is two long
+ *      family-style runs, never four short cafeteria columns.
+ *   4. SPACING — table pitch and aisle width stay at catering numbers.
+ *      Leftover tent becomes equal side margins plus one lounge/entrance
+ *      gap. Never stretch table gaps to fill the canvas.
  */
 (function () {
   'use strict';
@@ -35,19 +36,27 @@
   // still fits a real tent instead of inventing a 3-marquee join.
   const AISLE_PREFS = [4, 3.5, 2.5];
   const AISLE_PREFS_SPACIOUS = [6, 5, 4, 3.5];
-  const AISLE_CAP = 6;          // never stretch chair-back aisles past this
+  const ROUND_PITCH_EFF = 10.75; // FPR catering density, centre to centre
+  const ROUND_PITCH_SPA = 12;    // roomier rounds when the tent allows
   function isSpacious(opts) { return !!(opts && opts.pack === 'spacious'); }
-  function aislePrefs(opts) { return isSpacious(opts) ? AISLE_PREFS_SPACIOUS : AISLE_PREFS; }
+  function aislePrefs(opts) {
+    const style = opts && opts.seating;
+    if (style === 'cocktail') {
+      return isSpacious(opts) ? [9, 8] : [8];
+    }
+    if (style === 'round' || !style) {
+      return isSpacious(opts) ? [ROUND_PITCH_SPA, 11, ROUND_PITCH_EFF] : [ROUND_PITCH_EFF];
+    }
+    return isSpacious(opts) ? AISLE_PREFS_SPACIOUS : AISLE_PREFS;
+  }
   const ROW_PITCH = 2.5;       // ceremony row spacing (= ceremony modal default)
   const CEREMONY_CHAIR_GAP = 0.25; // in-row chair gap (= ceremony modal default)
   const CEREMONY_AISLE = 4;
   const CEREMONY_INSET = 1.5;  // ceremony rows sit closer to the walls than dining
   const ALTAR_FT = 5;          // ceremony head zone (arch/officiant), at the front
-  const BANQUET_RUN_LEN = 12;  // 2 × 6ft tables end-to-end
+  const BANQUET_TABLE_FT = 6;  // 6ft banquet, joined end-to-end in a run
   const BANQUET_EDGE_INSET = 1.65;
-  const DANCE_GAP = 2;         // clearance between dance floor and seating
-  const SLOT_ROW_CAP = 24;     // L-pack row search limit (covers 300 guests)
-  const HEX_RATIO = Math.sqrt(3) / 2;
+  const DANCE_GAP = 4;         // zone gap between dining and the dance floor
 
   // Real fleet counts (verified against RentKit inventory, 2026-06-10).
   // A recommendation that needs three 20×60s when FPR owns two is a lie —
@@ -212,24 +221,22 @@
 
   // ── Tent selection ───────────────────────────────────────────────────
   // Cost-efficient: fewest marquees, smallest footprint, then aisle.
-  // Spacious: dance stays inside, fewest marquees, widest aisle, then a
-  // footprint that actually uses the width (2+ table columns) so leftover
-  // square footage becomes walking room instead of empty side yards.
+  // Spacious: same tent as efficient whenever the wider aisles still fit.
+  // Never add marquees or jump a size just to buy empty side yards.
   function comboPrice(cfg) {
     return cfg.keys.reduce((s, k) => s + ((byKey[k] && byKey[k].priceCAD) || 0), 0);
   }
-  function packCols(c) {
-    const z = c.fit && c.fit.zones;
-    if (!z) return 0;
-    if (z.cols != null) return z.cols;
-    if (z.block && z.block.cols) return z.block.cols;
-    if (z.sideCols) return z.sideCols;
-    return 0;
-  }
   function chooseTentConfig(opts) {
+    const spacious = isSpacious(opts);
+    if (spacious) {
+      const home = chooseTentConfig({ ...opts, pack: 'efficient' });
+      if (home) {
+        const inPlace = fitSpaciousInCfg(opts, home.cfg, home.danceOutside);
+        if (inPlace) return inPlace;
+      }
+    }
     const cands = [];
     const prefs = aislePrefs(opts);
-    const spacious = isSpacious(opts);
     for (let a = 0; a < prefs.length; a++) {
       const aisle = prefs[a];
       const plan = seatingPlan({ ...opts, _aisle: aisle });
@@ -240,7 +247,7 @@
           const fit = fitInWidth(plan, { ...variant, _seams: tentSeams(cfg) }, cfg.w, cfg.d);
           if (!fit) continue;
           cands.push({
-            cfg, fit, plan, aisle, danceOutside,
+            cfg, fit, plan, aisle: plan.aisle, danceOutside,
             tents: cfg.keys.length,
             area: cfg.w * cfg.d,
             price: comboPrice(cfg),
@@ -254,30 +261,38 @@
       }
       return null;
     }
-    const twoCol = (c) => (c.plan.units >= 5 && packCols(c) >= 2) ? 1 : 0;
-    const hexScore = (c) => (c.fit.zones && c.fit.zones.pack === 'hex') ? 1 : 0;
-    if (spacious) {
-      cands.sort((a, b) =>
-        ((a.danceOutside ? 1 : 0) - (b.danceOutside ? 1 : 0)) ||
-        (a.tents - b.tents) ||
-        (hexScore(b) - hexScore(a)) ||
-        (b.aisle - a.aisle) ||
-        (twoCol(b) - twoCol(a)) ||
-        (a.area - b.area) ||
-        (a.price - b.price) ||
-        (a.fit.depthNeeded - b.fit.depthNeeded)
-      );
-    } else {
-      cands.sort((a, b) =>
-        (a.tents - b.tents) ||
-        ((a.danceOutside ? 1 : 0) - (b.danceOutside ? 1 : 0)) ||
-        (a.area - b.area) ||
-        (b.aisle - a.aisle) ||
-        (a.price - b.price) ||
-        (a.fit.depthNeeded - b.fit.depthNeeded)
-      );
-    }
+    cands.sort((a, b) =>
+      (a.tents - b.tents) ||
+      ((a.danceOutside ? 1 : 0) - (b.danceOutside ? 1 : 0)) ||
+      (a.area - b.area) ||
+      (b.aisle - a.aisle) ||
+      (a.price - b.price) ||
+      (a.fit.depthNeeded - b.fit.depthNeeded)
+    );
     return cands[0];
+  }
+
+  function fitSpaciousInCfg(opts, cfg, allowDanceOutside) {
+    const prefs = aislePrefs({ ...opts, pack: 'spacious' });
+    for (let a = 0; a < prefs.length; a++) {
+      const aisle = prefs[a];
+      const plan = seatingPlan({ ...opts, pack: 'spacious', _aisle: aisle });
+      for (const danceOutside of [false, true]) {
+        if (danceOutside && (!opts.danceFloor || plan.style === 'ceremony')) continue;
+        if (danceOutside && !allowDanceOutside) continue;
+        const fit = fitInWidth(plan, {
+          ...opts, pack: 'spacious', _aisle: aisle, _danceOutside: danceOutside, _seams: tentSeams(cfg),
+        }, cfg.w, cfg.d);
+        if (!fit) continue;
+        return {
+          cfg, fit, plan, aisle: plan.aisle, danceOutside,
+          tents: cfg.keys.length,
+          area: cfg.w * cfg.d,
+          price: comboPrice(cfg),
+        };
+      }
+    }
+    return null;
   }
 
   function snapDanceFloor(guests) {
@@ -302,9 +317,11 @@
     if (style === 'cocktail') {
       const n = Math.ceil(guests / 6);
       const env = 2.5;
+      const pitch = (opts._aisle != null && opts._aisle >= 6) ? opts._aisle : 8;
       return {
-        style, guests, units: n, unitKey: 'cocktail-table', aisle,
-        pitchX: env + aisle, pitchY: env + aisle, envX: env, envY: env, seatsPerUnit: 0,
+        style, guests, units: n, unitKey: 'cocktail-table',
+        aisle: Math.round((pitch - env) * 10) / 10,
+        pitchX: pitch, pitchY: pitch, envX: env, envY: env, seatsPerUnit: 0,
       };
     }
     if (style === 'ceremony') {
@@ -320,293 +337,189 @@
       return {
         style, guests, units: Math.ceil(Math.max(0, guests - headSeats) / 6), unitKey: 'banquet-table-6ft',
         seatsPerUnit: 6, aisle, envX: 6, envY,
-        colPitch: envY + aisle, runGap: aisle, runLen: BANQUET_RUN_LEN,
+        colPitch: envY + aisle, runGap: 0, runLen: BANQUET_TABLE_FT,
       };
     }
     const env = 5 + cc * 2;
     const headSeats = opts.headTable ? 8 : 0;
+    const pitch = (opts._aisle != null && opts._aisle >= 8) ? opts._aisle : (isSpacious(opts) ? ROUND_PITCH_SPA : ROUND_PITCH_EFF);
     return {
       style: 'round', guests, units: Math.ceil(Math.max(0, guests - headSeats) / 8), unitKey: 'round-table-5ft',
-      pitchX: env + aisle, pitchY: env + aisle, envX: env, envY: env,
-      seatsPerUnit: 8, aisle,
+      pitchX: pitch, pitchY: pitch, envX: env, envY: env,
+      seatsPerUnit: 8, aisle: Math.round((pitch - env) * 10) / 10,
     };
   }
 
-  // ── Seating-band math ────────────────────────────────────────────────
-  function gridCols(plan, width) {
-    return Math.max(0, Math.floor((width - plan.envX) / plan.pitchX) + 1);
-  }
-  function gridDepthFor(plan, units, width) {
-    const cols = gridCols(plan, width);
-    if (cols < 1) return null;
-    if (units <= 0) return { cols, rows: 0, depth: 0 };
-    const rows = Math.ceil(units / cols);
-    return { cols, rows, depth: (rows - 1) * plan.pitchY + plan.envY };
-  }
-  function gridUnitsInBand(plan, width, depth) {
-    const cols = gridCols(plan, width);
-    if (cols < 1 || depth < plan.envY) return 0;
-    const rows = Math.floor((depth - plan.envY) / plan.pitchY) + 1;
-    return cols * rows;
-  }
-  function runCols(plan, width) {
-    return Math.max(0, Math.floor((width - plan.envY) / plan.colPitch) + 1);
-  }
-  function runDepthFor(plan, units, width) {
-    const cols = runCols(plan, width);
-    if (cols < 1) return null;
-    if (units <= 0) return { cols, rows: 0, runs: 0, depth: 0 };
-    const runs = Math.ceil(units / 2);
-    const rows = Math.ceil(runs / cols);
-    return { cols, rows, runs, depth: rows * plan.runLen + (rows - 1) * plan.runGap };
-  }
-  function runUnitsInBand(plan, width, depth) {
-    const cols = runCols(plan, width);
-    if (cols < 1 || depth < plan.runLen) return 0;
-    const rows = Math.floor((depth + plan.runGap) / (plan.runLen + plan.runGap));
-    return cols * rows * 2;
+
+  function banquetColCounts(units, cols) {
+    const base = Math.floor(units / cols);
+    const extra = units % cols;
+    return Array.from({ length: cols }, (_, i) => base + (i < extra ? 1 : 0));
   }
 
-  // Honeycomb (staggered) packing for rounds — the way a crew actually
-  // fills a 20×30/20×40: offset every other row so walk paths zigzag
-  // instead of forming cafeteria aisles. Cost-efficient centres sit so the
-  // TABLE stays in the tent; chairs may kiss the valance. Spacious keeps
-  // chairs under the canvas and spends leftover width on aisles between
-  // tables (capped at AISLE_CAP) instead of empty side yards.
-  function packHex(plan, W, D, df, spread, extraBoxes) {
-    if (spread) return packHexSpread(plan, W, D, df, extraBoxes);
+  // Regular dining grid — even rows, last leftover row centred. Pitch is
+  // centre-to-centre (10.75 / 12 for rounds) and never stretched to fill
+  // tent width. Extra width becomes equal side aisles; extra length stays
+  // as one lounge/dance zone.
+  function packDiningGrid(plan, W, H, spacious) {
+    const env = plan.envX;
     const pitch = plan.pitchX;
-    const r = plan.envX / 2;
-    if (!(W > 0) || !(D > 0) || !(pitch > 0)) return null;
-    const margin = Math.min(r, Math.max(2.5, (W - pitch) / 2));
-    if (margin * 2 > W + 0.05) return null;
-    const obstacles = hexObstacles(W, D, df, extraBoxes);
-    if (df && !obstacles) return null;
-    const dance = obstacles && obstacles.dance;
-    const rowH = pitch * HEX_RATIO;
+    const tableR = plan.style === 'cocktail' ? 1.25 : 2.5;
+    const wallClear = env / 2;
+    const colClear = spacious ? tableR + 0.25 : wallClear;
+    if (W < 2 * colClear - 0.05) return null;
+    const inner = W - 2 * colClear;
+    let cols = Math.max(1, Math.floor(inner / pitch + 1.001));
+    while (cols > 1 && (cols - 1) * pitch > inner + 0.05) cols--;
+    const rows = Math.ceil(plan.units / cols);
+    let rowPitch = pitch;
+    const yInner = H - 2 * wallClear;
+    if (rows > 1 && (rows - 1) * rowPitch > yInner + 0.05) {
+      rowPitch = yInner / (rows - 1);
+      if (rowPitch < env - 0.08) return null;
+    }
     const slots = [];
-    let row = 0;
-    let evenCols = 0;
-    for (let y = margin; y <= D - margin + 0.05; y += rowH, row++) {
-      const xStart = margin + ((row % 2) ? pitch / 2 : 0);
-      let inRow = 0;
-      for (let x = xStart; x <= W - margin + 0.05; x += pitch) {
-        if (hexHits(x, y, r, obstacles && obstacles.boxes)) continue;
-        slots.push({ cx: Math.round(x * 100) / 100, cy: Math.round(y * 100) / 100 });
-        inRow++;
+    let placed = 0;
+    for (let r = 0; r < rows && placed < plan.units; r++) {
+      const n = Math.min(cols, plan.units - placed);
+      const rowSpan = n === 1 ? 0 : (n - 1) * pitch;
+      const x0 = (W - rowSpan) / 2;
+      const cy = wallClear + r * rowPitch;
+      if (cy + tableR > H + 0.08) return null;
+      for (let c = 0; c < n; c++) {
+        slots.push({
+          cx: Math.round((x0 + c * pitch) * 100) / 100,
+          cy: Math.round(cy * 100) / 100,
+        });
+        placed++;
       }
-      if (row === 0) evenCols = inRow;
     }
     if (slots.length < plan.units) return null;
-    const taken = slots.slice(0, plan.units);
-    return hexResult(taken, dance, df, r, W, evenCols);
+    const last = slots[slots.length - 1];
+    return { slots, cols, rows, depth: last.cy + env / 2, pitch };
   }
 
-  function hexObstacles(W, D, df, extra) {
-    const boxes = extra ? extra.slice() : [];
-    if (!df) return { dance: null, boxes };
-    const dw = df.widthFt, dh = df.depthFt;
-    if (dw > W || dh > D) return null;
-    const dance = { key: df.key, w: dw, d: dh, cx: W - dw / 2, cy: dh / 2 };
-    boxes.push({
-      x1: dance.cx - dw / 2 - DANCE_GAP,
-      y1: dance.cy - dh / 2 - DANCE_GAP,
-      x2: dance.cx + dw / 2 + DANCE_GAP,
-      y2: dance.cy + dh / 2 + DANCE_GAP,
-    });
-    return { dance, boxes };
-  }
-  function hexHits(x, y, r, boxes) {
-    if (!boxes || !boxes.length) return false;
-    return boxes.some(o => {
-      const rr = o.r != null ? o.r : r;
-      return x + rr > o.x1 && x - rr < o.x2 && y + rr > o.y1 && y - rr < o.y2;
-    });
-  }
-  function hexResult(taken, dance, df, r, W, cols) {
-    let maxY = dance ? df.depthFt : 0;
-    for (let i = 0; i < taken.length; i++) {
-      const bottom = taken[i].cy + r;
-      if (bottom > maxY) maxY = bottom;
-    }
-    return { type: 'hex', depth: maxY, slots: taken, dance, packW: W, cols: cols || 1 };
-  }
-
-  // Spacious honeycomb: chairs stay inside the tent; extra width becomes
-  // aisle between columns (capped), extra depth becomes aisle between rows.
-  function packHexSpread(plan, W, D, df, extraBoxes) {
-    const minPitch = plan.pitchX;
-    const r = plan.envX / 2;
-    const maxPitch = plan.envX + AISLE_CAP;
-    if (!(W > 0) || !(D > 0) || !(minPitch > 0)) return null;
-    const wall = r;
-    if (wall * 2 > W + 0.05) return null;
-    const obstacles = hexObstacles(W, D, df, extraBoxes);
-    if (df && !obstacles) return null;
-    const dance = obstacles && obstacles.dance;
-
-    const cols = Math.max(1, Math.floor((W - 2 * wall + 0.05) / minPitch) + 1);
-    const pitch = minPitch;
-    const evenSpan = Math.max(0, (cols - 1) * pitch);
-    const margin = cols > 1 ? (W - evenSpan) / 2 : W / 2;
-    if (margin < wall - 0.05) return null;
-
-    const rowH = pitch * HEX_RATIO;
+  // Two (sometimes three) equal family-style runs. Never four short columns.
+  // An odd leftover table becomes a head table across the top (or a
+  // sweetheart by the dance if the user already asked for a head table)
+  // so both runs stay the same length.
+  function packBanquetEven(plan, W, H, spacious, opts) {
+    const envY = plan.envY;
+    const minAisle = spacious ? Math.max(4, plan.aisle || 6) : Math.max(2.5, plan.aisle || 4);
+    const minCenter = envY / 2;
+    if (W < 2 * minCenter - 0.05) return null;
+    const inner = W - 2 * minCenter;
+    const maxFit = Math.max(1, Math.floor(inner / (envY + minAisle) + 1.001));
+    let cols = Math.min(maxFit, 2);
+    if (W >= 38 && plan.units >= 12 && maxFit >= 3) cols = 3;
+    if (W >= 48 && plan.units >= 24 && maxFit >= 4) cols = Math.min(maxFit, 4);
+    if (cols < 1) return null;
+    const oddSpare = cols === 2 && plan.units % 2 === 1 && plan.units >= 5;
+    const asHead = oddSpare && !opts.headTable;
+    const asSweet = oddSpare && !!opts.headTable;
+    const diningUnits = oddSpare ? plan.units - 1 : plan.units;
+    const counts = banquetColCounts(diningUnits, cols);
+    const maxN = Math.max.apply(null, counts);
+    const headBand = asHead ? 2.5 + 4.5 : 0;
+    const sweetBand = asSweet ? 4 + 2.5 : 0;
+    const runLen = maxN * BANQUET_TABLE_FT;
+    if (headBand + runLen + sweetBand > H + 0.08) return null;
+    let colPitch = envY + minAisle;
+    if (cols > 1 && colPitch > inner + 0.05) return null;
+    if (cols > 1 && colPitch < envY + (spacious ? 4 : 2.5) - 0.05) return null;
+    const xSpan = cols === 1 ? 0 : (cols - 1) * colPitch;
+    const x0 = (W - xSpan) / 2;
     const slots = [];
-    let row = 0;
-    let evenCols = 0;
-    for (let y = wall; y <= D - wall + 0.05; y += rowH, row++) {
-      const xStart = (cols > 1 ? margin : W / 2) + ((row % 2) ? pitch / 2 : 0);
-      if (cols === 1 && row % 2 === 1) continue;
-      let inRow = 0;
-      for (let x = xStart; x <= W - Math.min(margin, wall) + 0.05; x += pitch) {
-        if (x < wall - 0.05 || x > W - wall + 0.05) continue;
-        if (hexHits(x, y, r, obstacles && obstacles.boxes)) continue;
-        slots.push({ cx: Math.round(x * 100) / 100, cy: Math.round(y * 100) / 100 });
-        inRow++;
-      }
-      if (row === 0) evenCols = inRow || cols;
+    if (asHead) {
+      slots.push({
+        cx: Math.round((W / 2) * 100) / 100,
+        cy: Math.round(1.25 * 100) / 100,
+        rotation: 0,
+      });
     }
-    if (slots.length < plan.units) return null;
-    let taken = slots.slice(0, plan.units);
-    taken = spreadHexSlots(taken, W, D, wall, maxPitch, extraBoxes);
-    return hexResult(taken, dance, df, r, W, evenCols);
-  }
-
-  // Push leftover tent width/depth into aisles between tables (capped),
-  // keeping the lattice shape. Extra beyond AISLE_CAP stays as equal margins.
-  function spreadHexSlots(taken, W, D, wall, maxPitch, extraBoxes) {
-    if (taken.length < 2) return taken;
-    const uniq = (vals) => [...new Set(vals.map(v => Math.round(v * 100) / 100))].sort((a, b) => a - b);
-    const remap = (vals, lo, hi, cap, anchor) => {
-      const u = uniq(vals);
-      if (u.length <= 1) return (v) => v;
-      const span = u[u.length - 1] - u[0];
-      if (span < 0.2) return (v) => v;
-      const maxSpan = Math.min(hi - lo, (u.length - 1) * cap);
-      const nativeGap = span / (u.length - 1);
-      const scale = Math.min(maxSpan / span, cap / nativeGap);
-      if (!(scale > 1.02)) return (v) => v;
-      if (anchor === 'min') {
-        return (v) => Math.round((u[0] + (v - u[0]) * scale) * 100) / 100;
-      }
-      const mid = (u[0] + u[u.length - 1]) / 2;
-      const newMid = (lo + hi) / 2;
-      return (v) => Math.round((newMid + (v - mid) * scale) * 100) / 100;
-    };
-    const vCuts = [0];
-    for (const s of extraBoxes || []) {
-      if ((s.x2 - s.x1) < (s.y2 - s.y1)) vCuts.push((s.x1 + s.x2) / 2);
-    }
-    vCuts.push(W);
-    vCuts.sort((a, b) => a - b);
-    const cuts = [];
-    for (let i = 0; i < vCuts.length; i++) {
-      if (!cuts.length || vCuts[i] - cuts[cuts.length - 1] > 1) cuts.push(vCuts[i]);
-    }
-    const mapY = remap(taken.map(s => s.cy), wall, D - wall, maxPitch * HEX_RATIO, 'min');
-    const out = [];
-    for (let i = 0; i < cuts.length - 1; i++) {
-      const lo = cuts[i], hi = cuts[i + 1];
-      const group = taken.filter(s => s.cx >= lo - 0.05 && s.cx <= hi + 0.05);
-      if (!group.length) continue;
-      const mapX = remap(group.map(s => s.cx), lo + wall, hi - wall, maxPitch, 'center');
-      for (const s of group) out.push({ cx: mapX(s.cx), cy: mapY(s.cy) });
-    }
-    return out.length ? out : taken;
-  }
-
-  // L-pack: dance in the top-right corner; seating fills the left full-depth
-  // and the pocket under the dance floor. Slots are sorted top-to-bottom.
-  function lPackSeating(plan, seatW, df, isRuns) {
-    const minW = isRuns ? plan.envY : plan.envX;
-    const sideW = seatW - df.widthFt - DANCE_GAP;
-    if (sideW < minW) return null;
-    const sideCols = isRuns ? runCols(plan, sideW) : gridCols(plan, sideW);
-    if (sideCols < 1) return null;
-    const underCols = df.widthFt >= minW
-      ? (isRuns ? runCols(plan, df.widthFt) : gridCols(plan, df.widthFt))
-      : 0;
-    const pitch = isRuns ? (plan.runLen + plan.runGap) : plan.pitchY;
-    const unitH = isRuns ? plan.runLen : plan.envY;
-    const perSideRow = isRuns ? sideCols * 2 : sideCols;
-    const perUnderRow = underCols > 0 ? (isRuns ? underCols * 2 : underCols) : 0;
-    const slots = [];
-    for (let r = 0; r < SLOT_ROW_CAP; r++) {
-      for (let i = 0; i < perSideRow; i++) slots.push({ region: 'side', r, i, y: r * pitch });
-      if (perUnderRow > 0) {
-        for (let i = 0; i < perUnderRow; i++) {
-          slots.push({ region: 'under', r, i, y: df.depthFt + DANCE_GAP + r * pitch });
-        }
-      }
-    }
-    slots.sort((a, b) => a.y - b.y || (a.region === 'side' ? -1 : 1));
-    const taken = slots.slice(0, plan.units);
-    if (taken.length < plan.units) return null;
-    const last = taken[taken.length - 1];
-    const depth = Math.max(df.depthFt, last.y + unitH);
-    return {
-      type: 'L', depth, sideW, sideCols, underCols, df, taken,
-      pitch, unitH, perSideRow, perUnderRow,
-    };
-  }
-
-  function pickDancePack(plan, seatW, df, isRuns) {
-    const packs = [];
-    const blockFor = (units, width) => isRuns
-      ? runDepthFor(plan, units, width)
-      : gridDepthFor(plan, units, width);
-    const bandUnits = (width, depth) => isRuns
-      ? runUnitsInBand(plan, width, depth)
-      : gridUnitsInBand(plan, width, depth);
-
-    // Corner band: one row of tables beside the dance floor (band height is
-    // at least a furniture envelope — an 8×8 floor is shallower than a
-    // 5ft round + chairs, so using the floor's own depth used to yield 0).
-    const bandH = Math.max(df.depthFt, isRuns ? plan.runLen : plan.envY);
-    const bandW = seatW - df.widthFt - DANCE_GAP;
-    if (bandW > 0) {
-      const inBand = bandUnits(bandW, bandH);
-      const remaining = Math.max(0, plan.units - inBand);
-      const below = remaining > 0 ? blockFor(remaining, seatW) : { depth: 0, cols: 0, rows: 0 };
-      if (remaining === 0 || below) {
-        packs.push({
-          type: 'band',
-          depth: bandH + (remaining > 0 ? DANCE_GAP + below.depth : 0),
-          dance: { key: df.key, w: df.widthFt, d: df.depthFt, bandW, bandH, inBand },
-          block: below,
+    for (let c = 0; c < cols; c++) {
+      const cx = x0 + c * colPitch;
+      for (let t = 0; t < counts[c]; t++) {
+        slots.push({
+          cx: Math.round(cx * 100) / 100,
+          cy: Math.round((headBand + BANQUET_TABLE_FT / 2 + t * BANQUET_TABLE_FT) * 100) / 100,
+          rotation: 90,
         });
       }
     }
-
-    const L = lPackSeating(plan, seatW, df, isRuns);
-    if (L) packs.push({ ...L, dance: { key: df.key, w: df.widthFt, d: df.depthFt } });
-
-    const block = blockFor(plan.units, seatW);
-    if (block && df.widthFt <= seatW) {
-      packs.push({
-        type: 'strip',
-        depth: block.depth + DANCE_GAP + df.depthFt,
-        block,
-        dance: { key: df.key, w: df.widthFt, d: df.depthFt },
+    if (asSweet) {
+      slots.push({
+        cx: Math.round((W / 2) * 100) / 100,
+        cy: Math.round((headBand + runLen + 4 + 1.25) * 100) / 100,
+        rotation: 0,
       });
     }
-    if (!packs.length) return null;
-    packs.sort((a, b) => a.depth - b.depth);
-    return packs[0];
+    return { slots, cols, depth: headBand + runLen + sweetBand, colPitch };
   }
 
-  // Fit `plan` into a footprint w×dMax. Returns zone layout or null.
-  function fitInWidth(plan, opts, w, dMax) {
-    const usableW = w - INSET_FT * 2;
-    if (usableW <= 0) return null;
-    let depthNeeded = INSET_FT * 2;
-    const zones = {};
+  // Head table → dining block → dance floor as its own zone at the far end.
+  function packZoned(plan, opts, tentW, tentD) {
+    const spacious = isSpacious(opts);
     const buffetW = (opts.buffet && plan.style !== 'ceremony') ? 6 : 0;
+    const headH = opts.headTable ? 8 : 0;
+    const df = (opts.danceFloor)
+      ? ((opts._df === 'min') ? danceFloors[0] : snapDanceFloor(plan.guests))
+      : null;
+    const danceInside = !!(df && !opts._danceOutside);
+    if (df && df.widthFt > tentW + 0.05) return null;
+    const danceBand = danceInside ? df.depthFt + DANCE_GAP : 0;
+    const diningW = tentW - buffetW;
+    const diningH = tentD - INSET_FT * 2 - headH - danceBand;
+    if (diningW < 6 || diningH < 4) return null;
+    const dining = plan.style === 'banquet'
+      ? packBanquetEven(plan, diningW, diningH, spacious, opts)
+      : packDiningGrid(plan, diningW, diningH, spacious);
+    if (!dining) return null;
+    const xOff = 0;
+    const leftover = Math.max(0, diningH - dining.depth);
+    const yPad = (!danceInside && !headH) ? leftover / 2 : 0;
+    const entrance = (danceInside && !headH) ? leftover : 0;
+    const yOff = INSET_FT + headH + yPad + entrance;
+    const slots = dining.slots.map(s => ({
+      cx: Math.round((xOff + s.cx) * 100) / 100,
+      cy: Math.round((yOff + s.cy) * 100) / 100,
+      rotation: s.rotation,
+    }));
+    let dance = null;
+    if (danceInside) {
+      const diningBottom = yOff + dining.depth;
+      const cy = tentD - INSET_FT - df.depthFt / 2;
+      const top = cy - df.depthFt / 2;
+      if (top < diningBottom + DANCE_GAP - 0.08) {
+        const pushed = diningBottom + DANCE_GAP + df.depthFt / 2;
+        if (pushed + df.depthFt / 2 > tentD - INSET_FT + 0.08) return null;
+        dance = { key: df.key, w: df.widthFt, d: df.depthFt, cx: tentW / 2, cy: Math.round(pushed * 100) / 100 };
+      } else {
+        dance = { key: df.key, w: df.widthFt, d: df.depthFt, cx: tentW / 2, cy: Math.round(cy * 100) / 100 };
+      }
+    }
+    const compact = INSET_FT * 2 + headH + dining.depth + danceBand;
+    return {
+      type: 'zoned',
+      depth: compact,
+      depthNeeded: compact,
+      slots,
+      dance,
+      cols: dining.cols,
+      packW: diningW,
+      head: headH || undefined,
+      buffet: buffetW > 0 || undefined,
+    };
+  }
 
-    if (opts.headTable) { zones.head = 8; depthNeeded += 8; }
-
+  function fitInWidth(plan, opts, w, dMax) {
+    if (w <= 0) return null;
     if (plan.style === 'ceremony') {
+      const usableW = w - INSET_FT * 2;
+      if (usableW <= 0) return null;
+      let depthNeeded = INSET_FT * 2;
+      const zones = {};
+      if (opts.headTable) { zones.head = 8; depthNeeded += 8; }
       const chair = byKey[plan.unitKey];
       const perChair = (chair ? chair.widthFt : 1.5) + CEREMONY_CHAIR_GAP;
       const chairDepth = chair ? chair.depthFt : 1.83;
@@ -622,44 +535,16 @@
       if (dMax != null && depthNeeded > dMax) return null;
       return { depthNeeded, zones };
     }
-
-    const isRuns = plan.style === 'banquet';
-    const isHex = plan.style === 'round' || plan.style === 'cocktail';
-    const seatW = usableW - buffetW - (isRuns ? (BANQUET_EDGE_INSET - INSET_FT) * 2 : 0);
-    const df = (opts.danceFloor)
-      ? ((opts._df === 'min') ? danceFloors[0] : snapDanceFloor(plan.guests))
-      : null;
-
-    const head = opts.headTable ? 8 : 0;
-    const hexD = (dMax != null ? dMax : 240) - head;
-    let best = null;
-    if (isHex) {
-      const hexDf = (df && !opts._danceOutside) ? df : null;
-      const hex = packHex(plan, w - buffetW, hexD, hexDf, isSpacious(opts), opts._seams);
-      if (hex) best = hex;
+    const tentD = dMax != null ? dMax : 240;
+    const zoned = packZoned(plan, opts, w, tentD);
+    if (!zoned) return null;
+    if (dMax != null && zoned.depthNeeded > dMax + 0.05) return null;
+    if (opts._danceOutside) {
+      const df = snapDanceFloor(plan.guests);
+      if (df) zoned.danceOutside = { key: df.key, w: df.widthFt, d: df.depthFt };
     }
-    if (!best && df && !opts._danceOutside) {
-      best = pickDancePack(plan, seatW, df, isRuns);
-    }
-    if (!best) {
-      const block = isRuns ? runDepthFor(plan, plan.units, seatW) : gridDepthFor(plan, plan.units, seatW);
-      if (block) best = { type: 'grid', depth: block.depth, block };
-      if (df && opts._danceOutside) zones.danceOutside = { key: df.key, w: df.widthFt, d: df.depthFt };
-    }
-    if (!best) return null;
-
-    Object.assign(zones, best);
-    zones.seatW = best.packW || seatW;
-    zones.pack = best.type;
-    if (best.type === 'hex') depthNeeded = (opts.headTable ? 8 : 0) + best.depth;
-    else depthNeeded += best.depth;
-    if (buffetW > 0) {
-      if (usableW - buffetW < 8) return null;
-      zones.buffet = true;
-    }
-    if (df && !opts._danceOutside && !zones.dance) return null;
-    if (dMax != null && depthNeeded > dMax) return null;
-    return { depthNeeded, zones };
+    zoned.pack = 'zoned';
+    return { depthNeeded: zoned.depthNeeded, zones: zoned };
   }
 
   function recommendTent(opts) {
@@ -722,8 +607,7 @@
       }
       if (!fit) return null;
       originX = INSET_FT;
-      const packFromTop = fit.zones.pack === 'hex';
-      originY = INSET_FT + (packFromTop ? 0 : Math.max(0, (D - fit.depthNeeded) / 2));
+      originY = INSET_FT;
       usableW = W - INSET_FT * 2;
     } else {
       const pick = chooseTentConfig(opts);
@@ -734,8 +618,7 @@
       W = cfg.w + 8;
       D = cfg.d + 8 + (lawnDance ? lawnDance.depthFt + DANCE_GAP + 2 : 0);
       originX = 4 + INSET_FT;
-      const packFromTop = fit.zones.pack === 'hex';
-      originY = 4 + INSET_FT + (packFromTop ? 0 : Math.max(0, (cfg.d - fit.depthNeeded) / 2));
+      originY = 4 + INSET_FT;
       usableW = cfg.w - INSET_FT * 2;
       for (const p of cfg.placements) {
         const tentItem = { key: p.key, cx: 4 + p.cx, cy: 4 + p.cy };
@@ -761,7 +644,7 @@
       cursorY += fit.zones.head;
     }
 
-    const tableItem = (cx, cy) => {
+    const tableItem = (cx, cy, rotation) => {
       let x = cx;
       if (plan.style === 'banquet' && cfg && cfg.placements.length > 1) {
         const tentLeft = 4;
@@ -776,85 +659,8 @@
         item.chairCount = plan.seatsPerUnit;
         item.chairKey = chairKey;
       }
-      if (plan.style === 'banquet') item.rotation = 90;
+      if (plan.style === 'banquet') item.rotation = rotation != null ? rotation : 90;
       return item;
-    };
-    const placeGrid = (block, units, cx0, startY, skip) => {
-      const rowWidth = (n) => (n - 1) * plan.pitchX + plan.envX;
-      let placed = skip || 0;
-      const startUnit = placed;
-      for (let r = 0; r < block.rows && placed < units; r++) {
-        const inRow = Math.min(block.cols, units - placed);
-        const rowLeft = cx0 - rowWidth(inRow) / 2;
-        for (let c = 0; c < inRow; c++) {
-          items.push(tableItem(
-            rowLeft + plan.envX / 2 + c * plan.pitchX,
-            startY + r * plan.pitchY + plan.envY / 2
-          ));
-          placed++;
-        }
-      }
-      return placed - startUnit;
-    };
-    const placeRuns = (block, units, cx0, startY, skip) => {
-      const gridW = (block.cols - 1) * plan.colPitch + plan.envY;
-      const firstCol = cx0 - gridW / 2 + plan.envY / 2;
-      let placed = skip || 0;
-      const startUnit = placed;
-      for (let r = 0; r < block.rows && placed < units; r++) {
-        const rowY = startY + r * (plan.runLen + plan.runGap);
-        for (let c = 0; c < block.cols && placed < units; c++) {
-          const cx = firstCol + c * plan.colPitch;
-          for (let t = 0; t < 2 && placed < units; t++) {
-            items.push(tableItem(cx, rowY + 3 + t * 6));
-            placed++;
-          }
-        }
-      }
-      return placed - startUnit;
-    };
-    const placeL = (z) => {
-      const isRuns = plan.style === 'banquet';
-      const sideLeft = furnitureCX - seatW / 2;
-      const sideCX = sideLeft + z.sideW / 2;
-      const danceCX = sideLeft + z.sideW + DANCE_GAP + z.dance.w / 2;
-      items.push({ key: z.dance.key, cx: danceCX, cy: cursorY + z.dance.d / 2 });
-      const rowWidth = (cols, pitch, env) => (cols - 1) * pitch + env;
-      for (const s of z.taken) {
-        if (s.region === 'side') {
-          if (isRuns) {
-            const cols = z.sideCols;
-            const c = Math.floor(s.i / 2);
-            const t = s.i % 2;
-            const gridW = rowWidth(cols, plan.colPitch, plan.envY);
-            const firstCol = sideCX - gridW / 2 + plan.envY / 2;
-            items.push(tableItem(firstCol + c * plan.colPitch, cursorY + s.y + 3 + t * 6));
-          } else {
-            const cols = z.sideCols;
-            const gridW = rowWidth(cols, plan.pitchX, plan.envX);
-            const rowLeft = sideCX - gridW / 2;
-            items.push(tableItem(
-              rowLeft + plan.envX / 2 + s.i * plan.pitchX,
-              cursorY + s.y + plan.envY / 2
-            ));
-          }
-        } else if (isRuns) {
-          const cols = z.underCols;
-          const c = Math.floor(s.i / 2);
-          const t = s.i % 2;
-          const gridW = rowWidth(cols, plan.colPitch, plan.envY);
-          const firstCol = danceCX - gridW / 2 + plan.envY / 2;
-          items.push(tableItem(firstCol + c * plan.colPitch, cursorY + s.y + 3 + t * 6));
-        } else {
-          const cols = z.underCols;
-          const gridW = rowWidth(cols, plan.pitchX, plan.envX);
-          const rowLeft = danceCX - gridW / 2;
-          items.push(tableItem(
-            rowLeft + plan.envX / 2 + s.i * plan.pitchX,
-            cursorY + s.y + plan.envY / 2
-          ));
-        }
-      }
     };
 
     if (plan.style === 'ceremony') {
@@ -874,55 +680,18 @@
         }
       }
     } else {
-      const isRuns = plan.style === 'banquet';
-      const pack = fit.zones.pack;
-      if (pack === 'hex' && fit.zones.slots) {
-        const tentLeft = originX - INSET_FT;
-        const tentTop = originY - INSET_FT;
-        const head = fit.zones.head || 0;
-        if (fit.zones.dance) {
-          items.push({
-            key: fit.zones.dance.key,
-            cx: tentLeft + fit.zones.dance.cx,
-            cy: tentTop + head + fit.zones.dance.cy,
-          });
-        }
+      const tentLeft = cfg ? 4 : 0;
+      const tentTop = cfg ? 4 : 0;
+      if (fit.zones.dance) {
+        items.push({
+          key: fit.zones.dance.key,
+          cx: tentLeft + fit.zones.dance.cx,
+          cy: tentTop + fit.zones.dance.cy,
+        });
+      }
+      if (fit.zones.slots) {
         for (const s of fit.zones.slots) {
-          items.push(tableItem(tentLeft + s.cx, tentTop + head + s.cy));
-        }
-      } else if (pack === 'L' && fit.zones.taken) {
-        placeL(fit.zones);
-      } else {
-        let placedSoFar = 0;
-        if (pack === 'band' && fit.zones.dance) {
-          const z = fit.zones.dance;
-          items.push({
-            key: z.key,
-            cx: furnitureCX + seatW / 2 - z.w / 2,
-            cy: cursorY + z.d / 2,
-          });
-          if (z.inBand > 0) {
-            const bandCX = furnitureCX - seatW / 2 + z.bandW / 2;
-            const bandBlock = isRuns
-              ? runDepthFor(plan, Math.min(z.inBand, plan.units), z.bandW)
-              : gridDepthFor(plan, Math.min(z.inBand, plan.units), z.bandW);
-            if (bandBlock) {
-              placedSoFar += isRuns
-                ? placeRuns(bandBlock, Math.min(z.inBand, plan.units), bandCX, cursorY)
-                : placeGrid(bandBlock, Math.min(z.inBand, plan.units), bandCX, cursorY);
-            }
-          }
-          cursorY += z.bandH + (plan.units > placedSoFar ? DANCE_GAP : 0);
-        }
-        if (fit.zones.block && plan.units > placedSoFar) {
-          const left = plan.units - placedSoFar;
-          if (isRuns) placeRuns(fit.zones.block, left, furnitureCX, cursorY, 0);
-          else placeGrid(fit.zones.block, left, furnitureCX, cursorY, 0);
-          cursorY += fit.zones.block.depth || 0;
-        }
-        if (pack === 'strip' && fit.zones.dance) {
-          const z = fit.zones.dance;
-          items.push({ key: z.key, cx: furnitureCX, cy: cursorY + DANCE_GAP + z.d / 2 });
+          items.push(tableItem(tentLeft + s.cx, tentTop + s.cy, s.rotation));
         }
       }
     }
@@ -955,10 +724,11 @@
         .join(' + ') + (cfg.keys.length > 1 ? ' joined' : ''));
     }
     if (plan.style === 'ceremony') summaryBits.push(`${plan.guests} chairs in rows · ${plan.aisle || CEREMONY_AISLE} ft aisle`);
-    else summaryBits.push(`${plan.units} ${styleLabel}${fit.zones.pack === 'hex' ? ' (staggered)' : ''}`);
+    else summaryBits.push(`${plan.units} ${styleLabel}${plan.style === 'banquet' ? ' (joined runs)' : ''}`);
     const dz = fit.zones.dance;
     if (dz) summaryBits.push(`${dz.w}×${dz.d} dance floor`);
-    if (plan.aisle && plan.style !== 'ceremony') summaryBits.push(`${plan.aisle} ft aisles`);
+    if (plan.style === 'round' && plan.pitchX) summaryBits.push(`${plan.pitchX} ft table pitch`);
+    else if (plan.aisle && plan.style !== 'ceremony') summaryBits.push(`${plan.aisle} ft aisles`);
     if (isSpacious(opts)) summaryBits.push('spacious');
     else if (opts.pack === 'efficient') summaryBits.push('cost-efficient');
     if (compromise === 'smaller-dance') summaryBits.push('dance floor sized down to fit your space');

@@ -40,7 +40,7 @@ const roundItem = (it) => {
 };
 
 const data = JSON.parse(readFileSync(templatesPath, 'utf8'));
-data._comment = 'Forever Party Rentals — Event Layout Planner starter templates. Generated from planner/layout-gen.js so Templates and Plan-for-me share the same packing (honeycomb rounds, fewest marquees, dance in a corner). intimate-wedding-20 and birthday-30 stay hand-built (joined head-table runs). Coordinates are item centers in feet; withChairs:true tables get auto-chairs via placeChairsAround().';
+data._comment = 'Forever Party Rentals — Event Layout Planner starter templates. Generated from planner/layout-gen.js so Templates and Plan-for-me share the same packing (grid rounds at catering pitch, two banquet runs, dance as an end zone). intimate-wedding-20 and birthday-30 stay hand-built (joined head-table runs). Coordinates are item centers in feet; withChairs:true tables get auto-chairs via placeChairsAround().';
 
 let updated = 0;
 for (const t of data.templates) {

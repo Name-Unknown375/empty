@@ -185,18 +185,23 @@ function writeSvg(name, recipe, solids, flagged) {
   const W = recipe.venue.widthFt, D = recipe.venue.depthFt;
   const tents = recipe.items.filter(i => byKey[i.key] && byKey[i.key].shape === 'tent');
   const parts = [];
-  parts.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${D}" width="${Math.round(W * 8)}" height="${Math.round(D * 8)}">`);
-  parts.push(`<rect width="${W}" height="${D}" fill="#faf8f4"/>`);
+  parts.push(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${D}" width="${Math.round(W * 10)}" height="${Math.round(D * 10)}">`);
+  parts.push(`<rect width="${W}" height="${D}" fill="#f4f1ea"/>`);
   for (const t of tents) {
     const s = sizeOf(t.key);
     const rot = t.rotation || 0;
     const w = rot % 180 ? s.d : s.w, d = rot % 180 ? s.w : s.d;
-    parts.push(`<rect x="${t.cx - w / 2}" y="${t.cy - d / 2}" width="${w}" height="${d}" fill="none" stroke="#2d5a3d" stroke-width="0.35" stroke-dasharray="1.4 0.8"/>`);
+    parts.push(`<rect x="${t.cx - w / 2}" y="${t.cy - d / 2}" width="${w}" height="${d}" fill="#faf8f4" stroke="#2d5a3d" stroke-width="0.28" stroke-dasharray="1.2 0.7"/>`);
   }
   for (const it of solids) {
-    const fill = it.kind === 'dance' ? 'rgba(200,160,60,.4)' : it.kind === 'chair' ? '#d9d3c7' : '#fff';
+    const cat = byKey[it.key];
+    const fill = it.kind === 'dance' ? 'rgba(200,160,60,.45)' : it.kind === 'chair' ? '#d9d3c7' : '#fff';
     const stroke = flagged && it.kind !== 'chair' ? '#8a2b2b' : '#2d5a3d';
-    parts.push(`<g transform="rotate(${it.rot || 0} ${it.cx} ${it.cy})"><rect x="${it.cx - it.w / 2}" y="${it.cy - it.d / 2}" width="${it.w}" height="${it.d}" fill="${fill}" stroke="${stroke}" stroke-width="0.12" rx="0.12"/></g>`);
+    if (it.kind === 'table' && cat && cat.shape === 'circle') {
+      parts.push(`<circle cx="${it.cx}" cy="${it.cy}" r="${it.w / 2}" fill="${fill}" stroke="${stroke}" stroke-width="0.14"/>`);
+    } else {
+      parts.push(`<g transform="rotate(${it.rot || 0} ${it.cx} ${it.cy})"><rect x="${it.cx - it.w / 2}" y="${it.cy - it.d / 2}" width="${it.w}" height="${it.d}" fill="${fill}" stroke="${stroke}" stroke-width="0.12" rx="0.12"/></g>`);
+    }
   }
   parts.push(`</svg>`);
   writeFileSync(join(outDir, name.replace(/\s+/g, '_') + '.svg'), parts.join(''));
@@ -205,6 +210,7 @@ function writeSvg(name, recipe, solids, flagged) {
 const CASES = [
   { guests: 20, seating: 'round' },
   { guests: 50, seating: 'round', danceFloor: true },
+  { guests: 50, seating: 'banquet' },
   { guests: 50, seating: 'banquet', danceFloor: true, headTable: true },
   { guests: 60, seating: 'round' },
   { guests: 60, seating: 'banquet', buffet: true },
@@ -236,3 +242,54 @@ if (failures) {
   process.exit(1);
 }
 console.log('\nNO OVERLAPS');
+
+const cards = [];
+for (const pack of ['efficient', 'spacious']) {
+  for (const base of CASES) {
+    const name = `${pack}-${base.guests}-${base.seating}${base.danceFloor ? '-dance' : ''}`;
+    const recipe = gen.generateLayout({ ...base, pack });
+    if (!recipe) continue;
+    cards.push({ name, pack, summary: recipe.summary, file: name.replace(/\s+/g, '_') + '.svg' });
+  }
+}
+const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Plan-for-me layout pictures</title>
+<style>
+  body { margin: 0; font: 13px/1.4 -apple-system, BlinkMacSystemFont, sans-serif; background: #ece8df; color: #1d2a22; }
+  h1 { font-size: 18px; font-weight: 600; margin: 0; }
+  .bar { padding: 16px 20px; background: #fff; border-bottom: 1px solid #d8d2c6; position: sticky; top: 0; z-index: 2; }
+  .sub { color: #66756c; margin-top: 4px; }
+  section { padding: 12px 20px 24px; }
+  h2 { font-size: 14px; letter-spacing: .04em; text-transform: uppercase; color: #66756c; margin: 20px 0 12px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 16px; }
+  figure { margin: 0; background: #fff; border: 1px solid #d8d2c6; padding: 12px; }
+  figcaption { margin-bottom: 8px; }
+  figcaption strong { display: block; font-size: 13px; }
+  figcaption span { color: #66756c; font-size: 12px; }
+  img { display: block; width: 100%; height: 280px; object-fit: contain; background: #f4f1ea; }
+</style>
+</head>
+<body>
+<div class="bar">
+  <h1>Plan-for-me — every generated layout</h1>
+  <div class="sub">Same packing as the live planner. Cost-efficient vs spacious.</div>
+</div>
+${['efficient', 'spacious'].map(pack => `
+<section>
+  <h2>${pack}</h2>
+  <div class="grid">
+    ${cards.filter(c => c.pack === pack).map(c => `
+    <figure>
+      <figcaption><strong>${c.name}</strong><span>${c.summary}</span></figcaption>
+      <img src="${c.file}" alt="${c.name}"/>
+    </figure>`).join('')}
+  </div>
+</section>`).join('')}
+</body>
+</html>
+`;
+writeFileSync(join(outDir, 'index.html'), html);
+console.log('wrote', join(outDir, 'index.html'));

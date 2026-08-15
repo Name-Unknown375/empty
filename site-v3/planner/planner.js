@@ -1444,8 +1444,26 @@
       const sz = effectiveSize(t);
       return { x: t.x + sz.w / 2, y: t.y + sz.d / 2 };
     };
+    const banquet = tables.every(t => (t.key || '').startsWith('banquet'));
     const sorted = tables.slice().sort((a, b) => {
       const ca = center(a), cb = center(b);
+      if (banquet) {
+        const runY = Math.min(...tables.filter(t => ((t.rotation || 0) % 180) !== 0).map(t => center(t).y), 1e9);
+        const band = (t) => {
+          const cross = ((t.rotation || 0) % 180) === 0;
+          const y = center(t).y;
+          if (cross && y < runY - 1) return 0;
+          if (!cross) return 1;
+          return 2;
+        };
+        const ba = band(a), bb = band(b);
+        if (ba !== bb) return ba - bb;
+        if (ba === 1) {
+          if (Math.abs(ca.x - cb.x) > 2) return ca.x - cb.x;
+          return ca.y - cb.y;
+        }
+        return (ca.x - cb.x) || (ca.y - cb.y);
+      }
       if (Math.abs(ca.y - cb.y) > 4) return ca.y - cb.y;
       return ca.x - cb.x;
     });

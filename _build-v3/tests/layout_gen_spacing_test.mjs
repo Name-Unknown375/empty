@@ -122,9 +122,9 @@ function check(name, opts, expect) {
     if (aabb && recipe.compromise !== 'dance-outside') {
       for (const e of furniture) {
         if (e.key.startsWith('dance') && recipe.compromise === 'dance-outside') continue;
-        // Cost-efficient: table tops stay under the canvas; chairs may kiss
-        // the valance. Spacious: the full chair envelope stays inside.
-        const useBody = opts.pack !== 'spacious' && (e.key.startsWith('round-table') || e.key.startsWith('cocktail'));
+        // Table tops stay under the canvas; chairs may kiss the valance
+        // in both pack modes so spacious doesn't have to jump a tent size.
+        const useBody = (e.key.startsWith('round-table') || e.key.startsWith('cocktail'));
         const body = useBody
           ? { x1: e.cx - size(e.key).w / 2, y1: e.cy - size(e.key).d / 2, x2: e.cx + size(e.key).w / 2, y2: e.cy + size(e.key).d / 2, key: e.key }
           : e;
@@ -149,8 +149,9 @@ function check(name, opts, expect) {
 }
 
 console.log('layout-gen spacing matrix:');
-check('20-round', { guests: 20, seating: 'round' }, { maxTents: 1, minAisle: 4 });
-check('50-round-dance', { guests: 50, seating: 'round', danceFloor: true }, { maxTents: 1, minAisle: 2.5 });
+check('20-round', { guests: 20, seating: 'round' }, { maxTents: 1, minAisle: 1.5 });
+check('50-round-dance', { guests: 50, seating: 'round', danceFloor: true }, { maxTents: 1, minAisle: 1.5 });
+check('50-banquet', { guests: 50, seating: 'banquet' }, { maxTents: 1 });
 check('50-banquet-dance', { guests: 50, seating: 'banquet', danceFloor: true, headTable: true }, { maxTents: 2 });
 check('60-round', { guests: 60, seating: 'round' }, { maxTents: 1 });
 check('100-round-dance', { guests: 100, seating: 'round', danceFloor: true }, { maxTents: 3 });
@@ -169,20 +170,45 @@ check('buffet-60', { guests: 60, seating: 'banquet', buffet: true });
 }
 
 {
+  const rec = gen.recommendTent({ guests: 50, seating: 'banquet' });
+  ok(rec.tentKeys.length === 1, '50-guest banquet uses a single marquee', rec.tentKeys.join('+'));
+  ok(rec.tentKeys[0] !== 'marquee-tent-20x60', '50-guest banquet is not an empty 20×60', rec.tentKeys.join('+'));
+  const recipe = gen.generateLayout({ guests: 50, seating: 'banquet' });
+  const tables = recipe.items.filter(i => i.key === 'banquet-table-6ft');
+  const runTables = tables.filter(t => (t.rotation || 0) % 180 !== 0);
+  const xs = [...new Set(runTables.map(t => Math.round(t.cx * 2) / 2))].sort((a, b) => a - b);
+  ok(xs.length >= 2, '50-guest banquet is two joined runs, not a single file of 12ft pairs', `x-values ${xs.join(',')}`);
+  const spanY = Math.max(...tables.map(t => t.cy)) - Math.min(...tables.map(t => t.cy)) + 6;
+  ok(spanY <= 40, '50-guest banquet runs are compact along the tent', `${spanY.toFixed(1)} ft of tables`);
+  const aisleDx = xs[1] - xs[0];
+  ok(aisleDx >= 8 && aisleDx <= 12.5, '50-guest banquet centre aisle is a walk aisle, not a stretched void', `${aisleDx} ft between runs`);
+  const runCounts = xs.map(x => runTables.filter(t => Math.round(t.cx * 2) / 2 === x).length);
+  ok(runCounts.length === 2 && runCounts[0] === runCounts[1], '50-guest banquet runs are equal length, leftover is a head table', runCounts.join('+'));
+}
+
+{
+  const recipe = gen.generateLayout({ guests: 50, seating: 'banquet', danceFloor: true, headTable: true });
+  const tables = recipe.items.filter(i => i.key === 'banquet-table-6ft');
+  const runTables = tables.filter(t => (t.rotation || 0) % 180 !== 0);
+  const xs = [...new Set(runTables.map(t => Math.round(t.cx * 2) / 2))].sort((a, b) => a - b);
+  const runCounts = xs.map(x => runTables.filter(t => Math.round(t.cx * 2) / 2 === x).length);
+  ok(runCounts.length >= 2 && runCounts[0] === runCounts[1], '50-guest banquet+head runs are equal, leftover is a sweetheart', runCounts.join('+'));
+}
+
+{
   const recipe = gen.generateLayout({ guests: 50, seating: 'round', danceFloor: true });
   const rounds = recipe.items.filter(i => i.key === 'round-table-5ft');
   const xs = [...new Set(rounds.map(t => Math.round(t.cx * 2) / 2))];
-  ok(xs.length >= 2, '50-guest rounds are staggered (honeycomb), not a single file', `x-values ${xs.join(',')}`);
-  const stagger = rounds.some((a, i) => rounds.slice(i + 1).some(b => {
-    const dx = Math.abs(a.cx - b.cx), dy = Math.abs(a.cy - b.cy);
-    return dx > 2 && dx < 10 && dy > 4 && dy < 14;
-  }));
-  ok(stagger, '50-guest has offset neighbour rows', `${rounds.length} rounds`);
+  ok(xs.length >= 2, '50-guest rounds are two even columns, not a zipper honeycomb', `x-values ${xs.join(',')}`);
+  const ys = [...new Set(rounds.map(t => Math.round(t.cy)))].sort((a, b) => a - b);
+  const rowCounts = ys.map(y => rounds.filter(t => Math.round(t.cy) === y).length);
+  ok(rowCounts[0] === 2, '50-guest first row is a pair', rowCounts.join(','));
 }
 
 const WIZARD_CASES = [
   { guests: 20, seating: 'round' },
   { guests: 50, seating: 'round', danceFloor: true },
+  { guests: 50, seating: 'banquet' },
   { guests: 50, seating: 'banquet', danceFloor: true, headTable: true },
   { guests: 60, seating: 'round' },
   { guests: 60, seating: 'banquet', buffet: true },
@@ -198,7 +224,7 @@ const WIZARD_CASES = [
 
 console.log('\nspacious matrix:');
 for (const base of WIZARD_CASES) {
-  check(`spacious ${base.guests}-${base.seating}${base.danceFloor ? '-dance' : ''}`, { ...base, pack: 'spacious' }, { minAisle: base.guests >= 200 ? 2.5 : (base.guests >= 150 ? 3.5 : 4) });
+  check(`spacious ${base.guests}-${base.seating}${base.danceFloor ? '-dance' : ''}`, { ...base, pack: 'spacious' }, { minAisle: (base.seating === 'round' || base.seating === 'cocktail') ? 1.5 : (base.guests >= 200 ? 2.5 : (base.guests >= 150 ? 3.5 : 4)) });
 }
 
 console.log('\nefficient vs spacious:');
@@ -222,11 +248,12 @@ for (const base of WIZARD_CASES) {
   const roomier = bAisle >= aAisle && bArea >= aArea && (bAisle > aAisle || bArea > aArea || b.compromise !== 'dance-outside' || a.compromise === 'dance-outside');
   // Spacious must not be tighter: aisle and tent area at least as generous,
   // unless both already match (same install, extra walk room from spread).
-  ok(bAisle + 0.01 >= Math.min(aAisle, 4) || base.seating === 'ceremony', `${label} spacious aisle is not tighter`, `efficient ${aAisle} → spacious ${bAisle}`);
-  ok(bAisle >= 4 || base.seating === 'ceremony' || base.guests >= 150, `${label} spacious aisle ≥ 4`, `${bAisle}`);
-  if (base.seating === 'round' && base.guests >= 50 && base.danceFloor) {
-    ok(bArea + 1 >= aArea, `${label} spacious tent not smaller`, `${aArea} → ${bArea}`);
-  }
+  ok(bAisle + 0.01 >= Math.min(aAisle, 4) || base.seating === 'ceremony' || base.seating === 'round' || base.seating === 'cocktail', `${label} spacious aisle is not tighter`, `efficient ${aAisle} → spacious ${bAisle}`);
+  ok(bAisle >= 4 || base.seating === 'ceremony' || base.seating === 'round' || base.seating === 'cocktail' || base.guests >= 150, `${label} spacious aisle ≥ 4`, `${bAisle}`);
+  const aTents = a.items.filter(i => byKey[i.key] && byKey[i.key].shape === 'tent').length;
+  const bTents = b.items.filter(i => byKey[i.key] && byKey[i.key].shape === 'tent').length;
+  ok(bTents <= aTents, `${label} spacious does not add marquees`, `${aTents} → ${bTents}`);
+  ok(bArea <= aArea + 1, `${label} spacious stays in the efficient tent when it fits`, `${aArea} → ${bArea}`);
   if (a.compromise !== 'dance-outside' && base.danceFloor && base.seating !== 'ceremony' && base.guests < 200) {
     ok(b.compromise !== 'dance-outside', `${label} spacious keeps dance inside if efficient did`, b.summary);
   }
@@ -243,11 +270,14 @@ for (const base of WIZARD_CASES) {
       if (d < minD) minD = d;
     }
   }
-  ok(minD >= 12.9, 'spacious 50-guest round pitch ≥ ~4 ft chair-back', `min centre ${minD.toFixed(2)} ft`);
-  const eff = gen.generateLayout({ guests: 50, seating: 'round', danceFloor: true, pack: 'efficient' });
-  const effTents = eff.items.filter(i => byKey[i.key] && byKey[i.key].shape === 'tent').map(i => i.key).join('+');
+  ok(minD >= 11.5, 'spacious 50-guest round pitch ≥ 12 ft grid', `min centre ${minD.toFixed(2)} ft`);
+  const xs = [...new Set(rounds.map(t => Math.round(t.cx * 2) / 2))].sort((a, b) => a - b);
+  const colXs = xs.filter(x => rounds.filter(t => Math.round(t.cx * 2) / 2 === x).length >= 2);
+  if (colXs.length >= 2) {
+    ok(colXs[1] - colXs[0] >= 11.5 && colXs[1] - colXs[0] <= 13, 'spacious rounds keep 12 ft pitch, not stretched across the tent', `${(colXs[1] - colXs[0]).toFixed(1)} ft column span`);
+  }
   const spaTents = recipe.items.filter(i => byKey[i.key] && byKey[i.key].shape === 'tent').map(i => i.key).join('+');
-  ok(spaTents !== 'marquee-tent-20x60' || recipe.aisle > 4, 'spacious 50-guest is not the compact 20×60 at 4 ft', `${spaTents} ${recipe.aisle} ft`);
+  ok(spaTents === 'marquee-tent-20x60', 'spacious 50-guest rounds stay in the 20×60', spaTents);
 }
 
 if (failures) {
