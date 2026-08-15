@@ -699,6 +699,8 @@
 .pl-wizard-style strong { display: block; font-size: 13px; color: var(--pl-dark); }
 .pl-wizard-style span { font-size: 10.5px; color: var(--pl-muted); }
 .pl-wizard-style-on { border-color: var(--pl-gold); background: rgba(200,160,60,.07); }
+.pl-wizard-pack { grid-template-columns: 1fr; margin-bottom: 4px; }
+.pl-wizard-pack .pl-wizard-style span { display: block; margin-top: 2px; line-height: 1.35; }
 .pl-wizard-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; margin-bottom: 12px; }
 .pl-wizard-opts label {
   display: flex; align-items: center; gap: 7px;
@@ -919,7 +921,109 @@ body.pl-readonly .planner-canvas {
    workflow. The "Powered by Forever Party Rentals" badge stays — that's
    the visible-backlink trade for using the tool. */
 body.pl-lite .pl-cost-block,
-body.pl-lite .pl-quote-block { display: none !important; }
+body.pl-lite .pl-quote-block,
+body.pl-lite .pl-btn-book,
+body.pl-lite .pl-btn-call,
+body.pl-lite .pl-btn-call-rail,
+body.pl-lite .pl-convert-actions,
+body.pl-lite .pl-convert-bar { display: none !important; }
+
+/* Conversion bar — Book / Call stay visible for view-only share recipients
+   (toolbar is hidden in readonly). Hidden in lite/partner mode above. */
+.pl-convert-bar {
+  display: none;
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 80;
+  gap: 8px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: #fff;
+  border-top: 1px solid var(--pl-border);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+body.pl-readonly:not(.pl-lite) .pl-convert-bar {
+  display: flex;
+}
+body.pl-readonly:not(.pl-lite) .planner-canvas {
+  height: calc(100vh - 64px);
+}
+.pl-btn-book { font-weight: 600; }
+.pl-convert-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+.pl-btn-book-rail,
+.pl-btn-call-rail {
+  width: 100%;
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.pl-btn-call-rail,
+.pl-btn-call {
+  background: transparent;
+}
+.pl-btn-text {
+  appearance: none;
+  border: 0;
+  background: none;
+  color: var(--pl-muted);
+  font-family: inherit;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 4px 0;
+  text-align: center;
+}
+.pl-btn-text:hover { color: var(--pl-green); }
+.pl-share-toggle {
+  display: flex;
+  gap: 6px;
+  margin: 10px 0 8px;
+}
+.pl-share-toggle button {
+  flex: 1;
+  justify-content: center;
+}
+.pl-share-toggle button.pl-btn-active {
+  background: rgba(200,160,60,.18);
+  border-color: var(--pl-gold);
+}
+.pl-share-email {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+  text-align: left;
+}
+.pl-share-email input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--pl-border);
+  border-radius: var(--pl-radius);
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 13px;
+}
+.pl-wizard-date {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--pl-border);
+  border-radius: var(--pl-radius);
+  padding: 8px 10px;
+  font-family: inherit;
+  font-size: 15px;
+  margin: 0 0 14px;
+}
+.pl-wizard-date-label {
+  display: block;
+  font-size: 11px;
+  color: var(--pl-muted);
+  margin-bottom: 4px;
+}
 
 /* Fullscreen toggle — icon swaps between "enter" (4 outward arrows) and
    "exit" (4 inward arrows) based on the active state class set by JS.

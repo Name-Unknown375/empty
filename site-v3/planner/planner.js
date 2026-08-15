@@ -204,6 +204,19 @@
   // ── DOM refs (filled in init) ─────────────────────────────────────────
   let dom = {};
 
+  function getEventDate() {
+    const input = document.getElementById('plEventDate');
+    return (input && input.value) || '';
+  }
+  function setEventDate(dateStr) {
+    const input = document.getElementById('plEventDate');
+    if (input && dateStr) input.value = dateStr;
+  }
+  function minDateStr() {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+  }
+
   // ── State serialize / apply ───────────────────────────────────────────
   // Single canonical shape used by: undo/redo snapshots, .json save/load,
   // shareable URL hash, localStorage auto-save, and template loading.
@@ -214,6 +227,7 @@
       items: state.items,
       guests: state.guests,
       eventDays: state.eventDays,
+      eventDate: getEventDate(),
     };
     if (!withMeta) return core;
     return {
@@ -250,6 +264,7 @@
         .filter(g => g.name);
     }
     state.eventDays = parsed.eventDays || 1;
+    if (parsed.eventDate) setEventDate(parsed.eventDate);
     if (resetSelection) clearSelection();
     // Bump nextId past anything in the loaded items so new items don't collide.
     for (const it of state.items) {
@@ -3232,6 +3247,210 @@
     return '<span class="pl-avail-badge pl-avail-ok">available</span>';
   }
 
+  // ── Book / Call conversion ────────────────────────────────────────────
+  // Partner embeds never deep-link to FPR checkout. View-only share
+  // recipients still can — that's the sales handoff.
+  const CHECKOUT_PATH = '/checkout';
+  const FPR_PHONE = '778-990-7983';
+
+  function goCheckout() {
+    const dest = location.origin + CHECKOUT_PATH;
+    try {
+      if (window.top && window.top !== window) window.top.location.href = dest;
+      else location.href = dest;
+    } catch (e) {
+      location.href = dest;
+    }
+  }
+
+  function shortStockWarnings(payload) {
+    if (!availability || !availability.byKey) return [];
+    const out = [];
+    for (const line of payload.lines) {
+      const a = availability.byKey[line.key];
+      if (!a) continue;
+      if (!a.ok || (a.stock != null && a.stock <= 0)) {
+        out.push(`${line.label} — not available on that date`);
+      } else if (a.stock != null && a.stock < line.qty) {
+        out.push(`${line.label} — only ${a.stock} left (layout has ${line.qty})`);
+      }
+    }
+    return out;
+  }
+
+  function showCartFallback(payload, dateStr) {
+    const rows = payload.lines.map(l => `${l.qty} × ${l.label}`).concat(
+      payload.skipped.map(s => `${s.qty} × ${s.label} — ${s.message}`)
+    );
+    const body = [
+      dateStr ? `Event date: ${dateStr}` : '',
+      rows.join('\n') || 'No rentable items on the canvas yet.',
+      '',
+      'The online cart couldn’t be filled automatically. Call and we’ll build the order from this list.',
+    ].filter(Boolean).join('\n');
+    plConfirm(body, { okLabel: 'Call ' + FPR_PHONE, cancelLabel: 'Request a quote' }).then(ok => {
+      if (ok) callWithLayout();
+      else openQuoteForm();
+    });
+  }
+
+  async function ensureEventDate() {
+    let dateStr = getEventDate();
+    if (dateStr) return dateStr;
+    const picked = await plPrompt('What date is the event?', minDateStr(), {
+      okLabel: 'Continue',
+      inputType: 'date',
+    });
+    if (!picked) return '';
+    setEventDate(picked);
+    checkAvailability();
+    return picked;
+  }
+
+  let bookInFlight = false;
+  async function bookThisLayout() {
+    if (isExternalEmbed) return;
+    if (bookInFlight) return;
+    bookInFlight = true;
+    try {
+      if (!window.FPRPlannerCart) {
+        showToast('Booking isn’t available right now — call ' + FPR_PHONE + '.', 4000);
+        return;
+      }
+      if (!state.items.length) {
+        showToast('Add items to the layout first — or tap Plan for me.', 4000);
+        return;
+      }
+      const dateStr = await ensureEventDate();
+      if (!dateStr) return;
+      await checkAvailability();
+      const map = await loadRentkitMap();
+      const payload = window.FPRPlannerCart.buildAdelieCartPayload(state.items, byKey, map);
+      const warnings = shortStockWarnings(payload);
+      if (warnings.length) {
+        const ok = await plConfirm(
+          'Some items are short for ' + dateStr + ':\n\n' + warnings.join('\n') +
+          '\n\nYou can still pay a deposit or call and we’ll sort it.',
+          { okLabel: 'Continue to checkout', cancelLabel: 'Call instead' }
+        );
+        if (!ok) { callWithLayout(); return; }
+      }
+      if (!Object.keys(payload.cart).length) {
+        track('planner_book_click', { outcome: 'fallback_empty', item_count: state.items.length });
+        showCartFallback(payload, dateStr);
+        return;
+      }
+      const wrote = window.FPRPlannerCart.writeAdelieCart(payload.cart, dateStr);
+      if (!wrote.ok) {
+        track('planner_book_click', { outcome: 'fallback_' + wrote.error, item_count: state.items.length });
+        showCartFallback(payload, dateStr);
+        return;
+      }
+      track('planner_book_click', {
+        outcome: 'checkout',
+        item_count: state.items.length,
+        skipped: payload.skipped.length,
+        total_bucket: totalBucket(buildLineItems().reduce((s, l) => s + l.subtotal, 0)),
+      });
+      if (payload.skipped.length) {
+        showToast(payload.skipped.map(s => s.message).join(' '), 5000);
+      }
+      goCheckout();
+    } finally {
+      bookInFlight = false;
+    }
+  }
+
+  async function callWithLayout() {
+    track('planner_call_click', {
+      guests: computePlanStats().seated,
+      tent: (state.items.find(it => byKey[it.key] && byKey[it.key].shape === 'tent') || {}).key || 'none',
+      total_bucket: totalBucket(buildLineItems().reduce((s, l) => s + l.subtotal, 0)),
+    });
+    try {
+      const url = await requestShortUrl();
+      if (url && navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).catch(() => {});
+        showToast('Layout link copied — mention it when we pick up.', 3500);
+      }
+    } catch (e) { /* call still works without the link */ }
+  }
+
+  function openQuoteForm() {
+    const el = document.querySelector('.pl-quote-block');
+    if (!el) return;
+    if (dom.sidebar) {
+      dom.sidebar.classList.add('pl-sheet-open');
+      if (dom.scrim) dom.scrim.classList.add('pl-scrim-show');
+    }
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const first = el.querySelector('input:not([type=hidden])');
+    if (first) first.focus();
+  }
+
+  function addCocktailCluster(count) {
+    const key = 'cocktail-table';
+    if (!byKey[key] || !(count > 0)) return;
+    const sz = itemSize(byKey[key]);
+    const pitch = 5;
+    const tents = state.items.filter(it => byKey[it.key] && byKey[it.key].shape === 'tent');
+    let x1 = 2, x2 = (state.venue && state.venue.widthFt) || 40, y1 = 4;
+    if (tents.length) {
+      x1 = Infinity; x2 = -Infinity; y1 = Infinity;
+      for (const t of tents) {
+        const pts = _itemCorners(t);
+        for (const p of pts) {
+          if (p.x < x1) x1 = p.x;
+          if (p.x > x2) x2 = p.x;
+          if (p.y < y1) y1 = p.y;
+        }
+      }
+    }
+    // Row along the entrance (short/top edge), sitting in the yard so
+    // cocktail hour doesn't steal dining space under the canvas.
+    const cy = Math.max(sz.d / 2 + 0.25, y1 - 1);
+    const occupied = (cx, cy0) => state.items.some(it => {
+      const cat = byKey[it.key];
+      if (!cat || cat.shape === 'tent' || cat.shape === 'text') return false;
+      const os = effectiveSize(it);
+      const ocx = it.x + os.w / 2, ocy = it.y + os.d / 2;
+      return Math.abs(ocx - cx) < (os.w + sz.w) / 2 + 1 && Math.abs(ocy - cy0) < (os.d + sz.d) / 2 + 1;
+    });
+    commit();
+    const ids = [];
+    let x = x1 + sz.w / 2 + 0.5;
+    let row = 0;
+    while (ids.length < count && row < 3) {
+      const y = cy + row * pitch;
+      if (x + sz.w / 2 > x2 + 0.5) {
+        row++;
+        x = x1 + sz.w / 2 + 0.5;
+        continue;
+      }
+      if (!occupied(x, y) && y + sz.d / 2 <= ((state.venue && state.venue.depthFt) || 200) - 0.25) {
+        const it = makeItem(key, x, y);
+        if (it) {
+          state.items.push(it);
+          ids.push(it.id);
+        }
+      }
+      x += pitch;
+    }
+    if (ids.length) setSelection(ids);
+    render();
+    showToast('Added ' + ids.length + ' cocktail highboys along the entrance — drag to tweak.', 4000);
+  }
+
+  function maybeOfferCocktailHour(guestCount, seating) {
+    if (seating !== 'round' && seating !== 'banquet') return;
+    if (state.items.some(it => it.key === 'cocktail-table' || it.key === 'cocktail-table-28')) return;
+    const n = Math.max(4, Math.min(12, Math.round((guestCount || 50) / 12)));
+    plConfirm(
+      'Add cocktail hour? ' + n + ' highboys is typical for ' + guestCount + ' guests. Spandex covers can be added at checkout.',
+      { okLabel: 'Add highboys', cancelLabel: 'No thanks' }
+    ).then(ok => { if (ok) addCocktailCluster(n); });
+  }
+
   // Floating phone pill: "56 seats · $1,432". Lite/partner mode shows
   // seats only (no FPR pricing on partner sites — same rule as the cost
   // panel it opens).
@@ -5106,37 +5325,59 @@
     return null;
   }
 
+  function plannerHubBase() {
+    try {
+      if (window.parent && window.parent !== window &&
+          window.parent.location.origin === window.location.origin) {
+        const path = window.parent.location.pathname;
+        if (path.indexOf('/p/') === 0) return window.parent.location.origin + '/event-layout-planner';
+        return window.parent.location.origin + path;
+      }
+    } catch (e) { /* cross-origin */ }
+    return location.origin + '/event-layout-planner';
+  }
+
+  function withViewFlag(url, readonly) {
+    const stripped = String(url || '').replace(/[?&]view=readonly/, '').replace(/\?$/, '');
+    if (!readonly) return stripped;
+    const hash = stripped.indexOf('#');
+    const base = hash === -1 ? stripped : stripped.slice(0, hash);
+    const tail = hash === -1 ? '' : stripped.slice(hash);
+    return base + (base.indexOf('?') === -1 ? '?' : '&') + 'view=readonly' + tail;
+  }
+
+  async function requestShortUrl(readonly) {
+    const encoded = encodeStateForUrl();
+    const hashUrl = withViewFlag(plannerHubBase(), readonly) + '#s=' + encoded;
+    try { window.history.replaceState(null, '', '#s=' + encoded); } catch (e) {}
+    const ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+    const timer = ctrl ? setTimeout(() => ctrl.abort(), 4000) : null;
+    try {
+      const res = await fetch('/api/share', {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: encoded,
+        signal: ctrl ? ctrl.signal : undefined,
+      });
+      if (timer) clearTimeout(timer);
+      if (!res.ok) return hashUrl;
+      const data = await res.json();
+      if (!data || !data.url) return hashUrl;
+      return readonly ? data.url + '?view=readonly' : data.url;
+    } catch (e) {
+      if (timer) clearTimeout(timer);
+      return hashUrl;
+    }
+  }
+
   function shareLink(options) {
     options = options || {};
     if (hasBackdrop()) {
       showToast('Background photos can’t fit in a share link — use Save File instead. Link will share the layout without the photo.', 6000);
     }
     const encoded = encodeStateForUrl();
-    // Build the URL — always prefer the public hub URL so recipients get
-    // the full nav/footer/marketing page, not the bare-bones embed.
-    //
-    //   • Same-origin iframe (our hub embedding our embed): use the parent's
-    //     path verbatim (handles staging/preview deploys).
-    //   • Cross-origin iframe (third-party embedder) or direct visit to the
-    //     embed URL: derive the hub URL from our own origin since the
-    //     planner is always served from the same host as the hub page.
-    let baseUrl;
-    try {
-      if (window.parent && window.parent !== window &&
-          window.parent.location.origin === window.location.origin) {
-        baseUrl = window.parent.location.origin + window.parent.location.pathname;
-      } else throw new Error();
-    } catch (e) {
-      baseUrl = location.origin + '/event-layout-planner';
-    }
-    // Holding Shift while clicking Share → view-only URL.
     const query = options.readonly ? '?view=readonly' : '';
-    const url = baseUrl + query + '#s=' + encoded;
-    // Update our own hash so a refresh keeps the layout. If we're in a
-    // same-origin iframe, also update the parent so the address bar
-    // reflects the shareable URL the user just copied.
-    // NB: must be window.history — the module-scope undo stack is also
-    // named `history` and shadows the global here.
+    const url = plannerHubBase() + query + '#s=' + encoded;
     try { window.history.replaceState(null, '', '#s=' + encoded); } catch (e) {}
     try {
       if (window.parent && window.parent !== window &&
@@ -5145,12 +5386,6 @@
       }
     } catch (e) { /* cross-origin denial */ }
 
-    // Copy the hash link IMMEDIATELY — clipboard writes must stay inside
-    // the click gesture (Safari), and the long link must work even when
-    // the short-link API is slow, rate-limited, or down.
-    // Soft length budget: Twitter/SMS truncate around ~2KB, most apps and
-    // browser address bars handle 8KB cleanly. Past that, recommend Save
-    // File for transfer.
     const successMsg = url.length > 8000
       ? 'Share link copied (long — for big layouts, Save File is more reliable)'
       : 'Share link copied — paste anywhere';
@@ -5163,34 +5398,35 @@
       fallbackCopy(url);
     }
 
-    // Best-effort short link on top (per PLANNER_INTEGRATION.md): POST the
-    // encoded payload, and on success offer a share sheet with the tidy
-    // /p/<id> URL + a scannable QR. Every failure path silently keeps the
-    // hash link that's already on the clipboard.
     track('planner_share', { method: 'hash', readonly: !!options.readonly });
-    const ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
-    const timer = ctrl ? setTimeout(() => ctrl.abort(), 4000) : null;
-    fetch('/api/share', {
-      method: 'POST',
-      headers: { 'Content-Type': 'text/plain' },
-      body: encoded,
-      signal: ctrl ? ctrl.signal : undefined,
-    })
-      .then(res => (res.ok ? res.json() : null))
-      .then(data => {
-        if (timer) clearTimeout(timer);
-        if (!data || !data.url) return;
-        const shortUrl = options.readonly ? data.url + '?view=readonly' : data.url;
+    requestShortUrl(!!options.readonly).then(shortUrl => {
+      if (shortUrl.indexOf('/p/') !== -1) {
         track('planner_share', { method: 'short', readonly: !!options.readonly });
-        showShareSheet(shortUrl);
-      })
-      .catch(() => { if (timer) clearTimeout(timer); });
+      }
+      showShareSheet(shortUrl, { readonly: !!options.readonly });
+    });
   }
 
-  // Share sheet — shown only when a short link was created. QR codes are
-  // only generated for short URLs (a multi-KB hash URL makes an
-  // unscannable smudge, which is why the QR feature waits on the API).
-  function showShareSheet(shortUrl) {
+  function emailLayoutToMe(url) {
+    plPrompt('Send this layout to which email?', '', {
+      okLabel: 'Open email',
+      inputType: 'email',
+    }).then(addr => {
+      if (!addr) return;
+      const subject = encodeURIComponent('Your Forever Party Rentals layout');
+      const body = encodeURIComponent(
+        'Here’s your layout:\n' + url + '\n\nOpen the link to keep editing, or tap Book this layout to pay a 25% deposit. Call 778-990-7983 anytime.\n'
+      );
+      location.href = 'mailto:' + encodeURIComponent(addr.trim()) + '?subject=' + subject + '&body=' + body;
+      track('planner_email_layout', { method: 'mailto' });
+    });
+  }
+
+  // Share sheet — shown when a short (or fallback hash) link is ready.
+  function showShareSheet(shortUrl, options) {
+    options = options || {};
+    let readonly = !!options.readonly;
+    let currentUrl = withViewFlag(shortUrl, readonly);
     const existing = document.getElementById('plShareSheet');
     if (existing) existing.remove();
     const backdrop = document.createElement('div');
@@ -5200,17 +5436,40 @@
       <div class="pl-modal pl-share-modal" role="dialog" aria-modal="true" aria-label="Share your layout">
         <div class="pl-modal-body">
           <div class="pl-share-title">Your layout link</div>
+          <div class="pl-share-toggle">
+            <button type="button" class="pl-btn" data-act="edit">Anyone can edit</button>
+            <button type="button" class="pl-btn" data-act="view">View only</button>
+          </div>
           <div class="pl-share-url"></div>
           <div class="pl-share-qr" aria-label="QR code for this layout link"></div>
-          <p class="pl-share-hint">Scan with a phone, or print it for your venue, planner, or delivery crew.</p>
+          <p class="pl-share-hint">Scan with a phone, or email it to finish on a laptop.</p>
         </div>
         <div class="pl-modal-footer">
+          <button type="button" class="pl-btn" data-act="email">Email me this layout</button>
           <button type="button" class="pl-btn" data-act="close">Done</button>
-          <button type="button" class="pl-btn pl-btn-gold" data-act="copy">Copy short link</button>
+          <button type="button" class="pl-btn pl-btn-gold" data-act="copy">Copy link</button>
         </div>
       </div>
     `;
-    backdrop.querySelector('.pl-share-url').textContent = shortUrl;
+    const urlEl = backdrop.querySelector('.pl-share-url');
+    const paintToggle = () => {
+      backdrop.querySelector('[data-act="edit"]').classList.toggle('pl-btn-active', !readonly);
+      backdrop.querySelector('[data-act="view"]').classList.toggle('pl-btn-active', readonly);
+      currentUrl = withViewFlag(shortUrl, readonly);
+      urlEl.textContent = currentUrl;
+    };
+    const drawQr = () => {
+      loadQrLib().then(() => {
+        try {
+          const qr = window.qrcode(0, 'M');
+          qr.addData(currentUrl);
+          qr.make();
+          const host = backdrop.querySelector('.pl-share-qr');
+          if (host) host.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2 });
+        } catch (e) { /* QR is decorative */ }
+      }).catch(() => {});
+    };
+    paintToggle();
     const onShareKey = (e) => {
       if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close(); }
     };
@@ -5222,30 +5481,25 @@
     backdrop.addEventListener('click', e => {
       const act = e.target && e.target.getAttribute && e.target.getAttribute('data-act');
       if (act === 'close' || e.target === backdrop) close();
+      else if (act === 'edit') { readonly = false; paintToggle(); drawQr(); }
+      else if (act === 'view') { readonly = true; paintToggle(); drawQr(); }
+      else if (act === 'email') emailLayoutToMe(currentUrl);
       else if (act === 'copy') {
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(shortUrl).then(
+          navigator.clipboard.writeText(currentUrl).then(
             () => {
               const btn = backdrop.querySelector('[data-act="copy"]');
               if (btn) btn.textContent = 'Copied!';
             },
-            () => fallbackCopy(shortUrl)
+            () => fallbackCopy(currentUrl)
           );
         } else {
-          fallbackCopy(shortUrl);
+          fallbackCopy(currentUrl);
         }
       }
     });
     document.body.appendChild(backdrop);
-    loadQrLib().then(() => {
-      try {
-        const qr = window.qrcode(0, 'M');
-        qr.addData(shortUrl);
-        qr.make();
-        const host = backdrop.querySelector('.pl-share-qr');
-        if (host) host.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 2 });
-      } catch (e) { /* QR is decorative — the link still works */ }
-    }).catch(() => {});
+    drawQr();
   }
 
   function fallbackCopy(text) {
@@ -5385,6 +5639,8 @@
       `;
       backdrop.querySelector('.pl-confirm-message').textContent = message;
       const input = backdrop.querySelector('.pl-confirm-input');
+      if (opts.inputType) input.type = opts.inputType;
+      if (opts.inputType === 'date') input.min = minDateStr();
       input.value = defaultValue || '';
       backdrop.querySelector('[data-act="cancel"]').textContent = cancelLabel;
       backdrop.querySelector('[data-act="ok"]').textContent = okLabel;
@@ -6356,6 +6612,8 @@
       guests: 50, seating: 'round',
       danceFloor: true, headTable: false, buffet: false, bar: false,
       chairKey: DEFAULT_CHAIR_KEY,
+      date: getEventDate(),
+      pack: 'efficient',
     };
     let step = 1;
 
@@ -6373,7 +6631,9 @@
         wizardEl.innerHTML = `
           <div class="pl-modal pl-wizard-modal" role="dialog" aria-modal="true" aria-label="Plan my event">
             <div class="pl-modal-body">
-              <div class="pl-wizard-step">Step 1 of 3</div>
+              <div class="pl-wizard-step">Step 1 of 4</div>
+              <label class="pl-wizard-date-label" for="plWizDate">Event date</label>
+              <input type="date" id="plWizDate" class="pl-wizard-date" min="${minDateStr()}" value="${opts.date || ''}"/>
               <div class="pl-wizard-title">How many guests?</div>
               <input type="number" id="plWizGuests" class="pl-wizard-guests" min="1" max="300" inputmode="numeric" value="${opts.guests}"/>
               <div class="pl-wizard-chips">
@@ -6401,7 +6661,7 @@
         wizardEl.innerHTML = `
           <div class="pl-modal pl-wizard-modal" role="dialog" aria-modal="true" aria-label="Plan my event">
             <div class="pl-modal-body">
-              <div class="pl-wizard-step">Step 2 of 3</div>
+              <div class="pl-wizard-step">Step 2 of 4</div>
               <div class="pl-wizard-title">What style of event?</div>
               <div class="pl-wizard-styles">
                 ${styles.map(s => `
@@ -6424,13 +6684,41 @@
             </div>
             <div class="pl-modal-footer">
               <button type="button" class="pl-btn" data-act="back">Back</button>
-              <button type="button" class="pl-btn pl-btn-gold" data-act="next">Preview</button>
+              <button type="button" class="pl-btn pl-btn-gold" data-act="next">Next</button>
             </div>
           </div>`;
         wizardEl.querySelectorAll('.pl-wizard-style').forEach(btn => {
           btn.addEventListener('click', () => {
             opts.seating = btn.dataset.style;
             wizardEl.querySelectorAll('.pl-wizard-style').forEach(b => b.classList.toggle('pl-wizard-style-on', b === btn));
+          });
+        });
+      } else if (step === 3) {
+        const packs = [
+          { key: 'efficient', label: 'Most cost-efficient', hint: 'Smallest tent that fits · tighter aisles · lower rental' },
+          { key: 'spacious', label: 'Spacious', hint: 'Room to mingle · 4–6 ft aisles · extra space goes between tables' },
+        ];
+        wizardEl.innerHTML = `
+          <div class="pl-modal pl-wizard-modal" role="dialog" aria-modal="true" aria-label="Plan my event">
+            <div class="pl-modal-body">
+              <div class="pl-wizard-step">Step 3 of 4</div>
+              <div class="pl-wizard-title">How should we use the space?</div>
+              <div class="pl-wizard-styles pl-wizard-pack">
+                ${packs.map(p => `
+                  <button type="button" class="pl-wizard-style${opts.pack === p.key ? ' pl-wizard-style-on' : ''}" data-pack="${p.key}">
+                    <strong>${p.label}</strong><span>${p.hint}</span>
+                  </button>`).join('')}
+              </div>
+            </div>
+            <div class="pl-modal-footer">
+              <button type="button" class="pl-btn" data-act="back">Back</button>
+              <button type="button" class="pl-btn pl-btn-gold" data-act="next">Preview</button>
+            </div>
+          </div>`;
+        wizardEl.querySelectorAll('[data-pack]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            opts.pack = btn.dataset.pack;
+            wizardEl.querySelectorAll('[data-pack]').forEach(b => b.classList.toggle('pl-wizard-style-on', b === btn));
           });
         });
       } else {
@@ -6464,7 +6752,7 @@
         wizardEl.innerHTML = `
           <div class="pl-modal pl-wizard-modal" role="dialog" aria-modal="true" aria-label="Plan my event">
             <div class="pl-modal-body">
-              <div class="pl-wizard-step">Step 3 of 3</div>
+              <div class="pl-wizard-step">Step 4 of 4</div>
               <div class="pl-wizard-title">${recipe.label}</div>
               <p class="pl-wizard-summary">${recipe.summary}</p>
               ${tentLine ? `<p class="pl-wizard-tent">${tentLine}</p>` : ''}
@@ -6488,6 +6776,8 @@
           const v = parseInt(wizardEl.querySelector('#plWizGuests').value, 10);
           if (!Number.isFinite(v) || v < 1) return;
           opts.guests = Math.min(300, v);
+          const d = (wizardEl.querySelector('#plWizDate') || {}).value || '';
+          if (d) { opts.date = d; setEventDate(d); }
         } else if (step === 2) {
           opts.danceFloor = wizardEl.querySelector('#plWizDance').checked;
           opts.headTable = wizardEl.querySelector('#plWizHead').checked;
@@ -6509,10 +6799,13 @@
           track('planner_wizard_complete', {
             guests: opts.guests,
             style: opts.seating,
+            pack: opts.pack || 'efficient',
             tent_key: (recipe.items.find(i => byKey[i.key] && byKey[i.key].shape === 'tent') || {}).key || 'none',
           });
           closeWizard();
-          showToast('Built! Drag anything to fine-tune, then send it for a quote.', 3500);
+          showToast('Built! Drag anything to fine-tune, then Book this layout or Call.', 3500);
+          if (opts.date) { setEventDate(opts.date); checkAvailability(); }
+          maybeOfferCocktailHour(opts.guests, opts.seating);
         };
         if (state.items.length > 0) {
           plConfirm('Replace your current layout with this plan?', { okLabel: 'Replace' })
@@ -7046,6 +7339,8 @@
     // sidebar / quote form. The canvas remains visible and pan/zoom work.
     if (isReadonly) {
       document.body.classList.add('pl-readonly');
+      const convertBar = document.getElementById('plConvertBar');
+      if (convertBar && !isExternalEmbed) convertBar.hidden = false;
     }
 
     // Third-party-embed "lite" mode: hide our pricing + quote form via CSS
@@ -7174,12 +7469,10 @@
 
     window.addEventListener('message', (e) => {
       if (e.origin !== window.location.origin) return;
-      if (!e.data || e.data.type !== 'fpr-open-quote') return;
-      const el = document.querySelector('.pl-quote-block');
-      if (!el) return;
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      const first = el.querySelector('input:not([type=hidden])');
-      if (first) first.focus();
+      if (!e.data || !e.data.type) return;
+      if (e.data.type === 'fpr-open-quote') openQuoteForm();
+      else if (e.data.type === 'fpr-book-layout') bookThisLayout();
+      else if (e.data.type === 'fpr-call-layout') callWithLayout();
     });
 
     // Venue dimension inputs
@@ -7201,11 +7494,9 @@
     // Live availability date picker (own-site mode; lite-mode CSS hides it)
     const eventDateInput = document.getElementById('plEventDate');
     if (eventDateInput) {
-      // Local date, not toISOString (UTC) — after ~4pm Pacific the UTC
-      // date is tomorrow and "today" would be unselectable.
-      const now = new Date();
-      eventDateInput.min = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+      eventDateInput.min = minDateStr();
       eventDateInput.addEventListener('change', checkAvailability);
+      if (eventDateInput.value) checkAvailability();
     }
 
     // Toolbar buttons
@@ -7259,6 +7550,27 @@
     document.getElementById('plBtnSaveJson').addEventListener('click', saveJSON);
     document.getElementById('plBtnLoadJson').addEventListener('click', loadJSON);
     document.getElementById('plBtnShare').addEventListener('click', e => shareLink({ readonly: !!e.shiftKey }));
+    const bindBook = (id) => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('click', () => bookThisLayout());
+    };
+    const bindCall = (id) => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('click', () => callWithLayout());
+    };
+    bindBook('plBtnBook');
+    bindBook('plBtnBookRail');
+    bindBook('plBtnBookBar');
+    bindCall('plBtnCall');
+    bindCall('plBtnCallRail');
+    bindCall('plBtnCallBar');
+    const btnEmail = document.getElementById('plBtnEmailLayout');
+    if (btnEmail) {
+      btnEmail.addEventListener('click', async () => {
+        const url = await requestShortUrl(false);
+        emailLayoutToMe(url);
+      });
+    }
 
     // Polygon venue wiring — draw button + reset-to-rect button.
     if (dom.btnVenueDraw)      dom.btnVenueDraw.addEventListener('click', startDrawPolygon);

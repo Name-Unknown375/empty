@@ -17,7 +17,7 @@
 <link rel="canonical" href="https://www.foreverpartyrentals.com/event-layout-planner"/>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
-<link rel="stylesheet" href="planner/planner.css?v=20"/>
+<link rel="stylesheet" href="planner/planner.css?v=23"/>
 <style>
   html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
   body { overflow: hidden; }
@@ -224,6 +224,9 @@
 
     <span class="pl-spacer"></span>
 
+    <a class="pl-btn pl-btn-call" id="plBtnCall" href="tel:778-990-7983">Call</a>
+    <button class="pl-btn pl-btn-gold pl-btn-book" id="plBtnBook" type="button" title="Fill checkout with these items and pay a 25% deposit">Book this layout</button>
+
     <button class="pl-btn pl-btn-icon" id="plBtnFullscreen" title="Toggle fullscreen (F)" aria-label="Toggle fullscreen">
       <svg class="pl-ico pl-ico-enter-fs" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6V2h4M14 6V2h-4M2 10v4h4M14 10v4h-4"/></svg>
       <svg class="pl-ico pl-ico-exit-fs" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none"><path d="M6 2v4H2M10 2v4h4M6 14v-4H2M10 14v-4h4"/></svg>
@@ -364,17 +367,22 @@
       <div id="plQuoteLines" class="pl-quote-lines"></div>
       <div id="plQuoteTotals" class="pl-quote-totals"></div>
       <p class="pl-quote-disclaimer">
-        Forever Party Rentals starting prices for a standard event rental (Fri–Sun pickup). Final quote includes delivery, setup, and any package discounts.
+        Forever Party Rentals starting prices for a standard event rental (Fri–Sun pickup). Delivery, tax, and package math are added at checkout.
       </p>
+      <div class="pl-convert-actions" id="plConvertActions">
+        <button type="button" class="pl-btn pl-btn-gold pl-btn-book-rail" id="plBtnBookRail">Book this layout — 25% deposit</button>
+        <a class="pl-btn pl-btn-call-rail" id="plBtnCallRail" href="tel:778-990-7983">Call 778-990-7983</a>
+        <button type="button" class="pl-btn-text" id="plBtnEmailLayout">Email me this layout</button>
+      </div>
     </div>
 
     <!-- Quote form — Netlify-detected at build (data-netlify=true). The
          layout JSON, itemized list, and estimated total are stuffed into
          hidden fields on submit so the auto-email reads cleanly. -->
     <div class="pl-quote-block">
-      <div class="pl-section-title" style="color:var(--pl-green);margin-top:0">Get a Quote</div>
+      <div class="pl-section-title" style="color:var(--pl-green);margin-top:0">Request a quote</div>
       <p style="font-size:11px;color:var(--pl-muted);margin-bottom:10px;line-height:1.5">
-        We'll review your layout and email a tailored quote within 24 hours.
+        Prefer a person to build the order? We’ll email a quote within 24 hours. Most bookings pay a 25% deposit above.
       </p>
       <!-- enctype must be multipart/form-data so the auto-generated layout
            image (PNG of the customer's design) can attach to the submission.
@@ -404,7 +412,13 @@
 
 </div>
 
-<script src="planner/layout-gen.js?v=4"></script>
-<script src="planner/planner.js?v=31"></script>
+<div id="plConvertBar" class="pl-convert-bar" hidden>
+  <button type="button" class="pl-btn pl-btn-gold" id="plBtnBookBar">Book this layout</button>
+  <a class="pl-btn" id="plBtnCallBar" href="tel:778-990-7983">Call 778-990-7983</a>
+</div>
+
+<script src="planner/planner-cart.js?v=1"></script>
+<script src="planner/layout-gen.js?v=9"></script>
+<script src="planner/planner.js?v=36"></script>
 </body>
 </html>

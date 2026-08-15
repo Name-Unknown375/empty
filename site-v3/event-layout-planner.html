@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="planner-app-page">
 <head>
 <!-- Google Tag Manager — defer gtm.js load until idle to protect LCP -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -136,6 +136,46 @@ else{c.addEventListener('load',function(){setTimeout(loadClarity,1500);});}
   /* Phones get full touch editing inside the iframe — give it real height. */
   .planner-iframe-wrap iframe { height: min(78vh, 680px); }
 }
+
+html.planner-app-page #topbar { display: none; }
+html.planner-app-page .page-hero { display: none; }
+html.planner-app-page #planner.section { padding: 0 !important; }
+html.planner-app-page #planner > .container {
+  max-width: none;
+  width: 100%;
+  padding: 0;
+}
+html.planner-app-page .planner-iframe-wrap {
+  max-width: none;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+}
+html.planner-app-page .planner-iframe-wrap iframe {
+  height: calc(100dvh - 72px - 52px);
+  min-height: 480px;
+}
+html.planner-app-page .planner-iframe-wrap + p { display: none; }
+html.planner-app-page .planner-cta-strip {
+  position: sticky;
+  top: 72px;
+  z-index: 90;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+@media (max-width: 720px) {
+  html.planner-app-page .planner-iframe-wrap iframe {
+    height: calc(100dvh - 64px - 96px);
+  }
+  html.planner-app-page .planner-cta-strip { top: 64px; }
+}
+.pcs-quote-link {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: underline;
+  margin-left: 4px;
+}
+.pcs-quote-link:hover { color: var(--green); }
 
 .embed-snippet {
   background: #1a1a1a;
@@ -390,9 +430,9 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <div class="planner-cta-strip">
   <div class="container">
     <span class="pcs-label">Ready to book?</span>
-    <a href="tel:778-990-7983" class="btn btn-outline">Call 778-990-7983</a>
-    <a href="/rentals" class="btn btn-primary">Book these items</a>
-    <a href="#planner" class="btn btn-gold" id="pcsQuote">Quote this layout</a>
+    <button type="button" class="btn btn-primary" id="pcsBook">Book this layout</button>
+    <a href="tel:778-990-7983" class="btn btn-outline" id="pcsCall">Call 778-990-7983</a>
+    <a href="#planner" class="pcs-quote-link" id="pcsQuote">Request a quote</a>
   </div>
 </div>
 
@@ -456,6 +496,18 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       }
       var wrap = document.getElementById('planner');
       if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    document.getElementById('pcsBook') && document.getElementById('pcsBook').addEventListener('click', function () {
+      var frame = document.querySelector('.planner-iframe-wrap iframe');
+      if (frame && frame.contentWindow) {
+        frame.contentWindow.postMessage({ type: 'fpr-book-layout' }, window.location.origin);
+      }
+    });
+    document.getElementById('pcsCall') && document.getElementById('pcsCall').addEventListener('click', function () {
+      var frame = document.querySelector('.planner-iframe-wrap iframe');
+      if (frame && frame.contentWindow) {
+        frame.contentWindow.postMessage({ type: 'fpr-call-layout' }, window.location.origin);
+      }
     });
     </script>
     <p style="text-align:center;margin-top:14px;font-size:13px;color:var(--muted)">
@@ -544,7 +596,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
     <h2>Ready to Book Your Event?</h2>
     <p>Once you've planned your layout, lock in real availability and rentals in minutes — 24/7.</p>
     <div class="btn-row">
-      <a href="/rentals" class="btn btn-gold btn-lg">Book Online Now</a>
+      <a href="/checkout" class="btn btn-gold btn-lg">Book Online Now</a>
       <a href="/contact" class="btn btn-outline-white btn-lg">Talk to Our Team</a>
     </div>
   </div>
