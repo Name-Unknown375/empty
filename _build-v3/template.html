@@ -278,7 +278,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
             <li>{{ check_ico | safe }} Banquet, round &amp; cocktail table rentals</li>
             <li>{{ check_ico | safe }} Dance floor rentals</li>
             <li>{{ check_ico | safe }} Book online 24/7 — instant confirmation</li>
-            <li>{{ check_ico | safe }} Open 7 days a week, 10AM–6PM</li>
+            <li>{{ check_ico | safe }} Open 7 days a week — {{ fpr.hours }}</li>
           </ul>
         </div>
       </div>
@@ -469,8 +469,8 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       </div>
       <div>
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Hours — {{ city.name }} Deliveries</div>
-        <div style="font-size:14px;color:var(--dark);font-weight:600">Open 7 Days · 10 AM – 6:00 PM</div>
-        <div style="font-size:12px;color:var(--muted);margin-top:4px">Delivering to {{ city.name }} and surrounding neighborhoods.</div>
+        <div style="font-size:14px;color:var(--dark);font-weight:600">{{ fpr.hours }}</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">Delivery {{ fpr.hoursDelivery }} · Pickup {{ fpr.hoursPickup }}</div>
       </div>
     </div>
   </div>

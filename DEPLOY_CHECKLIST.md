@@ -103,7 +103,7 @@ Website titles do not win the map pack. Do this in Google Business Profile; do *
 - [ ] Q&A: “Do you install Christmas lights in Surrey / Vancouver / Langley?” — answer with price + the city page URL.
 - [ ] Products/services: one row per Tier-1 city pointing at that city URL (`/christmas-lights-surrey`, `-vancouver`, `-langley`, `-abbotsford`).
 - [ ] Review replies: city + product on party-rental reviews now; Christmas phrasing as soon as there is even one lighting job.
-- [ ] NAP must match schema: 9317 188 St, Surrey V4N 3V1, 778-990-7983, hours 10:00–18:00.
+- [ ] NAP must match schema: 9317 188 St, Surrey V4N 3V1, 778-990-7983, hours Mon–Fri 9:30–5:30 / Sat–Sun 10–5 (GBP).
 
 ## 7. GSC inspect after `site-v3` deploy (28-day title hold)
 
