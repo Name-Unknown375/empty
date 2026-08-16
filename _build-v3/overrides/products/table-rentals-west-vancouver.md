@@ -1,7 +1,7 @@
 ---
 slug: table-rentals-west-vancouver
 title: "Table Rentals in West Vancouver — Round, Banquet, Cocktail"
-meta_description: "Table rentals in West Vancouver — 5ft round, 6ft and 8ft banquet, cocktail highboys delivered to Ambleside, British Properties, Horseshoe Bay. 190+ reviews."
+meta_description: "Table rentals in West Vancouver — 5ft round, 6ft and 8ft banquet, cocktail highboys delivered to Ambleside, British Properties, Horseshoe Bay. 212+ reviews."
 hero_subtitle: "Table rentals in West Vancouver — 5ft round for British Properties estate receptions, 6ft banquet for buffet and head tables, cocktail highboys for Ambleside and Dundarave waterfront receptions. Positioned to your floor plan, no setup surcharge."
 
 intro_paragraphs:
@@ -94,4 +94,4 @@ For a Dundarave or Ambleside waterfront reception, swap to 4–5 highboys for a 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

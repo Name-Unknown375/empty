@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-carvolth
 title: "Tent Rentals in Carvolth — LEC-Adjacent"
-meta_description: "Tent rentals in Carvolth — marquees for Northwest Willoughby Heights residence receptions, LEC-adjacent corporate supplemental tents. 190+ reviews."
+meta_description: "Tent rentals in Carvolth — marquees for Northwest Willoughby Heights residence receptions, LEC-adjacent corporate supplemental tents. 212+ reviews."
 hero_subtitle: "Tent rentals in Carvolth for Northwest Willoughby Heights residence receptions, LEC-adjacent corporate supplemental marquees, 200 Street business-park outdoor functions, and Carvolth-area residential weddings — sized for the area's mixed business-and-residential pattern."
 
 intro_paragraphs:
@@ -75,4 +75,4 @@ Setup runs 3–4 hours for a 20×40 + sidewall configuration; teardown is 2 hour
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

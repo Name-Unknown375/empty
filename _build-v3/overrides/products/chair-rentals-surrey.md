@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-surrey
 title: "Chair Rentals in Surrey — Chiavari, Fanback & Garden"
-meta_description: "Chair rentals in Surrey — White Chiavari, Fanback folding, and Resin Garden chairs delivered from our local Surrey warehouse, stacked. 190+ reviews."
+meta_description: "Chair rentals in Surrey — White Chiavari, Fanback folding, and Resin Garden chairs delivered from our local Surrey warehouse, stacked. 212+ reviews."
 hero_subtitle: "Chair rentals in Surrey delivered from our local warehouse — White Chiavari for receptions, Fanback folding for ceremony rows and large corporate setups, Resin Garden for outdoor sites, all individually wiped and positioned to your floor plan."
 
 intro_paragraphs:
@@ -91,4 +91,4 @@ The Chiavari-only configuration is the most common Surrey wedding chair booking 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent. And our Surrey home-dock means the same crew that loaded your chairs unloads them at your venue.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

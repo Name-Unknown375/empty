@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-east-clayton
 title: "Chair Rentals in East Clayton — Clayton Heights"
-meta_description: "Chair rentals in East Clayton — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Clayton Heights residences. 190+ reviews."
+meta_description: "Chair rentals in East Clayton — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Clayton Heights residences. 212+ reviews."
 hero_subtitle: "Chair rentals in East Clayton delivered by the local crew — White Chiavari for Clayton Heights residence receptions, Fanback folding for Cloverdale Rodeo Grounds-adjacent corporate events, Resin Garden for Katzie Slough and Clayton Heights Park ceremonies."
 
 intro_paragraphs:
@@ -88,4 +88,4 @@ For Cloverdale Rodeo Grounds-adjacent corporate events at 300+ guest scale, Fanb
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

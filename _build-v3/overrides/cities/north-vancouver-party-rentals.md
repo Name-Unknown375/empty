@@ -1,7 +1,7 @@
 ---
 slug: north-vancouver-party-rentals
 title: "North Vancouver Party Rentals — Deep Cove + Lonsdale Setup"
-meta_description: "North Vancouver & North Shore party rentals — tents, chairs, tables & dance floors crew-installed at Lonsdale, Deep Cove & Lynn Valley. 190+ reviews."
+meta_description: "North Vancouver & North Shore party rentals — tents, chairs, tables & dance floors crew-installed at Lonsdale, Deep Cove & Lynn Valley. 212+ reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for North Shore weddings, mountain ceremonies, and Lonsdale corporate events — delivered and crew-installed across North Vancouver."
 
 intro_paragraphs:
@@ -105,4 +105,4 @@ Setup runs 5–6 hours; teardown 3–4. Both quoted up front. For sizing variati
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

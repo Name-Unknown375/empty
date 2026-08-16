@@ -1,7 +1,7 @@
 ---
 slug: dance-floor-rental-vancouver
 title: "Dance Floor Rentals in Vancouver — Crew + Setup"
-meta_description: "Dance floor rentals in Vancouver — 12×12, 12×12, 16×16 portable floors with subfloor, delivered and crew-installed by the local team. 190+ five-star reviews."
+meta_description: "Dance floor rentals in Vancouver — 12×12, 12×12, 16×16 portable floors with subfloor, delivered and crew-installed by the local team. 212+ five-star reviews."
 hero_subtitle: "Dance floor rentals in Vancouver — 12×12, 12×12, and 16×16 portable floors delivered, leveled on subfloor where the surface needs it, and installed by the same crew that loaded it."
 
 intro_paragraphs:
@@ -94,4 +94,4 @@ The [50/100/150/200 rental checklist](/blog/party-rental-checklist-50-100-150-20
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

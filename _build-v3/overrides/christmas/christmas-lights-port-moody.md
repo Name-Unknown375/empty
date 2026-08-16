@@ -1,7 +1,7 @@
 ---
 slug: christmas-lights-port-moody
 title: "Port Moody Christmas Light Installation — From $8.50/ft"
-meta_description: "Port Moody Christmas light installation — Inlet waterfront homes, Heritage Woods, Rocky Point area. $8.50–$12/linear ft. Free off-season storage. 190+ reviews."
+meta_description: "Port Moody Christmas light installation — Inlet waterfront homes, Heritage Woods, Rocky Point area. $8.50–$12/linear ft. Free off-season storage. 212+ reviews."
 hero_subtitle: "Professional Christmas light installation across Port Moody — Inlet-facing waterfront homes, Heritage Woods elevation, Rocky Point and Moody Centre residential, brewery district commercial."
 
 intro_paragraphs:
@@ -89,6 +89,6 @@ Setup runs 5–6 hours; takedown 3–4 hours. Both quoted up front.
 
 ## Why Port Moody homes book us a second time
 
-190+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
+212+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
 
 Free consultation, fixed-price quote within 24 hours, and your strands stored in our warehouse all summer. That's the service.

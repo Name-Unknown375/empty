@@ -216,7 +216,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         <h1>{{ ov.h1|default(city.name ~ ' Party Rentals', true) }}</h1>
         <p>{{ ov.hero_subtitle|default('Premium tent, chair &amp; table rentals delivered and set up in ' ~ city.name ~ ' and the surrounding area. Serving ' ~ neighborhood_list_short ~ '.', true) }}</p>
         {% set hero_price = 'Tents from $75 · Chairs from $3.25 · Tables from $10.95' %}
-        {% set hero_proof = '5.0 · 190+ Google reviews' %}
+        {% set hero_proof = '5.0 · 212+ Google reviews' %}
         {% set hero_book_href = '/rentals' %}
         {% set hero_book_label = 'Book ' ~ city.name ~ ' Rentals' %}
         {% include 'partials/hero_actions.html.j2' %}
@@ -278,7 +278,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
             <li>{{ check_ico | safe }} Banquet, round &amp; cocktail table rentals</li>
             <li>{{ check_ico | safe }} Dance floor rentals</li>
             <li>{{ check_ico | safe }} Book online 24/7 — instant confirmation</li>
-            <li>{{ check_ico | safe }} Open 7 days a week, 10:30AM–6PM</li>
+            <li>{{ check_ico | safe }} Open 7 days a week, 10AM–6PM</li>
           </ul>
         </div>
       </div>
@@ -378,7 +378,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <div style="flex:1 1 320px;min-width:0">
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:4px">Seasonal Service</div>
         <div style="font-size:16px;color:var(--dark);font-weight:600;margin-bottom:2px">Also offering Christmas Light Installation in {{ city.name }}</div>
-        <div style="font-size:13px;color:var(--muted)">Design, install, maintenance, takedown &amp; free off-season storage — fixed-price packages for residential &amp; commercial.</div>
+        <div style="font-size:13px;color:var(--muted)">From $8.50/ft — design, install, maintenance, takedown &amp; free off-season storage. Fixed-price packages for residential &amp; commercial.</div>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <a href="/christmas-lights-{{ city.slug }}" class="btn btn-outline-primary">Learn More →</a>
@@ -469,7 +469,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       </div>
       <div>
         <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Hours — {{ city.name }} Deliveries</div>
-        <div style="font-size:14px;color:var(--dark);font-weight:600">Open 7 Days · 10:30 AM – 6:00 PM</div>
+        <div style="font-size:14px;color:var(--dark);font-weight:600">Open 7 Days · 10 AM – 6:00 PM</div>
         <div style="font-size:12px;color:var(--muted);margin-top:4px">Delivering to {{ city.name }} and surrounding neighborhoods.</div>
       </div>
     </div>

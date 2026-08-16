@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-port-moody
 title: "Chair Rentals in Port Moody — Chiavari, Fanback & Garden"
-meta_description: "Chair rentals in Port Moody — White Chiavari, Fanback folding, and Resin Garden chairs delivered, stacked, and positioned by the local crew. 190+ reviews."
+meta_description: "Chair rentals in Port Moody — White Chiavari, Fanback folding, and Resin Garden chairs delivered, stacked, and positioned by the local crew. 212+ reviews."
 hero_subtitle: "Chair rentals in Port Moody delivered, wiped, and positioned by the local crew — White Chiavari for receptions, Fanback folding for ceremony rows, Resin Garden for Rocky Point and Buntzen Lake ceremonies."
 
 intro_paragraphs:
@@ -95,4 +95,4 @@ The two-chair-line setup is the most common Port Moody waterfront wedding config
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

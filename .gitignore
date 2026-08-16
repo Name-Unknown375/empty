@@ -1,5 +1,6 @@
 node_modules/
 .netlify/
+.netlify-publish/
 .DS_Store
 __pycache__/
 uploads/photo-originals-2026-07/

@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-north-vancouver
 title: "Chair Rentals in North Vancouver — Forest + Mountain"
-meta_description: "Chair rentals in North Vancouver — White Chiavari, Fanback folding, and Resin Garden chairs delivered and positioned by the local crew. 190+ five-star reviews."
+meta_description: "Chair rentals in North Vancouver — White Chiavari, Fanback folding, and Resin Garden chairs delivered and positioned by the local crew. 212+ five-star reviews."
 hero_subtitle: "Chair rentals in North Vancouver delivered, wiped, and positioned by the local crew — White Chiavari for receptions, Fanback folding for ceremony rows, and Resin Garden chairs for Lynn Canyon forest and Grouse Mountain elevation sites."
 
 intro_paragraphs:
@@ -90,4 +90,4 @@ For other headcounts, the [50/100/150/200 rental checklist](/blog/party-rental-c
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

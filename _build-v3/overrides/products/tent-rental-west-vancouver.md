@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-west-vancouver
 title: "Marquee Tent Rentals in West Vancouver — Crew + Setup"
-meta_description: "Marquee tent rentals in West Vancouver 20×20 to 30×60 — engineered install, sidewalls, ocean-wind ballast, terraced-lawn subfloor. 190+ five-star reviews."
+meta_description: "Marquee tent rentals in West Vancouver 20×20 to 30×60 — engineered install, sidewalls, ocean-wind ballast, terraced-lawn subfloor. 212+ five-star reviews."
 hero_subtitle: "Tent rentals in West Vancouver from 20×20 cocktail tents to 30×60 reception marquees — engineered installation, sidewalls and bistro lighting, doubled anchor for ocean and mountain wind across Ambleside, Dundarave, British Properties, and Whytecliff."
 
 intro_paragraphs:
@@ -100,4 +100,4 @@ Setup runs 5–6 hours for a 20×60 + sidewall + doubled anchor configuration; t
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

@@ -1,7 +1,7 @@
 ---
 slug: chair-rentals-tsawwassen
 title: "Chair Rentals in Tsawwassen — Chiavari, Fanback"
-meta_description: "Chair rentals in Tsawwassen — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Centennial Beach ceremonies. 190+ reviews."
+meta_description: "Chair rentals in Tsawwassen — White Chiavari, Fanback folding, and Resin Garden chairs delivered to Centennial Beach ceremonies. 212+ reviews."
 hero_subtitle: "Chair rentals in Tsawwassen delivered by the local crew via Highway 17 — White Chiavari for English Bluff and Tsawwassen Shores residence receptions, Fanback folding for Diefenbaker Park community events, Resin Garden for Centennial Beach shoreline ceremonies."
 
 intro_paragraphs:
@@ -100,4 +100,4 @@ The two-chair-line setup is the most common Tsawwassen wedding configuration whe
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

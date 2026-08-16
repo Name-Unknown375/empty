@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-delta
 title: "Marquee Tent Rentals in Delta — Crew + Setup"
-meta_description: "Marquee tent rentals in Delta 20×20 to 30×60 — engineered install, sidewalls, ballast for shoreline wind, and lighting. 190+ five-star reviews."
+meta_description: "Marquee tent rentals in Delta 20×20 to 30×60 — engineered install, sidewalls, ballast for shoreline wind, and lighting. 212+ five-star reviews."
 hero_subtitle: "Tent rentals in Delta from 20×20 cocktail tents to 30×60 reception marquees — engineered installation with shoreline-wind ballast, sidewalls and bistro lighting, delivered and crew-installed for Boundary Bay, Ladner, and Tsawwassen events."
 
 intro_paragraphs:
@@ -100,4 +100,4 @@ Setup runs 4–5 hours for a 20×60 + sidewall configuration; teardown is 2–3 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

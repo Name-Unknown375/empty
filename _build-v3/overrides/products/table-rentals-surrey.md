@@ -1,7 +1,7 @@
 ---
 slug: table-rentals-surrey
 title: "Table Rentals in Surrey — from $10.95, Same-Week Delivery"
-meta_description: "Table rentals in Surrey — 5ft round, 6ft and 8ft banquet, and cocktail highboys delivered same-week from our local Surrey warehouse. 190+ five-star reviews."
+meta_description: "Table rentals in Surrey — 5ft round, 6ft and 8ft banquet, and cocktail highboys delivered same-week from our local Surrey warehouse. 212+ five-star reviews."
 hero_subtitle: "Table rentals in Surrey from our local warehouse — 5ft round tables for receptions, 6ft and 8ft banquet tables for head, gift, and buffet, cocktail highboys for mingling. Delivered, positioned, no setup surcharge."
 
 intro_paragraphs:
@@ -90,4 +90,4 @@ Total: 23 tables, all positioned to your floor plan during a single delivery win
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

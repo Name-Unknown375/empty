@@ -1,7 +1,7 @@
 ---
 slug: willoughby-party-rentals
 title: "Willoughby Tent Rentals — New-Build + Townhouse Setup"
-meta_description: "Willoughby wedding tent, chair, table & dance floor rentals — new-build backyards, townhouse common areas, Langley Events Centre. 190+ five-star reviews."
+meta_description: "Willoughby wedding tent, chair, table & dance floor rentals — new-build backyards, townhouse common areas, Langley Events Centre. 212+ five-star reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Willoughby new-build backyard weddings, townhouse complex events, and Langley Events Centre corporate functions — delivered and crew-installed."
 
 intro_paragraphs:
@@ -99,4 +99,4 @@ Setup runs 4–5 hours; teardown 2–3. Both quoted up front. For larger 150-gue
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

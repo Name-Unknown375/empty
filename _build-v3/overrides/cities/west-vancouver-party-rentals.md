@@ -1,7 +1,7 @@
 ---
 slug: west-vancouver-party-rentals
 title: "West Vancouver Party Rentals — Ambleside + Whytecliff Setup"
-meta_description: "West Vancouver party rentals — tents, chairs, tables & dance floors, wind-anchored for Ambleside, Whytecliff Park & British Properties. 190+ reviews."
+meta_description: "West Vancouver party rentals — tents, chairs, tables & dance floors, wind-anchored for Ambleside, Whytecliff Park & British Properties. 212+ reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Ambleside waterfront, British Properties estate, Whytecliff Park ocean-backdrop, and Horseshoe Bay celebrations — delivered and crew-installed across West Vancouver."
 
 intro_paragraphs:
@@ -105,4 +105,4 @@ Setup runs 5–6 hours; teardown 3–4. Both quoted up front. For different gues
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

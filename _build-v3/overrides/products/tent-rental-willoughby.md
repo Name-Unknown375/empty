@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-willoughby
 title: "Tent Rentals in Willoughby — Yorkson, Routley + LEC-Adjacent"
-meta_description: "Tent rentals in Willoughby — marquees for Yorkson and Willoughby Heights residence receptions, Routley backyards, LEC-adjacent supplemental tents. 190+ reviews."
+meta_description: "Tent rentals in Willoughby — marquees for Yorkson and Willoughby Heights residence receptions, Routley backyards, LEC-adjacent supplemental tents. 212+ reviews."
 hero_subtitle: "Tent rentals in Willoughby for Yorkson and Willoughby Heights residence receptions, Routley backyard weddings, LEC-adjacent supplemental events, and Sendall Gardens-adjacent residential ceremonies — engineered for the friendly-access northern Township residential pattern."
 
 intro_paragraphs:
@@ -82,4 +82,4 @@ Setup runs 4–5 hours for a 20×60 + sidewall configuration; teardown is 2–3 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

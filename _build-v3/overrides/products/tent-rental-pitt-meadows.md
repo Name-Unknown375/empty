@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-pitt-meadows
 title: "Tent Rentals in Pitt Meadows — Swaneset, Pitt Lake + Acreage"
-meta_description: "Tent rentals in Pitt Meadows — marquees for Swaneset Bay Resort supplemental weddings, Pitt Lake shoreline events, Central Meadows backyards. 190+ reviews."
+meta_description: "Tent rentals in Pitt Meadows — marquees for Swaneset Bay Resort supplemental weddings, Pitt Lake shoreline events, Central Meadows backyards. 212+ reviews."
 hero_subtitle: "Tent rentals in Pitt Meadows for Swaneset Bay Resort outdoor reception marquees, Pitt Lake shoreline ceremony tents, Central Meadows and South Bonson backyard weddings, and Osprey Village supplemental events."
 
 intro_paragraphs:
@@ -94,4 +94,4 @@ Setup runs 3–4 hours for a 20×40 + sidewall configuration; teardown is 2 hour
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

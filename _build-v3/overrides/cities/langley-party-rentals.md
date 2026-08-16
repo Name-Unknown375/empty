@@ -1,11 +1,11 @@
 ---
 slug: langley-party-rentals
 title: "Langley Party Rentals — Delivery & Setup Included"
-meta_description: "Langley party rentals — tents, chairs, tables and dance floors for vineyard weddings and acreage receptions. Delivery and crew setup included. 190+ reviews."
+meta_description: "Langley party rentals — tents, chairs, tables and dance floors for vineyard weddings and acreage receptions. Delivery and crew setup included. 212+ reviews."
 hero_subtitle: "Langley party rentals for vineyard weddings, acreage receptions, and Langley Events Centre corporate galas — tents, chairs, tables, and dance floors delivered and crew-installed."
 
 intro_paragraphs:
-  - "Langley is where the Fraser Valley starts to feel rural — wineries, berry farms, heritage properties, and acreage backyards that host some of the most photogenic weddings and corporate retreats in the Lower Mainland. The rental conversation here changes from urban Vancouver: less concern about freight elevators, more concern about gravel driveways, sprinkler-head clearance, and how a marquee sits on a vineyard's mid-summer dust. We deliver Langley most weekends in season."
+  - "Langley party rentals with delivery and crew setup included — tents, chairs, and tables for vineyard weddings, acreage receptions, and Langley Events Centre galas. The conversation here is gravel driveways, sprinkler-head clearance, and how a marquee sits on a vineyard's mid-summer dust, not freight elevators. We deliver Langley most weekends in season."
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
@@ -101,4 +101,4 @@ Setup runs 5–6 hours; teardown 3–4. Both quoted up front. For other guest co
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

@@ -1,7 +1,7 @@
 ---
 slug: christmas-lights-surrey
 title: "Surrey Christmas Light Installation — From $8.50/ft"
-meta_description: "Surrey Christmas light installation — acreage rooflines, residential, commercial. $8.50–$12/linear ft. Free off-season storage. 190+ five-star reviews."
+meta_description: "Surrey Christmas light installation — acreage rooflines, residential, commercial. $8.50–$12/linear ft. Free off-season storage. 212+ five-star reviews."
 hero_subtitle: "Professional Christmas light installation across Surrey — Cloverdale and South Surrey acreages, residential rooflines across Newton, Fleetwood, and Guildford, plus King George commercial corridor."
 
 intro_paragraphs:
@@ -25,8 +25,6 @@ faqs:
 related_blog_posts:
   - slug: surrey-parks-event-rental-guide
     title: "Surrey's Best Event Parks"
-  - slug: tent-size-guide-lower-mainland-wedding
-    title: "Tent Size Guide for Lower Mainland Weddings"
 
 nearby_cities:
   - slug: langley
@@ -90,6 +88,8 @@ Setup runs 6–8 hours given the linear footage; takedown 4–5 hours. Both quot
 
 ## Why Surrey homes book us a second time
 
-190+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
+212+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
 
 Local proximity, free off-season storage, and a fixed-price quote within 24 hours. That's the service.
+
+Need tents and chairs for a December party from the same warehouse? [Surrey party rentals](/surrey-party-rentals) ship on a separate truck. All Christmas packages — including other cities — start on the [Christmas light installation](/christmas-lights) hub.

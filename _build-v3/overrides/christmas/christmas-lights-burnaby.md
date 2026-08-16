@@ -1,7 +1,7 @@
 ---
 slug: christmas-lights-burnaby
 title: "Burnaby Christmas Light Installation — From $8.50/ft"
-meta_description: "Burnaby Christmas light installation — Brentwood/Metrotown commercial, Deer Lake residential. $8.50–$12/linear ft. Free off-season storage. 190+ reviews."
+meta_description: "Burnaby Christmas light installation — Brentwood/Metrotown commercial, Deer Lake residential. $8.50–$12/linear ft. Free off-season storage. 212+ reviews."
 hero_subtitle: "Professional Christmas light installation across Burnaby — Brentwood and Metrotown commercial strata, Deer Lake heritage residential, North Burnaby acreage rooflines."
 
 intro_paragraphs:
@@ -91,6 +91,6 @@ Setup runs 6–8 hours given access constraints; takedown 4–5 hours. Both quot
 
 ## Why Burnaby homes book us a second time
 
-190+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown — no handoffs.
+212+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown — no handoffs.
 
 Free consultation, fixed-price quote within 24 hours, and your strands stored in our warehouse all summer. That's the service.

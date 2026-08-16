@@ -1,7 +1,7 @@
 ---
 slug: white-rock-party-rentals
 title: "White Rock Tent Rentals — Coastal Setup, Beach + Bluff"
-meta_description: "White Rock wedding tent, chair, table & dance floor rentals — coastal wind-rated installs, sand-friendly chairs, ballasted setups. 190+ five-star reviews."
+meta_description: "White Rock wedding tent, chair, table & dance floor rentals — coastal wind-rated installs, sand-friendly chairs, ballasted setups. 212+ five-star reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for White Rock beach ceremonies, Semiahmoo bluff weddings, and Marine Drive promenade events — delivered and crew-installed."
 
 intro_paragraphs:
@@ -101,4 +101,4 @@ Setup runs 5–6 hours; teardown 3–4. Both quoted up front. For direct-sand ce
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

@@ -1,7 +1,7 @@
 ---
 slug: ladner-party-rentals
 title: "Ladner Tent Rentals — Heritage Village + Marina Setup"
-meta_description: "Ladner wedding tent, chair, table & dance floor rentals — heritage village setups, Westham Island farms, marina-side events. 190+ five-star reviews."
+meta_description: "Ladner wedding tent, chair, table & dance floor rentals — heritage village setups, Westham Island farms, marina-side events. 212+ five-star reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Ladner heritage weddings, Westham Island farm receptions, and Ladner Village marina events — delivered and crew-installed."
 
 intro_paragraphs:
@@ -96,4 +96,4 @@ Setup runs 3–4 hours; teardown 2–3. Both quoted up front. For Westham Island
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

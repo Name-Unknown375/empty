@@ -196,7 +196,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         <h1>{{ ov.h1|default(product.productName ~ ' in ' ~ city.name, true) }}</h1>
         <p>{{ ov.hero_subtitle|default(tagline, true) }}</p>
         {% set hero_price = product.fromPriceLabel.split('—')[0] | trim if product.fromPriceLabel is defined else none %}
-        {% set hero_proof = '5.0 · 190+ Google reviews' %}
+        {% set hero_proof = '5.0 · 212+ Google reviews' %}
         {% set hero_book_href = '/rentals' %}
         {% set hero_book_label = 'Book Online' %}
         {% include 'partials/hero_actions.html.j2' %}
@@ -422,7 +422,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
     <div class="section-header center">
       <span class="eyebrow">Reviews</span>
       <h2 style="color:#fff">What Our {{ city.name }} Clients Say</h2>
-      <p>Part of 190+ five-star Google reviews from across the Lower Mainland.</p>
+      <p>Part of {{ fpr.aggregateRating.count }}+ five-star Google reviews from across the Lower Mainland.</p>
     </div>
     <div class="grid-2" style="gap:20px">
       {% for t in testimonials_to_show %}

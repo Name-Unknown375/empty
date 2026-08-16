@@ -18,6 +18,9 @@
 
 [build]
   publish = "site-v3"
+  # site-v3/images and site-v3/fonts are symlinks into ../site/. A raw
+  # `netlify deploy --prod` uploads the dangling symlink and 404s every photo.
+  # Deploy via `_build-v3/deploy_prod.sh` so those links are dereferenced.
 
 # Serverless functions (planner analytics beacon; short share links land
 # here in a later phase). Functions declare their public route via

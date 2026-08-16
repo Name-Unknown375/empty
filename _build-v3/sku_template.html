@@ -187,7 +187,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
     <h1>{{ sku.name }}</h1>
     <p>{{ sku.shortDescription }}</p>
     {% set hero_price = 'From $' ~ ('%.2f' % sku.startingPriceCAD) ~ ' / ' ~ sku.priceUnit %}
-    {% set hero_proof = '5.0 · 190+ Google reviews' %}
+    {% set hero_proof = '5.0 · 212+ Google reviews' %}
     {% set hero_book_href = '/rentals' %}
     {% set hero_book_label = 'Book Online' %}
     {% include 'partials/hero_actions.html.j2' %}
@@ -232,7 +232,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <span style="font-size:13px;color:var(--muted)">/ {{ sku.priceUnit }} · pickup free in Surrey · delivery added at checkout</span>
         </div>
         {% endif %}
-        <p style="margin:16px 0">{{ sku.longDescription }}</p>
+        <p style="margin:16px 0">{{ sku.longDescription }}{% if sku.get('hubLink') %} Full <a href="{{ sku.hubLink.href }}">{{ sku.hubLink.text }}</a> — tent, Chiavari, and dance floor on one truck — live on that page.{% endif %}</p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
           {% for b in sku.bullets %}
           <li style="display:flex;gap:10px;font-size:14px;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> {{ b }}</li>

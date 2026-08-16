@@ -1,11 +1,11 @@
 ---
 slug: abbotsford-party-rentals
 title: "Abbotsford Party Rentals — Tents, Chairs & Tables"
-meta_description: "Abbotsford party rentals — tents, chairs, tables and dance floors for acreage weddings and Mill Lake events. Crew setup included. 190+ reviews."
+meta_description: "Abbotsford party rentals — tents, chairs, tables and dance floors for acreage weddings and Mill Lake events. Crew setup included. 212+ reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Abbotsford acreage weddings, Mill Lake Park ceremonies, and Fraser Valley corporate events — delivered and crew-installed."
 
 intro_paragraphs:
-  - "Abbotsford weddings sit on acreage more often than in any other Lower Mainland city we serve. That changes the rental conversation: the marquee question becomes a slope question, the chair count includes the photographer's blocked sightlines, and the delivery route assumes a long unpaved driveway between the gate and the ceremony site. We've installed enough Fraser Valley acreage tents to know where afternoon wind comes from, when sidewalls become non-negotiable, and which ground surfaces hold an engineered stake."
+  - "Tents, chairs, and tables for Abbotsford acreage weddings — marquee, Chiavari, banquet rounds, and dance floors on one truck, crew-installed. The marquee question is a slope question, the chair count includes the photographer's blocked sightlines, and the delivery route assumes a long unpaved driveway between the gate and the ceremony site. We've installed enough Fraser Valley acreage tents to know where afternoon wind comes from, when sidewalls become non-negotiable, and which ground surfaces hold an engineered stake."
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
@@ -105,4 +105,4 @@ For sizing math on smaller or larger headcounts — 50 guests in a backyard, 200
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

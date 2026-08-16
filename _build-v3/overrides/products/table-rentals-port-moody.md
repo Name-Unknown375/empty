@@ -1,7 +1,7 @@
 ---
 slug: table-rentals-port-moody
 title: "Table Rentals in Port Moody — Round, Banquet & Cocktail"
-meta_description: "Table rentals in Port Moody — 5ft round, 6ft and 8ft banquet, cocktail highboys delivered and positioned to your floor plan by the local crew. 190+ reviews."
+meta_description: "Table rentals in Port Moody — 5ft round, 6ft and 8ft banquet, cocktail highboys delivered and positioned to your floor plan by the local crew. 212+ reviews."
 hero_subtitle: "Table rentals in Port Moody — 5ft round tables for receptions, 6ft and 8ft banquet tables for head, gift, and buffet, cocktail highboys for cocktail hour. Positioned to your floor plan, no setup surcharge."
 
 intro_paragraphs:
@@ -98,4 +98,4 @@ Total: 23 tables, all positioned to your floor plan during a single delivery win
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

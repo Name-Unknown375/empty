@@ -377,6 +377,10 @@ img[src$="/carnival/balloon-pop.jpg"]      { object-position: center center; }
 @media (max-width: 768px) { .split { grid-template-columns: 1fr; gap: 40px; } .split.flip { direction: ltr; } }
 
 /* ── TRUST BAR ── */
+.season-strip { background: var(--gold); padding: 10px 0; text-align: center; }
+.season-strip a { color: var(--green); font-weight: 600; font-size: 14px; letter-spacing: .2px; }
+.season-strip a:hover { text-decoration: underline; }
+@media (max-width: 768px) { .season-strip a { font-size: 13px; } }
 .trust-bar { background: var(--green); padding: 20px 0; }
 .trust-bar .container { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; }
 .trust-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.92); font-size: 14px; }

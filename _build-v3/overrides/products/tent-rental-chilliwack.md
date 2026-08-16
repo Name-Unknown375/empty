@@ -1,7 +1,7 @@
 ---
 slug: tent-rental-chilliwack
 title: "Tent Rentals in Chilliwack"
-meta_description: "Tent rentals in Chilliwack — marquee tents for Cultus Lake shoreline weddings, Mount Cheam-view acreage receptions, Heritage Park events. 190+ reviews."
+meta_description: "Tent rentals in Chilliwack — marquee tents for Cultus Lake shoreline weddings, Mount Cheam-view acreage receptions, Heritage Park events. 212+ reviews."
 hero_subtitle: "Tent rentals in Chilliwack delivered by the Lower Mainland crew that runs Highway 1 every weekend — marquee tents for Cultus Lake shoreline ceremonies, Mount Cheam-view acreage receptions, Chilliwack Heritage Park events, and the upscale Rosedale and Promontory wedding venues."
 
 intro_paragraphs:
@@ -91,4 +91,4 @@ Setup runs 6–7 hours for a 30×60 + sidewall configuration; teardown is 4–5 
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

@@ -11,8 +11,8 @@
   "addressRegion": "BC",
   "addressPostalCode": "V4N 3V1",
   "addressCountry": "CA",
-  "hours": "Mon–Sun 10:30AM–6PM",
-  "hoursOpens": "10:30",
+  "hours": "Mon–Sun 10AM–6PM",
+  "hoursOpens": "10:00",
   "hoursCloses": "18:00",
   "geo": { "lat": 49.1648, "lng": -122.7066 },
 
@@ -28,7 +28,7 @@
 
   "aggregateRating": {
     "value": "5.0",
-    "count": "192",
-    "_note": "Pulled from public Google Business Profile. Update both this number and the human-facing '190+ five-star Google reviews' copy in templates whenever the GBP changes — never inflate."
+    "count": "212",
+    "_note": "Pulled from public Google Business Profile. Update both this number and the human-facing '212+ five-star Google reviews' copy in templates whenever the GBP changes — never inflate. Marketing floor is 212+ while live GBP is at or above that."
   }
 }

@@ -1,11 +1,11 @@
 ---
 slug: surrey-party-rentals
 title: "Surrey Party Rentals — Local Warehouse, Setup Included"
-meta_description: "Surrey party rentals from our local warehouse — tents, chairs, tables and dance floors. Same-week availability, pickup or crew setup. 190+ reviews."
+meta_description: "Surrey party rentals from our local warehouse — tents, chairs, tables and dance floors. Same-week availability, pickup or crew setup. 212+ reviews."
 hero_subtitle: "Surrey party rentals delivered across the city by the local crew — tents, chairs, tables, and dance floors with same-week availability, mid-event swaps, and warehouse pickup as options."
 
 intro_paragraphs:
-  - "Surrey is our home city, and that changes the rental conversation in three measurable ways: more flexibility on same-week bookings during peak season, the option to do mid-event equipment swaps if something fails on a Saturday evening, and warehouse pickup for budget-conscious orders. The catalogue is the same as our other cities. The operational difference is that we can move faster here than anywhere else."
+  - "Surrey party rentals from our local warehouse, setup included. Same-week bookings, mid-event swaps if something fails on a Saturday, and warehouse pickup for budget-conscious orders — because 9317 188 St is in the city, not a two-hour dispatch. The catalogue is the same as our other cities. The operational difference is that we can move faster here than anywhere else."
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
@@ -105,4 +105,4 @@ For different headcounts, the [50/100/150/200 rental checklist](/blog/party-rent
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

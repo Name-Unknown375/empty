@@ -1,7 +1,7 @@
 ---
 slug: tent-rentals-surrey
 title: "Tent Rentals in Surrey — Marquees from $550, Same-Week"
-meta_description: "Tent rentals in Surrey — marquee tents from 20×20 to 30×60, delivered and installed same-week by our local Surrey-warehouse crew. 190+ five-star reviews."
+meta_description: "Tent rentals in Surrey — marquee tents from 20×20 to 30×60, delivered and installed same-week by our local Surrey-warehouse crew. 212+ five-star reviews."
 hero_subtitle: "Tent rentals in Surrey delivered and installed by the home crew — South Surrey acreage receptions, Cloverdale Rodeo Grounds equestrian galas, Bear Creek Park civic ceremonies, and Guildford backyard weddings. The warehouse is in Surrey, the truck is closer than any competitor's."
 
 intro_paragraphs:
@@ -96,4 +96,4 @@ Setup runs 4–5 hours; teardown is 2–3 hours. Both quoted up front. The [50/1
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent. And our Surrey home-dock means the same crew that loaded your tent unloads it at your venue.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service.

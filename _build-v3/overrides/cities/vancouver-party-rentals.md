@@ -1,11 +1,11 @@
 ---
 slug: vancouver-party-rentals
 title: "Vancouver Party Rentals — Tents, Chairs & Setup"
-meta_description: "Vancouver party rentals — marquee tents, Chiavari chairs, tables and dance floors crew-installed at parks and backyards. 190+ reviews. Book 24/7."
+meta_description: "Vancouver party rentals — marquee tents, Chiavari chairs, tables and dance floors crew-installed at parks and backyards. 212+ reviews. Book 24/7."
 hero_subtitle: "Vancouver party rentals — marquee tents, Chiavari chairs, round tables, and dance floors delivered to your venue, levelled, and crew-installed by the people who answer your call."
 
 intro_paragraphs:
-  - "A Vancouver rental booking is rarely just about the rental list. It's about the truck arriving in the right one-hour window, the crew that knows how to ballast a marquee on a slope, the chairs that arrive wiped and stacked, and the quote that doesn't grow between Tuesday and Saturday. We built our service around those four things — and run the same crew, the same trucks, and the same inventory across every Vancouver booking, ceremony or corporate."
+  - "Vancouver party rentals mean Park Board ceremony windows, ballast-only rooftops, and a one-hour delivery slot — not a morning-of window. We crew-install marquees, Chiavari, tables and dance floors at parks, backyards, and paved lots across the city. The chairs arrive wiped and stacked, and the quote doesn't grow between Tuesday and Saturday."
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
@@ -107,4 +107,4 @@ If your guest count is closer to 50 or 150, our [rental checklist for 50/100/150
 
 We're a small enough team that the person who quotes your event is on the truck the morning of. We're large enough that we own every line item — tent, chair, table, dance floor, lighting — and don't sub-rent.
 
-190+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service we're selling. The catalogue is just the proof.
+212+ five-star Google reviews. One number to call from quote to teardown. A quote you can read top-to-bottom in under a minute. That's the service we're selling. The catalogue is just the proof.

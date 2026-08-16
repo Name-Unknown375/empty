@@ -1,7 +1,7 @@
 ---
 slug: christmas-lights-richmond
 title: "Richmond Christmas Light Installation — From $8.50/ft"
-meta_description: "Richmond Christmas light installation — Steveston heritage homes, commercial properties, residential rooflines. $8.50–$12/linear ft. Free storage. 190+ reviews."
+meta_description: "Richmond Christmas light installation — Steveston heritage homes, commercial properties, residential rooflines. $8.50–$12/linear ft. Free storage. 212+ reviews."
 hero_subtitle: "Professional Christmas light installation across Richmond — Steveston Heritage area, Olympic Oval-area commercial, Seafair and Hamilton residential. Fixed-price packages with free off-season storage."
 
 intro_paragraphs:
@@ -90,6 +90,6 @@ Setup runs 4–6 hours; takedown 2–3 hours. Both quoted up front. The Premium 
 
 ## Why Richmond homes book us a second time
 
-190+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
+212+ five-star Google reviews. Same crew design → install → fix → takedown → store. One number to call from first consultation through January takedown.
 
 Free consultation, fixed-price quote within 24 hours, and your strands stored in our warehouse all summer. That's the service.

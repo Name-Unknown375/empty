@@ -41,6 +41,17 @@ except the device QA.
       Netlify Blobs store `planner-analytics` (one tiny JSON per event,
       keyed `<YYYY-MM-DD>/<id>`, includes embedding hostname).
 
+## 3b. Meta Pixel (one-time verify after deploy)
+Pixel 1497259508391912 is in every page `<head>` (base code + PageView, idle-
+deferred like GTM). `trackEvent()` in shared.js mirrors conversions to Meta:
+`quote_form_submit` → `Lead`, `phone_click` → `Contact` (book_now_click is
+GTM-only by design).
+- [ ] Load any page → PageView appears in Events Manager (or Pixel Helper).
+- [ ] Submit a test quote on /contact → `Lead` fires with fulfilment /
+      rental_type / guest_bucket params; tap a tel: link → `Contact`.
+- [ ] Optional backstop: in Events Manager, create a custom conversion on
+      PageView of /thank-you (catches Leads lost to the 300 ms redirect race).
+
 ## 4. Decide the dance-floor price (2 minutes)
 The 12×12 dance floor is $800 on the site/planner but $750 in live RentKit.
 - [ ] If RentKit is right: `python3 _build/sync_planner_catalog.py --write`,
@@ -62,6 +73,62 @@ The 12×12 dance floor is $800 on the site/planner but $750 in live RentKit.
 - Price sync: `python3 _build/sync_planner_catalog.py --check` (also
   available via `python3 _build/verify.py --price-drift`). Never edits
   without `--write`.
-- Layout generator tests: `node _build/test_layout_gen.mjs`.
+- Adding a third-party tag (analytics, pixel, embed) is a TWO-file change:
+  the snippet in `_build/*template.html` **and** the host in the CSP in
+  `site/_headers`. Miss the second and the tag is refused by every browser
+  while still being present on all 300 pages — no check but `check_csp.py`
+  notices. Run `python3 _build/check_csp.py` before deploying.
+- Changing `site/shared.js` is also a TWO-step change: edit the file **and**
+  bump `shared.js?v=N` everywhere (`find site _build -name '*.html'` + sed on
+  the bare `shared\.js\?v=N` — blog pages use `../shared.js`). `/shared.js` is
+  served `immutable` for a year, so a missed page keeps the old script forever.
+  Do NOT regenerate pages for a JS-only change — the generators restamp
+  `lastmod` and you'd tell Google 250+ pages changed. `node
+  _build/tests/clarity_tagging_test.mjs` is the guard.
+- Layout generator tests: `node _build/test_layout_gen.mjs`,
+  `python3 _build/tests/csp_check_test.py`,
+  `node _build/tests/clarity_tagging_test.mjs`,
+  `node _build/tests/blog_article_sanitize_test.mjs`.
 - Local preview: `node _build/serve_local.mjs 8765` (pretty URLs included).
 - Revert anchor for everything: branch `savepoint-phase-0`.
+
+## 6. GBP — Christmas + map pack (Devon, target live by 1 Sep)
+
+Website titles do not win the map pack. Do this in Google Business Profile; do **not** change the primary category off Party equipment rental.
+
+- [ ] Add **Christmas light installation** as a service with price `$8.50–$12/ft` and website `https://www.foreverpartyrentals.com/christmas-lights`. Live by **1 Sep**, not 1 Oct.
+- [ ] Secondary category only if Google allows: Holiday lighting contractor or Lighting contractor. Keep **Party equipment rental** as primary.
+- [ ] Upload 10+ photos this week: roofline night shots, crew on ladder, before/after, Surrey warehouse.
+- [ ] Weekly GBP posts Sep–Nov (“now booking Surrey / Langley / Vancouver”).
+- [ ] Q&A: “Do you install Christmas lights in Surrey / Vancouver / Langley?” — answer with price + the city page URL.
+- [ ] Products/services: one row per Tier-1 city pointing at that city URL (`/christmas-lights-surrey`, `-vancouver`, `-langley`, `-abbotsford`).
+- [ ] Review replies: city + product on party-rental reviews now; Christmas phrasing as soon as there is even one lighting job.
+- [ ] NAP must match schema: 9317 188 St, Surrey V4N 3V1, 778-990-7983, hours 10:00–18:00.
+
+## 7. GSC inspect after `site-v3` deploy (28-day title hold)
+
+After production matches `site-v3`, Search Console → URL Inspection → Request indexing. Do **not** retitle for 28 days.
+
+- [ ] `/tents`
+- [ ] `/tables`
+- [ ] `/wedding-rentals`
+- [ ] `/christmas-lights`
+- [ ] `/christmas-lights-surrey`
+- [ ] `/christmas-lights-vancouver`
+- [ ] `/christmas-lights-langley`
+- [ ] `/christmas-lights-abbotsford`
+- [ ] `/vancouver-party-rentals`
+- [ ] `/how-many-people-fit-at-a-6ft-rectangular-table`
+- [ ] `/how-many-people-fit-at-round-tables`
+
+28-day scoreboard (from existing SEO canvas):
+
+| Query | Now | 28-day target |
+|---|---|---|
+| event rentals surrey CTR | 0.9% at pos 2 | ≥4% |
+| langley / abbotsford party rentals CTR | ~1.7–1.9% | ≥4% |
+| christmas light installation abbotsford CTR | 0% at pos 6.4 | ≥4% |
+| /tents page impressions | 21 | triple+ |
+| /tables page impressions | 13 | triple+ |
+| party rentals vancouver position | 23 | ≤15 |
+| christmas light installation surrey / vancouver | dark or pos 25 | in GSC page report, trending up |
