@@ -7,6 +7,7 @@ hero_subtitle: "Tent, chair, table, and dance floor rentals for Ambleside waterf
 intro_paragraphs:
   - "West Vancouver is a coastline and a hillside stacked on top of each other. The same Saturday calendar might send our crew to a Whytecliff Park ceremony at low tide, a Dundarave seawall reception that evening, and a British Properties estate the next day with a thousand-foot elevation change between the venues. Each pattern asks a different question of the install — tidal windows at the water's edge, ballast strategy on terraced lawns, and Taylor Way traffic on the climb up to the upper bench. We quote the route and the anchor strategy together, not the rental alone."
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The crew that loads your order at the Surrey warehouse is the crew that lays the floor at Ambleside Park."
+  - "People searching North Shore party rentals usually mean West Vancouver and North Vancouver together. This page is West Vancouver specifically. The regional hub — Lions Gate vs Ironworkers, Ambleside, Whytecliff, and North Van — is <a href=\"/north-shore-party-rentals\">North Shore party rentals</a>."
 
 faqs:
   - q: "What's included on a West Vancouver rental quote?"

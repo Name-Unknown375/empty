@@ -37,7 +37,7 @@
       "faqs": [
         {
           "q": "Can I customize what's in a wedding package?",
-          "a": "Absolutely. The package is a starting point — add linens, dance floor, heaters, or upgrade chairs before checkout. Anything you add keeps the 10% package discount on the original bundle; add-ons are at standard rates."
+          "a": "Absolutely. The package is a starting point — add <a href=\"/tablecloth-rentals\">linens</a>, dance floor, heaters, or upgrade chairs before checkout. Anything you add keeps the 10% package discount on the original bundle; add-ons are at standard rates."
         },
         {
           "q": "What if my guest count changes after I book?",
@@ -54,7 +54,7 @@
       "slug": "corporate",
       "label": "Corporate",
       "labelPossessive": "Corporate Event",
-      "heroImage": "/images/packages/corporate.webp",
+      "heroImage": "/images/packages/corporate-gala.webp",
       "heroAlt": "Corporate gala dinner setup — Forever Party Rentals",
       "tableKey": "banquet-table-6ft",
       "tableLabel": "6ft Banquet Tables",

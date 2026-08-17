@@ -105,6 +105,10 @@ HAND_AUTHORED = [
     # drifted whenever the partials changed.
     "event-rentals.html",
     "wedding-rentals.html",
+    "north-shore-party-rentals.html",
+    "tablecloth-rentals.html",
+    "wedding-chair-rentals.html",
+    "white-chair-rentals.html",
     "carnival-games.html",
     "carnival-games-bundle-2.html",
     "carnival-games-bundle-4.html",

@@ -7,6 +7,7 @@ hero_subtitle: "Tent, chair, table, and dance floor rentals for North Shore wedd
 intro_paragraphs:
   - "North Vancouver weddings come with the most photogenic backdrops in BC and the most operationally specific delivery routes in the Lower Mainland. Steep Lonsdale driveways, the hairpin road out to Deep Cove, and the elevation change between sea-level Lonsdale Quay and a Grouse Mountain ceremony all show up in the install plan, not just in the photos. We build North Van delivery windows around the bridge crossing, the elevation, and the driveway grade — before quoting, not after the truck is stuck."
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
+  - "People searching North Shore party rentals usually mean both North Vancouver and West Vancouver as one term. This page is North Vancouver specifically. The regional hub — Lions Gate timing, Lonsdale, Deep Cove, and the West Van side — is <a href=\"/north-shore-party-rentals\">North Shore party rentals</a>."
 
 faqs:
   - q: "What's included on a North Vancouver rental quote?"

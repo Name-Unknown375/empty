@@ -48,6 +48,7 @@ PRODUCT_CITY_PREFIXES = (
 HUB_PAGES = {
     "tents.html", "chairs.html", "tables.html", "dance-floor.html", "rentals.html",
     "wedding-rentals.html", "event-rentals.html", "birthday-party-rentals.html",
+    "tablecloth-rentals.html", "wedding-chair-rentals.html", "white-chair-rentals.html",
     "corporate.html", "projector-rentals.html", "starlink-rentals.html",
     "battery-power-stations.html", "carnival-games.html", "christmas-lights.html",
     "packages.html", "christmas-light-installation-lower-mainland.html",
@@ -103,5 +104,5 @@ def dump(site: Path) -> dict[str, str]:
 
 
 if __name__ == "__main__":
-    site = Path(__file__).resolve().parent.parent / "site"
+    site = Path(__file__).resolve().parent.parent / "site-v3"
     json.dump(dump(site), sys.stdout)

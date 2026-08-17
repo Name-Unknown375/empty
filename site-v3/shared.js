@@ -435,6 +435,7 @@ const PRODUCT_CITY_PREFIXES = [
 const HUB_SLUGS = [
   'tents', 'chairs', 'tables', 'dance-floor', 'rentals',
   'wedding-rentals', 'event-rentals', 'birthday-party-rentals',
+  'tablecloth-rentals', 'wedding-chair-rentals', 'white-chair-rentals',
   'corporate', 'projector-rentals', 'starlink-rentals',
   'battery-power-stations', 'carnival-games', 'christmas-lights',
   'packages', 'christmas-light-installation-lower-mainland',

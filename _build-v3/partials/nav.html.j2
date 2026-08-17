@@ -52,6 +52,8 @@
           <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-chairs" aria-label="Chair Rentals">Chairs <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-chairs" role="menu" aria-label="Chair Rentals">
             <a role="menuitem" href="/chairs">All Chair Rentals</a>
+            <a role="menuitem" href="/wedding-chair-rentals">Wedding Chairs</a>
+            <a role="menuitem" href="/white-chair-rentals">White Chairs</a>
             <a role="menuitem" href="/product-white-chiavari-chair">Chiavari Chairs</a>
             <a role="menuitem" href="/product-fanback-garden-chair">Fanback Chairs</a>
             <a role="menuitem" href="/product-resin-garden-chair">Resin Garden Chairs</a>
@@ -62,6 +64,7 @@
           <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-tables" aria-label="Table Rentals">Tables <span aria-hidden="true">▾</span></button>
           <div class="dropdown" id="dd-tables" role="menu" aria-label="Table Rentals">
             <a role="menuitem" href="/tables">All Table Rentals</a>
+            <a role="menuitem" href="/tablecloth-rentals">Tablecloths / Linens</a>
             <a role="menuitem" href="/product-banquet-table-8ft">8ft Banquet Tables</a>
             <a role="menuitem" href="/product-banquet-table-6ft">6ft Banquet Tables</a>
             <a role="menuitem" href="/product-round-table-5ft">5ft Round Tables</a>
@@ -145,6 +148,7 @@
           <button type="button" class="nav-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="dd-areas">Service Areas <span aria-hidden="true">▾</span></button>
           <div class="mega-dropdown" id="dd-areas" role="menu" aria-label="Service Areas">
             <a role="menuitem" href="/service-areas" class="mega-all">All Service Areas</a>
+            <a role="menuitem" href="/north-shore-party-rentals">North Shore — North Van + West Van</a>
             <div class="mega-divider" aria-hidden="true"></div>
             <div class="mega-col-title">Party Rentals By City</div>
             <div class="mega-dropdown-inner">{% for c in cities %}<a role="menuitem" href="/{{ c.slug }}-party-rentals">{{ c.name }}</a>{% endfor %}</div>

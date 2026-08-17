@@ -14,7 +14,7 @@ faqs:
   - q: "How many tables for a 100-guest Langley vineyard wedding?"
     a: "For seated dinner at 5ft rounds, plan ~12 rounds (8 guests per round = 96; round up for split parties). Add 5–8 banquet tables for head, gift, cake, DJ, registration, and buffet. Add 2–3 cocktail highboys for the pre-dinner cocktail hour. For 200-guest vineyard weddings, double the rounds."
   - q: "Do you supply linens for vineyard or farm weddings?"
-    a: "We don't stock linens directly, but we coordinate through our preferred Lower Mainland linen partners and bundle them onto the same delivery window if you want. Most Langley couples arrange linens independently with a specialist; we'll happily share recommendations during the quote."
+    a: "Yes. We stock tablecloths, napkins, and runners in-house and put them on the same Langley delivery as your tables and chairs — vineyard, acreage, or LEC. Sizes live on tablecloth rentals. Chargers and place settings sit with the caterer."
   - q: "Can you stage long banquet rows at a Langley acreage wedding?"
     a: "Yes — long banquet-style dining (versus rounds) is increasingly common at Langley acreage weddings. We line 6ft and 8ft banquet tables in continuous rows, level them on grass, and position to your floor plan. Crews stage 200+ guests of banquet rows in 3–4 hours."
   - q: "How fast can you deliver Langley tables on short notice?"

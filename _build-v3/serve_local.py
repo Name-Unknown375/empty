@@ -5,7 +5,7 @@ Replicates the extensionless URL behavior from netlify.toml's pretty_urls
 without depending on Netlify (or any other host). Python 3.8+ stdlib only.
 
 Usage:
-  python3 _build/serve_local.py [PORT]
+  python3 _build-v3/serve_local.py [PORT]
   Default port: 8000.
 
 Resolution order for /foo:
@@ -21,7 +21,7 @@ import socketserver
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent / "site"
+ROOT = Path(__file__).resolve().parent.parent / "site-v3"
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):

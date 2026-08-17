@@ -16,7 +16,7 @@ faqs:
   - q: "Can you deliver tables to Tsawwassen acreage or Boundary Bay?"
     a: "Yes — both are routine Delta deliveries. Tsawwassen acreage weddings near the ferry terminal use standard delivery on rural roads. Boundary Bay shoreline ceremonies require permit-coordinated delivery windows that we book during quoting."
   - q: "Do you supply linens, runners, or chargers?"
-    a: "We don't stock linens directly, but we coordinate through our preferred Lower Mainland linen partners and bundle them onto the same delivery window if you want. Chargers, runners, and place settings sit with the catering provider."
+    a: "Yes. We stock tablecloths, napkins, and runners in-house at our Surrey warehouse and put them on the same delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the catering provider."
   - q: "How do you handle tables at a Boundary Bay shoreline event?"
     a: "Tables at exposed shoreline sites need the same wind discipline as the marquee. Lightweight high-tops can lift in Boundary Bay's onshore wind — we recommend banquet bases (heavier) over highboy bistros if your shoreline setup is fully exposed. For cocktail-hour highboys, we either stage them under the tent canopy or weight the bases."
 

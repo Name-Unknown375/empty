@@ -80,13 +80,20 @@ def structural_check(nav_html: str, footer_html: str) -> list[str]:
         if f'id="{sid}"' not in nav_html:
             failures.append(f"nav: missing id=\"{sid}\"")
 
-    # Mega-dropdown city links: 29 party-rental cities + 15 christmas-light cities
-    party_links = len(re.findall(r'href="/[a-z\-]+-party-rentals"', nav_html))
-    if party_links != 29:
-        failures.append(f"nav: expected 29 party-rentals city links, got {party_links}")
-    christmas_links = len(re.findall(r'href="/christmas-lights-[a-z\-]+"', nav_html))
-    if christmas_links != 15:
-        failures.append(f"nav: expected 15 christmas-lights city links, got {christmas_links}")
+    # Mega-dropdown city links only (Lights dropdown + mobile repeat the
+    # Christmas subset; North Shore is a hub, not a 30th city).
+    mega_inners = re.findall(r'<div class="mega-dropdown-inner">(.*?)</div>', nav_html, re.S)
+    if len(mega_inners) != 2:
+        failures.append(f"nav: expected 2 mega-dropdown-inner blocks, got {len(mega_inners)}")
+    else:
+        party_links = len(re.findall(r'href="/[a-z\-]+-party-rentals"', mega_inners[0]))
+        if party_links != 29:
+            failures.append(f"nav: expected 29 party-rentals city links in mega, got {party_links}")
+        christmas_links = len(re.findall(r'href="/christmas-lights-[a-z\-]+"', mega_inners[1]))
+        if christmas_links != 15:
+            failures.append(f"nav: expected 15 christmas-lights city links in mega, got {christmas_links}")
+    if 'href="/north-shore-party-rentals"' not in nav_html:
+        failures.append('nav: missing North Shore hub link')
 
     if 'id="footer"' not in footer_html:
         failures.append("footer: missing id=\"footer\"")

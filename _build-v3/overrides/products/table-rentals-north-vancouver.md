@@ -16,7 +16,7 @@ faqs:
   - q: "Can your truck handle steep North Van driveways with table loads?"
     a: "In most cases yes — our delivery vans handle grades up to about 10% loaded. For unusually steep or narrow lots (some Edgemont and lower Capilano properties) we stage at the road and hand-carry tables to the venue. Hand-carry distance gets factored into the crew-time line, not surfaced as a surprise on event day."
   - q: "Do you supply linens, runners, or chargers?"
-    a: "We don't stock linens directly, but we coordinate through our preferred Lower Mainland linen partners and bundle them onto the same delivery window if you want. Chargers, runners, and place settings sit with the catering provider."
+    a: "Yes. We stock tablecloths, napkins, and runners in-house at our Surrey warehouse and put them on the same delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the catering provider."
   - q: "Can you re-stage tables mid-event for a North Van wedding?"
     a: "Yes — for any single-tent ceremony-to-reception flip, our crew handles the table re-stage during the cocktail hour. Banquet tables fold flat and re-position quickly; rounds re-stack to the truck while the dinner configuration goes up."
 

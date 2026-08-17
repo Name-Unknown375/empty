@@ -43,6 +43,14 @@
 /chair-rentals                                                          /chairs                                                         301!
 /dance-floor-rental                                                     /dance-floor                                                    301!
 
+# ── GSC gap hubs (2026-08) — variant queries, not legacy SKU URLs ────────────
+/northshore-party-rentals                                               /north-shore-party-rentals                                      301!
+/linen-rentals                                                          /tablecloth-rentals                                             301!
+/linens                                                                 /tablecloth-rentals                                             301!
+/table-cloth-rentals                                                    /tablecloth-rentals                                             301!
+/wedding-chairs                                                         /wedding-chair-rentals                                          301!
+/white-chairs                                                           /white-chair-rentals                                            301!
+
 # ── Product pages ────────────────────────────────────────────────────────────
 /chiavari-chair-rentals                                                 /product-white-chiavari-chair                                   301!
 /fanback-chair-rentals                                                  /product-fanback-garden-chair                                   301!
@@ -279,11 +287,13 @@
 /marquee-tent-rental-lowermainland-surrey-langley-vancouver.html  /marquee-tent-rental-lowermainland-surrey-langley-vancouver  301!
 /mission-party-rentals.html                                       /mission-party-rentals  301!
 /new-westminster-party-rentals.html                               /new-westminster-party-rentals  301!
+/north-shore-party-rentals.html                                   /north-shore-party-rentals  301!
 /north-vancouver-party-rentals.html                               /north-vancouver-party-rentals  301!
 /packages.html                                                    /packages  301!
 /pitt-meadows-party-rentals.html                                  /pitt-meadows-party-rentals  301!
 /port-kells-party-rentals.html                                    /port-kells-party-rentals  301!
 /port-moody-party-rentals.html                                    /port-moody-party-rentals  301!
+/pricing.html                                                     /pricing  301!
 /privacy.html                                                     /privacy  301!
 /product-balloon-darts.html                                       /product-balloon-darts  301!
 /product-banquet-table-6ft.html                                   /product-banquet-table-6ft  301!
@@ -371,6 +381,7 @@
 /table-rentals-west-vancouver.html                                /table-rentals-west-vancouver  301!
 /table-rentals-white-rock.html                                    /table-rentals-white-rock  301!
 /table-rentals-willoughby.html                                    /table-rentals-willoughby  301!
+/tablecloth-rentals.html                                          /tablecloth-rentals  301!
 /tables.html                                                      /tables  301!
 /tent-rental-abbotsford.html                                      /tent-rental-abbotsford  301!
 /tent-rental-aldergrove.html                                      /tent-rental-aldergrove  301!
@@ -407,12 +418,14 @@
 /tsawwassen-party-rentals.html                                    /tsawwassen-party-rentals  301!
 /vancouver-party-rentals.html                                     /vancouver-party-rentals  301!
 /walnut-grove-party-rentals.html                                  /walnut-grove-party-rentals  301!
+/wedding-chair-rentals.html                                       /wedding-chair-rentals  301!
 /wedding-package-100-guests.html                                  /wedding-package-100-guests  301!
 /wedding-package-150-guests.html                                  /wedding-package-150-guests  301!
 /wedding-package-50-guests.html                                   /wedding-package-50-guests  301!
 /wedding-rentals.html                                             /wedding-rentals  301!
 /wedding-tent-layout-planner.html                                 /wedding-tent-layout-planner  301!
 /west-vancouver-party-rentals.html                                /west-vancouver-party-rentals  301!
+/white-chair-rentals.html                                         /white-chair-rentals  301!
 /white-rock-party-rentals.html                                    /white-rock-party-rentals  301!
 /widget-test.html                                                 /widget-test  301!
 /willoughby-party-rentals.html                                    /willoughby-party-rentals  301!
@@ -420,6 +433,7 @@
 /blog/backyard-wedding-tent-sizing-bc.html                        /blog/backyard-wedding-tent-sizing-bc  301!
 /blog/best-event-tents-rain-vancouver.html                        /blog/best-event-tents-rain-vancouver  301!
 /blog/best-free-event-layout-planners.html                        /blog/best-free-event-layout-planners  301!
+/blog/best-outdoor-wedding-venues-metro-vancouver.html            /blog/best-outdoor-wedding-venues-metro-vancouver  301!
 /blog/burnaby-wedding-venues-rental-guide.html                    /blog/burnaby-wedding-venues-rental-guide  301!
 /blog/chair-table-rental-prices-surrey-bc.html                    /blog/chair-table-rental-prices-surrey-bc  301!
 /blog/clear-top-tent-rentals-bc-weddings.html                     /blog/clear-top-tent-rentals-bc-weddings  301!
@@ -434,6 +448,9 @@
 /blog/marquee-vs-sailcloth-vs-frame-tent.html                     /blog/marquee-vs-sailcloth-vs-frame-tent  301!
 /blog/new-westminster-wedding-venues-rental-guide.html            /blog/new-westminster-wedding-venues-rental-guide  301!
 /blog/party-rental-checklist-50-100-150-200-guests.html           /blog/party-rental-checklist-50-100-150-200-guests  301!
+/blog/party-rental-price-list-metro-vancouver-2026.html           /blog/party-rental-price-list-metro-vancouver-2026  301!
+/blog/party-rental-questions-answered.html                        /blog/party-rental-questions-answered  301!
+/blog/party-rentals-not-worth-it.html                             /blog/party-rentals-not-worth-it  301!
 /blog/party-tent-over-patio-deck.html                             /blog/party-tent-over-patio-deck  301!
 /blog/queen-elizabeth-park-weddings-rentals.html                  /blog/queen-elizabeth-park-weddings-rentals  301!
 /blog/richmond-wedding-venues-rental-guide.html                   /blog/richmond-wedding-venues-rental-guide  301!
@@ -443,6 +460,7 @@
 /blog/tent-permits-surrey-metro-vancouver-parks.html              /blog/tent-permits-surrey-metro-vancouver-parks  301!
 /blog/tent-size-chart-20x20-20x40-20x60-40x80.html                /blog/tent-size-chart-20x20-20x40-20x60-40x80  301!
 /blog/tent-size-guide-lower-mainland-wedding.html                 /blog/tent-size-guide-lower-mainland-wedding  301!
+/blog/wedding-package-comparison-50-100-150-guests.html           /blog/wedding-package-comparison-50-100-150-guests  301!
 /blog/wedding-tent-rental-cost-vancouver.html                     /blog/wedding-tent-rental-cost-vancouver  301!
 /blog/whytecliff-park-event-rental-guide.html                     /blog/whytecliff-park-event-rental-guide  301!
 # ── END GENERATED: html → extensionless 301s ──

@@ -30,8 +30,10 @@ fabrications, so play it conservative.
 3. **Mark anything you suspect but can't confirm with `[VERIFY]`** at the end
    of the sentence so Devon can check it during review. Do this sparingly —
    most things should be omitted entirely if uncertain.
-4. **Never invent vendor or business names.** "Our preferred linen partner"
+4. **Never invent vendor or business names.** "A partner we already work with"
    is fine; "ABC Linens of Vancouver" is not unless it appears in the bundle.
+   We stock tablecloths, napkins, runners, and cocktail spandex in-house — do
+   not write that linens come from a preferred partner.
 5. **Never quote permit fees, bylaw section numbers, or specific regulations.**
    Generalize ("most municipal parks require a permit") rather than risk a
    wrong specific.

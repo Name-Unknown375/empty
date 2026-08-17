@@ -16,7 +16,7 @@ faqs:
   - q: "Can you deliver tables to a Semiahmoo peninsula acreage or Marine Drive restaurant?"
     a: "Yes — both are routine White Rock bookings. Peninsula acreage uses rural-road truck access with longer driveways. Marine Drive restaurant deliveries are typically cocktail-hour highboys staged outside the venue rather than full seated-dinner table setups."
   - q: "Do you supply linens, runners, or chargers?"
-    a: "We don't stock linens directly, but we coordinate through our preferred Lower Mainland linen partners and bundle them onto the same delivery window if you want. Chargers, runners, and place settings sit with the catering provider."
+    a: "Yes. We stock tablecloths, napkins, and runners in-house at our Surrey warehouse and put them on the same delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the catering provider."
   - q: "How do you handle tables on the beach or at the pier?"
     a: "Beach-sand and pier-side tables need wind discipline. Banquet bases (heavier) work better than highboy bistros where the site is fully exposed; for cocktail hour we either stage highboys under tent canopy or weight the bases with sandbags. We don't recommend full seated-dinner table configurations on open beach — the wind makes the centerpiece-and-place-setting program impractical."
 

@@ -16,7 +16,7 @@ faqs:
   - q: "Can you deliver tables to a vineyard or to Tradex?"
     a: "Yes — both are routine Abbotsford bookings. Vineyard deliveries use rural-road truck access with on-site staging. Tradex Exhibition Centre's loading dock is ample and we coordinate the delivery window during quoting; gala-scale orders (50+ banquets, 30+ highboys) typically ship on a dedicated truck."
   - q: "Do you supply linens, runners, or chargers?"
-    a: "We don't stock linens directly, but we coordinate through our preferred Lower Mainland linen partners and bundle them onto the same delivery window if you want. Chargers, runners, and place settings sit with the catering provider."
+    a: "Yes. We stock tablecloths, napkins, and runners in-house at our Surrey warehouse and put them on the same delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the catering provider."
   - q: "Can you re-stage tables mid-event for a vineyard ceremony-to-reception flip?"
     a: "Yes — for any single-tent vineyard or farm ceremony-to-reception flip, our crew handles the table re-stage during the cocktail hour. The 6ft banquet tables fold flat and re-position quickly."
 

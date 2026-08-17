@@ -16,7 +16,7 @@ faqs:
   - q: "Can you deliver tables to Heritage Mountain or Anmore-border acreage?"
     a: "Yes — both are routine Port Moody bookings. Heritage Mountain's newer streets accept the standard delivery truck without issue. Anmore-border acreages off Sunnyside Road use rural roads with ample truck access."
   - q: "Do you supply linens, runners, or chargers?"
-    a: "We don't stock linens directly, but we coordinate through our preferred Lower Mainland linen partners and bundle them onto the same delivery window if you want. Chargers, runners, and place settings sit with the catering provider."
+    a: "Yes. We stock tablecloths, napkins, and runners in-house at our Surrey warehouse and put them on the same delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the catering provider."
   - q: "How do you handle tables at a Rocky Point waterfront ceremony?"
     a: "Tables at Rocky Point's waterfront zones run the same wind discipline as the marquee. For cocktail-hour highboys exposed to Inlet wind, we either stage them under tent canopy or weight the bases. Banquet bases are heavier and tolerate the breeze better when full enclosure isn't part of the program."
 

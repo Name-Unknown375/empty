@@ -16,7 +16,7 @@ faqs:
   - q: "Can you set up tables on a Yaletown rooftop or grass surface?"
     a: "Yes — both. Our 6ft banquet tables and 5ft rounds weigh under 75 lb each, so freight elevators and stair-only buildings aren't a problem if we're given the access details up front. On grass we level each table to your floor plan during setup; uneven ground is what an extra 30 minutes of staging time is for."
   - q: "Do you supply linens, runners, or chargers?"
-    a: "We don't stock linens directly, but we coordinate through our preferred Vancouver linen partners and bundle them onto the same delivery window if you want. Most Vancouver couples arrange linens independently with a specialist; we'll happily share recommendations during the quote."
+    a: "Yes. We stock tablecloths, napkins, and runners in-house and put them on the same Vancouver delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the caterer."
   - q: "Can you re-stage tables mid-event for a Vancouver flip?"
     a: "Yes — for any single-tent ceremony-to-reception flip, our crew handles the table re-stage during the cocktail hour. The 6ft banquet tables fold flat and re-position quickly; round tables re-stack to the truck while we re-stage to dinner configuration."
 

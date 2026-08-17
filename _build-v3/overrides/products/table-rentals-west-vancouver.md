@@ -18,7 +18,7 @@ faqs:
   - q: "Can you deliver tables to a Horseshoe Bay restaurant patio around ferry sailings?"
     a: "Yes — Horseshoe Bay restaurant deliveries get scheduled around the BC Ferries pattern. The 6ft banquet folds flat and fits through narrow restaurant service entrances; the 8ft is tighter. We confirm access width and the venue's preferred timing window during quoting."
   - q: "Do you supply linens, runners, or chargers?"
-    a: "We don't stock linens directly, but we coordinate through our preferred Lower Mainland linen partners and bundle them onto the same delivery window if you want. Salt-air West Van waterfront venues sometimes accelerate linen aging — we'll flag specifically which fabrics our partners recommend for an exposed seawall reception."
+    a: "Yes. We stock tablecloths, napkins, and runners in-house and put them on the same West Van delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the caterer. Salt-air waterfront venues can be hard on cloth — we'll flag exposed seawall receptions when we quote."
 
 related_blog_posts:
   - slug: party-rental-checklist-50-100-150-200-guests
@@ -77,7 +77,7 @@ The same on the Ambleside seawall as in British Properties. Our 5ft round table 
 
 ## Salt-air and waterfront table considerations
 
-The single venue-specific note we share with West Van waterfront bookings: salt-air exposure accelerates linen aging if the reception runs all day in direct ocean breeze. Our linen partners recommend the heavier polyester blends rather than the lighter cotton-touch lines for exposed Ambleside and Dundarave bookings — they hold up better through a five-hour reception in salt spray. Indoors and inland (British Properties, Caulfeild interior, Park Royal) the lighter linens are fine. We flag this in the quote when the venue is a waterfront site.
+The single venue-specific note we share with West Van waterfront bookings: salt-air exposure accelerates linen aging if the reception runs all day in direct ocean breeze. We flag this in the quote when the venue is a waterfront site — Ambleside, Dundarave, Horseshoe Bay — so the in-house cloth we send is sized for an exposed reception. Indoors and inland (British Properties, Caulfeild interior, Park Royal) it's a standard drop.
 
 ## A 100-guest West Vancouver table rental order
 
