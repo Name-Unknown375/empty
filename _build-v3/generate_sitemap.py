@@ -49,7 +49,7 @@ EXCLUDED = {
 }
 
 # Top-level product/category + key commercial pages
-TOP_CATEGORY_PAGES = {"tents.html", "chairs.html", "tables.html", "dance-floor.html", "rentals.html", "christmas-lights.html", "packages.html"}
+TOP_CATEGORY_PAGES = {"tents.html", "chairs.html", "tables.html", "dance-floor.html", "rentals.html", "christmas-lights.html", "packages.html", "pricing.html"}
 
 # Tier-1 cities get the 0.9 priority bump on their Christmas pages as well.
 CHRISTMAS_TIER_1_SLUGS = {"surrey", "langley", "vancouver", "burnaby"}

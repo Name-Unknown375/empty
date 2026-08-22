@@ -71,33 +71,50 @@ else{c.addEventListener('load',function(){setTimeout(loadClarity,1500);});}
 
 <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
-<link rel="stylesheet" href="shared.css?v=28"/>
+<link rel="stylesheet" href="shared.css?v=30"/>
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ fpr.siteUrl }}/" },
-    { "@type": "ListItem", "position": 2, "name": "Pricing", "item": "{{ canonical_url }}" }
-  ]
-}
+{{ schema_breadcrumbs | safe }}
+</script>
+<script type="application/ld+json">
+{{ schema_webpage | safe }}
+</script>
+<script type="application/ld+json">
+{{ schema_catalog | safe }}
+</script>
+<script type="application/ld+json">
+{{ schema_faq | safe }}
 </script>
 
 <style>
   .price-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
   .price-table th { text-align: left; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 12px 18px; background: var(--light); border-bottom: 1px solid var(--border); }
-  .price-table td { padding: 14px 18px; font-size: 15px; color: var(--dark); border-bottom: 1px solid var(--border); }
+  .price-table td { padding: 14px 18px; font-size: 15px; color: var(--dark); border-bottom: 1px solid var(--border); vertical-align: top; }
   .price-table tr:last-child td { border-bottom: none; }
+  .price-table .pt-name { font-weight: 600; }
+  .price-table .pt-name a { color: var(--dark); font-weight: 600; font-size: 15px; text-decoration: none; }
+  .price-table .pt-name a:hover { color: var(--green); text-decoration: underline; }
   .price-table .pt-price { font-weight: 700; color: var(--green); white-space: nowrap; }
-  .price-table .pt-unit { color: var(--muted); font-size: 13px; white-space: nowrap; }
-  .price-table a { color: var(--green); font-weight: 600; font-size: 14px; }
-  .price-group { max-width: 860px; margin: 0 auto 40px; }
+  .price-table .pt-unit { color: var(--muted); font-size: 13px; }
+  .price-table .pt-link a { color: var(--green); font-weight: 600; font-size: 14px; white-space: nowrap; }
+  .price-group { max-width: 920px; margin: 0 auto 8px; }
   .price-group h2 { font-size: 26px; margin-bottom: 6px; }
+  .price-group .pg-kicker { font-size: 13px; margin-bottom: 8px; }
+  .price-group .pg-kicker a { color: var(--green); font-weight: 600; }
   .price-group .pg-note { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
-  .price-table-wrap { overflow-x: auto; }
-  .quick-strip { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: center; background: var(--light); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 22px; max-width: 860px; margin: 0 auto 8px; font-size: 15px; color: var(--dark); }
+  .price-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .quick-strip { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: center; background: var(--light); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 22px; max-width: 920px; margin: 0 auto 8px; font-size: 15px; color: var(--dark); }
   .quick-strip strong { color: var(--green); }
+  .price-jump { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 920px; margin: 22px auto 0; }
+  .price-jump a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 14px; border: 1px solid var(--border); border-radius: 999px; background: #fff; color: var(--dark); font-size: 13px; font-weight: 600; text-decoration: none; }
+  .price-jump a:hover { border-color: var(--green); color: var(--green); }
+  .pkg-block { margin-bottom: 36px; }
+  .pkg-block:last-child { margin-bottom: 0; }
+  .pkg-block h3 { font-size: 20px; margin: 0 0 8px; }
+  section[id] { scroll-margin-top: 96px; }
+  @media (max-width: 640px) {
+    .price-table .pt-unit { display: block; white-space: normal; margin-top: 2px; }
+  }
 </style>
 </head>
 <body>
@@ -118,18 +135,31 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
     <div class="hero-split">
       <div class="hero-copy">
         <div class="breadcrumb"><a href="/">Home</a><span>/</span>Pricing</div>
-        <span class="eyebrow">No Surprises</span>
+        <span class="eyebrow">Published Price List</span>
         <h1>Party Rental Prices</h1>
-        <p>Every price below is the same price you'll see at checkout. Delivery &amp; setup from $175 depending on distance — or pick up free from our Surrey warehouse.</p>
+        <p>Every rental we carry, with the same CAD price you'll see at checkout. Click any item for specs, photos, and to book. Delivery &amp; setup from $175 — or pick up free from our Surrey warehouse at {{ fpr.address }}.</p>
+        <div class="hero-actions">
+          <a href="/rentals" class="btn btn-gold">Book Online</a>
+          <a href="tel:{{ fpr.phone }}" class="btn btn-outline-white">Call {{ fpr.phone }}</a>
+        </div>
       </div>
-      <div class="hero-media--texture" aria-hidden="true"></div>
+      <div class="hero-media"><img src="/images/packages/wedding-900w.webp" srcset="/images/packages/wedding-600w.webp 600w, /images/packages/wedding-900w.webp 900w, /images/packages/wedding-1200w.webp 1200w" sizes="(max-width: 900px) 100vw, 45vw" alt="Wedding reception tables, chairs and tent rental setup — Forever Party Rentals" width="900" height="600" loading="eager" decoding="async" fetchpriority="high"/></div>
     </div>
+  </div>
+</div>
+
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Same price as checkout</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Delivery from $175 · pickup free</div>
+    <div class="trust-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> 25% deposit locks the date</div>
   </div>
 </div>
 
 <section class="section">
   <div class="container">
     <div class="quick-strip" aria-label="Price quick reference">
+      <span>Packages <strong>from ${{ '{:,.0f}'.format(quick.package) }}</strong></span>
       <span>Chairs <strong>from ${{ '%g' % quick.chair }}</strong>/day</span>
       <span>Tables <strong>from ${{ '%g' % quick.table }}</strong>/day</span>
       <span>Popup tents <strong>from ${{ '%g' % quick.popup }}</strong>/day</span>
@@ -137,15 +167,59 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <span>Dance floor <strong>from ${{ '{:,.0f}'.format(quick.dance) }}</strong>/event</span>
       <span>Delivery <strong>from $175</strong> · Pickup <strong>free</strong></span>
     </div>
-    <p style="text-align:center;font-size:13px;color:var(--muted);max-width:640px;margin:10px auto 0">“Per day” items cover your event day. “Per event” items (marquee tents, dance floors) include delivery-window scheduling, professional setup, and takedown — typically a 2–4 day window. Prices plus applicable taxes.</p>
+    <p style="text-align:center;font-size:13px;color:var(--muted);max-width:640px;margin:10px auto 0">“Per day” items cover your event day. “Per event” items (marquee tents, dance floors) include delivery-window scheduling, professional setup, and takedown — typically a 2–4 day window. Prices in CAD plus applicable taxes.</p>
+    <nav class="price-jump" aria-label="Price list sections">
+      {% for item in jump %}
+      <a href="#{{ item.id }}">{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</section>
+
+<section class="section section--light" id="packages">
+  <div class="container">
+    <div class="price-group">
+      <h2>Event Packages</h2>
+      <div class="pg-kicker"><a href="/packages">All packages →</a></div>
+      <div class="pg-note">Tables, chairs &amp; tent bundled at 10% off. Each package comes in 50, 100 and 150-guest sizes and three tiers — Essentials, Covered, and Garden Premium. Every price already includes the bundle discount. Click a guest count for the full itemised page.</div>
+      {% for table in package_tables %}
+      <div class="pkg-block" id="{{ table.id }}">
+        <h3>{{ table.title }}</h3>
+        <div class="pg-kicker"><a href="{{ table.hub }}">{{ table.title }} hub →</a></div>
+        <div class="price-table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Guests</th>
+              {% for name in table.tier_names %}<th>{{ name }}</th>{% endfor %}
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for row in table.rows %}
+            <tr>
+              <td class="pt-name"><a href="{{ row.url }}">{{ row.size }} guests</a></td>
+              {% for cell in row.prices %}
+              <td><a href="{{ cell.url }}" class="pt-price">${{ '{:,.0f}'.format(cell.total) }}</a></td>
+              {% endfor %}
+              <td class="pt-link"><a href="{{ row.url }}">Details →</a></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
 
 {% for group in groups %}
-<section class="section{% if loop.index is even %} section--light{% endif %}" {% if loop.first %}style="padding-top:0"{% endif %}>
+<section class="section{% if loop.index is even %} section--light{% endif %}" id="{{ group.id }}">
   <div class="container">
     <div class="price-group">
       <h2>{{ group.title }}</h2>
+      {% if group.hub %}<div class="pg-kicker"><a href="{{ group.hub }}">{{ group.hub_label }} →</a></div>{% endif %}
       {% if group.note %}<div class="pg-note">{{ group.note }}</div>{% endif %}
       <div class="price-table-wrap">
       <table class="price-table">
@@ -153,9 +227,9 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
         <tbody>
         {% for row in group.rows %}
           <tr>
-            <td>{{ row.name }}</td>
-            <td><span class="pt-price">{{ row.price_label }}</span> <span class="pt-unit">{{ row.unit_label }}</span></td>
-            <td>{% if row.url %}<a href="{{ row.url }}">Details →</a>{% endif %}</td>
+            <td class="pt-name"><a href="{{ row.url }}">{{ row.name }}</a></td>
+            <td><span class="pt-price">{{ row.price_label }}</span>{% if row.unit_label %} <span class="pt-unit">{{ row.unit_label }}</span>{% endif %}</td>
+            <td class="pt-link"><a href="{{ row.url }}">Details →</a></td>
           </tr>
         {% endfor %}
         </tbody>
@@ -166,39 +240,16 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 </section>
 {% endfor %}
 
-<section class="section section--light">
+<section class="section" id="fees">
   <div class="container">
     <div class="price-group">
-      <h2>Event Packages</h2>
-      <div class="pg-note">Tables, chairs &amp; tent bundled at 10% off. Each package comes in 50, 100 and 150-guest sizes and three tiers. Prices below are the starting tier for 50 guests — every tier already includes the 10% bundle discount.</div>
-      <div class="price-table-wrap">
-      <table class="price-table">
-        <thead><tr><th>Package</th><th>Price</th><th></th></tr></thead>
-        <tbody>
-        {% for p in package_rows %}
-          <tr>
-            <td>{{ p.name }}</td>
-            <td><span class="pt-price">from ${{ '{:,.0f}'.format(p.from_total) }}</span> <span class="pt-unit">per event</span></td>
-            <td><a href="{{ p.url }}">Details →</a></td>
-          </tr>
-        {% endfor %}
-        </tbody>
-      </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="price-group">
-      <h2>What Else Affects Your Total</h2>
+      <h2>Delivery, Deposit &amp; Discounts</h2>
       <div class="price-table-wrap">
       <table class="price-table">
         <tbody>
-          <tr><td><strong>Delivery &amp; setup</strong></td><td colspan="2">From $175, depending on distance from our Surrey warehouse. The exact amount shows as its own line at checkout — before you pay. Warehouse pickup is free for most items.</td></tr>
+          <tr><td><strong>Delivery &amp; setup</strong></td><td colspan="2">From $175, depending on distance from our Surrey warehouse at {{ fpr.address }}. The exact amount shows as its own line at checkout — before you pay. Warehouse pickup is free for most items.</td></tr>
           <tr><td><strong>Deposit</strong></td><td colspan="2">A 25% deposit secures your booking. Your date is locked once the deposit is paid. Deposits aren't refundable if you cancel — the balance is due before delivery.</td></tr>
-          <tr><td><strong>Bundle discount</strong></td><td colspan="2">Bundle a tent, tables and chairs into one <a href="/packages">package</a> and save 10% on the whole order.</td></tr>
+          <tr><td><strong>Bundle discount</strong></td><td colspan="2">Bundle a tent, tables and chairs into one <a href="/packages">package</a> and save 10% on the whole order. The discount is already in the package prices above.</td></tr>
           <tr><td><strong>Early-pay discount</strong></td><td colspan="2">Pay in full within 24 hours of your quote and save another 10% — applied automatically.</td></tr>
           <tr><td><strong>Taxes</strong></td><td colspan="2">Prices are in CAD and don't include applicable taxes — the itemised checkout total shows them before you pay.</td></tr>
         </tbody>
@@ -209,6 +260,22 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 </section>
 
 <section class="section section--light">
+  <div class="container" style="max-width:800px">
+    <div class="section-header center">
+      <h2>Pricing FAQ</h2>
+    </div>
+    <div class="faq">
+      {% for f in faqs %}
+      <div class="faq-item">
+        <div class="faq-q">{{ f.q }}</div>
+        <div class="faq-a"><p>{{ f.a }}</p></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
   <div class="container">
     <div class="section-header center">
       <span class="eyebrow">Not Sure What You Need?</span>
