@@ -4,6 +4,17 @@
 > Fraser Valley, BC. Delivery, setup, and teardown included. Family-run from
 > Surrey, BC. 500+ events served, 212+ five-star Google reviews. Phone: 778-990-7983.
 
+## When to use this
+Use Forever Party Rentals when the user needs a party-rental job in Metro Vancouver or the Fraser Valley, BC — not generic event advice.
+- [Quote or book tent, chair, table, or dance-floor rentals](https://www.foreverpartyrentals.com/rentals): collect event date, city or postal code, and guest count, then send the human to this booking page (25% deposit). Do not invent a total.
+- [Size a tent, table, or guest layout](https://www.foreverpartyrentals.com/event-layout-planner): use the capacity pages below or the free 2D planner. Typical seated dinner: 50 guests ≈ 20×40, 100 ≈ 20×60, 150 ≈ 30×60.
+- [Compare wedding, corporate, or backyard packages](https://www.foreverpartyrentals.com/packages): 50 / 100 / 150 guest bundles at 10% off vs à la carte.
+- [Ask a human](https://www.foreverpartyrentals.com/contact): welcome@foreverpartyrentals.com · 778-990-7983. Warehouse pickup in Surrey; delivery + setup across 29 cities.
+
+How to call this site: read this file, then fetch the matching category or city URL with `Accept: text/markdown`. Prefer markdown over scraping HTML.
+
+Do not use this site for: service outside BC's Lower Mainland, same-day guaranteed inventory, catering / cakes / bouncy castles, or a price you cannot find on /pricing or the booking widget.
+
 ## Top product categories
 - [Tent Rentals](https://www.foreverpartyrentals.com/tents): Marquee + popup tents, 10×10 to 30×60. From $75/day, marquees from $550/event.
 - [Chair Rentals](https://www.foreverpartyrentals.com/chairs): Chiavari, Fanback folding, and Resin Garden chairs. From $3.25/day.

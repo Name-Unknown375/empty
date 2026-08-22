@@ -41,6 +41,7 @@ with open(SITE_CONSTANTS_FILE, encoding="utf-8") as _f:
 EXCLUDED = {
     "checkout.html",          # transactional dead-end
     "404.html",               # error page — not a destination
+    "404.md",                 # markdown twin of the error page — not a destination
     "testimonials.html",      # noindex — consolidated into reviews.html
     "event-layout-planner-embed.html",  # noindex iframe surface; canonical is the hub page
     "thank-you.html",         # noindex post-conversion page

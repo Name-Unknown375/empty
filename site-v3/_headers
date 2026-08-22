@@ -18,6 +18,19 @@
 /favicon.svg
   Cache-Control: public, max-age=86400
 
+# Agent index — markdown, not generic text/plain.
+/llms.txt
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept, Accept-Encoding
+
+/index.md
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept, Accept-Encoding
+
+/404.md
+  Content-Type: text/markdown; charset=utf-8
+  Vary: Accept, Accept-Encoding
+
 # Homepage — advertise discovery endpoints per RFC 8288 (Web Linking).
 # Rels used here are registered with IANA:
 #   sitemap         — https://www.iana.org/assignments/link-relations
@@ -25,9 +38,11 @@
 #   contact         — https://www.iana.org/assignments/link-relations
 /
   Link: </sitemap.xml>; rel="sitemap"
+  Link: </llms.txt>; rel="describedby"; type="text/markdown"
   Link: </privacy>; rel="privacy-policy"
   Link: </contact>; rel="contact"
   Link: </.well-known/agent-skills/index.json>; rel="https://agentskills.io/rel/index"; type="application/json"
+  Vary: Accept, Accept-Encoding
 
 # Same on every HTML page so crawlers hitting deep links still find them.
 # Plus baseline security headers applied site-wide.
@@ -59,6 +74,7 @@
 #   frame-ancestors  — 'self' (clickjacking defense, parallel to X-Frame-Options).
 /*
   Link: </sitemap.xml>; rel="sitemap"
+  Link: </llms.txt>; rel="describedby"; type="text/markdown"
   Link: </privacy>; rel="privacy-policy"
   Link: </contact>; rel="contact"
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload

@@ -4,6 +4,17 @@
 > Fraser Valley, BC. Delivery, setup, and teardown included. Family-run from
 > Surrey, BC. {{ events_served }} events served, {{ fpr.aggregateRating.count }}+ five-star Google reviews. Phone: {{ fpr.phone }}.
 
+## When to use this
+Use Forever Party Rentals when the user needs a party-rental job in Metro Vancouver or the Fraser Valley, BC — not generic event advice.
+- [Quote or book tent, chair, table, or dance-floor rentals]({{ site_url }}/rentals): collect event date, city or postal code, and guest count, then send the human to this booking page (25% deposit). Do not invent a total.
+- [Size a tent, table, or guest layout]({{ site_url }}/event-layout-planner): use the capacity pages below or the free 2D planner. Typical seated dinner: 50 guests ≈ 20×40, 100 ≈ 20×60, 150 ≈ 30×60.
+- [Compare wedding, corporate, or backyard packages]({{ site_url }}/packages): 50 / 100 / 150 guest bundles at 10% off vs à la carte.
+- [Ask a human]({{ site_url }}/contact): {{ fpr.email }} · {{ fpr.phone }}. Warehouse pickup in Surrey; delivery + setup across 29 cities.
+
+How to call this site: read this file, then fetch the matching category or city URL with `Accept: text/markdown`. Prefer markdown over scraping HTML.
+
+Do not use this site for: service outside BC's Lower Mainland, same-day guaranteed inventory, catering / cakes / bouncy castles, or a price you cannot find on /pricing or the booking widget.
+
 ## Top product categories
 {% for p in product_categories -%}
 - [{{ p.name }}]({{ site_url }}{{ p.url }}): {{ p.summary }}

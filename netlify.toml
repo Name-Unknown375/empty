@@ -28,6 +28,10 @@
 [functions]
   directory = "netlify/functions"
 
+# Edge Functions are auto-discovered from netlify/edge-functions/.
+# markdown-negotiate.js serves text/markdown when Accept prefers it
+# (acceptmarkdown.com). Shared parser: netlify/lib/accept.mjs.
+
 [build.processing]
   skip_processing = false
 

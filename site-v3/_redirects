@@ -15,6 +15,8 @@
 /sitemap.xml                                                            /sitemap.xml                                                    200!
 /robots.txt                                                             /robots.txt                                                     200!
 /llms.txt                                                               /llms.txt                                                       200!
+/index.md                                                               /index.md                                                       200!
+/404.md                                                                 /404.md                                                         200!
 /favicon.svg                                                            /favicon.svg                                                    200!
 /favicon.ico                                                            /favicon.ico                                                    200!
 /_headers                                                               /_headers                                                       200!

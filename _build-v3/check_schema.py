@@ -17,9 +17,11 @@ Enforces, for every page in site/ (and site/blog/):
      collapsed our stars in May 2026 and got re-fixed in June):
        - NO `Review` type anywhere on the site.
        - `aggregateRating` ONLY inside the homepage LocalBusiness.
-  5. Any full LocalBusiness block must match site_constants.json for
+    5. Any full LocalBusiness block must match site_constants.json for
      telephone and geo (catches copy-paste drift like the marquee page's
      5.9 km geo offset found in the 2026-06-18 audit).
+    6. Homepage Organization must include name, description, url, address
+       (PostalAddress), and contactPoint (contactType + email or telephone).
 
 Exit code 0 = clean, 1 = violations (print one line each).
 """
@@ -132,6 +134,33 @@ def main() -> int:
                     failures.append(f"{rel}: forbidden aggregateRating at {path} "
                                     f"(allowed only on homepage LocalBusiness)")
 
+            # Homepage Organization must carry identity + contact fields
+            # (agent-readiness: name, description, url, address, contactPoint).
+            if cls == "homepage" and obj.get("@type") == "Organization":
+                for field in ("name", "description", "url"):
+                    if not str(obj.get(field) or "").strip():
+                        failures.append(
+                            f"{rel}: Organization missing {field}")
+                addr = obj.get("address")
+                if not (isinstance(addr, dict) and addr.get("@type") == "PostalAddress"):
+                    failures.append(
+                        f"{rel}: Organization missing address (PostalAddress)")
+                cp = obj.get("contactPoint")
+                points = cp if isinstance(cp, list) else ([cp] if isinstance(cp, dict) else [])
+                ok_cp = False
+                for point in points:
+                    if not isinstance(point, dict):
+                        continue
+                    if (point.get("@type") == "ContactPoint"
+                            and point.get("contactType")
+                            and (point.get("telephone") or point.get("email"))):
+                        ok_cp = True
+                        break
+                if not ok_cp:
+                    failures.append(
+                        f"{rel}: Organization missing contactPoint "
+                        f"(contactType + email or telephone)")
+
             # Consistency: full LocalBusiness blocks must match site constants.
             for _ in deep_find(obj, lambda o: o.get("@type") == "LocalBusiness"
                                and ("geo" in o or "telephone" in o)):
@@ -146,6 +175,7 @@ def main() -> int:
                 if tel and re.sub(r"\D", "", tel)[-10:] != want_phone_digits[-10:]:
                     failures.append(f"{rel}: LocalBusiness telephone {tel} != site_constants")
                 break  # evaluate once per block
+
 
         if not blocks:
             failures.append(f"{rel}: indexable page has NO JSON-LD (class: {cls}) — "
