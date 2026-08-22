@@ -295,10 +295,10 @@ p { color: var(--muted); line-height: 1.75; }
   transition: transform var(--panel-open-dur) var(--panel-ease), opacity var(--panel-open-dur) var(--panel-ease), filter var(--panel-open-dur) var(--panel-ease), visibility 0s linear 0s; }
 #nav .nav-mobile a { display: block; padding: 14px 16px; font-size: 15px; color: var(--dark); }
 #nav .nav-mobile a:hover { color: var(--green); }
-/* Condensed top-level labels ("Tents" not "Tent Rentals") + the 48px logo
-   let the full menu fit from 1024px up — 1280-1366px laptops now get the
-   real nav instead of the hamburger. Dropdown contents are unchanged. */
-@media (max-width: 1023px) {
+/* Condensed labels still need ~1222px for the full row (logo + links +
+   BOOK NOW). 1024px left 1025–1221px overflowing and scrolling the page.
+   Hamburger through 1279px; 1280px+ keeps the desktop nav. */
+@media (max-width: 1279px) {
   #nav .nav-links, #nav .nav-cta { display: none !important; }
   #nav .nav-hamburger { display: flex; }
   #topbar { font-size: 12px; padding: 8px 0; }

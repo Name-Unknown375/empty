@@ -24,7 +24,6 @@ import {
 
 export const config = {
   path: '/*',
-  method: ['GET', 'HEAD'],
   excludedPath: [
     '/images/*',
     '/fonts/*',

@@ -4,3 +4,5 @@ node_modules/
 .DS_Store
 __pycache__/
 uploads/photo-originals-2026-07/
+reports/clarity/.env
+reports/clarity/pull.log

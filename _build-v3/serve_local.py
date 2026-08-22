@@ -282,9 +282,14 @@ def disk_path(url_path: str) -> Path | None:
     clean = unquote(url_path.split("?", 1)[0])
     if clean.startswith("/"):
         clean = clean[1:]
-    # Prevent path escape
+    # Prevent path escape. site-v3/images and site-v3/fonts are symlinks into
+    # ../site/; resolve() must be allowed anywhere under the repo, not only
+    # under site-v3, or local preview 404s every photo.
     candidate = (ROOT / clean).resolve()
-    if not str(candidate).startswith(str(ROOT.resolve())):
+    repo = ROOT.resolve().parent
+    try:
+        candidate.relative_to(repo)
+    except ValueError:
         return None
     if candidate.is_file():
         return candidate
