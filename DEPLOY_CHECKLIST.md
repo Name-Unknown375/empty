@@ -132,3 +132,18 @@ After production matches `site-v3`, Search Console → URL Inspection → Reques
 | /tables page impressions | 13 | triple+ |
 | party rentals vancouver position | 23 | ≤15 |
 | christmas light installation surrey / vancouver | dark or pos 25 | in GSC page report, trending up |
+
+## 8. Package instant book — RentKit coupon `bundle10`
+
+Package pages now fill the Adelie cart and send shoppers to `/checkout?coupon=bundle10`.
+The 10% only applies if this coupon exists and checkout coupons are on.
+
+- [ ] In Adelie / RentKit: enable coupons on the embedded checkout (`enableCoupons`).
+- [ ] Create coupon **`BUNDLE10`** (code is case-sensitive — lowercase `bundle10` returns “not found”): 10% off, status **active**.
+- [ ] Optional: restrict `bundle10` to package component SKUs (tables, chairs,
+      marquees, bistro lights, cocktail tables, cocktail+spandex combo
+      `xzFDs0DrIYdzyG0PEP9F`) so add-ons like dance floor stay full price.
+      Unrestricted, the code discounts the whole cart and works à la carte.
+- [ ] Smoke: open `/wedding-package-50-guests`, pick a date, Instant book
+      Essentials → checkout shows the items and **Coupon applied: 10% off**.
+      Repeat Garden Premium (cocktail+spandex combo line, not a bare cover).

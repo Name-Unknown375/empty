@@ -214,10 +214,10 @@ LINENS_GROUP = {
             "sort_price": 0,
         },
         {
-            # source: packages.json spandexRetailPrice / spandexPackagePrice
+            # source: Adelie cocktail-table-spandex combo is $30; covers à la carte stay $15
             "name": "Cocktail table spandex cover",
             "price_label": "$15",
-            "unit_label": "per day ($10 inside Garden Premium packages)",
+            "unit_label": "per day",
             "url": "/tablecloth-rentals",
             "sort_price": 15.0,
             "schema_price": 15.0,
@@ -390,8 +390,8 @@ def package_tables(pkg: dict, skus: dict) -> list[dict]:
             "hub": f"/packages#{slug}",
             "note": (
                 "Tables, chairs, and tent (Covered and Garden Premium) bundled at "
-                "10% off. Prices below already include the bundle discount. "
-                "Delivery is quoted separately."
+                "10% off. Prices below already include the bundle discount, applied "
+                "at checkout with code BUNDLE10. Delivery is quoted separately."
             ),
             "tier_names": [t["name"] for t in pkg["tiers"]],
             "rows": rows,
