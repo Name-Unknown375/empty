@@ -19,7 +19,8 @@ Format (Markdown with YAML frontmatter):
     faqs:                         # optional, replaces city.faqs (body + JSON-LD)
       - q: "..."
         a: "..."
-    testimonials:                 # optional, replaces pool-derived picks
+    testimonials:                 # optional; page-specific GBP quotes only.
+                                  # Omit to render no cards (no shared-pool fallback).
       - quote: "..."
         name: "..."
         event: "..."

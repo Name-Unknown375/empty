@@ -17,8 +17,6 @@ faqs:
     a: "Yes — Horseshoe Bay deliveries get scheduled around the BC Ferries sailing schedule. Mid-morning and mid-afternoon windows clear the queue. Larger orders (200+ chairs) need a 90-minute load-in window which we coordinate with the venue and the terminal pattern at quote time."
   - q: "Can I mix chair lines across a West Van wedding?"
     a: "Yes — Resin Garden at the Whytecliff or Ambleside ceremony, then Chiavari at the Dundarave or British Properties reception. Single quote, single delivery, no mixing surcharge. We carry enough of each line that a 150-guest mixed booking ships without short-shipping."
-  - q: "How clean are the chairs when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, frames checked for damage, spindles checked for cracks. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
 
 related_blog_posts:
   - slug: whytecliff-park-event-rental-guide

@@ -9,14 +9,10 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Carvolth rental quote?"
-    a: "Every Carvolth quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Carvolth-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Do you handle 200 Street business park corporate events?"
     a: "Yes — the 200 Street business corridor's tenant events, product launches, and corporate functions are some of our most-frequent Carvolth bookings. Office plazas have controlled freight elevators and after-5pm timing constraints; we confirm building access during quoting. Most business-park setups skip the marquee and run on banquet tables, Chiavari chairs, cocktail highboys, and bistro lighting."
   - q: "Can you set up at Meridian Farm Market events?"
     a: "Yes — Meridian Farm Market hosts seasonal markets, community events, and small-scale gatherings. The market coordinates vendor access through its own events team; we book delivery slots during quoting. Outdoor market events typically run on chair-and-table setups with cocktail highboys; marquees are case-by-case based on the specific event footprint."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "How fast can you deliver Carvolth rentals?"
     a: "Carvolth is among our shortest delivery routes — typically 10–15 minutes door-to-door. Same-week chair and table orders are routine here, and even same-day delivery for last-minute corporate add-ons is sometimes feasible during off-peak weekdays. Marquee tents 20×40 and larger still need 7+ days of installer scheduling."
 

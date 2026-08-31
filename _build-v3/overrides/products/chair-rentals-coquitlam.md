@@ -9,16 +9,12 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows or corporate seating, Resin Garden for Coquitlam's parks and forested sites — one quote, one delivery, one crew. We've shipped chairs up Burke Mountain enough times to know which streets accept the truck."
 
 faqs:
-  - q: "What's included on a Coquitlam chair rental quote?"
-    a: "Every Coquitlam chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no Coquitlam-zone uplifts, no hill-access premiums for Burke Mountain or Westwood Plateau, no surprises at the truck."
   - q: "Which chair works for a Lafarge Lake or Mundy Park ceremony?"
     a: "For Lafarge Lake's lakeside ceremony zone and Mundy Park's open-meadow sites, Resin Garden is the safest pick — the resin frame and seat handle damp grass, lakeside dew, and the forest-floor unevenness at Mundy. Westwood Plateau's clubhouse and ceremony lawn is firmer footing and most couples there book Chiavari for the formal aesthetic. For Minnekhada Regional Park forest ceremonies, Resin Garden every time — it's the only pick for damp forest floor."
   - q: "Can you deliver chairs up Burke Mountain or to Westwood Plateau?"
     a: "Yes — both are routine Coquitlam bookings. Burke Mountain's newer streets accept our delivery truck without issue; the older switchbacks at the top of the mountain occasionally need a smaller truck and we plan that during quoting. Westwood Plateau Golf access is coordinated with the venue's events team and we use the cart-path access for ceremony-lawn deliveries."
   - q: "Can I mix chair types for a Coquitlam event?"
     a: "Yes — Fanback folding for the ceremony rows, Chiavari at the reception tables; or Resin Garden for an outdoor Lafarge Lake ceremony followed by Chiavari indoors at a Town Centre venue. Single quote, single delivery, no mixing surcharge."
-  - q: "How clean are the chairs when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
 
 related_blog_posts:
   - slug: party-rental-checklist-50-100-150-200-guests

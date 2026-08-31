@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Tent, sidewalls, lighting, anchor kit — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Langley tent rental quote?"
-    a: "Every Langley tent quote we send is itemised: the marquee, sidewalls, anchor kit, lighting add-ons, delivery, professional crew install, and applicable taxes. No fuel surcharges, no Fraser Valley uplifts, no surprises at the truck."
   - q: "Can you install a marquee at Krause Berry Farms or Township 7 Vineyards?"
     a: "Yes — both are regular Langley tent install sites. Each venue runs its own coordination process, and we book the delivery slot through their events team during quoting. Vineyard installs in particular need the venue's input on row spacing and harvesting calendar; we don't stage equipment in active rows. Most agritourism weddings here run 80–150 guests under a 20×40 or 20×60 marquee."
   - q: "What tent size for a Langley acreage wedding?"
@@ -39,8 +37,8 @@ nearby_cities:
 
 ## What our Langley tent lineup covers
 
-![A clean white marquee tent against a vibrant blue sky over open Langley grass — the standard footprint for vineyard and acreage weddings](/images/lifestyle/tent-golden-hour-2.jpg)
-*A 20×40 marquee on Langley grass — the standard vineyard reception footprint.*
+![A clean white marquee tent against a blue sky — 20×40-class footprint. Shared lifestyle photo, not a named Langley vineyard job.](/images/lifestyle/tent-golden-hour-2.jpg)
+*Lifestyle photo of a 20×40-class marquee — not a named Langley vineyard job.*
 
 The same single inventory and crew calendar runs across the entire Lower Mainland. A Langley tent install gets the same equipment any other city gets — without short-ships, without sub-rentals from another vendor.
 

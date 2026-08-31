@@ -6,3 +6,4 @@ __pycache__/
 uploads/photo-originals-2026-07/
 reports/clarity/.env
 reports/clarity/pull.log
+reports/clarity/.launchd-ok

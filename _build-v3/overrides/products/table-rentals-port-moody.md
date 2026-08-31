@@ -9,14 +9,8 @@ intro_paragraphs:
   - "Round, banquet, cocktail highboy — quoted up front, delivered on a one-hour window, positioned to your floor plan by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Port Moody table rental quote?"
-    a: "Every Port Moody table quote we send is itemised: tables by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No setup surcharge — every table is unfolded and positioned during the delivery window."
-  - q: "How many tables for a 100-guest Port Moody wedding?"
-    a: "For seated dinner at 5ft rounds, plan ~12 rounds (8 guests per round = 96; round up for kids and split parties). Add 5–8 banquet tables for head, gift, cake, DJ, registration, and buffet. Add 2–3 cocktail highboys for the pre-dinner cocktail hour."
   - q: "Can you deliver tables to Heritage Mountain or Anmore-border acreage?"
     a: "Yes — both are routine Port Moody bookings. Heritage Mountain's newer streets accept the standard delivery truck without issue. Anmore-border acreages off Sunnyside Road use rural roads with ample truck access."
-  - q: "Do you supply linens, runners, or chargers?"
-    a: "Yes. We stock tablecloths, napkins, and runners in-house at our Surrey warehouse and put them on the same delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the catering provider."
   - q: "How do you handle tables at a Rocky Point waterfront ceremony?"
     a: "Tables at Rocky Point's waterfront zones run the same wind discipline as the marquee. For cocktail-hour highboys exposed to Inlet wind, we either stage them under tent canopy or weight the bases. Banquet bases are heavier and tolerate the breeze better when full enclosure isn't part of the program."
 

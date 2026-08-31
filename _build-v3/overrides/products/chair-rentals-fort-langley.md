@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Fort Wine Co weddings, heritage village backyard receptions, and Fort Langley National Historic Site ceremonies drive most of the calendar. The village's tight-street truck access shapes our delivery patterns — we use shorter staging windows in the historic core and pre-stage equipment closer to the property line. Bedford Landing's newer streets accept standard delivery."
 
 faqs:
-  - q: "What's included on a Fort Langley chair rental quote?"
-    a: "Every Fort Langley chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no village-distance premium for the heritage core, no surprises at the truck."
   - q: "Which chair works for a Fort Langley National Historic Site ceremony?"
     a: "For Fort Langley National Historic Site ceremony zones, both Chiavari and Resin Garden work — Chiavari reads more formal in the heritage-village photo context, Resin Garden weathers Fraser-side morning fog and damp grass better. Most National Historic Site bookings pair Resin Garden for the ceremony with Chiavari at the reception venue (often a Bedford Landing residence or heritage village restaurant)."
   - q: "Can you deliver chairs through the historic village's tight streets?"

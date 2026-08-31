@@ -1,0 +1,495 @@
+[
+  {
+    "metricName": "DeadClickCount",
+    "information": [
+      {
+        "sessionsCount": "173",
+        "sessionsWithMetricPercentage": 8.67,
+        "sessionsWithoutMetricPercentage": 91.33,
+        "pagesViews": "15",
+        "subTotal": "37",
+        "Channel": "OrganicSearch"
+      },
+      {
+        "sessionsCount": "273",
+        "sessionsWithMetricPercentage": 25.64,
+        "sessionsWithoutMetricPercentage": 74.36,
+        "pagesViews": "118",
+        "subTotal": "430",
+        "Channel": "Direct"
+      },
+      {
+        "sessionsCount": "21",
+        "sessionsWithMetricPercentage": 4.76,
+        "sessionsWithoutMetricPercentage": 95.24,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Channel": "Referral"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "Social"
+      },
+      {
+        "sessionsCount": "136",
+        "sessionsWithMetricPercentage": 11.76,
+        "sessionsWithoutMetricPercentage": 88.24,
+        "pagesViews": "16",
+        "subTotal": "19",
+        "Channel": "PaidSearch"
+      },
+      {
+        "sessionsCount": "130",
+        "sessionsWithMetricPercentage": 20.77,
+        "sessionsWithoutMetricPercentage": 79.23,
+        "pagesViews": "29",
+        "subTotal": "33",
+        "Channel": "Other"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 20,
+        "sessionsWithoutMetricPercentage": 80,
+        "pagesViews": "1",
+        "subTotal": "2",
+        "Channel": "AiPlatform"
+      }
+    ]
+  },
+  {
+    "metricName": "ExcessiveScroll",
+    "information": [
+      {
+        "sessionsCount": 173,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "OrganicSearch"
+      },
+      {
+        "sessionsCount": 273,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "Direct"
+      },
+      {
+        "sessionsCount": 21,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "Referral"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "Social"
+      },
+      {
+        "sessionsCount": 136,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "PaidSearch"
+      },
+      {
+        "sessionsCount": 130,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "Other"
+      },
+      {
+        "sessionsCount": 5,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "AiPlatform"
+      }
+    ]
+  },
+  {
+    "metricName": "RageClickCount",
+    "information": [
+      {
+        "sessionsCount": "173",
+        "sessionsWithMetricPercentage": 0.58,
+        "sessionsWithoutMetricPercentage": 99.42,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Channel": "OrganicSearch"
+      },
+      {
+        "sessionsCount": "273",
+        "sessionsWithMetricPercentage": 1.83,
+        "sessionsWithoutMetricPercentage": 98.17,
+        "pagesViews": "5",
+        "subTotal": "19",
+        "Channel": "Direct"
+      },
+      {
+        "sessionsCount": "21",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "Referral"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "Social"
+      },
+      {
+        "sessionsCount": "136",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "PaidSearch"
+      },
+      {
+        "sessionsCount": "130",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "Other"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "AiPlatform"
+      }
+    ]
+  },
+  {
+    "metricName": "QuickbackClick",
+    "information": [
+      {
+        "sessionsCount": "173",
+        "sessionsWithMetricPercentage": 20.23,
+        "sessionsWithoutMetricPercentage": 79.77,
+        "pagesViews": "35",
+        "subTotal": "35",
+        "Channel": "OrganicSearch"
+      },
+      {
+        "sessionsCount": "273",
+        "sessionsWithMetricPercentage": 19.78,
+        "sessionsWithoutMetricPercentage": 80.22,
+        "pagesViews": "86",
+        "subTotal": "86",
+        "Channel": "Direct"
+      },
+      {
+        "sessionsCount": "21",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "Referral"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "Social"
+      },
+      {
+        "sessionsCount": "136",
+        "sessionsWithMetricPercentage": 19.12,
+        "sessionsWithoutMetricPercentage": 80.88,
+        "pagesViews": "27",
+        "subTotal": "27",
+        "Channel": "PaidSearch"
+      },
+      {
+        "sessionsCount": "130",
+        "sessionsWithMetricPercentage": 9.23,
+        "sessionsWithoutMetricPercentage": 90.77,
+        "pagesViews": "15",
+        "subTotal": "15",
+        "Channel": "Other"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "AiPlatform"
+      }
+    ]
+  },
+  {
+    "metricName": "ScriptErrorCount",
+    "information": [
+      {
+        "sessionsCount": "173",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "OrganicSearch"
+      },
+      {
+        "sessionsCount": "273",
+        "sessionsWithMetricPercentage": 1.47,
+        "sessionsWithoutMetricPercentage": 98.53,
+        "pagesViews": "5",
+        "subTotal": "7",
+        "Channel": "Direct"
+      },
+      {
+        "sessionsCount": "21",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "Referral"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "Social"
+      },
+      {
+        "sessionsCount": "136",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "PaidSearch"
+      },
+      {
+        "sessionsCount": "130",
+        "sessionsWithMetricPercentage": 1.54,
+        "sessionsWithoutMetricPercentage": 98.46,
+        "pagesViews": "2",
+        "subTotal": "6",
+        "Channel": "Other"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Channel": "AiPlatform"
+      }
+    ]
+  },
+  {
+    "metricName": "ErrorClickCount",
+    "information": [
+      {
+        "sessionsCount": 173,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "OrganicSearch"
+      },
+      {
+        "sessionsCount": 273,
+        "sessionsWithMetricPercentage": 1.1,
+        "sessionsWithoutMetricPercentage": 98.9,
+        "pagesViews": 4,
+        "subTotal": 6,
+        "Channel": "Direct"
+      },
+      {
+        "sessionsCount": 21,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "Referral"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "Social"
+      },
+      {
+        "sessionsCount": 136,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "PaidSearch"
+      },
+      {
+        "sessionsCount": 130,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "Other"
+      },
+      {
+        "sessionsCount": 5,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Channel": "AiPlatform"
+      }
+    ]
+  },
+  {
+    "metricName": "ScrollDepth",
+    "information": [
+      {
+        "averageScrollDepth": 25.42,
+        "Channel": "OrganicSearch"
+      },
+      {
+        "averageScrollDepth": 44.81,
+        "Channel": "Direct"
+      },
+      {
+        "averageScrollDepth": 15.65,
+        "Channel": "Referral"
+      },
+      {
+        "averageScrollDepth": 22.5,
+        "Channel": "Social"
+      },
+      {
+        "averageScrollDepth": 23.52,
+        "Channel": "PaidSearch"
+      },
+      {
+        "averageScrollDepth": 17.89,
+        "Channel": "Other"
+      },
+      {
+        "averageScrollDepth": 21.6,
+        "Channel": "AiPlatform"
+      }
+    ]
+  },
+  {
+    "metricName": "Traffic",
+    "information": [
+      {
+        "totalSessionCount": "173",
+        "totalBotSessionCount": "4",
+        "distinctUserCount": "156",
+        "pagesPerSessionPercentage": 1.3651685393258426,
+        "Channel": "OrganicSearch"
+      },
+      {
+        "totalSessionCount": "273",
+        "totalBotSessionCount": "5",
+        "distinctUserCount": "209",
+        "pagesPerSessionPercentage": 2.5516014234875444,
+        "Channel": "Direct"
+      },
+      {
+        "totalSessionCount": "21",
+        "totalBotSessionCount": "4",
+        "distinctUserCount": "22",
+        "pagesPerSessionPercentage": 1.4,
+        "Channel": "Referral"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 2,
+        "Channel": "Social"
+      },
+      {
+        "totalSessionCount": "136",
+        "totalBotSessionCount": "6",
+        "distinctUserCount": "129",
+        "pagesPerSessionPercentage": 1.4027777777777777,
+        "Channel": "PaidSearch"
+      },
+      {
+        "totalSessionCount": "130",
+        "totalBotSessionCount": "117",
+        "distinctUserCount": "243",
+        "pagesPerSessionPercentage": 1.7372262773722629,
+        "Channel": "Other"
+      },
+      {
+        "totalSessionCount": "5",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "5",
+        "pagesPerSessionPercentage": 1,
+        "Channel": "AiPlatform"
+      }
+    ]
+  },
+  {
+    "metricName": "EngagementTime",
+    "information": [
+      {
+        "totalTime": "81",
+        "activeTime": "43",
+        "Channel": "OrganicSearch"
+      },
+      {
+        "totalTime": "255",
+        "activeTime": "140",
+        "Channel": "Direct"
+      },
+      {
+        "totalTime": "36",
+        "activeTime": "14",
+        "Channel": "Referral"
+      },
+      {
+        "totalTime": "381",
+        "activeTime": "78",
+        "Channel": "Social"
+      },
+      {
+        "totalTime": "85",
+        "activeTime": "37",
+        "Channel": "PaidSearch"
+      },
+      {
+        "totalTime": "118",
+        "activeTime": "39",
+        "Channel": "Other"
+      },
+      {
+        "totalTime": "14",
+        "activeTime": "14",
+        "Channel": "AiPlatform"
+      }
+    ]
+  }
+]

@@ -40,7 +40,7 @@ nearby_cities:
 ## Swaneset Bay Resort — supplemental marquee installs
 
 ![A clean white marquee tent set against a vibrant blue sky with fluffy clouds](/images/lifestyle/tent-golden-hour-2.jpg)
-*A 20×40 marquee installed alongside Swaneset's course-side ceremony lawn.*
+*A 20×40-class marquee on open grass. Shared lifestyle photo — not a Swaneset lawn install.*
 
 Swaneset Bay Resort & Country Club drives most of our Pitt Meadows marquee bookings — but the role is supplemental rather than primary. The resort's indoor banquet halls handle the reception space; our marquee usually covers the outdoor ceremony lawn or the cocktail-hour transition between ceremony and indoor reception.
 

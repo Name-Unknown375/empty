@@ -61,7 +61,7 @@ else{c.addEventListener('load',function(){setTimeout(loadClarity,1500);});}
 
 <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
-<link rel="stylesheet" href="shared.css?v=30"/>
+<link rel="stylesheet" href="shared.css?v=31"/>
 
 <script type="application/ld+json">
 {
@@ -403,17 +403,17 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       </div>
       <div id="pkgSizeResult" hidden style="margin-top:22px">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;max-width:760px;margin:0 auto">
-          <a class="pkg-quick" data-ev="wedding" href="/wedding-package-50-guests" style="display:block;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center">
+          <a class="pkg-quick" data-ev="wedding" href="/wedding-package-50-guests#pkg-book" style="display:block;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center">
             <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-text);font-weight:700">Wedding</div>
             <div class="pq-price" style="font-family:var(--serif);font-size:26px;font-weight:700;color:var(--green);margin:6px 0 2px"></div>
             <div style="font-size:13px;color:var(--muted)">3 tiers · 10% off with BUNDLE10</div>
           </a>
-          <a class="pkg-quick" data-ev="corporate" href="/corporate-package-50-guests" style="display:block;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center">
+          <a class="pkg-quick" data-ev="corporate" href="/corporate-package-50-guests#pkg-book" style="display:block;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center">
             <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-text);font-weight:700">Corporate</div>
             <div class="pq-price" style="font-family:var(--serif);font-size:26px;font-weight:700;color:var(--green);margin:6px 0 2px"></div>
             <div style="font-size:13px;color:var(--muted)">3 tiers · 10% off with BUNDLE10</div>
           </a>
-          <a class="pkg-quick" data-ev="backyard" href="/backyard-package-50-guests" style="display:block;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center">
+          <a class="pkg-quick" data-ev="backyard" href="/backyard-package-50-guests#pkg-book" style="display:block;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center">
             <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-text);font-weight:700">Backyard Party</div>
             <div class="pq-price" style="font-family:var(--serif);font-size:26px;font-weight:700;color:var(--green);margin:6px 0 2px"></div>
             <div style="font-size:13px;color:var(--muted)">3 tiers · 10% off with BUNDLE10</div>
@@ -435,7 +435,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           });
           document.querySelectorAll('.pkg-quick').forEach(function(card){
             var ev=card.getAttribute('data-ev');
-            card.href='/'+ev+'-package-'+size+'-guests';
+            card.href='/'+ev+'-package-'+size+'-guests#pkg-book';
             card.querySelector('.pq-price').textContent='From $'+FROM[ev][size].toLocaleString();
           });
         }
@@ -486,7 +486,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <p>5ft round tables, 10% chair-spare rule built in, and the right-sized marquee tent pre-selected. Tier 3 adds the garden-wedding aesthetic — Resin Garden chairs, ambient bistro lighting, and spandex-covered cocktail tables.</p>
     </div>
     <div class="pkg-grid">
-      <a class="pkg-card" href="/wedding-package-50-guests">
+      <a class="pkg-card" href="/wedding-package-50-guests#pkg-book">
         <img class="pkg-card-img" src="/images/packages/wedding.webp" alt="50-guest wedding rental package" loading="lazy" width="800" height="533"/>
         <div class="pkg-card-body">
           <div class="pkg-size">50 Guests</div>
@@ -497,7 +497,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <div class="pkg-cta">See 50-Guest Wedding Tiers →</div>
         </div>
       </a>
-      <a class="pkg-card" href="/wedding-package-100-guests">
+      <a class="pkg-card" href="/wedding-package-100-guests#pkg-book">
         <img class="pkg-card-img" src="/images/packages/wedding.webp" alt="100-guest wedding rental package" loading="lazy" width="800" height="533"/>
         <div class="pkg-card-body">
           <div class="pkg-size">100 Guests</div>
@@ -508,7 +508,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <div class="pkg-cta">See 100-Guest Wedding Tiers →</div>
         </div>
       </a>
-      <a class="pkg-card" href="/wedding-package-150-guests">
+      <a class="pkg-card" href="/wedding-package-150-guests#pkg-book">
         <img class="pkg-card-img" src="/images/packages/wedding.webp" alt="150-guest wedding rental package" loading="lazy" width="800" height="533"/>
         <div class="pkg-card-body">
           <div class="pkg-size">150 Guests</div>
@@ -528,7 +528,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <p>6ft banquet tables for seated meals, cocktail highboys for networking, and the right tent for outdoor galas and product launches. Tier 3 upgrades to the Garden Premium aesthetic with spandex cocktail covers for a polished gala look.</p>
     </div>
     <div class="pkg-grid">
-      <a class="pkg-card" href="/corporate-package-50-guests">
+      <a class="pkg-card" href="/corporate-package-50-guests#pkg-book">
         <img class="pkg-card-img" src="/images/packages/corporate-gala.webp" alt="50-guest corporate rental package" loading="lazy" width="800" height="533"/>
         <div class="pkg-card-body">
           <div class="pkg-size">50 Guests</div>
@@ -539,7 +539,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <div class="pkg-cta">See 50-Guest Corporate Tiers →</div>
         </div>
       </a>
-      <a class="pkg-card" href="/corporate-package-100-guests">
+      <a class="pkg-card" href="/corporate-package-100-guests#pkg-book">
         <img class="pkg-card-img" src="/images/packages/corporate-gala.webp" alt="100-guest corporate rental package" loading="lazy" width="800" height="533"/>
         <div class="pkg-card-body">
           <div class="pkg-size">100 Guests</div>
@@ -550,7 +550,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <div class="pkg-cta">See 100-Guest Corporate Tiers →</div>
         </div>
       </a>
-      <a class="pkg-card" href="/corporate-package-150-guests">
+      <a class="pkg-card" href="/corporate-package-150-guests#pkg-book">
         <img class="pkg-card-img" src="/images/packages/corporate-gala.webp" alt="150-guest corporate rental package" loading="lazy" width="800" height="533"/>
         <div class="pkg-card-body">
           <div class="pkg-size">150 Guests</div>
@@ -570,7 +570,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <p>Family-style banquet seating, reliable outdoor chairs, and a tent built for grass, gravel, or stamped-concrete patios. Birthdays, graduations, anniversaries, and every kind of backyard celebration.</p>
     </div>
     <div class="pkg-grid">
-      <a class="pkg-card" href="/backyard-package-50-guests">
+      <a class="pkg-card" href="/backyard-package-50-guests#pkg-book">
         <img class="pkg-card-img" src="/images/packages/backyard.webp" alt="50-guest backyard rental package" loading="lazy" width="800" height="533"/>
         <div class="pkg-card-body">
           <div class="pkg-size">50 Guests</div>
@@ -581,7 +581,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <div class="pkg-cta">See 50-Guest Backyard Tiers →</div>
         </div>
       </a>
-      <a class="pkg-card" href="/backyard-package-100-guests">
+      <a class="pkg-card" href="/backyard-package-100-guests#pkg-book">
         <img class="pkg-card-img" src="/images/packages/backyard.webp" alt="100-guest backyard rental package" loading="lazy" width="800" height="533"/>
         <div class="pkg-card-body">
           <div class="pkg-size">100 Guests</div>
@@ -592,7 +592,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <div class="pkg-cta">See 100-Guest Backyard Tiers →</div>
         </div>
       </a>
-      <a class="pkg-card" href="/backyard-package-150-guests">
+      <a class="pkg-card" href="/backyard-package-150-guests#pkg-book">
         <img class="pkg-card-img" src="/images/packages/backyard.webp" alt="150-guest backyard rental package" loading="lazy" width="800" height="533"/>
         <div class="pkg-card-body">
           <div class="pkg-size">150 Guests</div>
@@ -727,6 +727,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="/tables">Table Rentals</a>
           <a class="footer-link" href="/dance-floor">Dance Floor Rental</a>
           <a class="footer-link" href="/wedding-rentals">Wedding Rentals</a>
+          <a class="footer-link" href="/birthday-party-rentals">Birthday Party Rentals</a>
           <a class="footer-link" href="/event-rentals">Event Rentals</a>
           <a class="footer-link" href="/pricing">Price List</a>
           <a class="footer-link" href="/event-layout-planner">Free Tent, Table and Chair Layout Planner</a>
@@ -762,16 +763,17 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="/blog/">Blog</a>
           <a class="footer-link" href="/contact">Contact Us</a>
           <a class="footer-link" href="/privacy">Privacy Policy</a>
+          <a class="footer-link" href="/terms">Terms of Service</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
-        © 2026 Forever Party Rentals · Serving Vancouver, Burnaby, Surrey, Langley, Richmond, North Vancouver, New Westminster, Maple Ridge &amp; the Lower Mainland
+        © 2026 Forever Party Rentals Inc. · <a href="/privacy" style="color:inherit;text-decoration:underline">Privacy Policy</a> · <a href="/terms" style="color:inherit;text-decoration:underline">Terms of Service</a> · Serving Vancouver, Burnaby, Surrey, Langley, Richmond, North Vancouver, New Westminster, Maple Ridge &amp; the Lower Mainland
       </div>
     </div>
 </footer>
 <!-- FOOTER:END -->
-<script src="shared.js?v=23"></script>
+<script src="shared.js?v=24"></script>
 </body>
 </html>

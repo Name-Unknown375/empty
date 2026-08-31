@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Floor panels, subfloor, edge ramps — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Burnaby dance floor rental quote?"
-    a: "Every Burnaby dance floor quote we send is itemised: panel count, subfloor where the surface needs it, edge ramps, delivery, professional crew install, and applicable taxes. No fuel surcharges, no Burnaby-zone uplifts, no surprises at the truck."
   - q: "What size dance floor for a 100-guest Burnaby wedding?"
     a: "12×12 is the standard for 60–100 guests — about 30–40% will be on the floor at any moment, which is the comfort target. For small backyard counts (up to ~50), the 8×8 works. For 150+ guests or weddings with a strong dance culture, 16×16."
   - q: "Can you install a dance floor on grass or uneven surfaces?"

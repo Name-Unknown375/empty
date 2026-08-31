@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Tsawwassen rental quote?"
-    a: "Every Tsawwassen quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Tsawwassen-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can you set up tents at Centennial Beach or other Tsawwassen-area parks?"
     a: "Yes — Centennial Beach is a regular Tsawwassen ceremony venue. The Corporation of Delta runs the permit process for tents above their threshold; couples pull the permits, but we know which ceremony zones at Centennial Beach accept which marquee footprints. Coastal exposure is meaningful — sidewalls and ballasted weights are our default for any beach-adjacent setup."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "What's the wind plan for English Bluff or Tsawwassen Shores ceremonies?"
     a: "Bluff-top and oceanfront ceremonies get the heaviest anchor kit we run — ballasted weight kits at every leg, sidewalls year-round (even on summer evenings), and a marquee one size up from nominal headcount for evening enclosure. The Strait's afternoon thermal is the design constraint; everything else accommodates it."
   - q: "Do you handle BC Ferries Tsawwassen Terminal corporate events?"

@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Tent, sidewalls, lighting, anchor kit — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Coquitlam tent rental quote?"
-    a: "Every Coquitlam tent quote we send is itemised: the marquee, sidewalls, anchor kit, lighting add-ons, delivery, professional crew install, and applicable taxes. No fuel surcharges, no Coquitlam-zone uplifts, no hill-access premiums for Burke Mountain or Westwood, no surprises at the truck."
   - q: "Can you install a marquee at Lafarge Lake or Mundy Park?"
     a: "Yes — both are regular Coquitlam venues for our crew. Lafarge Lake's lakeside lawn accepts most marquee footprints with a city event permit (we coordinate during quoting). Mundy Park is more flexible on size but also requires permitting; the meadow zones work for marquees up to 30×60. Both venues run on stakes plus ballast given Coquitlam's variable wind from the inlet."
   - q: "Do you install tents at Westwood Plateau or on hillside acreage?"

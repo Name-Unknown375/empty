@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Mission rental quote?"
-    a: "Every Mission quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Mission-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can you set up tents at Fraser River Heritage Park?"
     a: "Yes — Heritage Park is a regular Mission ceremony venue. The District of Mission runs the permit process for tents above their threshold; couples pull the permits, but we know which ceremony zones at the park accept which marquee footprints. Riverfront exposure produces afternoon wind — sidewalls year-round and ballasted weights are our default for any Heritage Park outdoor ceremony."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Can you tent at Hatzic, Silverhill, or Cedar Valley acreage weddings?"
     a: "Yes — foothill acreage weddings are some of our most-photogenic Mission deliveries. Most properties have plenty of footprint for a 20×60 or 30×60 marquee. Foothill elevation produces afternoon wind that flat valley-floor venues don't see; we plan anchor strategy accordingly. Driveway grade and overhead branches get confirmed during quoting for properties we haven't delivered to."
   - q: "What's the lead time for a Mission summer wedding?"

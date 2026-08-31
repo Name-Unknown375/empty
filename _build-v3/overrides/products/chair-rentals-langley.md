@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows or volume seating, Resin Garden for the outdoor surface — one quote, one delivery, one crew. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Langley chair rental quote?"
-    a: "Every Langley chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no Fraser Valley uplifts, no surprises at the truck."
   - q: "Can I mix chair types for a Langley wedding?"
     a: "Yes. Fanback folding for the ceremony rows, Chiavari at the reception tables — common pairing when guest count exceeds 150 (vineyard weddings here often hit 200). Resin Garden for shoulder-season outdoor ceremonies + Chiavari indoors is another common mix. Single quote, single delivery, no mixing surcharge."
   - q: "Are your Langley rental chairs cleaned between events?"

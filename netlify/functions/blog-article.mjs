@@ -258,7 +258,7 @@ ${body}
 <footer id="footer">
   <div class="footer-inner">
     <p>© Forever Party Rentals — tent, chair, table &amp; event rentals across the Lower Mainland.
-    <a href="/rentals">Browse rentals</a> · <a href="/blog/">More guides</a> · <a href="/contact">Contact</a></p>
+    <a href="/rentals">Browse rentals</a> · <a href="/blog/">More guides</a> · <a href="/contact">Contact</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p>
   </div>
 </footer>
 </body>

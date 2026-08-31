@@ -9,14 +9,10 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Ladner rental quote?"
-    a: "Every Ladner quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Ladner-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Do you handle Ladner Village heritage-home weddings?"
     a: "Yes — Ladner Village's historic homes are some of our favourite Delta delivery sites. The catch is access: Ladner Village's narrow streets and heritage-protected sightlines limit truck staging, and several homes have driveway constraints we confirm during quoting. Most Ladner heritage-home weddings stay small (under 80 guests) and skew toward Chiavari chairs, banquet tables, and bistro lighting rather than full marquee setups."
   - q: "Can you tent at a Westham Island farm wedding?"
     a: "Yes — Westham Island's working farms are among our most-photogenic Ladner deliveries. The island has limited access (one bridge from Ladner), but once we're across the venue footprint is generous. Engineered ground stakes work well on farm soil; we confirm sprinkler infrastructure and irrigation lines before staking."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "How fast can you deliver Ladner rentals?"
     a: "Ladner is one of our shorter delivery routes, which means same-week chair and table orders are usually feasible if our trucks aren't already booked, even in peak season. Marquee tents 20×40 and larger need 7+ days of lead time. Westham Island deliveries factor the bridge crossing into the delivery window."
 

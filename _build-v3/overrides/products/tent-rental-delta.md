@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Tent, sidewalls, lighting, anchor kit — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Delta tent rental quote?"
-    a: "Every Delta tent quote we send is itemised: the marquee, sidewalls, anchor kit, lighting add-ons, delivery, professional crew install, and applicable taxes. No fuel surcharges, no Delta-zone uplifts, no surprises at the truck."
   - q: "Can you install a marquee at Boundary Bay or Reifel Bird Sanctuary?"
     a: "Yes — both are regular Delta venues for our crew. Boundary Bay Regional Park has specific permit setbacks for ceremony marquees; we know which zones accept which footprints. Reifel runs on a sanctuary calendar and we book the install window during quoting. Both venues run on stakes plus ballast given the shoreline wind exposure."
   - q: "Do you install tents on Tsawwassen acreage or in Ladner Village?"

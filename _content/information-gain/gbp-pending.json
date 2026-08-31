@@ -1,0 +1,15 @@
+{
+  "_comment": "Empty on purpose. The eight names previously listed here (Jenna & Michael, Raymond D., Priya S., Daniel L., Alexandra M., Omar H., Kelsey V., Graham R.) were not on the 2026-08-22 scrape of 215 GBP reviews. Daniel Snyder and Daniel Hickey exist on GBP but are different people from the invented 'Daniel L.' Do not restore invented names.",
+  "absentFromScrape": [
+    "Jenna & Michael",
+    "Raymond D.",
+    "Priya S.",
+    "Daniel L.",
+    "Alexandra M.",
+    "Omar H.",
+    "Kelsey V.",
+    "Graham R.",
+    "Marissa K."
+  ],
+  "reviews": []
+}

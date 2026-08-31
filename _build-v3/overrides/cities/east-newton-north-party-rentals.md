@@ -9,14 +9,10 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on an East Newton rental quote?"
-    a: "Every East Newton quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no East Newton uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can you set up tents at Bear Creek Park ceremonies?"
     a: "Yes — Bear Creek Park is one of our regular Surrey ceremony venues, and East Newton sits closest to the park's entrances. The City of Surrey runs the permit process for tents above their threshold; couples pull the permits, but we know which Bear Creek ceremony zones accept which marquee footprints. Most Bear Creek setups stay smaller (under 100 guests) given the park's protected sightlines."
   - q: "Do you handle larger multicultural family events in Newton?"
     a: "Yes — multicultural family weddings, milestone celebrations, and religious-festival events are some of our most-frequent East Newton bookings. These typically run larger than urban Vancouver weddings (150–300 guests is common) with multi-stage timing that requires precision setup. We confirm the full event schedule during quoting and dispatch the truck to be on-site 90 minutes before the earliest milestone."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Can I pick up rentals directly from your warehouse?"
     a: "Yes — East Newton customers can pick up most rentals directly from our warehouse: popup tents, chairs, banquet tables, dance-floor sections, and smaller items. Pickup orders save the delivery line item entirely. Marquee tents require professional installation and aren't pickup-eligible."
 

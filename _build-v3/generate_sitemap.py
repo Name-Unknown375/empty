@@ -57,7 +57,7 @@ CHRISTMAS_TIER_1_SLUGS = {"surrey", "langley", "vancouver", "burnaby"}
 # Informational / trust pages — indexable but lower priority
 INFO_PAGES = {
     "service-areas.html", "faq.html", "reviews.html",
-    "contact.html", "corporate.html",
+    "contact.html", "corporate.html", "privacy.html", "terms.html",
 }
 
 

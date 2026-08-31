@@ -9,16 +9,12 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows or corporate seating, Resin Garden for the outdoor surface — one quote, one delivery, one crew. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Burnaby chair rental quote?"
-    a: "Every Burnaby chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no Burnaby-zone uplifts, no surprises at the truck."
   - q: "Which chair works for a Deer Lake Park ceremony?"
     a: "For Deer Lake Park's lakefront and meadow ceremony zones, either Chiavari or Resin Garden works. Chiavari reads more formal in wedding photos; Resin Garden weathers light rain better and won't show damp edges in late-afternoon shots. Most Deer Lake bookings book Chiavari for the photo aesthetic with sidewalls available as backup."
   - q: "Can you deliver chairs to Brentwood or Metrotown rooftop events?"
     a: "Yes — high-rise rooftop chair deliveries are common Burnaby bookings. We confirm the building's freight-elevator dimensions and weight rating before quoting. Chiavari chairs travel well in most freight elevators (they stack 8 high and ship compact). For larger orders we may split into multiple elevator trips depending on the building's capacity."
   - q: "Can I mix chair types for a Burnaby event?"
     a: "Yes — Fanback folding for the ceremony rows, Chiavari at the reception tables; or Resin Garden for an outdoor setup followed by Chiavari indoors at Hart House or a Brentwood corporate space. Single quote, single delivery, no mixing surcharge."
-  - q: "How clean are the chairs when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Chairs that don't meet our condition bar come off the inventory roster, not onto your booking."
 
 related_blog_posts:
   - slug: party-rental-checklist-50-100-150-200-guests

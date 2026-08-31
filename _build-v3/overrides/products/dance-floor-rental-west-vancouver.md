@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Floor panels, subfloor, edge ramps — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a West Vancouver dance floor rental quote?"
-    a: "Every West Van dance floor quote we send is itemised: panel count, subfloor (almost always required on West Van grass), edge ramps, delivery, professional crew install, and applicable taxes. No bridge surcharge, no upper-bench uplift, no surprises at the truck."
   - q: "Do I always need subfloor for a West Vancouver dance floor?"
     a: "On grass and terraced lawn, yes. The vast majority of West Van outdoor receptions sit on irregular surfaces — British Properties terraces, Caulfeild lawns, Dundarave waterfront grass — and the dance floor needs subfloor panels to level the surface beneath. Indoors at Park Royal corporate venues, on level rooftop decks, or on a Caulfeild interior patio with sound flooring, we install the floor directly with edge ramps only."
   - q: "What size dance floor for a 100-guest West Vancouver wedding?"

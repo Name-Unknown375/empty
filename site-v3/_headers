@@ -35,11 +35,13 @@
 # Rels used here are registered with IANA:
 #   sitemap         — https://www.iana.org/assignments/link-relations
 #   privacy-policy  — https://www.iana.org/assignments/link-relations
+#   terms-of-service — https://www.iana.org/assignments/link-relations
 #   contact         — https://www.iana.org/assignments/link-relations
 /
   Link: </sitemap.xml>; rel="sitemap"
   Link: </llms.txt>; rel="describedby"; type="text/markdown"
   Link: </privacy>; rel="privacy-policy"
+  Link: </terms>; rel="terms-of-service"
   Link: </contact>; rel="contact"
   Link: </.well-known/agent-skills/index.json>; rel="https://agentskills.io/rel/index"; type="application/json"
   Vary: Accept, Accept-Encoding
@@ -60,29 +62,38 @@
 #                      these, the inline stub in <head> runs but the injected
 #                      <script src=…clarity.ms…> is refused and no session is
 #                      ever recorded.
+#                      LeadConnector chat widget (injected from shared.js except
+#                      /contact and /checkout). widgets.leadconnectorhq.com is the
+#                      loader + Stencil chunks; *.leadconnectorhq.com covers
+#                      sibling hosts (stcdn, services) the widget may fetch as
+#                      scripts. wss: is for live-chat sockets. frame-src also
+#                      lists *.msgsndr.com (LeadConnector's form/chat iframe brand).
 #                      'unsafe-inline' is required by inline <script>window.orgId = …</script>
 #                      blocks and the FAQ/contact-form/share-button hydration in shared.js.
-#   style-src        — self + Google Fonts CSS + jsDelivr (Bootstrap, datepicker).
+#   style-src        — self + Google Fonts CSS + jsDelivr (Bootstrap, datepicker)
+#                      + LeadConnector widget stylesheets.
 #                      'unsafe-inline' covers per-page <style> blocks.
 #   img-src          — self + data: + https: (Squarespace CDN images are scattered widely;
 #                      blanket https: also covers GA4/Ads pixel beacons).
-#   font-src         — self + Google Fonts files.
+#   font-src         — self + Google Fonts files + LeadConnector widget fonts.
 #   connect-src      — self + https: (Adelie posts to its own backend; blanket https: also
-#                      covers GA4 collect endpoints — tighten if/when known).
+#                      covers GA4 collect endpoints — tighten if/when known) + wss:
+#                      (LeadConnector live chat).
 #   frame-src        — self + GTM noscript iframe + DoubleClick (Ads remarketing iframes
-#                      injected by gtm.js).
+#                      injected by gtm.js) + LeadConnector / msgsndr chat iframes.
 #   frame-ancestors  — 'self' (clickjacking defense, parallel to X-Frame-Options).
 /*
   Link: </sitemap.xml>; rel="sitemap"
   Link: </llms.txt>; rel="describedby"; type="text/markdown"
   Link: </privacy>; rel="privacy-policy"
+  Link: </terms>; rel="terms-of-service"
   Link: </contact>; rel="contact"
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(self), interest-cohort=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed-scripts-production.web.app https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://www.google.ca https://connect.facebook.net https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https:; frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://bid.g.doubleclick.net; frame-ancestors 'self'; base-uri 'self'; form-action 'self' mailto:; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed-scripts-production.web.app https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://www.google.ca https://connect.facebook.net https://www.clarity.ms https://*.clarity.ms https://widgets.leadconnectorhq.com https://*.leadconnectorhq.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://widgets.leadconnectorhq.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com https://widgets.leadconnectorhq.com; connect-src 'self' https: wss:; frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://bid.g.doubleclick.net https://widgets.leadconnectorhq.com https://*.leadconnectorhq.com https://*.msgsndr.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' mailto:; object-src 'none'; upgrade-insecure-requests
 
 # ── Embeddable Event Layout Planner ─────────────────────────────────────────
 # This single path is the only surface that other sites can iframe. Headers

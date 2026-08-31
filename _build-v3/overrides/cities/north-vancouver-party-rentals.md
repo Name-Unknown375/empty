@@ -10,16 +10,22 @@ intro_paragraphs:
   - "People searching North Shore party rentals usually mean both North Vancouver and West Vancouver as one term. This page is North Vancouver specifically. The regional hub — Lions Gate timing, Lonsdale, Deep Cove, and the West Van side — is <a href=\"/north-shore-party-rentals\">North Shore party rentals</a>."
 
 faqs:
-  - q: "What's included on a North Vancouver rental quote?"
-    a: "Every North Van quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no North Shore uplift, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can your truck handle steep North Van driveways?"
     a: "In most cases yes — our delivery vans handle grades up to about 10% loaded, and most Lonsdale driveways stay within that. For unusually steep or narrow lots (some Edgemont and lower Capilano properties) we'll either stage at the road and hand-carry, or send a smaller truck for that delivery. Either way we confirm the access during quoting, not on event day."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "What's the wind plan for North Van mountain or waterfront ceremonies?"
     a: "Elevation-driven afternoon winds are real. For any mountain-adjacent venue we recommend ballasted weights at every leg even when staking is possible, sidewalls year-round, and a slightly larger marquee than the headcount strictly requires — extra footprint absorbs gust load better than a tightly-sized tent. We don't compromise on anchor strategy here."
   - q: "Can you do same-week North Vancouver bookings?"
     a: "Sometimes — depends on the equipment. Chair, table, and 10×10 popup tent orders are usually feasible inside a 5–7 day window if our trucks aren't already booked. Marquee tents 20×40 and larger need installer scheduling that's hard to compress under 7 days, especially for North Van where the access window is wider than urban deliveries."
+
+testimonials:
+  - quote: |-
+      We were preparing for a celebration of life and Devon was extremely helpful; understanding; and kind. We had to rent a number items They provided a quick accurate quote; allowed additions along the way with no hassle and the day of the event the items were delivered on time.  The delivery  crew helped immensely with under unusual circumstances with the venue having limited access.  The delivery and pick up was smooth (late nite pick up was at 11:00 pm).  Their price was more than fair and came in better than any other quote we received.  They showed a tremendous amount of compassion for our circumstances and also offered additional items at no extra charge.  I would highly recommend choosing Forever Party Rentals.
+    name: The PupShack
+    event: "Google Review · Limited-access venue"
+  - quote: |-
+      It was two days before our party and we had not yet secured chair rentals.  As I was calling around to find chairs, I came across Forever Party Rentals; and they were able to accommodate me with such notice.  The chairs were lovely and in excellent condition.  Devon was very polite, on time for both delivery and pick-up and kept in contact with me via text.  He answered my many questions and responded quickly each time.  I would absolutely recommend this company for your rental needs - their customer service is certainly 5 star!
+    name: Nola Laubach
+    event: "Google Review · Last-minute chairs"
 
 related_blog_posts:
   - slug: tent-size-guide-lower-mainland-wedding
@@ -40,8 +46,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![Rows of white ceremony chairs facing a decorated altar with trees and water in the background — a classic North Shore outdoor wedding setting](/images/lifestyle/ceremony-chairs-2.jpg)
-*A North Shore ceremony — water, trees, and clean white seating.*
+![A long garden table with white folding chairs, floral teacups, and a cedar hedge behind on a North Vancouver job](/images/jobs/north-vancouver-garden-tea-table.jpg)
+*Folding chairs and a banquet table at a garden tea party on a North Vancouver job.*
 
 Same single inventory and crew calendar across the entire Lower Mainland. A North Vancouver couple gets the same catalogue any other city gets — without short-ships, without sub-rentals from another vendor.
 

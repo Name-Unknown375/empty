@@ -1,0 +1,246 @@
+[
+  {
+    "metricName": "DeadClickCount",
+    "information": [
+      {
+        "sessionsCount": 294,
+        "sessionsWithMetricPercentage": 13.61,
+        "sessionsWithoutMetricPercentage": 86.39,
+        "pagesViews": 51,
+        "subTotal": 114,
+        "Device": "Mobile"
+      },
+      {
+        "sessionsCount": 15,
+        "sessionsWithMetricPercentage": 20,
+        "sessionsWithoutMetricPercentage": 80,
+        "pagesViews": 5,
+        "subTotal": 10,
+        "Device": "Tablet"
+      },
+      {
+        "sessionsCount": 219,
+        "sessionsWithMetricPercentage": 28.77,
+        "sessionsWithoutMetricPercentage": 71.23,
+        "pagesViews": 96,
+        "subTotal": 282,
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "ExcessiveScroll",
+    "information": [
+      {
+        "sessionsCount": "294",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Device": "Mobile"
+      },
+      {
+        "sessionsCount": "15",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Device": "Tablet"
+      },
+      {
+        "sessionsCount": "219",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "RageClickCount",
+    "information": [
+      {
+        "sessionsCount": "294",
+        "sessionsWithMetricPercentage": 0.34,
+        "sessionsWithoutMetricPercentage": 99.66,
+        "pagesViews": "1",
+        "subTotal": "2",
+        "Device": "Mobile"
+      },
+      {
+        "sessionsCount": "15",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Device": "Tablet"
+      },
+      {
+        "sessionsCount": "219",
+        "sessionsWithMetricPercentage": 0.91,
+        "sessionsWithoutMetricPercentage": 99.09,
+        "pagesViews": "2",
+        "subTotal": "7",
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "QuickbackClick",
+    "information": [
+      {
+        "sessionsCount": 294,
+        "sessionsWithMetricPercentage": 13.61,
+        "sessionsWithoutMetricPercentage": 86.39,
+        "pagesViews": 59,
+        "subTotal": 59,
+        "Device": "Mobile"
+      },
+      {
+        "sessionsCount": 15,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Device": "Tablet"
+      },
+      {
+        "sessionsCount": 219,
+        "sessionsWithMetricPercentage": 22.83,
+        "sessionsWithoutMetricPercentage": 77.17,
+        "pagesViews": 91,
+        "subTotal": 91,
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "ScriptErrorCount",
+    "information": [
+      {
+        "sessionsCount": 294,
+        "sessionsWithMetricPercentage": 1.02,
+        "sessionsWithoutMetricPercentage": 98.98,
+        "pagesViews": 3,
+        "subTotal": 3,
+        "Device": "Mobile"
+      },
+      {
+        "sessionsCount": 15,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Device": "Tablet"
+      },
+      {
+        "sessionsCount": 219,
+        "sessionsWithMetricPercentage": 1.83,
+        "sessionsWithoutMetricPercentage": 98.17,
+        "pagesViews": 4,
+        "subTotal": 9,
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "ErrorClickCount",
+    "information": [
+      {
+        "sessionsCount": "294",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Device": "Mobile"
+      },
+      {
+        "sessionsCount": "15",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Device": "Tablet"
+      },
+      {
+        "sessionsCount": "219",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "ScrollDepth",
+    "information": [
+      {
+        "averageScrollDepth": 31.1,
+        "Device": "Mobile"
+      },
+      {
+        "averageScrollDepth": 49.04,
+        "Device": "Tablet"
+      },
+      {
+        "averageScrollDepth": 36.1,
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "Traffic",
+    "information": [
+      {
+        "totalSessionCount": "294",
+        "totalBotSessionCount": "41",
+        "distinctUserCount": "272",
+        "pagesPerSessionPercentage": 2.2956521739130435,
+        "Device": "Mobile"
+      },
+      {
+        "totalSessionCount": "15",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "14",
+        "pagesPerSessionPercentage": 1.7647058823529411,
+        "Device": "Tablet"
+      },
+      {
+        "totalSessionCount": "219",
+        "totalBotSessionCount": "20",
+        "distinctUserCount": "208",
+        "pagesPerSessionPercentage": 2.6182572614107884,
+        "Device": "PC"
+      },
+      {
+        "totalSessionCount": "0",
+        "totalBotSessionCount": "37",
+        "distinctUserCount": "69",
+        "pagesPerSessionPercentage": 1.2112676056338028,
+        "Device": "Other"
+      }
+    ]
+  },
+  {
+    "metricName": "EngagementTime",
+    "information": [
+      {
+        "totalTime": "147",
+        "activeTime": "72",
+        "Device": "Mobile"
+      },
+      {
+        "totalTime": "258",
+        "activeTime": "187",
+        "Device": "Tablet"
+      },
+      {
+        "totalTime": "299",
+        "activeTime": "142",
+        "Device": "PC"
+      }
+    ]
+  }
+]

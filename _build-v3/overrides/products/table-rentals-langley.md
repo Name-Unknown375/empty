@@ -9,12 +9,6 @@ intro_paragraphs:
   - "Round, banquet, cocktail highboy — quoted up front, delivered on a one-hour window, positioned to your floor plan by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Langley table rental quote?"
-    a: "Every Langley table quote we send is itemised: tables by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no Fraser Valley uplifts, no setup surcharge — every table is positioned during the delivery window."
-  - q: "How many tables for a 100-guest Langley vineyard wedding?"
-    a: "For seated dinner at 5ft rounds, plan ~12 rounds (8 guests per round = 96; round up for split parties). Add 5–8 banquet tables for head, gift, cake, DJ, registration, and buffet. Add 2–3 cocktail highboys for the pre-dinner cocktail hour. For 200-guest vineyard weddings, double the rounds."
-  - q: "Do you supply linens for vineyard or farm weddings?"
-    a: "Yes. We stock tablecloths, napkins, and runners in-house and put them on the same Langley delivery as your tables and chairs — vineyard, acreage, or LEC. Sizes live on tablecloth rentals. Chargers and place settings sit with the caterer."
   - q: "Can you stage long banquet rows at a Langley acreage wedding?"
     a: "Yes — long banquet-style dining (versus rounds) is increasingly common at Langley acreage weddings. We line 6ft and 8ft banquet tables in continuous rows, level them on grass, and position to your floor plan. Crews stage 200+ guests of banquet rows in 3–4 hours."
   - q: "How fast can you deliver Langley tables on short notice?"

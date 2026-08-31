@@ -1,0 +1,38 @@
+# Pull Microsoft Clarity every collection date (3-day windows through 23 Sep 2026).
+# Does not change the live site. Commits reports/clarity snapshots only.
+#
+# Required secret: CLARITY_TOKEN (Clarity → Settings → Data Export)
+
+name: Clarity 3-day pull
+
+on:
+  schedule:
+    # 17:00 UTC = 10:00 PDT. Month-day lists are 2026 collection dates;
+    # pull.py no-ops outside 2026-08-14..2026-09-23.
+    - cron: "0 17 24,27,30 8 *"
+    - cron: "0 17 2,5,8,11,14,17,20,23 9 *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pull last 3 days
+        env:
+          CLARITY_TOKEN: ${{ secrets.CLARITY_TOKEN }}
+        run: python3 reports/clarity/pull.py
+      - name: Commit snapshots
+        run: |
+          git add reports/clarity
+          if git diff --cached --quiet; then
+            echo "no snapshot changes"
+            exit 0
+          fi
+          git config user.name "clarity-pull"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(clarity): 3-day snapshot"
+          git push

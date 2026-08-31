@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Chilliwack rental quote?"
-    a: "Every Chilliwack quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no eastern-valley uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can you set up tents at Cultus Lake or other Chilliwack park venues?"
     a: "Yes — Cultus Lake is a regular Chilliwack ceremony venue. Cultus Lake Park (operated by Cultus Lake Park Board) and the Fraser Valley Regional District run separate permit processes for tents above their thresholds; couples pull the permits, but we know which lake-adjacent ceremony zones accept which marquee footprints. Lake exposure means wind ratings matter — sidewalls year-round and ballasted weights are our default for any Cultus Lake outdoor ceremony."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Can you tent at a Sardis or Promontory acreage wedding?"
     a: "Yes — Sardis and Promontory acreage weddings are some of our most-photogenic Chilliwack deliveries. Most properties have plenty of footprint for a 20×60 or 30×60 marquee. Engineered ground stakes are our default anchor on grass; we confirm sprinkler infrastructure and irrigation lines before staking. Mount Cheam-facing properties have meaningful afternoon wind — sidewalls year-round."
   - q: "How much advance booking for a Chilliwack summer wedding?"
@@ -39,8 +35,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![A clean white marquee tent set against a vibrant blue sky over open Fraser Valley grass](/images/lifestyle/tent-golden-hour-2.jpg)
-*A 20×40 marquee on Sardis grass — Mount Cheam sits on most of these horizons.*
+![A small high-peak tent on a rural lot with a cabin, solar array, and treeline behind](/images/jobs/chilliwack-rural-lot-tent.jpg)
+*Small peak tent on a rural lot — a Chilliwack job. Cabin and solar array in the frame.*
 
 Same single inventory and crew calendar across the entire Lower Mainland — and we drive every booking out to Chilliwack with the same crew who set up our urban deliveries. A Chilliwack couple gets the same catalogue without short-ships or sub-rentals.
 

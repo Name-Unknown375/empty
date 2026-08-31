@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Floor panels, subfloor, edge ramps — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Surrey dance floor rental quote?"
-    a: "Every Surrey dance floor quote we send is itemised: panel count, subfloor where the surface needs it, edge ramps, delivery, professional crew install, and applicable taxes. No fuel surcharges, no Surrey-zone uplifts, no surprises at the truck."
   - q: "What size dance floor for a 100-guest Surrey wedding?"
     a: "12×12 is the standard for 60–100 guests — about 30–40% will be on the floor at any moment, which is the comfort target. For small backyard counts (up to ~50), the 8×8 works. For 150+ guests at a Cloverdale acreage, 16×16."
   - q: "Can you install a dance floor on grass at a Cloverdale acreage?"

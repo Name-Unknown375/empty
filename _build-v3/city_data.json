@@ -41,70 +41,35 @@
     "landmarks": "2-3 venues/parks/landmarks per city — used for 'we've served events at…' mentions",
     "intro": "(Step 2.3/2.4) unique ~150-word intro paragraph",
     "faqs": "(Step 2.5) array of {q, a} pairs per city",
-    "testimonialIndices": "(Step 2.5) indices into the top-level testimonialPool (4 per city)",
+    "testimonialIndices": "(unused) do not rotate the pool onto generated pages",
     "deliveryWindow": "Standard delivery window string for this city's coverage"
   },
   "hqAddress": "9317 188 St, Surrey BC V4N 3V1",
+  "_testimonialPoolNote": "GBP-verified quotes from the 2026-08-22 scrape. Do not rotate onto generated pages — page-specific quotes go in override testimonials:. Canonical list: _content/information-gain/gbp-verified.json.",
   "testimonialPool": [
     {
-      "quote": "Devon was so easy to coordinate with. Very professional, friendly and reliable. His tent set up team was amazing too! Would definitely recommend.",
+      "quote": "We used forever party rentals for our wedding celebration. Devon was so easy to coordinate with. Very professional, friendly and reliable. And his tent set up team was amazing too! Would definitely recommend and would use them again for sure.",
       "name": "Chelsea Thompson",
-      "event": "Wedding"
+      "event": "Google Review · Wedding",
+      "primaryUrl": "/tents"
     },
     {
-      "quote": "I've worked in the event industry for over a decade — this is by far the best rental company I have ever worked with. Devon provides excellent communication and extras free of charge.",
-      "name": "Marissa K.",
-      "event": "Corporate Event"
-    },
-    {
-      "quote": "Rented the white Chiavari chairs — the most comfortable chairs. Cushions were very soft and well maintained. Highly recommend 100%.",
+      "quote": "Rented the white chiavari chairs and I must say they are the most comfortable chairs. The cushions were very soft and well maintained. Highly recommend 100%",
       "name": "Rutendo Chitungo",
-      "event": "Private Event"
+      "event": "Google Review · Chiavari chairs",
+      "primaryUrl": "/chairs"
     },
     {
-      "quote": "Forever Party Rentals was amazing. Incredibly accommodating, the tables were brand new in the plastic, and they made drop off super flexible.",
+      "quote": "Forever Party Rentals was amazing. We had some difficulty with arranging pick up. They were incredibly accommodating, the tables were brand new in the plastic, and they made drop off super flexible. Would highly recommend!",
       "name": "Amber Schmidt",
-      "event": "Celebration"
+      "event": "Google Review · Tables",
+      "primaryUrl": "/tables"
     },
     {
-      "quote": "Booked a 20x40 tent for our backyard wedding. Setup was flawless, the crew showed up early, and the tent held up through a surprise downpour. Worth every dollar.",
-      "name": "Jenna & Michael",
-      "event": "Backyard Wedding"
-    },
-    {
-      "quote": "We rented chiavari chairs and round tables for our 50-person anniversary dinner. The chairs looked brand new and the team was in and out in under an hour. Incredibly easy.",
-      "name": "Raymond D.",
-      "event": "Anniversary Dinner"
-    },
-    {
-      "quote": "Ordered online on a Sunday night and had a crew at our venue Tuesday morning. The online booking made it so simple — I didn't have to chase anyone for a quote.",
-      "name": "Priya S.",
-      "event": "Backyard Party"
-    },
-    {
-      "quote": "We've used Forever for three corporate events now. On-time every time, professional crew, and the inventory is always spotless. Our go-to rental partner.",
-      "name": "Daniel L.",
-      "event": "Corporate Event"
-    },
-    {
-      "quote": "The dance floor was the highlight of our reception — perfectly level, looked gorgeous, and they installed it around our existing setup without any issues.",
-      "name": "Alexandra M.",
-      "event": "Wedding Reception"
-    },
-    {
-      "quote": "Tent, tables, chairs, dance floor, and heaters for 120 guests. The 25% deposit model made it easy to budget, and the early-pay discount saved us real money.",
-      "name": "Omar H.",
-      "event": "Wedding"
-    },
-    {
-      "quote": "I had to reschedule twice because of weather. Devon was completely understanding both times and rolled the deposit forward without any hassle. Phenomenal customer service.",
-      "name": "Kelsey V.",
-      "event": "Outdoor Event"
-    },
-    {
-      "quote": "From the first phone call to the final pickup, every interaction was friendly and professional. This team actually cares about your event. Five stars isn't enough.",
-      "name": "Graham R.",
-      "event": "Celebration"
+      "quote": "Forever Party Rentals was absolutely spectacular! Devon was amazing to work with from start to finish. Extremely supportive, flexible, and accommodating throughout the entire process. Everything was seamless, professional, and stress-free. Highly recommend Forever Party Rentals for any event — outstanding service all around!",
+      "name": "Stacey Sarris",
+      "event": "Google Review · Local Guide",
+      "primaryUrl": "/"
     }
   ],
   "cities": {

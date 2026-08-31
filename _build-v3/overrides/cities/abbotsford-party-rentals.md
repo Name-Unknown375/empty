@@ -1,7 +1,7 @@
 ---
 slug: abbotsford-party-rentals
-title: "Abbotsford Party Rentals — Tents, Chairs & Tables"
-meta_description: "Abbotsford party rentals — tents, chairs, tables and dance floors for acreage weddings and Mill Lake events. Crew setup included. 212+ reviews."
+title: "Abbotsford Party Rentals — Acreage Setup from $550"
+meta_description: "Abbotsford party rentals — acreage wedding tents from $550, chairs, tables and dance floors for Mill Lake events. Crew setup included. 212+ reviews."
 hero_subtitle: "Tent, chair, table, and dance floor rentals for Abbotsford acreage weddings, Mill Lake Park ceremonies, and Fraser Valley corporate events — delivered and crew-installed."
 
 intro_paragraphs:
@@ -9,16 +9,22 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on an Abbotsford rental quote?"
-    a: "Every Abbotsford quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Fraser Valley uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can you tent on grass at a Fraser Valley acreage?"
     a: "Yes — engineered ground stakes are our default anchor on grass, and they're meaningfully more secure than ballasted weights. We confirm the site has no underground irrigation, septic lines, or buried utilities before setting stakes — this is part of the pre-quote site walk for properties we haven't delivered to. We won't install on artificial turf or on slopes steeper than 5% without an engineered platform."
   - q: "What tent size do I need for an acreage wedding?"
     a: "Acreage weddings have more space than most urban venues, which means the tent decision is about guest count and weather, not site footprint. For 100 guests on a covered ceremony + reception, a 20×60 marquee is the right starting size. For 150–200 guests, a 30×60 or two linked 20×40 tents. Wind exposure at higher elevations is meaningful — sidewalls year-round and a heavier-anchor strategy than typical urban installs."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "How far in advance should I book Abbotsford tent rentals for peak season?"
     a: "For peak-season Saturdays in May–September, 6–8 weeks out is the comfortable window. Acreage weddings sometimes need an additional site visit before quoting — slope, surface, and access need to be confirmed before we can guarantee a tent size. Budget an extra 2 weeks if your venue is a private property we haven't delivered to before."
+
+testimonials:
+  - quote: |-
+      Forever Party Rentals exceeded all our expectations! Their team was incredibly helpful and friendly throughout the entire process. From selecting the perfect tents, chiavari chairs, and tables to delivery and setup, everything was seamless. The equipment was in impeccable condition and added a touch of elegance to our event. We couldn't have asked for a better experience. Highly recommend!
+    name: Nisha S
+    event: "Google Review · Tent, chairs & tables"
+  - quote: |-
+      We had an excellent experience renting a tent for our private event. Devon (the owner) was friendly, efficient, and very responsive throughout the entire process. Communication was clear, the booking was easy, and everything was handled professionally. The tent was clean, sturdy, and set up was so quick. I would absolutely recommend this company to anyone looking for high-quality tent rentals and outstanding customer service. Thank you!
+    name: Katrina Marie
+    event: "Google Review · Tent"
 
 related_blog_posts:
   - slug: backyard-wedding-tent-sizing-bc
@@ -39,8 +45,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![A two-peak frame tent standing in an open farm field with a mountain backdrop](/images/lifestyle/frame-tent-farm-field-mountains.jpg)
-*A frame tent staked on open acreage, mountains behind.*
+![A two-peak white frame tent staked on an Abbotsford farm field with mountains behind](/images/jobs/abbotsford-field-two-peak-tent.jpg)
+*Two-peak frame tent on Abbotsford acreage. Our install — ladder still in the bay, setup just finished.*
 
 Same single inventory and crew calendar across the entire Lower Mainland. An Abbotsford couple gets the same catalogue any other city gets — without short-ships, without sub-rentals from another vendor.
 
@@ -58,7 +64,7 @@ On the truck for a typical Abbotsford acreage event:
 ## Acreage installs: surface, slope, and Fraser Valley wind
 
 ![A long banquet table set up under a marquee at sunset with chairs and lighting](/images/lifestyle/tent-chairs-tables.jpg){.float-right}
-*A reception under marquee on Fraser Valley grass.*
+*A reception under marquee — shared lifestyle photo, not this Abbotsford field.*
 
 Abbotsford acreage installs differ from urban setups in three operational ways.
 

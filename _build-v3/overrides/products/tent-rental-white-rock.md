@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Tent, sidewalls, lighting, anchor kit — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a White Rock tent rental quote?"
-    a: "Every White Rock tent quote we send is itemised: the marquee, sidewalls, anchor kit, lighting add-ons, delivery, professional crew install, and applicable taxes. No fuel surcharges, no White Rock-zone uplifts, no surprises at the truck."
   - q: "Can you install a marquee on the beach or at White Rock Pier?"
     a: "Yes — beach-sand and pier-side marquees are routine White Rock installs. Beach-sand installs use full ballast (no stakes — sand can't hold them under wind). Pier-side installs require city event-permit coordination and we book the delivery window during quoting. Both run on stakes-free anchor strategies."
   - q: "Do you install tents at Semiahmoo Park or Peace Arch Park?"

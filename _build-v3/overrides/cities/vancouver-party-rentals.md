@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Vancouver rental quote?"
-    a: "Every Vancouver quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. There are no fuel surcharges, no Vancouver-zone uplifts, and no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Do you deliver and set up, or is it pickup-only?"
     a: "Both — but the value is in the setup. Our crew arrives in your delivery window, levels and stakes the marquee, positions chairs and tables to your floor plan, and lays the dance floor before guests arrive. Pickup is available for smaller orders (chair-only, table-only) when it makes sense for your budget."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "How far in advance should I book Vancouver tent rentals for peak season?"
     a: "For peak-season Saturdays in May–September, 6–8 weeks out is the comfortable window — earlier if your date is in July or August. Off-season and weekday events typically have 2–3 weeks of room. Chair-only and table-only orders are usually our most flexible same-week category."
   - q: "What if it rains the morning of a Vancouver outdoor event?"
@@ -22,6 +18,19 @@ faqs:
   - q: "Can I mix chair lines and tent sizes on one Vancouver order?"
     a: "Yes — Chiavari for the reception, Fanback or Resin Garden for the ceremony rows, mixed marquee sizes for ceremony-and-reception venues. Single quote, single delivery, no mixing surcharge. We carry enough of each line to ship the full split without short-shipping."
 
+testimonials:
+  - quote: |-
+      I have dealt with this company for many years now. They are very friendly and easy to deal with. The prices are reasonable and they provide excellent service. This year for our Christmas party I opted for the pick up and delivery option. It made everything much easier and stress free. I would definitely recommend this company.
+      
+      These guys have it all! Great prices too! Thanks for helping me stage a terrific networking event for the Vancouver business community!
+      
+      Always reliable, quick service & fair pricing
+    name: Gagandeep Singh
+    event: "Google Review · Vancouver business event"
+  - quote: |-
+      Excellent experience working with Forever Party Rentals. Everything was delivered exactly as promised and right on time. The team was professional, organized, and made the entire process very smooth from start to finish. Their reliability and great service made a big difference for our company event. Highly recommend!
+    name: Irina V.
+    event: "Google Review · Company event"
 related_blog_posts:
   - slug: stanley-park-wedding-rentals-guide
     title: "Stanley Park Wedding Rental Guide"

@@ -9,8 +9,6 @@ intro_paragraphs:
   - "The Carvolth area's defining geographic feature is its proximity to the LEC and the 200 Street commercial corridor — most weddings here happen because the couple lives in the Northwest Willoughby Heights residential blocks rather than because Carvolth itself is a wedding-destination. Meridian Farm Market and the immediate Willoughby Community Park area provide the local outdoor ceremony options."
 
 faqs:
-  - q: "What's included on a Carvolth chair rental quote?"
-    a: "Every Carvolth chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. Standard Highway 1 corridor delivery — no business-park or transit-hub surcharge."
   - q: "Can you handle a Langley Events Centre corporate event from the Carvolth-adjacent area?"
     a: "Yes — the LEC sits at the southern edge of the Carvolth catchment. 300+ Fanback folding for corporate galas and sports-banquet seating is routine; Chiavari for head-table and dignitary seating ships alongside. We coordinate with the LEC events team for the timed vendor delivery window."
   - q: "Which chair works for a Willoughby Community Park or Meridian Farm Market ceremony?"

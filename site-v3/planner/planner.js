@@ -14,21 +14,24 @@
   'use strict';
 
   // ── Constants ──────────────────────────────────────────────────────────
-  // SAVE_VERSION 3 marks files that may carry tent annotations (walls,
-  // clearance) and resizable planning items. Nothing branches on the
-  // number — applyState spreads whole items — so v2/v1 files load fine
-  // in v3 code and vice versa; it's provenance for debugging only.
-  // (v2 note kept for history: eventDays stays in the schema but is
-  // pinned to 1 — FPR prices a 1–3 day weekend as a single rental.)
-  const SAVE_VERSION = 3;
+  // SAVE_VERSION 4 marks files that may carry ceremony/dinner flip
+  // scenes (phase + phaseItems). Nothing branches on the number —
+  // applyState spreads whole items — so older files load fine.
+  // (v3: tent walls/clearance + resizable planning items.
+  //  v2: eventDays pinned to 1 — FPR prices a weekend as one rental.)
+  const SAVE_VERSION = 4;
   const MIN_SCALE = 4;        // px per foot
   const MAX_SCALE = 80;
   const HISTORY_MAX = 50;
   const ROTATE_HANDLE_OFFSET_FT = 1.5;  // distance above the item, in feet
   const SNAP_PX = 8;          // magnetic-snap threshold, screen pixels
   const TENT_CLEARANCE_FT = 5;  // stake/ballast band beyond the canopy
+  const VANCOUVER_PERMIT_SQFT = 645; // ~60 m² — tents this large can need a permit
   const SITE_URL = 'https://www.foreverpartyrentals.com';
   const PLANNER_HUB_URL = SITE_URL + '/event-layout-planner';
+  function isMarqueeKey(key) {
+    return typeof key === 'string' && key.indexOf('marquee-tent-') === 0;
+  }
 
   // SVG namespace helper
   const SVGNS = 'http://www.w3.org/2000/svg';
@@ -51,6 +54,8 @@
     view: { scale: 14, panX: 0, panY: 0 },
     selectedIds: [],
     eventDays: 1,   // pinned to 1 — FPR weekend rentals are priced as a single rental
+    phase: 'dinner',          // 'dinner' | 'ceremony' when a flip pair exists
+    phaseItems: null,         // the other scene's items; tents are duplicated in both
   };
   let history = [];          // past snapshots
   let future = [];           // redo stack
@@ -228,6 +233,8 @@
       guests: state.guests,
       eventDays: state.eventDays,
       eventDate: getEventDate(),
+      phase: state.phase || 'dinner',
+      phaseItems: Array.isArray(state.phaseItems) ? state.phaseItems.map(it => ({ ...it })) : null,
     };
     if (!withMeta) return core;
     return {
@@ -265,12 +272,18 @@
     }
     state.eventDays = parsed.eventDays || 1;
     if (parsed.eventDate) setEventDate(parsed.eventDate);
+    state.phase = (parsed.phase === 'ceremony') ? 'ceremony' : 'dinner';
+    state.phaseItems = Array.isArray(parsed.phaseItems)
+      ? parsed.phaseItems.map(it => ({ ...it }))
+      : null;
     if (resetSelection) clearSelection();
     // Bump nextId past anything in the loaded items so new items don't collide.
-    for (const it of state.items) {
+    const bumpId = (it) => {
       const n = parseInt(String(it.id || '').replace(/^i/, ''), 10);
       if (Number.isFinite(n) && n >= nextId) nextId = n + 1;
-    }
+    };
+    for (const it of state.items) bumpId(it);
+    if (state.phaseItems) for (const it of state.phaseItems) bumpId(it);
     for (const g of state.guests) {
       const n = parseInt(String(g.id || '').replace(/^g/, ''), 10);
       if (Number.isFinite(n) && n >= nextGuestId) nextGuestId = n + 1;
@@ -373,10 +386,26 @@
       hint: `${p.label} — not a rental item; a resizable placeholder your layout flows around`,
     }));
     for (const it of planningItems) byKey[it.key] = it;
+    // Named yard obstacles — same custom-area renderer, preset labels so a
+    // backyard couple can drop a tree/pool/house instead of a blank box.
+    const obstacleItems = [
+      { key: 'obstacle-tree',       label: 'Tree',           widthFt: 6,  depthFt: 6  },
+      { key: 'obstacle-house',      label: 'House',          widthFt: 20, depthFt: 16 },
+      { key: 'obstacle-pool',       label: 'Pool',           widthFt: 16, depthFt: 10 },
+      { key: 'obstacle-patio',      label: 'Patio',          widthFt: 16, depthFt: 12 },
+      { key: 'obstacle-power-line', label: 'Power line',     widthFt: 24, depthFt: 3  },
+      { key: 'obstacle-sprinkler',  label: 'Sprinkler zone', widthFt: 10, depthFt: 10 },
+    ].map(p => ({
+      key: p.key, label: p.label, shape: 'customArea', resizable: true,
+      widthFt: p.widthFt, depthFt: p.depthFt,
+      seats: 0, priceCAD: 0, priceUnit: 'event',
+      hint: `${p.label} — not a rental; a named yard obstacle the layout flows around`,
+    }));
+    for (const it of obstacleItems) byKey[it.key] = it;
     catalog.groups.push({
       key: 'extras',
       label: 'Extras',
-      items: [...planningItems, byKey['custom-area']],
+      items: [...planningItems, byKey['custom-area'], ...obstacleItems],
     });
   }
 
@@ -527,6 +556,7 @@
     state.venue.shape = 'polygon';
     state.venue.polygon = verts.map(p => ({ x: p.x, y: p.y }));
     fitVenueToPolygon();
+    state.venue.userSet = true;
     drawingPolygon = null;
     hideCalibrationOverlay();
     dom.canvas.classList.remove('pl-drawing-poly');
@@ -850,6 +880,57 @@
     startCalibration();
   }
 
+  async function loadSatelliteBackdrop() {
+    if (isReadonly) return;
+    const input = document.getElementById('plSatAddress');
+    const q = ((input && input.value) || '').trim();
+    if (q.length < 5) {
+      showToast('Enter a street address (include the city).', 2800);
+      return;
+    }
+    const btn = document.getElementById('plBtnSatLoad');
+    if (btn) { btn.disabled = true; btn.textContent = 'Loading…'; }
+    showToast('Loading satellite photo of that lot…', 4000);
+    try {
+      const res = await fetch('/api/site-imagery?q=' + encodeURIComponent(q));
+      let data = null;
+      try { data = await res.json(); } catch (e) { data = null; }
+      if (res.status === 429) {
+        showToast('Too many satellite lookups from this network — try again in an hour, or upload a photo.', 4500);
+        return;
+      }
+      if (res.status === 404 || (data && data.error === 'not-found')) {
+        showToast('Could not find that address. Try adding the city (e.g. Surrey, BC).', 4000);
+        return;
+      }
+      if (!res.ok || !data || !data.src) {
+        showToast('Satellite photo unavailable right now — upload a Maps screenshot instead.', 4000);
+        return;
+      }
+      commit();
+      const widthFt = data.widthFt > 0 ? data.widthFt : 260;
+      const depthFt = data.depthFt > 0 ? data.depthFt : widthFt;
+      state.venue.widthFt = widthFt;
+      state.venue.depthFt = depthFt;
+      state.venue.userSet = true;
+      state.venue.backdrop = {
+        src: data.src,
+        x: 0, y: 0, widthFt, heightFt: depthFt,
+        rotation: 0,
+        opacity: BACKDROP_DEFAULT_OPACITY,
+      };
+      fitToVenue();
+      render();
+      track('planner_satellite', { ok: 1 });
+      showToast('Satellite loaded. Click two points of a known length to calibrate (or skip).', 5500);
+      startCalibration();
+    } catch (err) {
+      showToast('Could not reach the satellite service — upload a photo instead.', 4000);
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = 'Satellite'; }
+    }
+  }
+
   function removeBackdrop() {
     if (!hasBackdrop()) return;
     plConfirm('Remove the background photo?', { okLabel: 'Remove', danger: true }).then(ok => {
@@ -1008,15 +1089,19 @@
         y: r.cy - sz.d / 2,
         rotation: r.rotation || 0,
       };
+      if (r.clearance || isMarqueeKey(r.key)) item.clearance = true;
       items.push(item);
       if (r.withChairs && cat.seats > 1) {
         const chairs = placeChairsAround(item, r.chairKey || DEFAULT_CHAIR_KEY, r.chairCount);
         items.push(...chairs);
       }
     }
+    const venue = recipe.keepVenue
+      ? { ...state.venue }
+      : { widthFt: recipe.venue.widthFt, depthFt: recipe.venue.depthFt };
     return {
       eventName: recipe.label,
-      venue: { widthFt: recipe.venue.widthFt, depthFt: recipe.venue.depthFt },
+      venue,
       items,
       eventDays: 1,
     };
@@ -1077,11 +1162,12 @@
         depthFt: d,
         rotation: 0,
       };
-      if (cat.shape === 'customArea') it.text = 'Custom area';
+      if (cat.shape === 'customArea') it.text = cat.label || 'Custom area';
+      if (isMarqueeKey(key)) it.clearance = true;
       return it;
     }
     const sz = itemSize(cat);
-    return {
+    const it = {
       id: newId(),
       key,
       // store top-left of axis-aligned bbox (pre-rotation), in feet
@@ -1089,6 +1175,8 @@
       y: wy - sz.d / 2,
       rotation: 0,
     };
+    if (isMarqueeKey(key)) it.clearance = true;
+    return it;
   }
 
   // ── Auto-chair placement ──────────────────────────────────────────────
@@ -1801,6 +1889,8 @@
     renderStats();
     renderQuote();
     renderValidation();
+    renderSiteNotes();
+    renderFlipToggle();
 
     // Update toolbar enabled states
     dom.btnUndo.disabled = history.length === 0;
@@ -1857,6 +1947,14 @@
     const wantedLabel = isPoly ? ' Re-draw shape' : ' Draw custom shape';
     if (lastNode && lastNode.nodeType === Node.TEXT_NODE) {
       if (lastNode.textContent !== wantedLabel) lastNode.textContent = wantedLabel;
+    }
+    const surfaceEl = document.getElementById('plVenueSurface');
+    if (surfaceEl && document.activeElement !== surfaceEl) {
+      surfaceEl.value = state.venue.surface === 'hardscape' ? 'hardscape' : 'grass';
+    }
+    const cityEl = document.getElementById('plVenueCity');
+    if (cityEl && document.activeElement !== cityEl) {
+      cityEl.value = state.venue.city || '';
     }
   }
 
@@ -2322,7 +2420,7 @@
         x: 0, y: -hd - c + 1.1, 'text-anchor': 'middle',
         'font-size': 0.8, fill: 'rgba(30,58,47,.45)',
         'font-family': 'Jost, sans-serif', 'font-weight': '500',
-      }, g).textContent = `${TENT_CLEARANCE_FT} ft stake/ballast zone`;
+      }, g).textContent = `${TENT_CLEARANCE_FT} ft ${state.venue.surface === 'hardscape' ? 'ballast' : 'stake'} zone`;
     }
     // Canopy outline (the classic dashed look).
     svg('rect', {
@@ -2678,6 +2776,101 @@
         render();
       });
     });
+  }
+
+  function yardIsSet() {
+    return !!(state.venue && (state.venue.userSet || isPolygonVenue() || hasBackdrop()));
+  }
+
+  function tentFootprintSqft() {
+    let area = 0;
+    for (const it of state.items) {
+      const cat = byKey[it.key];
+      if (!cat || cat.shape !== 'tent') continue;
+      const sz = effectiveSize(it);
+      area += sz.w * sz.d;
+    }
+    return area;
+  }
+
+  function collectSiteNotes() {
+    const notes = [];
+    const tents = state.items.filter(it => byKey[it.key] && byKey[it.key].shape === 'tent');
+    const sqft = tentFootprintSqft();
+    if (sqft >= VANCOUVER_PERMIT_SQFT) {
+      if (state.venue.city === 'vancouver') {
+        notes.push({ warn: true, text: `This canopy is ${Math.round(sqft).toLocaleString()} sq ft. Vancouver typically requires a building permit for tents over ~645 sq ft (60 m²), or when tents sit closer than ~3 m apart.` });
+      } else {
+        notes.push({ warn: true, text: `This canopy is ${Math.round(sqft).toLocaleString()} sq ft. Tents over ~645 sq ft (60 m²) often need a building permit in Metro Vancouver — check with ${state.venue.city === 'other' || !state.venue.city ? 'your city' : 'the city'} before you book.` });
+      }
+    }
+    if (tents.length >= 2 && state.venue.city === 'vancouver') {
+      notes.push({ warn: true, text: 'Joined marquees closer than ~3 m (10 ft) can trigger extra Vancouver tent-permit rules.' });
+    }
+    if (tents.length) {
+      notes.push({ text: 'Delivery needs about 10 ft of clear gate width and 18 ft of overhead clearance for the truck and lift.' });
+    }
+    if (state.venue.surface === 'hardscape') {
+      notes.push({ text: 'Patio / deck: we ballast instead of staking. Keep the 5 ft dashed band clear for weights.' });
+    } else if (tents.length) {
+      notes.push({ text: 'Grass: we stake. Keep the 5 ft dashed band clear of fences, trees, and buried lines.' });
+    }
+    const hasDance = state.items.some(it => byKey[it.key] && byKey[it.key].shape === 'danceFloor');
+    const hasDj = state.items.some(it => it.key === 'dj-booth');
+    if (hasDance && !hasDj) {
+      notes.push({ text: 'Dance floor is in — drop a DJ booth facing it so the crew knows which way is “front.”' });
+    }
+    const hasHeater = state.items.some(it => byKey[it.key] && byKey[it.key].shape === 'heater');
+    if (hasHeater) {
+      notes.push({ text: 'Keep a 3 ft clear ring around each propane heater (fabric, tables, and kids).' });
+    }
+    return notes;
+  }
+
+  function renderSiteNotes() {
+    const host = document.getElementById('plSiteNotes');
+    if (!host) return;
+    const notes = collectSiteNotes();
+    if (!notes.length) {
+      host.hidden = true;
+      host.innerHTML = '';
+      return;
+    }
+    host.hidden = false;
+    host.innerHTML = '<div class="pl-site-notes-title">Site notes</div>' +
+      notes.map(n => `<div class="pl-site-note${n.warn ? ' pl-site-note-warn' : ''}">${n.text}</div>`).join('');
+  }
+
+  function hasFlip() {
+    return Array.isArray(state.phaseItems) && state.phaseItems.length > 0;
+  }
+
+  function renderFlipToggle() {
+    const el = document.getElementById('plFlipToggle');
+    if (!el) return;
+    el.hidden = !hasFlip();
+    const cer = document.getElementById('plBtnPhaseCeremony');
+    const din = document.getElementById('plBtnPhaseDinner');
+    if (cer) cer.classList.toggle('pl-btn-active', state.phase === 'ceremony');
+    if (din) din.classList.toggle('pl-btn-active', state.phase === 'dinner');
+  }
+
+  function setPhase(phase) {
+    if (isReadonly) return;
+    if (phase !== 'ceremony' && phase !== 'dinner') return;
+    if (phase === state.phase) return;
+    if (!hasFlip()) {
+      state.phase = phase;
+      renderFlipToggle();
+      return;
+    }
+    commit();
+    const other = state.items;
+    state.items = state.phaseItems;
+    state.phaseItems = other;
+    state.phase = phase;
+    clearSelection();
+    render();
   }
 
   function drawSelection(parent, item, withHandle) {
@@ -4825,6 +5018,8 @@
       if (!ok) return;
       commit();
       state.items = [];
+      state.phaseItems = null;
+      state.phase = 'dinner';
       clearSelection();
       render();
     });
@@ -5172,7 +5367,7 @@
       const hasCount  = it.chairCount != null;
       const cat       = byKey[it.key];
       const isLabel   = it.key === 'text-label' || it.key === 'custom-area'
-                        || !!(cat && cat.resizable);
+                        || !!(cat && cat.resizable) || !!(cat && cat.shape === 'customArea');
       const isTent    = !!(cat && cat.shape === 'tent');
       const tail = [];
       if (hasParent || hasCount || isLabel || isTent) tail.push(hasParent ? String(itemIdx.get(it.parentId)) : '');
@@ -5266,11 +5461,14 @@
           if (Number.isFinite(c)) out.chairCount = c;
         }
         const kCat = byKey[k];
-        if (k === 'text-label' || k === 'custom-area' || (kCat && kCat.resizable)) {
+        if (k === 'text-label' || k === 'custom-area' || (kCat && kCat.resizable) || (kCat && kCat.shape === 'customArea')) {
           // Planning items ride the label tail for their dims but carry
-          // no text of their own.
+          // no text of their own. Named yard obstacles reuse the custom-area
+          // tail so the label (Tree, Pool, …) round-trips.
           if (k === 'text-label')      out.text = _unescapeText(f[6] || '') || 'Label';
-          else if (k === 'custom-area') out.text = _unescapeText(f[6] || '') || 'Custom area';
+          else if (k === 'custom-area' || (kCat && kCat.shape === 'customArea')) {
+            out.text = _unescapeText(f[6] || '') || (kCat && kCat.label) || 'Custom area';
+          }
           if (f[7]) { const n = parseFloat(f[7]); if (Number.isFinite(n)) out.widthFt  = n; }
           if (f[8]) { const n = parseFloat(f[8]); if (Number.isFinite(n)) out.depthFt  = n; }
           if (f[9] && k === 'text-label') { const n = parseFloat(f[9]); if (Number.isFinite(n)) out.fontSize = n; }
@@ -5891,6 +6089,30 @@
       };
       drawDim(0, -1.6, state.venue.widthFt, -1.6, `${state.venue.widthFt} ft`);
       drawDim(-1.6, 0, -1.6, state.venue.depthFt, `${state.venue.depthFt} ft`);
+      const tentsC = state.items.filter(it => {
+        const c = byKey[it.key];
+        return c && c.shape === 'tent' && it.clearance;
+      });
+      if (tentsC.length) {
+        let x1 = Infinity, y1 = Infinity, x2 = -Infinity, y2 = -Infinity;
+        for (const t of tentsC) {
+          const sz = effectiveSize(t);
+          const rot = Math.abs(t.rotation || 0) % 180;
+          const swapped = rot > 45 && rot < 135;
+          const w = swapped ? sz.d : sz.w, d = swapped ? sz.w : sz.d;
+          const cx = t.x + sz.w / 2, cy = t.y + sz.d / 2;
+          const c = TENT_CLEARANCE_FT;
+          x1 = Math.min(x1, cx - w / 2 - c);
+          y1 = Math.min(y1, cy - d / 2 - c);
+          x2 = Math.max(x2, cx + w / 2 + c);
+          y2 = Math.max(y2, cy + d / 2 + c);
+        }
+        const bandKind = state.venue.surface === 'hardscape' ? 'ballast' : 'stake';
+        const bw = Math.round((x2 - x1) * 10) / 10;
+        const bd = Math.round((y2 - y1) * 10) / 10;
+        drawDim(x1, y2 + 1.8, x2, y2 + 1.8, `incl. ${TENT_CLEARANCE_FT} ft ${bandKind} · ${bw} ft`);
+        drawDim(x2 + 1.8, y1, x2 + 1.8, y2, `${bd} ft`);
+      }
     }
 
     // Same z-order as the live canvas: tents → others → labels last.
@@ -6023,86 +6245,93 @@
     return qrLibPromise;
   }
 
-  async function savePDF() {
-    track('planner_export', { format: 'pdf' });
-    showToast('Preparing your PDF…', 2500);
+  async function savePDF(opts) {
+    opts = opts || {};
+    const crew = !!opts.crew;
+    track('planner_export', { format: crew ? 'pdf_crew' : 'pdf' });
+    showToast(crew ? 'Preparing crew sheet…' : 'Preparing your PDF…', 2500);
     try {
       await loadPdfLibs();
       const { jsPDF } = window.jspdf;
-      // Permit-style drawing: dimension lines on the venue boundary.
-      const { svg: out, width: W, height: H } = buildExportSVG({ dimensions: true, scaleBar: true });
       const doc = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'letter' });
-      const pageW = doc.internal.pageSize.getWidth();
-      const pageH = doc.internal.pageSize.getHeight();
       const margin = 36;
       const headerH = 48;
       const footerH = 16;
-
-      // Page 1 — drawn title block + the dimensioned layout drawing.
-      const title = state.eventName.trim() || 'Event Layout';
+      const title = (crew ? 'Crew sheet — ' : '') + (state.eventName.trim() || 'Event Layout');
       const venueStr = isPolygonVenue()
         ? `Venue ${state.venue.widthFt} × ${state.venue.depthFt} ft (custom shape, ${Math.round(venueAreaFt2()).toLocaleString()} sq ft)`
         : `Venue ${state.venue.widthFt} × ${state.venue.depthFt} ft (${Math.round(venueAreaFt2()).toLocaleString()} sq ft)`;
-      const pdfStats = computePlanStats();
       const eventDateVal = (document.getElementById('plEventDate') || {}).value || '';
+      const phaseCaption = (p) => (p === 'ceremony' ? 'Ceremony' : 'Dinner');
 
-      const availW = pageW - margin * 2;
-      const availH = pageH - margin * 2 - headerH - footerH;
-      const k = Math.min(availW / W, availH / H);
-      // True drawing scale: the export renders 24 px per foot, jsPDF uses
-      // 72 pt per inch — so feet-per-inch on paper = 72 / (24 · k).
-      const ftPerInch = 72 / (24 * k);
+      const paintDrawingPage = async (subtitle) => {
+        const { svg: out, width: W, height: H } = buildExportSVG({ dimensions: true, scaleBar: true });
+        const pageW = doc.internal.pageSize.getWidth();
+        const pageH = doc.internal.pageSize.getHeight();
+        const pdfStats = computePlanStats();
+        const availW = pageW - margin * 2;
+        const availH = pageH - margin * 2 - headerH - footerH;
+        const k = Math.min(availW / W, availH / H);
+        const ftPerInch = 72 / (24 * k);
+        const tbTop = margin - 10;
+        const tbH = 42;
+        const divX = pageW - margin - 200;
+        doc.setDrawColor(120);
+        doc.setLineWidth(0.75);
+        doc.rect(margin, tbTop, pageW - margin * 2, tbH);
+        doc.line(divX, tbTop, divX, tbTop + tbH);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(13);
+        doc.setTextColor(0);
+        doc.text(title + (subtitle ? ' — ' + subtitle : ''), margin + 8, tbTop + 17);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8.5);
+        doc.setTextColor(110);
+        doc.text(
+          `${venueStr}  ·  Seated ${pdfStats.seated} / Standing ${pdfStats.standing}` +
+          (eventDateVal ? `  ·  Event date ${eventDateVal}` : ''),
+          margin + 8, tbTop + 32
+        );
+        doc.setTextColor(0);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9);
+        doc.text(crew ? 'Crew sheet' : (isExternalEmbed ? 'Layout Plan' : 'Forever Party Rentals'), divX + 8, tbTop + 13);
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8);
+        doc.setTextColor(110);
+        doc.text(`Scale ≈ 1 in : ${ftPerInch.toFixed(1)} ft`, divX + 8, tbTop + 24);
+        doc.text(`Prepared ${new Date().toLocaleDateString('en-CA')}`, divX + 8, tbTop + 35);
+        doc.setTextColor(0);
+        await doc.svg(out, {
+          x: margin + (availW - W * k) / 2,
+          y: margin + headerH,
+          width: W * k,
+          height: H * k,
+        });
+        doc.setFontSize(7.5);
+        doc.setTextColor(130);
+        doc.text(
+          isExternalEmbed
+            ? 'All dimensions in feet. Verify site measurements before submission.'
+            : 'All dimensions in feet. Verify site measurements before permit submission. Prepared with the Forever Party Rentals Event Layout Planner — foreverpartyrentals.com/event-layout-planner',
+          margin, pageH - margin + 14
+        );
+        doc.setTextColor(0);
+      };
 
-      // Bordered title block: event info left, scale/date/brand right.
-      const tbTop = margin - 10;
-      const tbH = 42;
-      const divX = pageW - margin - 200;
-      doc.setDrawColor(120);
-      doc.setLineWidth(0.75);
-      doc.rect(margin, tbTop, pageW - margin * 2, tbH);
-      doc.line(divX, tbTop, divX, tbTop + tbH);
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(13);
-      doc.text(title, margin + 8, tbTop + 17);
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(8.5);
-      doc.setTextColor(110);
-      doc.text(
-        `${venueStr}  ·  Seated ${pdfStats.seated} / Standing ${pdfStats.standing}` +
-        (eventDateVal ? `  ·  Event date ${eventDateVal}` : ''),
-        margin + 8, tbTop + 32
-      );
-      doc.setTextColor(0);
-      doc.setFont('helvetica', 'bold');
-      doc.setFontSize(9);
-      doc.text(isExternalEmbed ? 'Layout Plan' : 'Forever Party Rentals', divX + 8, tbTop + 13);
-      doc.setFont('helvetica', 'normal');
-      doc.setFontSize(8);
-      doc.setTextColor(110);
-      doc.text(`Scale ≈ 1 in : ${ftPerInch.toFixed(1)} ft`, divX + 8, tbTop + 24);
-      doc.text(`Prepared ${new Date().toLocaleDateString('en-CA')}`, divX + 8, tbTop + 35);
-      doc.setTextColor(0);
+      await paintDrawingPage(hasFlip() ? phaseCaption(state.phase) : '');
+      if (hasFlip()) {
+        const savedItems = state.items;
+        state.items = state.phaseItems;
+        try {
+          const other = state.phase === 'ceremony' ? 'dinner' : 'ceremony';
+          doc.addPage('letter', 'landscape');
+          await paintDrawingPage(phaseCaption(other));
+        } finally {
+          state.items = savedItems;
+        }
+      }
 
-      await doc.svg(out, {
-        x: margin + (availW - W * k) / 2,
-        y: margin + headerH,
-        width: W * k,
-        height: H * k,
-      });
-
-      // Permit footer — dimensions are stated on the drawing itself.
-      doc.setFontSize(7.5);
-      doc.setTextColor(130);
-      doc.text(
-        isExternalEmbed
-          ? 'All dimensions in feet. Verify site measurements before submission.'
-          : 'All dimensions in feet. Verify site measurements before permit submission. Prepared with the Forever Party Rentals Event Layout Planner — foreverpartyrentals.com/event-layout-planner',
-        margin, pageH - margin + 14
-      );
-      doc.setTextColor(0);
-
-      // Page 2 — itemized summary (portrait). Lite/partner mode mirrors the
-      // print page: quantities only, no FPR pricing.
       doc.addPage('letter', 'portrait');
       const pw = doc.internal.pageSize.getWidth();
       let y = margin + 6;
@@ -6122,86 +6351,127 @@
       writeLine('CAPACITY', { size: 10, bold: true });
       writeLine(`Seated: ${stats.seated}    Standing (covered): ${stats.standing}`, { gap: 22 });
 
-      writeLine('ITEMS', { size: 10, bold: true });
-      const entries = Object.entries(stats.counts);
-      if (entries.length === 0) writeLine('(no items placed)', { color: 110 });
-      for (const [key, qty] of entries) {
-        const cat = byKey[key];
-        // Mark non-rental placeholders so the list can't read as an order.
-        const suffix = (cat && (cat.shape === 'planning' || cat.shape === 'customArea'))
-          ? '   (planning placeholder — not a rental)' : '';
-        writeLine(`${qty} ×  ${cat ? cat.label : key}${suffix}`);
-      }
-      const hasTentAnnotations = state.items.some(it => {
-        const c = byKey[it.key];
-        return c && c.shape === 'tent' && (it.walls || it.clearance);
-      });
-      if (hasTentAnnotations) {
-        writeLine(
-          `Tent annotations: sidewalls/entrances as drawn; stake/ballast zone extends ~${TENT_CLEARANCE_FT} ft beyond the canopy.`,
-          { size: 8, color: 110 }
-        );
-      }
-      y += 8;
-
-      // Seating chart — only when a guest list exists. Long name lists
-      // wrap via splitTextToSize so a 12-top doesn't run off the page.
-      if (state.guests.length > 0) {
-        const wrapWidth = pw - margin * 2;
-        const writeWrapped = (text, opts) => {
-          for (const ln of doc.splitTextToSize(String(text), wrapWidth)) writeLine(ln, opts);
-        };
-        writeLine('SEATING', { size: 10, bold: true });
-        for (const r of tableDisplayList()) {
-          if (!r.guests.length) continue;
-          writeWrapped(
-            `Table ${r.num} (${r.guests.length}/${r.seats}):  ${r.guests.map(g => g.name).join(', ')}`
+      if (crew) {
+        writeLine('SETUP ORDER', { size: 10, bold: true });
+        writeLine('1. Dance floor  ·  2. Tables  ·  3. Chairs  ·  4. Heaters, lights, add-ons', { gap: 18 });
+        const buckets = [
+          { label: 'Dance floor', pred: (it, c) => c && c.shape === 'danceFloor' },
+          { label: 'Tables', pred: (it, c) => c && c.seats > 1 },
+          { label: 'Chairs', pred: (it, c) => c && c.key && c.key.indexOf('chair') !== -1 },
+          { label: 'Add-ons', pred: (it, c) => c && c.shape !== 'danceFloor' && !(c.seats > 1) && !(c.key && c.key.indexOf('chair') !== -1) && c.shape !== 'tent' },
+        ];
+        for (const b of buckets) {
+          const counts = {};
+          for (const it of state.items) {
+            const cat = byKey[it.key];
+            if (!b.pred(it, cat)) continue;
+            counts[it.key] = (counts[it.key] || 0) + 1;
+          }
+          const rows = Object.entries(counts);
+          if (!rows.length) continue;
+          writeLine(b.label.toUpperCase(), { size: 10, bold: true });
+          for (const [key, qty] of rows) {
+            const cat = byKey[key];
+            writeLine(`${qty} ×  ${cat ? cat.label : key}`);
+          }
+        }
+        const numbered = tableDisplayList();
+        if (numbered.length) {
+          y += 4;
+          writeLine('TABLE NUMBERS', { size: 10, bold: true });
+          for (const r of numbered) {
+            writeLine(`Table ${r.num}  ·  ${r.seats} seats` + (r.guests.length ? `  ·  ${r.guests.map(g => g.name).join(', ')}` : ''));
+          }
+        }
+        const notes = collectSiteNotes();
+        if (notes.length) {
+          y += 4;
+          writeLine('SITE NOTES', { size: 10, bold: true });
+          for (const n of notes) writeLine(n.text, { size: 9, color: 60, gap: 13 });
+        }
+        writeLine('No prices on this sheet. Open the share link on a phone for the live drawing.', { size: 8, color: 110, gap: 16 });
+        if (!isExternalEmbed) {
+          writeLine('Forever Party Rentals  ·  778-990-7983', { size: 9, color: 110 });
+        }
+      } else {
+        writeLine('ITEMS', { size: 10, bold: true });
+        const entries = Object.entries(stats.counts);
+        if (entries.length === 0) writeLine('(no items placed)', { color: 110 });
+        for (const [key, qty] of entries) {
+          const cat = byKey[key];
+          const suffix = (cat && (cat.shape === 'planning' || cat.shape === 'customArea'))
+            ? '   (planning placeholder — not a rental)' : '';
+          writeLine(`${qty} ×  ${cat ? cat.label : key}${suffix}`);
+        }
+        const hasTentAnnotations = state.items.some(it => {
+          const c = byKey[it.key];
+          return c && c.shape === 'tent' && (it.walls || it.clearance);
+        });
+        if (hasTentAnnotations) {
+          writeLine(
+            `Tent annotations: sidewalls/entrances as drawn; stake/ballast zone extends ~${TENT_CLEARANCE_FT} ft beyond the canopy.`,
+            { size: 8, color: 110 }
           );
         }
-        const un = unassignedGuests();
-        if (un.length) {
-          writeWrapped(`Unseated (${un.length}):  ${un.map(g => g.name).join(', ')}`, { color: 110 });
-        }
         y += 8;
-      }
 
-      if (!isExternalEmbed) {
-        const lines = buildLineItems();
-        if (lines.length) {
-          writeLine('ESTIMATED COST', { size: 10, bold: true });
-          // Aligned columns: qty×label left, unit price + subtotal right.
-          const colUnit = pw - margin - 90;
-          const colSub  = pw - margin;
-          let grand = 0;
-          doc.setFontSize(8);
-          doc.setTextColor(110);
-          doc.text('unit', colUnit, y - 2, { align: 'right' });
-          doc.text('subtotal', colSub, y - 2, { align: 'right' });
-          doc.setDrawColor(190);
-          doc.setLineWidth(0.5);
-          doc.line(margin, y + 1, colSub, y + 1);
-          y += 12;
-          doc.setTextColor(0);
-          for (const l of lines) {
-            grand += l.subtotal;
-            if (y > doc.internal.pageSize.getHeight() - margin) { doc.addPage('letter', 'portrait'); y = margin + 6; }
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(10);
-            doc.text(`${l.qty} ×  ${l.label}`, margin, y);
-            const unitLabel = l.unit === 'day' ? `${fmtMoney(l.unitPrice)}/rental` : `${fmtMoney(l.unitPrice)}/event`;
-            doc.text(unitLabel, colUnit, y, { align: 'right' });
-            doc.text(fmtMoney(l.subtotal), colSub, y, { align: 'right' });
-            y += 15;
+        if (state.guests.length > 0) {
+          const wrapWidth = pw - margin * 2;
+          const writeWrapped = (text, wopts) => {
+            for (const ln of doc.splitTextToSize(String(text), wrapWidth)) writeLine(ln, wopts);
+          };
+          writeLine('SEATING', { size: 10, bold: true });
+          for (const r of tableDisplayList()) {
+            if (!r.guests.length) continue;
+            writeWrapped(
+              `Table ${r.num} (${r.guests.length}/${r.seats}):  ${r.guests.map(g => g.name).join(', ')}`
+            );
           }
-          doc.line(margin, y - 9, colSub, y - 9);
-          writeLine(`Estimated total: ${fmtMoney(grand)} CAD`, { bold: true, gap: 13 });
-          writeLine('(List prices, pre-tax, before delivery & setup. Final quote reflects package discounts.)', { size: 8, color: 110, gap: 22 });
+          const un = unassignedGuests();
+          if (un.length) {
+            writeWrapped(`Unseated (${un.length}):  ${un.map(g => g.name).join(', ')}`, { color: 110 });
+          }
+          y += 8;
         }
-        writeLine('Forever Party Rentals  ·  778-990-7983  ·  welcome@foreverpartyrentals.com', { size: 9, color: 110 });
-        writeLine(PLANNER_HUB_URL, { size: 9, color: 110 });
+
+        if (!isExternalEmbed) {
+          const lines = buildLineItems();
+          if (lines.length) {
+            writeLine('ESTIMATED COST', { size: 10, bold: true });
+            const colUnit = pw - margin - 90;
+            const colSub  = pw - margin;
+            let grand = 0;
+            doc.setFontSize(8);
+            doc.setTextColor(110);
+            doc.text('unit', colUnit, y - 2, { align: 'right' });
+            doc.text('subtotal', colSub, y - 2, { align: 'right' });
+            doc.setDrawColor(190);
+            doc.setLineWidth(0.5);
+            doc.line(margin, y + 1, colSub, y + 1);
+            y += 12;
+            doc.setTextColor(0);
+            for (const l of lines) {
+              grand += l.subtotal;
+              if (y > doc.internal.pageSize.getHeight() - margin) { doc.addPage('letter', 'portrait'); y = margin + 6; }
+              doc.setFont('helvetica', 'normal');
+              doc.setFontSize(10);
+              doc.text(`${l.qty} ×  ${l.label}`, margin, y);
+              const unitLabel = l.unit === 'day' ? `${fmtMoney(l.unitPrice)}/rental` : `${fmtMoney(l.unitPrice)}/event`;
+              doc.text(unitLabel, colUnit, y, { align: 'right' });
+              doc.text(fmtMoney(l.subtotal), colSub, y, { align: 'right' });
+              y += 15;
+            }
+            doc.line(margin, y - 9, colSub, y - 9);
+            writeLine(`Estimated total: ${fmtMoney(grand)} CAD`, { bold: true, gap: 13 });
+            writeLine('(List prices, pre-tax, before delivery & setup. Final quote reflects package discounts.)', { size: 8, color: 110, gap: 22 });
+          }
+          writeLine('Forever Party Rentals  ·  778-990-7983  ·  welcome@foreverpartyrentals.com', { size: 9, color: 110 });
+          writeLine(PLANNER_HUB_URL, { size: 9, color: 110 });
+        }
       }
 
-      const fname = (state.eventName.trim() || 'event-layout').replace(/[^a-z0-9-_]+/gi, '-').toLowerCase() + '.pdf';
+      const fname = (state.eventName.trim() || 'event-layout').replace(/[^a-z0-9-_]+/gi, '-').toLowerCase()
+        + (crew ? '-crew' : '') + '.pdf';
       doc.save(fname);
     } catch (err) {
       showToast('PDF export hit a snag — opening Print instead (choose "Save as PDF").', 4000);
@@ -6632,6 +6902,8 @@
       chairKey: DEFAULT_CHAIR_KEY,
       date: getEventDate(),
       pack: 'efficient',
+      flip: false,
+      packIntoYard: yardIsSet(),
     };
     let step = 1;
 
@@ -6699,6 +6971,9 @@
                   ${chairOptions.map(c => `<option value="${c.key}"${c.key === opts.chairKey ? ' selected' : ''}>${c.label}${isExternalEmbed ? '' : ` ($${c.priceCAD.toFixed(2)})`}</option>`).join('')}
                 </select>
               </div>
+              <label class="pl-wizard-flip" id="plWizFlipRow"${opts.seating === 'ceremony' ? ' hidden' : ''}>
+                <input type="checkbox" id="plWizFlip" ${opts.flip ? 'checked' : ''}/> Also build a ceremony layout in the same tent (flip)
+              </label>
             </div>
             <div class="pl-modal-footer">
               <button type="button" class="pl-btn" data-act="back">Back</button>
@@ -6709,6 +6984,8 @@
           btn.addEventListener('click', () => {
             opts.seating = btn.dataset.style;
             wizardEl.querySelectorAll('.pl-wizard-style').forEach(b => b.classList.toggle('pl-wizard-style-on', b === btn));
+            const flipRow = wizardEl.querySelector('#plWizFlipRow');
+            if (flipRow) flipRow.hidden = opts.seating === 'ceremony';
           });
         });
       } else if (step === 3) {
@@ -6727,6 +7004,7 @@
                     <strong>${p.label}</strong><span>${p.hint}</span>
                   </button>`).join('')}
               </div>
+              ${yardIsSet() ? `<label class="pl-wizard-flip"><input type="checkbox" id="plWizYard" ${opts.packIntoYard !== false ? 'checked' : ''}/> Pack into my current space (${state.venue.widthFt}×${state.venue.depthFt} ft)</label>` : ''}
             </div>
             <div class="pl-modal-footer">
               <button type="button" class="pl-btn" data-act="back">Back</button>
@@ -6740,8 +7018,21 @@
           });
         });
       } else {
-        const recipe = window.FPRLayoutGen.generateLayout(opts);
-        const rec = window.FPRLayoutGen.recommendTent(opts);
+        wizardEl._flip = null;
+        const genOpts = { ...opts };
+        if (opts.packIntoYard && yardIsSet()) {
+          genOpts.venue = { widthFt: state.venue.widthFt, depthFt: state.venue.depthFt };
+        }
+        let recipe = null;
+        if (opts.flip && opts.seating !== 'ceremony' && window.FPRLayoutGen.generateFlipLayouts) {
+          const pair = window.FPRLayoutGen.generateFlipLayouts(genOpts);
+          if (pair && pair.dinner) {
+            wizardEl._flip = pair;
+            recipe = pair.dinner;
+          }
+        }
+        if (!recipe) recipe = window.FPRLayoutGen.generateLayout(genOpts);
+        const rec = window.FPRLayoutGen.recommendTent(genOpts);
         if (!recipe) {
           wizardEl.innerHTML = `
             <div class="pl-modal pl-wizard-modal" role="dialog" aria-modal="true">
@@ -6775,7 +7066,7 @@
               <p class="pl-wizard-summary">${recipe.summary}</p>
               ${tentLine ? `<p class="pl-wizard-tent">${tentLine}</p>` : ''}
               ${isExternalEmbed ? '' : `<div class="pl-wizard-cost">Estimated ${fmtMoney(cost)} <span>list prices, before delivery &amp; setup</span></div>`}
-              <p class="pl-wizard-note">You can move, add, or remove anything after it's built.</p>
+              ${wizardEl._flip && wizardEl._flip.ceremony ? '<p class="pl-wizard-note">Includes a ceremony layout in the same tent — switch Ceremony / Dinner after you build.</p>' : '<p class="pl-wizard-note">You can move, add, or remove anything after it\'s built.</p>'}
             </div>
             <div class="pl-modal-footer">
               <button type="button" class="pl-btn" data-act="back">Back</button>
@@ -6802,6 +7093,11 @@
           opts.buffet = wizardEl.querySelector('#plWizBuffet').checked;
           opts.bar = wizardEl.querySelector('#plWizBar').checked;
           opts.chairKey = wizardEl.querySelector('#plWizChair').value;
+          const flipEl = wizardEl.querySelector('#plWizFlip');
+          opts.flip = !!(flipEl && flipEl.checked && opts.seating !== 'ceremony');
+        } else if (step === 3) {
+          const yardEl = wizardEl.querySelector('#plWizYard');
+          opts.packIntoYard = yardEl ? yardEl.checked : false;
         }
         step++;
         renderStep();
@@ -6809,15 +7105,25 @@
       }
       if (act === 'apply') {
         const recipe = wizardEl._recipe;
+        if (!recipe) return;
         const doApply = () => {
           commit();
-          applyState(expandRecipeToState(recipe));
+          const pair = wizardEl._flip;
+          if (pair && pair.dinner && pair.ceremony) {
+            const dinner = expandRecipeToState(pair.dinner);
+            const ceremony = expandRecipeToState(pair.ceremony);
+            applyState({ ...dinner, phase: 'dinner', phaseItems: ceremony.items });
+          } else {
+            applyState(expandRecipeToState(recipe));
+          }
           fitToVenue();
           render();
           track('planner_wizard_complete', {
             guests: opts.guests,
             style: opts.seating,
             pack: opts.pack || 'efficient',
+            flip: pair && pair.ceremony ? 1 : 0,
+            yard: opts.packIntoYard && yardIsSet() ? 1 : 0,
             tent_key: (recipe.items.find(i => byKey[i.key] && byKey[i.key].shape === 'tent') || {}).key || 'none',
           });
           closeWizard();
@@ -7285,6 +7591,139 @@
     });
   }
 
+  // ── Isometric 3D glance (read-only, same state) ───────────────────────
+  let isoYaw = 0.6;
+  let isoPitch = 0.45;
+  function itemHeightFt(it) {
+    const cat = byKey[it.key];
+    if (!cat) return 2;
+    if (cat.shape === 'tent') return 10;
+    if (cat.shape === 'danceFloor') return 0.2;
+    if (cat.shape === 'heater') return 6;
+    if (cat.shape === 'customArea' || cat.resizable) return 4;
+    if (cat.key && cat.key.indexOf('chair') !== -1) return 3;
+    if (cat.seats > 1 || cat.shape === 'circle') return 2.5;
+    return 2;
+  }
+  function itemFill(it) {
+    const cat = byKey[it.key];
+    if (!cat) return '#888';
+    if (cat.shape === 'tent') return 'rgba(30,58,47,.55)';
+    if (cat.shape === 'danceFloor') return '#222';
+    if (cat.shape === 'customArea') return 'rgba(90,90,70,.45)';
+    if (cat.key && cat.key.indexOf('chair') !== -1) return '#f4f1ea';
+    if (cat.shape === 'heater') return '#c45a28';
+    return '#d6c4a2';
+  }
+  function drawIsoPreview() {
+    const canvas = document.getElementById('plIsoCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    ctx.fillStyle = '#eef3f0';
+    ctx.fillRect(0, 0, W, H);
+    const vw = state.venue.widthFt, vd = state.venue.depthFt;
+    const yaw = isoYaw, pitch = isoPitch;
+    const project = (x, y, z) => {
+      const cx = x - vw / 2, cy = y - vd / 2;
+      const xr = cx * Math.cos(yaw) - cy * Math.sin(yaw);
+      const yr = cx * Math.sin(yaw) + cy * Math.cos(yaw);
+      const s = Math.min(W, H) / (Math.max(vw, vd) * 1.6);
+      return {
+        x: W / 2 + xr * s,
+        y: H * 0.62 + yr * Math.cos(pitch) * s - z * s * Math.sin(pitch + 0.4),
+      };
+    };
+    const strokePoly = (pts, fill, stroke) => {
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x, pts[0].y);
+      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+      ctx.closePath();
+      ctx.fillStyle = fill;
+      ctx.fill();
+      ctx.strokeStyle = stroke || 'rgba(30,58,47,.7)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    };
+    const g0 = project(0, 0, 0), g1 = project(vw, 0, 0), g2 = project(vw, vd, 0), g3 = project(0, vd, 0);
+    strokePoly([g0, g1, g2, g3], '#fff', '#1E3A2F');
+    const solids = state.items.slice().sort((a, b) => {
+      const sa = effectiveSize(a), sb = effectiveSize(b);
+      const da = (a.x + sa.w / 2) + (a.y + sa.d / 2);
+      const db = (b.x + sb.w / 2) + (b.y + sb.d / 2);
+      return da - db;
+    });
+    for (const it of solids) {
+      const cat = byKey[it.key];
+      if (!cat) continue;
+      const sz = effectiveSize(it);
+      const h = itemHeightFt(it);
+      const rot = ((it.rotation || 0) % 180);
+      const swapped = rot > 45 && rot < 135;
+      const w = swapped ? sz.d : sz.w, d = swapped ? sz.w : sz.d;
+      const cx = it.x + sz.w / 2, cy = it.y + sz.d / 2;
+      const x1 = cx - w / 2, y1 = cy - d / 2, x2 = cx + w / 2, y2 = cy + d / 2;
+      const fill = itemFill(it);
+      if (cat.shape === 'circle' || cat.shape === 'danceFloor') {
+        const r = Math.max(w, d) / 2;
+        const steps = 16;
+        const top = [], bot = [];
+        for (let i = 0; i <= steps; i++) {
+          const a = (i / steps) * Math.PI * 2;
+          const px = cx + Math.cos(a) * r, py = cy + Math.sin(a) * r;
+          top.push(project(px, py, h));
+          bot.push(project(px, py, 0));
+        }
+        ctx.beginPath();
+        ctx.moveTo(bot[0].x, bot[0].y);
+        for (let i = 1; i < bot.length; i++) ctx.lineTo(bot[i].x, bot[i].y);
+        ctx.strokeStyle = 'rgba(30,58,47,.35)';
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(top[0].x, top[0].y);
+        for (let i = 1; i < top.length; i++) ctx.lineTo(top[i].x, top[i].y);
+        ctx.closePath();
+        ctx.fillStyle = fill;
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(30,58,47,.7)';
+        ctx.stroke();
+        continue;
+      }
+      const b00 = project(x1, y1, 0), b10 = project(x2, y1, 0), b11 = project(x2, y2, 0), b01 = project(x1, y2, 0);
+      const t00 = project(x1, y1, h), t10 = project(x2, y1, h), t11 = project(x2, y2, h), t01 = project(x1, y2, h);
+      strokePoly([b10, b11, t11, t10], fill, 'rgba(30,58,47,.45)');
+      strokePoly([b01, b11, t11, t01], fill, 'rgba(30,58,47,.55)');
+      strokePoly([t00, t10, t11, t01], fill, '#1E3A2F');
+    }
+  }
+  function openIsoPreview() {
+    const modal = document.getElementById('plIsoModal');
+    if (!modal) return;
+    modal.hidden = false;
+    drawIsoPreview();
+    const canvas = document.getElementById('plIsoCanvas');
+    if (!canvas || canvas._isoBound) return;
+    canvas._isoBound = true;
+    let dragging = false, lastX = 0, lastY = 0;
+    canvas.addEventListener('pointerdown', e => {
+      dragging = true; lastX = e.clientX; lastY = e.clientY;
+      canvas.setPointerCapture(e.pointerId);
+    });
+    canvas.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      isoYaw += (e.clientX - lastX) * 0.008;
+      isoPitch = Math.max(0.15, Math.min(1.1, isoPitch + (e.clientY - lastY) * 0.006));
+      lastX = e.clientX; lastY = e.clientY;
+      drawIsoPreview();
+    });
+    canvas.addEventListener('pointerup', () => { dragging = false; });
+    canvas.addEventListener('pointercancel', () => { dragging = false; });
+  }
+  function closeIsoPreview() {
+    const modal = document.getElementById('plIsoModal');
+    if (modal) modal.hidden = true;
+  }
+
   // ── Init ──────────────────────────────────────────────────────────────
   async function init() {
     dom.app = document.getElementById('plannerApp');
@@ -7454,12 +7893,19 @@
       }
     }
     if (!restored) {
+      // Hub (and other same-origin iframes) sit under pack cards / landing
+      // copy. Restoring a previous session there shows a different tent than
+      // the cards describe. Share #s=, ?template=, and ?gen= already won
+      // above. Direct visits to the embed still recover localStorage.
+      const inIframe = window.self !== window.top;
       const stored = loadFromStorage();
-      if (stored) {
+      if (stored && !inIframe) {
         applyState(stored);
         showToast('Restored your last session — Clear to start fresh', 4000);
         restored = true;
         restoredFrom = 'autosave';
+      } else if (stored && inIframe) {
+        restoredFrom = 'skipped_autosave_iframe';
       }
     }
 
@@ -7501,11 +7947,40 @@
       commit();
       state.venue.widthFt = w;
       state.venue.depthFt = d;
+      state.venue.userSet = true;
       fitToVenue();
       render();
     };
     dom.venueW.addEventListener('change', onVenueInput);
     dom.venueD.addEventListener('change', onVenueInput);
+    const surfaceEl = document.getElementById('plVenueSurface');
+    if (surfaceEl) {
+      surfaceEl.addEventListener('change', () => {
+        commit();
+        state.venue.surface = surfaceEl.value === 'hardscape' ? 'hardscape' : 'grass';
+        render();
+      });
+    }
+    const cityEl = document.getElementById('plVenueCity');
+    if (cityEl) {
+      cityEl.addEventListener('change', () => {
+        commit();
+        state.venue.city = cityEl.value || '';
+        render();
+      });
+    }
+    const btnSat = document.getElementById('plBtnSatLoad');
+    if (btnSat) btnSat.addEventListener('click', loadSatelliteBackdrop);
+    const satInput = document.getElementById('plSatAddress');
+    if (satInput) {
+      satInput.addEventListener('keydown', e => {
+        if (e.key === 'Enter') { e.preventDefault(); loadSatelliteBackdrop(); }
+      });
+    }
+    const btnPhaseCer = document.getElementById('plBtnPhaseCeremony');
+    const btnPhaseDin = document.getElementById('plBtnPhaseDinner');
+    if (btnPhaseCer) btnPhaseCer.addEventListener('click', () => setPhase('ceremony'));
+    if (btnPhaseDin) btnPhaseDin.addEventListener('click', () => setPhase('dinner'));
 
     dom.eventName.addEventListener('input', () => { state.eventName = dom.eventName.value; });
 
@@ -7556,7 +8031,20 @@
     const btnPrint = document.getElementById('plBtnPrint');
     if (btnPrint) btnPrint.addEventListener('click', printPlan);
     const btnPdf = document.getElementById('plBtnPdf');
-    if (btnPdf) btnPdf.addEventListener('click', savePDF);
+    if (btnPdf) btnPdf.addEventListener('click', () => savePDF());
+    const btnPdfCrew = document.getElementById('plBtnPdfCrew');
+    if (btnPdfCrew) btnPdfCrew.addEventListener('click', () => savePDF({ crew: true }));
+    const btnIso = document.getElementById('plBtnIso');
+    if (btnIso) btnIso.addEventListener('click', openIsoPreview);
+    const isoClose = document.getElementById('plIsoClose');
+    if (isoClose) isoClose.addEventListener('click', closeIsoPreview);
+    const isoModal = document.getElementById('plIsoModal');
+    if (isoModal) {
+      isoModal.addEventListener('click', e => { if (e.target === isoModal) closeIsoPreview(); });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && isoModal && !isoModal.hidden) closeIsoPreview();
+      });
+    }
     const btnWizard = document.getElementById('plBtnWizard');
     if (btnWizard) btnWizard.addEventListener('click', () => openWizard('toolbar'));
     const btnEmptyWizard = document.getElementById('plEmptyWizardBtn');

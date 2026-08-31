@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Pitt Meadows rental quote?"
-    a: "Every Pitt Meadows quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Fraser Valley uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Do you handle weddings at Swaneset Bay Resort & Country Club?"
-    a: "Yes — Swaneset is one of our most-frequent Pitt Meadows venues. The resort runs its own vendor coordination for weddings and corporate events, and we book the delivery slot through their events team during quoting. Most Swaneset weddings run 150–300 guests and combine a covered reception (often under our marquee) with cocktail hour on the resort's terraces or lawns."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
+    a: "Yes — the club is in Pitt Meadows. We've set white Chiavari and a dance floor in that ballroom: ceremony rows, then dinner on the same chairs. Load-in is booked through the resort's events team. Maple Ridge couples book the same room; the ceremony shot from this wedding is on our Maple Ridge page."
   - q: "What tent size for a Central Meadows or South Bonson acreage wedding?"
     a: "Pitt Meadows acreages have plenty of footprint, so the tent decision is about guest count and weather more than site constraints. For 100 guests on a covered ceremony + reception, a 20×60 marquee is the right starting size. For 150–200 guests (more common at Pitt Meadows acreages than urban Vancouver), 30×60 or two linked 20×40 tents."
   - q: "What's the wind plan for open-field Pitt Meadows ceremonies?"
@@ -39,8 +35,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![A clean white marquee tent set against a vibrant blue sky over Fraser Valley grass — the standard footprint for Pitt Meadows acreage weddings](/images/lifestyle/tent-golden-hour-2.jpg)
-*A 20×40 marquee on Pitt Meadows farmland — the standard footprint for 80–120 guests.*
+![White Chiavari chairs around linen-covered round tables in the Swaneset Bay ballroom, Pitt Meadows](/images/jobs/pitt-meadows-swaneset-chiavari-reception.jpg)
+*Chiavari, rounds, and linens in the Swaneset Bay ballroom. The club is in Pitt Meadows. Our chairs, that room.*
 
 Same single inventory and crew calendar across the entire Lower Mainland. A Pitt Meadows couple gets the same catalogue any other city gets — without short-ships, without sub-rentals from another vendor.
 
@@ -70,7 +66,7 @@ Agricultural properties accept engineered ground stakes well, but we confirm spr
 
 ### Swaneset scale
 
-Destination weddings at Swaneset run larger than typical urban setups — 150–300 guests is standard. Crew sizing, multi-tent configurations, and timing are all adapted for the venue's scale. We coordinate the load-in window through the resort's events team during quoting.
+The ballroom job on this page is indoor: Chiavari, rounds, dance floor on the carpet, load-in through the events team. A supplemental marquee on the course-adjacent lawn is a different booking — we still coordinate that window with the resort, but it is not the photo above. Maple Ridge couples book the same room; [the ceremony rows from this wedding](/maple-ridge-party-rentals) live on that page.
 
 ### Per-item pricing
 

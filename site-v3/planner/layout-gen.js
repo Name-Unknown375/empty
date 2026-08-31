@@ -244,6 +244,8 @@
         if (danceOutside && (!opts.danceFloor || plan.style === 'ceremony')) continue;
         const variant = { ...opts, _aisle: aisle, _danceOutside: danceOutside };
         for (const cfg of tentConfigs()) {
+          if (opts.maxW > 0 && opts.maxD > 0 &&
+              (cfg.w > opts.maxW + 0.05 || cfg.d > opts.maxD + 0.05)) continue;
           const fit = fitInWidth(plan, { ...variant, _seams: tentSeams(cfg) }, cfg.w, cfg.d);
           if (!fit) continue;
           cands.push({
@@ -573,6 +575,44 @@
     return { tentKeys: [], sqftNeeded, totalSqft: 0, sqftPerGuest: 0, fits: false, notes: ['Bigger than our largest deliverable tent combination — contact us for a custom multi-tent plan.'] };
   }
 
+  const STAKE_FT = 5; // matches planner.js TENT_CLEARANCE_FT — stake/ballast band
+
+  function pushTentItems(items, cfg, ox, oy) {
+    for (const p of cfg.placements) {
+      const tentItem = { key: p.key, cx: ox + p.cx, cy: oy + p.cy, clearance: true };
+      if (p.rotation) tentItem.rotation = p.rotation;
+      items.push(tentItem);
+    }
+  }
+
+  function packFurnitureInVenue(opts) {
+    const W = opts.venue.widthFt, D = opts.venue.depthFt;
+    let aisle, plan, fit, compromise = null;
+    outer:
+    for (let a = 0, prefs = aislePrefs(opts); a < prefs.length; a++) {
+      aisle = prefs[a];
+      plan = seatingPlan({ ...opts, _aisle: aisle });
+      const variants = [
+        [{ ...opts, _aisle: aisle }, null],
+        [{ ...opts, _aisle: aisle, _df: 'min' }, 'smaller-dance'],
+        [{ ...opts, _aisle: aisle, danceFloor: false }, 'no-dance'],
+      ];
+      for (const [vOpts, vComp] of variants) {
+        if (vComp && !opts.danceFloor) continue;
+        fit = fitInWidth(plan, vOpts, W, D);
+        if (!fit) {
+          if (!opts.keepYard) {
+            fit = fitInWidth(plan, vOpts, D, W);
+            if (fit) return { W: D, D: W, plan, fit, aisle, compromise: vComp, rotated: true };
+          }
+        }
+        if (fit) { compromise = vComp; break outer; }
+      }
+    }
+    if (!fit) return null;
+    return { W, D, plan, fit, aisle, compromise, rotated: false };
+  }
+
   function generateLayout(opts) {
     const chairKey = opts.chairKey || 'resin-garden-chair';
     const items = [];
@@ -582,51 +622,63 @@
     let plan = null;
     let compromise = null;
     let danceOutside = false;
-      let aisle = aislePrefs(opts)[0];
+    let aisle = aislePrefs(opts)[0];
+    let tentOx = 0, tentOy = 0;
+    const keepVenue = !!(opts.venue && opts.venue.widthFt > 0 && opts.venue.depthFt > 0);
 
-    if (opts.venue && opts.venue.widthFt > 0 && opts.venue.depthFt > 0) {
-      W = opts.venue.widthFt; D = opts.venue.depthFt;
-      outer:
-      for (let a = 0, prefs = aislePrefs(opts); a < prefs.length; a++) {
-        aisle = prefs[a];
-        plan = seatingPlan({ ...opts, _aisle: aisle });
-        const variants = [
-          [{ ...opts, _aisle: aisle }, null],
-          [{ ...opts, _aisle: aisle, _df: 'min' }, 'smaller-dance'],
-          [{ ...opts, _aisle: aisle, danceFloor: false }, 'no-dance'],
-        ];
-        for (const [vOpts, vComp] of variants) {
-          if (vComp && !opts.danceFloor) continue;
-          fit = fitInWidth(plan, vOpts, W, D);
-          if (!fit) {
-            fit = fitInWidth(plan, vOpts, D, W);
-            if (fit) { const t = W; W = D; D = t; }
+    if (keepVenue && !opts.noTent) {
+      const maxW = opts.venue.widthFt - STAKE_FT * 2;
+      const maxD = opts.venue.depthFt - STAKE_FT * 2;
+      if (maxW >= 10 && maxD >= 10) {
+        const pick = chooseTentConfig({ ...opts, maxW, maxD });
+        if (pick) {
+          cfg = pick.cfg; fit = pick.fit; plan = pick.plan;
+          danceOutside = pick.danceOutside; aisle = pick.aisle;
+          W = opts.venue.widthFt; D = opts.venue.depthFt;
+          tentOx = (W - cfg.w) / 2;
+          tentOy = (D - cfg.d) / 2;
+          originX = tentOx + INSET_FT;
+          originY = tentOy + INSET_FT;
+          usableW = cfg.w - INSET_FT * 2;
+          pushTentItems(items, cfg, tentOx, tentOy);
+          if (danceOutside) {
+            const lawnDance = snapDanceFloor(plan.guests);
+            if (lawnDance) {
+              const cy = tentOy + cfg.d + DANCE_GAP + lawnDance.depthFt / 2;
+              if (cy + lawnDance.depthFt / 2 <= D + 0.05) {
+                items.push({ key: lawnDance.key, cx: tentOx + cfg.w / 2, cy });
+                compromise = 'dance-outside';
+              }
+            }
           }
-          if (fit) { compromise = vComp; break outer; }
         }
       }
-      if (!fit) return null;
+    }
+
+    if (!fit && keepVenue) {
+      const packed = packFurnitureInVenue({ ...opts, keepYard: true });
+      if (!packed) return null;
+      W = packed.W; D = packed.D; plan = packed.plan; fit = packed.fit;
+      aisle = packed.aisle; compromise = packed.compromise;
       originX = INSET_FT;
       originY = INSET_FT;
       usableW = W - INSET_FT * 2;
-    } else {
+      tentOx = 0; tentOy = 0;
+    } else if (!fit) {
       const pick = chooseTentConfig(opts);
       if (!pick) return null;
       cfg = pick.cfg; fit = pick.fit; plan = pick.plan;
       danceOutside = pick.danceOutside; aisle = pick.aisle;
       const lawnDance = danceOutside ? snapDanceFloor(plan.guests) : null;
+      tentOx = 4; tentOy = 4;
       W = cfg.w + 8;
       D = cfg.d + 8 + (lawnDance ? lawnDance.depthFt + DANCE_GAP + 2 : 0);
-      originX = 4 + INSET_FT;
-      originY = 4 + INSET_FT;
+      originX = tentOx + INSET_FT;
+      originY = tentOy + INSET_FT;
       usableW = cfg.w - INSET_FT * 2;
-      for (const p of cfg.placements) {
-        const tentItem = { key: p.key, cx: 4 + p.cx, cy: 4 + p.cy };
-        if (p.rotation) tentItem.rotation = p.rotation;
-        items.push(tentItem);
-      }
+      pushTentItems(items, cfg, tentOx, tentOy);
       if (lawnDance) {
-        items.push({ key: lawnDance.key, cx: 4 + cfg.w / 2, cy: 4 + cfg.d + DANCE_GAP + lawnDance.depthFt / 2 });
+        items.push({ key: lawnDance.key, cx: tentOx + cfg.w / 2, cy: tentOy + cfg.d + DANCE_GAP + lawnDance.depthFt / 2 });
         compromise = 'dance-outside';
       }
     }
@@ -647,7 +699,7 @@
     const tableItem = (cx, cy, rotation) => {
       let x = cx;
       if (plan.style === 'banquet' && cfg && cfg.placements.length > 1) {
-        const tentLeft = 4;
+        const tentLeft = tentOx;
         for (const s of tentSeams(cfg)) {
           const sx = tentLeft + (s.x1 + s.x2) / 2;
           if (Math.abs(x - sx) < 1.7) x = x < sx ? sx - 1.7 : sx + 1.7;
@@ -680,8 +732,8 @@
         }
       }
     } else {
-      const tentLeft = cfg ? 4 : 0;
-      const tentTop = cfg ? 4 : 0;
+      const tentLeft = cfg ? tentOx : 0;
+      const tentTop = cfg ? tentOy : 0;
       if (fit.zones.dance) {
         items.push({
           key: fit.zones.dance.key,
@@ -699,7 +751,7 @@
     if (fit.zones.buffet) {
       const bx = originX + usableW - 2;
       const innerTop = originY + 4;
-      const innerBot = (cfg ? 4 + cfg.d - INSET_FT : D - INSET_FT) - 4;
+      const innerBot = (cfg ? tentOy + cfg.d - INSET_FT : D - INSET_FT) - 4;
       const cy1 = innerTop + 4;
       const cy2 = Math.min(innerTop + 12, innerBot - 4);
       items.push({ key: 'banquet-table-8ft', cx: bx, cy: cy1, rotation: 90 });
@@ -734,6 +786,8 @@
     if (compromise === 'smaller-dance') summaryBits.push('dance floor sized down to fit your space');
     if (compromise === 'no-dance') summaryBits.push('no room for a dance floor in this space');
     if (compromise === 'dance-outside') summaryBits.push('dance floor on the lawn beside the tent');
+    if (keepVenue && cfg) summaryBits.push(`fitted in your ${opts.venue.widthFt}×${opts.venue.depthFt} ft space`);
+    if (keepVenue && !cfg) summaryBits.push('no tent fits with a 5 ft stake band — furniture only');
 
     return {
       id: `gen-${plan.guests}-${plan.style}${opts.danceFloor ? '-dance' : ''}`,
@@ -744,10 +798,69 @@
       compromise,
       aisle: plan.aisle,
       pack: isSpacious(opts) ? 'spacious' : 'efficient',
+      keepVenue: keepVenue || undefined,
     };
   }
 
-  const api = { init, recommendTent, generateLayout };
+  function tentAabbFromItems(items) {
+    let x1 = Infinity, y1 = Infinity, x2 = -Infinity, y2 = -Infinity;
+    let n = 0;
+    for (const t of items) {
+      const spec = byKey[t.key];
+      if (!spec || spec.shape !== 'tent') continue;
+      n++;
+      const rot = !!(t.rotation);
+      const w = rot ? spec.depthFt : spec.widthFt;
+      const d = rot ? spec.widthFt : spec.depthFt;
+      x1 = Math.min(x1, t.cx - w / 2);
+      y1 = Math.min(y1, t.cy - d / 2);
+      x2 = Math.max(x2, t.cx + w / 2);
+      y2 = Math.max(y2, t.cy + d / 2);
+    }
+    if (!n) return null;
+    return { x1, y1, x2, y2, w: x2 - x1, d: y2 - y1 };
+  }
+
+  // Ceremony + dinner in the same tent. Dinner owns tent pick; ceremony
+  // furniture is packed into that canopy and offset onto the dinner tents.
+  function generateFlipLayouts(opts) {
+    const dinnerSeating = (opts.seating && opts.seating !== 'ceremony') ? opts.seating : 'round';
+    const dinner = generateLayout({ ...opts, seating: dinnerSeating });
+    if (!dinner) return null;
+    const tents = dinner.items.filter(it => byKey[it.key] && byKey[it.key].shape === 'tent');
+    const aabb = tentAabbFromItems(dinner.items);
+    let ceremony;
+    if (aabb) {
+      const inner = generateLayout({
+        ...opts,
+        seating: 'ceremony',
+        danceFloor: false,
+        headTable: false,
+        buffet: false,
+        bar: false,
+        noTent: true,
+        venue: { widthFt: aabb.w, depthFt: aabb.d },
+      });
+      if (!inner) return { dinner, ceremony: null };
+      const furniture = inner.items.filter(it => !(byKey[it.key] && byKey[it.key].shape === 'tent'));
+      ceremony = {
+        ...inner,
+        label: `${opts.guests}-Guest Ceremony`,
+        venue: dinner.venue,
+        items: tents.map(t => Object.assign({}, t)).concat(
+          furniture.map(it => Object.assign({}, it, { cx: it.cx + aabb.x1, cy: it.cy + aabb.y1 }))
+        ),
+      };
+    } else {
+      ceremony = generateLayout({
+        ...opts, seating: 'ceremony', danceFloor: false, headTable: false,
+        buffet: false, bar: false, noTent: true, venue: dinner.venue,
+      });
+    }
+    return { dinner, ceremony };
+  }
+
+  const api = { init, recommendTent, generateLayout, generateFlipLayouts };
   if (typeof window !== 'undefined') window.FPRLayoutGen = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })();

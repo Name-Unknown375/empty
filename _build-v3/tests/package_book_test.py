@@ -82,6 +82,22 @@ def main() -> int:
                         card["cart"].get(COCKTAIL_ID, 0) > 0 and COMBO_ID not in card["cart"],
                     )
 
+    tpl = (BUILD / "package_template.html").read_text(encoding="utf-8")
+    ok("template hero Book this package targets #pkg-book", "hero_book_href = '#pkg-book'" in tpl)
+    ok("template keeps #pkg-book date target", 'id="pkg-book"' in tpl)
+
+    site = BUILD.parent / "site-v3"
+    pages = sorted(site.glob("*-package-*-guests.html"))
+    ok("nine generated package pages exist", len(pages) == 9)
+    for path in pages:
+        html = path.read_text(encoding="utf-8")
+        ok(
+            f"{path.name} Book this package → #pkg-book",
+            'href="#pkg-book" class="btn btn-gold">Book this package</a>' in html,
+        )
+        ok(f"{path.name} has #pkg-book target", 'id="pkg-book"' in html)
+        ok(f"{path.name} loads package-book.js", "/package-book.js?v=3" in html)
+
     failed = [name for pass_, name in results if not pass_]
     for pass_, name in results:
         print(f"  {'ok  ' if pass_ else 'FAIL'} {name}")

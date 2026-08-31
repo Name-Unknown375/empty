@@ -24,7 +24,9 @@ What it does
 3. Extracts the external hosts each page actually loads, per resource type:
      script-src  <script src>, plus https:// literals inside inline scripts
                  that build a <script> element (the GTM/Pixel/Clarity
-                 deferred-loader shape)
+                 deferred-loader shape), plus `.src = 'https://…'` assignments
+                 after `createElement('script')` in site-v3/shared.js (the
+                 LeadConnector chat widget is injected there, not in HTML)
      style-src   <link rel=stylesheet>, @import url() in inline <style>
      font-src    <link rel=preload as=font>
      frame-src   <iframe src>
@@ -35,8 +37,9 @@ What it does
    no static scan can see. See that table's comment; it is the difference
    between catching the Clarity bug and only half-catching it.
 
-Sources scanned: every page under site/, every _build/*template.html (so a
-template regression fails before pages are regenerated), and
+Sources scanned: every page under site-v3/, every _build-v3/*template.html
+(so a template regression fails before pages are regenerated),
+site-v3/shared.js (runtime script injectors), and
 netlify/functions/blog-article.mjs (dynamic /blog/* HTML that never exists on
 disk).
 
@@ -71,6 +74,11 @@ HEADERS_FILE = SITE_DIR / "_headers"
 #   from scripts.clarity.ms. Allowlisting only www.clarity.ms fetches the shim
 #   and then dies one hop later, which looks identical to the original bug.
 #   (Verified 2026-07-30 against tag qu3zf92dem.)
+#
+#   widgets.leadconnectorhq.com — loader.js injects chat-widget.js /
+#   chat-widget.esm.js from the same host, then fetches config from
+#   services.leadconnectorhq.com (connect-src, already covered by https:).
+#   No extra script host. (Verified 2026-08-24 against loader.js.)
 # ---------------------------------------------------------------------------
 RUNTIME_CHAINS: dict[str, tuple[str, ...]] = {
     "www.clarity.ms": ("scripts.clarity.ms",),
@@ -239,6 +247,26 @@ def extract(html: str) -> dict[str, set[str]]:
     return found
 
 
+CREATE_SCRIPT_RE = re.compile(r"createElement\s*\(\s*['\"]script['\"]\s*\)", re.I)
+SRC_ASSIGN_RE = re.compile(r"""\.src\s*=\s*['\"](https://[^'\"]+)['\"]""")
+
+
+def extract_script_src_assigns(js: str) -> set[str]:
+    """Hosts assigned to a created <script>.src in classic JS (shared.js).
+
+    Narrower than treating the whole file as an inline injector: share-button
+    URLs (facebook.com, twitter.com) live in the same file and are not scripts.
+    Only the window after createElement('script') is scanned.
+    """
+    hosts: set[str] = set()
+    for m in CREATE_SCRIPT_RE.finditer(js):
+        window = js[m.end(): m.end() + 800]
+        for url in SRC_ASSIGN_RE.findall(window):
+            if (h := host_of(url)):
+                hosts.add(h)
+    return hosts
+
+
 def url_path_for(page: Path) -> str:
     """site/foo.html → /foo   (pretty_urls=true);   site/index.html → /"""
     rel = page.relative_to(SITE_DIR).as_posix()
@@ -270,6 +298,13 @@ def main() -> int:
     if fn.exists():
         targets.append(("netlify/functions/blog-article.mjs", "/blog/__dynamic__",
                         fn.read_text(encoding="utf-8", errors="replace")))
+    shared_js = SITE_DIR / "shared.js"
+    if shared_js.exists():
+        hosts = extract_script_src_assigns(
+            shared_js.read_text(encoding="utf-8", errors="replace"))
+        synthetic = "".join(
+            f'<script src="https://{h}/loader.js"></script>' for h in sorted(hosts))
+        targets.append(("site-v3/shared.js", "/", synthetic))
 
     # A blocked host is almost always blocked on all 300 pages at once, so
     # group by (host, directive) and report each violation ONCE with an

@@ -1,0 +1,310 @@
+[
+  {
+    "metricName": "DeadClickCount",
+    "information": [
+      {
+        "sessionsCount": "517",
+        "sessionsWithMetricPercentage": 22.44,
+        "sessionsWithoutMetricPercentage": 77.56,
+        "pagesViews": "178",
+        "subTotal": "520",
+        "Campaign": null
+      },
+      {
+        "sessionsCount": "23",
+        "sessionsWithMetricPercentage": 4.35,
+        "sessionsWithoutMetricPercentage": 95.65,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Campaign": "{campaignname}"
+      },
+      {
+        "sessionsCount": "6",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Campaign": "Thank you! (16-08-2026)"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 50,
+        "sessionsWithoutMetricPercentage": 50,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Campaign": "Thank you! resend-unopened (16-08-2026)"
+      }
+    ]
+  },
+  {
+    "metricName": "ExcessiveScroll",
+    "information": [
+      {
+        "sessionsCount": 517,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Campaign": null
+      },
+      {
+        "sessionsCount": 23,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Campaign": "{campaignname}"
+      },
+      {
+        "sessionsCount": 6,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Campaign": "Thank you! (16-08-2026)"
+      },
+      {
+        "sessionsCount": 2,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Campaign": "Thank you! resend-unopened (16-08-2026)"
+      }
+    ]
+  },
+  {
+    "metricName": "RageClickCount",
+    "information": [
+      {
+        "sessionsCount": "517",
+        "sessionsWithMetricPercentage": 1.16,
+        "sessionsWithoutMetricPercentage": 98.84,
+        "pagesViews": "6",
+        "subTotal": "20",
+        "Campaign": null
+      },
+      {
+        "sessionsCount": "23",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Campaign": "{campaignname}"
+      },
+      {
+        "sessionsCount": "6",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Campaign": "Thank you! (16-08-2026)"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Campaign": "Thank you! resend-unopened (16-08-2026)"
+      }
+    ]
+  },
+  {
+    "metricName": "QuickbackClick",
+    "information": [
+      {
+        "sessionsCount": "517",
+        "sessionsWithMetricPercentage": 18.96,
+        "sessionsWithoutMetricPercentage": 81.03999999999999,
+        "pagesViews": "154",
+        "subTotal": "154",
+        "Campaign": null
+      },
+      {
+        "sessionsCount": "23",
+        "sessionsWithMetricPercentage": 34.78,
+        "sessionsWithoutMetricPercentage": 65.22,
+        "pagesViews": "8",
+        "subTotal": "8",
+        "Campaign": "{campaignname}"
+      },
+      {
+        "sessionsCount": "6",
+        "sessionsWithMetricPercentage": 16.67,
+        "sessionsWithoutMetricPercentage": 83.33,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Campaign": "Thank you! (16-08-2026)"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Campaign": "Thank you! resend-unopened (16-08-2026)"
+      }
+    ]
+  },
+  {
+    "metricName": "ScriptErrorCount",
+    "information": [
+      {
+        "sessionsCount": "517",
+        "sessionsWithMetricPercentage": 1.16,
+        "sessionsWithoutMetricPercentage": 98.84,
+        "pagesViews": "7",
+        "subTotal": "13",
+        "Campaign": null
+      },
+      {
+        "sessionsCount": "23",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Campaign": "{campaignname}"
+      },
+      {
+        "sessionsCount": "6",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Campaign": "Thank you! (16-08-2026)"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Campaign": "Thank you! resend-unopened (16-08-2026)"
+      }
+    ]
+  },
+  {
+    "metricName": "ErrorClickCount",
+    "information": [
+      {
+        "sessionsCount": "517",
+        "sessionsWithMetricPercentage": 0.58,
+        "sessionsWithoutMetricPercentage": 99.42,
+        "pagesViews": "4",
+        "subTotal": "6",
+        "Campaign": null
+      },
+      {
+        "sessionsCount": "23",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Campaign": "{campaignname}"
+      },
+      {
+        "sessionsCount": "6",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Campaign": "Thank you! (16-08-2026)"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Campaign": "Thank you! resend-unopened (16-08-2026)"
+      }
+    ]
+  },
+  {
+    "metricName": "ScrollDepth",
+    "information": [
+      {
+        "averageScrollDepth": 34.7,
+        "Campaign": null
+      },
+      {
+        "averageScrollDepth": 18.62,
+        "Campaign": "{campaignname}"
+      },
+      {
+        "averageScrollDepth": 17,
+        "Campaign": "Thank you! (16-08-2026)"
+      },
+      {
+        "averageScrollDepth": 29,
+        "Campaign": "Thank you! resend-unopened (16-08-2026)"
+      }
+    ]
+  },
+  {
+    "metricName": "Traffic",
+    "information": [
+      {
+        "totalSessionCount": "517",
+        "totalBotSessionCount": "128",
+        "distinctUserCount": "523",
+        "pagesPerSessionPercentage": 2.4708588957055215,
+        "Campaign": null
+      },
+      {
+        "totalSessionCount": "0",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "23",
+        "pagesPerSessionPercentage": 1.0769230769230769,
+        "Campaign": ""
+      },
+      {
+        "totalSessionCount": "23",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "21",
+        "pagesPerSessionPercentage": 1.391304347826087,
+        "Campaign": "{campaignname}"
+      },
+      {
+        "totalSessionCount": "6",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "2",
+        "pagesPerSessionPercentage": 1.1666666666666667,
+        "Campaign": "Thank you! (16-08-2026)"
+      },
+      {
+        "totalSessionCount": "2",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "2",
+        "pagesPerSessionPercentage": 1,
+        "Campaign": "Thank you! resend-unopened (16-08-2026)"
+      }
+    ]
+  },
+  {
+    "metricName": "EngagementTime",
+    "information": [
+      {
+        "totalTime": "211",
+        "activeTime": "107",
+        "Campaign": null
+      },
+      {
+        "totalTime": "98",
+        "activeTime": "39",
+        "Campaign": "{campaignname}"
+      },
+      {
+        "totalTime": "10",
+        "activeTime": "9",
+        "Campaign": "Thank you! (16-08-2026)"
+      },
+      {
+        "totalTime": "63",
+        "activeTime": "63",
+        "Campaign": "Thank you! resend-unopened (16-08-2026)"
+      }
+    ]
+  }
+]

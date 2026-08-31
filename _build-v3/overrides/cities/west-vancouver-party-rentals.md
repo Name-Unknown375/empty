@@ -10,8 +10,6 @@ intro_paragraphs:
   - "People searching North Shore party rentals usually mean West Vancouver and North Vancouver together. This page is West Vancouver specifically. The regional hub — Lions Gate vs Ironworkers, Ambleside, Whytecliff, and North Van — is <a href=\"/north-shore-party-rentals\">North Shore party rentals</a>."
 
 faqs:
-  - q: "What's included on a West Vancouver rental quote?"
-    a: "Every West Van quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No bridge surcharge, no British Properties uplift, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can your crew handle British Properties driveways?"
     a: "Most British Properties driveways are within our delivery vehicles' grade tolerance — they're steep but engineered, and laid out for trades access. The harder cases are the older upper-bench lots above Marine Drive where the driveway turns sharply on a narrow apron. For those we either stage at the road and hand-carry, or send a smaller delivery vehicle. We always confirm access during quoting, not on event day."
   - q: "How do you handle tidal timing for Whytecliff or Ambleside beach setups?"

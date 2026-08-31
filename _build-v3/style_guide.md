@@ -96,22 +96,60 @@ Every draft must include:
 - **Primary keyword density**: each main keyword (e.g. "Vancouver tent rental")
   appears max 3× in the body. Use natural variation.
 
+## Information gain — uniqueness bar
+
+A page ships only if it contains something that exists nowhere else — including
+on our own other URLs. Test every sentence: could someone who has never loaded
+an FPR truck have written this? If yes, cut it.
+
+Do not unique-ify the city×product matrix with adjectives. Concentrate first-party
+facts on hubs (`/tents`, `/chairs`, `/tables`, `/dance-floor`) plus money cities
+and ops blog posts. Leave Starlink/projector/battery city pages thin.
+
 ## FAQs
 
 Override the templated FAQs with city-specific or product-specific questions
-that are *actually asked*. Source ideas from:
+that are *actually asked* **and that require local ops knowledge**. Source ideas
+from:
 - The reference blog posts' FAQ sections
 - Operational realities ("Can you set up at Stanley Park?" for Vancouver)
-- Pricing/logistics edge cases ("What happens if it rains?")
+- Surface, wind, venue-calendar, and access edge cases unique to this slug
 
 Keep 3–5 FAQs total. Answer in 1–3 sentences. No "click for more" tail.
 
+**Banned clone FAQs** (these belong once on the category hub, never on a city
+or product×city override):
+
+- "How clean are the chairs and tables when they arrive?"
+- "What's included on a {City} rental quote?" when the answer is the generic
+  itemised-quote / no-fuel-surcharge paragraph
+- "Do you deliver to {City}?" when the answer is only "yes, we deliver there"
+- Any cleanliness, inspection, or "same inventory across the Lower Mainland"
+  question copied from another override
+
+If dropping clones leaves fewer than 3 FAQs, that is fine. Do not pad with
+generic logistics.
+
+## Photos and captions
+
+Do not recaption a shared lifestyle image as a local install. Files such as
+`/images/lifestyle/tent-golden-hour-2.jpg` must not be described as "a Langley
+vineyard" (or any other named city/venue) unless the photo was actually taken
+there. Prefer a job photo with named city/venue, or omit the image.
+
+Planner layout diagrams (from `_build-v3/layout-previews/`) may be used when
+captioned as FPR planner output (guest count, table type, efficient vs spacious).
+
 ## Testimonials
 
-Optional override. If you include `testimonials:`, only use ones supplied by
-Devon — never invent reviewer names, events, or quotes. If no real testimonials
-are in the bundle, omit the field entirely (the template falls back to the
-shared pool).
+Optional override. If you include `testimonials:`, only use GBP-verified quotes
+supplied by Devon — never invent reviewer names, events, or quotes. A quote
+may appear on **one** primary URL (plus at most one supporting post). Do not
+reuse `testimonialPool` entries.
+
+If no page-specific testimonials are in the bundle, **omit the field**. The
+template must not fall back to a shared pool — no cards is better than recycled
+cards. Do not emit Review JSON-LD.
 
 ## Output schema
 

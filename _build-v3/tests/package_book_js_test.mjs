@@ -38,6 +38,7 @@ const { FPRPlannerCart, FPRPackageBook, FPRCheckoutCoupon } = sandbox;
 
 ok(!!FPRPackageBook, 'FPRPackageBook defined');
 ok(FPRPackageBook.COUPON === 'BUNDLE10', 'coupon is BUNDLE10');
+ok(FPRPackageBook.BOOK_HASH === '#pkg-book', 'book CTAs target #pkg-book');
 ok(FPRPackageBook.parseCart('{"abc":2}') && FPRPackageBook.parseCart('{"abc":2}').abc === 2, 'parseCart reads qty');
 ok(FPRPackageBook.parseCart('') === null, 'empty cart string rejected');
 ok(FPRPackageBook.parseCart('{"abc":0}') === null, 'zero qty rejected');

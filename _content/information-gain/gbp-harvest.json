@@ -1,0 +1,611 @@
+{
+  "_comment": "Curated from Apify Google Maps Reviews scrape of Forever Party Rentals GBP on 2026-08-22 (215 reviews, 184 with text). Quotes are exact `text` fields. Each quote has one primaryUrl plus /reviews when those differ. Do not reuse a quote on a second city or product hub. Do not emit Review JSON-LD. Raw scrape is not committed.",
+  "source": "dataset_Google-Maps-Reviews-Scraper_2026-08-22_05-33-25-367.json",
+  "scrapedPlace": {
+    "title": "Forever Party Rentals",
+    "kgmid": "/g/11tnwsrdpc",
+    "reviewsCount": 215,
+    "withText": 184
+  },
+  "harvestedAt": "2026-08-22",
+  "reviews": [
+    {
+      "name": "Stacey Sarris",
+      "nameAsPublished": "Stacey Sarris",
+      "date": "2026-05-19",
+      "quote": "Forever Party Rentals was absolutely spectacular! Devon was amazing to work with from start to finish. Extremely supportive, flexible, and accommodating throughout the entire process. Everything was seamless, professional, and stress-free. Highly recommend Forever Party Rentals for any event — outstanding service all around!",
+      "stars": 5,
+      "isLocalGuide": true,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT21veFUzbHRlbU4zUjJGSWQxa3RURTlzVldsaE5FRRAB",
+      "primaryUrl": "/",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review · Local Guide"
+    },
+    {
+      "name": "Daryl Chausse",
+      "nameAsPublished": "Daryl Chausse",
+      "date": "2026-08-07",
+      "quote": "If I could add more stars, I would.. I have received this kind of excellent treatment in a very long time… Devon noticed that I had tried a few times to go online and it didn’t work for some reason and the next thing I know I’m getting a call from him.. Asking what he could do to help..\n\nAnd then I got a call from the Company to ask if I need anything else and what they could do to facilitate My experience..\n\nIt was incredible. I loved it.\n\nHighly  recommend This company",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2s1SlgxbFBSamx4Y0ZWQmVuSjNkVXBUVlRSS01IYxAB",
+      "primaryUrl": "/",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review"
+    },
+    {
+      "name": "Chelsea Thompson",
+      "nameAsPublished": "Chelsea Thompson",
+      "date": "2023-09-25",
+      "quote": "We used forever party rentals for our wedding celebration. Devon was so easy to coordinate with. Very professional, friendly and reliable. And his tent set up team was amazing too! Would definitely recommend and would use them again for sure.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURaek9IMVBREAE",
+      "product": "tent",
+      "primaryUrl": "/tents",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review · Wedding"
+    },
+    {
+      "name": "Rutendo Chitungo",
+      "nameAsPublished": "rutendo chitungo",
+      "date": "2023-06-01",
+      "quote": "Rented the white chiavari chairs and I must say they are the most comfortable chairs. The cushions were very soft and well maintained. Highly recommend 100%",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUR4eEx6S1JREAE",
+      "product": "chair",
+      "primaryUrl": "/chairs",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review · Chiavari chairs"
+    },
+    {
+      "name": "Amber Schmidt",
+      "nameAsPublished": "Amber Schmidt",
+      "date": "2023-08-21",
+      "quote": "Forever Party Rentals was amazing. We had some difficulty with arranging pick up. They were incredibly accommodating, the tables were brand new in the plastic, and they made drop off super flexible. Would highly recommend!",
+      "stars": 5,
+      "isLocalGuide": true,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURwOXNpc1RREAE",
+      "product": "table",
+      "primaryUrl": "/tables",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review · Tables"
+    },
+    {
+      "name": "Jenelle Breen",
+      "nameAsPublished": "Jenelle Breen",
+      "date": "2024-02-20",
+      "quote": "Forever party rentals provided both amazing service and clean high quality tents, tables, and chivari chairs for multiple wedding events I was at. I was blown away by forever party rentals effort in creating the best aesthetic layout for the chairs and tables at the venue, taking into account the unique shape of the yard. They ensured there was space to flow from tables to dance floor and food. All of this was done efficiently and before we knew it the yard was transformed into a beautiful and functional space for a wedding.\nEverything they brought were clean and their chairs were the most comfortable chairs I’ve ever experienced at an event.\nThe bride and groom were happy with everything and working with forever party rentals was easy and problem free.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURkb01IWkV3EAE",
+      "product": "dance-floor",
+      "primaryUrl": "/dance-floor",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review · Wedding layout"
+    },
+    {
+      "name": "Meet Rai",
+      "nameAsPublished": "Meet Rai",
+      "date": "2026-01-03",
+      "quote": "We just had our wedding at Langley  and Forever Party rentals were great! They dropped off our items and picked up right on time, they were accommodating in the morning when there were a delays in getting doors & gates unlocked. Their selection of items for rent was very convenient and their per item rental was slightly cheaper than other places we found. It is well worth it to have everything picked up when need be rather than other rental companies who are picky about weekend pick ups and late night pick ups. Overall a great experience!",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT214TWVrUlFOM1JuVFhwcmRFWXpTbEZQTlVwaGFtYxAB",
+      "city": "langley",
+      "primaryUrl": "/langley-party-rentals",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review · Langley wedding"
+    },
+    {
+      "name": "Dev Arora",
+      "nameAsPublished": "Dev Arora",
+      "date": "2024-04-05",
+      "quote": "Tents were great. Solid customer service. Impressed they came all the way to Surrey. Highly recommend.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUREcU5ELXJBRRAB",
+      "city": "surrey",
+      "product": "tent",
+      "primaryUrl": "/surrey-party-rentals",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review · Surrey tents"
+    },
+    {
+      "name": "Tamara Durkin",
+      "nameAsPublished": "Tamara Durkin",
+      "date": "2024-08-16",
+      "quote": "I recently hired Forever Party Rentals to install a 20' x 30' marquee tent for a client wedding in Maple Ridge, and the experience was exceptional. Devon at Forever Party Rentals was an absolute pleasure to work with—extremely responsive and communicative throughout the entire process. He contacted me upon arrival to confirm the installation location and kept me informed every step of the way.\n\nBefore leaving the site, Devon provided a photo of the completed setup, ensuring it was installed exactly as requested. His flexibility with both the delivery and setup times, as well as the takedown the next day, was greatly appreciated.\n\nI highly recommend Devon and his team at Forever Party Rentals for their professionalism and excellent service!",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUM3aVpUeUNREAE",
+      "city": "maple-ridge",
+      "product": "tent",
+      "primaryUrl": "/maple-ridge-party-rentals",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review · Maple Ridge wedding tent"
+    },
+    {
+      "name": "Gagandeep Singh",
+      "nameAsPublished": "Gagandeep Singh",
+      "date": "2026-01-19",
+      "quote": "I have dealt with this company for many years now. They are very friendly and easy to deal with. The prices are reasonable and they provide excellent service. This year for our Christmas party I opted for the pick up and delivery option. It made everything much easier and stress free. I would definitely recommend this company.\n\nThese guys have it all! Great prices too! Thanks for helping me stage a terrific networking event for the Vancouver business community!\n\nAlways reliable, quick service & fair pricing",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xNeU9VbG9TRU5WVlZGWmNITXlhekJzVERaRWVuYxAB",
+      "city": "vancouver",
+      "primaryUrl": "/vancouver-party-rentals",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review · Vancouver business event"
+    },
+    {
+      "name": "Amrit Johal",
+      "nameAsPublished": "Amrit Johal",
+      "date": "2024-02-23",
+      "quote": "Had the best time dealing with Devon from Forever Party Rentals for my wedding. We initially went with them as they offered a 3d rendering of tent and 2d rendering of floorplan. This was extremely helpful as i was having a difficult time envisioning my backyard spacing, also came in handy when planning decor. After booking I really appreciated their communication and timely delivery and pick up. Their tables and chairs came very clean. Overall it was an excellent experience and would definitely book with them again for all future events",
+      "stars": 5,
+      "isLocalGuide": true,
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSURkbm95ZTZBRRAB",
+      "product": "tent",
+      "primaryUrl": "/event-layout-planner",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review · Wedding floorplan"
+    },
+    {
+      "name": "Angela Finley",
+      "nameAsPublished": "Angela Finley",
+      "date": "2026-06-01",
+      "quote": "Watkins Sawmills Ltd. has used Forever Party Rentals twice for our Corporate events and both times we have been very pleased with their professional expertise.  Their tents, tables and chairs were were clean and set up exactly how we requested.  We will be using Forever Party Rentals for all our events in the future",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSURid1A3UTh3RRAB",
+      "product": "tent",
+      "primaryUrl": "/corporate",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review · Watkins Sawmills Ltd."
+    },
+    {
+      "name": "Daniel Snyder",
+      "nameAsPublished": "Daniel Snyder",
+      "date": "2025-12-09",
+      "quote": "Have had chairs and tables delivered & picked-up two years in a row on a Sunday and a stat holiday! Always friendly, on time and great pricing. Good communication!",
+      "stars": 5,
+      "isLocalGuide": true,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2taRE1HcFNiWGRrU0dveE5FNXdhMkYzVUZGQk9YYxAB",
+      "product": "chair",
+      "primaryUrl": "/corporate",
+      "alsoOn": [
+        "/reviews"
+      ],
+      "event": "Google Review · Repeat delivery"
+    },
+    {
+      "name": "Sylvia Bishop",
+      "nameAsPublished": "Sylvia Bishop",
+      "date": "2024-10-05",
+      "quote": "FPR came thru when we needed a 20x20 tent at the last minute. I must have tried half a dozen suppliers who were booked out or way over our budget. Then we realized we needed concrete weights as tents cannot be staked in city parks. Devon took that problem out of our hands and phoned around and found some that were available. (FPR‘s were booked out) their customer service is amazing: they have a „can do“ attitude. Excellent communication. Highly recommend.",
+      "stars": 5,
+      "isLocalGuide": true,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURuNHE2X2FREAE",
+      "product": "tent",
+      "primaryUrl": "/tents",
+      "event": "Google Review · City-park tent",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Rustico Agawin",
+      "nameAsPublished": "rustico agawin",
+      "date": "2024-07-02",
+      "quote": "Our family hosted a dinner before my son's wedding day. The white chiavari chairs that we rented from Forever Party Rentals really looked great! They added a touch of elegance to the dining arrangement and we got compliments from our guests for this.\n\nThanks to Devon for being accommodating and understanding of our needs. He was flexible on the pick up and return of the rented chairs which I really appreciated considering how busy we were at that time. Also, Devon was always available to promptly answer our questions and assist us.\n\nI would definitely recommend Forever Party Rentals!",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURMXzdETU5nEAE",
+      "product": "chair",
+      "primaryUrl": "/chairs",
+      "event": "Google Review · Chiavari chairs",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Nisha S",
+      "nameAsPublished": "Nisha S",
+      "date": "2024-05-17",
+      "quote": "Forever Party Rentals exceeded all our expectations! Their team was incredibly helpful and friendly throughout the entire process. From selecting the perfect tents, chiavari chairs, and tables to delivery and setup, everything was seamless. The equipment was in impeccable condition and added a touch of elegance to our event. We couldn't have asked for a better experience. Highly recommend!",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChRDSUhNMG9nS0VJQ0FnSUNUeFlzMhAB",
+      "product": "tent",
+      "primaryUrl": "/abbotsford-party-rentals",
+      "event": "Google Review · Tent, chairs & tables",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Roy",
+      "nameAsPublished": "Roy",
+      "date": "2024-04-21",
+      "quote": "This party rental company provided all the chiavari chairs for a wedding I attended. Some of the most comfortable chairs I've sat on. Highly recommend hiring them for your wedding!",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUNqbHE2MHFRRRAB",
+      "product": "chair",
+      "primaryUrl": "/reviews",
+      "alsoOn": [],
+      "event": "Google Review"
+    },
+    {
+      "name": "Daniel Hickey",
+      "nameAsPublished": "Daniel Hickey",
+      "date": "2024-02-21",
+      "quote": "Devon was great. Easy to work with and very efficient. We rented 40 tables from him. Highly recommend",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURkcklXS1pnEAE",
+      "product": "table",
+      "primaryUrl": "/tables",
+      "event": "Google Review · 40 tables",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Susan Kihn",
+      "nameAsPublished": "Susan Kihn",
+      "date": "2026-08-11",
+      "quote": "Forever Party Rentals helped us with my daughters wedding. They were great, efficient and wonderful to work with.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25GVFZucDNhMGd4UnpKSmQwSlFPVUkwTVdSSU0wRRAB",
+      "primaryUrl": "/reviews",
+      "alsoOn": [],
+      "event": "Google Review"
+    },
+    {
+      "name": "Annette A",
+      "nameAsPublished": "Annette A",
+      "date": "2026-06-24",
+      "quote": "From the very first inquiry through the entire rental process, the service was exceptional. The team was professional, responsive, and made everything seamless from start to finish. The tent was set up perfectly, taken down efficiently, and the attention to detail throughout the entire experience was outstanding.\n\nThey made the process stress-free and ensured everything was taken care of, allowing us to simply enjoy our event. The quality of service, communication, and professionalism truly stood out. I would highly recommend them to anyone looking for a reliable and top-notch tent rental experience!\n\nThank you for helping make our 50th Year Company Event a success!",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pOM1pXWm5ibWRLT0c5WE9IWmliMEUyWDIxNFVFRRAB",
+      "product": "tent",
+      "primaryUrl": "/corporate",
+      "event": "Google Review · 50th year company event",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Deshka Peneff",
+      "nameAsPublished": "Deshka Peneff",
+      "date": "2025-06-01",
+      "quote": "Forever Party Rentals has been by far the best rental company I have ever worked with. The staff were extremely pleasant, respectful and time conscious. I would definitely recommend their services and will use them again.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VPblVoLUcxdXFfUUFnEAE",
+      "primaryUrl": "/reviews",
+      "alsoOn": [],
+      "event": "Google Review"
+    },
+    {
+      "name": "Jaspreet Kaur",
+      "nameAsPublished": "JASPREET KAUR",
+      "date": "2024-04-22",
+      "quote": "Devon was very helpful. We rented folding tables for our company event last Friday. The process was smooth and quick. I would recommend this company.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUNqMFlUaGlnRRAB",
+      "product": "table",
+      "primaryUrl": "/reviews",
+      "alsoOn": [],
+      "event": "Google Review"
+    },
+    {
+      "name": "Ashley MacNeil",
+      "nameAsPublished": "Ashley MacNeil",
+      "date": "2026-07-21",
+      "quote": "Excellent experience! Very easy to book online, great communication with staff, smooth delivery and pickup — highly recommend and will be using again for events!",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pGVVEyNVNOVFphVDFkbE5GOHRSREJOVjFaSWIzYxAB",
+      "primaryUrl": "/",
+      "event": "Google Review · Online booking",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Irina V.",
+      "nameAsPublished": "Irina V.",
+      "date": "2026-03-15",
+      "quote": "Excellent experience working with Forever Party Rentals. Everything was delivered exactly as promised and right on time. The team was professional, organized, and made the entire process very smooth from start to finish. Their reliability and great service made a big difference for our company event. Highly recommend!",
+      "stars": 5,
+      "isLocalGuide": true,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT21Kd09XRlVhbWhHTXpjMk5XMWpkbEV5Tld0UVQxRRAB",
+      "primaryUrl": "/vancouver-party-rentals",
+      "event": "Google Review · Company event",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Sandhu Jora 5911",
+      "nameAsPublished": "Sandhu Jora 5911",
+      "date": "2026-01-03",
+      "quote": "It was my brother's birthday.  We ordered a tent, tables and chairs. Everything was clean and delivered on time. Staff is very cooperative. Really recommend it.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2w5b2IzQnlURlE1WjJoV1ZVbEpUVzVuYldoSFJXYxAB",
+      "product": "tent",
+      "primaryUrl": "/reviews",
+      "alsoOn": [],
+      "event": "Google Review"
+    },
+    {
+      "name": "Akashpreet Singh",
+      "nameAsPublished": "Akashpreet Singh",
+      "date": "2026-01-19",
+      "quote": "Awesome people. They gave us an awesome deal on tent and other stuff we hired. Very friendly and accommodating staff.\nVery highly recommended.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2w5elFVcExSVkpaT0hWeFRIUk5NVU5mVFMxMGMzYxAB",
+      "product": "tent",
+      "primaryUrl": "/reviews",
+      "alsoOn": [],
+      "event": "Google Review"
+    },
+    {
+      "name": "Sarah",
+      "nameAsPublished": "Sarah",
+      "date": "2026-05-04",
+      "quote": "I’m very impressed by the professionalism, pricing and quality of service. I reached out when I was in a pinch and Forever came through. Their communication has been excellent and you can really tell it’s a local business that cares. Thanks Forever!",
+      "stars": 5,
+      "isLocalGuide": true,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT25oeVVIWXRWMU10YTBWcVprTmhRblpwVUVOdVFsRRAB",
+      "primaryUrl": "/surrey-party-rentals",
+      "event": "Google Review",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Cecile Ryder",
+      "nameAsPublished": "Cecile Ryder",
+      "date": "2024-05-27",
+      "quote": "Needed indoor/outdoor tables and chairs for a garden party with iffy weather...Devon from Forever Party Rentals came through for me with the perfect items at a lower price than competitors. We ended up having the party indoors but the set looked great and  chairs were comfortable for a 3 hour lunch. Devon suggested the best table cloth sizes and how many chairs per table and when extra people decided to come at last minute he provided extra table and chairs without any problems. Ordering was easy online and he answered phone calls promptly. He was flexible with delivery and pick up times and showed me how to put up and take down the table and chairs. The furniture was clean and sanitary. My guests had a great time and the party could not have happened without the furniture so thanks Forever Party Rentals!!!",
+      "stars": 5,
+      "isLocalGuide": true,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURUZ19hM0hBEAE",
+      "product": "chair",
+      "primaryUrl": "/reviews",
+      "alsoOn": [],
+      "event": "Google Review · Local Guide"
+    },
+    {
+      "name": "The PupShack",
+      "nameAsPublished": "The PupShack",
+      "date": "2024-12-04",
+      "quote": "We were preparing for a celebration of life and Devon was extremely helpful; understanding; and kind. We had to rent a number items They provided a quick accurate quote; allowed additions along the way with no hassle and the day of the event the items were delivered on time.  The delivery  crew helped immensely with under unusual circumstances with the venue having limited access.  The delivery and pick up was smooth (late nite pick up was at 11:00 pm).  Their price was more than fair and came in better than any other quote we received.  They showed a tremendous amount of compassion for our circumstances and also offered additional items at no extra charge.  I would highly recommend choosing Forever Party Rentals.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURQNWRUbE5nEAE",
+      "primaryUrl": "/north-vancouver-party-rentals",
+      "event": "Google Review · Limited-access venue",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Raj Gondara",
+      "nameAsPublished": "Raj Gondara",
+      "date": "2026-07-08",
+      "quote": "I came across this place while searching for table and chair rentals for my daughter’s birthday, and I’m so glad I did. The entire process was seamless from start to finish, and the customer service was excellent.\n\nThe tables and chairs were spotless, well-maintained, and looked fantastic. I was especially impressed with the chair design, and many of our guests commented on how beautiful they were. In fact, one of my friends even asked where I had rented them from, and I happily recommended this company.\n\nOverall, it was a great experience with outstanding service and high-quality rentals. I would highly recommend this place to anyone looking for table and chair rentals for their event.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2t0RGVFTlRlakJZTTFCWFkzTnNjV3BoYldkYU9FRRAB",
+      "product": "chair",
+      "primaryUrl": "/reviews",
+      "alsoOn": [],
+      "event": "Google Review"
+    },
+    {
+      "name": "Nola Laubach",
+      "nameAsPublished": "Nola Laubach",
+      "date": "2024-08-01",
+      "quote": "It was two days before our party and we had not yet secured chair rentals.  As I was calling around to find chairs, I came across Forever Party Rentals; and they were able to accommodate me with such notice.  The chairs were lovely and in excellent condition.  Devon was very polite, on time for both delivery and pick-up and kept in contact with me via text.  He answered my many questions and responded quickly each time.  I would absolutely recommend this company for your rental needs - their customer service is certainly 5 star!",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURidUxHSFJnEAE",
+      "product": "chair",
+      "primaryUrl": "/north-vancouver-party-rentals",
+      "event": "Google Review · Last-minute chairs",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Terri C.",
+      "nameAsPublished": "Terri C.",
+      "date": "2024-08-01",
+      "quote": "I needed to rent 25 chairs for my sister's wedding and so I got a few quotes from local rental companies. Devon was by far a) the best price and b) the easiest to work with. Plus, he was able to deliver and pick the chairs up same day! His mom was so sweet when they were picking up the chairs, too. The guests enjoyed how comfy they were, they looked beautiful under the gazebo/pergola... 12/10 would absolutely recommend as well as use Forever Party Rentals for any other event I needed to rent anything for!",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURibUt1LVJREAE",
+      "product": "chair",
+      "primaryUrl": "/coquitlam-party-rentals",
+      "event": "Google Review · Wedding chairs",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Katrina Marie",
+      "nameAsPublished": "Katrina Marie",
+      "date": "2026-03-30",
+      "quote": "We had an excellent experience renting a tent for our private event. Devon (the owner) was friendly, efficient, and very responsive throughout the entire process. Communication was clear, the booking was easy, and everything was handled professionally. The tent was clean, sturdy, and set up was so quick. I would absolutely recommend this company to anyone looking for high-quality tent rentals and outstanding customer service. Thank you!",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xaZmFIQm9UVzkzVjA4eVV6QjZabU5VVlhoQmVVRRAB",
+      "product": "tent",
+      "primaryUrl": "/abbotsford-party-rentals",
+      "event": "Google Review · Tent",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Candace Knoll",
+      "nameAsPublished": "Candace Knoll",
+      "date": "2025-07-25",
+      "quote": "It was truly a pleasure to work with Devon again this summer for our \"Picnic in the Park.\"  He understands our needs and the flexibility offered by Forever Party Rentals continues to make them my choice going forward.  Customer Service is something this world seems to be trying to get away from, so, I truly appreciated the excellent service offered by Devon and how he worked with our needs to make our event successful.  5 Stars",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUMzNExlMUpBEAE",
+      "primaryUrl": "/maple-ridge-party-rentals",
+      "event": "Google Review · Picnic in the park",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Kayla Meecham",
+      "nameAsPublished": "Kayla Meecham",
+      "date": "2026-05-11",
+      "quote": "10/10 experience with this company. Devon was incredibly professional, accommodating, and efficient. All communications leading up to our event made me feel comfortable and confident. The team got the tent up quickly, and even returned the day of our event to double check everything. They even accommodated a very early take-down the next more. I cannot put into words how thankful I am for the team at Forever Party Rentals!",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2xOT1YwVnRNWGRHT0RKaGJHUjBTVE5xVUVWNlRFRRAB",
+      "product": "tent",
+      "primaryUrl": "/burnaby-party-rentals",
+      "event": "Google Review · Tent",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Mark Jordan Ramirez",
+      "nameAsPublished": "Mark Jordan Ramirez",
+      "date": "2024-02-18",
+      "quote": "Every big party is going to need what these guys have. The team at Forever Party Rentals is friendly, easy to work with, and very helpful when it comes to making sure you have what you need.\n\nWe ordered tables, and chairs that were in great condition and appeared as if nobody had used them prior. Everything was clean and the pickup process went smoothly.\n\nDefinitely ordering from them again on my next event.",
+      "stars": 5,
+      "isLocalGuide": true,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNkdTYtaldREAE",
+      "product": "chair",
+      "primaryUrl": "/reviews",
+      "alsoOn": [],
+      "event": "Google Review · Local Guide"
+    },
+    {
+      "name": "Nicholas Lan",
+      "nameAsPublished": "Nicholas Lan",
+      "date": "2025-09-30",
+      "quote": "Rented folding white chairs, a few folding tables and a couple of cocktail tables for our backyard garden party wedding. They handled drop off and pick very easily and on time. furniture was clean and tidy, and the delivery guy was also friendly and chatted with us while he picked everything up! Everything went as planned. Thank you for helping make our day as easy as possible. Wishing you all the best.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2pScWJrWmhUMmxJUmpWNk5XZHJZWEZ0VG1wd1UwRRAB",
+      "product": "chair",
+      "primaryUrl": "/burnaby-party-rentals",
+      "event": "Google Review · Garden wedding",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Adrienne Stutes",
+      "nameAsPublished": "Adrienne Stutes",
+      "date": "2024-05-03",
+      "quote": "Devon is amazing! He was able to help us on short notice when the weather didn't cooperate. He came out, looked at the outdoor space, and gave an honest recommendation of what he thought we needed. He provided tents, tables, chairs, and tablecloths at a reasonable rate. Devon was kind, courteous, communicative, and punctual. I highly recommend Devon and Forever Party Rentals for your next event.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSURqOXJpMkpBEAE",
+      "product": "tent",
+      "primaryUrl": "/coquitlam-party-rentals",
+      "event": "Google Review · Short-notice tent",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Kevin Chan",
+      "nameAsPublished": "Kevin Chan",
+      "date": "2026-07-22",
+      "quote": "Wonderful working with Devon and his team at Forever Party Rentals. His service was great, constant communication, and very accommodating. From initial i query, to quotation of work, and revisions of course, he was there along each step. The delivery and pick up was smooth with estimated windows that they adhered to.\n\nOverall great experience and would use them again for future rental needs.",
+      "stars": 5,
+      "isLocalGuide": true,
+      "reviewId": "Ci9DQUlRQUNvZENodHljRjlvT2psM2JsYzVNRTF1VXpBMmFXUkdPVXhOUmw5NFpHYxAB",
+      "primaryUrl": "/reviews",
+      "alsoOn": [],
+      "event": "Google Review · Local Guide"
+    },
+    {
+      "name": "Jon's Driving Journey",
+      "nameAsPublished": "Jon's Driving Journey",
+      "date": "2024-02-19",
+      "quote": "Hired forever party rentals on the recommendation of a friend for a soccer tournament. We asked for tables to be delivered at 7 am and picked up at night. The driver arrived well before 7, had everything set up by 7, and picked up the tables and chairs at around midnight. The chairs and tables were nice and clean when we got them - not so much when we returned them! Sorry! 5/5 stars.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNkdDZDV0VREAE",
+      "product": "chair",
+      "primaryUrl": "/reviews",
+      "alsoOn": [],
+      "event": "Google Review"
+    },
+    {
+      "name": "Olga Rousseau",
+      "nameAsPublished": "Olga Rousseau",
+      "date": "2024-02-19",
+      "quote": "I highly recommend this reliable company!  Devon was friendly and fantastic to deal with.  I especially liked the quick communication and fair price value for what you get. From their tents, table rentals, linens, and heaters, they made every thing stress free for delivery, set up and removal of an outside wedding. . I would  not hesitate to rent again from them for any event.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChZDSUhNMG9nS0VJQ0FnSUNkMV9uQ0lREAE",
+      "product": "tent",
+      "primaryUrl": "/langley-party-rentals",
+      "event": "Google Review · Outdoor wedding",
+      "alsoOn": [
+        "/reviews"
+      ]
+    },
+    {
+      "name": "Deb Millichamp",
+      "nameAsPublished": "Deb Millichamp",
+      "date": "2024-07-26",
+      "quote": "We had a last minute requirement for tables for an outdoor dining event in June and after calling several places and receiving little response we called Devon. He was so helpful, polite and organized that we got our tables ( high quality) and were able to pick them up immediately. We will definitely use them again. They have everything you could possibly need for an event.",
+      "stars": 5,
+      "isLocalGuide": false,
+      "reviewId": "ChdDSUhNMG9nS0VJQ0FnSUNiMXZmRnBBRRAB",
+      "product": "table",
+      "primaryUrl": "/reviews",
+      "alsoOn": [],
+      "event": "Google Review"
+    }
+  ]
+}

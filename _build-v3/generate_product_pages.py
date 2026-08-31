@@ -325,13 +325,10 @@ def build_siblings(city_slug: str, current_key: str, products: dict) -> list[dic
     return out
 
 
-def build_context(city_slug: str, city: dict, product: dict, data: dict, all_products: dict) -> dict:
+def build_context(city_slug: str, city: dict, product: dict, all_products: dict) -> dict:
     slug = page_slug(product, city_slug)
     canonical = f"{SITE_URL}{url_path(f'{slug}.html')}"
     city_page = url_path(f"{city_slug}-party-rentals.html")
-
-    pool = data["testimonialPool"]
-    testimonials = [pool[i] for i in city["testimonialIndices"]]
 
     title = f"{product['productName']} in {city['name']}, BC — Delivery & Setup Available"
     _product_desc_templates = {
@@ -394,7 +391,6 @@ def build_context(city_slug: str, city: dict, product: dict, data: dict, all_pro
         "city_slug": city_slug,
         "product": product,
         "siblings": siblings,
-        "testimonials": testimonials,
         "tagline": tagline,
         "intro_summary": intro_summary,
         "local_intro": local_intro,
@@ -480,7 +476,7 @@ def main():
             whitelist = product.get("cityWhitelist")
             if whitelist and city_slug not in whitelist:
                 continue
-            ctx = build_context(city_slug, city, product, city_data, product_data["products"])
+            ctx = build_context(city_slug, city, product, product_data["products"])
             html = template.render(**ctx)
             slug = page_slug(product, city_slug)
             path = out_dir / f"{slug}.html"

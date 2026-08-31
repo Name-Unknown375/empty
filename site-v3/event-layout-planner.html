@@ -68,7 +68,7 @@ else{c.addEventListener('load',function(){setTimeout(loadClarity,1500);});}
 <!-- Root-relative on purpose: this page is also served at /p/<id> (short
      share links, see _redirects), where relative URLs would resolve under
      /p/ and break. -->
-<link rel="stylesheet" href="/shared.css?v=30"/>
+<link rel="stylesheet" href="/shared.css?v=31"/>
 
 <script type="application/ld+json">
 {
@@ -154,6 +154,48 @@ html.planner-app-page .planner-iframe-wrap {
 html.planner-app-page .planner-iframe-wrap iframe {
   height: calc(100dvh - 72px - 52px);
   min-height: 480px;
+}
+html.planner-app-page.has-hub-packs .planner-iframe-wrap iframe {
+  height: calc(100dvh - 72px - 52px - 196px);
+}
+.pl-hub-front {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px 20px 8px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+.pl-hub-front-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 20px;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.pl-hub-front-row label { display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--green, #1E3A2F); }
+.pl-hub-front-row input,
+.pl-hub-front-row select {
+  font: inherit; font-weight: 500;
+  border: 1px solid var(--border); border-radius: 4px;
+  padding: 6px 8px; background: #fff;
+}
+.pl-hub-packs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.pl-hub-pack {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px 16px;
+  background: #fafcfb;
+}
+.pl-hub-pack h3 { margin: 0 0 4px; font-size: 16px; }
+.pl-hub-pack p { margin: 0 0 8px; font-size: 13px; color: var(--muted); line-height: 1.4; }
+.pl-hub-pack-cost { font-weight: 600; color: var(--green); margin-bottom: 10px; font-size: 15px; }
+@media (max-width: 720px) {
+  .pl-hub-front { display: none; }
 }
 html.planner-app-page .planner-iframe-wrap + p { display: none; }
 html.planner-app-page .planner-cta-strip {
@@ -462,12 +504,41 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
 <!-- ── PLANNER ──────────────────────────────────────────────────────── -->
 <section class="section" id="planner" style="padding-top:32px">
   <div class="container">
+    <div class="pl-hub-front" id="plHubFront" hidden>
+      <div class="pl-hub-front-row">
+        <label for="plHubGuests">Guests
+          <input id="plHubGuests" type="number" min="8" max="300" value="50" inputmode="numeric"/>
+        </label>
+        <label for="plHubStyle">Style
+          <select id="plHubStyle">
+            <option value="round">Round tables</option>
+            <option value="banquet">Long tables</option>
+            <option value="cocktail">Cocktail</option>
+          </select>
+        </label>
+        <span style="font-size:13px;color:var(--muted)">We’ll lay out a tent from stock — efficient vs room to mingle. Open the planner to fine-tune.</span>
+      </div>
+      <div class="pl-hub-packs">
+        <div class="pl-hub-pack">
+          <h3>Most cost-efficient</h3>
+          <p id="plHubEffSummary">Smallest tent that fits.</p>
+          <div class="pl-hub-pack-cost" id="plHubEffCost"></div>
+          <button type="button" class="btn btn-outline" id="plHubEffBuild">Build this layout</button>
+        </div>
+        <div class="pl-hub-pack">
+          <h3>Spacious</h3>
+          <p id="plHubSpaSummary">Room to mingle · 4–6 ft aisles.</p>
+          <div class="pl-hub-pack-cost" id="plHubSpaCost"></div>
+          <button type="button" class="btn btn-primary" id="plHubSpaBuild">Build this layout</button>
+        </div>
+      </div>
+    </div>
     <div class="planner-iframe-wrap">
       <!-- data-src, not src: the boot script below decides when the embed
            loads. On the canonical /event-layout-planner path it fires in the
            same parse tick (behavior unchanged); on /p/<id> short-link pages
            it waits until the share payload is resolved into the URL hash. -->
-      <iframe data-src="/event-layout-planner-embed" title="Event Layout Planner — interactive floor plan tool" loading="eager" allowfullscreen></iframe>
+      <iframe data-src="/event-layout-planner-embed.html" title="Event Layout Planner — interactive floor plan tool" loading="eager" allowfullscreen></iframe>
     </div>
     <script>
     // Short share-link boot (Phase 2.1). Netlify rewrites /p/<id> to this
@@ -484,6 +555,9 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       // ?gen=<opts> deep links (calculator + landing pages) are read by
       // planner.js from the iframe's OWN location.search. data-src never
       // carries a query, so simple concatenation is safe.
+      // File name keeps .html so a local static server (python -m http.server)
+      // finds the embed. Netlify pretty_urls 301s this to the canonical
+      // /event-layout-planner-embed and the iframe follows.
       var go = function () { frame.src = frame.getAttribute('data-src') + location.search; };
       var p = location.pathname.match(/^\/p\/(.*)$/);
       if (!p) { go(); return; }
@@ -571,6 +645,21 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
       <a href="#planner" class="btn btn-primary btn-lg">Open the Planner ↑</a>
       <a href="/contact" class="btn btn-outline btn-lg" style="margin-left:8px">Need Help? Contact Us</a>
     </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container" style="max-width:720px">
+    <div class="section-header center">
+      <span class="eyebrow">Google review</span>
+      <h2 style="color:#fff">A 3D tent render and a 2D floorplan, before they booked</h2>
+    </div>
+      <div class="testimonial-card">
+        <div class="stars" role="img" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
+        <blockquote>"Had the best time dealing with Devon from Forever Party Rentals for my wedding. We initially went with them as they offered a 3d rendering of tent and 2d rendering of floorplan. This was extremely helpful as i was having a difficult time envisioning my backyard spacing, also came in handy when planning decor. After booking I really appreciated their communication and timely delivery and pick up. Their tables and chairs came very clean. Overall it was an excellent experience and would definitely book with them again for all future events"</blockquote>
+        <div class="tc-name">Amrit Johal</div>
+        <div class="tc-event">Google Review · Wedding floorplan</div>
+      </div>
   </div>
 </section>
 
@@ -697,6 +786,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="/tables">Table Rentals</a>
           <a class="footer-link" href="/dance-floor">Dance Floor Rental</a>
           <a class="footer-link" href="/wedding-rentals">Wedding Rentals</a>
+          <a class="footer-link" href="/birthday-party-rentals">Birthday Party Rentals</a>
           <a class="footer-link" href="/event-rentals">Event Rentals</a>
           <a class="footer-link" href="/pricing">Price List</a>
           <a class="footer-link" href="/event-layout-planner">Free Tent, Table and Chair Layout Planner</a>
@@ -732,16 +822,100 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
           <a class="footer-link" href="/blog/">Blog</a>
           <a class="footer-link" href="/contact">Contact Us</a>
           <a class="footer-link" href="/privacy">Privacy Policy</a>
+          <a class="footer-link" href="/terms">Terms of Service</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
-        © 2026 Forever Party Rentals · Serving Vancouver, Burnaby, Surrey, Langley, Richmond, North Vancouver, New Westminster, Maple Ridge &amp; the Lower Mainland
+        © 2026 Forever Party Rentals Inc. · <a href="/privacy" style="color:inherit;text-decoration:underline">Privacy Policy</a> · <a href="/terms" style="color:inherit;text-decoration:underline">Terms of Service</a> · Serving Vancouver, Burnaby, Surrey, Langley, Richmond, North Vancouver, New Westminster, Maple Ridge &amp; the Lower Mainland
       </div>
     </div>
 </footer>
 <!-- FOOTER:END -->
-<script src="/shared.js?v=23"></script>
+<script src="/shared.js?v=24"></script>
+<script src="/planner/layout-gen.js?v=17"></script>
+<script>
+(function () {
+  var front = document.getElementById('plHubFront');
+  if (!front) return;
+  if (/^\/p\//.test(location.pathname)) return;
+  if (/(?:^|[?&])view=(readonly|view)(?:&|$)/.test(location.search)) return;
+  if (window.matchMedia && window.matchMedia('(max-width: 720px)').matches) return;
+  var byKey = {};
+  function money(n) {
+    return '$' + Math.round(n).toLocaleString('en-CA');
+  }
+  function estimate(recipe) {
+    var total = 0;
+    (recipe.items || []).forEach(function (r) {
+      var cat = byKey[r.key];
+      if (cat && cat.priceCAD) total += cat.priceCAD;
+      if (r.withChairs && r.chairCount) {
+        var ch = byKey[r.chairKey || 'resin-garden-chair'];
+        if (ch && ch.priceCAD) total += ch.priceCAD * r.chairCount;
+      }
+    });
+    return total;
+  }
+  function guests() {
+    var n = parseInt(document.getElementById('plHubGuests').value, 10);
+    if (!Number.isFinite(n) || n < 8) n = 8;
+    if (n > 300) n = 300;
+    return n;
+  }
+  function refresh() {
+    if (!window.FPRLayoutGen) return;
+    var base = {
+      guests: guests(),
+      seating: document.getElementById('plHubStyle').value,
+      danceFloor: true,
+      chairKey: 'resin-garden-chair'
+    };
+    var packs = [
+      { pack: 'efficient', sum: document.getElementById('plHubEffSummary'), cost: document.getElementById('plHubEffCost') },
+      { pack: 'spacious', sum: document.getElementById('plHubSpaSummary'), cost: document.getElementById('plHubSpaCost') }
+    ];
+    packs.forEach(function (p) {
+      var recipe = window.FPRLayoutGen.generateLayout(Object.assign({}, base, { pack: p.pack }));
+      if (!recipe) {
+        p.sum.textContent = 'Too large to auto-fit — call us and we’ll plan it.';
+        p.cost.textContent = '';
+        return;
+      }
+      p.sum.textContent = recipe.summary;
+      p.cost.textContent = 'Estimated ' + money(estimate(recipe)) + ' CAD';
+    });
+  }
+  function build(pack) {
+    var opts = {
+      guests: guests(),
+      seating: document.getElementById('plHubStyle').value,
+      danceFloor: true,
+      chairKey: 'resin-garden-chair',
+      pack: pack
+    };
+    var frame = document.querySelector('.planner-iframe-wrap iframe');
+    if (!frame) return;
+    frame.src = '/event-layout-planner-embed.html?gen=' + encodeURIComponent(JSON.stringify(opts));
+    var wrap = document.getElementById('planner');
+    if (wrap) wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  fetch('/planner/catalog.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (catalog) {
+    (catalog.groups || []).forEach(function (g) {
+      (g.items || []).forEach(function (it) { byKey[it.key] = it; });
+    });
+    if (window.FPRLayoutGen) window.FPRLayoutGen.init(catalog);
+    front.hidden = false;
+    document.documentElement.classList.add('has-hub-packs');
+    refresh();
+    document.getElementById('plHubGuests').addEventListener('change', refresh);
+    document.getElementById('plHubGuests').addEventListener('input', refresh);
+    document.getElementById('plHubStyle').addEventListener('change', refresh);
+    document.getElementById('plHubEffBuild').addEventListener('click', function () { build('efficient'); });
+    document.getElementById('plHubSpaBuild').addEventListener('click', function () { build('spacious'); });
+  }).catch(function () {});
+})();
+</script>
 </body>
 </html>

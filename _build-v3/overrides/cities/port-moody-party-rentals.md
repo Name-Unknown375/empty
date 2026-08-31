@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Port Moody rental quote?"
-    a: "Every Port Moody quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Tri-Cities uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "What's the wind plan for Inlet-facing waterfront ceremonies?"
     a: "Burrard Inlet exposure produces afternoon winds that inland Tri-Cities venues don't see. For any Rocky Point or Shoreline Trail outdoor ceremony we recommend ballasted weight kits at every leg, sidewalls year-round, and a slightly larger marquee than headcount strictly requires. Forested venues (Bert Flinn, Buntzen) have natural wind protection but bring overhead-clearance constraints we plan around."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Do you handle Buntzen Lake or Bert Flinn Park ceremonies?"
     a: "Yes — both are regular Port Moody ceremony sites. Buntzen Lake has multiple ceremony zones with their own setback rules; Bert Flinn's forested zones often accommodate small ceremonies under tree cover (no marquee needed). For full receptions at either, we coordinate the truck access window with the venue's parks coordinator during quoting."
   - q: "How fast can you deliver Port Moody chair and table rentals?"
@@ -58,7 +54,7 @@ On the truck for a typical Port Moody event:
 ## Inlet wind, forest canopy, and Port Moody operational realities
 
 ![Rows of white ceremony chairs facing a decorated altar with trees and water in the background](/images/lifestyle/ceremony-chairs-2.jpg){.float-right}
-*A ceremony staged on a Port Moody waterfront lawn.*
+*Ceremony rows on grass with water behind. Shared lifestyle photo — not a named Port Moody lawn.*
 
 ### Inlet-exposed waterfront sites
 

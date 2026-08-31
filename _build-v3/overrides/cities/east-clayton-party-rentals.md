@@ -9,14 +9,10 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on an East Clayton rental quote?"
-    a: "Every East Clayton quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no East Clayton uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Do you handle Cloverdale Rodeo Grounds events?"
     a: "Yes — Cloverdale Rodeo Grounds events (community gatherings, fairs, corporate functions, charity events) are regular bookings for our crew. The venue runs its own access protocol; we coordinate vendor sign-in and equipment staging during quoting. Most Rodeo Grounds setups skew toward higher-volume seating (Fanback chairs, banquet tables) without a marquee."
   - q: "Can you tent in a Clayton Heights backyard?"
     a: "Yes — Clayton Heights backyard installs are some of our most-frequent East Clayton bookings. Most lots accept a 20×20 to 20×40 marquee comfortably. Engineered ground stakes are our default anchor on grass; we confirm slope, sprinkler infrastructure, and alley access during the pre-quote walk."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Can you do mid-event swaps in East Clayton?"
     a: "Yes — and proximity is the reason. If a chair leg fails, a table breaks, or you suddenly need 20 more cocktail highboys mid-reception, replacements can typically be on-site within 60–75 minutes for any East Clayton event. We don't promise this for cities further out."
 

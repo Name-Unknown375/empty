@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows or corporate seating, Resin Garden for vineyards, farms, and Mill Lake — one quote, one delivery, one crew. Fraser Valley weddings run long afternoons in golden-hour light, and the chair selection is part of how that landscape photograph holds up."
 
 faqs:
-  - q: "What's included on an Abbotsford chair rental quote?"
-    a: "Every Abbotsford chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no Fraser Valley uplifts, no surprises at the truck. Highway 1 corridor delivery is straightforward and we don't tack on a Valley-distance premium."
   - q: "Which chair works for a vineyard, farm, or Mill Lake ceremony?"
     a: "For vineyard and farm ceremonies on Abbotsford acreages and Mill Lake Park's lakeside zone, Resin Garden is the strongest pick — the resin frame and seat handle damp grass, dew, and the long Fraser Valley afternoons better than Chiavari's lacquered hardwood. Most vineyard weddings book Resin Garden for the ceremony and Chiavari indoors at the barn or under a marquee for the reception."
   - q: "Can you handle a 500-guest Tradex Exhibition Centre event?"

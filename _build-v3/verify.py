@@ -74,6 +74,7 @@ def check_page(path: Path) -> list[str]:
     problems: list[str] = []
     html = path.read_text(encoding="utf-8")
     is_sku = path.name.startswith("product-") and path.name != "product-pages.html"
+    faq_count = html.count('class="faq-item"')
 
     # 1. No unfilled Jinja2 tokens
     unfilled = re.findall(r"\{\{.*?\}\}", html)
@@ -83,14 +84,15 @@ def check_page(path: Path) -> list[str]:
     # 2. Parse every JSON-LD block
     blocks = LD_JSON_RE.findall(html)
     # SKU pages: exactly 2 (Product, BreadcrumbList).
-    # City & product-city pages: >=3 base (Service, FAQPage, BreadcrumbList)
-    # + optional ItemList (Review list, Sprint 5.14).
+    # City & product-city pages: Service + BreadcrumbList, plus FAQPage when
+    # the page has unique FAQs.
     if is_sku:
         if len(blocks) != 2:
             problems.append(f"expected 2 JSON-LD blocks, found {len(blocks)}")
     else:
-        if len(blocks) < 3:
-            problems.append(f"expected >=3 JSON-LD blocks, found {len(blocks)}")
+        min_blocks = 2 if faq_count == 0 else 3
+        if len(blocks) < min_blocks:
+            problems.append(f"expected >={min_blocks} JSON-LD blocks, found {len(blocks)}")
 
     types_found: set[str] = set()
     for i, raw in enumerate(blocks, 1):
@@ -104,6 +106,8 @@ def check_page(path: Path) -> list[str]:
             types_found.add(t)
 
     expected_types = EXPECTED_LD_TYPES_SKU if is_sku else EXPECTED_LD_TYPES
+    if not is_sku and faq_count == 0:
+        expected_types = expected_types - {"FAQPage"}
     missing_types = expected_types - types_found
     if missing_types:
         problems.append(f"missing @type: {sorted(missing_types)}")
@@ -125,12 +129,8 @@ def check_page(path: Path) -> list[str]:
     h1_count = html.count("<h1>")
     if h1_count != 1:
         problems.append(f"expected 1 <h1>, found {h1_count}")
-    faq_count = html.count('class="faq-item"')
-    if faq_count < 4:
-        problems.append(f"fewer than 4 FAQ items ({faq_count})")
-    tc_count = html.count("testimonial-card")
-    if tc_count != 4:
-        problems.append(f"expected 4 testimonial-cards, found {tc_count}")
+    # Testimonials are optional and page-specific (do not require a recycled
+    # 4-card pool). FAQ count is already computed above.
 
     # 5. Title and meta length budgets (style_guide.md). Strict on override
     #    pages where Devon explicitly set the values; templated defaults run
@@ -152,10 +152,8 @@ def check_page(path: Path) -> list[str]:
                     f"(target {META_MIN_CHARS}-{META_MAX_CHARS})"
                 )
 
-    # 6. JSON-LD FAQPage entries are all present in the body FAQ section
-    #    (the body has 3 hardcoded FAQ extras; we only require the JSON-LD
-    #    questions to be a subset, not equality).
-    if not is_sku:
+    # 6. JSON-LD FAQPage entries are all present in the body FAQ section.
+    if not is_sku and faq_count > 0:
         jsonld_faqs: list[str] = []
         for raw in blocks:
             try:

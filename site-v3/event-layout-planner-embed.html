@@ -17,7 +17,7 @@
 <link rel="canonical" href="https://www.foreverpartyrentals.com/event-layout-planner"/>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
-<link rel="stylesheet" href="planner/planner.css?v=23"/>
+<link rel="stylesheet" href="planner/planner.css?v=27"/>
 <style>
   html, body { margin: 0; padding: 0; height: 100%; background: #fff; }
   body { overflow: hidden; }
@@ -164,6 +164,10 @@
       </svg>
       Ceremony
     </button>
+    <span class="pl-flip-toggle" id="plFlipToggle" hidden>
+      <button type="button" class="pl-btn pl-btn-small" data-phase="ceremony" id="plBtnPhaseCeremony">Ceremony</button>
+      <button type="button" class="pl-btn pl-btn-small pl-btn-active" data-phase="dinner" id="plBtnPhaseDinner">Dinner</button>
+    </span>
 
     <span class="pl-divider"></span>
 
@@ -217,6 +221,8 @@
       <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v8M5 7l3 3 3-3M3 12v2h10v-2"/></svg>
       PDF
     </button>
+    <button class="pl-btn" id="plBtnPdfCrew" title="Crew sheet: setup order, no prices, QR to this layout">Crew sheet</button>
+    <button class="pl-btn" id="plBtnIso" title="3D glance of the current layout">3D</button>
     <button class="pl-btn" id="plBtnPrint" title="Print this layout">
       <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5V2h8v3M4 12h8v3H4z"/><rect x="2" y="5" width="12" height="7" rx="1"/></svg>
       Print
@@ -247,6 +253,22 @@
       </div>
       <div class="pl-venue-units" id="plVenueUnits">feet</div>
 
+      <label class="pl-venue-label" for="plVenueSurface" style="margin-top:10px">Ground</label>
+      <select id="plVenueSurface" class="pl-venue-select" aria-label="Ground surface">
+        <option value="grass">Grass — we stake</option>
+        <option value="hardscape">Patio / deck — we ballast</option>
+      </select>
+      <label class="pl-venue-label" for="plVenueCity" style="margin-top:8px">City (permit flags)</label>
+      <select id="plVenueCity" class="pl-venue-select" aria-label="City for permit reminders">
+        <option value="">Not set</option>
+        <option value="vancouver">Vancouver</option>
+        <option value="surrey">Surrey</option>
+        <option value="langley">Langley / Township</option>
+        <option value="burnaby">Burnaby</option>
+        <option value="richmond">Richmond</option>
+        <option value="other">Elsewhere in Metro Vancouver</option>
+      </select>
+
       <!-- Polygon-mode info: shown instead of the size inputs when the
            venue is a custom shape. AABB + total area, plus a button to
            revert back to a rectangle. -->
@@ -269,6 +291,11 @@
          layout on top. The control panel appears once a backdrop is
          loaded; planner.js renderBackdropPanel() drives visibility. -->
     <div class="pl-backdrop-form">
+      <div class="pl-sat-row">
+        <input id="plSatAddress" type="text" placeholder="123 Main St, Surrey" aria-label="Yard address for satellite photo" autocomplete="street-address"/>
+        <button type="button" class="pl-btn pl-btn-small" id="plBtnSatLoad">Satellite</button>
+      </div>
+      <div class="pl-backdrop-form-hint">Drop a tent on the actual lot — or upload a photo below.</div>
       <button type="button" class="pl-btn pl-btn-block pl-btn-backdrop" id="plBtnAddBackdrop">
         <svg class="pl-ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="12" height="10" rx="1"/><circle cx="6" cy="7" r="1"/><path d="M2 11l3-3 3 3 2-2 4 4"/></svg>
         Add background photo
@@ -333,6 +360,7 @@
          aisles) from planner.js renderValidation(). Hidden when clean;
          clicking a row selects the offending items. -->
     <div id="plValidation" class="pl-validation" hidden></div>
+    <div id="plSiteNotes" class="pl-site-notes" hidden></div>
 
     <!-- Guest list — names + per-table seat assignment, rendered by
          planner.js renderGuestPanel(). <details> keeps the rail compact;
@@ -417,8 +445,21 @@
   <a class="pl-btn" id="plBtnCallBar" href="tel:778-990-7983">Call 778-990-7983</a>
 </div>
 
+<div id="plIsoModal" class="pl-modal-backdrop" hidden>
+  <div class="pl-modal pl-iso-modal" role="dialog" aria-labelledby="plIsoTitle" aria-modal="true">
+    <div class="pl-modal-header">
+      <h2 id="plIsoTitle">3D glance</h2>
+      <button type="button" class="pl-modal-close" id="plIsoClose" aria-label="Close">×</button>
+    </div>
+    <div class="pl-modal-body pl-iso-body">
+      <canvas id="plIsoCanvas" width="720" height="420" aria-label="Isometric preview of the layout"></canvas>
+      <p class="pl-modal-hint">Read-only preview from the current floor plan. Drag on the canvas to orbit.</p>
+    </div>
+  </div>
+</div>
+
 <script src="planner/planner-cart.js?v=1"></script>
-<script src="planner/layout-gen.js?v=16"></script>
-<script src="planner/planner.js?v=38"></script>
+<script src="planner/layout-gen.js?v=17"></script>
+<script src="planner/planner.js?v=46"></script>
 </body>
 </html>

@@ -9,14 +9,8 @@ intro_paragraphs:
   - "Round, banquet, cocktail highboy — quoted up front, delivered on a one-hour window, positioned to your floor plan by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on an Abbotsford table rental quote?"
-    a: "Every Abbotsford table quote we send is itemised: tables by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No setup surcharge — every table is unfolded and positioned during the delivery window."
-  - q: "How many tables for a 100-guest Abbotsford wedding?"
-    a: "For seated dinner at 5ft rounds, plan ~12 rounds (8 guests per round = 96; round up for kids and split parties). Add 5–8 banquet tables for head, gift, cake, DJ, registration, and buffet. Add 2–3 cocktail highboys for the pre-dinner cocktail hour. Vineyard barn weddings often link 2–3 banquets into a long farm-table head — that adjusts the count slightly."
   - q: "Can you deliver tables to a vineyard or to Tradex?"
     a: "Yes — both are routine Abbotsford bookings. Vineyard deliveries use rural-road truck access with on-site staging. Tradex Exhibition Centre's loading dock is ample and we coordinate the delivery window during quoting; gala-scale orders (50+ banquets, 30+ highboys) typically ship on a dedicated truck."
-  - q: "Do you supply linens, runners, or chargers?"
-    a: "Yes. We stock tablecloths, napkins, and runners in-house at our Surrey warehouse and put them on the same delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the catering provider."
   - q: "Can you re-stage tables mid-event for a vineyard ceremony-to-reception flip?"
     a: "Yes — for any single-tent vineyard or farm ceremony-to-reception flip, our crew handles the table re-stage during the cocktail hour. The 6ft banquet tables fold flat and re-position quickly."
 

@@ -9,14 +9,10 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Langley Township rental quote?"
-    a: "Every Township quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Township-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Do you deliver to Township vineyards like Domaine de Chaberton or Township 7?"
     a: "Yes — both are regular Township delivery sites. Each venue runs its own vendor coordination process, and we book the delivery slot through their events team during quoting. Vineyard and farm weddings tend toward 80–150 guests with full marquee setups; we plan around the venue's harvesting and tasting-room schedule when relevant."
   - q: "Can you tent at a Brookswood or Murrayville acreage wedding?"
     a: "Yes — Brookswood and Murrayville acreages are some of our most-photogenic Township deliveries. Most properties have plenty of footprint for a 20×60 or 30×60 marquee. Engineered ground stakes are our default anchor on grass; we confirm sprinkler infrastructure and irrigation lines before staking. We won't install on artificial turf or on slopes steeper than 5% without an engineered platform."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Can you set up tents at Campbell Valley Regional Park?"
     a: "Yes — Campbell Valley is one of our regular Township park venues. The Township of Langley and Metro Vancouver Regional Parks run separate permit processes depending on the specific site within the park; the couple pulls the permits, but we know which ceremony zones at Campbell Valley accept which tent footprints. Equestrian and trail-adjacent zones often skip the tent entirely; chair-only ceremonies are common there."
 
@@ -39,8 +35,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![A clean white marquee tent against a vibrant blue sky over Township grass — the standard vineyard footprint](/images/lifestyle/tent-golden-hour-2.jpg)
-*A 20×40 marquee on Township grass — the standard vineyard reception footprint.*
+![Joined white pop-up canopies on a Langley Township lawn beside a house with hydrangeas](/images/jobs/langley-township-joined-popups.jpg)
+*Joined pop-up canopies on a Township lawn. Our install.*
 
 Same single inventory and crew calendar across the entire Lower Mainland. A Township couple gets the same catalogue any other city gets — without short-ships, without sub-rentals from another vendor.
 
@@ -58,7 +54,7 @@ On the truck for a typical Township event:
 ## Vineyards, acreages, parks, and the Township's four operational rhythms
 
 ![Rows of white ceremony chairs and a wedding setup on lush grass with greenery framing the scene](/images/lifestyle/ceremony-chairs-3.jpg){.float-right}
-*A vineyard-row ceremony staged on Township grass.*
+*Ceremony rows on grass. Shared lifestyle photo — not a named Township vineyard.*
 
 ### Vineyard and berry-farm weddings
 

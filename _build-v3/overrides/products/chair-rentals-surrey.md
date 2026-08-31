@@ -9,16 +9,12 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows or corporate seating, Resin Garden for damp South Surrey grass and Cloverdale acreage — one quote, one delivery, one crew. Because we're loading off our home dock, Surrey orders get the freshest stock pull and the tightest delivery window in the Lower Mainland."
 
 faqs:
-  - q: "What's included on a Surrey chair rental quote?"
-    a: "Every Surrey chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. Because Surrey is our home base, there are no fuel surcharges, no zone uplifts, no after-Cloverdale or south-of-the-bypass premiums — straight per-chair pricing."
   - q: "Which chair works for a Bear Creek Park or Cloverdale ceremony?"
     a: "For Bear Creek Park's lawn ceremony zone and the open meadow at Hazelmere, Resin Garden is the most forgiving pick — the resin frame and seat handle damp grass, dew, and uneven ground better than Chiavari's lacquered hardwood. Cloverdale Rodeo Grounds is firmer footing and most couples there book Chiavari for the reception look. For South Surrey acreage weddings, the call is usually Resin Garden outdoor → Chiavari indoor under the marquee."
   - q: "Can you handle a 200-guest Cloverdale Rodeo Grounds event?"
     a: "Yes — the Rodeo Grounds and Cloverdale Fairgrounds are routine Surrey bookings. We've shipped 250+ Fanback folding chairs to single events out there, plus the Chiavari line for the head table area. Vehicle access is straightforward off 60 Avenue and we coordinate the delivery window around the venue's livestock and event schedule."
   - q: "Can I mix chair types for a Surrey event?"
     a: "Yes — Fanback folding for the ceremony rows, Chiavari at the reception tables; or Resin Garden for an outdoor South Surrey ceremony followed by Chiavari indoors under a marquee. Single quote, single delivery, no mixing surcharge. Mixing is so common across Surrey weddings that our default load-out assumes it."
-  - q: "How clean are the chairs when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our Surrey warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking. Our QC bench is 30 feet from the loading dock, which is part of why our reviews mention chair condition by name."
 
 related_blog_posts:
   - slug: party-rental-checklist-50-100-150-200-guests

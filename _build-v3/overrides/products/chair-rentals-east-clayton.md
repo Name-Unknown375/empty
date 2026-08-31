@@ -9,8 +9,6 @@ intro_paragraphs:
   - "The defining East Clayton wedding-aesthetic is suburban-residential, with Clayton Heights Park and Katzie Slough providing the local outdoor ceremony options. The Cloverdale Rodeo Grounds is a short drive south and handles the larger community-scale and corporate-equestrian events that occasionally book chairs from us."
 
 faqs:
-  - q: "What's included on an East Clayton chair rental quote?"
-    a: "Every East Clayton chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. East Clayton is one of our shortest delivery routes, which means lower delivery line item and tighter setup windows than almost any other city we serve."
   - q: "Which chair works for a Clayton Heights Park or Katzie Slough ceremony?"
     a: "For Clayton Heights Park's open-lawn ceremonies and Katzie Slough's slough-adjacent outdoor zones, Resin Garden is the strongest pick — the slough-adjacent surface conditions and the morning dew on the park lawn don't tolerate Chiavari's lacquered hardwood well across a full ceremony arc."
   - q: "Can you handle a Cloverdale Rodeo Grounds-adjacent corporate event?"

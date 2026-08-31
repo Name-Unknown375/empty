@@ -58,6 +58,7 @@ HAND_AUTHORED = [
     "service-areas.html",
     "packages.html",
     "privacy.html",
+    "terms.html",
     "rentals.html",
     "checkout.html",
     "thank-you.html",

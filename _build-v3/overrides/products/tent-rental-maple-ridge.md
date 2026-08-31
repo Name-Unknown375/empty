@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Tent, sidewalls, lighting, anchor kit — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Maple Ridge tent rental quote?"
-    a: "Every Maple Ridge tent quote we send is itemised: the marquee, sidewalls, anchor kit, lighting add-ons, delivery, professional crew install, and applicable taxes. No fuel surcharges, no Maple Ridge-zone uplifts, no surprises at the truck."
   - q: "Can you install a marquee at Golden Ears Provincial Park?"
     a: "Yes — Golden Ears is one of our regular Maple Ridge ceremony venues. BC Parks runs the permit process for tents above their threshold; couples pull the permits, but we know which ceremony zones at the park accept which marquee footprints. Forest-floor zones often skip the marquee entirely (chair-only ceremonies under canopy); meadow and clearing-zone sites accommodate 20×20 and 20×40 footprints."
   - q: "What tent size for a Maple Ridge acreage wedding?"

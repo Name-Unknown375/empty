@@ -1,0 +1,17 @@
+---
+description: Clarity snapshots are collection-only until late September — no conversion builds
+globs: reports/clarity/**
+alwaysApply: false
+---
+
+# Clarity collection
+
+Files under `reports/clarity/` are a 3-day snapshot series. Do not ship site, template, or ads changes from them until [late-september-plan.md](reports/clarity/late-september-plan.md) is filled after 23 Sep 2026.
+
+When asked to pull Clarity:
+
+1. Run `python3 reports/clarity/pull.py --status` first.
+2. If due and still on or before 23 Sep, `export CLARITY_TOKEN` and `python3 reports/clarity/pull.py` (6 API calls, last 72 hours only).
+3. Never commit the token (`reports/clarity/.env` is gitignored). Never implement conversion work in the same pass.
+
+Scheduled pulls: `./reports/clarity/install-launchd.sh` on this Mac, or the GitHub Action with secret `CLARITY_TOKEN`.

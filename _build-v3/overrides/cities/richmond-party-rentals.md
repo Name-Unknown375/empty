@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Richmond rental quote?"
-    a: "Every Richmond quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Richmond-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can you accommodate cultural-wedding timing requirements?"
     a: "Yes — multi-stage cultural weddings (tea ceremony, family blessing, reception) typically have strict timing. We confirm the full event schedule during quoting and dispatch the truck to be on-site 90 minutes before your earliest milestone. Mid-event chair re-stage between ceremony and reception is standard for Richmond cultural weddings; we plan crew availability around it."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "What's your wind-and-rain plan for Steveston-area outdoor ceremonies?"
     a: "Steveston and Garry Point are exposed to the Strait of Georgia, which produces meaningfully more lateral wind load than inland Richmond venues. For any Steveston-area outdoor ceremony we recommend sidewalls year-round and a heavier-anchor strategy than typical urban installs. If a forecast forces a date change, we waive the change fee when called before crew dispatch."
   - q: "Can I split one quote across two Richmond venues on the same day?"
@@ -39,8 +35,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![A formal round dinner table with full place settings, candles, and a floral centerpiece set for a Richmond cultural wedding reception](/images/lifestyle/round-table-dinner-1.jpg)
-*A 5ft round set for 8 — the standard Richmond reception configuration.*
+![Round table and white folding chairs at an indoor family gathering](/images/jobs/indoor-grad-round-table.jpg)
+*Round table, folding chairs, buffet line. A Richmond indoor job — not a stock tablescape.*
 
 Same single inventory and crew calendar across the entire Lower Mainland. A Richmond couple gets the same catalogue any other city gets — without short-ships, without sub-rentals from another vendor.
 

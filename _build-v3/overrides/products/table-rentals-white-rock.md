@@ -9,14 +9,8 @@ intro_paragraphs:
   - "Round, banquet, cocktail highboy — quoted up front, delivered on a one-hour window, positioned to your floor plan by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a White Rock table rental quote?"
-    a: "Every White Rock table quote we send is itemised: tables by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No setup surcharge — every table is unfolded and positioned during the delivery window."
-  - q: "How many tables for a 100-guest White Rock wedding?"
-    a: "For seated dinner at 5ft rounds, plan ~12 rounds (8 guests per round = 96; round up for kids and split parties). Add 5–8 banquet tables for head, gift, cake, DJ, registration, and buffet. Add 2–3 cocktail highboys for the pre-dinner cocktail hour. Beach-and-pier setups skew toward highboy-heavy configurations rather than rounds — the sand and the wind don't love full seated dinners on the open beach."
   - q: "Can you deliver tables to a Semiahmoo peninsula acreage or Marine Drive restaurant?"
     a: "Yes — both are routine White Rock bookings. Peninsula acreage uses rural-road truck access with longer driveways. Marine Drive restaurant deliveries are typically cocktail-hour highboys staged outside the venue rather than full seated-dinner table setups."
-  - q: "Do you supply linens, runners, or chargers?"
-    a: "Yes. We stock tablecloths, napkins, and runners in-house at our Surrey warehouse and put them on the same delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the catering provider."
   - q: "How do you handle tables on the beach or at the pier?"
     a: "Beach-sand and pier-side tables need wind discipline. Banquet bases (heavier) work better than highboy bistros where the site is fully exposed; for cocktail hour we either stage highboys under tent canopy or weight the bases with sandbags. We don't recommend full seated-dinner table configurations on open beach — the wind makes the centerpiece-and-place-setting program impractical."
 

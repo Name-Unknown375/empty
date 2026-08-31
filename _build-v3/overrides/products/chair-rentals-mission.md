@@ -9,16 +9,12 @@ intro_paragraphs:
   - "Fraser River Heritage Park ceremonies, Westminster Abbey-adjacent receptions, Hatzic Lake outdoor weddings, and Mission Leisure Centre community events round out the calendar. The Benedictine monastery at Westminster Abbey is a distinctive Mission landmark — weddings don't happen inside, but the abbey's hillside position shapes the photo aesthetic at the surrounding venues and acreages with abbey-view sightlines."
 
 faqs:
-  - q: "What's included on a Mission chair rental quote?"
-    a: "Every Mission chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no Fraser Valley uplifts, no surprises at the truck. The Lougheed corridor delivery line is the only thing that shifts between a Hatzic and a downtown Mission booking."
   - q: "Which chair works for a Fraser River Heritage Park ceremony?"
     a: "Fraser River Heritage Park's open lawn and river-overlook ceremony zones run on damp grass and afternoon onshore breeze off the river. Resin Garden every time — Chiavari's lacquered hardwood doesn't love riverside humidity. Most Heritage Park weddings flip the reception to a Silverhill or Cedar Valley acreage; Chiavari for that phase."
   - q: "Can you handle a Hatzic Valley or Silverhill acreage wedding?"
     a: "Yes — Hatzic and Silverhill acreage weddings are the largest single share of our Mission marquee + chair calendar. Rural-road truck access is ample; most acreages have driveway runs measured in hundreds of metres. The standard two-chair-line setup is Resin Garden outdoor ceremony, Chiavari reception under marquee."
   - q: "Can I mix chair types for a Mission event?"
     a: "Yes — Fanback folding for the ceremony rows at Heritage Park or Leisure Centre, Chiavari at a Hatzic acreage reception; or Resin Garden for an outdoor Cedar Valley ceremony followed by Chiavari indoors at a Silverhill venue. Single quote, single delivery, no mixing surcharge — Lougheed corridor delivery means we can absorb the larger Mission orders efficiently."
-  - q: "How clean are the chairs when they arrive at a Mission acreage?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage. Acreage chair work in Mission's rural conditions puts more wear on inventory than urban setups; chairs that don't meet the condition bar come off the roster, not onto your booking."
 
 related_blog_posts:
   - slug: party-rental-checklist-50-100-150-200-guests

@@ -91,6 +91,17 @@ check("iframe src is attributed to frame-src",
       C.extract('<iframe src="https://www.googletagmanager.com/ns.html">'
                 )["frame-src"])
 
+SHARED_JS_SHAPE = (
+    "document.createElement('a').href = 'https://www.facebook.com/sharer';\n"
+    "const s = document.createElement('script');\n"
+    "s.src = 'https://widgets.leadconnectorhq.com/loader.js';\n"
+)
+check("shared.js script.src assign is extracted",
+      C.extract_script_src_assigns(SHARED_JS_SHAPE)
+      == {"widgets.leadconnectorhq.com"})
+check("shared.js share-button URLs are not treated as scripts",
+      "www.facebook.com" not in C.extract_script_src_assigns(SHARED_JS_SHAPE))
+
 
 # --- end-to-end: the actual outage and its near-miss ------------------------
 def violations(extra: str) -> set[str]:

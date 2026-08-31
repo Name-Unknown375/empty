@@ -9,10 +9,6 @@ intro_paragraphs:
   - "Round, banquet, cocktail highboy — quoted up front, delivered on a one-hour window, positioned to your floor plan by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Surrey table rental quote?"
-    a: "Every Surrey table quote we send is itemised: tables by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no Surrey-zone uplifts, no setup surcharge — every table is unfolded and positioned during the delivery window."
-  - q: "How many tables for a 100-guest Surrey wedding?"
-    a: "For seated dinner at 5ft rounds, plan ~12 rounds (8 guests per round = 96; round up for kids and split parties). Add 5–8 banquet tables for head, gift, cake, DJ, registration, and buffet. Add 2–3 cocktail highboys for the pre-dinner cocktail hour."
   - q: "How fast can you deliver Surrey tables on short notice?"
     a: "Surrey is our shortest delivery route, which means same-week table-only orders are routine even in peak season. Mid-event additions (extra banquet tables when walk-ins exceed expectations, replacement when something fails) are typically on-site within 60–75 minutes during business hours."
   - q: "Can I pick up tables directly from your warehouse?"

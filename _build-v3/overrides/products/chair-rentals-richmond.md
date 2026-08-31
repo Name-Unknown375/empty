@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows or corporate seating, Resin Garden for Steveston and Garry Point's outdoor sites — one quote, one delivery, one crew. Richmond's flat terrain and grid streets make our delivery windows tighter than most cities, even with River Rock and Olympic Oval traffic."
 
 faqs:
-  - q: "What's included on a Richmond chair rental quote?"
-    a: "Every Richmond chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no Richmond-zone uplifts, no surprises at the truck."
   - q: "Which chair works for a Steveston or Garry Point Park ceremony?"
     a: "For Steveston Heritage Fishing Village and Garry Point Park's waterfront ceremony zones, Resin Garden is the strongest pick — the resin frame and seat handle salt air, dampness off the river, and the coastal humidity that builds up through the afternoon. Chiavari's lacquered hardwood doesn't love the salt-air exposure for a full ceremony cycle. Most Steveston waterfront weddings book Resin Garden for the ceremony and Chiavari indoors at the reception."
   - q: "Can you handle a 300-guest Olympic Oval or River Rock event?"

@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows, Resin Garden for the outdoor surface — one quote, one delivery, one crew. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a North Vancouver chair rental quote?"
-    a: "Every North Van chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no North Shore uplifts, no surprises at the truck."
   - q: "Which chair works for a Lynn Canyon or forest-floor ceremony?"
     a: "For forest-floor sites at Lynn Canyon and the wooded zones along the North Shore, Resin Garden is the strongest pick — the resin frame and seat handle damp soil and uneven forest floors better than Chiavari's lacquered hardwood. Most October–April forest bookings skew toward Resin Garden."
-  - q: "How clean are the chairs when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Can I mix chair types for a North Van wedding?"
     a: "Yes — Resin Garden for the forest or mountain ceremony rows, Chiavari at the reception tables. Single quote, single delivery, no mixing surcharge. We carry enough of each line to ship the full split without short-shipping."
   - q: "How fast can you deliver chairs for a North Vancouver event?"

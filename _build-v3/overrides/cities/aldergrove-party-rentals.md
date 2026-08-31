@@ -9,14 +9,10 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on an Aldergrove rental quote?"
-    a: "Every Aldergrove quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Aldergrove-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Do you handle Greater Vancouver Zoo events?"
     a: "Yes — the Zoo runs corporate events, family functions, and conservation-organization gatherings that we deliver to regularly. The Zoo coordinates vendor access through its events team; we book delivery slots during quoting. Most Zoo setups skip the marquee (the Zoo's existing event spaces handle the footprint) and run on banquet tables, Chiavari chairs, cocktail highboys, and bistro lighting."
   - q: "Can you tent at an Aldergrove acreage or rural wedding?"
     a: "Yes — Aldergrove rural acreages are among our most-photogenic Township deliveries. Most properties have plenty of footprint for a 20×60 or 30×60 marquee. Engineered ground stakes are our default anchor on grass; we confirm sprinkler infrastructure and irrigation lines before staking. Rural-residential properties often have 1.5+ km driveway approaches we factor into the delivery window."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Can you deliver to Aldergrove Regional Park ceremonies?"
     a: "Yes — Aldergrove Regional Park is one of our regular Township park venues. Metro Vancouver Regional Parks runs the permit process for tents above their threshold; couples pull the permits, but we know which ceremony zones at the park accept which marquee footprints. Open-air park ceremonies have farmland-style wind exposure we plan for."
 

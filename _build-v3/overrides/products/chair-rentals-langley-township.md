@@ -17,8 +17,6 @@ faqs:
     a: "Yes — 200-guest weddings are routine at Township 7 and the larger Domaine de Chaberton bookings. The standard order is Fanback folding for the 200 ceremony rows (efficient stacking for the truck), Chiavari for the 200 reception tables under marquee. Mixing lines is free and shipped on a single delivery."
   - q: "Do you deliver chairs to Campbell Valley Park or the Aldergrove side of the Township?"
     a: "Yes — Campbell Valley Regional Park ceremonies run on park-permit windows with venue-coordinated delivery. Aldergrove-area acreage weddings are at the southern edge of the Township; delivery from our warehouse runs roughly 50 minutes via 264 Street. Both are routine bookings."
-  - q: "How clean are the chairs when they arrive at a Township farm or vineyard?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Vineyard and berry-farm chair work puts more wear on inventory than urban setups; chairs that don't meet the condition bar come off the roster, not onto your booking."
 
 related_blog_posts:
   - slug: fort-langley-wedding-venues-rental-guide

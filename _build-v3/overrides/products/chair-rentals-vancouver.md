@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows, Resin Garden for the outdoor surface — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who positions it at your venue."
 
 faqs:
-  - q: "What's included on a Vancouver chair rental quote?"
-    a: "Every Vancouver chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no Vancouver-zone uplifts, no surprises at the truck."
   - q: "Can I mix chair types for a Vancouver wedding?"
     a: "Yes — Chiavari for the reception, Fanback or Resin Garden for the ceremony rows, mixed indoor/outdoor configurations. Single quote, single delivery, no mixing surcharge. We carry enough of each line to ship the full split without short-shipping."
-  - q: "How clean are the chairs when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Which chair works for a Stanley Park or VanDusen ceremony?"
     a: "For grass and pavilion-adjacent zones, Chiavari is the most-photographed pick — the formal frame matches the park backdrop. For shoulder-season bookings (April–May, September–October) or wet forecasts, Resin Garden handles morning dew and damp grass better. Most park ceremonies book Chiavari with sidewall-and-heater backup if forecast shifts."
   - q: "How fast can you deliver Vancouver chair-only orders?"

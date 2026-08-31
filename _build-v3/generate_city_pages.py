@@ -120,12 +120,13 @@ def neighborhood_list_short(neighborhoods, limit=4):
     return ", ".join(trimmed[:-1]) + ", " + trimmed[-1]
 
 
-def build_context(slug, city, data, products):
+def build_context(slug, city, products):
     """Assemble the Jinja2 render context for one city."""
     canonical = f"{SITE_URL}{url_path(f'{slug}-party-rentals.html')}"
 
-    pool = data["testimonialPool"]
-    testimonials = [pool[i] for i in city["testimonialIndices"]]
+    # Testimonials are page-specific only (override `testimonials:`). Do not
+    # rotate testimonialPool onto every city URL — recycled quotes have zero
+    # incremental information gain.
 
     # Hero short list: first 4 neighborhoods
     nhb_short = neighborhood_list_short(city["neighborhoods"], limit=4)
@@ -148,7 +149,6 @@ def build_context(slug, city, data, products):
 
     return {
         "city": city,
-        "testimonials": testimonials,
         "neighborhood_list_short": nhb_short,
         "page_title": title,
         "page_description": description,
@@ -230,7 +230,7 @@ def main():
     written = []
     for slug in slugs:
         city = data["cities"][slug]
-        ctx = build_context(slug, city, data, products)
+        ctx = build_context(slug, city, products)
         html = template.render(**ctx)
         path = out_dir / f"{slug}-party-rentals.html"
         path.write_text(html, encoding="utf-8")

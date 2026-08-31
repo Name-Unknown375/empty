@@ -889,6 +889,8 @@ a.area-pill:hover { background: var(--green); color: #fff; border-color: var(--g
   /* lift Adelie's floating cart above the bar */
   #adelie_floating_cart_icon_main { bottom: 86px !important; }
   #adelie_floating_cart_main { bottom: 86px !important; }
+  /* lift LeadConnector chat above the same bar */
+  chat-widget { bottom: 86px !important; }
 }
 
 /* ── Adelie inline widgets: reserve space so injection doesn't shift layout

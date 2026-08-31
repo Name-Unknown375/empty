@@ -1,0 +1,373 @@
+[
+  {
+    "metricName": "DeadClickCount",
+    "information": [
+      {
+        "sessionsCount": "531",
+        "sessionsWithMetricPercentage": 22.22,
+        "sessionsWithoutMetricPercentage": 77.78,
+        "pagesViews": "180",
+        "subTotal": "522"
+      }
+    ]
+  },
+  {
+    "metricName": "ExcessiveScroll",
+    "information": [
+      {
+        "sessionsCount": "531",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0"
+      }
+    ]
+  },
+  {
+    "metricName": "RageClickCount",
+    "information": [
+      {
+        "sessionsCount": "531",
+        "sessionsWithMetricPercentage": 1.13,
+        "sessionsWithoutMetricPercentage": 98.87,
+        "pagesViews": "6",
+        "subTotal": "20"
+      }
+    ]
+  },
+  {
+    "metricName": "QuickbackClick",
+    "information": [
+      {
+        "sessionsCount": "531",
+        "sessionsWithMetricPercentage": 19.77,
+        "sessionsWithoutMetricPercentage": 80.23,
+        "pagesViews": "163",
+        "subTotal": "163"
+      }
+    ]
+  },
+  {
+    "metricName": "ScriptErrorCount",
+    "information": [
+      {
+        "sessionsCount": "531",
+        "sessionsWithMetricPercentage": 1.13,
+        "sessionsWithoutMetricPercentage": 98.87,
+        "pagesViews": "7",
+        "subTotal": "13"
+      }
+    ]
+  },
+  {
+    "metricName": "ErrorClickCount",
+    "information": [
+      {
+        "sessionsCount": "531",
+        "sessionsWithMetricPercentage": 0.56,
+        "sessionsWithoutMetricPercentage": 99.44,
+        "pagesViews": "4",
+        "subTotal": "6"
+      }
+    ]
+  },
+  {
+    "metricName": "ScrollDepth",
+    "information": [
+      {
+        "averageScrollDepth": 34.19
+      }
+    ]
+  },
+  {
+    "metricName": "Traffic",
+    "information": [
+      {
+        "totalSessionCount": "531",
+        "totalBotSessionCount": "128",
+        "distinctUserCount": "538",
+        "pagesPerSessionPercentage": 2.488888888888889
+      }
+    ]
+  },
+  {
+    "metricName": "EngagementTime",
+    "information": [
+      {
+        "totalTime": "210",
+        "activeTime": "106"
+      }
+    ]
+  },
+  {
+    "metricName": "Browser",
+    "information": [
+      {
+        "name": "MobileSafari",
+        "sessionsCount": "199"
+      },
+      {
+        "name": "Chrome",
+        "sessionsCount": "144"
+      },
+      {
+        "name": "ChromeMobile",
+        "sessionsCount": "74"
+      },
+      {
+        "name": "Edge",
+        "sessionsCount": "45"
+      },
+      {
+        "name": "Safari",
+        "sessionsCount": "35"
+      },
+      {
+        "name": "GoogleApp",
+        "sessionsCount": "17"
+      },
+      {
+        "name": "Firefox",
+        "sessionsCount": "6"
+      },
+      {
+        "name": "FacebookApp",
+        "sessionsCount": "5"
+      },
+      {
+        "name": "SamsungInternet",
+        "sessionsCount": "4"
+      },
+      {
+        "name": "EdgeMobile",
+        "sessionsCount": "2"
+      }
+    ]
+  },
+  {
+    "metricName": "Device",
+    "information": [
+      {
+        "name": "Mobile",
+        "sessionsCount": "288"
+      },
+      {
+        "name": "PC",
+        "sessionsCount": "230"
+      },
+      {
+        "name": "Tablet",
+        "sessionsCount": "13"
+      }
+    ]
+  },
+  {
+    "metricName": "OS",
+    "information": [
+      {
+        "name": "IOS",
+        "sessionsCount": 254
+      },
+      {
+        "name": "Windows",
+        "sessionsCount": 143
+      },
+      {
+        "name": "MacOSX",
+        "sessionsCount": 85
+      },
+      {
+        "name": "Android",
+        "sessionsCount": 47
+      },
+      {
+        "name": "ChromeOS",
+        "sessionsCount": 1
+      },
+      {
+        "name": "Linux",
+        "sessionsCount": 1
+      }
+    ]
+  },
+  {
+    "metricName": "Country",
+    "information": [
+      {
+        "name": "Canada",
+        "sessionsCount": "414"
+      },
+      {
+        "name": "United States",
+        "sessionsCount": "68"
+      },
+      {
+        "name": "United Kingdom",
+        "sessionsCount": "25"
+      },
+      {
+        "name": "Philippines",
+        "sessionsCount": "5"
+      },
+      {
+        "name": "France",
+        "sessionsCount": "3"
+      },
+      {
+        "name": "Pakistan",
+        "sessionsCount": "3"
+      },
+      {
+        "name": "Singapore",
+        "sessionsCount": "2"
+      },
+      {
+        "name": "Viet Nam",
+        "sessionsCount": "2"
+      },
+      {
+        "name": "Sweden",
+        "sessionsCount": "2"
+      },
+      {
+        "name": "Bangladesh",
+        "sessionsCount": "1"
+      }
+    ]
+  },
+  {
+    "metricName": "PageTitle",
+    "information": [
+      {
+        "name": "Forever Party Rentals | Party Rentals Near You \u2014 Surrey & Metro Vancouver",
+        "sessionsCount": "113"
+      },
+      {
+        "name": "Browse & Book Rentals | Forever Party Rentals",
+        "sessionsCount": "78"
+      },
+      {
+        "name": "Chair Rentals \u2014 Surrey & Lower Mainland BC",
+        "sessionsCount": "53"
+      },
+      {
+        "name": "Tent Rentals \u2014 Marquee Tents from $550",
+        "sessionsCount": "48"
+      },
+      {
+        "name": "Free Event Layout Planner with Live Pricing \u2014 Floor Plan & Quote Tool | Forever Party Rentals",
+        "sessionsCount": "41"
+      },
+      {
+        "name": "Checkout | Forever Party Rentals",
+        "sessionsCount": "28"
+      },
+      {
+        "name": "Table & Chair Rentals \u2014 Surrey & Lower Mainland",
+        "sessionsCount": "25"
+      },
+      {
+        "name": "Maple Ridge Party Rentals BC \u2014 Tents, Chairs & Tables",
+        "sessionsCount": "24"
+      },
+      {
+        "name": "Burnaby Party Rentals \u2014 Tents, Chairs, Tables",
+        "sessionsCount": "22"
+      },
+      {
+        "name": "Contact Us | Forever Party Rentals",
+        "sessionsCount": "22"
+      }
+    ]
+  },
+  {
+    "metricName": "ReferrerUrl",
+    "information": [
+      {
+        "name": "https://www.google.com/",
+        "sessionsCount": "254"
+      },
+      {
+        "name": null,
+        "sessionsCount": "144"
+      },
+      {
+        "name": "https://www.foreverpartyrentals.com/",
+        "sessionsCount": "48"
+      },
+      {
+        "name": "https://www.foreverpartyrentals.com/tents",
+        "sessionsCount": "35"
+      },
+      {
+        "name": "https://www.foreverpartyrentals.com/rentals",
+        "sessionsCount": "30"
+      },
+      {
+        "name": "https://www.foreverpartyrentals.com/chairs",
+        "sessionsCount": "22"
+      },
+      {
+        "name": "https://www.bing.com/",
+        "sessionsCount": "18"
+      },
+      {
+        "name": "https://www.foreverpartyrentals.com/tables",
+        "sessionsCount": "15"
+      },
+      {
+        "name": "https://www.foreverpartyrentals.com/abbotsford-party-rentals",
+        "sessionsCount": "12"
+      },
+      {
+        "name": "https://www.foreverpartyrentals.com/product-round-table-5ft",
+        "sessionsCount": "9"
+      }
+    ]
+  },
+  {
+    "metricName": "PopularPages",
+    "information": [
+      {
+        "url": "https://www.foreverpartyrentals.com/",
+        "visitsCount": 155
+      },
+      {
+        "url": "https://www.foreverpartyrentals.com/rentals",
+        "visitsCount": 83
+      },
+      {
+        "url": "https://www.foreverpartyrentals.com/chairs",
+        "visitsCount": 56
+      },
+      {
+        "url": "https://www.foreverpartyrentals.com/tents",
+        "visitsCount": 55
+      },
+      {
+        "url": "https://www.foreverpartyrentals.com/event-layout-planner",
+        "visitsCount": 43
+      },
+      {
+        "url": "https://www.foreverpartyrentals.com/checkout",
+        "visitsCount": 31
+      },
+      {
+        "url": "https://www.foreverpartyrentals.com/tables",
+        "visitsCount": 28
+      },
+      {
+        "url": "https://www.foreverpartyrentals.com/maple-ridge-party-rentals",
+        "visitsCount": 25
+      },
+      {
+        "url": "https://www.foreverpartyrentals.com/abbotsford-party-rentals",
+        "visitsCount": 24
+      },
+      {
+        "url": "https://www.foreverpartyrentals.com/burnaby-party-rentals",
+        "visitsCount": 24
+      }
+    ]
+  }
+]

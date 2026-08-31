@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Fort Langley rental quote?"
-    a: "Every Fort Langley quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Fort Langley-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can you set up tents at Fort Langley National Historic Site?"
     a: "Yes — the Historic Site is a regular Fort Langley wedding venue. Parks Canada runs the vendor coordination process for events on-site, and we book delivery slots through their events team during quoting. Heritage-protected sightlines limit marquee placement; most Historic Site weddings stay smaller (under 100 guests) and skip the marquee entirely — Chiavari chairs, banquet tables, and bistro lighting handle the typical setup."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "What's the access constraint for Fort Langley village weddings?"
     a: "Fort Langley's village core has narrow streets, heritage-protected sightlines, and limited truck staging. Some addresses require front-of-property staging or hand-carry from the road. We confirm access during quoting for any village-core address we haven't delivered to. Larger receptions typically happen at the Historic Site, Derby Reach, or along the Glover Road corridor where access is more flexible."
   - q: "How fast can you deliver Fort Langley rentals?"

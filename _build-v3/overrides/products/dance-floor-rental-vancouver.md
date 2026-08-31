@@ -1,16 +1,14 @@
 ---
 slug: dance-floor-rental-vancouver
-title: "Dance Floor Rentals in Vancouver — Crew + Setup"
-meta_description: "Dance floor rentals in Vancouver — 12×12, 12×12, 16×16 portable floors with subfloor, delivered and crew-installed by the local team. 212+ five-star reviews."
-hero_subtitle: "Dance floor rentals in Vancouver — 12×12, 12×12, and 16×16 portable floors delivered, leveled on subfloor where the surface needs it, and installed by the same crew that loaded it."
+title: "Dance Floor Rentals in Vancouver — from $800"
+meta_description: "Dance floor rentals in Vancouver — 8×8, 12×12 and 16×16 portable floors from $800, with subfloor. Delivered and crew-installed. 212+ reviews."
+hero_subtitle: "Dance floor rentals in Vancouver — 8×8, 12×12, and 16×16 portable floors from $800, delivered, leveled on subfloor where the surface needs it, and installed by the same crew that loaded it."
 
 intro_paragraphs:
   - "A Vancouver dance floor rental is rarely just about the floor. It's about the truck arriving in the right one-hour window, the crew that levels the panels on grass or rooftop or uneven patio, and the floor that's tight, gap-free, and quiet under heels by the time guests arrive. Park ceremonies, downtown rooftop receptions, West End backyards, and East Vancouver loft conversions each draw a different floor pattern — but the equipment, the crew, and the quote stay the same."
   - "Floor panels, subfloor, edge ramps — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Vancouver dance floor rental quote?"
-    a: "Every Vancouver dance floor quote we send is itemised: panel count, subfloor where the surface needs it, edge ramps, delivery, professional crew install, and applicable taxes. No fuel surcharges, no Vancouver-zone uplifts, no surprises at the truck."
   - q: "What size dance floor for a 100-guest Vancouver wedding?"
     a: "12×12 is the standard for 60–100 guests — about 30–40% will be on the floor at any moment, which is the comfort target. For small backyard counts (up to ~50), the 8×8 works. For 150+ guests or weddings with a strong dance culture, 16×16."
   - q: "Can you install a dance floor on grass or uneven surfaces?"
@@ -44,7 +42,7 @@ nearby_cities:
 
 Three floor sizes that cover almost every Vancouver wedding and corporate booking:
 
-- **12×12 portable dance floor** — 60–80 guests, smaller backyard receptions, intimate venues. The smallest floor that still feels like a real floor (not a rug).
+- **8×8 portable dance floor** — up to ~50 guests, smaller backyard receptions, intimate venues. The smallest floor that still feels like a real floor (not a rug).
 - **12×12 portable dance floor** — the workhorse. 100-guest weddings, most marquee setups, most rooftop installs. The size that suits a 20×60 marquee best.
 - **16×16 portable dance floor** — 150–200 guests, larger acreage and heritage-venue receptions. Edge ramps and full subfloor on grass installations.
 - **Subfloor panels** — engineered platforms that level grass, sloped lawns, gravel, and uneven patios beneath the dance floor. Adds 90–120 minutes to setup; quoted separately.

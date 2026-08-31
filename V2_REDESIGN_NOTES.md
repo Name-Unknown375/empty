@@ -2,6 +2,10 @@
 
 Date: 2026-07-18 · Built from FRONTEND_IMPROVEMENT_PLAN_2026-07-18.md (all 15 items + opt-in headline pass)
 
+> **DEPLOYED TO PRODUCTION 2026-07-18** — commit e2a161a, netlify deploy from clean
+> worktree, verified live on www.foreverpartyrentals.com. `site/` and `_build/` now
+> carry everything below; `site-v2/` + `_build-v2/` are redundant preview copies.
+
 ## Compare the two sites
 
 ```

@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Delta rental quote?"
-    a: "Every Delta quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Delta-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can you tent on coastal grass at Tsawwassen-area properties?"
     a: "Yes, with caveats. Tsawwassen and the Boundary Bay coastline have meaningfully more sustained wind than inland Delta venues — we recommend ballasted weight kits at every leg (engineered stakes alone aren't enough on saturated coastal soil), sidewalls year-round, and a slightly larger marquee than headcount strictly requires for evening enclosure."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Do you handle Ladner Village heritage-home weddings?"
     a: "Yes — Ladner Village's historic homes are some of our favourite Delta delivery sites. The catch is access: Ladner's narrow streets and heritage-protected sightlines limit truck staging, and several homes have driveway constraints we confirm during quoting. Most Ladner heritage-home weddings stay small (under 80 guests) and skew toward Chiavari chairs, banquet tables, and bistro lighting rather than full marquee setups."
   - q: "How fast can you deliver Delta rentals on short notice?"

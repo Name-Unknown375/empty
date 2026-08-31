@@ -9,14 +9,8 @@ intro_paragraphs:
   - "Round, banquet, cocktail highboy — quoted up front, delivered on a one-hour window, positioned to your floor plan by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Delta table rental quote?"
-    a: "Every Delta table quote we send is itemised: tables by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No setup surcharge — every table is unfolded and positioned during the delivery window."
-  - q: "How many tables for a 100-guest Delta wedding?"
-    a: "For seated dinner at 5ft rounds, plan ~12 rounds (8 guests per round = 96; round up for kids and split parties). Add 5–8 banquet tables for head, gift, cake, DJ, registration, and buffet. Add 2–3 cocktail highboys for the pre-dinner cocktail hour."
   - q: "Can you deliver tables to Tsawwassen acreage or Boundary Bay?"
     a: "Yes — both are routine Delta deliveries. Tsawwassen acreage weddings near the ferry terminal use standard delivery on rural roads. Boundary Bay shoreline ceremonies require permit-coordinated delivery windows that we book during quoting."
-  - q: "Do you supply linens, runners, or chargers?"
-    a: "Yes. We stock tablecloths, napkins, and runners in-house at our Surrey warehouse and put them on the same delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the catering provider."
   - q: "How do you handle tables at a Boundary Bay shoreline event?"
     a: "Tables at exposed shoreline sites need the same wind discipline as the marquee. Lightweight high-tops can lift in Boundary Bay's onshore wind — we recommend banquet bases (heavier) over highboy bistros if your shoreline setup is fully exposed. For cocktail-hour highboys, we either stage them under the tent canopy or weight the bases."
 

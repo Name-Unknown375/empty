@@ -1,0 +1,1270 @@
+[
+  {
+    "metricName": "DeadClickCount",
+    "information": [
+      {
+        "sessionsCount": "138",
+        "sessionsWithMetricPercentage": 20.29,
+        "sessionsWithoutMetricPercentage": 79.71000000000001,
+        "pagesViews": "28",
+        "subTotal": "64",
+        "Source": ""
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "ig"
+      },
+      {
+        "sessionsCount": "254",
+        "sessionsWithMetricPercentage": 11.81,
+        "sessionsWithoutMetricPercentage": 88.19,
+        "pagesViews": "31",
+        "subTotal": "82",
+        "Source": "google"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "yahoo"
+      },
+      {
+        "sessionsCount": "40",
+        "sessionsWithMetricPercentage": 2.5,
+        "sessionsWithoutMetricPercentage": 97.5,
+        "pagesViews": "1",
+        "subTotal": "4",
+        "Source": "bing"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 20,
+        "sessionsWithoutMetricPercentage": 80,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Source": "email"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.uhrs.ai"
+      },
+      {
+        "sessionsCount": "8",
+        "sessionsWithMetricPercentage": 12.5,
+        "sessionsWithoutMetricPercentage": 87.5,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Source": "chatgpt.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.ecosia.org"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "claude.ai"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "lm.facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "m.facebook.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 50,
+        "sessionsWithoutMetricPercentage": 50,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Source": "duckduckgo.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "pittmeadowspartyrentals.com"
+      },
+      {
+        "sessionsCount": "229",
+        "sessionsWithMetricPercentage": 22.71,
+        "sessionsWithoutMetricPercentage": 77.28999999999999,
+        "pagesViews": "89",
+        "subTotal": "253",
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "usc-excel.officeapps.live.com"
+      }
+    ]
+  },
+  {
+    "metricName": "ExcessiveScroll",
+    "information": [
+      {
+        "sessionsCount": "138",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": ""
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "ig"
+      },
+      {
+        "sessionsCount": "254",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "google"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "yahoo"
+      },
+      {
+        "sessionsCount": "40",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "bing"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "email"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.uhrs.ai"
+      },
+      {
+        "sessionsCount": "8",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "chatgpt.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.ecosia.org"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "claude.ai"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "lm.facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "m.facebook.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "duckduckgo.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "pittmeadowspartyrentals.com"
+      },
+      {
+        "sessionsCount": "229",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "usc-excel.officeapps.live.com"
+      }
+    ]
+  },
+  {
+    "metricName": "RageClickCount",
+    "information": [
+      {
+        "sessionsCount": "138",
+        "sessionsWithMetricPercentage": 0.72,
+        "sessionsWithoutMetricPercentage": 99.28,
+        "pagesViews": "1",
+        "subTotal": "3",
+        "Source": ""
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "ig"
+      },
+      {
+        "sessionsCount": "254",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "google"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "yahoo"
+      },
+      {
+        "sessionsCount": "40",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "bing"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "email"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.uhrs.ai"
+      },
+      {
+        "sessionsCount": "8",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "chatgpt.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.ecosia.org"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "claude.ai"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "lm.facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "m.facebook.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "duckduckgo.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "pittmeadowspartyrentals.com"
+      },
+      {
+        "sessionsCount": "229",
+        "sessionsWithMetricPercentage": 0.87,
+        "sessionsWithoutMetricPercentage": 99.13,
+        "pagesViews": "2",
+        "subTotal": "6",
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "usc-excel.officeapps.live.com"
+      }
+    ]
+  },
+  {
+    "metricName": "QuickbackClick",
+    "information": [
+      {
+        "sessionsCount": "138",
+        "sessionsWithMetricPercentage": 6.52,
+        "sessionsWithoutMetricPercentage": 93.48,
+        "pagesViews": "10",
+        "subTotal": "10",
+        "Source": ""
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "ig"
+      },
+      {
+        "sessionsCount": "254",
+        "sessionsWithMetricPercentage": 17.32,
+        "sessionsWithoutMetricPercentage": 82.68,
+        "pagesViews": "47",
+        "subTotal": "47",
+        "Source": "google"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 20,
+        "sessionsWithoutMetricPercentage": 80,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Source": "yahoo"
+      },
+      {
+        "sessionsCount": "40",
+        "sessionsWithMetricPercentage": 5,
+        "sessionsWithoutMetricPercentage": 95,
+        "pagesViews": "2",
+        "subTotal": "2",
+        "Source": "bing"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "email"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.uhrs.ai"
+      },
+      {
+        "sessionsCount": "8",
+        "sessionsWithMetricPercentage": 12.5,
+        "sessionsWithoutMetricPercentage": 87.5,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Source": "chatgpt.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.ecosia.org"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "claude.ai"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "lm.facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "m.facebook.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "duckduckgo.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "pittmeadowspartyrentals.com"
+      },
+      {
+        "sessionsCount": "229",
+        "sessionsWithMetricPercentage": 19.21,
+        "sessionsWithoutMetricPercentage": 80.78999999999999,
+        "pagesViews": "89",
+        "subTotal": "89",
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "usc-excel.officeapps.live.com"
+      }
+    ]
+  },
+  {
+    "metricName": "ScriptErrorCount",
+    "information": [
+      {
+        "sessionsCount": "138",
+        "sessionsWithMetricPercentage": 2.9,
+        "sessionsWithoutMetricPercentage": 97.1,
+        "pagesViews": "4",
+        "subTotal": "9",
+        "Source": ""
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "ig"
+      },
+      {
+        "sessionsCount": "254",
+        "sessionsWithMetricPercentage": 0.39,
+        "sessionsWithoutMetricPercentage": 99.61,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Source": "google"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "yahoo"
+      },
+      {
+        "sessionsCount": "40",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "bing"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "email"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.uhrs.ai"
+      },
+      {
+        "sessionsCount": "8",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "chatgpt.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.ecosia.org"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "claude.ai"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "lm.facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "m.facebook.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "duckduckgo.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "pittmeadowspartyrentals.com"
+      },
+      {
+        "sessionsCount": "229",
+        "sessionsWithMetricPercentage": 0.87,
+        "sessionsWithoutMetricPercentage": 99.13,
+        "pagesViews": "2",
+        "subTotal": "2",
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "usc-excel.officeapps.live.com"
+      }
+    ]
+  },
+  {
+    "metricName": "ErrorClickCount",
+    "information": [
+      {
+        "sessionsCount": "138",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": ""
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "ig"
+      },
+      {
+        "sessionsCount": "254",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "google"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "yahoo"
+      },
+      {
+        "sessionsCount": "40",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "bing"
+      },
+      {
+        "sessionsCount": "5",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "email"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.uhrs.ai"
+      },
+      {
+        "sessionsCount": "8",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "chatgpt.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.ecosia.org"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "claude.ai"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "lm.facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "m.facebook.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "duckduckgo.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "pittmeadowspartyrentals.com"
+      },
+      {
+        "sessionsCount": "229",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "usc-excel.officeapps.live.com"
+      }
+    ]
+  },
+  {
+    "metricName": "ScrollDepth",
+    "information": [
+      {
+        "averageScrollDepth": 20.83,
+        "Source": ""
+      },
+      {
+        "averageScrollDepth": 22,
+        "Source": "ig"
+      },
+      {
+        "averageScrollDepth": 26.95,
+        "Source": "google"
+      },
+      {
+        "averageScrollDepth": 24.83,
+        "Source": "yahoo"
+      },
+      {
+        "averageScrollDepth": 21.02,
+        "Source": "bing"
+      },
+      {
+        "averageScrollDepth": 23.5,
+        "Source": "email"
+      },
+      {
+        "averageScrollDepth": 15.5,
+        "Source": "www.uhrs.ai"
+      },
+      {
+        "averageScrollDepth": 28.5,
+        "Source": "chatgpt.com"
+      },
+      {
+        "averageScrollDepth": 39,
+        "Source": "www.ecosia.org"
+      },
+      {
+        "averageScrollDepth": 11,
+        "Source": "claude.ai"
+      },
+      {
+        "averageScrollDepth": 8.5,
+        "Source": "facebook.com"
+      },
+      {
+        "averageScrollDepth": 4,
+        "Source": "lm.facebook.com"
+      },
+      {
+        "averageScrollDepth": 26,
+        "Source": "m.facebook.com"
+      },
+      {
+        "averageScrollDepth": 47.75,
+        "Source": "duckduckgo.com"
+      },
+      {
+        "averageScrollDepth": 13.5,
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "averageScrollDepth": 10,
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "averageScrollDepth": 38,
+        "Source": "pittmeadowspartyrentals.com"
+      },
+      {
+        "averageScrollDepth": 43.28,
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "averageScrollDepth": 6,
+        "Source": "usc-excel.officeapps.live.com"
+      }
+    ]
+  },
+  {
+    "metricName": "Traffic",
+    "information": [
+      {
+        "totalSessionCount": "138",
+        "totalBotSessionCount": "85",
+        "distinctUserCount": "241",
+        "pagesPerSessionPercentage": 1.48828125,
+        "Source": ""
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 2,
+        "Source": "ig"
+      },
+      {
+        "totalSessionCount": "254",
+        "totalBotSessionCount": "5",
+        "distinctUserCount": "241",
+        "pagesPerSessionPercentage": 1.494296577946768,
+        "Source": "google"
+      },
+      {
+        "totalSessionCount": "5",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "5",
+        "pagesPerSessionPercentage": 1.2,
+        "Source": "yahoo"
+      },
+      {
+        "totalSessionCount": "40",
+        "totalBotSessionCount": "3",
+        "distinctUserCount": "43",
+        "pagesPerSessionPercentage": 1.1777777777777778,
+        "Source": "bing"
+      },
+      {
+        "totalSessionCount": "5",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "2",
+        "pagesPerSessionPercentage": 1.2,
+        "Source": "email"
+      },
+      {
+        "totalSessionCount": "0",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 1,
+        "Source": "www.outrank.so"
+      },
+      {
+        "totalSessionCount": "2",
+        "totalBotSessionCount": "1",
+        "distinctUserCount": "2",
+        "pagesPerSessionPercentage": 1,
+        "Source": "www.uhrs.ai"
+      },
+      {
+        "totalSessionCount": "8",
+        "totalBotSessionCount": "1",
+        "distinctUserCount": "8",
+        "pagesPerSessionPercentage": 1.4444444444444444,
+        "Source": "chatgpt.com"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 1,
+        "Source": "www.ecosia.org"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 1,
+        "Source": "claude.ai"
+      },
+      {
+        "totalSessionCount": "2",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "2",
+        "pagesPerSessionPercentage": 1,
+        "Source": "facebook.com"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 1,
+        "Source": "lm.facebook.com"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "2",
+        "distinctUserCount": "3",
+        "pagesPerSessionPercentage": 1,
+        "Source": "m.facebook.com"
+      },
+      {
+        "totalSessionCount": "2",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "2",
+        "pagesPerSessionPercentage": 2,
+        "Source": "duckduckgo.com"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 2,
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "totalSessionCount": "2",
+        "totalBotSessionCount": "1",
+        "distinctUserCount": "3",
+        "pagesPerSessionPercentage": 1,
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 1,
+        "Source": "pittmeadowspartyrentals.com"
+      },
+      {
+        "totalSessionCount": "229",
+        "totalBotSessionCount": "5",
+        "distinctUserCount": "175",
+        "pagesPerSessionPercentage": 2.720164609053498,
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 2,
+        "Source": "usc-excel.officeapps.live.com"
+      }
+    ]
+  },
+  {
+    "metricName": "EngagementTime",
+    "information": [
+      {
+        "totalTime": "91",
+        "activeTime": "62",
+        "Source": ""
+      },
+      {
+        "totalTime": "18",
+        "activeTime": "18",
+        "Source": "ig"
+      },
+      {
+        "totalTime": "97",
+        "activeTime": "46",
+        "Source": "google"
+      },
+      {
+        "totalTime": "193",
+        "activeTime": "105",
+        "Source": "yahoo"
+      },
+      {
+        "totalTime": "15",
+        "activeTime": "12",
+        "Source": "bing"
+      },
+      {
+        "totalTime": "43",
+        "activeTime": "40",
+        "Source": "email"
+      },
+      {
+        "totalTime": "113",
+        "activeTime": "89",
+        "Source": "www.uhrs.ai"
+      },
+      {
+        "totalTime": "166",
+        "activeTime": "108",
+        "Source": "chatgpt.com"
+      },
+      {
+        "totalTime": "223",
+        "activeTime": "91",
+        "Source": "www.ecosia.org"
+      },
+      {
+        "totalTime": "2",
+        "activeTime": "2",
+        "Source": "claude.ai"
+      },
+      {
+        "totalTime": "7",
+        "activeTime": "2",
+        "Source": "facebook.com"
+      },
+      {
+        "totalTime": "8",
+        "activeTime": "8",
+        "Source": "lm.facebook.com"
+      },
+      {
+        "totalTime": "47",
+        "activeTime": "37",
+        "Source": "m.facebook.com"
+      },
+      {
+        "totalTime": "212",
+        "activeTime": "154",
+        "Source": "duckduckgo.com"
+      },
+      {
+        "totalTime": "34",
+        "activeTime": "34",
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "totalTime": "2",
+        "activeTime": "2",
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "totalTime": "20",
+        "activeTime": "20",
+        "Source": "pittmeadowspartyrentals.com"
+      },
+      {
+        "totalTime": "309",
+        "activeTime": "139",
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "totalTime": "611",
+        "activeTime": "0",
+        "Source": "usc-excel.officeapps.live.com"
+      }
+    ]
+  }
+]

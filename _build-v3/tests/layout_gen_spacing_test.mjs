@@ -280,6 +280,42 @@ for (const base of WIZARD_CASES) {
   ok(spaTents === 'marquee-tent-20x60', 'spacious 50-guest rounds stay in the 20×60', spaTents);
 }
 
+{
+  const pair = gen.generateFlipLayouts({ guests: 80, seating: 'round', danceFloor: true });
+  ok(!!pair && !!pair.dinner && !!pair.ceremony, 'flip returns dinner + ceremony');
+  if (pair && pair.dinner && pair.ceremony) {
+    const dTents = pair.dinner.items.filter(i => byKey[i.key] && byKey[i.key].shape === 'tent').map(i => i.key).sort().join(',');
+    const cTents = pair.ceremony.items.filter(i => byKey[i.key] && byKey[i.key].shape === 'tent').map(i => i.key).sort().join(',');
+    ok(dTents === cTents && dTents.length > 0, 'flip dinner and ceremony share the same tents', dTents);
+    const rows = pair.ceremony.items.filter(i => i.key && i.key.includes('chair')).length;
+    ok(rows >= 80, 'flip ceremony has a chair per guest', String(rows));
+    ok(pair.dinner.venue.widthFt === pair.ceremony.venue.widthFt, 'flip scenes share venue width');
+  }
+}
+
+{
+  const yard = { widthFt: 24, depthFt: 24 };
+  const recipe = gen.generateLayout({ guests: 20, seating: 'cocktail', venue: yard, danceFloor: false });
+  ok(!!recipe, 'small 24×24 yard still returns a layout');
+  if (recipe) {
+    ok(recipe.keepVenue, 'small yard keepVenue is set');
+    ok(recipe.venue.widthFt === 24 && recipe.venue.depthFt === 24, 'small yard size is preserved', `${recipe.venue.widthFt}×${recipe.venue.depthFt}`);
+    const tents = recipe.items.filter(i => byKey[i.key] && byKey[i.key].shape === 'tent');
+    ok(tents.length === 0, '24×24 cannot fit a marquee plus 5 ft stake band — furniture only', String(tents.length));
+  }
+}
+
+{
+  const recipe = gen.generateLayout({ guests: 50, seating: 'round', venue: { widthFt: 40, depthFt: 60 }, danceFloor: true });
+  ok(recipe && recipe.keepVenue, '40×60 yard keepVenue');
+  if (recipe) {
+    ok(recipe.venue.widthFt === 40 && recipe.venue.depthFt === 60, '40×60 yard size is preserved');
+    const tents = recipe.items.filter(i => byKey[i.key] && byKey[i.key].shape === 'tent');
+    ok(tents.length >= 1, '40×60 yard still places a tent');
+    ok(tents.every(t => t.clearance), 'generated tents default clearance on');
+  }
+}
+
 if (failures) {
   console.error(`\n${failures} failure(s)`);
   process.exit(1);

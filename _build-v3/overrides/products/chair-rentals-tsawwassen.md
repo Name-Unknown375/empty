@@ -9,16 +9,12 @@ intro_paragraphs:
   - "The ferry-terminal traffic schedule shapes our delivery patterns more than in any other Delta sub-area — we time the Highway 17 corridor to avoid the ferry-loading windows, especially during summer weekend peak hours. Once on the peninsula, truck access is friendly across all four neighbourhoods. Most beach and waterfront ceremonies need Resin Garden; most reception venues skew Chiavari."
 
 faqs:
-  - q: "What's included on a Tsawwassen chair rental quote?"
-    a: "Every Tsawwassen chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no peninsula-distance uplifts, no ferry-traffic surprises at the truck (we plan around that during scheduling, not after)."
   - q: "Which chair works for a Centennial Beach ceremony?"
     a: "Centennial Beach is the strongest case for Resin Garden in our entire Lower Mainland inventory. Beach-sand ceremonies, southwest-facing afternoon sun, and reliable Boundary Bay onshore wind mean Chiavari's lacquered hardwood doesn't tolerate the conditions. Resin Garden every time for the beach ceremony; Chiavari indoors at a Tsawwassen Village or English Bluff reception."
   - q: "Can you deliver chairs to English Bluff cliff-edge residences?"
     a: "Yes — English Bluff's cliff-edge residential streets accept standard delivery patterns. The cliff-edge wind plan is more important than the chair choice itself. We confirm the lot orientation during quoting; chairs that won't be windward during the ceremony stage on the sheltered side of the lot until they're needed."
   - q: "Can you handle a Tsawwassen Shores or peninsula acreage?"
     a: "Yes — both are routine Tsawwassen bookings. Tsawwassen Shores' newer waterfront residential streets are friendly on truck access. Peninsula acreage weddings (typically the ferry-terminal-adjacent lots and the broader South Delta agricultural edge) accommodate the full chair-line mix. Most are 100–200 guests with two-chair-line configurations."
-  - q: "How clean are the chairs when they arrive at a Tsawwassen beach ceremony?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Beach-ceremony chair work in Tsawwassen's salt-air conditions puts more wear on Resin Garden inventory than urban setups; chairs that don't meet the condition bar come off the roster, not onto your booking. We rotate the beach-resilient lines aggressively to maintain the bar."
 
 related_blog_posts:
   - slug: party-rental-checklist-50-100-150-200-guests

@@ -9,14 +9,10 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Port Kells rental quote?"
-    a: "Every Port Kells quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Port Kells uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Do you handle 192 Street industrial corporate events?"
     a: "Yes — the 192 Street industrial corridor's tenant events, corporate retreats, and product launches are regular Port Kells bookings. Industrial venues typically have generous loading-dock access (better than office plazas) but stricter after-hours security protocols; we confirm building access and security sign-in during quoting. Most industrial-corporate setups skip the marquee and run on banquet tables, Chiavari chairs, cocktail highboys, and bistro lighting."
   - q: "Can you set up tents at Tynehead Regional Park?"
     a: "Yes — Tynehead Regional Park is one of our regular Surrey-area ceremony venues. Metro Vancouver Regional Parks runs the permit process for tents above their threshold; couples pull the permits, but we know which forest-canopy ceremony zones at Tynehead accept our marquee footprints. Many Tynehead ceremonies skip the marquee entirely — chair-only setups under the canopy work without tent infrastructure."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "How fast can you deliver Port Kells rentals?"
     a: "Port Kells is among our fastest delivery routes — typically 5–10 minutes from our warehouse to most addresses. Same-week, same-day, and even within-the-hour additions for active corporate events are all sometimes feasible during business hours. Marquee tents 20×40 and larger still need 7+ days of installer scheduling regardless."
 

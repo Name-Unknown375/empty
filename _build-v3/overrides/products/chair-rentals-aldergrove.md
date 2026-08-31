@@ -17,8 +17,6 @@ faqs:
     a: "Jackman Wetlands' ceremony zones run on damp grass and wetland-edge surface conditions. Resin Garden every time — the resin frame handles the dampness and the wetland-mist morning hours far better than Chiavari's lacquered hardwood."
   - q: "Can I mix chair types for an Aldergrove event?"
     a: "Yes — Fanback folding for the larger Community Centre community-scale events, Chiavari for the indoor backyard or restaurant reception; or Resin Garden for an outdoor Regional Park ceremony followed by Chiavari at an Aldergrove Village residence reception. Single quote, single delivery, no mixing surcharge."
-  - q: "How clean are the chairs when they arrive at an Aldergrove acreage?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage. Chairs that don't meet the condition bar come off the roster, not onto your booking."
 
 related_blog_posts:
   - slug: party-rental-checklist-50-100-150-200-guests

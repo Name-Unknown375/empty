@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows, Resin Garden for beach, pier, and shoreline ceremonies — one quote, one delivery, one crew. White Rock light demands the chair selection holds up in golden hour."
 
 faqs:
-  - q: "What's included on a White Rock chair rental quote?"
-    a: "Every White Rock chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no White Rock-zone uplifts, no surprises at the truck."
   - q: "Which chair works for a White Rock pier or beach ceremony?"
     a: "For pier-side ceremonies along Marine Drive and beach setups on West Beach and East Beach, Resin Garden is the only call — the resin frame and seat handle salt air, sand exposure, and the constant onshore breeze far better than Chiavari's lacquered hardwood. Most beach weddings book Resin Garden for the ceremony and Chiavari indoors at a Marine Drive or Uptown reception venue."
   - q: "Do you handle chair setups directly on the sand?"

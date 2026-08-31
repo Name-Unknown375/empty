@@ -9,16 +9,10 @@ intro_paragraphs:
   - "Round, banquet, cocktail highboy — quoted up front, delivered on a one-hour window, positioned to your floor plan by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a West Vancouver table rental quote?"
-    a: "Every West Van table quote we send is itemised: tables by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No setup surcharge — every table is unfolded and positioned during the delivery window."
-  - q: "How many tables for a 100-guest West Vancouver wedding?"
-    a: "For seated dinner at 5ft rounds, plan ~12 rounds (8 guests per round = 96; round up for kids and split parties). Add 5–8 banquet tables for head, gift, cake, DJ, registration, and buffet. Add 2–3 cocktail highboys for the pre-dinner cocktail hour on the seawall or estate terrace."
   - q: "Do you level tables on terraced British Properties lawns?"
     a: "Yes — table levelling on irregular lawn is part of the staging window, not an add-on. Our crew carries shims and small pads for the round tables; if the slope is meaningful we lay a low subfloor panel under the table block before positioning. We confirm grade during quoting so the staging time is accurate."
   - q: "Can you deliver tables to a Horseshoe Bay restaurant patio around ferry sailings?"
     a: "Yes — Horseshoe Bay restaurant deliveries get scheduled around the BC Ferries pattern. The 6ft banquet folds flat and fits through narrow restaurant service entrances; the 8ft is tighter. We confirm access width and the venue's preferred timing window during quoting."
-  - q: "Do you supply linens, runners, or chargers?"
-    a: "Yes. We stock tablecloths, napkins, and runners in-house and put them on the same West Van delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the caterer. Salt-air waterfront venues can be hard on cloth — we'll flag exposed seawall receptions when we quote."
 
 related_blog_posts:
   - slug: party-rental-checklist-50-100-150-200-guests

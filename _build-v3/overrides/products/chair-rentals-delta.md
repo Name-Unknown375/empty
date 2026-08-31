@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows or corporate seating, Resin Garden for Delta's shoreline and farmland sites — one quote, one delivery, one crew. Delta's flat terrain and direct highway access make our delivery windows some of the tightest on our calendar."
 
 faqs:
-  - q: "What's included on a Delta chair rental quote?"
-    a: "Every Delta chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no Delta-zone uplifts, no surprises at the truck."
   - q: "Which chair works for a Boundary Bay or Reifel ceremony?"
     a: "For Boundary Bay's shoreline ceremony zone and Reifel Migratory Bird Sanctuary's nature-walk weddings, Resin Garden is the strongest pick — the resin frame and seat handle damp grass, salt air, and the dew off the bay. Chiavari's lacquered hardwood doesn't love full-day shoreline exposure. Most Boundary Bay weddings book Resin Garden for the ceremony and Chiavari indoors at a Tsawwassen or Ladner reception venue."
   - q: "Can you deliver chairs to Tsawwassen acreage or Ladner Village?"

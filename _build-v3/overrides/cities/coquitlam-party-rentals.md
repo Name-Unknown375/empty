@@ -9,18 +9,24 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Coquitlam rental quote?"
-    a: "Every Coquitlam quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Coquitlam-zone uplifts (Port Coquitlam included), no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can you set up at Lafarge Lake or other Coquitlam parks?"
     a: "Yes — Lafarge Lake, Town Centre Park, and Mundy Park are regular Coquitlam ceremony sites. The City of Coquitlam runs the permit process for tents above their threshold; couples pull the permits, but we know which ceremony zones at each park accept our marquee footprints. Lafarge Lake's lakefront sites require particular attention to turf protection — we use ballasted weight kits over grass rather than aggressive staking on the most-used sites."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "What's the wind plan for Burke Mountain elevation venues?"
     a: "Burke Mountain's elevation produces afternoon gust patterns that flat Town Centre doesn't see. For any Burke Mountain or upper-elevation Coquitlam venue we recommend ballasted weights at every leg, sidewalls year-round, and a slightly larger marquee than headcount strictly requires. Lower-elevation Coquitlam follows our standard urban wind plan."
   - q: "Can you handle Burke Mountain or Westwood Plateau acreage weddings?"
     a: "Yes — Burke Mountain and Westwood Plateau are regular acreage sites for our crew. We confirm overhead branch clearance for marquee peak height (most acreages accommodate our 13' peak, but some don't), driveway grade for the truck, and wind exposure at elevation. Pre-event site walks are part of the quote for venues we haven't delivered to before."
   - q: "Do you deliver party rentals to Port Coquitlam?"
     a: "Yes — Port Coquitlam is on the same delivery run as Coquitlam. Tents, chairs, tables, and dance floors, quoted the same way: no separate Port Coquitlam surcharge, no fuel add-on. If you searched party rentals Port Coquitlam, this is the page — we don't keep a duplicate URL for the adjacent city."
+
+testimonials:
+  - quote: |-
+      I needed to rent 25 chairs for my sister's wedding and so I got a few quotes from local rental companies. Devon was by far a) the best price and b) the easiest to work with. Plus, he was able to deliver and pick the chairs up same day! His mom was so sweet when they were picking up the chairs, too. The guests enjoyed how comfy they were, they looked beautiful under the gazebo/pergola... 12/10 would absolutely recommend as well as use Forever Party Rentals for any other event I needed to rent anything for!
+    name: Terri C.
+    event: "Google Review · Wedding chairs"
+  - quote: |-
+      Devon is amazing! He was able to help us on short notice when the weather didn't cooperate. He came out, looked at the outdoor space, and gave an honest recommendation of what he thought we needed. He provided tents, tables, chairs, and tablecloths at a reasonable rate. Devon was kind, courteous, communicative, and punctual. I highly recommend Devon and Forever Party Rentals for your next event.
+    name: Adrienne Stutes
+    event: "Google Review · Short-notice tent"
 
 related_blog_posts:
   - slug: tent-size-guide-lower-mainland-wedding
@@ -41,8 +47,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![A clean white marquee tent staged on a manicured backyard lawn — the standard footprint for Coquitlam acreage receptions](/images/lifestyle/tent-setup.jpg)
-*A 20×40 marquee — the standard footprint for 80–120 Coquitlam guests.*
+![A high-peak frame tent installed on a Coquitlam backyard deck beside a pool](/images/jobs/coquitlam-deck-high-peak-pool.jpg)
+*High-peak tent on a Coquitlam deck, pool in the foreground. Hard-surface install — no lawn stakes.*
 
 Same single inventory and crew calendar across the entire Lower Mainland. A Coquitlam couple gets the same catalogue any other city gets — without short-ships, without sub-rentals from another vendor.
 

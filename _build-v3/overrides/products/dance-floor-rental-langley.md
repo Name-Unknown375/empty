@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Floor panels, subfloor, edge ramps — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Langley dance floor rental quote?"
-    a: "Every Langley dance floor quote we send is itemised: panel count, subfloor (almost always required on Langley grass), edge ramps, delivery, professional crew install, and applicable taxes. No fuel surcharges, no Fraser Valley uplifts, no surprises at the truck."
   - q: "What size dance floor for a 100-guest Langley vineyard wedding?"
     a: "12×12 is the standard for 60–100 guests — about 30–40% will be on the floor at any moment. For small backyard counts (up to ~50), the 8×8. For 150–200 guests (more common at Langley vineyards than urban Vancouver weddings), 16×16."
   - q: "Do you install dance floors on vineyard lawn or farm soil?"

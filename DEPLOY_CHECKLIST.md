@@ -107,31 +107,33 @@ Website titles do not win the map pack. Do this in Google Business Profile; do *
 
 ## 7. GSC inspect after `site-v3` deploy (28-day title hold)
 
-After production matches `site-v3`, Search Console → URL Inspection → Request indexing. Do **not** retitle for 28 days.
+Sep 1 title batch is in [TITLE_BATCH_2026-09.md](TITLE_BATCH_2026-09.md). After production matches `site-v3`, Search Console → URL Inspection → Request indexing. Do **not** retitle for 28 days (freeze until **29 Sep 2026**). Do not chase projector, competitor-brand queries, or new city pages.
 
+- [ ] `/`
+- [ ] `/how-many-people-fit-at-a-6ft-rectangular-table`
+- [ ] `/how-many-people-fit-at-round-tables`
+- [ ] `/surrey-party-rentals`
+- [ ] `/langley-party-rentals`
+- [ ] `/abbotsford-party-rentals`
+- [ ] `/dance-floor-rental-vancouver`
 - [ ] `/tents`
 - [ ] `/tables`
 - [ ] `/wedding-rentals`
-- [ ] `/christmas-lights`
-- [ ] `/christmas-lights-surrey`
-- [ ] `/christmas-lights-vancouver`
-- [ ] `/christmas-lights-langley`
-- [ ] `/christmas-lights-abbotsford`
-- [ ] `/vancouver-party-rentals`
-- [ ] `/how-many-people-fit-at-a-6ft-rectangular-table`
-- [ ] `/how-many-people-fit-at-round-tables`
+- [ ] `/birthday-party-rentals`
 
-28-day scoreboard (from existing SEO canvas):
+28-day scoreboard (3-month baseline in TITLE_BATCH_2026-09.md; judge on a **Last 28 days** Canada Web export, not the 3-month zip):
 
-| Query | Now | 28-day target |
+| Query / page | Now | 29 Sep target |
 |---|---|---|
-| event rentals surrey CTR | 0.9% at pos 2 | ≥4% |
-| langley / abbotsford party rentals CTR | ~1.7–1.9% | ≥4% |
-| christmas light installation abbotsford CTR | 0% at pos 6.4 | ≥4% |
-| /tents page impressions | 21 | triple+ |
-| /tables page impressions | 13 | triple+ |
-| party rentals vancouver position | 23 | ≤15 |
-| christmas light installation surrey / vancouver | dark or pos 25 | in GSC page report, trending up |
+| event rentals surrey CTR | 0.93% at pos 2.3 | ≥4% |
+| langley party rentals CTR | 1.22% at pos 5.1 | ≥4% |
+| abbotsford party rentals CTR | 1.32% at pos 4.8 | ≥4% |
+| 6ft seating-guide page CTR | 0.45% at pos 6.0 | ≥3% |
+| /tents page impressions | 16 | triple+ |
+| /tables page impressions | 12 | triple+ |
+| /wedding-rentals impressions | 42 | triple+ |
+| /birthday-party-rentals impressions | 57 | triple+ |
+| party rentals vancouver position | 22.5 | ≤15 (off-site; not this batch) |
 
 ## 8. Package instant book — RentKit coupon `bundle10`
 

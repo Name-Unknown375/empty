@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows or corporate seating, Resin Garden for Port Moody's waterfront and forest sites — one quote, one delivery, one crew."
 
 faqs:
-  - q: "What's included on a Port Moody chair rental quote?"
-    a: "Every Port Moody chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no Port Moody-zone uplifts, no surprises at the truck."
   - q: "Which chair works for a Rocky Point or Buntzen Lake ceremony?"
     a: "For Rocky Point Park's waterfront ceremony zone, Resin Garden is the strongest pick — the resin frame and seat handle Inlet salt air and afternoon dew better than Chiavari. For Buntzen Lake's forested ceremony sites, Resin Garden every time — Chiavari's lacquered finish doesn't tolerate damp duff and uneven forest floor. Most Port Moody waterfront weddings book Resin Garden for the ceremony and Chiavari indoors at the reception."
   - q: "Can you deliver chairs to Heritage Mountain or Anmore-border acreage?"

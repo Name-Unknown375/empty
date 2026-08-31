@@ -9,8 +9,8 @@
 {% set ov = overrides or {} %}
 {% set page_title_used = ov.title|default(page_title, true) %}
 {% set page_description_used = ov.meta_description|default(page_description, true) %}
-{% set faqs_to_show = ov.faqs|default(faqs, true) %}
-{% set testimonials_to_show = ov.testimonials|default(testimonials, true) %}
+{% set faqs_to_show = ov.faqs if ov.faqs else faqs %}
+{% set testimonials_to_show = ov.testimonials if ov.testimonials else [] %}
 <html lang="en">
 <head>
 <!-- Google Tag Manager — defer gtm.js load until idle to protect LCP -->
@@ -79,7 +79,7 @@ else{c.addEventListener('load',function(){setTimeout(loadClarity,1500);});}
 {# ---- Fonts, CSS, and third-party widget scripts ---- #}
 <link rel="preload" as="font" type="font/woff2" href="/fonts/playfair-display-variable.woff2" crossorigin/>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/jost-variable.woff2" crossorigin/>
-<link rel="stylesheet" href="shared.css?v=30"/>
+<link rel="stylesheet" href="shared.css?v=31"/>
 {# Booking-widget assets — see template.html for rationale. Gated to pages
    that actually embed id="adelie"; saves ~80KB on the ~110 product-city pages. #}
 {% if has_booking|default(false) %}
@@ -125,7 +125,8 @@ else{c.addEventListener('load',function(){setTimeout(loadClarity,1500);});}
 }
 </script>
 
-{# ---- JSON-LD: FAQPage ---- #}
+{# ---- JSON-LD: FAQPage. Omitted when this URL has no FAQs. ---- #}
+{% if faqs_to_show %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -144,6 +145,7 @@ else{c.addEventListener('load',function(){setTimeout(loadClarity,1500);});}
   ]
 }
 </script>
+{% endif %}
 
 {# ---- JSON-LD: BreadcrumbList (Home > Category > City) ---- #}
 <script type="application/ld+json">
@@ -417,25 +419,28 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
   </div>
 </section>
 
+{% if testimonials_to_show %}
 <section class="section section--dark">
   <div class="container">
     <div class="section-header center">
       <span class="eyebrow">Reviews</span>
       <h2 style="color:#fff">What Our {{ city.name }} Clients Say</h2>
-      <p>Part of {{ fpr.aggregateRating.count }}+ five-star Google reviews from across the Lower Mainland.</p>
+      <p>Google reviews from our Business Profile. Each quote is unique to this URL — not a recycled pool.</p>
     </div>
     <div class="grid-2" style="gap:20px">
       {% for t in testimonials_to_show %}
       <div class="testimonial-card">
         <div class="stars" role="img" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div>
-        <blockquote>"{{ t.quote }}"</blockquote>
+        <blockquote>"{{ t.quote | e }}"</blockquote>
         <div class="tc-name">{{ t.name }}</div><div class="tc-event">{{ t.event }}</div>
       </div>
       {% endfor %}
     </div>
   </div>
 </section>
+{% endif %}
 
+{% if faqs_to_show %}
 <section class="section section--light">
   <div class="container">
     <div class="section-header center">
@@ -451,6 +456,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
     </div>
   </div>
 </section>
+{% endif %}
 
 {# ---- Override-driven cross-links: blog topical clusters + nearby city pages.
        Only rendered when an override file ships these arrays. ---- #}
@@ -516,7 +522,7 @@ src="https://www.facebook.com/tr?id=1497259508391912&amp;ev=PageView&amp;noscrip
   </div>
 </div>
 {{ footer_html | safe }}
-<script src="shared.js?v=23"></script>
+<script src="shared.js?v=24"></script>
 <!-- lastmod: {{ lastmod }} -->
 </body>
 </html>

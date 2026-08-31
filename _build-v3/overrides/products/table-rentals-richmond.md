@@ -9,14 +9,8 @@ intro_paragraphs:
   - "Round, banquet, cocktail highboy — quoted up front, delivered on a one-hour window, positioned to your floor plan by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Richmond table rental quote?"
-    a: "Every Richmond table quote we send is itemised: tables by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No setup surcharge — every table is unfolded and positioned during the delivery window."
-  - q: "How many tables for a 100-guest Richmond wedding?"
-    a: "For seated dinner at 5ft rounds, plan ~12 rounds (8 guests per round = 96; round up for kids and split parties). Add 5–8 banquet tables for head, gift, cake, DJ, registration, and buffet. Add 2–3 cocktail highboys for the pre-dinner cocktail hour. Richmond banquet-style weddings often run 10-per-round at the head-table cluster, which adjusts the round count slightly."
   - q: "Can you deliver tables to the Olympic Oval or River Rock?"
     a: "Yes — large-scale Richmond venues are routine. Olympic Oval freight access is ample and we coordinate the delivery window during quoting. River Rock Show Theatre runs on a controlled dock schedule we book during quoting, not on event day."
-  - q: "Do you supply linens, runners, or chargers?"
-    a: "Yes. We stock tablecloths, napkins, and runners in-house at our Surrey warehouse and put them on the same delivery as your tables and chairs. Sizes live on tablecloth rentals. Chargers and place settings sit with the catering provider."
   - q: "How do you handle tables at a Garry Point or Steveston waterfront event?"
     a: "Tables at exposed waterfront sites need the same wind discipline as the marquee. Lightweight high-tops can lift in Richmond's onshore wind — we recommend banquet bases (heavier) over highboy bistros if your Garry Point setup is fully exposed. For cocktail-hour highboys, we either stage them under the tent canopy or weight the bases."
 

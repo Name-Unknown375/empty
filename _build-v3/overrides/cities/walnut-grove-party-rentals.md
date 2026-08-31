@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Walnut Grove rental quote?"
-    a: "Every Walnut Grove quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Walnut Grove uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can you tent in a Walnut Grove backyard?"
     a: "Yes — Walnut Grove backyard installs are some of our most-frequent Township deliveries. The established-suburb character means most yards have plenty of footprint for a 20×20 or 20×40 marquee with proper setbacks. We confirm slope, sprinkler infrastructure, and alley access during quoting. Engineered ground stakes are our default anchor on grass."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Do you handle Walnut Grove Secondary grad events?"
     a: "Yes — high school grad ceremonies, after-grad events, and PAC family events at Walnut Grove Secondary are regular community-organization bookings. School events typically run on 200+ Fanback folding chairs and 25+ banquet tables, no marquee. These setups ship on one truck and stage in 3–4 hours; lead time is usually 3–4 weeks."
   - q: "How fast can you deliver Walnut Grove rentals?"

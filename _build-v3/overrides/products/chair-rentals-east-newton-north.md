@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Bear Creek Park's ceremony zones, Newton Athletic Park's community-scale events, the Strawberry Hill Plaza-adjacent venues, and East Newton residential backyards along the King George corridor define the chair calendar. Most East Newton weddings are 80–120 guests with residential or park-ceremony venues. The volume here is community-scale and intimate rather than destination."
 
 faqs:
-  - q: "What's included on an East Newton chair rental quote?"
-    a: "Every East Newton chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. East Newton sits in our home-warehouse delivery zone — the cheapest delivery line on our map."
   - q: "Which chair works for a Bear Creek Park ceremony?"
     a: "Bear Creek Park's ceremony zones run on city event permits with venue-coordinated delivery windows. The open-lawn zones accept Resin Garden best — the morning dew and the park's broader grass conditions don't tolerate Chiavari's lacquered hardwood well across a ceremony arc. Most Bear Creek ceremonies flip the reception to a King George corridor restaurant or East Newton residence."
   - q: "Can you handle a Newton Athletic Park community event?"

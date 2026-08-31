@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows, Resin Garden for the forest or lakefront surface — one quote, one delivery, one crew. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Maple Ridge chair rental quote?"
-    a: "Every Maple Ridge chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no Maple Ridge-zone uplifts, no surprises at the truck."
   - q: "Which chair is best for a Golden Ears Provincial Park ceremony?"
     a: "For forest-floor sites at Golden Ears, Resin Garden chairs are the strongest pick — the resin frame and seat handle damp soil and uneven forest floors better than Chiavari's lacquered hardwood. For meadow and clearing-zone ceremonies at the park, either Chiavari or Resin Garden works depending on weather forecast. Most October–April Golden Ears bookings skew toward Resin Garden."
   - q: "Can I mix chair types in one Maple Ridge order?"

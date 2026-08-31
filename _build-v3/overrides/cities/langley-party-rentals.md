@@ -1,7 +1,7 @@
 ---
 slug: langley-party-rentals
-title: "Langley Party Rentals — Delivery & Setup Included"
-meta_description: "Langley party rentals — tents, chairs, tables and dance floors for vineyard weddings and acreage receptions. Delivery and crew setup included. 212+ reviews."
+title: "Langley Party Rentals — Forever Crew, From $550"
+meta_description: "Langley party rentals from Forever — vineyard and acreage tents, chairs and tables, crew-installed. Marquees from $550. Delivery and setup included."
 hero_subtitle: "Langley party rentals for vineyard weddings, acreage receptions, and Langley Events Centre corporate galas — tents, chairs, tables, and dance floors delivered and crew-installed."
 
 intro_paragraphs:
@@ -9,17 +9,22 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Langley rental quote?"
-    a: "Every Langley quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Fraser Valley uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Do you deliver to vineyard or berry-farm weddings?"
     a: "Yes — Langley vineyards and berry farms are regular delivery sites. Each venue runs its own vendor coordination process, and we book the delivery slot through their events team during quoting. Vineyard and farm weddings tend toward 80–150 guests with full marquee setups; we plan around the venue's harvesting and tasting-room schedule when relevant."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Can you tent on grass at a Langley acreage?"
     a: "Yes — engineered ground stakes are our default anchor on grass and farm soil, and they're meaningfully more secure than ballasted weights. We confirm sprinkler infrastructure and irrigation lines before staking. We won't install on artificial turf or on slopes steeper than 5% without an engineered platform."
   - q: "How fast can you deliver Langley rentals on short notice?"
     a: "Langley is one of our shortest delivery routes, which gives us more flexibility for same-week bookings than almost any other city we serve. Chair, table, and 10×10 popup orders are usually feasible inside a 5-day window even in peak season. Marquee tents 20×40 and larger need installer scheduling that's hard to compress under 7 days, but Langley's the city where we can absorb a tight timeline best."
 
+testimonials:
+  - quote: |-
+      We just had our wedding at Langley  and Forever Party rentals were great! They dropped off our items and picked up right on time, they were accommodating in the morning when there were a delays in getting doors & gates unlocked. Their selection of items for rent was very convenient and their per item rental was slightly cheaper than other places we found. It is well worth it to have everything picked up when need be rather than other rental companies who are picky about weekend pick ups and late night pick ups. Overall a great experience!
+    name: Meet Rai
+    event: "Google Review · Langley wedding"
+  - quote: |-
+      I highly recommend this reliable company!  Devon was friendly and fantastic to deal with.  I especially liked the quick communication and fair price value for what you get. From their tents, table rentals, linens, and heaters, they made every thing stress free for delivery, set up and removal of an outside wedding. . I would  not hesitate to rent again from them for any event.
+    name: Olga Rousseau
+    event: "Google Review · Outdoor wedding"
 related_blog_posts:
   - slug: fort-langley-wedding-venues-rental-guide
     title: "Fort Langley Wedding Venues + Rental Guide"
@@ -39,8 +44,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![A clean white marquee tent set against a vibrant blue sky with fluffy clouds — the standard footprint for Langley vineyard and acreage weddings](/images/lifestyle/tent-golden-hour-2.jpg)
-*A 20×40 marquee on open Langley grass — the standard vineyard reception footprint.*
+![Three joined high-peak marquees on a Langley acreage at dusk, banquet tables and chairs underneath](/images/jobs/langley-acreage-triple-marquee-dusk.jpg)
+*Three joined high-peak marquees on a Langley acreage at dusk. Our install.*
 
 Same single inventory and crew calendar across the entire Lower Mainland. A Langley couple gets the same catalogue any other city gets — without short-ships, without sub-rentals from another vendor.
 

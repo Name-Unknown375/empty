@@ -9,14 +9,10 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Willoughby rental quote?"
-    a: "Every Willoughby quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Willoughby-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can you tent at a townhouse complex common area?"
     a: "Yes, with caveats. Townhouse common-area events need strata-board approval up front (the strata, not us, handles that). Most townhouse complexes have ballast-only requirements (no staking on landscaped lawns), and the typical footprint accommodates a 10×10 or 20×20 popup rather than a full marquee. We confirm strata rules during quoting."
   - q: "Do you handle Langley Events Centre corporate events?"
     a: "Yes — Langley Events Centre is one of our regular corporate venues, and Willoughby's proximity makes LEC functions a frequent booking. The complex has its own loading-dock booking and vendor protocols which we coordinate during quoting. Most LEC corporate setups skip the marquee entirely (the building is the venue) and run on banquet tables, Chiavari chairs, cocktail highboys, and bistro lighting for ambience."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "How fast can you deliver Willoughby rentals?"
     a: "Willoughby is one of our shorter delivery routes, which means same-week chair and table orders are usually feasible if our trucks aren't already booked, even in peak season. The proximity is especially helpful for last-minute additions to LEC corporate events or townhouse common-area gatherings."
 

@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Tent, sidewalls, lighting, anchor kit — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Vancouver tent rental quote?"
-    a: "Every Vancouver tent quote we send is itemised: the marquee, sidewalls, anchor kit, lighting add-ons, delivery, professional crew install, and applicable taxes. No fuel surcharges, no Vancouver-zone uplifts, no surprises at the truck."
   - q: "Can you set up a tent at Stanley Park or Queen Elizabeth Park?"
     a: "Yes — we deliver to all the major Vancouver park venues regularly. Stanley Park ceremonies require a Vancouver Park Board permit (the couple pulls it, not us), and our crew coordinates the truck-only access window with the Park Board's events team directly. For the full Stanley Park playbook, see our [Stanley Park rental guide](/blog/stanley-park-wedding-rentals-guide)."
   - q: "Do you install marquee tents on Vancouver rooftops?"

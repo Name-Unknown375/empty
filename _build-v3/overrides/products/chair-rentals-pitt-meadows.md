@@ -53,7 +53,7 @@ Three chair lines cover almost every Pitt Meadows event:
 ## Swaneset, Pitt Lake, Osprey Village — Pitt Meadows chair patterns
 
 ![Rows of white ceremony chairs at an outdoor wedding setup](/images/lifestyle/ceremony-chairs-3.jpg){.float-right}
-*Ceremony chairs staged at Swaneset Bay Resort.*
+*Ceremony chairs on grass — shared lifestyle photo, not the Swaneset ballroom.*
 
 ### Swaneset Bay Resort & Country Club
 

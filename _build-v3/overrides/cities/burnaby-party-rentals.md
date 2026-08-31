@@ -9,16 +9,22 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Burnaby rental quote?"
-    a: "Every Burnaby quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Burnaby-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Do you deliver and set up rooftop and high-rise events?"
     a: "Yes — Brentwood and Metrotown rooftop bookings are common Burnaby work for us. We confirm the building's freight-elevator dimensions and weight rating before quoting, ballast (never stake) on rooftops, and book the building manager's Saturday window during quoting."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "How far in advance should I book Burnaby tent rentals for peak season?"
     a: "For peak-season Saturdays in May–September, 6–8 weeks out is the comfortable window. Off-season and weekday events typically have 2–3 weeks of room. Chair-only and table-only orders are usually our most flexible same-week category."
   - q: "Can I bundle Christmas light installation with my Burnaby event rental?"
     a: "Yes — Burnaby is one of our 14 Christmas light installation cities. The two services are quoted separately because Christmas runs October through January and event rentals run year-round. Free off-season storage is included on every Christmas light install."
+
+testimonials:
+  - quote: |-
+      10/10 experience with this company. Devon was incredibly professional, accommodating, and efficient. All communications leading up to our event made me feel comfortable and confident. The team got the tent up quickly, and even returned the day of our event to double check everything. They even accommodated a very early take-down the next more. I cannot put into words how thankful I am for the team at Forever Party Rentals!
+    name: Kayla Meecham
+    event: "Google Review · Tent"
+  - quote: |-
+      Rented folding white chairs, a few folding tables and a couple of cocktail tables for our backyard garden party wedding. They handled drop off and pick very easily and on time. furniture was clean and tidy, and the delivery guy was also friendly and chatted with us while he picked everything up! Everything went as planned. Thank you for helping make our day as easy as possible. Wishing you all the best.
+    name: Nicholas Lan
+    event: "Google Review · Garden wedding"
 
 related_blog_posts:
   - slug: burnaby-wedding-venues-rental-guide
@@ -39,8 +45,8 @@ nearby_cities:
 
 ## What our crew brings on the truck
 
-![A wide white marquee tent set up on an open lawn — the standard reception footprint we install across Burnaby](/images/lifestyle/wedding-tent-reception-1.jpg)
-*A 20×40 marquee — the standard reception footprint for 80–120 Burnaby guests.*
+![A white frame tent on asphalt with banquet tables, fanback chairs, and two patio heaters](/images/jobs/burnaby-asphalt-tent-heaters.jpg)
+*Frame tent on asphalt with banquet tables, fanbacks, and patio heaters. A Burnaby job — hard-surface, so we don't stake.*
 
 We run a single inventory and a single crew calendar across the entire Lower Mainland. A Burnaby couple gets the same catalogue any other city gets — without short-ships, without sub-rentals from another vendor, without "we'll have to check our partner network."
 

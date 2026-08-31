@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Tent, sidewalls, lighting, anchor kit — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Burnaby tent rental quote?"
-    a: "Every Burnaby tent quote we send is itemised: the marquee, sidewalls, anchor kit, lighting add-ons, delivery, professional crew install, and applicable taxes. No fuel surcharges, no Burnaby-zone uplifts, no surprises at the truck."
   - q: "Can you install a marquee at Deer Lake Park or Hart House?"
     a: "Yes — both are regular Burnaby venues for our crew. Deer Lake Park has multiple ceremony sites with their own setback rules; we know which zones at the park accept which marquee footprints. Hart House has a fixed Saturday delivery window we coordinate with their events team during quoting. Most Hart House weddings skip the marquee entirely (the venue's interior is the reception space)."
   - q: "Do you install tents on Brentwood or Metrotown rooftops?"

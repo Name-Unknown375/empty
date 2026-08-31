@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a White Rock rental quote?"
-    a: "Every White Rock quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no White Rock-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Can you set up tents on White Rock beach or pier-area sites?"
     a: "Beach setups depend on the specific site and permit. The City of White Rock and BC Parks (for Semiahmoo Park) run separate permit processes; couples pull the permits, and we know which beach-adjacent ceremony zones accept which marquee footprints. Sand-only ceremonies are typically chair-only — Resin Garden chairs are the right pick for direct sand contact since Chiavari hardwood legs don't handle saturated sand well."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "What's the wind plan for White Rock outdoor ceremonies?"
     a: "Coastal wind is the constant. For any White Rock outdoor ceremony we recommend ballasted weight kits at every leg, sidewalls year-round, and a slightly larger marquee than headcount strictly requires. Marine Drive addresses sit lower than Semiahmoo's bluff but still see meaningful afternoon wind from the Strait. If forecast forces a date change, we waive the change fee when called before crew dispatch."
   - q: "How much advance booking for a White Rock summer wedding?"

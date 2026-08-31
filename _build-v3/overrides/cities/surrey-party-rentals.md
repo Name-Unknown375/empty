@@ -1,7 +1,7 @@
 ---
 slug: surrey-party-rentals
-title: "Surrey Party Rentals — Local Warehouse, Setup Included"
-meta_description: "Surrey party rentals from our local warehouse — tents, chairs, tables and dance floors. Same-week availability, pickup or crew setup. 212+ reviews."
+title: "Surrey Event & Party Rentals — Local Warehouse"
+meta_description: "Surrey event rentals and party rentals from our local warehouse — tents, chairs, tables and dance floors. Same-week, pickup or crew setup. 212+ reviews."
 hero_subtitle: "Surrey party rentals delivered across the city by the local crew — tents, chairs, tables, and dance floors with same-week availability, mid-event swaps, and warehouse pickup as options."
 
 intro_paragraphs:
@@ -9,17 +9,22 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Surrey rental quote?"
-    a: "Every Surrey quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. No fuel surcharges, no Surrey-zone uplifts, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Do you offer same-week tent rentals for Surrey events?"
     a: "More often than any other city. Surrey is our shortest delivery route, which gives us the most flexibility for tight timelines — chair, table, and 10×10 popup tent orders are usually feasible inside 3–5 days even in peak season. Marquee tents 20×40 and larger still need installer scheduling, but Surrey's the city where we can compress lead time the most."
   - q: "Can I pick up rentals directly from your warehouse?"
     a: "Yes — Surrey customers can pick up most rentals directly: popup tents, chairs, banquet tables, dance-floor sections, and smaller items. Pickup orders save the delivery line item entirely. Marquee tents require professional installation and aren't pickup-eligible."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Can you do mid-event swaps in Surrey if something fails?"
     a: "Yes — and this is where being local matters. If a chair leg fails, a table needs replacing, or you suddenly need 20 more cocktail highboys at 5 PM, we can usually have a replacement on-site within 60 minutes for any Surrey event. We don't promise this for cities further out."
 
+testimonials:
+  - quote: |-
+      Tents were great. Solid customer service. Impressed they came all the way to Surrey. Highly recommend.
+    name: Dev Arora
+    event: "Google Review · Surrey tents"
+  - quote: |-
+      I’m very impressed by the professionalism, pricing and quality of service. I reached out when I was in a pinch and Forever came through. Their communication has been excellent and you can really tell it’s a local business that cares. Thanks Forever!
+    name: Sarah
+    event: "Google Review"
 related_blog_posts:
   - slug: surrey-parks-event-rental-guide
     title: "Surrey's Best Event Parks"
@@ -57,8 +62,8 @@ On the truck for a typical Surrey event:
 
 ## What "local" actually changes about the booking
 
-![A row of clean white Chiavari chairs lined up on grass at an outdoor wedding ceremony](/images/lifestyle/chiavari-setup.jpg){.float-right}
-*Chiavari chairs staged for an outdoor Surrey ceremony.*
+![Night backyard tent in Surrey with banquet tables, white fanback chairs, and cloud lanterns in the peaks](/images/jobs/surrey-backyard-tent-night.jpg){.float-right}
+*Backyard tent, banquet tables, and fanback chairs on a Surrey job.*
 
 Three operational differences make Surrey our most flexible delivery zone.
 

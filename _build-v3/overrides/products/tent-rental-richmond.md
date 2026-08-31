@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Tent, sidewalls, lighting, anchor kit — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Richmond tent rental quote?"
-    a: "Every Richmond tent quote we send is itemised: the marquee, sidewalls, anchor kit, lighting add-ons, delivery, professional crew install, and applicable taxes. No fuel surcharges, no Richmond-zone uplifts, no surprises at the truck."
   - q: "Can you install a marquee at Garry Point Park or Minoru Park?"
     a: "Yes — both are regular Richmond venues for our crew. Garry Point's waterfront ceremony zones each have specific permit setbacks; we know which zones accept which marquee footprints. Minoru Park is more flexible but still requires city event-permit coordination. Both venues run on stakes plus ballast given the wind exposure — never stakes alone."
   - q: "Do you install tents at the Olympic Oval or Steveston Heritage Village?"

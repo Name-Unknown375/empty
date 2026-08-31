@@ -1,0 +1,1213 @@
+[
+  {
+    "metricName": "DeadClickCount",
+    "information": [
+      {
+        "sessionsCount": "113",
+        "sessionsWithMetricPercentage": 22.12,
+        "sessionsWithoutMetricPercentage": 77.88,
+        "pagesViews": "27",
+        "subTotal": "31",
+        "Source": ""
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "ig"
+      },
+      {
+        "sessionsCount": "260",
+        "sessionsWithMetricPercentage": 10.38,
+        "sessionsWithoutMetricPercentage": 89.62,
+        "pagesViews": "28",
+        "subTotal": "51",
+        "Source": "google"
+      },
+      {
+        "sessionsCount": "6",
+        "sessionsWithMetricPercentage": 16.67,
+        "sessionsWithoutMetricPercentage": 83.33,
+        "pagesViews": "1",
+        "subTotal": "2",
+        "Source": "yahoo"
+      },
+      {
+        "sessionsCount": "30",
+        "sessionsWithMetricPercentage": 6.67,
+        "sessionsWithoutMetricPercentage": 93.33,
+        "pagesViews": "2",
+        "subTotal": "3",
+        "Source": "bing"
+      },
+      {
+        "sessionsCount": "8",
+        "sessionsWithMetricPercentage": 12.5,
+        "sessionsWithoutMetricPercentage": 87.5,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Source": "email"
+      },
+      {
+        "sessionsCount": "14",
+        "sessionsWithMetricPercentage": 14.29,
+        "sessionsWithoutMetricPercentage": 85.71000000000001,
+        "pagesViews": "2",
+        "subTotal": "3",
+        "Source": "chatgpt.com"
+      },
+      {
+        "sessionsCount": "3",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 100,
+        "sessionsWithoutMetricPercentage": 0,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Source": "lm.facebook.com"
+      },
+      {
+        "sessionsCount": "3",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "duckduckgo.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.yelp.ca"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.partyslate.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "langleypartyrentals.ca"
+      },
+      {
+        "sessionsCount": "7",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "sessionsCount": "273",
+        "sessionsWithMetricPercentage": 25.64,
+        "sessionsWithoutMetricPercentage": 74.36,
+        "pagesViews": "118",
+        "subTotal": "430",
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "portmoodypartyrentals.com"
+      }
+    ]
+  },
+  {
+    "metricName": "ExcessiveScroll",
+    "information": [
+      {
+        "sessionsCount": "113",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": ""
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "ig"
+      },
+      {
+        "sessionsCount": "260",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "google"
+      },
+      {
+        "sessionsCount": "6",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "yahoo"
+      },
+      {
+        "sessionsCount": "30",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "bing"
+      },
+      {
+        "sessionsCount": "8",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "email"
+      },
+      {
+        "sessionsCount": "14",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "chatgpt.com"
+      },
+      {
+        "sessionsCount": "3",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "lm.facebook.com"
+      },
+      {
+        "sessionsCount": "3",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "duckduckgo.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.yelp.ca"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.partyslate.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "langleypartyrentals.ca"
+      },
+      {
+        "sessionsCount": "7",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "sessionsCount": "273",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "portmoodypartyrentals.com"
+      }
+    ]
+  },
+  {
+    "metricName": "RageClickCount",
+    "information": [
+      {
+        "sessionsCount": "113",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": ""
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "ig"
+      },
+      {
+        "sessionsCount": "260",
+        "sessionsWithMetricPercentage": 0.38,
+        "sessionsWithoutMetricPercentage": 99.62,
+        "pagesViews": "1",
+        "subTotal": "1",
+        "Source": "google"
+      },
+      {
+        "sessionsCount": "6",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "yahoo"
+      },
+      {
+        "sessionsCount": "30",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "bing"
+      },
+      {
+        "sessionsCount": "8",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "email"
+      },
+      {
+        "sessionsCount": "14",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "chatgpt.com"
+      },
+      {
+        "sessionsCount": "3",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "lm.facebook.com"
+      },
+      {
+        "sessionsCount": "3",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "duckduckgo.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.yelp.ca"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.partyslate.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "langleypartyrentals.ca"
+      },
+      {
+        "sessionsCount": "7",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "sessionsCount": "273",
+        "sessionsWithMetricPercentage": 1.83,
+        "sessionsWithoutMetricPercentage": 98.17,
+        "pagesViews": "5",
+        "subTotal": "19",
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "portmoodypartyrentals.com"
+      }
+    ]
+  },
+  {
+    "metricName": "QuickbackClick",
+    "information": [
+      {
+        "sessionsCount": 113,
+        "sessionsWithMetricPercentage": 7.96,
+        "sessionsWithoutMetricPercentage": 92.04,
+        "pagesViews": 11,
+        "subTotal": 11,
+        "Source": ""
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "ig"
+      },
+      {
+        "sessionsCount": 260,
+        "sessionsWithMetricPercentage": 22.31,
+        "sessionsWithoutMetricPercentage": 77.69,
+        "pagesViews": 60,
+        "subTotal": 60,
+        "Source": "google"
+      },
+      {
+        "sessionsCount": 6,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "yahoo"
+      },
+      {
+        "sessionsCount": 30,
+        "sessionsWithMetricPercentage": 6.67,
+        "sessionsWithoutMetricPercentage": 93.33,
+        "pagesViews": 2,
+        "subTotal": 2,
+        "Source": "bing"
+      },
+      {
+        "sessionsCount": 8,
+        "sessionsWithMetricPercentage": 12.5,
+        "sessionsWithoutMetricPercentage": 87.5,
+        "pagesViews": 1,
+        "subTotal": 1,
+        "Source": "email"
+      },
+      {
+        "sessionsCount": 14,
+        "sessionsWithMetricPercentage": 14.29,
+        "sessionsWithoutMetricPercentage": 85.71000000000001,
+        "pagesViews": 3,
+        "subTotal": 3,
+        "Source": "chatgpt.com"
+      },
+      {
+        "sessionsCount": 3,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "facebook.com"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "lm.facebook.com"
+      },
+      {
+        "sessionsCount": 3,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "duckduckgo.com"
+      },
+      {
+        "sessionsCount": 2,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "www.yelp.ca"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "www.partyslate.com"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "langleypartyrentals.ca"
+      },
+      {
+        "sessionsCount": 7,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "sessionsCount": 273,
+        "sessionsWithMetricPercentage": 19.78,
+        "sessionsWithoutMetricPercentage": 80.22,
+        "pagesViews": 86,
+        "subTotal": 86,
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "portmoodypartyrentals.com"
+      }
+    ]
+  },
+  {
+    "metricName": "ScriptErrorCount",
+    "information": [
+      {
+        "sessionsCount": 113,
+        "sessionsWithMetricPercentage": 1.77,
+        "sessionsWithoutMetricPercentage": 98.23,
+        "pagesViews": 2,
+        "subTotal": 6,
+        "Source": ""
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "ig"
+      },
+      {
+        "sessionsCount": 260,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "google"
+      },
+      {
+        "sessionsCount": 6,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "yahoo"
+      },
+      {
+        "sessionsCount": 30,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "bing"
+      },
+      {
+        "sessionsCount": 8,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "email"
+      },
+      {
+        "sessionsCount": 14,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "chatgpt.com"
+      },
+      {
+        "sessionsCount": 3,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "facebook.com"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "lm.facebook.com"
+      },
+      {
+        "sessionsCount": 3,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "duckduckgo.com"
+      },
+      {
+        "sessionsCount": 2,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "www.yelp.ca"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "www.partyslate.com"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "langleypartyrentals.ca"
+      },
+      {
+        "sessionsCount": 7,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "sessionsCount": 273,
+        "sessionsWithMetricPercentage": 1.47,
+        "sessionsWithoutMetricPercentage": 98.53,
+        "pagesViews": 5,
+        "subTotal": 7,
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": 1,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Source": "portmoodypartyrentals.com"
+      }
+    ]
+  },
+  {
+    "metricName": "ErrorClickCount",
+    "information": [
+      {
+        "sessionsCount": "113",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": ""
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "ig"
+      },
+      {
+        "sessionsCount": "260",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "google"
+      },
+      {
+        "sessionsCount": "6",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "yahoo"
+      },
+      {
+        "sessionsCount": "30",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "bing"
+      },
+      {
+        "sessionsCount": "8",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "email"
+      },
+      {
+        "sessionsCount": "14",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "chatgpt.com"
+      },
+      {
+        "sessionsCount": "3",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "facebook.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "lm.facebook.com"
+      },
+      {
+        "sessionsCount": "3",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "duckduckgo.com"
+      },
+      {
+        "sessionsCount": "2",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.yelp.ca"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "www.partyslate.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "langleypartyrentals.ca"
+      },
+      {
+        "sessionsCount": "7",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "sessionsCount": "273",
+        "sessionsWithMetricPercentage": 1.1,
+        "sessionsWithoutMetricPercentage": 98.9,
+        "pagesViews": "4",
+        "subTotal": "6",
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "sessionsCount": "1",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Source": "portmoodypartyrentals.com"
+      }
+    ]
+  },
+  {
+    "metricName": "ScrollDepth",
+    "information": [
+      {
+        "averageScrollDepth": 17.34,
+        "Source": ""
+      },
+      {
+        "averageScrollDepth": 22.5,
+        "Source": "ig"
+      },
+      {
+        "averageScrollDepth": 24.18,
+        "Source": "google"
+      },
+      {
+        "averageScrollDepth": 29.14,
+        "Source": "yahoo"
+      },
+      {
+        "averageScrollDepth": 27.89,
+        "Source": "bing"
+      },
+      {
+        "averageScrollDepth": 19.67,
+        "Source": "email"
+      },
+      {
+        "averageScrollDepth": 22.33,
+        "Source": "chatgpt.com"
+      },
+      {
+        "averageScrollDepth": 9.67,
+        "Source": "facebook.com"
+      },
+      {
+        "averageScrollDepth": 28,
+        "Source": "lm.facebook.com"
+      },
+      {
+        "averageScrollDepth": 25.25,
+        "Source": "duckduckgo.com"
+      },
+      {
+        "averageScrollDepth": 6,
+        "Source": "www.yelp.ca"
+      },
+      {
+        "averageScrollDepth": 4,
+        "Source": "www.partyslate.com"
+      },
+      {
+        "averageScrollDepth": 13.5,
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "averageScrollDepth": 26,
+        "Source": "foreverpartyrentals.com"
+      },
+      {
+        "averageScrollDepth": 6,
+        "Source": "langleypartyrentals.ca"
+      },
+      {
+        "averageScrollDepth": 12.71,
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "averageScrollDepth": 44.81,
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "averageScrollDepth": 38,
+        "Source": "portmoodypartyrentals.com"
+      }
+    ]
+  },
+  {
+    "metricName": "Traffic",
+    "information": [
+      {
+        "totalSessionCount": "113",
+        "totalBotSessionCount": "117",
+        "distinctUserCount": "233",
+        "pagesPerSessionPercentage": 1.7665369649805447,
+        "Source": ""
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 2,
+        "Source": "ig"
+      },
+      {
+        "totalSessionCount": "260",
+        "totalBotSessionCount": "8",
+        "distinctUserCount": "234",
+        "pagesPerSessionPercentage": 1.4444444444444444,
+        "Source": "google"
+      },
+      {
+        "totalSessionCount": "6",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "6",
+        "pagesPerSessionPercentage": 1.1666666666666667,
+        "Source": "yahoo"
+      },
+      {
+        "totalSessionCount": "30",
+        "totalBotSessionCount": "4",
+        "distinctUserCount": "32",
+        "pagesPerSessionPercentage": 1.411764705882353,
+        "Source": "bing"
+      },
+      {
+        "totalSessionCount": "8",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "4",
+        "pagesPerSessionPercentage": 1.125,
+        "Source": "email"
+      },
+      {
+        "totalSessionCount": "14",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "12",
+        "pagesPerSessionPercentage": 1.2857142857142858,
+        "Source": "chatgpt.com"
+      },
+      {
+        "totalSessionCount": "3",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "3",
+        "pagesPerSessionPercentage": 1,
+        "Source": "facebook.com"
+      },
+      {
+        "totalSessionCount": "0",
+        "totalBotSessionCount": "1",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 7,
+        "Source": "127.0.0.1"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 1,
+        "Source": "lm.facebook.com"
+      },
+      {
+        "totalSessionCount": "0",
+        "totalBotSessionCount": "2",
+        "distinctUserCount": "2",
+        "pagesPerSessionPercentage": 1,
+        "Source": "m.facebook.com"
+      },
+      {
+        "totalSessionCount": "3",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "2",
+        "pagesPerSessionPercentage": 1.3333333333333333,
+        "Source": "duckduckgo.com"
+      },
+      {
+        "totalSessionCount": "2",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 1,
+        "Source": "www.yelp.ca"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 1,
+        "Source": "www.partyslate.com"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 2,
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 1,
+        "Source": "foreverpartyrentals.com"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 1,
+        "Source": "langleypartyrentals.ca"
+      },
+      {
+        "totalSessionCount": "7",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "6",
+        "pagesPerSessionPercentage": 1,
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "totalSessionCount": "273",
+        "totalBotSessionCount": "6",
+        "distinctUserCount": "210",
+        "pagesPerSessionPercentage": 2.5531914893617023,
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "totalSessionCount": "1",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "1",
+        "pagesPerSessionPercentage": 1,
+        "Source": "portmoodypartyrentals.com"
+      }
+    ]
+  },
+  {
+    "metricName": "EngagementTime",
+    "information": [
+      {
+        "totalTime": "122",
+        "activeTime": "40",
+        "Source": ""
+      },
+      {
+        "totalTime": "381",
+        "activeTime": "78",
+        "Source": "ig"
+      },
+      {
+        "totalTime": "87",
+        "activeTime": "45",
+        "Source": "google"
+      },
+      {
+        "totalTime": "144",
+        "activeTime": "44",
+        "Source": "yahoo"
+      },
+      {
+        "totalTime": "64",
+        "activeTime": "21",
+        "Source": "bing"
+      },
+      {
+        "totalTime": "23",
+        "activeTime": "23",
+        "Source": "email"
+      },
+      {
+        "totalTime": "101",
+        "activeTime": "25",
+        "Source": "chatgpt.com"
+      },
+      {
+        "totalTime": "13",
+        "activeTime": "8",
+        "Source": "facebook.com"
+      },
+      {
+        "totalTime": "54",
+        "activeTime": "23",
+        "Source": "lm.facebook.com"
+      },
+      {
+        "totalTime": "140",
+        "activeTime": "19",
+        "Source": "duckduckgo.com"
+      },
+      {
+        "totalTime": "9",
+        "activeTime": "2",
+        "Source": "www.yelp.ca"
+      },
+      {
+        "totalTime": "41",
+        "activeTime": "41",
+        "Source": "www.partyslate.com"
+      },
+      {
+        "totalTime": "34",
+        "activeTime": "34",
+        "Source": "burnabypartyrentals.com"
+      },
+      {
+        "totalTime": "36",
+        "activeTime": "36",
+        "Source": "foreverpartyrentals.com"
+      },
+      {
+        "totalTime": "0",
+        "activeTime": "0",
+        "Source": "langleypartyrentals.ca"
+      },
+      {
+        "totalTime": "13",
+        "activeTime": "9",
+        "Source": "mapleridgepartyrentals.com"
+      },
+      {
+        "totalTime": "255",
+        "activeTime": "140",
+        "Source": "www.foreverpartyrentals.com"
+      },
+      {
+        "totalTime": "19",
+        "activeTime": "19",
+        "Source": "portmoodypartyrentals.com"
+      }
+    ]
+  }
+]

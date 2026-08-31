@@ -13,6 +13,7 @@
 
   const COUPON = 'BUNDLE10';
   const CHECKOUT_PATH = '/checkout';
+  const BOOK_HASH = '#pkg-book';
   const ORG_ID = 'LvrymFxex6oslWCxcrEg';
   const AVAIL_URL = 'https://api.rentkit.com/api/embedded-shop/getAvailableInventoryForIds';
   const PHONE = '778-990-7983';
@@ -179,6 +180,24 @@
     root.location.href = checkoutUrl(root.location.origin, coupon);
   }
 
+  function retargetSiteBookLinks(page) {
+    if (!page || typeof page.querySelectorAll !== 'function') return;
+    const nodes = page.querySelectorAll('#fprCtaBar .mcb-book, a.nav-cta, a.nm-book');
+    for (let i = 0; i < nodes.length; i++) {
+      nodes[i].setAttribute('href', BOOK_HASH);
+    }
+  }
+
+  function focusDatePicker(page) {
+    const input = page.getElementById('pkgEventDate');
+    if (!input) return;
+    try {
+      input.focus({ preventScroll: true });
+    } catch (e) {
+      try { input.focus(); } catch (e2) { /* ignore */ }
+    }
+  }
+
   function boot(doc) {
     const page = doc || document;
     const dateInput = page.getElementById('pkgEventDate');
@@ -197,10 +216,22 @@
         bookFromButton(buttons[i]);
       });
     }
+    retargetSiteBookLinks(page);
+    if (page.addEventListener) {
+      page.addEventListener('click', function (e) {
+        const t = e.target;
+        const a = t && t.closest ? t.closest('a[href="#pkg-book"]') : null;
+        if (!a) return;
+        focusDatePicker(page);
+      });
+    }
+    const loc = root.location || {};
+    if ((loc.hash || '') === BOOK_HASH) focusDatePicker(page);
   }
 
   root.FPRPackageBook = {
     COUPON: COUPON,
+    BOOK_HASH: BOOK_HASH,
     minDateStr: minDateStr,
     parseCart: parseCart,
     checkoutUrl: checkoutUrl,

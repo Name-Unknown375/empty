@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Chiavari for the reception, Fanback for the ceremony rows, Resin Garden for the waterfront surface — one quote, one delivery, one crew. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a New West chair rental quote?"
-    a: "Every New West chair quote we send is itemised: chairs by line, delivery, crew positioning to your floor plan, optional add-ons, and applicable taxes. No fuel surcharges, no New West-zone uplifts, no surprises at the truck."
   - q: "Which chair is best for a Queen's Park or Pier Park ceremony?"
     a: "For Queen's Park's grass and pavilion-adjacent ceremony zones, Chiavari is the most-booked pick — the formal frame matches the Victorian pavilion backdrop. For Pier Park's waterfront ceremonies, Resin Garden handles the river-side moisture and afternoon wind better."
   - q: "Can I mix chair types in one New Westminster order?"

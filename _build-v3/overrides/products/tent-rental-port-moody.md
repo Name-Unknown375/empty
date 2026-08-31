@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Tent, sidewalls, lighting, anchor kit — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a Port Moody tent rental quote?"
-    a: "Every Port Moody tent quote we send is itemised: the marquee, sidewalls, anchor kit, lighting add-ons, delivery, professional crew install, and applicable taxes. No fuel surcharges, no Port Moody-zone uplifts, no surprises at the truck."
   - q: "Can you install a marquee at Rocky Point Park or Bert Flinn Park?"
     a: "Yes — both are regular Port Moody venues for our crew. Rocky Point's waterfront ceremony zones each have specific permit setbacks; we know which zones accept which footprints. Bert Flinn Park is more flexible on size but also requires city event-permit coordination. Both venues run on stakes plus ballast given Inlet wind exposure."
   - q: "Do you install tents on Heritage Mountain or Anmore-border acreage?"

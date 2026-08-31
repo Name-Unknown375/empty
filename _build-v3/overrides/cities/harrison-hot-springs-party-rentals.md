@@ -9,12 +9,8 @@ intro_paragraphs:
   - "Tent, chair, table, dance floor, lighting — one quote, one delivery, one crew. We don't sub-contract the install. The person who loads your order is the person who sets it up at your venue."
 
 faqs:
-  - q: "What's included on a Harrison Hot Springs rental quote?"
-    a: "Every Harrison quote we send is itemised: rental items by line, delivery, crew setup time, optional add-ons, and applicable taxes. The destination delivery line is built into the quote up front — no fuel surcharges, no surprises at the truck. If your quote says $X, you pay $X."
   - q: "Do you deliver tent rentals to Harrison Hot Springs Resort weddings?"
     a: "Yes — Harrison Hot Springs Resort is the most-booked destination wedding venue we deliver to in the Eastern Fraser Valley. The resort runs its own vendor coordination process, and we book delivery slots through their events team during quoting. Most Harrison Resort weddings combine an indoor reception with outdoor ceremony space — chairs and lighting often outweigh the marquee on the order."
-  - q: "How clean are the chairs and tables when they arrive?"
-    a: "Every chair is individually wiped and inspected before it leaves our warehouse. Cushions are spot-cleaned, legs checked for damage, spindles checked for cracks. Tables get the same treatment. Anything that doesn't meet our condition bar comes off the inventory roster, not onto your booking."
   - q: "Can you tent on Harrison Beach or other lakefront sites?"
     a: "Beach setups depend on the specific site and permit. The Village of Harrison Hot Springs and BC Parks (for Sasquatch Provincial Park) run separate permit processes for tents above their thresholds. Direct-sand ceremonies at Harrison Beach skew toward Resin Garden chairs (resin frame and seat handle saturated sand); Chiavari hardwood doesn't love sand contact. Lake-adjacent installs need ballast and sidewalls year-round."
   - q: "What's the lead time for a Harrison destination wedding?"

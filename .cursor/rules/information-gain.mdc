@@ -1,0 +1,25 @@
+---
+description: Pages must add information that exists nowhere else — including on our other URLs
+globs: site-v3/**/*.html,_build-v3/overrides/**/*.md,_build-v3/*template*.html,site-v3/blog/**/*.html,_build-v3/style_guide.md
+alwaysApply: false
+---
+
+# Information gain
+
+A page ships only if it contains something that exists nowhere else on the internet — including on our own other URLs. Test: could someone who has never loaded an FPR truck have written this sentence? If yes, cut it.
+
+Do not unique-ify the city×product matrix. Put first-party assets on hubs (`/tents`, `/chairs`, `/tables`, `/dance-floor`, `/pricing`, planner) plus money city pages and ops blog posts.
+
+```markdown
+<!-- BAD: recycled across 29 cities; zero incremental gain -->
+- q: "How clean are the chairs and tables when they arrive?"
+
+<!-- GOOD: only this city could produce this answer -->
+- q: "Can you tent on grass at a Langley acreage?"
+  a: "Engineered ground stakes are the default on farm soil. We confirm sprinkler lines before staking and will not install on slopes steeper than 5% without a platform."
+```
+
+- **Testimonials:** HTML only, GBP-verified, page-specific. Omit the block rather than reuse a quote from `testimonialPool`. Never invent names. Do not re-add Review JSON-LD.
+- **Photos:** job shots with named city/venue, or planner diagrams captioned as FPR output. Never recaption `/images/lifestyle/tent-golden-hour-2` (or any shared lifestyle file) as a local install.
+- **FAQs:** one generic answer lives on the hub. City/product overrides keep only questions that require local ops knowledge.
+- **Do not fabricate** surveys, season stats, venue quotes, or YouTube. Capture kit: `_content/information-gain/`.

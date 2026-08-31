@@ -9,8 +9,6 @@ intro_paragraphs:
   - "Tent, sidewalls, lighting, anchor kit — quoted up front, delivered on a one-hour window, installed by the same crew that loaded it. We don't sub-contract the install."
 
 faqs:
-  - q: "What's included on a West Vancouver tent rental quote?"
-    a: "Every West Van tent quote we send is itemised: the marquee, sidewalls, doubled anchor kit, lighting add-ons, delivery, professional crew install, and applicable taxes. No bridge surcharge, no upper-bench uplift, no surprises at the truck."
   - q: "Can you install a marquee at Whytecliff Park or Lighthouse Park?"
     a: "Both venues are tight on marquee installs. Whytecliff's lower beach won't take a full marquee — the rock surface and tidal exposure rule out anchoring. Most Whytecliff weddings book a 10×10 popup for the officiant station and shelter the cake table, with the ceremony itself uncovered. Lighthouse Park's old-growth canopy and trail access typically rule out anything larger than a 10×10. For full marquee receptions tied to either venue, the reception happens at an adjacent estate or waterfront home."
   - q: "What tent size for a British Properties estate wedding?"

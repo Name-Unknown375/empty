@@ -1,0 +1,246 @@
+[
+  {
+    "metricName": "DeadClickCount",
+    "information": [
+      {
+        "sessionsCount": "288",
+        "sessionsWithMetricPercentage": 15.62,
+        "sessionsWithoutMetricPercentage": 84.38,
+        "pagesViews": "60",
+        "subTotal": "170",
+        "Device": "Mobile"
+      },
+      {
+        "sessionsCount": "13",
+        "sessionsWithMetricPercentage": 23.08,
+        "sessionsWithoutMetricPercentage": 76.92,
+        "pagesViews": "5",
+        "subTotal": "9",
+        "Device": "Tablet"
+      },
+      {
+        "sessionsCount": "230",
+        "sessionsWithMetricPercentage": 30.43,
+        "sessionsWithoutMetricPercentage": 69.57,
+        "pagesViews": "115",
+        "subTotal": "343",
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "ExcessiveScroll",
+    "information": [
+      {
+        "sessionsCount": "288",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Device": "Mobile"
+      },
+      {
+        "sessionsCount": "13",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Device": "Tablet"
+      },
+      {
+        "sessionsCount": "230",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "RageClickCount",
+    "information": [
+      {
+        "sessionsCount": 288,
+        "sessionsWithMetricPercentage": 1.39,
+        "sessionsWithoutMetricPercentage": 98.61,
+        "pagesViews": 4,
+        "subTotal": 13,
+        "Device": "Mobile"
+      },
+      {
+        "sessionsCount": 13,
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": 0,
+        "subTotal": 0,
+        "Device": "Tablet"
+      },
+      {
+        "sessionsCount": 230,
+        "sessionsWithMetricPercentage": 0.87,
+        "sessionsWithoutMetricPercentage": 99.13,
+        "pagesViews": 2,
+        "subTotal": 7,
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "QuickbackClick",
+    "information": [
+      {
+        "sessionsCount": "288",
+        "sessionsWithMetricPercentage": 18.06,
+        "sessionsWithoutMetricPercentage": 81.94,
+        "pagesViews": "61",
+        "subTotal": "61",
+        "Device": "Mobile"
+      },
+      {
+        "sessionsCount": "13",
+        "sessionsWithMetricPercentage": 38.46,
+        "sessionsWithoutMetricPercentage": 61.54,
+        "pagesViews": "6",
+        "subTotal": "6",
+        "Device": "Tablet"
+      },
+      {
+        "sessionsCount": "230",
+        "sessionsWithMetricPercentage": 20.87,
+        "sessionsWithoutMetricPercentage": 79.13,
+        "pagesViews": "96",
+        "subTotal": "96",
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "ScriptErrorCount",
+    "information": [
+      {
+        "sessionsCount": "288",
+        "sessionsWithMetricPercentage": 0.69,
+        "sessionsWithoutMetricPercentage": 99.31,
+        "pagesViews": "2",
+        "subTotal": "3",
+        "Device": "Mobile"
+      },
+      {
+        "sessionsCount": "13",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Device": "Tablet"
+      },
+      {
+        "sessionsCount": "230",
+        "sessionsWithMetricPercentage": 1.74,
+        "sessionsWithoutMetricPercentage": 98.26,
+        "pagesViews": "5",
+        "subTotal": "10",
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "ErrorClickCount",
+    "information": [
+      {
+        "sessionsCount": "288",
+        "sessionsWithMetricPercentage": 0.35,
+        "sessionsWithoutMetricPercentage": 99.65,
+        "pagesViews": "1",
+        "subTotal": "2",
+        "Device": "Mobile"
+      },
+      {
+        "sessionsCount": "13",
+        "sessionsWithMetricPercentage": 0,
+        "sessionsWithoutMetricPercentage": 100,
+        "pagesViews": "0",
+        "subTotal": "0",
+        "Device": "Tablet"
+      },
+      {
+        "sessionsCount": "230",
+        "sessionsWithMetricPercentage": 0.87,
+        "sessionsWithoutMetricPercentage": 99.13,
+        "pagesViews": "3",
+        "subTotal": "4",
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "ScrollDepth",
+    "information": [
+      {
+        "averageScrollDepth": 29.74,
+        "Device": "Mobile"
+      },
+      {
+        "averageScrollDepth": 34.05,
+        "Device": "Tablet"
+      },
+      {
+        "averageScrollDepth": 38.34,
+        "Device": "PC"
+      }
+    ]
+  },
+  {
+    "metricName": "Traffic",
+    "information": [
+      {
+        "totalSessionCount": "288",
+        "totalBotSessionCount": "42",
+        "distinctUserCount": "255",
+        "pagesPerSessionPercentage": 2.4191616766467066,
+        "Device": "Mobile"
+      },
+      {
+        "totalSessionCount": "13",
+        "totalBotSessionCount": "0",
+        "distinctUserCount": "10",
+        "pagesPerSessionPercentage": 3.3076923076923075,
+        "Device": "Tablet"
+      },
+      {
+        "totalSessionCount": "230",
+        "totalBotSessionCount": "32",
+        "distinctUserCount": "212",
+        "pagesPerSessionPercentage": 2.739622641509434,
+        "Device": "PC"
+      },
+      {
+        "totalSessionCount": "0",
+        "totalBotSessionCount": "56",
+        "distinctUserCount": "79",
+        "pagesPerSessionPercentage": 1.2560975609756098,
+        "Device": "Other"
+      }
+    ]
+  },
+  {
+    "metricName": "EngagementTime",
+    "information": [
+      {
+        "totalTime": "163",
+        "activeTime": "73",
+        "Device": "Mobile"
+      },
+      {
+        "totalTime": "142",
+        "activeTime": "101",
+        "Device": "Tablet"
+      },
+      {
+        "totalTime": "273",
+        "activeTime": "148",
+        "Device": "PC"
+      }
+    ]
+  }
+]

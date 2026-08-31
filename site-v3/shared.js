@@ -504,10 +504,9 @@ function initClarityTags() {
 
 // ── Shared testimonials data ──
 const TESTIMONIALS = [
-  { name: 'Stacey Sarris', event: 'Google Review · Local Guide', text: 'Forever Party Rentals was absolutely spectacular! Devon was amazing to work with from start to finish. Extremely supportive, flexible, and accommodating throughout the entire process. Everything was seamless, professional, and stress-free. Highly recommend Forever Party Rentals for any event — outstanding service all around!' },
-  { name: 'Chelsea Thompson', event: 'Wedding', text: 'Devon was so easy to coordinate with. Very professional, friendly and reliable. His tent set up team was amazing too! Would definitely recommend.' },
-  { name: 'Rutendo Chitungo', event: 'Private Event', text: 'Rented the white Chiavari chairs — the most comfortable chairs. Cushions were very soft and well maintained. Highly recommend 100%.' },
-  { name: 'Amber Schmidt', event: 'Celebration', text: 'Forever Party Rentals was amazing. Incredibly accommodating, the tables were brand new in the plastic, and they made drop off super flexible.' },
+  { name: 'Stacey Sarris', event: 'Google Review · Local Guide', text: "Forever Party Rentals was absolutely spectacular! Devon was amazing to work with from start to finish. Extremely supportive, flexible, and accommodating throughout the entire process. Everything was seamless, professional, and stress-free. Highly recommend Forever Party Rentals for any event — outstanding service all around!" },
+  { name: 'Daryl Chausse', event: 'Google Review', text: "If I could add more stars, I would.. I have received this kind of excellent treatment in a very long time… Devon noticed that I had tried a few times to go online and it didn’t work for some reason and the next thing I know I’m getting a call from him.. Asking what he could do to help.. And then I got a call from the Company to ask if I need anything else and what they could do to facilitate My experience.. It was incredible. I loved it. Highly  recommend This company" },
+  { name: 'Ashley MacNeil', event: 'Google Review · Online booking', text: "Excellent experience! Very easy to book online, great communication with staff, smooth delivery and pickup — highly recommend and will be using again for events!" },
 ];
 
 // Client list sourced from RentKit customer records (June 2026).
@@ -729,6 +728,40 @@ function initTextsReveal() {
   }));
 }
 
+// ── LeadConnector chat widget ──
+// Injected from shared.js so every page that loads this file gets the bubble,
+// except /contact and /checkout. Carriers require this widget to be the only
+// SMS opt-in form on the page; those two already collect phone numbers.
+const LEADCONNECTOR_WIDGET_ID = '6a8cb72d0916f9883876b386';
+const LEADCONNECTOR_SKIP = { '/contact': true, '/checkout': true };
+
+function shouldLoadLeadConnectorChat(pathname) {
+  let p = String(pathname || '/').replace(/\.html$/, '');
+  if (p !== '/') p = p.replace(/\/+$/, '');
+  return !LEADCONNECTOR_SKIP[p];
+}
+
+function initLeadConnectorChat() {
+  if (!shouldLoadLeadConnectorChat(window.location.pathname)) return;
+  if (document.querySelector('script[data-widget-id="' + LEADCONNECTOR_WIDGET_ID + '"]')) return;
+  const load = () => {
+    if (document.querySelector('script[data-widget-id="' + LEADCONNECTOR_WIDGET_ID + '"]')) return;
+    const s = document.createElement('script');
+    s.src = 'https://widgets.leadconnectorhq.com/loader.js';
+    s.setAttribute('data-resources-url', 'https://widgets.leadconnectorhq.com/chat-widget/loader.js');
+    s.setAttribute('data-widget-id', LEADCONNECTOR_WIDGET_ID);
+    s.setAttribute('data-source', 'WEB_USER');
+    (document.body || document.documentElement).appendChild(s);
+  };
+  // Same idle-load pattern as GTM / Pixel / Clarity so the bubble doesn't
+  // contend with LCP. The vendor loader may then wait for first interaction.
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(load, { timeout: 3000 });
+  } else {
+    window.addEventListener('load', () => setTimeout(load, 1500));
+  }
+}
+
 // ── Init on load ──
 // Every page is pre-rendered with static #nav and #footer (see _build/partials/),
 // so init is pure hydration: attach event handlers + apply per-page state.
@@ -746,6 +779,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initStatPopIns();
   initAdelieSkeleton();
   initTextsReveal();
+  initLeadConnectorChat();
   // Render dynamic content if containers exist
   renderTestimonials('testimonialCards');
   renderLogos('clientLogos');
